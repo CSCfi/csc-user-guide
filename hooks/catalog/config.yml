@@ -14,7 +14,10 @@ export_props:
 index_template: apps-index.html
 
 listing_order:
-  # The literal order of categories on the app index pages.
+  # The literal order of categories on the app index pages. Categories
+  # not included (string-valued) and categories with fallback key set to
+  # true (mapping-valued) will appear (in undefined order) below the categories
+  # listed here.
   #
   # Categories not included below (string-valued) and categories
   # with the 'fallback' key set to 'true' (mapping-valued) will
@@ -28,32 +31,41 @@ listing_order:
     - Non-commercial
   disciplines:
     - name: "Biosciences"
+      name_fi: "Biotieteet"
     - name: "Chemistry"
+      name_fi: "Kemia"
     - name: "Computational Engineering"
+      name_fi: "Laskennallinen tekniikka"
     - name: "Data Analytics and Machine Learning"
+      name_fi: "Data-analytiikka ja koneoppiminen"
     - name: "Geosciences"
+      name_fi: "Geotieteet"
     - name: "Language Research and Other Digital Humanities and Social Sciences"
+      name_fi: "Kielten tutkimus sekä muut digitaaliset ihmis- ja yhteiskuntatieteet"
     - name: "Mathematics and Statistics"
+      name_fi: "Matematiikka ja tilastotiede"
     - name: "Physics"
+      name_fi: "Fysiikka"
     - name: "Quantum"
+      name_fi: "Kvantti"
     - name: "Miscellaneous"
+      name_fi: "Sekalaiset"
       fallback: true
   systems:
     - name: Roihu
-      description: "New CSC supercomputer replacing Puhti and Mahti"
+      description: "New national CSC supercomputer replacing Puhti and Mahti"
+      description_fi: "Uusi kansallinen CSC-supertietokone"
     - name: Mahti
       description: "CSC supercomputer for massively parallel jobs"
+      description_fi: "CSC-supertietokone massiiviseen rinnakkaislaskentaan"
     - name: Puhti
       description: "CSC supercomputer for small and medium jobs"
+      description_fi: "CSC-supertietokone pienille sekä keskisuurille laskentatöille"
     - name: LUMI
       description: "EuroHPC supercomputer for CPU and especially GPU jobs"
+      description_fi: "EuroHPC-supertietokone CPU- ja etenkin GPU-laskentaan"
 
 appendix:
-  # An appendix of apps that don't have their own page under 'apps/'.
-  #
-  # The 'doc' key may point to a page in Docs
-  # (something/something/something.md) or to an external page
-  # (https://example.org/example_page).
   - name: "Chipster"
     description: "Easy-to-use analysis platform for RNA-seq, single cell RNA-seq and other NGS data"
     disciplines:

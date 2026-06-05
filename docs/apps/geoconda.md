@@ -147,6 +147,8 @@ The `geoconda` module is available:
 
 Version number is the same as the Python version.
 
+In Roihu geoconda is renamed to [python-geo](python-geo.md)
+
 ## Usage
 
 When using in LUMI, run this first:

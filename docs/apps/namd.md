@@ -26,7 +26,7 @@ The following versions are available:
 
 * Puhti: 2.14, 2.14-cuda, 3.0, 3.0-cuda
 * Mahti: 2.14, 3.0, 3.0-cuda
-* LUMI: 3.0, 3.0-gpu
+* LUMI: 3.0.2-cpu, 3.0.2-gpu
 
 ## License
 
@@ -203,7 +203,7 @@ file option `GPUresident on` is extremely beneficial.
     #SBATCH --gpus-per-node=1
 
     module use /appl/local/csc/modulefiles
-    module load namd/3.0-gpu
+    module load namd/3.0.2-gpu
 
     srun namd3 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 stmv.namd > stmv.out
     ```
@@ -228,7 +228,7 @@ file option `GPUresident on` is extremely beneficial.
     #SBATCH --gpus-per-node=8
 
     module use /appl/local/csc/modulefiles
-    module load namd/3.0-gpu
+    module load namd/3.0.2-gpu
 
     srun namd3 +p ${SLURM_CPUS_PER_TASK} +pmepes 1 +setcpuaffinity +devices 0,1,2,3,4,5,6,7 stmv.namd > stmv.out
     ```

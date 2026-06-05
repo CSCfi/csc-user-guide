@@ -1,4 +1,4 @@
-!!! warning "Middle level"
+!!! error "Advanced level"
     You need to familiarize yourself with OpenShift [ImageStreams](../concepts.md#imagestream) and [BuildConfig](../concepts.md#buildconfig) API  
     In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
     

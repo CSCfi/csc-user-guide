@@ -8,23 +8,28 @@ This guide explains the basics of using GPUs in CSC's supercomputers. It is part
 of our [Machine learning guide](ml-guide.md).
 
 
-## Puhti, Mahti or LUMI?
+## Puhti, Mahti, Roihu or LUMI?
 
-Puhti and Mahti are CSC's two national supercomputers. Of the two,
-Puhti has the larger number of GPUs (NVIDIA V100) and offers the
-widest selection of installed software, while Mahti has a smaller
-number of faster newer generation NVIDIA A100 GPUs. The CSC-hosted
-European supercomputer
+Puhti, Mahti and Roihu are CSC's national supercomputers. Roihu is
+planned to be available in May 2026, while Puhti and Mahti will be
+shutdown during 2026. Of the two currently available ones, Puhti has
+the larger number of GPUs (NVIDIA V100) and offers the widest
+selection of installed software, while Mahti has a smaller number of
+faster newer generation NVIDIA A100 GPUs. Roihu will have 528 GPUs
+(NVIDIA GH200) and provide a similar wide software stack as Puhti.
+
+The CSC-hosted European supercomputer
 [LUMI](https://docs.lumi-supercomputer.eu/hardware/) provides a
 massive GPU resource based on AMD GPUs.
 
 The main GPU-related statistics are summarized in the table below.
 
-|       | GPU type           | GPU memory  | GPU nodes | GPUs/node | Total GPUs    |
-|-------|--------------------|-------------|-----------|-----------|---------------|
-| Puhti | NVIDIA Volta V100  | 32 GB       | 80        | 4         | 320           |
-| Mahti | NVIDIA Ampere A100 | 40 GB       | 24        | 4         | 96            |
-| LUMI  | AMD MI250x         | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |
+|       | GPU type            | GPU memory  | GPU nodes | GPUs/node | Total GPUs    | Notes                                                  |
+|-------|---------------------|-------------|-----------|-----------|---------------|--------------------------------------------------------|
+| Puhti | NVIDIA Volta V100   | 32 GB       | 80        | 4         | 320           | [Shutdown in June](../../computing/systems-roihu.md)   |
+| Mahti | NVIDIA Ampere A100  | 40 GB       | 24        | 4         | 96            | [Shutdown in August](../../computing/systems-roihu.md) |
+| Roihu | NVIDIA Hopper GH200 | 96 GB       | 132       | 4         | 528           | [Available in May](../../computing/systems-roihu.md)   |
+| LUMI  | AMD MI250x          | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |                                                        |
 
 !!! info "Note"
 
@@ -38,12 +43,13 @@ nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that
 the Slurm queuing situation may vary between the different
 supercomputers at different times, so it may be worth checking out all
 the options. For example LUMI has a huge number of GPUs available, and
-queuing times are very short (as of summer 2023).
+queuing times are typically shorter than in the national systems.
 
 Note that all supercomputers have distinct file systems, so you need
-to manually copy your files if you wish to change the system. **In
-case you are unsure which supercomputer to use, Puhti is a good
-default** as it has a wider set of software supported.
+to manually copy your files if you wish to change the system. 
+
+<!-- **In case you are unsure which supercomputer to use, Puhti is a good -->
+<!-- default** as it has a wider set of software supported. -->
 
 
 ## Available machine learning software
@@ -59,25 +65,15 @@ You need to use the [module system](../../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
-module load tensorflow/2.12
+module load pytorch/2.9
 ```
 
 Please note that our modules already include CUDA and cuDNN libraries, so there
 is no need to load cuda and cudnn modules separately!
 
-On LUMI you need to first enable the module repository for CSC's installations:
+On LUMI, we recommend that you use the [AI Software Environment
+provided by the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
-```bash
-module use /appl/local/csc/modulefiles/
-```
-
-Finally, on Puhti, we provide some special applications which are not shown by
-default in the module system. These have been made available due to user
-requests, but with limited support. You can enable them by running:
-
-```bash
-module use /appl/soft/ai/singularity/modulefiles/
-```
 
 ### Installing your own software
 
@@ -115,7 +111,7 @@ corresponding proportion of the CPU cores and memory of a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:1
         
-    srun python3 myprog.py <options>
+    # load any modules and run your program here
     ```
 
 === "Mahti"
@@ -129,7 +125,7 @@ corresponding proportion of the CPU cores and memory of a single node:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:1
     
-    srun python3 myprog.py <options>
+    # load any modules and run your program here
     ```
 
 === "LUMI"
@@ -143,7 +139,7 @@ corresponding proportion of the CPU cores and memory of a single node:
     #SBATCH --mem=60G
     #SBATCH --time=1:00:00
     
-    srun python3 myprog.py <options>
+    # load any modules and run your program here
     ```
 
 
@@ -374,8 +370,8 @@ GPU energy
 
 ### `gpu-energy` tool (LUMI)
 
-LUMI does not have the `seff` command, but there is a preliminary tool
-that can be used to read the GPU energy counters found in the AMD GPU
+LUMI does not have the `seff` command, but there is a simple tool that
+can be used to read the GPU energy counters found in the AMD GPU
 card. The tool and its documentation can be found here:
 <https://github.com/mvsjober/gpu-energy-amd>.
 

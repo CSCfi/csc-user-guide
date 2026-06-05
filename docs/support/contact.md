@@ -1,6 +1,6 @@
 # Contact
 
-## Technical service support requests
+## Technical service support requests and feedback
 
 * Contact us through email or phone or come to our weekly user support session on Zoom
 * Email: <mailto:servicedesk@csc.fi>

@@ -1,0 +1,9 @@
+{%- macro icon_prop(name, icon, variant=none) -%}
+{%- set _name = name ~ "-icon" -%}
+{%- set _data -%}
+{%- include ".icons/" ~ icon ~ ".svg" -%}
+{%- endset -%}
+{%- set _variant = "--" ~ variant if variant is not none else "" -%}
+{%- set _prop_name = _name ~ _variant -%}
+--{{- _prop_name -}}: url('data:image/svg+xml;charset=utf-8,{{ _data | urlencode }}');
+{%- endmacro -%}

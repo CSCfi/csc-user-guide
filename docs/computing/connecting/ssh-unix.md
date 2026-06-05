@@ -150,12 +150,12 @@ in memory. The program's behavior depends on your system:
     ```
 
     **This step is done automatically if you use the
-    [CSC certificate helper tool](ssh-keys.md#option-1-certificate-helper-tool-recommended)
+    [CSC certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
     to sign and download your SSH certificate!**
 
 !!! warning "Important note if you're <u>not</u> using the certificate helper tool"
     Users downloading SSH certificates
-    [manually from MyCSC](ssh-keys.md#option-2-mycsc) **must** store it in the
+    [manually from MyCSC](ssh-keys.md#option-1-download-from-mycsc) **must** store it in the
     same directory as the SSH private key **and** name it as
     `<private-key-name>-cert.pub` to be able to add it to SSH agent with
     `ssh-add` command. If successful, `ssh-add` outputs:
@@ -211,4 +211,24 @@ authentication agent have the same fingerprints and are annotated with
 ```text
 256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519)
 256 SHA256:ZXG7TvhDAWOv8VveFAlt/UYarsO9Nx5md4owX+FE5/M optional_comment (ED25519-CERT)
+```
+
+## Configuring SSH client
+
+You can save yourself some time by adding host-specific options for CSC
+supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
+(e.g. `~/.ssh/config`).
+
+```bash
+Host <host>  # e.g. "roihu-cpu"
+    HostName <host>.csc.fi
+    User <csc-username>
+    IdentityFile <path-to-private-key>
+    CertificateFile <path-to-certificate>  # Required for Roihu only
+```
+
+Now you can connect to the host simply by running:
+
+```bash
+ssh <host>
 ```

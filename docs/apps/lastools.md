@@ -9,6 +9,7 @@ catalog:
     - Geosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # LAStools
@@ -21,14 +22,15 @@ catalog:
 
 LAStools is included in following modules:
 
-* lastools: 2025 (more exactly 250304), 2023 (230914) and 2022 (220613)
-* geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231)
+* lastools: 2026 (more exactly 260326) in Roihu
+* lastools: 2026 (more exactly 260326), 2025 (250304), 2023 (230914) and 2022 (220613) in Puhti
+* geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231) in Puhti
 
 Load one of these modules, for example the newest version (default):
 
 `module load lastools` 
 
-The 2025 and 2023 versions of LAStools are based on the new [native Linux version of LAStools](https://rapidlasso.de/lastools-linux/) and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
+The 2023-2026 versions of LAStools are based on the new [native Linux version of LAStools](https://rapidlasso.de/lastools-linux/) and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
 
 `lasinfo64 -h`
 
@@ -52,41 +54,21 @@ All lastool installations in Puhti include the open source tools of LAStools.
 * laszip - compresses the LAS files in a completely lossless manner
 * txt2las - converts LIDAR data from ASCII text to binary LAS format
 
-The 2025 and 2023 version includes also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. 2025 version has additionally: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. See the License for terms of use for these tools. 
+The 2023-2026 versions include also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. 2025 version has additionally: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. See the License for terms of use for these tools. 
 
-2023 version does not support multi-core processing, but 2025 version does.
+2023 version does not support multi-core processing, but 2025 and 2026 versions do.
 
-In Puhti, only the command line tools are available, without the graphical user interface.
+In Puhti and Roihu, only the command line tools are available, without the graphical user interface.
 
 ### Using a licensed version
 
-CSC provides only the "free" version of LAStools. If you have your own license for LAStools, it can be used also in Puhti. 
+CSC provides only the "free" version of LAStools. If you have your own license for LAStools, it can be also used. 
 
-For using the 2023 native Linux version, copy the license file to your projects projappl directory in Puhti and provide the license file location as environment variable before using the tools:
+For using the native Linux version, copy the license file to your projects `projapp` directory and provide the license file location as environment variable before using the tools:
 
 ```
 export LAStoolsLicenseFile=/projappl/project_200xxxx/yyy/lastoolslicense.txt
 ```
-
-**Alternative:** Also using the licensed Windows version is possible with wine (Windows emulator). You can install the .exe files yourself for your project. Download and unzip __LAStools__ to your [projappl disk area](../computing/disk.md).
-
-```
-cd /projappl/<your_project>
-wget https://lastools.github.io/download/LAStools.zip
-unzip LAStools.zip
-```
-
-Then add your license file to the /bin folder and you can start running the __.exe__ files with __wine64__
-
-Notice you can only use the 64-bit versions of the tools with wine64
-
-Here is an example of running __lasinfo64.exe__ with __wine64__
-
-```
-module load wine
-wine64 lasinfo64.exe -i <LAS file>
-```
-
 
 ### Finnish National Land Survey's lidar data in Puhti
 
@@ -118,10 +100,10 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
-**2025 and 2023 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipies](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+**2023-2026 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipies](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
 ```
-#2025
+#2025 and 2026
 wrap-container -w /opt/LAStools/bin lastools_2025.sif --prefix 2025
 
 #2023

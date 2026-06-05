@@ -1,6 +1,6 @@
 # Examples
 
-This section contains examples of building and running containers on Puhti and Mahti.
+This section contains examples of building and running containers on Roihu and Mahti.
 
 ## Example: Python virtual environment
 
@@ -68,6 +68,147 @@ Let's list the Pip installed packages to see the packages that we added:
 apptainer exec python-pip.sif pip --no-cache list
 ```
 
+## Example: Roihu CPU base container with OSU micro benchmarks
+
+Base containers are available:
+
+- `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03` (4.54 GB)
+
+Build definition file:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
+
+%arguments
+    NPROCS=10
+
+%post
+    # Activate module environment and load default modules.
+    . /opt/activate.sh
+
+    # Install tools
+    dnf install -y wget file which
+
+    # Build osu benchmarks
+    cd /opt
+    wget -q http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-7.4.tar.gz
+    tar xf osu-micro-benchmarks-7.4.tar.gz
+    cd osu-micro-benchmarks-7.4
+    ./configure --prefix=/opt/osu-micro-benchmarks CC=mpicc CXX=mpicxx CFLAGS=-O3
+    make -j{{ NPROCS }}
+    make install
+    cd ..
+    rm -rf osu-micro-benchmarks-7.4 osu-micro-benchmarks-7.4.tar.gz
+
+%runscript
+    . /opt/activate.sh
+    exec "$@"
+```
+
+When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+apptainer build --fakeroot container.sif container.def
+```
+
+Now, you can run commands inside the container with the environment active as follows:
+
+!!! warning "Slurm environment variables are required for MPI to work!"
+    Slurm environment variables must be propagated to the container environment for MPI to work.
+    Therefore, not not use `--cleanenv`, `--contain` or similar flags.
+
+`batch.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project> --partition=medium --mem=2G --nodes=2 --ntasks-per-node=1 --time=00:05:00
+module purge
+srun apptainer run container.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+srun apptainer run container.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+```
+
+```bash
+sbatch batch.sh
+```
+
+## Example: Roihu GPU base container with NCCL tests
+
+Base containers are available:
+
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03` (13.7 GB)
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03` (15.9 GB)
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03` (13.5 GB)
+
+Build definition file:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03
+
+%arguments
+    NPROCS=10
+
+%post
+    # Activate module environment and load default modules.
+    . /opt/activate.sh
+
+    # Install tools
+    dnf install -y wget file which
+
+    # Install NCCL Tests
+    module load nccl
+    cd /opt
+    wget https://github.com/NVIDIA/nccl-tests/archive/refs/tags/v2.18.3.tar.gz
+    tar xf v2.18.3.tar.gz
+    rm v2.18.3.tar.gz
+    cd nccl-tests-2.18.3
+    make -j{{NPROCS}} CUDA_HOME=$CUDA_HOME NCCL_HOME=$NCCL_INSTROOT
+    make -j{{NPROCS}} CUDA_HOME=$CUDA_HOME NCCL_HOME=$NCCL_INSTROOT MPI=1 MPI_HOME=$OPENMPI_INSTROOT NAME_SUFFIX=_mpi
+
+%runscript
+    . /opt/activate.sh
+    module load nccl
+    exec "$@"
+```
+
+When building the containers, set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory quota.
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+apptainer build --fakeroot container.sif container.def
+```
+
+Now, you can run commands inside the container with the environment active as follows:
+
+`batch_single.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project> --partition=gpumedium --mem=2G --nodes=2 --ntasks-per-node=1 --time=00:05:00 --gpus-per-node=1
+module purge
+srun apptainer run --nv nccl-tests-osu.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bibw
+srun apptainer run --nv nccl-tests-osu.sif /opt/osu-micro-benchmarks/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_latency
+```
+
+```bash
+sbatch batch_single.sh
+```
+
+`batch_mpi.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account=<project> --partition=gpumedium --nodes=2 --ntasks-per-node=4 --cpus-per-task=72 --gpus-per-node=4 --time=00:15:00
+module purge
+srun apptainer run --nv nccl-tests-osu.sif /opt/nccl-tests-2.18.3/build/all_reduce_perf_mpi -b 8 -e 128M -f 2 -g 1
+```
+
+```bash
+sbatch batch_mpi.sh
+```
+
 ## Example: Using Make to build containers
 
 Makefiles are a great way to organize the logic for building containers.
@@ -119,12 +260,12 @@ Application should be executed with the `vglrun_wrapper` script installed in the
 ## Other application containers
 
 CSC has container build recipes for various applications in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
-Here are the recipes that can be built with Apptainer using fakeroot on Puhti and Mahti:
+Here are the recipes that can be built with Apptainer using fakeroot on Roihu and Mahti:
 
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
 - [Python with uv package manager](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
 - [Open MPI with OSU micro-benchmarks](https://github.com/CSCfi/singularity-recipes/tree/main/openmpi)
-- [MATLAB](https://github.com/CSCfi/singularity-recipes/tree/main/mathworks)
+- [MATLAB](https://github.com/CSCfi/csc-env-matlab/tree/main/mathworks)
 - [Macaulay2](https://github.com/CSCfi/singularity-recipes/tree/main/macaulay2)
 - [R environment](https://github.com/CSCfi/singularity-recipes/tree/main/r-env-singularity/4.5.1-fakeroot)
 - [PyTorch](https://github.com/CSCfi/singularity-recipes/tree/main/pytorch-fakeroot/2.6)

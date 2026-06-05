@@ -9,6 +9,7 @@
   - [Jupyter for courses](jupyter-for-courses.md)
   - [MATLAB](matlab.md)
   - [MLflow](mlflow.md)
+  - [R-Jupyter](r-jupyter.md)
   - [RStudio](rstudio.md)
   - [TensorBoard](tensorboard.md)
   - [Visual Studio Code](vscode.md)

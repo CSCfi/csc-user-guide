@@ -21,6 +21,7 @@
 
 * [Getting started with Roihu](roihu.md)
 * [Roihu data migration guide](roihu-data.md)
+* [Preparing for Roihu: Data management and temporary storage options](roihu-data-preparation.md)
 
 ## Installation of tools on supercomputers
 
@@ -30,6 +31,7 @@
 ## Performance and high-throughput workflows
 
 * [General high-throughput guidelines](../../computing/running/throughput.md)
+* [Inspecting and controlling CPU affinity](affinity.md)
 * [Optimising parallel I/O](lustre_performance.md)
 * [Dask & parallel Python](dask-python.md)
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
@@ -46,7 +48,7 @@
 
 ## Allas
 
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-hpc.md)
+* [Using Allas interactively in Roihu](../../data/Allas/allas-roihu.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)

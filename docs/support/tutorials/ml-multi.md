@@ -1,8 +1,8 @@
 # Multi-GPU and multi-node machine learning
 
-This guide explains how to utilize multiple GPUs and multiple nodes for machine
-learning applications on CSC's supercomputers. It is part of our [Machine
-learning guide](ml-guide.md).
+This guide explains how to utilize multiple GPUs and multiple nodes
+for machine learning applications on CSC's supercomputers. It is part
+of our [Machine learning guide](ml-guide.md).
 
 First we will explain the general principles, such as single- and
 multi-node jobs and mechanisms for launching multiple processes. After
@@ -12,17 +12,15 @@ CSC's supercomputers: [PyTorch DDP](#pytorch-ddp),
 [TensorFlow's
 `tf.distribute.Strategy`](#tensorflows-tfdistributestrategy).
 
-## Nodes and tasks
-
-### GPU Nodes
+## Multiple GPUs and multiple nodes
 
 Each separate GPU node (i.e., a single computer in the cluster), has a
-fixed number of GPUs. Puhti and Mahti have 4 GPUs per node, and LUMI
-has 8 GPUs per node.  (Technically a LUMI node has 4 GPUs cards, but 8
-GPU dies.) The entire supercomputer may have tens or even thousands of
-GPU nodes. See [GPU-accelerated machine learning](gpu-ml.md) for more
-details, in particular the table describing the different GPUs in
-CSC's various supercomputers might be of interest.
+fixed number of GPUs. Puhti, Mahti and Roihu have 4 GPUs per node, and
+LUMI has 8 GPUs per node.  (Technically a LUMI node has 4 dual-chip
+GPU cards, but from the software point-of-view this looks the same as 8
+GPUs.) The entire supercomputer may have tens or even thousands of GPU
+nodes. See [GPU-accelerated machine learning](gpu-ml.md) for more
+details.
 
 If you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
 **single node job**. If you need more than 4 GPUs (or 8 in LUMI) you
@@ -31,22 +29,92 @@ to reserve, e.g., two GPUs in one node and two in another, this is not
 recommended except for testing purposes, as the communication across
 nodes is always slower than inside a node.
 
+To reserve a single node with N=1-4 GPUs on Puhti, Mahti or 1-8 GPUs
+on LUMI you need the following options (**change N for the actual
+number of GPUs**):
 
-### MPI tasks
+=== "Puhti"
 
-When parallelizing to multiple GPUs it is common to allocate a
-separate CPU process for handling the communication to each GPU. This
-per GPU task division may be handled by the program itself, for
-example using [Python's multiprocessing
-library](https://docs.python.org/3/library/multiprocessing.html) to
-launch separate processes. Another method is to use Slurm's MPI
-facility to launch **multiple MPI tasks**. Whether MPI tasks are used
-or not often depends on the software framework used.
+    ```bash
+    #SBATCH --partition=gpu
+    #SBATCH --gres=gpu:v100:N
+    ```
 
-### Slurm examples
+=== "Mahti"
 
-In this section we provide Slurm batch script examples for launching
-single- or multi-node jobs, with or without MPI.
+    ```bash
+    #SBATCH --partition=gpusmall 
+    #SBATCH --gres=gpu:a100:N
+    ```
+
+    Note: on Mahti use `gpusmall` partition for 1 or 2 GPUs, `gpumedium`
+    for 3 or 4 GPUs.
+
+=== "LUMI"
+
+    ```bash
+    #SBATCH --partition=small-g
+    #SBATCH --gpus-per-node=N
+    ```
+
+    Note: on LUMI, you can use `standard-g` partition if you ask for the full node (8 GPUs).
+
+
+For multi-node jobs you always reserve full nodes, so you will have a
+multiple of 4 GPUs (or 8 in LUMI). For example with two nodes on
+Mahti, you'll have 2*4=8 GPUs.
+
+=== "Puhti"
+
+    ```bash
+    #SBATCH --partition=gpu
+    #SBATCH --gres=gpu:v100:4
+    #SBATCH --nodes=2
+    ```
+
+=== "Mahti"
+
+    ```bash
+    #SBATCH --partition=gpumedium
+    #SBATCH --gres=gpu:a100:4
+    #SBATCH --nodes=2
+    ```
+
+=== "LUMI"
+
+    ```bash
+    #SBATCH --partition=standard-g
+    #SBATCH --gpus-per-node=8
+    #SBATCH --nodes=2
+    ```
+
+Note that the `--gres` (or `--gpus-per-node` on LUMI) option always
+specifies the number of GPUs *per node*, even in the multi-node
+case. So if we are reserving 8 GPUs across 2 nodes in Puhti, that is 4
+GPUs on each node, i.e, `--gres=gpu:v100:4`.
+
+
+### Allocation of non-GPU resources
+
+The other resources (CPU cores and CPU memory) should be reserved
+according to the proportion of GPUs reserved in the node. For example
+if you reserve 1 GPU out of 4, the other resources should be reserved
+(at most) to 1/4 of the total resource of the node.
+
+In Puhti this amounts to 10 CPU cores and roughly 95G of memory (for
+memory we round down a bit as the units are not so exact). On Mahti
+the maximum is 32 CPU cores, the memory should be automatically
+allocated.
+
+On [LUMI use a maximum of 7 CPU cores and 60GB per reserved
+GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/Update-202308/responsible-use/#core-and-memory-use-on-small-g-and-dev-g).
+
+
+Note that the GPU memory is fixed according to the number of GPUs, you
+cannot allocate more (or less) of this.
+
+
+## Monitoring GPU utilization
 
 !!! warning "Note"
     
@@ -59,237 +127,58 @@ GPUs](gpu-ml.md#gpu-utilization) with the same mechanisms described in
 our GPU-accelerated machine learning guide. The only difference is
 that you should now see statistics for more than one GPU.
 
+Example output using `nvidia-smi` for a 2 GPU job on Puhti (single node):
 
-#### Single node run using 2 GPUs, no MPI
+```
+Tue Mar 17 13:36:42 2026       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.288.01             Driver Version: 535.288.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla V100-SXM2-32GB           On  | 00000000:61:00.0 Off |                    0 |
+| N/A   44C    P0             259W / 300W |   3973MiB / 32768MiB |     97%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+|   1  Tesla V100-SXM2-32GB           On  | 00000000:62:00.0 Off |                    0 |
+| N/A   43C    P0             257W / 300W |   3973MiB / 32768MiB |     98%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|    0   N/A  N/A   2047858      C   ...oft/ai/wrap/pytorch-2.9/bin/python3     3968MiB |
+|    1   N/A  N/A   2047859      C   ...oft/ai/wrap/pytorch-2.9/bin/python3     3968MiB |
++---------------------------------------------------------------------------------------+
+```
 
-=== "Puhti"
+Here we have two CPU processes, each using a GPU close to 100%
+utilization (GPU-Util column). If either GPU instead shows 0% it is
+not used at all. If the GPUs show rather low percentages, it might
+mean that you don't need multiple GPUs at least for the computational
+power. For large language models, you might need them for the GPU
+memory however, so check also the GPU memory usage (Memory-Usage column).
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=20
-    #SBATCH --mem=160G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:2
-        
-    srun python3 myprog.py <options>
-    ```
+## Launching multiple processes
 
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpusmall
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=64
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:2
-    
-    srun python3 myprog.py <options>
-    ```
-    
-    Note that on Mahti, the maximum for the `gpusmall` partition is 2
-    GPUs. For 3 or 4 GPUs or more you need to use the `gpumedium`
-    partition.
-
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=14
-    #SBATCH --gpus-per-node=2
-    #SBATCH --mem=120G
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
-
-The example above can be easily changed to more than 2 GPUs by
-changing the number specified in the `--gres` option (Puhti and Mahti)
-or `--gpus-per-node` option (LUMI). The maximum for a single node job
-is 4 GPUs (Puhti and Mahti) or 8 GPUs (LUMI). 
-
-If you increase the number of GPUs you may also wish to increase the
-number of CPU cores and the amount of memory reserved. In our
-examples, we have used **as a rule of thumb to reserve CPU cores and
-memory in the same proportion as the number of GPUs**. 
-
-For example in Puhti there are 4 GPUs, 40 CPU cores, and 384 GBs of
-memory per node. For each GPU we would then reserve 10 CPU cores, and
-roughly 95G of memory (for memory we round down a bit as the units are
-not so exact). 
-
-On [LUMI use a maximum of 7 CPU cores and 60GB per reserved
-GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/Update-202308/responsible-use/#core-and-memory-use-on-small-g-and-dev-g).
-
-#### Single node using all GPUs, using MPI
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=8
-    #SBATCH --cpus-per-task=7
-    #SBATCH --gpus-per-node=8
-    #SBATCH --mem=480G
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
-
-
-
-#### Multi-node with 2 full nodes, no MPI
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=56
-    #SBATCH --gpus-per-node=8
-    #SBATCH --mem=480G
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
-
-Note that the `--gres` option always specifies the number of GPUs on a
-*single-node*, even in the multi-node case. So if we are reserving 8
-GPUs across 2 nodes in Puhti, that is 4 GPUs on each node, i.e,
-`--gres=gpu:v100:4`.
-
-
-#### Multi-node with 2 full nodes, using MPI
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    srun python3 myprog.py <options>
-    ```
-
-=== "LUMI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=8
-    #SBATCH --cpus-per-task=7
-    #SBATCH --gpus-per-node=8
-    #SBATCH --mem=480G
-    #SBATCH --time=1:00:00
-    
-    srun python3 myprog.py <options>
-    ```
+The typical approach in multi-GPU processing in deep learning is to
+launch one _CPU_ control process for each GPU. Launching these
+processes may be handled either by the deep learning framework itself
+(such as with PyTorch's `torchrun`) or by using Slurm's MPI facility
+to launch **multiple MPI tasks**.
 
 ## Available frameworks
 
 There are many frameworks for doing multi-GPU and multi-node machine
 learning. Some frameworks are tightly coupled to a specific framework,
-such as PyTorch `DistributedDataParallel`, DeepSpeed or TensorFlow's
-`tf.distribute.Strategy`, while others are more general, for example
-Horovod.
+such as PyTorch `DistributedDataParallel` (DDP), DeepSpeed or
+TensorFlow's `tf.distribute.Strategy`, while others are more general,
+for example Horovod.
 
 Independent of which framework you pick, pay attention to the approach
 used to launch jobs. For example with Horovod it is common to use MPI,
@@ -309,15 +198,16 @@ connections.
 [PyTorch
 distributed](https://pytorch.org/tutorials/beginner/dist_overview.html),
 and in particular `DistributedDataParallel` (DDP), offers a nice way
-of running multi-GPU and multi-node PyTorch jobs. Unfortunately, the
-PyTorch documentation has been a bit lacking in this area, and
-examples found online can often be out-of-date. Hence, to make usage
+of running multi-GPU and multi-node PyTorch jobs.
+
+
+Hence, to make usage
 of DDP on CSC's supercomputers easier, we have created a [set of
 examples on how to run simple DDP jobs in the
 cluster](https://github.com/CSCfi/pytorch-ddp-examples). In the
 examples we use the
 [rendezvous](https://pytorch.org/docs/stable/elastic/rendezvous.html)
-mechanism to set up communcations across nodes, not MPI.
+mechanism to set up communications across nodes, not MPI.
 
 Example Slurm batch job for running PyTorch DDP on a single full node:
 
@@ -336,8 +226,7 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     module purge
     module load pytorch
     
-    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
-        myprog.py <options>
+    srun torchrun --standalone --nnodes=1 --nproc_per_node=4 myprog.py <options>
     ```
 
 === "Mahti"
@@ -354,8 +243,7 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     module purge
     module load pytorch
 
-    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=4 \
-        myprog.py <options>
+    srun torchrun --standalone --nnodes=1 --nproc_per_node=4 myprog.py <options>
     ```
 
 === "LUMI"
@@ -371,11 +259,13 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     #SBATCH --time=1:00:00
     
     module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
     
-    srun python3 -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 \
-        myprog.py <options>
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
+
+    srun singularity run $SIF \
+      torchrun --standalone --nnodes=1 --nproc_per_node=$SLURM_GPUS_PER_NODE myprog.py <options>
     ```
 
 
@@ -400,7 +290,7 @@ Example of running PyTorch DDP on 2 full nodes:
     module purge
     module load pytorch
 
-    srun python3 -m torch.distributed.run \
+    srun torchrun \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
         --rdzv_id=$SLURM_JOB_ID \
@@ -427,7 +317,7 @@ Example of running PyTorch DDP on 2 full nodes:
     module purge
     module load pytorch
 
-    srun python3 -m torch.distributed.run \
+    srun torchrun \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
         --rdzv_id=$SLURM_JOB_ID \
@@ -453,25 +343,22 @@ Example of running PyTorch DDP on 2 full nodes:
     export RDZV_PORT=29400
     
     module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
 
-    srun python3 -m torch.distributed.run \
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
+
+    srun singularity run $SIF torchrun \
         --nnodes=$SLURM_JOB_NUM_NODES \
-        --nproc_per_node=8 \
+        --nproc_per_node=$SLURM_GPUS_PER_NODE \
         --rdzv_id=$SLURM_JOB_ID \
         --rdzv_backend=c10d \
         --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
         myprog.py <options>
     ```
 
-If you are not using our PyTorch module on LUMI, you might need to set
-environment variable `NCCL_SOCKET_IFNAME=hsn` and some other settings
-to get optimal performance. See the [PyTorch example in the LUMI
-documentation for all the environment
-variables](https://docs.lumi-supercomputer.eu/software/packages/pytorch/#example). These
-are set automatically in the CSC PyTorch module.
-
+The LUMI examples are using the [LUMI AI Factory PyTorch
+installation](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 If you are converting an old PyTorch script there are a few steps that you need to do:
 
@@ -607,10 +494,13 @@ PyTorch Lightning Slurm script for single node using all GPUs:
     #SBATCH --time=1:00:00
 
     module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
+    
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
-    srun python3 myprog.py --gpus=8 --nodes=1 <options>
+    srun singularity run $SIF \
+      python3 myprog.py --gpus=8 --nodes=1 <options>
     ```
 
 <br/>
@@ -665,12 +555,15 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
     #SBATCH --gpus-per-node=8
     #SBATCH --mem=480G
     #SBATCH --time=1:00:00
-    
-    module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
 
-    srun python3 myprog.py --gpus=8 --nodes=2 <options>
+    module purge
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
+    
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
+
+    srun singularity run $SIF \
+      python3 myprog.py --gpus=8 --nodes=2 <options>
     ```
 
 
@@ -746,12 +639,14 @@ Example using Accelerate on all GPUs on a single node:
     #SBATCH --mem=480G
     #SBATCH --time=1:00:00
     #SBATCH --gpus-per-node=8
-    
-    module purge
-    module use /appl/local/csc/modulefiles/
-    module load pytorch
 
-    srun accelerate launch \
+    module purge
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
+    
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
+
+    srun singularity run $SIF accelerate launch \
      --config_file=accelerate_config.yaml \
      --num_processes=8 \
      --num_machines=1 \
@@ -837,8 +732,10 @@ Example of running Accelerate on 2 full nodes (8 GPUs).
     #SBATCH --time=1:00:00
     
     module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
+    
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
     NUM_PROCESSES=$(expr $SLURM_NNODES \* $SLURM_GPUS_PER_NODE)
     MAIN_PROCESS_IP=$(hostname -i)
@@ -851,7 +748,7 @@ Example of running Accelerate on 2 full nodes (8 GPUs).
                         --main_process_ip=$MAIN_PROCESS_IP \
                         myprog.py <options>"
     
-    srun bash -c "$RUN_CMD"
+    srun singularity run $SIF bash -c "$RUN_CMD"
     ```
 
 
@@ -922,9 +819,7 @@ examples](https://github.com/CSCfi/llm-fine-tuning-examples).
 
 [DeepSpeed](https://www.deepspeed.ai/) is an optimization software
 suite for PyTorch that helps in scaling both training and inference
-for large deep learning models. DeepSpeed is supported in the [PyTorch
-modules in Puhti and Mahti](../../apps/pytorch.md) since version
-1.10. DeepSpeed is not yet fully supported on LUMI.
+for large deep learning models.
 
 Example of running DeepSpeed on a single full node using the
 `deepspeed` launcher:
@@ -981,10 +876,13 @@ Example of running DeepSpeed on a single full node using the
     #SBATCH --time=1:00:00
 
     module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
+    
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
-    srun singularity_wrapper exec deepspeed myprog.py \
+    srun singularity run $SIF \
+      deepspeed myprog.py \
         --deepspeed --deepspeed_config my_ds_config.json \
         <further options>
     ```
@@ -1049,10 +947,12 @@ separate task for each GPU:
     #SBATCH --time=1:00:00
 
     module purge
-    module use /appl/local/csc/modulefiles
-    module load pytorch
+    module use /appl/local/laifs/modules
+    module load lumi-aif-singularity-bindings
+    
+    export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
-    srun python3 myprog.py \
+    srun singularity run $SIF python3 myprog.py \
         --deepspeed --deepspeed_config my_ds_config.json \
         <further options>
     ```

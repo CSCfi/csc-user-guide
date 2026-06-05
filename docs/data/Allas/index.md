@@ -24,7 +24,7 @@ This Allas object storage service user guide consists of following parts:
    
 ## Tutorials and other documents
 
-* [Using Allas interactively in Puhti and Mahti](./allas-hpc.md) 
+* [Using Allas interactively in Roihu](./allas-roihu.md)
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
 * [Using Allas to transport sensitive data](../sensitive-data/sequencing_center_tutorial.md)

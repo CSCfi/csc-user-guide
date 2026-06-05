@@ -156,27 +156,29 @@ lmm_stripe_offset: 6
 * setup a directory with the desired configuration and copy (not move) the
   file into the directory.
 
-## Differences between Puhti and Mahti
+## Differences between Roihu, Puhti and Mahti
 
-Puhti and Mahti have similar storage areas
+Roihu, Puhti, and Mahti have similar storage areas
 [home](disk.md#home-directory), [project](disk.md#projappl-directory)
 and [scratch](disk.md#scratch-directory), however, their the Lustre
 configuration is not the same.
 
-|  Name       | Puhti  |        | Mahti  |        |
-|-------------|--------|--------|--------|--------|
-|**Disk area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
-| home        |  24    |   4    |    8    |   1    |
-| projappl    |  24    |   4    |    8    |   1    |
-| scratch     |  24    |   4    |   24    |   2    |
+|  Name        | Roihu      |            | Puhti      |            | Mahti.     |            |
+|--------------|------------|------------|------------|------------|------------|------------|
+|**Disk area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
+| home         |  4         | 4          | 24         |   4        |    8       |   1        |
+| projappl     |  4         | 4          | 24         |   4        |    8       |   1        |
+| scratch      | 24         | 4          | 24         |   4        |   24       |   2        |
 
 
-One main difference is that for Mahti there are separate MDTs between
-`scratch`, `home`, and `project`, thus the metadata performance does
+One main difference between the systems is the separation between the storage area.
+For Mahti there are separate MDTs between
+`scratch`, `home`, and `projappl`, thus the metadata performance does
 not interfere from the different file systems. Moreover, the `scratch` on
 Mahti can have better performance than the other storage areas if your
-application and the data size is big enough because of more OSTs and MDTs. On
-Puhti, all the OSTs and MDTs are shared across the storage areas, thus the
+application and the data size is big enough because of more OSTs and MDTs. 
+Similarly on Roihu `scratch` is separate from `home` and `projappl`. On
+Puhti however, all the OSTs and MDTs are shared across the storage areas, thus the
 performance should be similar between them.
 
 The peak I/O performance for Mahti is around to 100 GB/sec for write
@@ -186,6 +188,9 @@ GB/sec per compute node. If more nodes are used or many jobs do
 significant I/O, then you will not achieve 1.5 GB/sec, including also
 that maybe the I/O pattern of an application is not efficient. The
 corresponding performance for Puhti is half of that of Mahti.
+
+Peak performance on Roihu `scratch` is improved over previous systems, boasting 
+peak I/O values of 219 GB/sec for write and 180 GB/sec for read.
 
 ## Best practices
 

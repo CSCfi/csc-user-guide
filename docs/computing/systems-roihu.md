@@ -2,8 +2,8 @@
 
 !!! info "Note"
     This page contains preliminary information about CSC's next national
-    supercomputer Roihu, which is projected to be in researchers' use in spring
-    2026. Please note that the details may evolve over time.
+    supercomputer Roihu, which is projected to be available for researchers
+    in summer 2026. Please note that the details may evolve over time.
     [See tentative schedule below](#schedule).
 
 ## Schedule
@@ -16,23 +16,23 @@ graph LR;
     B{{"<b>April 2026</b>
         Pilot phase
         starts"}} --> C;
-    C{{"<b>May 2026</b>
+    C{{"<b>June 2026</b>
         Roihu general
         availability (GA)"}} --> D;
     D{{"<b>One month after Roihu GA</b>
         Puhti <i>computing
         services</i> shut down"}} --> E;
-    E{{"<b>August 2026</b>
+    E{{"<b>End of August 2026</b>
         Puhti <i>storage
         services</i> shut down"}} --> F;
-    F{{"<b>August 2026</b>
+    F{{"<b>End of August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
 ```
 
 **Roihu** will be installed in the same datacenter as LUMI, meaning that the
-system will be brought up without disturbing Puhti and Mahti services. There
+system will be brought up without disrupting Puhti and Mahti services. There
 will also be a margin between Roihu general availability and the
 decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
 a break in HPC access.
@@ -40,12 +40,21 @@ a break in HPC access.
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
 means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible until August 2026, after which Puhti will be retired
-completely. Mahti will be closed in August 2026.
+however, remain accessible until end of August 2026, after which Puhti will be retired
+completely. Mahti will be closed end of August 2026.
+
+### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during spring 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide in early 2026.
+prepared to do it during summer 2026, at the very latest in August 2026. CSC
+will publish a detailed Roihu migration guide after Roihu's general availability.
+
+If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
+consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
+
+For any questions and concerns regarding transferring data between the systems,
+feel free to contact the [CSC service desk](https://research.csc.fi/support/),
+or attend [CSC's weekly user support coffee breaks](https://research.csc.fi/training/csc-research-support-coffee-every-wednesday-at-1400-finnish-time/).
 
 ## Compute
 
@@ -62,9 +71,9 @@ memory of 1 536 GiB each.
 
 Each GPU node will be equipped with 4 Nvidia GH200 Grace Hopper superchips.
 Each GH200 superchip comprises one Hopper (H100) GPU and one Grace CPU with
-72 ARM CPU cores which are connected with a very fast interface. Each
+72 ARM CPU cores, which are connected via a very fast interface. Each
 GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing
-a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and
+a total of 480 GiB CPU memory per node. This results in a total of 528 GPUs and
 38 016 CPU cores in the whole GPU partition.
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
@@ -93,9 +102,10 @@ and users' personal Home directories. Separate file systems will ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
 The Scratch disk of Roihu will be more than ten times as performant as Puhti
-Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected to
-be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl will
-have read and write bandwidths of 120 GB/s and 100 GB/s, respectively.
+Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected
+to be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl
+disk areas are expected to have read and write bandwidths of 120 GB/s and
+100 GB/s, respectively.
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
@@ -108,45 +118,84 @@ billing model.
 
 Each Roihu CPU and GPU node will have a small 960 GB local disk suitable for
 storing temporary files during jobs. High-performance local storage will be
-available on the high-memory and visualization nodes, each of which will
-include 2 x 7.68 TB fast NVMe disks.
+available on the high-memory (XL) and visualization (VIZ) nodes, where each
+node will include a total of 13 TiB of fast NVMe disks.
+
+The available storage quota that a single user can access in their jobs depends
+on the system [partition](running/batch-job-partitions.md) they use:
+
+| Allocation type    | Quota per user |
+|:-------------------|---------------:|
+| R (shared nodes)   | 20 GiB         |
+| N (full nodes)     | 600 GiB        |
+| G (GPU nodes)      | 150 GiB        |
+| Hugemem (XL) nodes | 1.6 TiB        |
+| VIZ nodes          | 6.5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
-provided over the network and will appear as local scratch from within a Slurm
-job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
+provided over the network and will appear as local scratch storage from within a
+Slurm job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
 
 ## Network
 
-The network of Roihu is based on Infiniband NDR interconnect. Each CPU node
+The network of Roihu is based on an InfiniBand NDR interconnect. Each CPU node
 will be connected to the network with one 200 Gb/s link, while in the GPU
-partition there will be four 200 Gb/s links per node, one for each GPU.
+partition there will be four 200 Gb/s links per node, one per GPU.
 
 ## Software and programming environment
 
 We intend to provide a comprehensive stack of pre-installed HPC libraries and
-scientific software on Roihu similar to Puhti and Mahti. Some older and less
-used software and software versions may, however, be deprecated. Please also
+scientific software on Roihu, similar to those on Puhti and Mahti. Some older and less
+used software packages and versions may, however, be deprecated. Please also
 note that any software compiled on Puhti and Mahti will most likely need to be
-recompiled on Roihu. More information will be included in the migration guide.
+recompiled on Roihu.
+Instructions for installing applications are provided in
+[the getting started with Roihu tutorial](../support/tutorials/roihu.md#installing-software)
 
 The programming environment of Roihu will otherwise be similar to Mahti,
-including e.g.
+including:
 
-* GNU compiler stack
-* AOCC compiler stack
-* CUDA and Nvidia HPC Software Development Kit (SDK)
-* OpenMPI as main MPI library
+* The GNU compiler stack
+* The AOCC compiler stack
+* CUDA and NVIDIA HPC Software Development Kit (SDK)
+* OpenMPI as the main MPI library
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
+
+## Sensitive data services in Roihu
+
+CSC supercomputers, including Roihu, are maintained according to the best practices of HPC
+management: processes are planned and documented, systems are constantly monitored, and
+security patches are applied without delay.
+Further, all users log in using two-factor authentication.
+Thus, these environments are quite secure by default.
+However, CSC can't guarantee that there is no risk of a data breach, as
+new security incidents emerge from time to time.
+
+For use cases that require higher security, Roihu is being developed to support workflows
+that require enhanced controls for handling sensitive and confidential data.
+Roihu will introduce dedicated capabilities for regulated data workflows.
+
+The sensitive data capability will be introduced after Roihu's initial availability.
+Pilot use of the sensitive computing environment is currently estimated to begin in autumn 2026,
+with general availability potentially following in early 2027, depending on the results and
+experiences from the pilot phase.
+
+The user workflow is expected to resemble CSC’s current Sensitive Data Desktop to HPC job submission model,
+where sensitive data jobs are submitted from a secure environment (SD Desktop) and input/output data are
+handled through protected data services (SD Connect). The jobs will be executed in job-specific isolated
+environments that will not be able to access the internet or the shared disk areas of Roihu.
+
+Read more about the [sensitive data services at CSC](../data/sensitive-data/index.md).
 
 ## More information
 
 * [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-02-25)
+  (updated 2026-04-28)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!

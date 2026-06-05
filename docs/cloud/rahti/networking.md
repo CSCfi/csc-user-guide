@@ -266,9 +266,14 @@ spec:
     app: httpd
 ```
 
-### Add firewall IP blocking to a LoadBalancer Service
+### Add firewall IP blocking to a LoadBalancer Service using NetworkPolicy
 
-It is possible to add firewall IP blocking to a `LoadBalancer` Service. This means that we can add an allowlist of IPs (`188.184.77.250`) and/or IP masks (`188.184.0.0/16`) that will be the only ones that will be able to access the service. This added to using secure protocols and safe password practises, can be a good improvement in security.
+It is possible to add firewall IP blocking to a LoadBalancer Service. This allows you to configure an allowlist of specific IP addresses (for example, 188.184.77.250) and/or IP ranges (for example, 188.184.0.0/16). Only traffic from these permitted addresses will be able to access the service.
+
+
+!!! info "Tip"
+    IP firewalling alone is not sufficient to secure an application running behind a LoadBalancer Service. Always follow security best practices and use IP filtering as part of a layered security approach. **Combine** it with secure communication protocols such as TLS and strong authentication mechanisms, including safe password practices, to properly protect your applications.
+
 
 The procedure to achieve this is the following:
 
@@ -300,7 +305,7 @@ The procedure to achieve this is the following:
 
         For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
 
-1. Add a `NetworkPolicy` to open access to selected IPs:
+2. Add a `NetworkPolicy` to open access to selected IPs:
 
     ```yaml
     apiVersion: networking.k8s.io/v1
@@ -327,6 +332,24 @@ The procedure to achieve this is the following:
 
     The above example of `NetworkPolicy` allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
 
+3. When using `externalTrafficPolicy: Local` in your service, your Pods need to be hosted on nodes that can forward traffic directly to them (ie., locally). 
+To achieve this, you need to add the [nodes selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) `rahti.csc.fi/local-load-balancer: ''`
+to your Pods (or Deployment, or Statefulset if applicable):
+
+    ```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: nginx
+      labels:
+        env: test
+    spec:
+      nodeSelector:
+        rahti.csc.fi/local-load-balancer: ''
+      .....
+      .....
+    ```
+   
 ### Differences between a Route and a LoadBalancer service during deployment roll outs
 
 In Rahti, the way `Route`s and `LoadBalancer` services manage traffic during deployment rollouts work differently.
@@ -335,5 +358,5 @@ In Rahti, the way `Route`s and `LoadBalancer` services manage traffic during dep
 
 In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
 
-For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/building_applications/deployments#route-based-deployment-strategies).
+For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/building_applications/deployments#route-based-deployment-strategies).
 To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)

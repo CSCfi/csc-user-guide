@@ -4,11 +4,11 @@
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops happens on the **SD Desktop management** page.
+With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops and volumes happens via **SD Desktop management** page.
 
-* [Detaching and attaching a volume](#detaching-a-volume)
+* [Detaching a volume](#detaching-a-volume)
 * [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
-* [Pausing or unpausing a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
+* [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
 * [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
 
@@ -17,18 +17,71 @@ With the SD Desktop service, you can easily manage volumes and pause, reboot or 
 
 ![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
 
+___
+
 ## Detaching a volume 
 
-You can detach a volume from your virtual desktop. You can compare this operation to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. You can attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
+Detaching a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
 
-### Before detaching
+### Step 1: Set access permissions of the volume to read and write
 
-Before you detach a volume, it is good the set access permissions of files and directories such that all project members have both read and write access to all the data in the volume. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way. 
+<div class="grid cards" markdown>
 
-You can do this permission set-up with linux command `pre-volume-detach` that you can take in use by installing `CSC Tools` with [SD tools installer](./sd-desktop-software.md#customisation-via-sd-software-installer). In addition to fixing the access permissions of the user who is running the command, it checks if there are other users that should run this command too. Further, the command allows you to make a backup copy of your home directory to the volume so that you can import the contents of your home directory to the new virtual machine.
+- :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
+  { .csc-grid-card-warning }
+
+    ---
+    Before detaching a volume, make sure all files and folders have read and write access for all project members. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way.
+
+</div>
 
 
-### Detach a volume from your virtual desktop
+??? default "Method 1: Use CSC Tools to set access permissions"
+
+    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+    3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
+
+    4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
+    6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
+    7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
+    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
+
+
+??? default "Method 2: Set access permissions manually"
+
+    By default, permissions are limited to your access only (orange lock icon).
+
+    1. Right-click the folder and select **Properties**.
+    2. Open the **Permissions** tab.
+    3. Set permissions to **Create and Delete Files**:
+       
+        * Owner -> Access -> Select “Create and delete files”.
+        * Group -> Access -> Select “Create and delete files”.
+        * Others -> Access -> Select “Create and delete files”.
+            
+        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+
+    * Next select **Change Permissions for Enclosed Files** button to adjust file permisssions inside the folder.
+    * Set permissions to **Create and Delete files**:
+
+        * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Click **Change**.
+
+        ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+
+    5. Close the permission tab (top right corner).
+    
+    The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
+        
+    **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
+
+
+### Step 2: Detach a volume 
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
 
@@ -41,9 +94,11 @@ Confirm the operation through the notification.
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
 
-### Attach a volume to a new virtual desktop
+___
 
-When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop.
+## Attach a volume to a new virtual desktop
+
+When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop. You can also attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. On the homepage, click **SD Desktop management**.
 
@@ -54,7 +109,7 @@ When you want to access the data saved in the detached volume, you can attach it
 4. Click on **Create desktop**.
 
 
-!!! note
+!!! Note
     - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
     - The content of a detached volume can not be accessed or deleted.
     - If you want to access or delete content on the detached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
@@ -62,10 +117,15 @@ When you want to access the data saved in the detached volume, you can attach it
 
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
 
+___
 
 ## Pausing or unpausing a virtual desktop
 
-You can pause a virtual desktop. In this manner, the desktop will stop consuming Cloud Billing Units.
+Virtual desktops should be paused when not actively used for analysis, to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. Pausing is not intended as a long‑term method for storing data. Volume usage continues to consume Billing Units even while the desktop is paused.
+
+!!! Note 
+    CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
+
 
 ### Pausing a virtual desktop
 
@@ -84,7 +144,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
 
-### Resuming a virtual desktop
+### Resuming a paused virtual desktop
 
 1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
 
@@ -95,6 +155,7 @@ You can pause a virtual desktop. In this manner, the desktop will stop consuming
 
 ![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
 
+___
 
 ## Rebooting a virtual desktop
 
@@ -116,6 +177,9 @@ To reboot a desktop:
 5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
 
 ![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
+
+___
+
 
 ## Deleting a virtual desktop
 

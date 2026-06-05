@@ -4,6 +4,8 @@ title: Getting started with machine learning at CSC
 
 # Getting started with machine learning at CSC
 
+This tutorial is part of our [Machine learning guide](ml-guide.md).
+
 *You have some machine learning code in Python running on your laptop, but it's
 really slow. You've learned that moving to GPUs and CSC's supercomputers might
 be the answer but the documentation seems a bit daunting.*
