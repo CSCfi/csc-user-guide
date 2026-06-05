@@ -128,7 +128,7 @@ It is not suitable for storing full software installations, or working with larg
 ### 3. Consider packaging many small files
 
 If you have many small files, transferring and accessing them in an object storage service one by one can be slow and inefficient.
-Consider creating archive files before upload.
+Consider creating archive files before upload. 
 
 For example, to package the `dataset/` directory in `/scratch/project_2000000/mydata`:
 
@@ -326,50 +326,42 @@ The same general rules apply as with Allas. Do not transfer everything blindly t
 Carefully review what you actually need to preserve, and remove unnecessary files before transfer.
 If you only need temporary storage during the transition to Roihu, delete the files from LUMI-O after you have copied and verified them on Roihu.
 
-### 1. Create LUMI-O credentials and an access key
+### 1. Create an rclone setup for copying data from Mahti or Puhti directly to LUMI-O
 
 First, you need credentials for LUMI-O and an access key to your project.
 
-Follow the tutorial here for creating credentials and an access key:
-[Gaining access and creating a key in LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/)
-
-
-### 2. Create an rclone setup for copying data from Mahti or Puhti directly to LUMI-O
-
-Since you are accessing LUMI-O from a different machine than LUMI, you need to add a LUMI-O rclone configuration on Mahti or Puhti.
-
-1. Go to the [LUMI-O portal](https://auth.lumidata.eu)
-2. Select the LUMI project you want to use
-3. Click the valid 'Access key' for your project (or if you don't have one, create a new key first for your project)
-4. Select rclone from the Configuration templates and click 'Generate'
-5. Copy the generated rclone configuration block.
-6. On Mahti or Puhti, paste the generated block into your local rclone configuration file:
-
-   ```bash
-   ~/.config/rclone/rclone.conf
-   ```
-
-   If the file does not exist, create it first:
-
-   ```bash
-   mkdir -p ~/.config/rclone
-   chmod 700 ~/.config/rclone
-   nano ~/.config/rclone/rclone.conf
-   ```
-
-   If you already have an Allas configuration in the file, add the LUMI-O configuration below it.
-
-The generated LUMI-O rclone remote name is typically of the form:
+Object storage related tools are initialized in Puhti and Mahti with command:
 
 ```text
-lumi-46500XXXX-private:
+module load allas
+```
+Connections to Lumi-O are configured with command:
+
+```text
+allas-conf --lumi
 ```
 
-where `46500XXXX` is your actual LUMI project ID.
+The configuration process asks you to login to [https://auth.lumidata.eu](https://auth.lumidata.eu)  where you can create an access key pair for your Lumi-project ( [instructions for generating keys](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/) ).
 
-Use the `private` remote for normal data transfer. Do not use a public remote unless the data is intentionally public.
+You can then copy the _project number_, _access key_ and _secret key_ to the configuration process in Puhti or Mahti.
 
-### 3. Create a bucket for your data
+The conifiguration process creates four new rclone endpoints: 
+
+   * **lumi-o:** and  **lumi-_proj-number_-private:** refer to the non-public area of the Lumi-O project
+   * **lumi-pub:** and  **lumi-_proj-number_-public:** to the public area of the Lumi-O project.
+
+Use the `private` remotes for normal data transfer. Do not use a public remote unless the data is intentionally public.    
+
+In case of *a-commands* you can add option `--lumi` to the command in order to make use Lumi-O. For example:
+
+```text
+a-list --lumi
+```
+Executing Lumi-O configuration to a new project, changes the target project of a-commands, aws, s3cmd as well as lumi-o: and lumi-pub: endpoints but preserves the endpoint names that include the project numbers.
+
+Note that the Lumi-O keys have a validity time, defined in the authentication interface. Thus you may need to update the connection configuration every now and then.
+
+### 2. Create a bucket for your data
 
 Before copying data to LUMI-O, create a bucket for the transfer.
 
@@ -397,7 +389,7 @@ Replace `46500XXXX` with your actual LUMI project ID.
      replace it in the tutorial commands, if you want to use your username
      as an unique bucket identifier.
 
-### 4. Copy data to LUMI-O
+### 3. Copy data to LUMI-O
 
 Now you're ready to transfer data to LUMI-O.
 
@@ -422,7 +414,7 @@ rclone copy /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfe
   --log-file roihu-transfer-to-lumio.log
 ```
 
-### 5. Verify the uploaded data
+### 4. Verify the uploaded data
 
 List the uploaded data:
 
@@ -443,7 +435,7 @@ rclone check /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transf
   --log-file roihu-transfer-lumio-check.log
 ```
 
-### 6. Copy data back from LUMI-O later
+### 5. Copy data back from LUMI-O later
 
 After Roihu is available, configure LUMI-O access on Roihu and copy the data from LUMI-O to the appropriate Roihu disk area.
 
