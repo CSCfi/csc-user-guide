@@ -53,13 +53,13 @@ Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
 are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
 also suitable for demanding [machine learning](ml-guide.md) applications.
 
-### Roihu (coming in spring 2026)
+### Roihu
 
 Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
 next-generation supercomputer offering enhanced performance and capabilities.
 
 - Puhti computing services will be shut down one month after Roihu general
-  availability in spring 2026.
+  availability in summer 2026.
 - Puhti storage will remain accessible until August 2026.
 - Mahti will be shut down in August 2026.
 
@@ -99,7 +99,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
 
 ### Web interface
 
-Puhti, Mahti and LUMI each have
+Puhti, Mahti, Roihu and LUMI each have
 [their own web interface](../../computing/webinterface/index.md), which allows
 interacting with the supercomputer through a web browser. The web interface is a
 good choice for interactive computing, such as analyzing, exploring and
@@ -118,6 +118,7 @@ schedule your jobs.
 
 - [Puhti web interface](https://www.puhti.csc.fi)
 - [Mahti web interface](https://www.mahti.csc.fi)
+- [Roihu web interface](https://www.roihu.csc.fi)
 - [LUMI web interface](https://www.lumi.csc.fi)
 
 ### Command-line interface
@@ -232,6 +233,13 @@ quota of 50 GB. It is located under
 installations. Additionally, each user can store up to 10 GB of data in their
 personal home directory (`$HOME`).
 
+If you need to host datasets that are used throughout a project's lifetime, or shared by multiple projects,
+you can apply for a separate dataset project on Roihu. This gives you access to a projdata directory under `/projdata/<project>`, which is
+a project-specific storage area intended for sharing data between
+multiple, or even all, computational projects on the system.
+
+See details about [dataset projects and the projdata disk area](../../computing/roihu-disk.md#projdata-directory).
+
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is easy using the
 [web interface file browser](../../data/moving/web-interface.md) or
@@ -278,7 +286,7 @@ at CSC.
     - [Linux basics tutorial](../tutorials/env-guide/index.md)
     - [Machine learning guide](ml-guide.md)
     - [Using Python on CSC supercomputers](python-usage-guide.md)
-    - [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+    - [Managing data on scratch disks](clean-up-data.md)
     - Other [tutorials](index.md) and
       [training materials](../training-material/index.md)
 
