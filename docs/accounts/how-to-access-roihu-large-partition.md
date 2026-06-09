@@ -78,6 +78,7 @@ see CSC documentation on [performance analysis](../computing/performance.md).
 ## Reporting
 
 The scalability report should contain:
+
 1. A short description of the software and the test case
    - If the software is not pre-installed by CSC, you are also expected to describe the parallelization strategy
 used in the software briefly, and to include details about the I/O implementation and load of the program at runtime
