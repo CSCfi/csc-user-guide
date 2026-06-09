@@ -67,10 +67,10 @@ performed. Here are some general guidelines for scalability testing.
    * This translates to a speedup of 1.5 when doubling the number of nodes
    * Parallel efficiency is described with the following formula:
       * !["Formula for parallel efficiency: baseline processing units times baseline execution time, divided by scaled-up processing units times scaled-up execution time."](./images/small/equation.svg 'Equation describing parallel efficiency'), where
-   * $p_b$ is the number of processing units in the baseline case
-   * $p_N$ is the number of processing units in a scaled up case (with N nodes)
-   * $T_b$ is the total time spent in execution in the baseline case
-   * $T_N$ is the total time spent in execution in a scaled up case (with N nodes)
+   * p<sub>b</sub> is the number of processing units in the baseline case
+   * p<sub>N</sub> is the number of processing units in a scaled-up case with N nodes
+   * T<sub>b</sub> is the total time spent in execution in the baseline case
+   * T<sub>N</sub> is the total time spent in execution in a scaled-up case with N nodes
 
 To get started on gathering runtime characteristics of your program,
 see CSC documentation on [performance analysis](../computing/performance.md).
