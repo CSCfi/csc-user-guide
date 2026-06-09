@@ -310,7 +310,7 @@ guide](../support/tutorials/ml-multi.md)
 If your PyTorch program is slow, or you notice that it has a [low GPU
 utilization](../support/tutorials/gpu-ml.md#gpu-utilization) you can
 use the [PyTorch
-profiler](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
+profiler](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
 to analyze the time and memory consumption of your program.
 
 The PyTorch profiler can be taken into use by adding a few lines of
@@ -395,10 +395,6 @@ CPU cores to handle the data loading more efficiently, and increase
 the batch size to increase the GPU processing load.  In this
 particular case, however, the problem is that the network is so small
 that it cannot really utilize the GPU fully.
-
-More hints on how to view and interpret the output of the profiler can
-be found in the [PyTorch profiler with TensorBoard
-tutorial](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html#use-tensorboard-to-view-results-and-analyze-model-performance).
 
 
 ## More information
