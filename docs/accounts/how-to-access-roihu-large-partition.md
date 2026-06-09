@@ -66,7 +66,7 @@ performed. Here are some general guidelines for scalability testing.
 * Minimum requirement is 75 % parallel efficiency
    * This translates to a speedup of 1.5 when doubling the number of nodes
    * Parallel efficiency is described with the following formula:
-      * $eff =  \frac{p_b * T_b}{p_N * T_N}$, where
+      * !["Formula for parallel efficiency: baseline processing units times baseline execution time, divided by scaled-up processing units times scaled-up execution time."](./images/small/equation.svg 'Equation describing parallel efficiency'), where
    * $p_b$ is the number of processing units in the baseline case
    * $p_N$ is the number of processing units in a scaled up case (with N nodes)
    * $T_b$ is the total time spent in execution in the baseline case
