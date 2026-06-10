@@ -28,8 +28,3 @@ Here step by step text
 
 
 
-
-### Step 5: install software with the SD software installer
-
-### Step 6: delete old virtual desktop to save resources
-
