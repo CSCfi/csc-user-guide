@@ -14,9 +14,11 @@ The virtual desktop is isolated from the internet, so data export must be done t
 
 ## Step by step
 
-### 1. Export files from virtual desktop
+[Option A: Export files to a bucket via Data Gateway application](#option-a-export-files-to-a-bucket-via-data-gateway-application)
+[Option B: Export files to a specific folder inside a bucket via Data Gateway application](#option-b-export-files-to-a-specific-folder-inside-a-bucket-via-data-gateway-application)
+[Option C: Export files programmatically via Data Gateway](#option-c-export-files-programmatically-via-data-gateway)
 
-#### Option A: Export files to a bucket via Data Gateway application
+### Option A: Export files to a bucket via Data Gateway application
 
 1. Open your **volume** and move all data you want to export to it. 
 2. Launch **Data Gateway** by clicking icon on the left side of desktop.
@@ -60,7 +62,7 @@ The virtual desktop is isolated from the internet, so data export must be done t
     ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export4.png)
 
 
-#### Option B: Export files to a specific folder inside a bucket via Data Gateway application"
+### Option B: Export files to a specific folder inside a bucket via Data Gateway application
 
 ??? default "Step by step"
 
@@ -74,7 +76,7 @@ Type for example "folder1/folder2" in **Folder names** field. Your files will be
     ![Export to a folder inside a bucket](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export_to_folder.png)
 
 
-#### Option C: Export files programmatically via Data Gateway"
+### Option C: Export files programmatically via Data Gateway
 
 ??? default "Step by step"
 
