@@ -10,8 +10,6 @@
 
 The virtual desktop is isolated from the internet, so data export must be done through either via the Data Gateway application or the command-line version. Only the CSC project manager can export data. The results are exported to SD Connect, where they will be available for download.
 
-
-
 ## Step by step
 
 [Option A: Export files to a bucket via Data Gateway application](#option-a-export-files-to-a-bucket-via-data-gateway-application)
@@ -28,7 +26,7 @@ The virtual desktop is isolated from the internet, so data export must be done t
 
     ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export1.png)
 
-3. Files will be be exported to **SD Connect**. Now you need to create a new bucket or use an existing one via **Bucket name** field.
+3. Files will be be exported to **SD Connect**. Next create a new bucket or use an existing one via **Bucket name** field.
     * **Create a new bucket** by writing bucket's name to the field. Follow bucket naming conventions below or via user interface.
     * **Use an existing bucket** by clicking the field and select it from the dropdown. 
 
