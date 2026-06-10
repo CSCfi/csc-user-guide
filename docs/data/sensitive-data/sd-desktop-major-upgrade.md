@@ -6,7 +6,7 @@ The SD Desktop service has been upgraded to a new version and the changes and ne
 
 Your next steps depend on whether your virtual desktop currently has a volume attached.
 
-## Step 1: check if your virtual desktop as an external volume
+## Step 1: check if your virtual desktop has an external volume
 
 
 Here step by step text
