@@ -25,6 +25,7 @@ Here step by step text
 | Virtual desktop **has no volume** | Move to a new virtual desktop | - Clean and stable environment<br>- Fully security-patched environment<br>- Avoid risk of system issues<br>- Access to the latest features | - Requires exporting all files<br>- Requires setting up a new environment | [Step by step guide](./sd-desktop-major-upgrade-option2.md) |
 
 
-
+!!! Note
+   If you need help choosing the right option or following the steps in the guides, please contact us. We are happy to provide online support with step-by-step guidance.
 
 
