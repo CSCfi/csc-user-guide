@@ -1,4 +1,4 @@
-# SD Desktop: major upgrade to new version (CSC Academic project type)
+# SD Desktop: major upgrade to new version (CSC Academic project- Academic type)
 
 ## Overview
 
