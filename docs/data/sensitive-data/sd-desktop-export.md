@@ -106,7 +106,7 @@ Type for example "folder1/folder2" in **Folder names** field. Your files will be
 ### 2. Download the files from SD Connect 
 
 
-1. Access SD Connect and locate the file you need. Click on Download.
+1. Access SD Connect and locate the files you need. Click **Download**.
 
 !!! Note
     If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
