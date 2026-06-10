@@ -24,8 +24,8 @@ On the next page `Database access`:
 
 On the third page `Initialize Databases:
 
-8. In the `Initial Databases` field you can write what databases should be initialized. You can add additional database after the instance have started.
-9. `Initial Admin User` adding first user that you want to use to connect to the database. You can add more user accounts after the database instance have started.
+8. In the `Initial Databases` field you can write what databases should be initialized. You can add additional database after the instance has started.
+9. `Initial Admin User` adding first user that you want to use to connect to the database. You can add more user accounts after the database instance has started.
 10. `Password` for the you first user. Please make sure that this password is not used anywhere else.
 11. `Allowed Host (optional)` , this feature is not supported at the moment but in the future it will possible to limit users access based on IP.
 

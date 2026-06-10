@@ -17,11 +17,11 @@ This tutorial can be used in two ways:
   
 - [3. Data import via SD Desktop](#3-data-import-via-sd-desktop)
   
-- [4. Accessing Whisper in the virtual deskotp](#4-accessing-whisper-in-the-virtual-deskotp)
+- [4. Accessing Whisper in the virtual desktop](#4-accessing-whisper-in-the-virtual-desktop)
 
 - [5. Your first steps with Whisper](#5-your-first-steps-with-whisper)
 
-- [6 Accessing the trascript](#6-accessing-the-trascript)
+- [6 Accessing the transcript](#6-accessing-the-trascript)
 
 
 ## 1. Before you start
@@ -56,7 +56,7 @@ Record a short interview with your phone or laptop, asking the person next to yo
 
 The interview can be a video or an audio recording. Do not make it longer than one minute. Name the interview file on your device so that it is easy to identify (do not use spaces or special characters in the name).
 
-Alternativerly you can download this [example file](https://github.com/eglerean/handsondataprotection/blob/f4e70f010fc762ea88695da785e368dc37d92126/transcribe/JohnChowning041306_part1_1min.ogg)
+Alternatively you can download this [example file](https://github.com/eglerean/handsondataprotection/blob/f4e70f010fc762ea88695da785e368dc37d92126/transcribe/JohnChowning041306_part1_1min.ogg)
 
 ### 2.2 Upload the recording
 
@@ -123,7 +123,7 @@ In this step, you will create a secure connection between your virtual desktop (
 
 
 
-## 4 Accessing Whisper in the virtual deskotp
+## 4 Accessing Whisper in the virtual desktop
 
 ### 4.1 Installing Whisper (self‑paced setup)
 
@@ -133,7 +133,7 @@ If you are following this tutorial independently, please use the SD Software Ins
 
 ### 4.2 Accessing Whisper (if already installed)
 
-If course instructure or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
+If course instructor or if another member of your CSC project has already installed Whisper on the virtual desktop, you can easily access the software by following the steps below:
 
 * In the Data Gateway application navigate to: Home → Projects → SD-Connect → project_2000828 → tools-for-sddesktop
 * Copy the file sd-installer-ubuntu22.desktop from this folder  and paste it to the virtual desktop.

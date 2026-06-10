@@ -42,7 +42,7 @@ spec:
 " | oc create -f -
 ```
 
-The deployment should now spin up 4 copies of the same `Pod`. We will later configure it to lower or increase the number of Pods based on resource consuption.
+The deployment should now spin up 4 copies of the same `Pod`. We will later configure it to lower or increase the number of Pods based on resource consumption.
 
 ### Add resources limits
 
@@ -68,11 +68,11 @@ Once the Pod limits are set, you can now add the Horizontal auto-scaler. From th
 
 First set the **maximum** and **minimum** number of replicas. In general, one will leave the minimum to 1, and set the maximum to a value to a "fair share" of the total quota. For example, if you have a total quota of 20 Pods, and one single Deployment, the maximum should be set to 20, to use all the quota available. But if you have two deployments sharing the same name space, the maximum should be set to 10 each.
 
-After the minimum and maximum are set, we need to setup the % of resource usage that will be needed to trigger an scale up. One or both of the two resources (CPU and memory) can be set. What limit and of what resource depends on ghe application you are running. Some applications are more CPU usage intensive, some are memory usage intensive, others are both. In practise, it is an iterative process for tuning the parameters. 
+After the minimum and maximum are set, we need to setup the % of resource usage that will be needed to trigger an scale up. One or both of the two resources (CPU and memory) can be set. What limit and of what resource depends on the application you are running. Some applications are more CPU usage intensive, some are memory usage intensive, others are both. In practise, it is an iterative process for tuning the parameters. 
 
 When the usage of the resources configured is surpassed, a new replica will be created. For example, we setup a 50% of memory with a limit of 1Gi. When the usage of memory reaches and surpasses the 500MB mark, a new replica will be created, doubling the total memory available. This scale up will continue meanwhile the total memory usage is more than 50% of the memory available.
 
-On the hand, an scale down will happen when the extra capacity is no longer needed, i.e.: When by removing one replica, the total memory used will not be more that 50% of the total available after the scale down.
+On the hand, a scale down will happen when the extra capacity is no longer needed, i.e.: When by removing one replica, the total memory used will not be more than 50% of the total available after the scale down.
 
 ![Add Horizontal Pod Autoscaler dialog](../../cloud/img/addHorizontalPodAutoscalerDialog.png)
 

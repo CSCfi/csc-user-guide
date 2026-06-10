@@ -261,7 +261,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
 1. In [**Key Pair**](#setting-up-ssh-keys), you select the name of the _Key Pair_ you have created in the [**Setting up SSH keys section**](#setting-up-ssh-keys).
 
-    ![Launch the instance key-pairs](../img/pouta-launch-instance-key-pairs.png 'Launche the instance key-pairs')
+    ![Launch the instance key-pairs](../img/pouta-launch-instance-key-pairs.png 'Launch the instance key-pairs')
 
     !!! Warning "Key pairs cannot be added after creation"
         A public key is only added to the VM if it has been specified in this step.
@@ -288,7 +288,7 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
     **Figure** Floating IP association options
 
-1. Select an IP address under **IP Address**. If "No floating IP addresses allocated" show up, click in the plus to allocate a new IP to you project, you will need to add a description.
+1. Select an IP address under **IP Address**. If "No floating IP addresses allocated" shows up, click in the plus to allocate a new IP to you project, you will need to add a description.
 
 1. Under **Port to be associated** select the virtual machine.
 

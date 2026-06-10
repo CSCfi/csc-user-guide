@@ -4,7 +4,7 @@
 
 * Storage space: default 10 TiB. Additional quota, up to 200 TB, can be required at: servicedesk@csc.fi.
 
-* Sensitive data uploaded to SD Connect mare automatically encrypted according to [CSC General Terms of Use](https://research.csc.fi/general-terms-of-use). 
+* Sensitive data uploaded to SD Connect are automatically encrypted according to [CSC General Terms of Use](https://research.csc.fi/general-terms-of-use). 
 
 * Encrypted data stored in SD Connect can be accessed and analyzed using SD Desktop.
 

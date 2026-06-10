@@ -58,7 +58,7 @@ Nextflow pipelines can be run in different ways in the supercomputer environment
 1. [In interactive mode](../../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
 2. With batch job and local executor. Useful for small and medium size workflows.
 3. With batch job and SLURM executor. This can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, with many small jobs. Could be used, if each job step for each file takes at least 30 min.
-4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Well-suited for cases, when the workflow includes a lot of small job steps with many input files (high-troughput computing).
+4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Well-suited for cases, when the workflow includes a lot of small job steps with many input files (high-throughput computing).
 
 For general introduction to batch jobs, see [example job scripts for Puhti](../../computing/running/example-job-scripts-puhti.md).
 

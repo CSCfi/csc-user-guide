@@ -168,7 +168,7 @@ You can find information about geocomputing using CSC resources and how to get s
 
 ### What to consider when choosing a software?
 
-There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. The following list sunmmarizes things that need to be considered when choosing a software. 
+There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. The following list summarizes things that need to be considered when choosing a software. 
 
 * Functionality: Does the software provide the tools you need to reach your goal?
 * Interaction type: How do you want to interact with the software?
@@ -192,7 +192,7 @@ There is no single software perfect for every task and taste. The right software
 
 [**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library. Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from the Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Puhti](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
-[**Julia**](../../../apps/julia.md) - Puhtis Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
+[**Julia**](../../../apps/julia.md) - Puhti's Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
 
 [**Matlab**](../../../apps/matlab.md) - you can run Matlab jobs on Puhti conveniently from your own computers Matlab installation.
 
@@ -213,7 +213,7 @@ There is no single software perfect for every task and taste. The right software
 
 [**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Puhti](https://github.com/csc-training/geocomputing/tree/master/snap).
 
-[**allas'']](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
+[**allas**]](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
 
 If you need further applications, you can ask CSC to install them for you. 
  

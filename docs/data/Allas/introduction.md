@@ -15,7 +15,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * The data can be accessed from anywhere.
  * The data can have different levels of access control.
  * The data can have lifecycle policy set.
- * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
+ * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or even your phone.
 
 **Limitations**
 

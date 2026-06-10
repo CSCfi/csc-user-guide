@@ -73,7 +73,7 @@ In SD Connect a timestamp is added to the file name in order to make the file na
 created. This file contains information about the user who requested the backup, original host and location of the file. If backup is done for 
 a directory, then the content of the directory is stored as one tar-archive file and the metadata file will contain list of the backed-up files. 
  
-For example, for a file called `my_data.csv` that locates in SD Desktop virtual machine called `secserver-1683868755`, a backup command:
+For example, for a file called `my_data.csv` located in SD Desktop virtual machine called `secserver-1683868755`, a backup command:
 
 ```text
 sd-backup  my_data.csv

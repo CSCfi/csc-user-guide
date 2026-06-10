@@ -83,7 +83,7 @@ export SCRATCH=/scratch/project_12345/$USER
 
 # calculate indexes. You don't need to recalculte the indexes if they already exist.
 mkdir $SCRATCH/star-genome
-STAR --runMode genomeGenerate --genomeDir $SCRATSCH/star-genome --genomeFastaFiles /path/to/genome/genome.fasta --runThreadN $SLURM_CPUS_PER_TASK
+STAR --runMode genomeGenerate --genomeDir $SCRATCH/star-genome --genomeFastaFiles /path/to/genome/genome.fasta --runThreadN $SLURM_CPUS_PER_TASK
 
 # Run the mapping task
 STAR --genomeDir $SCRATCH/star-genome --readFilesIn my-reads.fastq --runThreadN $SLURM_CPUS_PER_TASK

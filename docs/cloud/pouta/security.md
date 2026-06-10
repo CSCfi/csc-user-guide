@@ -40,7 +40,7 @@ Wherever possible, use encrypted and secure communication protocols to avoid man
 
 ### Use intrusion detection software
 
-Tools such as [denyhosts](https://github.com/denyhosts/denyhosts) or [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) will analyse log files and ban IP addresses that are attempting to make brute-force attacks to your application. They are very powerful tools, but they have to be used used with care as they can lead to false positives, i.e. Banning IPs that should not be banned. 
+Tools such as [denyhosts](https://github.com/denyhosts/denyhosts) or [Fail2ban](https://en.wikipedia.org/wiki/Fail2ban) will analyse log files and ban IP addresses that are attempting to make brute-force attacks to your application. They are very powerful tools, but they have to be used with care as they can lead to false positives, i.e. Banning IPs that should not be banned. 
 
 ## Software
 

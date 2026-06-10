@@ -73,7 +73,7 @@ If you need assistance to verify if SD service are suitable for processing your 
 3. the GDPR (Description of processing activity form) that can be downloaded from your CSC project
 4. [The CSC Data Policy](https://www.csc.fi/en/data-policy)
 
-For suppoer don't hesitate to contac us at servicedesk@csc.fi (subject: Sensitive Data).
+For support don't hesitate to contact us at servicedesk@csc.fi (subject: Sensitive Data).
 
 Contact information of Finnish universities data protection / legal offices
 

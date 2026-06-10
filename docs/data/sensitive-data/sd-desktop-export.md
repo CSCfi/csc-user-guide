@@ -96,7 +96,7 @@ CSC provides an application that simplifies encryption key generation and data d
 2. Select the correct CSC project in the top left corner.
 3. Click **Upload** in the top right corner.
 4. In the new window, name the destination folder for your files (e.g. **project_export**).
-5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
+5. Click **Select Files** to open a browser window and choose the public encryption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
 6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
 
 !!! info "Folder names"
@@ -184,7 +184,7 @@ Once the file is encrypted, only the CSC project manager can export them via the
 2. Press **Enter** and enter your password when prompted.
 
 !!! Note:
-    If you attempt to upload an unencrypted file, the Data Gateway apploication or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
+    If you attempt to upload an unencrypted file, the Data Gateway application or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
 
 
 

@@ -17,7 +17,7 @@ Please use [Cyberduck web site](https://cyberduck.io/) for more detailed informa
 
 **Figure** Creating a new bookmark
 
-3\. In the first dropdown menu, choose _OpenStack Swift (Keysone 3)_.
+3\. In the first dropdown menu, choose _OpenStack Swift (Keystone 3)_.
     ( if your Cyberduck does not have this option available, you need to update it to a more recent version)
 
 4\. As the **Server**, type _pouta.csc.fi_ and choose the **Port** _5001_. 

@@ -16,7 +16,7 @@ CSC's computing environment consists of supercomputers Puhti and
 Mahti. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
 workloads that can utilize both efficiently. At the same time their
-hardware is different, and this makes some worklods uniquely suitable
+hardware is different, and this makes some workloads uniquely suitable
 for either Puhti or Mahti.
 
 In addition to the national resources, CSC's data center in Kajaani hosts the

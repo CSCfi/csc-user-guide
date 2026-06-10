@@ -352,7 +352,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
     - The `ports` are defined in `spec > template > spec > containers > ports` and in the already mentioned corresponding `service` files.
     - Finally the `command` is defined in `spec > template > spec > containers > command` (you can see the example in `backend-deployment.yaml`).
 
-    As you can see the generated YAML files sare not perfect, but will be fine as a base for continuing the deployment.
+    As you can see the generated YAML files are not perfect, but will be fine as a base for continuing the deployment.
 
 ## Deployment to Rahti
 
@@ -395,7 +395,7 @@ These 3 types are going to be straight forward and should cause no issue.
 
     The other two entries (`kube-root-cs.crt` and `openshift-service-ca.crt`) are pre-created Kubernetes and Openshift base config maps.
 
-1. We do not expect any error while creating the `services` (db service is missing because the docker cmpose file did not mention any ports, and we will need to create it ourselves manually later):
+1. We do not expect any error while creating the `services` (db service is missing because the docker compose file did not mention any ports, and we will need to create it ourselves manually later):
 
     ```sh
     $ oc create -f frontend-service.yaml

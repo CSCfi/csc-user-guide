@@ -74,7 +74,7 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
 
 * Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
 
-Another aspect of routes is the IP allowlisting feature, ie: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_allowlist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
+Another aspect of routes is the IP allowlisting feature, i.e: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_allowlist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 
 * This first example will allow a range of IPs (`193.166.[0-255].[1-254]`):
 
