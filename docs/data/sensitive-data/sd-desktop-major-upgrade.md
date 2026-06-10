@@ -6,7 +6,7 @@ The SD Desktop service has been upgraded to a new version and the changes are no
 
 Your next steps depend on whether your virtual desktop currently has a volume attached.
 
-## Step 1: Check if your virtual desktop as an external volume
+## Step 1: check if your virtual desktop as an external volume
 
 
 Here step by step text
@@ -16,7 +16,7 @@ Here step by step text
 
 
 
-## Step 2: Choose the Correct Option for Your Needs
+## Step 2: choose the correct option for your needs
 
 | Scenario | Recommended Action | Advantages | Disadvantages |
 |----------|------------------|------------|---------------|
@@ -28,22 +28,6 @@ Here step by step text
 
 
 
-
-## Option 3: virtual desktop has no volume, 
-
-We recommand moving to a new virtual desktop.
-
-### Step 1: import a new dat gateway
-
-they need coordidate with colleagues
-
-### Step 2: exportl all needed files to SD Connect
-
-
-### STep 3: created a new virtual destkop
-
-### Step 4: creata  new  volume
-verify all data ins accessible
 
 ### Step 5: install software with the SD software installer
 
