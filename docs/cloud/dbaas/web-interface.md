@@ -22,7 +22,7 @@ On the next page `Database access`:
 
 7. `Allowed CIDRs` - Here you want to add your allowed IP-addresses in the format `$IP/32` if you want to allow multiple IP-addresses. You need to separate them by a comma `,`. By default the database are created without any `Allowed CIDRs` which means that you won't be able to connect to your database.
 
-On the third page `Intialize Databases:
+On the third page `Initialize Databases:
 
 8. In the `Initial Databases` field you can write what databases should be initialized. You can add additional database after the instance have started.
 9. `Initial Admin User` adding first user that you want to use to connect to the database. You can add more user accounts after the database instance have started.
@@ -31,7 +31,7 @@ On the third page `Intialize Databases:
 
 On the fourth page `Advanced`:
 
-12. You don't need to do anything but it is possible to launch a new database from a backup. If you choose to launch a database from a backup you don't need to specify `Initial Admin User`, `Passowrd`, or `Initial Databases`
+12. You don't need to do anything but it is possible to launch a new database from a backup. If you choose to launch a database from a backup you don't need to specify `Initial Admin User`, `Password`, or `Initial Databases`
 13. Now you can press `Launch`
 14. Once the database instance has launched, you can click the name of the database instance and manage additional items, such as users, backups etc. But it might take a couple minutes before the instance is up and running.
 15.  Now you can go to the database specific documentation to find out further instructions on how to use the database:

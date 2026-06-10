@@ -280,7 +280,7 @@ spec:
 
 
 A _Job_ uses  pods to execute a specific task one or several times, and will continue to retry execution of the Pods until
-a specified number of them successfully terminate ot a backoff limit is reached. As pods successfully complete, the Job 
+a specified number of them successfully terminate or a backoff limit is reached. As pods successfully complete, the Job 
 tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is 
 complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job 
 is resumed again.

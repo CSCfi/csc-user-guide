@@ -105,7 +105,7 @@ CSC provides an application that simplifies encryption key generation and data d
     * Folder name should be between 3 and 63 characters long.
     * Use Latin alphabets (a-z), numbers (0-9) and dash (-). 
     * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
-    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
     * Remember, all folder names are public; please do not include any confidential information.
     * Folder names can't be modified afterwards.
 
@@ -234,7 +234,7 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
     
 ## Advanced: Back-up copies
 
-If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilise to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
 ## Your next steps in this guide
 

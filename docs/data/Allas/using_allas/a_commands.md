@@ -30,7 +30,7 @@ In addition to the above commands, there are separate tools for other purposes:
  
 If you use the `a`-commands outside the supercomputers, check the [allas-cli-utils documentation:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md){ target=_blank } for how to install these tools.
 
-Below we discuss briefly of the most frequetly used features of `a`-commands. New features are added to `a`-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
+Below we discuss briefly of the most frequently used features of `a`-commands. New features are added to `a`-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
 ```bash
 a-put --help
 ```

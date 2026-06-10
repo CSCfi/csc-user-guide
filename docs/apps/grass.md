@@ -75,7 +75,7 @@ Geographic Resources Analysis Support System (GRASS) is Copyright, 1999-2020 GRA
 
 ## Citation
 
-This software can be cited by chosing the appropriate citation from the [GRASS citation repository](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository). 
+This software can be cited by choosing the appropriate citation from the [GRASS citation repository](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository). 
 
 
 ## Acknowledgement
@@ -94,7 +94,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 * [GRASS GIS homepage](https://grass.osgeo.org/)
 * [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
-  * [Parellel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
+  * [Parallel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
 * [GRASS GIS tutorials](https://grass.osgeo.org/learn/tutorials/)
 * [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
 In case of using parallel computation, be extra careful with `region`.

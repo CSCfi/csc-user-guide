@@ -6,7 +6,7 @@ The instructions below describe how to open a _Swift_-protocol-based Cyberduck c
 With this setup, Cyberduck is compatible with _rclone_, _Swift_ and _a-tools_. Cyberduck can be configured to use
 _S3_ protocol too, but that option is not discussed here.
 
-In the end fo this page there is a [list of functions](#cyberduck-functions) that Cyberduck offers for data management.
+In the end of this page there is a [list of functions](#cyberduck-functions) that Cyberduck offers for data management.
 Please use [Cyberduck web site](https://cyberduck.io/) for more detailed information and instructions.
 
 1\. Install **Cyberduck**.
@@ -22,7 +22,7 @@ Please use [Cyberduck web site](https://cyberduck.io/) for more detailed informa
 
 4\. As the **Server**, type _pouta.csc.fi_ and choose the **Port** _5001_. 
 
-5\. In the section **Project:Domain:Username**, type (without spaces) the desired _project's name_, add "**:default:**" and your _Pouta username_ (this is the CSC user accout you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:default:username_, e.g. *project_123456:default:john*.
+5\. In the section **Project:Domain:Username**, type (without spaces) the desired _project's name_, add "**:default:**" and your _Pouta username_ (this is the CSC user account you use in CSC supercomputers and cPouta). Thus, it should be in the format _projectname:default:username_, e.g. *project_123456:default:john*.
 
 6\. Type your CSC password in the **Password** field. You can close the bookmark by clicking **X** on the upper right corner of the pop-up window.
 

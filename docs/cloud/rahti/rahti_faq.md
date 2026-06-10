@@ -171,7 +171,7 @@ So, if the deployment have a mounted volume and you want to update the deploymen
 
 ![Action](../img/action.png)
 
-![Edit deployment stategy](../img/edit_update_strategy.png)
+![Edit deployment strategy](../img/edit_update_strategy.png)
 
 ### How to use Integrated Registry
 

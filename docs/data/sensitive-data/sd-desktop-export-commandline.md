@@ -270,7 +270,7 @@ If you need to decrypt a large number of files, please check the tutorial [Decry
 ## Advanced: Back-up copies
 
 If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members 
-can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+can utilise to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
 ## More support:
 

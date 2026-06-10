@@ -96,6 +96,6 @@ Any type of sensitive data consented for research. Processing register data unde
 ## What type of documentation do I need to provide to use CSC Sensitive Data Services?
 
 When creating a CSC account and CSC project in MyCSC, you are guided to view and accept CSC's Data Processing Agreement (DPA) and describe the type of data you are processing in the description of processing activities form. 
-If you have any questions about these documents or addittional legal agreements are needed between your organization and CSC, write to servicedesk@csc.fi (email subject: Sensitive Data).
+If you have any questions about these documents or additional legal agreements are needed between your organization and CSC, write to servicedesk@csc.fi (email subject: Sensitive Data).
 
 

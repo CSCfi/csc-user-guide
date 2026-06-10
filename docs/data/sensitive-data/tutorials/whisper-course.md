@@ -15,7 +15,7 @@ This tutorial can be used in two ways:
   
 - [2. Collecting sensitive material via SD Connect](#2-collecting-sensitive-material-via-sd-connect)
   
-- [3. Data import via SD Dektop](#3-data-import-via-sd-desktop)
+- [3. Data import via SD Desktop](#3-data-import-via-sd-desktop)
   
 - [4. Accessing Whisper in the virtual deskotp](#4-accessing-whisper-in-the-virtual-deskotp)
 
@@ -85,7 +85,7 @@ If you are trying this tutorial on your own, switch to your laptop, log in to th
 The virtual desktop will be ready for use in approximately 30 minutes.
 
 
-### 3.2 Log in to the virtual deskop
+### 3.2 Log in to the virtual desktop
 
 * Switch to your laptop and log in to the [SD Desktop service](https://sd-desktop.csc.fi).
 * After logging in, you will be in the **Connections** view of the SD Desktop service.

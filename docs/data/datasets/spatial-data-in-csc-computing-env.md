@@ -44,7 +44,7 @@ For using data in Allas, see [CSC webinar about Allas and geospatial data](https
 
 ## Puhti virtual rasters
 
-Virtaul rasters is a very practical concept for working with bigger raster datasets, see CSC [Virtual rasters](../../support/tutorials/gis/virtual-rasters.md) page for longer explanation and how to create own virtual rasters, inc from STAC search results.
+Virtual rasters is a very practical concept for working with bigger raster datasets, see CSC [Virtual rasters](../../support/tutorials/gis/virtual-rasters.md) page for longer explanation and how to create own virtual rasters, inc from STAC search results.
 
 ### NLS DEM and orthophotos ready-made virtual rasters
 CSC has added  to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 

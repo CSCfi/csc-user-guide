@@ -51,4 +51,4 @@ The object storage is also often used as a location for storing backups. It is a
 !!! note 
     Allas-backup is not a real backup service.
     It only copies the data to another bucket in Allas which can 
-    be easily removed or overwrited by any authenticated user.
+    be easily removed or overwritten by any authenticated user.

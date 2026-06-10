@@ -468,7 +468,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
            https://www.postgresql.org/docs/current/auth-trust.html
     ```
 
-    This shows two kind of errors: folder permission errors and missing variables errors. Let's to reproduce the error localy on our machine. The command will be:
+    This shows two kind of errors: folder permission errors and missing variables errors. Let's to reproduce the error locally on our machine. The command will be:
 
     ```sh
     docker run -it --rm -u 1000 postgres:latest
@@ -687,7 +687,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     KeyError: 'POSTGRES_PASSWORD'
     ```
 
-    This environment variable is hardwired on the application's code. We could patch the code, but this means to rebuild the image and keep patching the code for every new version of the image. The most cost effecive solution is to define the variable twice. If you remember, in step 3 of this chapter we changed the variable's name to satisfy other part of the code.
+    This environment variable is hardwired on the application's code. We could patch the code, but this means to rebuild the image and keep patching the code for every new version of the image. The most cost effective solution is to define the variable twice. If you remember, in step 3 of this chapter we changed the variable's name to satisfy other part of the code.
 
     ```diff
                        key: POSTGRES_PASSWORD
@@ -805,7 +805,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     ...error while starting 4CAT Backend Daemon (pidfile not found).
     ```
 
-    We are assuming that the application is trying to write the PID file (a file with the process number on it, common practise in Unix) to a folder that you can only write to if you are `root`. This is a typical error with these kind of coversions. The log does not tell us where the PID file should be, so we need to investigate it for ourselves. As the Pod is running, we can use `oc rsh`, which is a tool used to open a remote shell, this works only with to running Pods:
+    We are assuming that the application is trying to write the PID file (a file with the process number on it, common practise in Unix) to a folder that you can only write to if you are `root`. This is a typical error with these kind of conversions. The log does not tell us where the PID file should be, so we need to investigate it for ourselves. As the Pod is running, we can use `oc rsh`, which is a tool used to open a remote shell, this works only with to running Pods:
 
     ```sh
     $ oc rsh deploy/backend

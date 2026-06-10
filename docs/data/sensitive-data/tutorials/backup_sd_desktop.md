@@ -25,7 +25,7 @@ Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer.
 Double-click the copy of `sd-installer.desktop` to start the software installation tool. Use this tool to install _SD Backup_ tool
 to your SD Desktop virtual machine if you have not yet done so. 
 
-## Project Mangers Starts backup server
+## Project Manager Starts backup server
 
 When the SD Backup tool is installed, the Project Manager should start a new terminal session and there start a virtual terminal session with command:
 

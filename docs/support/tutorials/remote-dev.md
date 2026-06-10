@@ -61,7 +61,7 @@ Plugin from the Extension tab on the program.
     [Read the instructions here](../../computing/connecting/ssh-keys.md).
 
 Once you've set up SSH keys, added the public key to MyCSC, and installed the
-Remote SSH extenstion, go to the Remote Explorer tab in VS Code and add new
+Remote SSH extension, go to the Remote Explorer tab in VS Code and add new
 remote machine from the **+** symbol. When VS Code asks for the SSH command,
 type
 

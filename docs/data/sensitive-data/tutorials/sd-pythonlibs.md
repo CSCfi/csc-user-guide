@@ -22,7 +22,7 @@ to add the missing libraries. This tutorial demonstrates two ways to add missing
 
 ## Option 1: add-python-lib tool
 
-_Add-python-lib_ is a help tool tha can be used to add python libraries to
+_Add-python-lib_ is a help tool that can be used to add python libraries to
 a Python virtual environment in a SD Desktop virtual machine.
 This tool can be added to your virtual machine with the [SD Sotware installer tool](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
 

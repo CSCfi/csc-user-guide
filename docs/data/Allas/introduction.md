@@ -145,6 +145,6 @@ Allas data is spread across various servers, which protects against disk and ser
 4. If moving data from/to your local machine, install the selected tool (not needed if using webinterfaces).
 5. [Configure the connection](using_allas/allas-conf.md) to Allas.
 6. Move data to/from Allas.
-7. If you want to share the data publically or with another project, change access rights for your data.
+7. If you want to share the data publicly or with another project, change access rights for your data.
 
 For last two steps, see tool specific instructions.

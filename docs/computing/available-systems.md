@@ -54,7 +54,7 @@ allowing jobs to scale across the full system. In Mahti user reserves
 full nodes so that the jobs can extract full performance from each
 node. Mahti is in particular geared towards medium to large scale
 simulations requiring Petaflops of compute power. Also smaller
-parellel workloads that are able to use full nodes efficiently can
+parallel workloads that are able to use full nodes efficiently can
 utilize Mahti.
 
 There are also 24 GPU nodes, with total of 96 Nvidia Ampere A100 GPUs. This

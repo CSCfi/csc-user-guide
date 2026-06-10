@@ -2,7 +2,7 @@
 
 Motivation: Allas is a general purpose storage system for research data. 
 It can be used with tools based on Swift and S3 protocols. However, in many cases, 
-using Allas directly trough S3 or Swift is limited by the rather plain structure 
+using Allas directly through S3 or Swift is limited by the rather plain structure 
 of user management and by the fact that the access is based on personal CSC user accounts.
 
 Using Nextcloud server as a front end allows you to create and manage your own user 

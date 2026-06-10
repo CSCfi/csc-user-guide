@@ -1,4 +1,4 @@
-# SD Desktop for seconday use of health and social data (register data). 
+# SD Desktop for secondary use of health and social data (register data). 
 
 ## What is the SD Desktop for secondary use?
 
@@ -10,7 +10,7 @@ With register data, there are some restrictions to the service compared to the s
 
 ## How can I access register data with SD Desktop?
 
-First, you need to have a data permit from Findata or a single public register. Then you need to create a CSC account, if you do not have one already, and a specific Findata type CSC project for your data. Next, you can request for service access from our service desk (servicedesk@csc.fi) with the data permit. The data will be transferred directly to the service from the data controller, and it will be available only for verified project members on the virtual desktop. For more information see: [SD Desktop for seconday use](../../data/sensitive-data/secondarydata-access.md).
+First, you need to have a data permit from Findata or a single public register. Then you need to create a CSC account, if you do not have one already, and a specific Findata type CSC project for your data. Next, you can request for service access from our service desk (servicedesk@csc.fi) with the data permit. The data will be transferred directly to the service from the data controller, and it will be available only for verified project members on the virtual desktop. For more information see: [SD Desktop for secondary use](../../data/sensitive-data/secondarydata-access.md).
 
 ## Can I combine my own data with register data on SD Desktop?
 

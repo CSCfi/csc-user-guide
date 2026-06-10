@@ -14,7 +14,7 @@ Please note following details that limit the usage of this procedure:
 
 # Security aspects
 
-The Puhti cluster of CSC provides a secure and well maintaned environment for comitational research and data analysis.
+The Puhti cluster of CSC provides a secure and well maintained environment for comitational research and data analysis.
 The [Technical and Organizational Measures (TOMs) in the Puhti Supercomputer Service](https://research.csc.fi/puhti-service-description/puhti-toms/) give detailed information about the security measures of the cluster.
 
 The sensitive data job submission using sdsi-client provides even increased security level for using Puhti.
@@ -127,7 +127,7 @@ However if you need to calculate a large amount of unrelated tasks that are able
 or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
 computing tasks to be executed in the same time.
 
-In the examples below we have a tar-archive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
+In the examples below we have a tar-archive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum. Below we have three alternative ways to run the tasks so that all 40 cores are effectively used.
  
 ### GNUparallel
 

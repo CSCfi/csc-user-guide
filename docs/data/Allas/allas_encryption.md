@@ -284,7 +284,7 @@ restoring <Snapshot a706c054 of [/run/nvme/job_4891841/data/my_data] at 2021-02-
 </pre>
 
 The actual data is stored as encrypted hash objects that are usable for other Allas tools. For example, the data that was stored by `restic` to bucket
-_123_restic_ in the example above loos like below, when listed with `rclone`:
+_123_restic_ in the example above looks like below, when listed with `rclone`:
 ```
 rclone ls allas:123_restic
       155 backup/config

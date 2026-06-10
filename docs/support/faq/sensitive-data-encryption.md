@@ -14,5 +14,5 @@ You can encrypt data in any format (e.g., video, images, text files, etc.).
 When encryption with SD Connect is successful, the file extension ends with .c4gh. The extension will be removed when once the file is decrypted. 
 
 ## Do CSC Sensitive Data services allow the use of customers' encryption keys?
-Yes. You can encrypt the data with multiple encryption keys. Plese contac us at servciedesk@csc.fi (Subject: Sensitive data) for support.
+Yes. You can encrypt the data with multiple encryption keys. Please contact us at servciedesk@csc.fi (Subject: Sensitive data) for support.
 

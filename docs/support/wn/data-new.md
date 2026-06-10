@@ -134,7 +134,7 @@ Important: files uploaded programmratically before February 2025 were manually e
 
 Contiure reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
 
-For questions, support or traning, don't hesitate to conact us at servicedesk@csc.fi (subject: SD Connect)
+For questions, support or training, don't hesitate to contact us at servicedesk@csc.fi (subject: SD Connect)
 
 
 ## SD Desktop, upgrade Heavy Computation option, 15.01.2025

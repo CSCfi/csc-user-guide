@@ -15,7 +15,7 @@ A typical research project using CSC services has a lifespan of several weeks to
 
 ## What is the difference between SD Connect and Allas?
 SD Connect is a specific user interface that facilitates the use of Allas during sensitive data management. In contrast, Allas is a general cloud storage solution for non-sensitive and encrypted sensitive data. It is accessible through various clients or user interfaces. 
-SD Connect provides automated encryption, decryption and key management, via user interface (up to 100 GB) or command line (SD-lock, SD-unlock tools). SD Connect facilitaes also collabortive projects via data sharing for: tansfer, collection, analysis via secure environment only (via Sd Desktop). 
+SD Connect provides automated encryption, decryption and key management, via user interface (up to 100 GB) or command line (SD-lock, SD-unlock tools). SD Connect facilitates also collaborative projects via data sharing for: transfer, collection, analysis via secure environment only (via SD Desktop). 
 
 ## Can I use SD Connect from command line?
-Yes, you can use the SD-lock, SD-unlock tools to upload, download, delte files, with automated encryption, decryptiona and key management. 
+Yes, you can use the SD-lock, SD-unlock tools to upload, download, delete files, with automated encryption, decryption and key management. 
