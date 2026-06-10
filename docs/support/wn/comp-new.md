@@ -1,7 +1,8 @@
 # Computing environment
 
-## Puhti and Mahti web interface updated to release 33 and 17, 12.5.2026
+## Puhti and Mahti web interface updated to release 33 and 17, 11.6.2026
 
+* The MATLAB version can now be selected.
 * Jupyter for Courses now has an option to reset the course material.
 * VSCode now has an option to re-open the last opened workspace.
 * Open OnDemand updated to 4.1.5.
