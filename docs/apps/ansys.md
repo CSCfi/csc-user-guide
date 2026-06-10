@@ -15,7 +15,8 @@ catalog:
 Ansys offers a comprehensive software suite that spans the entire range of physics, providing access to virtually any field of engineering simulation that a design process requires ([Ansys - Products](https://www.ansys.com/products)). Ansys Academic Research CFD simulation products have been validated and are highly regarded for their superior computing power and accurate results. 
 
 ## License
-Ansys products are proprietary software. CSC - IT Center for Science Ltd. has these licenses available on CSC's Roihu supercomputer. The licenses are only for academic usee, see about limitations from ([ANSYS - Academic, terms and conditions page](https://www.ansys.com/academic/terms-and-conditions)).
+The terms of use of this software allow it to be used only by affiliates (staff
+and students) of Finnish higher education institutions.
 
 ## Available
 Ansys Academic Reseach CFD licenses are available on CSC's [Roihu](../computing/available-systems.md) supercomputer for analysis runs only.
@@ -44,3 +45,4 @@ If you encounter issues, please [contact CSC Service Desk](../support/contact.md
 ## More information
 * [Ansys Inc.](https://www.ansys.com/)
 * [Ansys Academic product reference table](https://www.ansys.com/content/dam/web/academic/academic-product-reference-guide.pdf)
+* [ANSYS - Academic, terms and conditions page](https://www.ansys.com/academic/terms-and-conditions)

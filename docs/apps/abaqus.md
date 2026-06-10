@@ -17,7 +17,8 @@ Abaqus is a finite element analysis (FEA) solution used by engineers to simulate
 Abaqus enables analysts to predict how structures respond to realistic loading conditions such as impact, vibration, thermal effects, and material failure. Its implicit and explicit solvers support simulations ranging from detailed component analyses to large system-level models
 
 ## License
-SIMULIA Academic Research Suite products are proprietary software. The licenses are only for academic use. 
+The terms of use of this software allow it to be used only by affiliates (staff
+and students) of Finnish higher education institutions. 
 
 ## Available
 Licenses are available on CSC's computing platform [Roihu](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
