@@ -1,6 +1,6 @@
-# Managing data on Puhti and Mahti scratch disks
+# Managing data on supercomputer scratch disks
 
-An important task for all users on Puhti and Mahti is to manage what data resides in project
+An important task for all users on CSC supercomputers is to manage what data resides in project
 folders in `scratch`. These are only intended as temporary storage space for data that is in
 active use. All other data should be removed, or stored in other more suitable storage systems.
 Users are not expected to use all of their quota, the maximum quota is only meant for

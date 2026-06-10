@@ -1,11 +1,13 @@
 # Where should I put my data?
 
-CSC supercomputers Puhti and Mahti both use a parallel file system called
+CSC supercomputers Puhti, Mahti and Roihu all use a parallel file system called
 *Lustre*. Data on Lustre is accessible from all nodes of a system, and is thus
 the best place to store the data that you need for computations. Please note
-that you can not directly access data on Puhti from Mahti or vice versa, i.e.
+that you can not directly access data on Roihu from Mahti or vice versa, i.e.
 they have their own Lustre file systems. You can, however, move data between
-Puhti and Mahti using tools such as [rsync](../../data/moving/rsync.md).
+Roihu and Mahti using tools such as [rsync](../../data/moving/rsync.md).
+
+See the [detailed data migration guide](../tutorials/roihu-data.md) from Mahti and Puhti to Roihu.
 
 More specifically, CSC supercomputers have three main disk areas: *home*,
 *projappl* and *scratch*. The home directory (accessible using the `$HOME`
@@ -19,16 +21,23 @@ This also means that if you are a member of several projects, you also have
 access to multiple scratch and projappl directories. You will, however,
 only have one home directory.
 
+In addition, Roihu provides a fourth storage area, *projdata*. Projdata is
+project-based shared storage for data that needs to be kept available on Roihu
+for longer than temporary scratch data, and can be shared between different computational
+projects. Projdata access and quota must be applied for
+separately and are managed in MyCSC. Projdata also has a separate billing model.
+See the [ProjData documentation](../../computing/roihu-disk.md#projdata-directory) for details.
+
 When logging in to CSC supercomputers, you should change to your project's
 scratch directory because the home directory is not intended for storing data
 that is required for analysis or computing. Its purpose is to store
 configuration files and other **minor** user-specific data (default quota 10
 GB). A directory exceeding its capacity causes various problems (see
 [Disk quota exceeded](disk-quota-exceeded.md)). The scratch disk is the main
-disk area to store your active research data (default quota 1 TB), while 
+disk area to store your active research data (default quota 250 GB on Roihu), while
 projappl is intended, for example, for project-wide installations of custom
-software and libraries (default quota 50 GB). See
-[more information about the disk areas](../../computing/disk.md).
+software and libraries (default quota 15 GB on Roihu). See
+[more information about the disk areas](../../computing/roihu-disk.md).
 
 !!! note "CSC does not back up your data!"
     None of the disk areas are automatically backed up by CSC. This means that

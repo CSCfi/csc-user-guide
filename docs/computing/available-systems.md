@@ -6,20 +6,18 @@
     capabilities.
 
     * Puhti computing services will be shut down one month after Roihu general
-      availability in spring 2026.
+      availability in summer 2026.
     * Puhti storage will remain accessible until August 2026.
     * Mahti will be shut down in August 2026.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
-CSC's computing environment consists of supercomputers Puhti and
-Mahti. Puhti and Mahti have a
-fairly similar compute environment, and there is a wide range of
-workloads that can utilize both efficiently. At the same time their
-hardware is different, and this makes some worklods uniquely suitable
-for either Puhti or Mahti.
+CSC's national computing environment is transitioning from the Puhti and Mahti
+supercomputers to Roihu in 2026. Roihu is CSC's next national
+supercomputer and provides both CPU and GPU resources for Finnish research
+projects.
 
-In addition to the national resources, CSC's data center in Kajaani hosts the
+In addition to the national supercomputer Roihu, CSC's data center in Kajaani hosts the
 pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has
 been available since early 2022, while the largest partition of the system
 consisting of GPU-accelerated nodes became available in 2023.
@@ -69,12 +67,19 @@ Mahti is more limited than in Puhti.
 
 - [A more technical description of Mahti](systems-mahti.md)
 
-## Roihu (coming in spring 2026)
+## Roihu
 
-CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system,
-will replace the Puhti and Mahti supercomputers. Roihu will be located in
-CSC's Kajaani data center, and it is projected to be in researchers' use early
-2026.
+The Roihu supercomputer, BullSequana XH3000 hybrid system, is CSC's next
+national supercomputer and will replace Puhti and Mahti in summer 2026. Roihu is
+designed as a versatile system for CPU and GPU computing, AI workloads,
+data-intensive research and applications requiring large memory.
+
+Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
+and software environments. The CPU partition contains AMD EPYC
+CPUs, while the GPU partition is based on NVIDIA GH200 Grace Hopper Superchips.
+The system also includes special-purpose nodes for visualization and high-memory
+tasks, and will provide enhanced support for processing sensitive and confidential
+data.
 
 - [More information about Roihu](systems-roihu.md)
 

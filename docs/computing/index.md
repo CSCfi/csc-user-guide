@@ -25,8 +25,17 @@ since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-sy
 for details on the systems and [this page for an outline of differences between LUMI-C and
 Mahti](lumi-vs-mahti.md).
 
-Puhti and Mahti will be replaced in 2026 by CSC's next national supercomputer
-called **Roihu**. [Read more about Roihu here](systems-roihu.md).
+Puhti and Mahti are being replaced in by CSC's next national supercomputer
+called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu is accessible as a service in MyCSC
+around end of June 2026.
+
+Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
+and software environments.
+Roihu-CPU contains AMD EPYC CPUs and is intended for CPU-based computing, while
+Roihu-GPU provides GPU-accelerated computing with NVIDIA GH200 Grace Hopper
+Superchips. Roihu will also support jobs requiring larger amounts of memory than
+has been possible on CSC's previous national supercomputers, and provide
+enhanced support for sensitive data workloads.
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
@@ -121,7 +130,7 @@ This command shows information for all your CSC projects. You can select just
 one project to be reported with the `-p` option. For example:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ csc-projects -p project_2012345
+[kkayttaj@roihu-login1 ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
 Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"

@@ -25,20 +25,20 @@ modify the default permissions.
 Example of missing SGID permission:
 
 ```bash
-[maijam@puhti project_2009999]$ mkdir -m 00770 demofolder
-[maijam@puhti project_2009999]$ ls -l
+[maijam@roihu project_2009999]$ mkdir -m 00770 demofolder
+[maijam@roihu project_2009999]$ ls -l
 total 0
 drwxrwx---. 2 maijam project_2009999       4096 Feb 15 14:52 demofolder
-[maijam@puhti project_2009999]$ touch demofolder/my-file
-[maijam@puhti project_2009999]$ ls -l demofolder/
+[maijam@roihu project_2009999]$ touch demofolder/my-file
+[maijam@roihu project_2009999]$ ls -l demofolder/
 total 0
 -rw-rw----. 1 maijam maijam 0 Feb 15 14:52 my-file
-[maijam@puhti project_2009999]$ chmod g+s demofolder/
-[maijam@puhti project_2009999]$ ls -l
+[maijam@roihu project_2009999]$ chmod g+s demofolder/
+[maijam@roihu project_2009999]$ ls -l
 total 0
 drwxrws---. 2 maijam project_2009999       4096 Feb 15 14:52 demofolder
-[maijam@puhti project_2009999]$ touch demofolder/my-other-file
-[maijam@puhti project_2009999]$ ls -l demofolder/
+[maijam@roihu project_2009999]$ touch demofolder/my-other-file
+[maijam@roihu project_2009999]$ ls -l demofolder/
 total 0
 -rw-rw----. 1 maijam maijam          0 Feb 15 14:52 my-file
 -rw-rw----. 1 maijam project_2009999 0 Feb 15 14:53 my-other-file
@@ -47,9 +47,9 @@ total 0
 Example of fixing the permissions:
 
 ```bash
-[maijam@puhti project_2009999]$ chgrp -R project_2009999 demofolder/
-[maijam@puhti project_2009999]$ lfs find demofolder -type d -0 | xargs -0 chmod 2770
-[maijam@puhti project_2009999]$ lfs find demofolder -type f -0 | xargs -0 chmod g+rwX
+[maijam@roihu project_2009999]$ chgrp -R project_2009999 demofolder/
+[maijam@roihu project_2009999]$ lfs find demofolder -type d -0 | xargs -0 chmod 2770
+[maijam@roihu project_2009999]$ lfs find demofolder -type f -0 | xargs -0 chmod g+rwX
 ```
 
 More about Linux file permissions at RedHat documentation:
