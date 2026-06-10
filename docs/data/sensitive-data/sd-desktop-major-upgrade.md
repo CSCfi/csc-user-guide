@@ -1,8 +1,8 @@
-# SD Desktop: major upgrade to new version (CSC project- Academic type)
+# SD Desktop: major service upgrade (CSC project- Academic type)
 
 ## Overview
 
-The SD Desktop service has been upgraded to a new version and the changes are not fully backward comaptible. This guide explains the actions you need to take to continue accessing your virtual desktop and to restore import/export functionality using the new Data Gateway application. 
+The SD Desktop service has been upgraded to a new version and the changes and new features are not fully backward comaptible. This guide explains the actions you need to take to continue accessing your virtual desktop and to restore import/export functionality using the new Data Gateway application. 
 
 Your next steps depend on whether your virtual desktop currently has a volume attached.
 
