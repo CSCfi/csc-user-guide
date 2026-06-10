@@ -32,7 +32,7 @@ The following versions of CloudCompare are available:
 GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../computing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
 
 ## Usage
-Both versions of CloudCompare are available in web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi).
+CloudCompare is available in web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi).
 
 ### GPU-accelerated CloudCompare
 GPU-accelerated CloudCompare is available with [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
