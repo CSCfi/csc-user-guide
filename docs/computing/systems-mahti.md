@@ -86,7 +86,7 @@ dragonfly+ topology. The topology consists of multiple groups of nodes, each of
 which is internally connected with a fat tree topology, these fat trees are
 then connected to each other using all to all links.
 
-!["Simplified dragonfly+ toppology"](../img/mahti_df_ex.png)
+!["Simplified dragonfly+ topology"](../img/mahti_df_ex.png)
 
 In Mahti there are 234 nodes in each dragonfly group and the internal fat tree
 has a blocking factor of 1.7:1, with 20 or 18 nodes connected per leaf switch
@@ -95,7 +95,7 @@ links are 200 Gbps links. There are in total 6 groups, and between the groups
 there is fully non-blocking all-to-all connectivity, with 5 200 Gbps links
 going from each spine switch to one spine switch in every other group.
 
-!["Mahti dragonfly+ toppology"](../img/mahti_df.png)
+!["Mahti dragonfly+ topology"](../img/mahti_df.png)
 
 ## Storage
 

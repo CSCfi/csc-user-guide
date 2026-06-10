@@ -84,7 +84,7 @@ tools recommended by CSC is presented below.
 *[Error recovery]: The workflow tool supports detection/logging of errors and restarting of failed subtasks
 *[MPI/OpenMP-parallel subtasks]: The workflow tool supports MPI/OpenMP-parallel subtasks
 *[Slurm integration]: The workflow tool integrates well with Slurm
-*[Multi-partition support]: The workflow tool supports usage of different HPC partititions in one workflow, for example GPU and CPU partitions.
+*[Multi-partition support]: The workflow tool supports usage of different HPC partitions in one workflow, for example GPU and CPU partitions.
 
 ### Input/output efficiency
 
@@ -157,8 +157,8 @@ graph TD
   with `xargs`, see [xargsjob.sh] for example.
 * [FireWorks] is a workflow tools for complex dependencies and multi-node subtasks
 * [HyperQueue] is a tool for efficient sub-node task scheduling
-* [Nextflow] is a popular workflow tool with jobs with dependecies
-* [Snakemake] is a popular workflow tool with jobs with dependecies
+* [Nextflow] is a popular workflow tool with jobs with dependencies
+* [Snakemake] is a popular workflow tool with jobs with dependencies
   
 
 ### Science specific workflow tools and tutorials

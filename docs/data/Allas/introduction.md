@@ -15,7 +15,7 @@ The stored objects can be of any data type, such as images or compressed data fi
  * The data can be accessed from anywhere.
  * The data can have different levels of access control.
  * The data can have lifecycle policy set.
- * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or enven your phone.
+ * You can access Allas from any machine or server that is connected to internet. This can be a your laptop, supercomputer at CSC, virtual machine in cloud or even your phone.
 
 **Limitations**
 
@@ -145,6 +145,6 @@ Allas data is spread across various servers, which protects against disk and ser
 4. If moving data from/to your local machine, install the selected tool (not needed if using webinterfaces).
 5. [Configure the connection](using_allas/allas-conf.md) to Allas.
 6. Move data to/from Allas.
-7. If you want to share the data publically or with another project, change access rights for your data.
+7. If you want to share the data publicly or with another project, change access rights for your data.
 
 For last two steps, see tool specific instructions.

@@ -41,7 +41,7 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 1. Find correct folder from **All folders tab** and open it.
    
-2. Find corrects files. Click **Download** button on the right side of each file you want to download. Note that files are downloaded one-by-one.
+2. Find correct files. Click **Download** button on the right side of each file you want to download. Note that files are downloaded one-by-one.
 
 3. **Accept cookies** if needed: A pop-up window may appear at the top of your browser asking for cookie consent. The download will not start until cookies have been accepted.
 
@@ -64,7 +64,7 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 ## Download and manual decryption
 
-For files uploaded via SD Connect user interface before October 2024. These files will remain encrypted after dowlaod, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
+For files uploaded via SD Connect user interface before October 2024. These files will remain encrypted after download, and you will need to decrypt them manually  on your laptop with the Crypt4GH application by following the provided instructions:
 
 Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 

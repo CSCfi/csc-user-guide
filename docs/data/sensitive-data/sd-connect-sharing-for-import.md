@@ -78,9 +78,9 @@ among all root folders of all SD Connect and Allas projects.
 ### 2.2 Sharing the folder
 
 For sharing you need to know the _Sharing ID_ string of the data producer. You should request this 32 characters long 
-random string form the data producer by email. 
+random string from the data producer by email. 
 
-Do to the sharing, go to the folder list in SD Connect and press the share icon of the folder you wish to share.
+To do the sharing, go to the folder list in SD Connect and press the share icon of the folder you wish to share.
 Then copy the project ID to the first field of the sharing tool and select **Collaborate** as the sharing permission type.
 
 Now sharing is done and you can send the name of the shared bucket to the data producer by email.
