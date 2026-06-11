@@ -114,10 +114,12 @@ disk areas are expected to have read and write bandwidths of 120 GB/s and
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
-on the system. For longer-term storage and sharing of datasets we will
-introduce a new disk area called **ProjData**. ProjData access and quota will
+on the system. For longer-term storage and sharing of datasets between multiple projects, we will
+introduce a new disk area called **Dataset**. Dataset access and quota will
 be applied for and managed in MyCSC, and the disk area will have its own
 billing model.
+
+The dataset project will be implemented into Roihu after general availability.
 
 ### Local storage capacity
 
@@ -203,7 +205,7 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
 * [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-04-28)
+  (updated 2026-06-11)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
