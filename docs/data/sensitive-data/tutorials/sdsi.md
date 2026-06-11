@@ -26,7 +26,7 @@ The increased security is based on two main features:
 
 # Getting stared 
 
-Add Puhti service to your project. Next, contact CSC (sevicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. If CSC evaluates your use case suitable for this service, a robot account will be created for your project and a project specific server process is launched for you project by CSC.
+Add Puhti service to your project. Next, contact CSC (servicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. If CSC evaluates your use case suitable for this service, a robot account will be created for your project and a project specific server process is launched for you project by CSC.
 
 # Submitting jobs
 
