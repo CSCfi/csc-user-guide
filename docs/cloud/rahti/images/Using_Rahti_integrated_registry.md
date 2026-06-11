@@ -72,7 +72,7 @@ Finally select the new image.
 
 ## Access Control for the Rahti Integrated Registry
 
-Rahti provides granular control over access to the integrated image registry, allowing you to manage permissions based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/authentication_and_authorization/index).
+Rahti provides granular control over access to the integrated image registry, allowing you to manage permissions based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/authentication_and_authorization/index).
 
 As a Rahti user, you can choose how broadly your stored images are exposed for different scenarios.
 

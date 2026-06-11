@@ -55,7 +55,7 @@
     |-----------|-----------------------|-------------:|--------------------:|--------------------------:|----------------------------:|
     | Home      | `/users/$USER`        | 15 GiB       | 15 GiB              | 150k                      | 150k                        |
     | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB             | 150k                      | 2.5M                        |
-    | ProjData  | `/projdata/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
+    | Dataset  | `/dataset/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
     | Scratch   | `/scratch/<project>`  | 250 GiB      | 100 TiB             | 500k                      | 10M                         |
 
 
@@ -65,15 +65,15 @@
   via [MyCSC](https://my.csc.fi) beforehand if your data does not fit
   within the default limits.
 
-??? info "New ProjData disk area on Roihu"
+??? info "New Dataset disk area on Roihu"
     Users may apply for new "dataset projects" (cf. regular computing projects)
-    to get access to a new disk area on Roihu – **ProjData**. This disk area
+    to get access to a new disk area on Roihu – **Dataset**. This disk area
     allows storing datasets on the disk for a longer timer (no cleaning,
     lifetime is limited by the data project lifetime). Read access to the data
     can be shared globally, or with specific project IDs.
 
-    Dataset projects and ProjData quotas are applied for and managed via
-    [MyCSC](https://my.csc.fi). ProjData quota consumes Storage BUs.
+    Dataset projects and Dataset quotas are applied for and managed via
+    [MyCSC](https://my.csc.fi). Dataset quota consumes Storage BUs.
 
 ### 1.3. Add Roihu service access to your CSC project
 

@@ -22,10 +22,10 @@ graph LR;
     D{{"<b>One month after Roihu GA</b>
         Puhti <i>computing
         services</i> shut down"}} --> E;
-    E{{"<b>August 2026</b>
+    E{{"<b>End of August 2026</b>
         Puhti <i>storage
         services</i> shut down"}} --> F;
-    F{{"<b>August 2026</b>
+    F{{"<b>End of August 2026</b>
         Mahti
         shut down"}}
     style A fill:#dceeceff;
@@ -39,14 +39,23 @@ a break in HPC access.
 
 Puhti will be decommissioned in two steps: First, the computing services of
 Puhti will be shut down one month after the general availability of Roihu. This
-means that jobs cannot be submitted on Puhti anymore. However, Puhti's storage will
-remain accessible until August 2026, after which it will be retired
-completely. Mahti will be closed in August 2026.
+means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
+however, remain accessible until end of August 2026, after which Puhti will be retired
+completely. Mahti will be closed end of August 2026.
+
+### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it by August 2026 at the very latest.
-See [the Roihu migration guide](../support/tutorials/roihu-data.md) for instructions
-on moving your data from Mahti and Puhti to Roihu.
+prepared to do it during summer 2026, at the very latest in August 2026.
+See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
+directly from Mahti and Puhti to Roihu.
+
+If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
+consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
+
+For any questions and concerns regarding transferring data between the systems,
+feel free to contact the [CSC service desk](https://research.csc.fi/support/),
+or attend [CSC's weekly user support coffee breaks](https://research.csc.fi/training/csc-research-support-coffee-every-wednesday-at-1400-finnish-time/).
 
 ## Compute
 
@@ -73,6 +82,10 @@ each, as well as four high-memory CPU nodes with 6 TiB memory and higher
 single-thread performance.
 
 ### Nodes
+
+!!! note "Node names"
+     The node names below describe the different node types in Roihu. Batch job partitions and allocation types in Slurm may use different names. 
+     See the [Slurm partition documentation](running/batch-job-partitions.md) for how to request these resources in Slurm.
 
 | Name | Number of nodes | Compute        | Cores                          | Memory (GiB) | Local disk (TB) |
 |:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
@@ -101,10 +114,12 @@ disk areas are expected to have read and write bandwidths of 120 GB/s and
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
-on the system. For longer-term storage and sharing of datasets we will
-introduce a new disk area called **ProjData**. ProjData access and quota will
+on the system. For longer-term storage and sharing of datasets between multiple projects, we will
+introduce a new disk area called **Dataset**. Dataset access and quota will
 be applied for and managed in MyCSC, and the disk area will have its own
 billing model.
+
+The dataset project will be implemented into Roihu after general availability.
 
 ### Local storage capacity
 
@@ -116,13 +131,13 @@ node will include a total of 13 TiB of fast NVMe disks.
 The available storage quota that a single user can access in their jobs depends
 on the system [partition](running/batch-job-partitions.md) they use:
 
-| Allocation type    | Quota per user |
-|:-------------------|---------------:|
-| R (shared nodes)   | 20 GiB         |
-| N (full nodes)     | 600 GiB        |
-| G (GPU nodes)      | 150 GiB        |
-| Hugemem (XL) nodes | 1.6 TiB        |
-| VIZ nodes          | 6.5 TiB        |
+| Allocation type         | Quota per user |
+|:------------------------|---------------:|
+| R (shared nodes)        | 20 GiB         |
+| N (full nodes)          | 600 GiB        |
+| G (GPU nodes)           | 150 GiB        |
+| Hugemem (XL) nodes      | 1.6 TiB        |
+| V (visualization nodes) | 6.5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
@@ -156,12 +171,41 @@ including:
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
 
+A list of currently supported applications on Roihu can be found on the
+[applications page](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/apps/by_availability/#roihu).
+
+## Sensitive data services in Roihu
+
+CSC supercomputers, including Roihu, are maintained according to the best practices of HPC
+management: processes are planned and documented, systems are constantly monitored, and
+security patches are applied without delay.
+Further, all users log in using two-factor authentication.
+Thus, these environments are quite secure by default.
+However, CSC can't guarantee that there is no risk of a data breach, as
+new security incidents emerge from time to time.
+
+For use cases that require higher security, Roihu is being developed to support workflows
+that require enhanced controls for handling sensitive and confidential data.
+Roihu will introduce dedicated capabilities for regulated data workflows.
+
+The sensitive data capability will be introduced after Roihu's initial availability.
+Pilot use of the sensitive computing environment is currently estimated to begin in autumn 2026,
+with general availability potentially following in early 2027, depending on the results and
+experiences from the pilot phase.
+
+The user workflow is expected to resemble CSC’s current Sensitive Data Desktop to HPC job submission model,
+where sensitive data jobs are submitted from a secure environment (SD Desktop) and input/output data are
+handled through protected data services (SD Connect). The jobs will be executed in job-specific isolated
+environments that will not be able to access the internet or the shared disk areas of Roihu.
+
+Read more about the [sensitive data services at CSC](../data/sensitive-data/index.md).
+
 ## More information
 
 * [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-04-28)
+  (updated 2026-06-11)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!

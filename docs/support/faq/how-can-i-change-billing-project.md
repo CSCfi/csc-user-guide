@@ -5,8 +5,9 @@ selecting the project first.
 
 * In supercomputer batch jobs, you specify the billing project in the batch job
   script. There is a separate documentation for
-  [**Puhti**](../../computing/running/creating-job-scripts-puhti.md) and
-  [**Mahti**](../../computing/running/creating-job-scripts-mahti.md).
+  [**Puhti**](../../computing/running/creating-job-scripts-puhti.md),
+  [**Mahti**](../../computing/running/creating-job-scripts-mahti.md) and
+  [**Roihu**](../../computing/running/creating-job-scripts-roihu.md)].
 * In **Allas**, the project to use is specified using the
   [`allas-conf` command](../../data/Allas/accessing_allas.md).
 * In **cPouta** or **ePouta**, you

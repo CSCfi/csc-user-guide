@@ -103,7 +103,7 @@ plugins:
       # reorganization:
       "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
-      "computing/allas.md": "data/Allas/allas-hpc.md"
+      "computing/allas.md": "data/Allas/allas-roihu.md"
       "computing/containers/creating.md": "computing/containers/overview.md"
       "computing/containers/run-existing.md": "computing/containers/overview.md"
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
@@ -138,7 +138,7 @@ plugins:
       "computing/nsys.md": "apps/nsys.md"
       "computing/nvprof.md": "apps/nvprof.md"
       "computing/pdb.md": "apps/pdb.md"
-      "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
+      "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
       # files moved to Allas:
       # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
       "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"

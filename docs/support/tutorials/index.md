@@ -4,7 +4,7 @@
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
 * [Getting started with Quantum computers](../../computing/quantum-computing/access.md)
-* [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+* [Managing data on supercomputer scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
 * [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
@@ -21,10 +21,12 @@
 
 * [Getting started with Roihu](roihu.md)
 * [Roihu data migration guide](roihu-data.md)
+* [Preparing for Roihu: Data management and temporary storage options](roihu-data-preparation.md)
 
 ## Installation of tools on supercomputers
 
 * [Installing software with Spack](user-spack.md)
+* [Installing software with Spack on Roihu](roihu-user-spack.md)
 * [Conda best practices](conda.md)
 
 ## Performance and high-throughput workflows
@@ -47,7 +49,7 @@
 
 ## Allas
 
-* [Using Allas interactively in Puhti and Mahti](../../data/Allas/allas-hpc.md)
+* [Using Allas interactively in Roihu](../../data/Allas/allas-roihu.md)
 * [Using Allas in batch jobs](../../data/Allas/allas_batchjobs.md)
 * [Using Allas to host a dataset for a research project](../../data/Allas/allas_project_example.md)
 * [Tools for client side encryption for Allas](../../data/Allas/allas_encryption.md)
