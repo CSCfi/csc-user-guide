@@ -43,7 +43,7 @@ The deadline for the applications was in March 2026.
 
 In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH.
 
-[Read the instructions for getting and using SSH certificates here](../../computing/connecting/ssh-keys#signing-public-key).
+[Read the instructions for getting and using SSH certificates here](../../computing/connecting/ssh-keys.md#signing-public-key).
 
 Short talk: SSH authentication changes to Roihu
 
