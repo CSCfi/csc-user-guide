@@ -7,7 +7,7 @@ Please familiarize yourself with the areas and their specific
 purposes.
 
 Roihu users can also apply for separate dataset projects.
-These provide access to a dedicated disk area, **projdata**, intended for sharing
+These provide access to a dedicated disk area, **dataset**, intended for sharing
 datasets between multiple projects. Unlike computational projects, dataset projects
 do not include `scratch` or `projappl` directories.
 
@@ -25,7 +25,7 @@ See [a more technical description of the Lustre filesystem on CSC supercomputers
 |**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
 |**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
 |**scratch**  |Project |Not defined         |`/scratch/<project>`  |180 days             |No              |
-|**projdata** |Project |Not defined         |`/projdata/<project>` |No                   |No              |
+|**dataset** |Project |Not defined         |`/dataset/<project>` |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
@@ -34,7 +34,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**home**    |15 GiB  |150 000 files  |                              |
 |**projappl**|15 GiB  |150 000 files  |                              |
 |**scratch** |250 GiB |500 000 files  |                              |
-|**projdata**|0 GiB   |0 files        |Must be applied for separately|
+|**dataset**|0 GiB   |0 files        |Must be applied for separately|
 
 !!! info "LUE (not implemented 2026-04-22)"
     To easily check the amount of data and number of files within a given folder on
@@ -167,17 +167,22 @@ Any data that should be preserved for a longer time should be copied to the *All
 object storage server. Instructions for backing up files from CSC supercomputers to
 Allas can be found in the [Allas guide](../data/Allas/index.md).
 
-## Projdata directory
+## Dataset directory
 
-Roihu users can apply for separate dataset projects, which provide access to shared disk
-area under `/projdata/<project>`, but no computational resources.
+Roihu users can apply for separate dataset projects, which provide access to a shared disk
+area under `/dataset/<project>`, but no computational resources.
+
+!!! note "Dataset project is not available yet"
+     The dataset project is not yet available, and will be implemented into Roihu after general availability.
 
 Unlike normal computational projects, dataset projects do not include scratch or projappl
 directories. Instead, they are designed specifically for sharing data between multiple
 projects.
 
-Write access to a projdata directory is restricted to a single project, while multiple
+Write access to a dataset directory is restricted to a single project, while multiple
 other projects can be granted read access to this disk area.
+
+See details for [how to apply for a dataset project](../accounts/how-to-create-new-project.md#dataset-project) in MyCSC.
 
 !!! note
      Dataset projects are intended for data sharing and active use, not long-term storage.</br>

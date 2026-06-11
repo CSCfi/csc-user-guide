@@ -21,12 +21,12 @@ This also means that if you are a member of several projects, you also have
 access to multiple scratch and projappl directories. You will, however,
 only have one home directory.
 
-In addition, Roihu provides a fourth storage area, *projdata*. Projdata is
+In addition, Roihu provides a fourth storage area, *dataset*. Dataset is
 project-based shared storage for data that needs to be kept available on Roihu
 for longer than temporary scratch data, and can be shared between different computational
-projects. Projdata access and quota must be applied for
-separately and are managed in MyCSC. Projdata also has a separate billing model.
-See the [ProjData documentation](../../computing/roihu-disk.md#projdata-directory) for details.
+projects. Dataset access and quota must be applied for
+separately and are managed in MyCSC. Dataset also has a separate billing model.
+See the [Da tasetdocumentation](../../computing/roihu-disk.md#dataset-directory) for details.
 
 When logging in to CSC supercomputers, you should change to your project's
 scratch directory because the home directory is not intended for storing data

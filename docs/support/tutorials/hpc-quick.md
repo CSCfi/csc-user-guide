@@ -249,11 +249,11 @@ personal home directory (`$HOME`).
 
 If you need to host datasets that are shared by multiple projects, you can
 apply for a separate *dataset project* on Roihu. This gives you access to a
-`projdata` directory under `/projdata/<project>`, which is a project-specific
+`dataset` directory under `/dataset/<project>`, which is a project-specific
 storage area intended for sharing data between multiple computational projects
 on the system.
 
-See details about [dataset projects and the projdata disk area](../../computing/roihu-disk.md#projdata-directory).
+See details about [dataset projects and the dataset disk area](../../computing/roihu-disk.md#dataset-directory).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is easy using the
