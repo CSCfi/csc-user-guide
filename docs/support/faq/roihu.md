@@ -43,7 +43,7 @@ The deadline for the applications was in March 2026.
 
 In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH.
 
-[Read the instructions for getting and using SSH certificates here](../../computing/connecting/ssh-keys/#signing-public-key).
+[Read the instructions for getting and using SSH certificates here](../../computing/connecting/ssh-keys#signing-public-key).
 
 Short talk: SSH authentication changes to Roihu
 
@@ -128,7 +128,7 @@ and/or Mahti will not be carried over to Roihu.
 Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026.
 Mahti and Puhti storage will be shut down at the end of August 2026.
 
-See the [data migration guide](../tutorials/roihu-data.md), for how you can move data directly from Mahti and Puhti to Roihu.
+See the [data migration guide](../tutorials/roihu-data), for how you can move data directly from Mahti and Puhti to Roihu.
 
 Short talk: Roihu data migration tips:
 
@@ -143,12 +143,12 @@ That data does not need to be migrated, as Allas service will stay available als
 
 It is not recommended to transfer data to from Mahti/Puhti to Roihu via Allas or your local workstation.
 Instead, CSC recommends using command-line based tools such as
-[`rsync`](../../support/tutorials/roihu-data/#2-recommended-data-migration-methods)
+[`rsync`](../../support/tutorials/roihu-data#2-recommended-data-migration-methods)
 to directly transfer data from Puhti/Mahti/LUMI to Roihu.
 
 ### 11. When copying data, is it fine to run the rsync on login nodes, or should we use the computation nodes to do the transfer?
 
-It is ok to use rsync on the Mahti/Puhti login nodes. Please read the [data migration guide](../tutorials/roihu-data.md)
+It is ok to use rsync on the Mahti/Puhti login nodes. Please read the [data migration guide](../tutorials/roihu-data)
 carefully, and consider compressing your data before transferring it, to save time and resources
 used in the migration. Only move data that you truly need.
 
@@ -215,7 +215,7 @@ A list of installed software is not yet available in the documentation, but will
 
 ### 18. Will Roihu partitions have the same memory/time limits as on Mahti and Puhti?
 
-There will be some changes in the available partition names and the corresponding hardware. You can already see the available partitions and the corresponding limits in the [work in progress documentation for Roihu](../../computing/running/batch-job-partitions/#roihu-partitions).
+There will be some changes in the available partition names and the corresponding hardware. You can already see the available partitions and the corresponding limits in the [work in progress documentation for Roihu](../../computing/running/batch-job-partitions#roihu-partitions).
 
 ### 19. Will Roihu have a longrun partition? What will be the maximum runtime?
 
