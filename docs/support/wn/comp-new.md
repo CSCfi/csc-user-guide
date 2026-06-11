@@ -2,7 +2,7 @@
 
 ## Roihu FAQ and data migration instructions updated, 11.6.2026
 
-The [Roihu FAQ](../faq/roihu.md) and [data migration instructions](../tutorials/roihu-data-preparation.md) [](../) have
+The [Roihu FAQ](../faq/roihu.md) and [data migration instructions](../tutorials/roihu-data-preparation.md) have
 been updated with the latest schedule information for the transition from Puhti
 and Mahti to Roihu. Roihu is scheduled to become generally available during end of June 2026.
 
