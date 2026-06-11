@@ -52,12 +52,12 @@ The easiest way to add students to a course project is to use an [invitation lin
 
 ## Dataset project
 
-Dataset projects are used to share data between CSC projects in Roihu. A dataset project provides a shared disk area under `/dataset/<project>`, but it **does not include computational resources**. A dataset project consumes storage [billing units](billing.md).
+Dataset projects are used to share data between CSC projects in Roihu. A dataset project provides a shared disk area under `/dataset/<project>` in Roihu, but it **does not include computational resources**. A dataset project consumes storage [billing units](billing.md).
 
 Use a dataset project when you need to maintain one shared copy of data that several projects can read.
 
 !!! note "Dataset projects are not available yet"
-     Dataset projects are not yet available. They will be added to Roihu after general availability.
+     Dataset projects are not yet available. This functionality will be added to Roihu after general availability.
 
 Each dataset directory has one owning project with write access. Other projects (or even all projects on the system) can be granted read access to the same dataset directory.
 

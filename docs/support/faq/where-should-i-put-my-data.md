@@ -26,7 +26,7 @@ project-based shared storage for data that needs to be kept available on Roihu
 for longer than temporary scratch data, and can be shared between different computational
 projects. Dataset access and quota must be applied for
 separately and are managed in MyCSC. Dataset also has a separate billing model.
-See the [Da tasetdocumentation](../../computing/roihu-disk.md#dataset-directory) for details.
+See the [Dataset documentation](../../computing/roihu-disk.md#dataset-directory) for details.
 
 When logging in to CSC supercomputers, you should change to your project's
 scratch directory because the home directory is not intended for storing data
