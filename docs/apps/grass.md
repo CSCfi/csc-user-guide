@@ -95,6 +95,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_5-ubuntu_wxgui --prefix 8.5
 wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui --prefix 8.3
 ´´´
+
 * GRASS 7.x was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
 
 
