@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # GDAL
@@ -21,13 +22,16 @@ catalog:
 
 GDAL is available with following versions:
 
+* 3.12.4 - in the 3.44.9 [QGIS](qgis.md) in Roihu.
+* 3.12.2 - in the 3.14.5 [python-geo](python-geo.md) in Roihu
+* 3.12.2 stand-alone: `gdal` in Roihu. Additionally is availble `proj/9.7.0`.
 * 3.9.2 - in the 3.38 [QGIS](qgis.md) and 3.11.10 [geoconda](geoconda.md) in Puhti
 * 3.9.1 - in the 3.11.9 [geoconda](geoconda.md) in Puhti and Mahti
 * 3.8.5 stand-alone: `gdal` in Puhti
 * 3.8.3 - in the 3.31 [QGIS](qgis.md) in Puhti and LUMI
 * 3.6.2 - in the 3.10.x [geoconda](geoconda.md) in Puhti and Mahti
 * 3.4.3 stand-alone: `gdal` in Puhti
-* Also in Puhti: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
+* Also in: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note
     The stand-alone GDAL and R modules don't have Python bindings installed so e.g `gdal_calc` works only in the geoconda and qgis modules. Also, the supported file formats vary between the modules. `gdal/3.4.3` has the most limited driver support and no support for virtual drivers. It is possible to add more drivers to standalone and r-env GDAL installations, please ask. geoconda and qgis GDAL installations are based on conda gdal package and are impossible to change regarding drivers support. Use `gdalinfo --formats` to see supported raster formats and `ogrinfo --formats` for vector formats.
@@ -38,9 +42,13 @@ GDAL is included in the modules listed above, so it can be used when any of thes
 The stand-alone `gdal` module is mainly meant for building software on top of GDAL, but can also be used for command-line usage. To load stand-alone `gdal` use:
 
 ```
-# GDAL 3.8.5
+# GDAL 3.12.2 (Roihu)
+gcc/15.2.0  openmpi/5.0.10 gdal/3.12.2
+
+# GDAL 3.8.5 (Puhti)
 module load gcc/13.2.0 openmpi/5.0.5 gdal/3.8.5
-# GDAL 3.4.3
+
+# GDAL 3.4.3 (Puhti)
 module load gcc/11.3.0 gdal/3.4.3
 ```
 
@@ -48,9 +56,11 @@ You can test if GDAL loaded successfully with following
 
 `gdalinfo --version`
 
-With `r-env` gdal commands can be used as:
+With `r-env` gdal commands can be used as (only in Puhti):
 
 `apptainer_wrapper exec gdalinfo --version`
+
+Note that, starting with GDAL 3.11, parts of the GDAL utilities are available from a [new single gdal program](https://gdal.org/en/stable/programs/index.html) that accepts commands and subcommands.
 
 
 #### Using files directly from object storage services or cloud, inc Allas
@@ -66,7 +76,7 @@ With large quantities of raster data (also in Allas), the most convenient method
 [GDAL is licensed under an MIT/X style license](https://gdal.org/license.html)
 
 ## Citation
-GDAL/OGR contributors (2024). 
+GDAL/OGR contributors (2026). 
 GDAL/OGR Geospatial Data Abstraction software Library. 
 Open Source Geospatial Foundation. 
 URL https://gdal.org, 
