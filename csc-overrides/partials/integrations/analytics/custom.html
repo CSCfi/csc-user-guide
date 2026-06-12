@@ -8,12 +8,69 @@
     _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
-    (function() {
-      var u=`https://${MATOMO_URL}/`;
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
+    (function () {
+      var u = `https://${MATOMO_URL}/`;
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
       _paq.push(['setSiteId', MATOMO_SITE_ID]);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
     })();
+
+    /* search tracking. Fires when a result is clicked, user presses enter or leaves
+       the search box. */
+    document.addEventListener('DOMContentLoaded', function () {
+      var input = document.querySelector('.md-search__input');
+      if (!input) return;
+
+      /* Track last search to avoid duplicate tracking */
+      var lastTracked = '';
+
+      /* Push completed searches to _paq */
+      function trackSearch() {
+        var query = input.value.trim();
+        /* Skip trivial queries */
+        if (query.length < 3) return;
+        if (query === lastTracked) return;
+        lastTracked = query;
+
+        var results = document.querySelectorAll(
+          '[data-md-component=search-result] .md-search-result__link'
+        ).length;
+
+        _paq.push(['trackSiteSearch', query, 'Documentation', results]);
+      }
+
+      /* Mark search as done with enter key. */
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') trackSearch();
+      });
+
+      /* User clicks on a result. Search results are dynamic, so the links don't exist before
+        user starts typing. Need to use container. */
+      var resultsContainer = document.querySelector('[data-md-component=search-result]');
+      if (resultsContainer) {
+        /* Use mousedown so search tracking can be done before navigation */
+        resultsContainer.addEventListener('mousedown', function (e) {
+          var link = e.target.closest('.md-search-result__link');
+          if (!link) return;
+
+          /* Record the search keyword */
+          trackSearch();
+
+          var links = document.querySelectorAll(
+            '[data-md-component=search-result] .md-search-result__link'
+          );
+          var position = Array.prototype.indexOf.call(links, link) + 1;
+          var query = input.value.trim();
+
+          /* Record the click. Query and clicked path in separate fields. */
+          _paq.push(['setCustomDimension', 1, link.pathname]);
+          _paq.push(['trackEvent', 'Site Search', 'Result Click', query, position]);
+        });
+      }
+
+      /* Captures abandoned searches (search is cleared, search bar closed) */
+      input.addEventListener('blur', trackSearch);
+    });
   }
 </script>
