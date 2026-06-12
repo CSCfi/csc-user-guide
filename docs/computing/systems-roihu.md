@@ -19,7 +19,7 @@ graph LR;
     C{{"<b>June 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"<b>One month after Roihu GA, end of July</b>
+    D{{"<b>End of July 2026</b>
         Puhti <i>computing
         services</i> shut down"}} --> E;
     E{{"<b>End of August 2026</b>
@@ -27,9 +27,9 @@ graph LR;
         services</i> shut down"}} --> F;
     F{{"<b>Mid October 2026</b>
         Puhti <i>storage
-        services</i> and login nodes shut down"}} --> G;
+        services</i> shut down"}} --> G;
     G{{"<b>Mid October 2026</b>
-        Mahti <i>storage services</i> and login nodes
+        Mahti <i>storage services</i>
         shut down"}}
     style A fill:#dceeceff;
 ```
