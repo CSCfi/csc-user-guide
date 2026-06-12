@@ -1,16 +1,16 @@
 # Systems
 
 !!! warning "Puhti and Mahti retirement in 2026"
-    Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
-    next-generation supercomputer offering enhanced performance and
-    capabilities.
+     Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+     next-generation supercomputer offering enhanced performance and
+     capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu general
-      availability in spring 2026.
-    * Puhti storage will remain accessible until August 2026.
-    * Mahti will be shut down in August 2026.
-
-    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
+     * Puhti computing services will be shut down by 31 July 2026
+     * Mahti computing services will be shut down by 31 August 2026
+     * Puhti and Mahti storage and login nodes are planned to remain accessible
+       until 15 October 2026
+     * Users are strongly encouraged to move any required data from these systems by the end of
+       August 2026, as storage access cannot be guaranteed after that
 
 CSC's computing environment consists of supercomputers Puhti and
 Mahti. Puhti and Mahti have a

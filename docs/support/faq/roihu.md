@@ -16,11 +16,16 @@ Please observe that delays are still possible.
 ## 2. When will Puhti/Mahti be shut down?
 
 Puhti compute resources will be shut down one month after Roihu general
-availability. This means that jobs can no longer be submitted. The storage
-will, however, remain accessible until August 2026 to allow sufficient time for
-data migration between the systems for those that need it.
+availability, by 31 July 2026. After this, jobs can no longer be submitted on
+Puhti. Puhti storage and login nodes are planned to remain accessible until
+15 October 2026.
 
-Mahti (both compute and storage) will be shut down in August 2026.
+Mahti compute resources will be shut down on 31 August 2026. Mahti storage and
+login nodes are planned to remain accessible until 15 October 2026.
+
+We strongly encourage users to move any required data by the end of August
+2026, as Mahti and Puhti storage services will not be covered by service contracts between
+September and October, and availability cannot be fully guaranteed.
 
 [Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
 
@@ -85,7 +90,8 @@ Roihu "just in case" is not acceptable. Roihu will implement a similar data
 cleanup cycle as Puhti and, as stated above, prior quota extensions on Puhti
 and/or Mahti will not be carried over to Roihu.
 
-Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026. Mahti and Puhti storage will be shut down at the end of August 2026.
+Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026.
+Mahti and Puhti storage will be fully shut down 15 October 2026.
 
 You can already familiarize yourself with the [data migration guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#14-transfer-your-data-directly-from-puhtimahti-to-roihu), before Roihu becomes available.
 
