@@ -272,11 +272,11 @@ See the relevant documentation below for detailed information:
 
 For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
-### Known issues (pilot phase)
+### Known issues
 
 #### Argos errors
 
-During the pilot phase, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
+During early use on Roihu, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
 
 ```
 error: argos:slurm_spank_task_init: get_env_var: cannot get SLURM_ARGOS_SPANK_OPT from job(22474) environment (No such environment variable)
@@ -301,6 +301,8 @@ srun --argos=no <your-executable>
 ```
 
 The same option can also be passed as an `#SBATCH` input.
+
+Argos will be fully disabled on Roihu during Fall 2026.
 
 ## More information
 
