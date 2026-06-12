@@ -1,10 +1,10 @@
-# Connecting to Puhti and Mahti web interfaces
+# Connecting to Roihu, Puhti and Mahti web interfaces
 
 --8<-- "mfa-update.md"
 
 1. Ensure that you have a CSC account:
     * [Instructions for creating a new CSC user account](../../accounts/how-to-create-new-user-account.md).
-2. Using a web browser, go to [www.puhti.csc.fi](https://www.puhti.csc.fi) or
+2. Using a web browser, go to [www.roihu.csc.fi](https://www.roihu.csc.fi), [www.puhti.csc.fi](https://www.puhti.csc.fi) or
    [www.mahti.csc.fi](https://www.mahti.csc.fi).
 3. On the landing page, click on "Log in" and select an appropriate
    authentication provider.

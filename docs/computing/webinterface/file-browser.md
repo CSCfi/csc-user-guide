@@ -114,7 +114,7 @@ settings:
 6. Bearer token: Leave empty
 7. Advanced config: No
 
-After completing the Rclone configuration, restart the Puhti/Mahti web
+After completing the Rclone configuration, restart the Roihu/Puhti/Mahti web
 interface by clicking _Restart web server_ in the _Help_ menu in the top-right
 section of the navbar. IDA can now be accessed in the file browser, where you
 will be able to upload, download, transfer and edit files in the staging area,
