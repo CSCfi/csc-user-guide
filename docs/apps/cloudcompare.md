@@ -10,7 +10,9 @@ catalog:
   available_on:
     - web_interfaces:
         - Puhti
+        - Roihu
     - Puhti
+    - Roihu
 ---
 
 # CloudCompare
@@ -21,21 +23,22 @@ The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing 
 
 ## Available
 
-The following versions of CloudCompare are available in **Puhti**:
+The following versions of CloudCompare are available:
 
-- CloudCompare 2.12.4 for GPU partitions. Plugins: qEDL, qPDALIO, qAnimation and qPCV.
-- CloudCompare 2.10.3 for CPU partitions with more plugins than the GPU version.
+- CloudCompare 2.14 for CPU partitions **In Roihu**. GPU version for Roihu is coming later.
+- CloudCompare 2.12.4 for GPU partitions. Plugins: qEDL, qPDALIO, qAnimation and qPCV. **In Puhti**.
+- CloudCompare 2.10.3 for CPU partitions with more plugins than the GPU version. **In Puhti**.
 
 GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../computing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
 
 ## Usage
-Both versions of CloudCompare are available in [Puhti web interface](https://puhti.csc.fi).
+CloudCompare is available in web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi).
 
 ### GPU-accelerated CloudCompare
 GPU-accelerated CloudCompare is available with [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
    
 ### Basic CloudCompare
-Basic CloudCompare is available via [Desktop app](../computing/webinterface/desktop.md). After launching the remote desktop, double-click CloudCompare icon OR open `Terminal` (Desktop icon) and start CloudCompare:
+Basic CloudCompare is available via [Desktop app](../computing/webinterface/desktop.md). After launching the remote desktop, double-click `CloudCompare`/`ccViewer` icon OR open `Terminal` (Desktop icon) and start CloudCompare:
 
 ```
 module load cloudcompare
