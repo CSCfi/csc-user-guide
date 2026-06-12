@@ -93,6 +93,11 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 Standalone GDAL was installed to Puhti using [Spack and its GDAL package definition](https://packages.spack.io/package.html?name=gdal). For other installations, see respective application page.
 
+Installation settings for 3.12.2. `+` means enabled option,
+```
+gdal+deflate+expat+gif+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+parquet+png+postgresql+zstd
+```
+
 Installation settings for 3.8.5. `+` means enabled option, `~` disabled.
 ```
 gdal@3.8.5+arrow+curl+deflate+expat+geos+gif+hdf4+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+png+postgresql+spatialite+sqlite3+zstd
