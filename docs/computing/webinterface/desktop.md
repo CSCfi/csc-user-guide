@@ -1,10 +1,26 @@
 # Desktop
 The desktop enables using graphical applications on a Puhti or Mahti compute node.
 
-In the Puhti web interface, the following applications are available in the desktop:
+## Available applications
 
+### Roihu
+
+The Desktop app is only available on the CPU partitions, with the following
+applications:
+
+* [ccViewer](../../apps/cloudcompare.md)
 * [CloudCompare](../../apps/cloudcompare.md)
+* [GRASS GIS](../../apps/grass.md)
+* [MATLAB](../../apps/matlab.md)
+* [Maestro](../../apps/maestro.md)
+* [QGIS](../../apps/qgis.md)
+* [SAGA GIS](../../apps/saga-gis.md)
+* [SNAP](../../apps/snap.md)
+
+### Puhti
+
 * [COMSOL](../../apps/comsol.md)
+* [CloudCompare](../../apps/cloudcompare.md)
 * [GRASS GIS](../../apps/grass.md)
 * [Grace](../../apps/grace.md)
 * [MATLAB](../../apps/matlab.md)
@@ -14,14 +30,14 @@ In the Puhti web interface, the following applications are available in the desk
 * [SNAP](../../apps/snap.md)
 * [VMD](../../apps/vmd.md)
 
-On Mahti, the following applications are available:
+### Mahti
 
 * [Maestro](../../apps/maestro.md)
 * [VMD](../../apps/vmd.md)
 
 Only CPU rendering is supported in the graphical applications launched from the desktop.
 See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
-for selected applications on Puhti.
+for selected applications on Roihu and Puhti.
 
 
 ## Launching
@@ -39,9 +55,9 @@ There are two options for connecting to the remote desktop:
 ## Using the desktop
 The available applications can be found in the applications menu, found in the top-left corner, or
 by right-clicking the desktop. Application shortcuts directly on the desktop can also be generated
-or reset to the defaults by enabling the *Reset desktop icons* option in the Desktop app launch form
-on Mahti. To add additional desktop shortcuts, you can drag desired applications from the
-applications menu to the desktop.
+or reset to the defaults by enabling the *Reset desktop icons* option in the Desktop app launch
+form. To add additional desktop shortcuts, you can drag desired applications from the applications
+menu to the desktop.
 
 
 For starting any other software available on the supercomputers:
@@ -49,5 +65,5 @@ For starting any other software available on the supercomputers:
 1. Open terminal
 2. Start the software as described in [Applications section](../../apps/index.md), usually `module load XX` and `<start_command_for_XX>`.
 
-(The applications menu in desktop does not include all Puhti or Mahti scientific applications.)
+The applications menu in desktop does not include all scientific applications available on the cluster.
 
