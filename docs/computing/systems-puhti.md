@@ -6,13 +6,14 @@ search:
 # Technical details about Puhti
 
 !!! warning "Puhti step-wise retirement during spring and summer 2026"
-    Puhti will be gradually decommissioned during spring and summer 2026 and
+    Puhti will be gradually decommissioned during summer 2026 and
     replaced by Roihu, CSC's next-generation supercomputer offering enhanced
     performance and capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu general
-      availability in summer 2026.
-    * Puhti storage will remain accessible until August 2026.
+    Puhti computing services will be shut down on 31 July 2026. Storage and
+    login nodes are planned to remain accessible until 15 October 2026, but
+    users are strongly encouraged to move any required data by the end of
+    August 2026.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
