@@ -2,8 +2,8 @@
 
 !!! info "Note"
     This page contains preliminary information about CSC's next national
-    supercomputer Roihu, which is projected to be in researchers' use in spring
-    2026. Please note that the details may evolve over time.
+    supercomputer Roihu, which is projected to be available for researchers
+    in summer 2026. Please note that the details may evolve over time.
     [See tentative schedule below](#schedule).
 
 ## Schedule
@@ -32,7 +32,7 @@ graph LR;
 ```
 
 **Roihu** will be installed in the same datacenter as LUMI, meaning that the
-system will be brought up without disturbing Puhti and Mahti services. There
+system will be brought up without disrupting Puhti and Mahti services. There
 will also be a margin between Roihu general availability and the
 decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
 a break in HPC access.
@@ -46,8 +46,9 @@ completely. Mahti will be closed end of August 2026.
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide after Roihu's general availability.
+prepared to do it during summer 2026, at the very latest in August 2026.
+See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
+directly from Mahti and Puhti to Roihu.
 
 If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
 consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
@@ -71,9 +72,9 @@ memory of 1 536 GiB each.
 
 Each GPU node will be equipped with 4 Nvidia GH200 Grace Hopper superchips.
 Each GH200 superchip comprises one Hopper (H100) GPU and one Grace CPU with
-72 ARM CPU cores which are connected with a very fast interface. Each
+72 ARM CPU cores, which are connected via a very fast interface. Each
 GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing
-a total of 480 GiB CPU memory per node. This gives a total of 528 GPUs and
+a total of 480 GiB CPU memory per node. This results in a total of 528 GPUs and
 38 016 CPU cores in the whole GPU partition.
 
 The system will also provide four visualization nodes with two Nvidia L40 GPUs
@@ -81,6 +82,10 @@ each, as well as four high-memory CPU nodes with 6 TiB memory and higher
 single-thread performance.
 
 ### Nodes
+
+!!! note "Node names"
+     The node names below describe the different node types in Roihu. Batch job partitions and allocation types in Slurm may use different names. 
+     See the [Slurm partition documentation](running/batch-job-partitions.md) for how to request these resources in Slurm.
 
 | Name | Number of nodes | Compute        | Cores                          | Memory (GiB) | Local disk (TB) |
 |:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
@@ -102,53 +107,72 @@ and users' personal Home directories. Separate file systems will ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
 The Scratch disk of Roihu will be more than ten times as performant as Puhti
-Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected to
-be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl will
-have read and write bandwidths of 120 GB/s and 100 GB/s, respectively.
+Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected
+to be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl
+disk areas are expected to have read and write bandwidths of 120 GB/s and
+100 GB/s, respectively.
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
-on the system. For longer-term storage and sharing of datasets we will
-introduce a new disk area called **ProjData**. ProjData access and quota will
+on the system. For longer-term storage and sharing of datasets between multiple projects, we will
+introduce a new disk area called **Dataset**. Dataset access and quota will
 be applied for and managed in MyCSC, and the disk area will have its own
 billing model.
+
+The dataset project will be implemented into Roihu after general availability.
 
 ### Local storage capacity
 
 Each Roihu CPU and GPU node will have a small 960 GB local disk suitable for
 storing temporary files during jobs. High-performance local storage will be
-available on the high-memory and visualization nodes, each of which will
-include 2 x 7.68 TB fast NVMe disks.
+available on the high-memory (XL) and visualization (VIZ) nodes, where each
+node will include a total of 13 TiB of fast NVMe disks.
+
+The available storage quota that a single user can access in their jobs depends
+on the system [partition](running/batch-job-partitions.md) they use:
+
+| Allocation type         | Quota per user |
+|:------------------------|---------------:|
+| R (shared nodes)        | 20 GiB         |
+| N (full nodes)          | 600 GiB        |
+| G (GPU nodes)           | 150 GiB        |
+| Hugemem (XL) nodes      | 1.6 TiB        |
+| V (visualization nodes) | 6.5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
-provided over the network and will appear as local scratch from within a Slurm
-job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
+provided over the network and will appear as local scratch storage from within a
+Slurm job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
 
 ## Network
 
-The network of Roihu is based on Infiniband NDR interconnect. Each CPU node
+The network of Roihu is based on an InfiniBand NDR interconnect. Each CPU node
 will be connected to the network with one 200 Gb/s link, while in the GPU
-partition there will be four 200 Gb/s links per node, one for each GPU.
+partition there will be four 200 Gb/s links per node, one per GPU.
 
 ## Software and programming environment
 
 We intend to provide a comprehensive stack of pre-installed HPC libraries and
-scientific software on Roihu similar to Puhti and Mahti. Some older and less
-used software and software versions may, however, be deprecated. Please also
+scientific software on Roihu, similar to those on Puhti and Mahti. Some older and less
+used software packages and versions may, however, be deprecated. Please also
 note that any software compiled on Puhti and Mahti will most likely need to be
-recompiled on Roihu. More information will be included in the migration guide.
+recompiled on Roihu.
+Instructions for installing applications are provided in
+[the getting started with Roihu tutorial](../support/tutorials/roihu.md#installing-software)
 
 The programming environment of Roihu will otherwise be similar to Mahti,
-including e.g.
+including:
 
-* GNU compiler stack
-* AOCC compiler stack
-* CUDA and Nvidia HPC Software Development Kit (SDK)
-* OpenMPI as main MPI library
+* The GNU compiler stack
+* The AOCC compiler stack
+* CUDA and NVIDIA HPC Software Development Kit (SDK)
+* OpenMPI as the main MPI library
 
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
+
+A list of currently supported applications on Roihu can be found on the
+[applications page](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/apps/by_availability/#roihu).
 
 ## Sensitive data services in Roihu
 
@@ -178,9 +202,10 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
 
 ## More information
 
+* [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-04-28)
+  (updated 2026-06-11)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!

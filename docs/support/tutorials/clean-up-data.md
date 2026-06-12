@@ -1,6 +1,6 @@
-# Managing data on Puhti and Mahti scratch disks
+# Managing data on supercomputer scratch disks
 
-An important task for all users on Puhti and Mahti is to manage what data resides in project
+An important task for all users on CSC supercomputers is to manage what data resides in project
 folders in `scratch`. These are only intended as temporary storage space for data that is in
 active use. All other data should be removed, or stored in other more suitable storage systems.
 Users are not expected to use all of their quota, the maximum quota is only meant for
@@ -30,7 +30,7 @@ Please do the following tasks:
   medium sized data transfers, in particular when you have a large amount of small files.
   These tools make the usage of Allas safer, and can make your data management easier.
   For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md).
-  A tutorial for data transfer is available at [Allas HPC tutorial](../../data/Allas/allas-hpc.md).
+  A tutorial for data transfer is available at [Allas HPC tutorial](../../data/Allas/allas-roihu.md).
 * **Archive files** that should be available longer than the lifetime of compute projects.
   Options for this can be for example your organizations own storage systems, or
   [IDA safe storage for research data](https://www.fairdata.fi/en/).

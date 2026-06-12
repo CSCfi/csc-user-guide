@@ -38,10 +38,13 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
    it means you're trying to access the wrong database.
 3. If `psql` asks for a password but rejects it, make sure you typed it correctly, and check that the database user exists, either through the Users tab in the web GUI or with `openstack database user list ${DATABASE_ID}`.
 
-## Accessing your Pukki PostgreSQL database from Puhti
+## Accessing your Pukki PostgreSQL database from Roihu
 
-1. First make sure that your database's [firewall allows traffic from Puhti](firewalls.md#puhti).
-2. [Log in to Puhti](../../computing/connecting/index.md).
+!!! info Puhti compatible
+    The following instructions also apply to Puhti, but it will be decommissioned in summer 2026. Please use Roihu instead.
+
+1. First make sure that your database's [firewall allows traffic from Roihu](firewalls.md#roihu).
+2. [Log in to Roihu](../../computing/connecting/index.md).
 3. To be able to use the `psql` command line tool you need to first load the module:
    ```
    module load psql
@@ -61,7 +64,7 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
    psql --user ${USERNAME} --host ${PUBLIC_IP} ${DATABASE_NAME}
    ```
 
-### Basic Puhti batch job example using psql
+### Basic Roihu batch job example using psql
 
 1. This requires that you have configured `~/.pgpass` correctly in the previous section.
 2. Create a file named `my-first-psql-batch-job.bash`:
