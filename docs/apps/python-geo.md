@@ -111,7 +111,7 @@ includes following python packages:
 Additionally python-geo includes:
 
 -   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../computing/webinterface/index.md) with [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
--   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R).
+-   [spyder](https://www.spyder-ide.org/) - Scientific Python Development Environment with graphical interface (similar to RStudio for R).
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
 -   [PDAL](https://pdal.io/) - Point Data Abstraction Library
@@ -204,7 +204,10 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 Python-geo was installed to Roihu using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
-conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools python-geo_3.11.10.yml
+conda-containerize new --mamba \
+  --prefix install_dir --post download_wbt \
+  -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools \
+  python-geo_3.11.10.yml
 ```
 
 Python-geo conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/python-geo). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked using `list-packages` command after loading the `python-geo` module.
