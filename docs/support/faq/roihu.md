@@ -164,7 +164,7 @@ As a ballpark number, a single file of about 100 GB would take ~10 minutes to tr
 
 After Roihu is available, you can add Roihu as a service to each project individually.
 Data transfer can be done on a project-by-project basis, so the answer really depends on your workflow.
-If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk#dataset-directory),
+If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk.md#dataset-directory),
 where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
 
 
@@ -196,6 +196,10 @@ The operating system of Roihu will be Red Hat Enterprise Linux (RHEL) 9.
 Yes, we intend to provide a comprehensive pre-installed stack of scientific
 software on Roihu like we currently do on Puhti and Mahti. However, please note
 that some older and less used module versions may be deprecated.
+
+Most applications will work very similarly to Mahti and Puhti. For example,
+Python and R usage will be almost identical on Roihu, as well as
+the process of installing new libraries for these.
 
 As before, missing software can be requested to be installed by CSC, and if
 there is enough demand, we will consider creating a system-wide installation.
