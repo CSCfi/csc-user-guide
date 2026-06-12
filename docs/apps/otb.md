@@ -2,7 +2,7 @@
 tags:
   - Free
 catalog:
-  name: Orfeo ToolBox (Open Source processing of remote sensing images) 
+  name: Orfeo ToolBox
   description: for remote sensing applications
   license_type: Free
   disciplines:
