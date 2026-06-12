@@ -5,7 +5,11 @@
 
      The target for Roihu general availability is end of June 2026.
 
-     Mahti and Puhti storage services will shut down end of August 2026.
+     Mahti and Puhti storage services will shut down 15 October 2026.
+
+     However, we strongly encourage all users to prioritize moving their data by the **end of August 2026**,
+     because between September and October 2026, the storage services will not be covered by service
+     contracts and availability cannot be guaranteed.
 
 This tutorial helps you prepare your data for the transition from Mahti and Puhti to Roihu.
 The main recommendation is to plan the migration in advance, review what data you need to keep,
