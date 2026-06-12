@@ -19,7 +19,7 @@ extra:
         <p>Puhti and Mahti will be decommissioned at the end of August 2026, after Roihu becomes available. Prepare for data migration in advance by cleaning up unnecessary files and identifying data that must be moved. See the <a href="{{ base_url }}/support/tutorials/roihu-data-preparation/">Roihu data preparation instructions</a> for details.</p>
       </div>
       <div>
-        <p>Puhti scratch disk is becoming very full (80+ % ) resulting in performance degradation. Only keep actively processed data on scratch, all other data should be deleted, transferred to host institute or stored in Lumi-O. No new quota will be granted.
+        <p>Puhti scratch is very full: keep only active data there and move or delete everything else. No new Puhti scratch quota will be granted.
       </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
