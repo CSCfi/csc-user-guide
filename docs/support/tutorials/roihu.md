@@ -13,7 +13,7 @@ enabled. [Read more about CSC accounts and projects](../../accounts/index.md).
     Before you begin, note the following important differences:
 
     - **SSH authentication requires short-lived certificates (24h)**
-    - **Separate login nodes for CPU and GPU environments**
+    - **Separate login nodes and CPU architectures for CPU (x86) and GPU (ARM) environments**
     - Software built on CPU nodes cannot be used on GPU nodes (and vice versa)
     - Disk quota extensions are **not automatically transferred** from earlier projects on Puhti/Mahti
 
@@ -44,7 +44,7 @@ For platform-specific instructions, see:
 
 !!! warning "Separate CPU and GPU environments"
     Roihu has
-    [different CPU architectures on Roihu-CPU and Roihu-GPU](../../computing/systems-roihu.md#compute).
+    [different CPU architectures on Roihu-CPU (x86) and Roihu-GPU (ARM)](../../computing/systems-roihu.md#compute).
     Hence, there are separate login nodes for building programs and submitting
     jobs to their respective nodes:
     
@@ -103,7 +103,8 @@ If not available, choose one of the following approaches depending on your needs
 
 ### Compiling C/C++/Fortran code
 
-HPC software written using programming languages such as C, C++ or Fortran need to be compiled before installing.  
+HPC software written using programming languages, such as C, C++, or Fortran need to be compiled before installing.
+
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
 - [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-cpu)
@@ -235,9 +236,12 @@ More details on working with containers in CSC's computing environment can be fo
 
 ### Spack
 
-Spack is a flexible package manager that can be used to install software on supercomputers and Linux and macOS systems. The basic module tree including compilers, MPI libraries and many of the available software on CSC supercomputers have been installed using Spack. Spack is similar to the EasyBuild package manager extensively used on LUMI.
+Spack is a flexible package manager that can be used to install software on supercomputers and Linux and macOS systems.
+The basic module tree including compilers, MPI libraries and many of the available software on CSC supercomputers have been installed using Spack.
+Spack is similar to the EasyBuild package manager extensively used on LUMI.
 
-CSC provides user Spack modules on Roihu, that can be used to build software on top of the available compilers and libraries. It is also possible to install different customized versions of packages available in the module tree for special use cases.
+CSC provides user Spack modules on Roihu, that can be used to build software on top of the available compilers and libraries.
+It is also possible to install different customized versions of packages available in the module tree for special use cases.
 
 [See here for a short tutorial on how to install software on Roihu using Spack.](roihu-user-spack.md)
 

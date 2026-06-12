@@ -93,7 +93,7 @@
 ### 1.4 Transfer your data directly from Puhti/Mahti to Roihu
 
 * It is **not** recommended to transfer data to Roihu via Allas or your local
-  workstation. Instead, CSC recommends using command-line based tools such as
+  workstation. Instead, CSC recommends using command-line tools such as
   [`rsync`](#2-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
 
@@ -114,7 +114,7 @@
 
 * **`rsync`** is the preferred tool for transferring data from Puhti or Mahti
   to Roihu. [Read more about `rsync` here](../../data/moving/rsync.md).
-* **We will use Puhti as an example**, but the exact same steps apply for Mahti and LUMI
+* **We will use Puhti as an example**, but the exact same steps apply to Mahti and LUMI
   also. Simply replace all occurrences of `puhti` in host names etc. with
   `mahti`.
 * All examples require that you've **forwarded your SSH agent** including your
@@ -431,8 +431,8 @@ GB, <100 files).
 
 ### 4.2 Using the web interfaces to migrate data
 
-Unfortunately, there is no good way that the Puhti or Mahti web interfaces can
-be used to move data directly to Roihu. There are some indirect ways, but none
+Unfortunately, there is no good way for using the Puhti or Mahti web interfaces
+to move data directly to Roihu. There are some indirect ways, but none
 of them are efficient, which is why we primarily recommend the command-line
 based approaches above. The following options should therefore be considered as
 "last resort" choices.
