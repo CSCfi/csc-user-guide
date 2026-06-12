@@ -61,7 +61,7 @@ graphical applications like Jupyter Notebooks, RStudio, etc.
 
 Roihu web interface will become available at www.roihu.csc.fi, similarly to Mahti, Puhti and LUMI.
 
-See documentation on the [web interface](../../computing/webinterface/index.md).
+See documentation on the [Roihu web interface](../../computing/webinterface/index.md).
 
 ### 6. My terminal looks weird when logging in to Roihu
 
@@ -154,12 +154,24 @@ used in the migration. Only move data that you truly need.
 
 Utilize `screen` or `tmux` for long transfers. See the guide above for details.
 
+### 12. How to migrate larger datasets without the connection cutting out during the transfer? How long do transfers take between Mahti/Puhti to Roihu?
+
+You can use `screen` or `tmux` in Mahti/Puhti to transfer larger files without worrying about the connectiong dropping out. See the [guide for running long transfer processes safely](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#32-running-long-transfer-processes-safely)
+Transfer times depend on the amount and size of the files. Large number of small files take longer, consider archiving them into a single file for transfers.
+As a ballpark number, a single file of about 100 GB would take ~10 minutes to transfer directly between the systems.
+
+### 13. I have multiple projects in Mahti and Puhti. Should I move data for each project individually?
+
+After Roihu is available, you can add Roihu as a service to each project individually.
+Data transfer can be done on a project-by-project basis, so the answer really depends on your workflow.
+If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk/#dataset-directory), where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
+
+
 ## Roihu hardware and software
 
-### 12. What kind of hardware will Roihu have?
+### 14. What kind of hardware will Roihu have?
 
-The Roihu system is described in detail
-[here](../../computing/systems-roihu.md).
+See the [Roihu system description](../../computing/systems-roihu.md) for details.
 
 Notably, Roihu will have different CPU architectures on the AMD Turin-based CPU
 nodes (x86) and NVIDIA Grace-Hopper GH200-based GPU nodes (ARM). Accordingly,
@@ -174,11 +186,11 @@ while software built on the ARM login nodes will only run on the GPU nodes.
 Similarly, CPU and GPU Slurm jobs can only be submitted from the x86 and ARM
 login nodes, respectively.
 
-### 13. What operating system will Roihu have?
+### 15. What operating system will Roihu have?
 
 The operating system of Roihu will be Red Hat Enterprise Linux (RHEL) 9.
 
-### 14. Will Roihu have pre-installed applications available like Puhti and Mahti?
+### 16. Will Roihu have pre-installed applications available like Puhti and Mahti?
 
 Yes, we intend to provide a comprehensive pre-installed stack of scientific
 software on Roihu like we currently do on Puhti and Mahti. However, please note
@@ -188,17 +200,17 @@ As before, missing software can be requested to be installed by CSC, and if
 there is enough demand, we will consider creating a system-wide installation.
 We cannot, however, promise to install everything that users might want.
 
-### 15. Will Tykky be available on Roihu?
+### 17. Will Tykky be available on Roihu?
 
 Yes, [Tykky](../../computing/containers/tykky.md) (tool for creating
 containerized Conda etc. environments with wrapper scripts) will also be
 available on Roihu.
 
-### 16. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
+### 18. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
 
 Roihu will eventually support a secure workflow for sensitive data processing. The technical implementation will include the capability to submit jobs from the SD Desktop to Roihu. However, setting up the workflow specific for secure sensitive data processing service for Roihu will take several months. As a result, this functionality is expected to become available only towards the end of 2026 or the beginning of 2027.
 
-### 17. Is there a list of pre-installed software/modules available?
+### 19. Is there a list of pre-installed software/modules available?
 
 The target is to provide the same software as on Puhti and Mahti as far as possible.
 Some commercial software for which the vendor does not provide ARM (aarch64) support will not work on the Roihu GPU side as it uses the NVIDIA Grace ARM CPUs.
@@ -213,15 +225,15 @@ A list of installed software is not yet available in the documentation, but will
 
 ## Installing and running software on Roihu
 
-### 18. Will Roihu partitions have the same memory/time limits as on Mahti and Puhti?
+### 20. Will Roihu partitions have the same memory/time limits as on Mahti and Puhti?
 
 There will be some changes in the available partition names and the corresponding hardware. You can already see the available partitions and the corresponding limits in the [work in progress documentation for Roihu](../../computing/running/batch-job-partitions.md#roihu-partitions).
 
-### 19. Will Roihu have a longrun partition? What will be the maximum runtime?
+### 21. Will Roihu have a longrun partition? What will be the maximum runtime?
 
 There will be a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition will be 10 days.
 The small partion for partial or single nodes has a time limit of 72 hours.
 
-### 20. I did not find an answer to my question here. Who should I contact?
+### 22. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!
