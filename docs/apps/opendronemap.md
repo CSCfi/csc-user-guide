@@ -29,6 +29,7 @@ __OpenDroneMap__ is available with following versions:
 OpenDroneMap is available as a [Singularity](../computing/containers/overview.md#running-containers) container
 
 To run OpenDroneMap: 
+
 1) Copy your aerial images to the supercomputer. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
 2) Write a batch job script (see below)
 3) Submit your OpenDroneMap batch job. 
