@@ -30,9 +30,10 @@ OpenDroneMap is available as a [Singularity](../computing/containers/overview.md
 
 To run OpenDroneMap: 
 
-1) Copy your aerial images to the supercomputer. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
-2) Write a batch job script (see below)
-3) Submit your OpenDroneMap batch job. 
+1. Copy your aerial images to the supercomputer. OpenDroneMap requires the folder names to end with `code/images`, for example `/scratch/project_2000XXX/odm/code/images`.
+2. Write a batch job script (see below)
+3. Submit your OpenDroneMap batch job. 
+
 
 * According to our tests, a project with ~300 images is optimal to run with 8-12 CPU cores; adjust the number of CPUs on the `--cpus-per-task` line. OpenDroneMap can use only one computing node in processing which means that it is limited per job to a maximum of 40  cores in Puhti and 384 cores in Roihu.
 * `--project-path` - the place where images are stored, without the `code/images` part.
@@ -107,7 +108,7 @@ OpenDroneMap is distributed under the GNU General Public License (GPL) version 3
 
 ## Citation
 
-`OpenDroneMap Authors, ODM - A command line toolkit to generate maps, point clouds, 3D models and DEMs from drone, balloon or kite images. OpenDroneMap/ODM GitHub Page 2026; https://github.com/OpenDroneMap/ODM`
+OpenDroneMap Authors, ODM - A command line toolkit to generate maps, point clouds, 3D models and DEMs from drone, balloon or kite images. OpenDroneMap/ODM GitHub Page 2026; https://github.com/OpenDroneMap/ODM
 
 
 
