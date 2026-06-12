@@ -24,7 +24,7 @@ GDAL is available with following versions:
 
 * 3.12.4 - in the 3.44.9 [QGIS](qgis.md) in Roihu.
 * 3.12.2 - in the 3.14.5 [python-geo](python-geo.md) in Roihu
-* 3.12.2 stand-alone: `gdal` in Roihu. Additionally is availble `proj/9.7.0`.
+* 3.12.2 stand-alone: `gdal` in Roihu. Additionally is available `proj/9.7.0`.
 * 3.9.2 - in the 3.38 [QGIS](qgis.md) and 3.11.10 [geoconda](geoconda.md) in Puhti
 * 3.9.1 - in the 3.11.9 [geoconda](geoconda.md) in Puhti and Mahti
 * 3.8.5 stand-alone: `gdal` in Puhti
