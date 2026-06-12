@@ -164,7 +164,7 @@ As a ballpark number, a single file of about 100 GB would take ~10 minutes to tr
 
 After Roihu is available, you can add Roihu as a service to each project individually.
 Data transfer can be done on a project-by-project basis, so the answer really depends on your workflow.
-If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk/#dataset-directory),
+If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk#dataset-directory),
 where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
 
 
