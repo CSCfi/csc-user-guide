@@ -1,6 +1,6 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Exporting data from virtual desktop via user interface
+# Exporting data from virtual desktop
 
 ## Prerequisites
 * [Create virtual desktop](sd-desktop-create.md)
@@ -10,11 +10,13 @@
 
 The virtual desktop is isolated from the internet, so data export must be done through either via the Data Gateway application or the command-line version. Only the CSC project manager can export data. The results are exported to SD Connect, where they will be available for download.
 
-## Step by step
 
-[Option A: Export files to a bucket via Data Gateway application](#option-a-export-files-to-a-bucket-via-data-gateway-application)
-[Option B: Export files to a specific folder inside a bucket via Data Gateway application](#option-b-export-files-to-a-specific-folder-inside-a-bucket-via-data-gateway-application)
-[Option C: Export files programmatically via Data Gateway](#option-c-export-files-programmatically-via-data-gateway)
+
+## Export files to SD Connect
+
+* [Option A: Export files to a bucket via Data Gateway application](#option-a-export-files-to-a-bucket-via-data-gateway-application)
+* [Option B: Export files to a specific folder inside a bucket via Data Gateway application](#option-b-export-files-to-a-specific-folder-inside-a-bucket-via-data-gateway-application)
+* [Option C: Export files programmatically via Data Gateway](#option-c-export-files-programmatically-via-data-gateway)
 
 ### Option A: Export files to a bucket via Data Gateway application
 
@@ -60,18 +62,20 @@ The virtual desktop is isolated from the internet, so data export must be done t
     ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export4.png)
 
 
+
 ### Option B: Export files to a specific folder inside a bucket via Data Gateway application
 
 ??? default "Step by step"
 
-You can also create folders inside a bucket you create or an existing bucket. 
+    You can also create folders inside a bucket you create or an existing bucket. 
 
-1. When you are in **Export files to SD Connec**t window, create a new bucket or select and existing one via **Bucket name** field.
-2. Then click open **Export into a folder** from bottom of the window. 
-
-Type for example "folder1/folder2" in **Folder names** field. Your files will be exported to: "the bucket you created or selected/folder1/folder2".
+    1. When you are in **Export files to SD Connect** window, create a new bucket or select and existing one via **Bucket name** field.
+    2. Then click open **Export into a folder** from bottom of the window. Type for example **"folder1/folder2"** in **Folder names** field. Your files will be exported to **"the bucket you created or selected/folder1/folder2"**.
+    3. Finally click **Export**. Files will be encrypted and exported to SD Connect. Please note that files can now be downloaded by all project members via SD Connect. 
 
     ![Export to a folder inside a bucket](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export_to_folder.png)
+
+
 
 
 ### Option C: Export files programmatically via Data Gateway
@@ -99,12 +103,9 @@ Type for example "folder1/folder2" in **Folder names** field. Your files will be
     !!! Note:
         If you attempt to upload an unencrypted file, the Data Gateway apploication or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
 
+    3. Access SD Connect and locate the files you need. Click **Download**.
 
 
-### 2. Download the files from SD Connect 
-
-
-1. Access SD Connect and locate the files you need. Click **Download**.
 
 !!! Note
     If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
