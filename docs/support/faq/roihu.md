@@ -24,8 +24,8 @@ Mahti compute resources will be shut down on 31 August 2026. Mahti storage and
 login nodes are planned to remain accessible until 15 October 2026.
 
 We strongly encourage users to move any required data by the end of August
-2026, as storage services will not be covered by service contracts between
-September and October 2026 and availability cannot be guaranteed.
+2026, as Mahti and Puhti storage services will not be covered by service contracts between
+September and October, and availability cannot be fully guaranteed.
 
 [Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
 
