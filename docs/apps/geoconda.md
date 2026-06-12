@@ -138,6 +138,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
+* 3.14.4 (Python 3.14.4, PDAL 2.10.0, GDAL 3.12.2, created May 2026), in LUMI
 * 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created March 2026), in Puhti and Mahti
 * 3.12.10 (Python 3.12.10, PDAL 2.8.4, GDAL 3.10.2, created April 2025), in Puhti.
 * 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
