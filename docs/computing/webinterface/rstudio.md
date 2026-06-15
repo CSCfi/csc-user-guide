@@ -22,7 +22,7 @@ threading](../../support/tutorials/parallel-r-examples.md#improving-performance-
 
 If an RStudio session fails to start or RStudio is extremely slow, first try resetting your
 RStudio user state as described below. These steps will clean up leftover data from previous interrupted RStudio
-sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/rstudio`. These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
+sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/x86_64/rstudio` (`.local/share/rstudio` on Puhti ja Mahti). These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
 
 
 === "Roihu-CPU"
