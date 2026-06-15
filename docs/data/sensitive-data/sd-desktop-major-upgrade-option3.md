@@ -1,16 +1,172 @@
 
-## Option 3: virtual desktop has no volume, 
+# Option 3: Virtual desktop has no volume
 
 We recommand moving to a new virtual desktop.
 
-### Step 1: import a new data gateway
+## Step-by-step
 
-they need coordidate with colleagues
+* [Step 1: Update Data Gateway application](#step-1-update-data-gateway-application)
+* [Step 2: Export all needed files to SD Connect](#step-2-export-all-needed-files-to-sd-connect)
+* [Step 3: Create a new virtual desktop](#step-3-create-a-new-virtual-desktop)
+* [Step 4: Create a volume](#step-4-create-a-volume)
+* [Step 5: Attach a volume to a virtual desktop](#step-5-attach-a-volume-to-a-virtual-desktop)
+* [Step 6: Delete old virtual desktop to save resources](#step-6-delete-old-virtual-desktop-to-save-resources)
 
-### Step 2: exportl all needed files to SD Connect
+
+### Step 1: Update Data Gateway application
+
+All project members who **plan to export data** to SD Connect need to update Data Gateway application.
+
+* Open terminal.
+* Type 'csc-update'.
+* Type '2' and then type '1'.
+* Now new version of Data Gateway has been installed. There is a second Data Gateway icon on your desktop.
+
+### Step 2: Export all needed files to SD Connect
+
+1. Locate all data you want to export from your desktop.
+2. Launch **Data Gateway** by clicking icon on the left side of desktop.
+    * Select SD Connect and click **Continue**. 
+    * In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected and click **Continue**.
+    * In the next view click on **Export** tab. **It is available only to the project manager.**
+
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export1.png)
+
+3. Files will be be exported to **SD Connect**. Next create a new bucket or use an existing one via **Bucket name** field.
+    * **Create a new bucket** by writing bucket's name to the field. Follow bucket naming conventions below or via user interface.
+    * **Use an existing bucket** by clicking the field and select it from the dropdown. 
+
+    ??? default "Bucket naming conventions"
+
+        !!! Note
+            Top-level folder (bucket) name can not be modified after their creation with SD Connect. 
+            These rules apply only to top-level folders created in the service, not to subfolders or files uploaded from a local computer. 
+
+        **Top-level folder (buckets) names must**:
+
+        * start with a lowercase letter or a number.
+        * be between 3 and 63 characters long.
+        * use Latin alphabets (a-z), numbers (0-9) and dash (-).
+        * be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
+            
+        **Top-level folder (buckets) names must not contain**:
+
+        * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
+        * All folder names are public; please do not include any confidential information.
+
+4. Click **Continue**.
+
+5. **Drag and drop** or **select** files you want to export. 
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export3.png)
+
+6. You can see files to be exported from the list and remove them if needed.
+7. Finally click **Export**. Files will be encrypted and exported to the bucket you selected in SD Connect. Please note that files can now be downloaded by all project members via SD Connect. 
+
+    ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export4.png)
 
 
-### STep 3: created a new virtual destkop
+### Step 3: Create a new virtual desktop
 
-### Step 4: creata  new  volume
-verify all data ins accessible
+1. Select correct CSC project from dropdown on the left side.
+2. Click **Create desktop**.
+
+![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop.png)
+
+#### In Create desktop window 
+
+1. **Select a name** for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
+2. **Select operating system.** We recommend to choose **Linux Ubuntu22**. If you want to create a GPU desktop, please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further instructions.
+3. **Select a pre-built desktop option** based on your needs. [See options below](#virtual-desktop-options)
+4. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+5. Click **Create**. The window will now close and desktop creation will start.
+
+After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 30 minutes, during which a **Creating** label will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready to use.
+
+![Create desktop window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop2.png)
+
+![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
+
+
+
+
+
+
+### Step 4: Create a volume
+
+1. Select correct CSC project from dropdown on the left side.
+2. Click **Create volume**. 
+
+![Create volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume.png)
+
+#### In Create volume window 
+
+1. **Select a name** for your volume. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
+
+2. **Choose from the available options** the one that covers the combined size of your dataset and working files. 
+
+3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
+
+4. Click **Create**. The window will now close and volume creation will start.
+
+Back on the main page, you will see a list of your volumes in **Volumes tab**. You can now proceed to [attach](sd-desktop-manage.md#attaching-or-detaching-a-volume) it to your desktop.
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+    
+    If you have a dataset **larger than 1 TB**, contact [CSC Service Desk](../../support/contact.md).
+
+</div>
+
+![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume2.png)
+
+![Volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Volumes.png)
+
+#### Volume options
+
+| Name   | Size (GB) | Cost (BU/TiB/h) |
+|--------|-----------|-------------|
+| Small  | 200       | 4.7        |
+| Medium | 500       | 4.7        |
+| Large  | 1000      | 4.7        |
+
+
+### Step 5: Attach a volume to a virtual desktop
+
+* [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
+
+![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
+
+#### In Manage volumes window
+
+1. You will see a list of volumes that are available to be attached and/or are attached to the desktop. Click **Attach** on the right side of the volume you want to attach to the desktop. 
+2. Close the window when you are ready.
+
+![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
+
+* Access your desktop and verify that all data is accessible.
+
+### Step 6: Delete old virtual desktop to save resources
+
+Users should delete old desktops to save resources.
+
+<div class="grid cards" markdown>
+
+- :material-close-circle:{ .lg .middle } **Warning**
+  { .csc-grid-card-error }
+    
+    You cannot undo this action. Please contact all the project members before deleting a virtual desktop.
+    
+</div>
+
+1. Log out of your virtual desktop.
+
+2. On the SD Desktop homepage, click **Manage desktop** on the right side of the old desktop.
+
+3. Click **Delete**. 
+
+4. Confirm the operation via the notification. 
+
+![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)

@@ -609,7 +609,7 @@ nav:
                   - data/sensitive-data/sd-desktop-major-upgrade.md
                   - Option1: data/sensitive-data/sd-desktop-major-upgrade-option1.md
                   - Option2: data/sensitive-data/sd-desktop-major-upgrade-option2.md
-                  - Option3: data/sensitive-data/d-desktop-major-upgrade-option3.md
+                  - Option3: data/sensitive-data/sd-desktop-major-upgrade-option3.md
       - Research data - Publish and reuse:
           - Publish with Federated EGA:
               - data/sensitive-data/federatedega.md

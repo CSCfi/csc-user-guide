@@ -226,7 +226,7 @@ At the end of your analysis, you can delete entire virtual desktop, and all file
 - :material-close-circle:{ .lg .middle } **Warning**
   { .csc-grid-card-error }
     
-    You cannot undo this action. Please contact all the project members before deleting a virtual desktop. ´
+    You cannot undo this action. Please contact all the project members before deleting a virtual desktop.
     
 </div>
 
