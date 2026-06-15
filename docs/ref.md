@@ -261,7 +261,7 @@ Let's make an ordered list:
 </div>
 
 
-## Source code
+## Source code / output listing
 
 ````text
 ```python hl_lines="2 3"
@@ -359,6 +359,35 @@ Diff works too:
 
 Remember to leave an empty line after the ` ``` ` in a source code box. Failing to do so can leave
 any immediately following text as "loose", i.e., outside of an HTML paragraph (`<p>`).
+
+
+### Languages
+
+See [Languages at pygments.org](https://pygments.org/languages/) for a complete list of supported languages. To _highlight_ a few useful ones here:
+
+- [Slurm scripts](https://pygments.org/docs/lexers/#pygments.lexers.shell.SlurmBashLexer):
+
+    > Lexer for (ba|k|z|)sh Slurm scripts.
+    >
+    > Short names: **slurm**, **sbatch**
+
+- [Bash shell session](https://pygments.org/docs/lexers/#pygments.lexers.shell.BashSessionLexer):
+
+    > Lexer for Bash shell sessions, i.e. command lines, including a prompt, interspersed with output.
+    >
+    > Short names: **console**, **shell-session**
+
+- [Output](https://pygments.org/docs/lexers/#pygments.lexers.special.OutputLexer):
+
+    > Simple lexer that highlights everything as Token.Generic.Output.
+    >
+    > Short names: **output**
+
+- [Text](https://pygments.org/docs/lexers/#pygments.lexers.special.TextLexer):
+
+    > "Null" lexer, doesn’t highlight anything.
+    >
+    > Short names: **text**
 
 
 ## Tables
