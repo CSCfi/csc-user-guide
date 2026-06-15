@@ -1,7 +1,9 @@
 
 # Option 3: Virtual desktop has no volume
 
-We recommand moving to a new virtual desktop.
+Desktops have 80 GB of storage by default. If you save more than 80 GB of data to your desktop, it becomes unresponsive and you may lose your data. To avoid this we recommend that you export your data to SD Connect, create to a new virtual desktop and a volume and then import your data to the volume. 
+
+Before you begin, make sure you read the instructions carefully and agree on the approach with your colleagues.
 
 ## Step-by-step
 
@@ -10,22 +12,23 @@ We recommand moving to a new virtual desktop.
 * [Step 3: Create a new virtual desktop](#step-3-create-a-new-virtual-desktop)
 * [Step 4: Create a volume](#step-4-create-a-volume)
 * [Step 5: Attach a volume to a virtual desktop](#step-5-attach-a-volume-to-a-virtual-desktop)
-* [Step 6: Delete old virtual desktop to save resources](#step-6-delete-old-virtual-desktop-to-save-resources)
+* [Step 6: Import data to your volume via the Data Gateway application](#step-6-import-data-to-your-volume-via-the-data-gateway-application)
+* [Step 7: Delete old virtual desktop to save resources](#step-6-delete-old-virtual-desktop-to-save-resources)
+* [Step 8: Customising virtual desktop](#step-8-customising-virtual-desktop)
 
 
-### Step 1: Update Data Gateway application
 
-All project members who **plan to export data** to SD Connect need to update Data Gateway application.
+### Step 1: Update Data Gateway application (project manager)
 
 * Open terminal.
-* Type 'csc-update'.
-* Type '2' and then type '1'.
+* Type 
 * Now new version of Data Gateway has been installed. There is a second Data Gateway icon on your desktop.
 
-### Step 2: Export all needed files to SD Connect
+### Step 2: Export all needed files to SD Connect 
 
-1. Locate all data you want to export from your desktop.
-2. Launch **Data Gateway** by clicking icon on the left side of desktop.
+1. All project members move their data to **Shared folder** visible on their desktop. 
+2. **Only project manager** can export data to SD Connect. 
+    * Launch **Data Gateway** by clicking icon on the left side of desktop.
     * Select SD Connect and click **Continue**. 
     * In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected and click **Continue**.
     * In the next view click on **Export** tab. **It is available only to the project manager.**
@@ -87,10 +90,6 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 ![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
 
 
-
-
-
-
 ### Step 4: Create a volume
 
 1. Select correct CSC project from dropdown on the left side.
@@ -146,9 +145,40 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
 
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
-* Access your desktop and verify that all data is accessible.
 
-### Step 6: Delete old virtual desktop to save resources
+### Step 6: Import data to your volume via the Data Gateway application
+
+1. Access your desktop.  Launch **Data Gateway** by clicking icon on the left side of desktop.
+2. Select **SD Connect**. 
+3. Click **Continue**.
+
+    ![Launch Data Gateway](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import1.png)
+
+4. In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
+5. Click **Continue**.
+
+    ![Select folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import2.png)
+
+6. In the next window click **Open folder**.
+7. Now you  can see all files stored in SD Connect or SD Apply. Files are available in read-only mode for secure access. To view them, right-click the file and select the desired application to open it. Locate the buckets/files you want to import.
+
+    ![Open folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import3.png)
+
+
+8. Open **Volume** from left side menu.
+
+
+    ![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import4.png)
+
+
+9. **Select and copy** the files or buckets from the **Projects** folder.
+10. **Paste** files or folders into **Volume**. Files or folders will automatically decrypt during the copy process and become available for analysis.
+
+    ![Copy and paste files](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Import5.png)
+
+
+
+### Step 7: Delete old virtual desktop to save resources
 
 Users should delete old desktops to save resources.
 
@@ -170,3 +200,7 @@ Users should delete old desktops to save resources.
 4. Confirm the operation via the notification. 
 
 ![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
+
+### Step 8: Customising virtual desktop
+
+Continue to customise your desktop and learn about [available software](sd-desktop-software.md).

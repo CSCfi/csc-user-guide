@@ -20,9 +20,7 @@ All project members should save data they want to keep to the volume.
 All project members who **plan to export data** to SD Connect need to update Data Gateway application.
 
 * Open terminal.
-* Type 'csc-update'.
-* Type '2' and then type '1'.
-* Now new version of Data Gateway has been installed. There is a second Data Gateway icon on your desktop.
+* Type 
 
 Now you and project members can continue working in virtual desktop. 
 

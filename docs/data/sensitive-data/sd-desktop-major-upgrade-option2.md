@@ -4,6 +4,15 @@ Choose this if you want to use the latest features and your analysis will contin
 
 ## Step-by-step
 
+* [Step 1: Save all important data to the volume](#step-1-save-all-important-data-to-the-volume)
+* [Step 2: Set permissions for shared access](#step-2-set-permissions-for-shared-access)
+* [Step 3: Detach the volume](#step-3-detach-the-volume)
+* [Step 4: Create a new virtual desktop](#step-4-create-a-new-virtual-desktop)
+* [Step 5: Attach a volume to a virtual desktop](#step-5-attach-a-volume-to-a-virtual-desktop)
+* [Step 6: Delete old virtual desktop to save resources](#step-7-delete-old-virtual-desktop-to-save-resources)
+* [Step 7: Customising virtual desktop](#step-7-customising-virtual-desktop)
+
+
 ### Step 1: Save all important data to the volume
 
 All project members should save data they want to keep to the volume. 
@@ -15,7 +24,9 @@ All project members should save data they want to keep to the volume.
 
 ### Step 2: Set permissions for shared access
 
-After saving files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
+All project members should set permissions to their own files.
+
+After saving files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon). 
 
 <div class="grid cards" markdown>
 
@@ -128,7 +139,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 ### Step 5: Attach a volume to a virtual desktop
 
-*  When you desktop is running, click **Manage volumes** on the right side of the correct desktop.
+When you desktop is running, click **Manage volumes** on the right side of the correct desktop.
 
 ![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
 
@@ -140,56 +151,6 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
 * Access your desktop and verify that all data is accessible.
-
-### Step 6: Add software provided by CSC via SD Software Installer
-
-![SD Software Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_Installer.png){ style="float: right; margin: 0 3em 3em 3em; width: 40%;" }
-
-The SD Software Installer is a CSC‑provided tool that makes it easy to install selected, commonly used [**software**](#software-available-via-sd-software-installer) on SD Desktop, such as RStudio 4.5.1, Whisper, VS Code, and GATK.
-
-You can’t add your own software to the Software Installer, but you can request new tools by [contacting CSC Service Desk](../../support/contact.md) (subject: SD Desktop). 
-
-To install and use the application, please follow the step-by-step tutorial below.  
-    
-___
-
-#### Step 1: Send a request to CSC Service Desk
-
-1. Log in to the [SD Connect service](https://sd-connect.csc.fi). 
-    * If you are using SD Connect for the first time, [**upload**](sd-connect-upload.md) a small test file to any bucket (required due to a current technical issue).
-2. On the homepage, click **Copy Share ID** next to the project selection menu to copy your project’s Share ID (a 32‑character code, example: 71bbe38a3cd398b48b1f2582dc00297p).
-3. Email the CSC Service Desk with the subject “SD Desktop”, requesting access to the Software Installer and including the project Share ID.
-4. Once the Service Desk confirms access, move to step 2 below.
-
-![(Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareID.png)
-
- ____
-
-#### Step 2: Install and use SD Software Installer 
-
-1. Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. Launch **Data Gateway **from navigation on the left side of the screen.
-2. Select **SD Connect**.
-3. Click **Continue**. 
-
-    ![Installing SD Software Installer - Login](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer1.png)
-
-4. In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
-5. Click **Continue**.
-
-    ![Installing SD Software Installer - Choose folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer2.png)
-
-6. In the next view click **Open folder**. This opens file browser and you will see folder **Projects**.
-7. Navigate to `Projects/SD-Connect/your-project-name`. Locate folder `tools-for-sd-desktop` and open it. 
-
-    ![Installing SD Software Installer - Open Projects folder](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer3.png)
-
-
-8. **Copy-paste** or **drag-and-drop** file `sd-installer-ubuntu24.desktop` to your desktop. **Right-click** on the `sd-installer-ubuntu24.desktop` icon on your virtual desktop.
-9. Select **Allow Launching**.
-10. Application is now ready to be used. See [**instructions**](#22-use-sd-software-installer)
-
-    ![Installing SD Software Installer - Install and launch](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_SD_Installer4.png)
-
 
 
 ### Step 6: Delete old virtual desktop to save resources
@@ -214,3 +175,8 @@ Users should delete old desktops to save resources.
 4. Confirm the operation via the notification. 
 
 ![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
+
+
+### Step 7: Customising virtual desktop
+
+Continue to customise your desktop and learn about [available software](sd-desktop-software.md).
