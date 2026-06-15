@@ -34,6 +34,9 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 5. Files are decrypted automatically. The downloaded folder has a .tar extension, double-click it to extract the contents into a new folder.
 
+!!!! Note
+     You may experience an issue where file downloads fail when using SD Connect via the user interface. For example the download may not start at all or gets interrupted, the file is not saved or nothing happens when you try to download. ** To fix this problem, try saving the file to a different folder where your browser has permission, as your organization’s IT security settings may block saving to default locations like Documents or Downloads for security reasons or contact IT support for guidance.**
+
 
 ![SD Connect Download folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
 
