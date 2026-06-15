@@ -152,6 +152,10 @@ Other useful arguments (multiple arguments are separated by a comma) are `END`
 and `FAIL`. By default, the email will be sent to the email address linked to
 your CSC account. This can be overridden with the `--mail-user=` option.
 
+!!! warning "Notifications by email not enabled yet"
+    The notifications by email are not enabled yet and
+    the `--mail-type` option does not do anything at the moment.
+
 After defining all required resources in the batch job script, set up the
 required environment by loading suitable modules. Note that for modules to be
 available for batch jobs, they need to be loaded in the batch job script.
