@@ -89,7 +89,7 @@ to access your data more efficiently.
 [HDF5]: https://docs.h5py.org/en/stable/
 [LMDB]: https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database
 [zipfile]: https://docs.python.org/3/library/zipfile.html
-[LUMI-AI-data]: https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/3-file-formats#readme
+[LUMI-AI-data]: https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/03-file-formats#readme
 [tfrecord-example]: https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb
 
 ### Fast local drive (Puhti and Mahti only)
