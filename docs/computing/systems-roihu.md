@@ -42,11 +42,11 @@ a break in HPC access.
 
 Puhti will be decommissioned in two stages: First, Puhti's computing services
 will be shut down one month after the general availability of Roihu, but earliest by 31 July 2026 at 12:00 EEST. This
-means that jobs cannot be submitted on Puhti anymore. Puhti's storage and login nodes will,
+means that jobs will not run after this date on Puhti anymore. Puhti's storage and login nodes will,
 however, remain accessible until midday October 15th 2026, after which Puhti will be retired
 completely.
 
-Mahti will be closed in a similar two-stage process. Mahti’s computing services will be shut down on 31 August 2026 at 12:00 EEST.
+Mahti will be closed in a similar two-stage process. Mahti’s computing services will be shut down on 31 August 2026 at 12:00 EEST, and jobs will not run on Mahti after this date.
 Its storage and login nodes will remain accessible until midday 15 October 2026, after which Mahti will be retired completely.
 
 Between September and October 2026, the storage services will not be covered by service contracts.
