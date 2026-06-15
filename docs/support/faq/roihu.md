@@ -93,6 +93,8 @@ and/or Mahti will not be carried over to Roihu.
 Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026.
 Mahti and Puhti storage will be fully shut down 15 October 2026.
 
+See the detailed schedule in the [Roihu docs page](../../computing/systems-roihu.md#schedule).
+
 You can already familiarize yourself with the [data migration guide](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/support/tutorials/roihu-data/#14-transfer-your-data-directly-from-puhtimahti-to-roihu), before Roihu becomes available.
 
 Short talk: Roihu data migration tips:

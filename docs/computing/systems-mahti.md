@@ -10,8 +10,8 @@ search:
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    Mahti computing services will be shut down on 31 August 2026. Storage and
-    login nodes are planned to remain accessible until 15 October 2026, but
+    Mahti computing services will be shut down on 31 August 2026 at 12:00 EEST. Storage and
+    login nodes are planned to remain accessible until midday 15 October 2026, but
     users are strongly encouraged to move any required data from the system by
     the end of August 2026.
 
