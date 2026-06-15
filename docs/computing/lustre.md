@@ -88,78 +88,51 @@ would not be stripe aligned: first process needs to access OST 0 and
 1, next process OST 1 and 2, *etc.* processes are not aligned. This
 could now cause network contention issues.
 
-### Controlling striping
+## Lustre compression
 
-The default stripe size in CSC's Lustre is 1 MB and stripe count is 1,
-i.e. by default the files are not striped. Stripe settings can be,
-however, changed by user which can at best improve the I/O performance
-a lot.
+Lustre compression can reduce the amount of physical storage used by files when the data is compressible.
+On Roihu, compression is enabled by default for new files.
 
-The stripe settings for a file or directory can be queried with the
-`lfs getstripe` command
+Compression may also reduce the amount of data transferred between the storage system and compute nodes.
+However, the effect on performance depends on the application, file formats and I/O patterns.
+Data that is already compressed, encrypted or otherwise difficult to compress may benefit less.
 
-```
-lfs getstripe my_file
-```
-which prints out:
-```
-my_file
-lmm_stripe_count:  2
-lmm_stripe_size:   1048576
-lmm_pattern:       raid0
-lmm_layout_gen:    0
-lmm_stripe_offset: 11
-    obdidx         objid        objid         group
-        11      29921659    0x1c8917b             0
-        20      29922615    0x1c89537             0
+Changing or disabling compression is an advanced operation.
+The default settings are recommended unless you understand your application's
+I/O behavior and have tested that different settings are beneficial.
 
-```
-The output shows that the file is distributed over two OSTs (stripe
-count 2), output also shows that the particular OSTs are 11 and 20.
+## Checking striping and compression
 
-For a directory, the output shows the settings that will be used for
-any files to be created in the directory.
+The default stripe size in Roihu is 4 MiB and the default stripe count is 1.
+This means that files are not striped across multiple OSTs by default.
+On Puhti and Mahti, the default stripe size is 1 MiB and the default stripe count is 1.
 
-Stripe configuration can be set with the `lfs setstripe` command. In
-most cases, it is enough to set the stripe count with the `-c`
-option, however, also other options can be set, see e.g. `man
-lfs-setstripe` or [Lustre
-wiki](https://wiki.lustre.org/Configuring_Lustre_File_Striping).
+On Roihu, Lustre compression is enabled by default for new files.
+Compression can reduce physical storage usage for compressible data,
+but the compression ratio, and the effect on I/O performance depends on the application and data type.
 
-```
-mkdir experiments
-lfs setstripe -c 4 experiments
-touch experiments/new_file
-```
-Executing now `lfs getstripe experiments/new_file` outputs:
-```
-experiments/new_file
-lmm_stripe_count:  4
-lmm_stripe_size:   1048576
-lmm_pattern:       raid0
-lmm_layout_gen:    0
-lmm_stripe_offset: 6
-    obdidx         objid        objid         group
-         6      29925064    0x1c89ec8             0
-         1      29925258    0x1c89f8a             0
-        19      29926834    0x1c8a5b2             0
-        15      29921764    0x1c891e4             0
+You can inspect the layout of a file or directory with:
 
+```bash
+lfs getstripe <file-or-directory>
 ```
 
-!!! warning "Setting a stripe to a file is persistent"
-     If the file is already created with a specific stripe, you
-     can not change it. Also, if you move a file, its stripe settings will not
-     change. In order to change striping, the file needs to be copied:
+For a file, this shows the layout used by the file. For a directory,
+it shows the layout inherited by new files created in that directory.
 
-     * using `setstripe`, create a new, empty file with the desired stripe settings and then copy the old file to the new file, or
-     * setup a directory with the desired configuration and copy (not move) the file into the directory.
+Changing Lustre striping or compression for your files or directories is an advanced operation.
+The default settings are recommended unless you understand your application's
+I/O behavior and know that changing the striping or compression settings
+in your working directories would improve I/O performance.
+
+For changing the default striping and compression settings, see
+[Advanced: Changing the Lustre striping and compression settings for a file or directory in Roihu](../support/tutorials/lustre-compression.md).
 
 ## Differences between Roihu, Puhti and Mahti
 
 Roihu, Puhti, and Mahti have similar storage areas
 [home](disk.md#home-directory), [project](disk.md#projappl-directory)
-and [scratch](disk.md#scratch-directory), however, their the Lustre
+and [scratch](disk.md#scratch-directory), however, their Lustre
 configuration is not the same.
 
 |  Name        | Roihu      |            | Puhti      |            | Mahti.     |            |
@@ -207,14 +180,8 @@ peak I/O values of 219 GB/sec for write and 180 GB/sec for read.
 * If an application opens a file for reading, then open the file in read mode
   only.
 
-* Increase striping count for parallel access, especially on large files:
-    * The striping factor should be a factor of the number of used processes
-      performing parallel I/O
-    * A rule of thumb is to use as striping the square root of the file size
-      in GB. If the file is 90 GB, the square root is 9.5, so use at least 9
-      OSTs.
-    * If you use, for example, 16 MPI processes for parallel I/O, the number
-      of the used OSTs should be less or equal to 16.
+* Use custom striping only for large files and parallel I/O workloads where the I/O behavior is understood and tested.
+    * See [Advanced: Changing the Lustre striping and compression settings for a file or directory in Roihu](../support/tutorials/lustre-compression.md).
 
-For more details, please consult our [Lustre performance
-optimization tutorial](../support/tutorials/lustre_performance.md).
+For details on tuning your application for Lustre, see the
+[Lustre performance optimization tutorial](../support/tutorials/lustre_performance.md).
