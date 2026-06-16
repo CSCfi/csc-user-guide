@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # TensorFlow
@@ -19,6 +20,9 @@ Deep learning framework for Python.
 
 !!! info "News"
 
+    **16.6.2026** TensorFlow is now available on Roihu-GPU, the module has been 
+    renamed `python-tensorflow`.
+    
     **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported TensorFlow versions has been
     reduced. Previously deprecated conda-based versions have been
@@ -38,36 +42,23 @@ Deep learning framework for Python.
 
 Currently supported TensorFlow versions:
 
-| Version | Module               | Puhti | Mahti | LUMI | Notes           |
-|:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.18.0  | `tensorflow/2.18`    | X     | X     | -    | default version |
-| 2.17.0  | `tensorflow/2.17`    | X     | X     | -    |                 |
-| 2.16.1  | `tensorflow/2.16`    | -     | -     | X    | default version |
-| 2.15.0  | `tensorflow/2.15`    | X     | X     | -    |                 |
-| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    |                 |
-| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | X    |                 |
-| 2.11.0  | `tensorflow/2.11`    | X     | X     | X    |                 |
-| 2.10.0  | `tensorflow/2.10`    | X     | X     | X    |                 |
-| 2.9.0   | `tensorflow/2.9`     | X     | X     | X    |                 |
-| 2.8.0   | `tensorflow/2.8`     | X     | X     | X    |                 |
-| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -    |                 |
-| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -    |                 |
-| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -    |                 |
-| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   | -    |                 |
-| 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -    |                 |
-| 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -    |                 |
-| 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -    |                 |
-| 1.15.5  | `tensorflow/1.15`    | (x)   | -     | -    |                 |
+| Version | Module                   | Roihu-GPU | Puhti | Mahti | LUMI | Notes                   |
+|:--------|:-------------------------|-----------|:-----:|:-----:|:----:|-------------------------|
+| 2.21.0  | `python-tensorflow/2.21` | X         | -     | -     | -    | Default on Roihu-GPU    |
+| 2.18.0  | `tensorflow/2.18`        |           | X     | X     | -    | Default on Puhti, Mahti |
+| 2.17.0  | `tensorflow/2.17`        |           | X     | X     | -    |                         |
+| 2.16.1  | `tensorflow/2.16`        |           | -     | -     | X    | Default on LUMI         |
+| 2.15.0  | `tensorflow/2.15`        |           | X     | X     | -    |                         |
+| 2.14.0  | `tensorflow/2.14`        |           | X     | X     | -    |                         |
+| 2.13.0  | `tensorflow/2.13`        |           | X     | X     | -    |                         |
+| 2.12.0  | `tensorflow/2.12`        |           | X     | X     | X    |                         |
+| 2.11.0  | `tensorflow/2.11`        |           | X     | X     | X    |                         |
+| 2.10.0  | `tensorflow/2.10`        |           | X     | X     | X    |                         |
+| 2.9.0   | `tensorflow/2.9`         |           | X     | X     | X    |                         |
+| 2.8.0   | `tensorflow/2.8`         |           | X     | X     | X    |                         |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and
 [Keras](https://keras.io/) with GPU support via CUDA/ROCm.
-
-Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
-(RHEL7) images, and are no longer fully supported. In particular MPI
-and Horovod are not expected to work anymore with these modules. If
-you still wish to access these versions, you need to enable old RHEL7
-modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
 
 If you find that some package is missing, you can often install it
 yourself using `pip install`. It is recommended to use Python virtual
@@ -102,8 +93,13 @@ TensorFlow is licensed under [Apache License
 
 ## Usage
 
-To use the default version of TensorFlow on Puhti or Mahti, initialize
-it with:
+To use the default version of TensorFlow on Roihu-GPU, initialize it with:
+
+```text
+module load python-tensorflow
+```
+
+To access PyTorch on Puhti or Mahti:
 
 ```text
 module load tensorflow
@@ -120,7 +116,8 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load tensorflow/2.12
+module load python-tensorflow/2.21  # on Roihu-GPU
+module load tensorflow/2.12         # on other systems
 ```
 
 Please note that the modules already include CUDA/ROCm libraries, so
@@ -129,14 +126,15 @@ Please note that the modules already include CUDA/ROCm libraries, so
 This command will also show all available versions:
 
 ```text
-module avail tensorflow
+module avail python-tensorflow  # on Roihu-GPU
+module avail tensorflow         # on other systems
 ```
 
 To check the exact packages and versions included in the loaded module you can
 run:
 
 ```text
-list-packages
+pip list
 ```
 
 !!! warning 
@@ -149,6 +147,22 @@ list-packages
 
 Example batch script for reserving one GPU and 1/4 (1/8 on LUMI) of
 the available CPU cores in a single node:
+
+
+=== "Roihu-GPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=72
+    #SBATCH --mem=120G
+    #SBATCH --gres=gpu:gh200:1
+    #SBATCH --time=1:00:00
+    
+    module load python-tensorflow/2.21
+    srun python3 myprog.py <options>
+    ```
 
 === "Puhti"
     ```bash
