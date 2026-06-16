@@ -19,35 +19,45 @@ graph LR;
     C{{"<b>June 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"<b>One month after Roihu GA</b>
+    D{{"<b>End of July 2026</b>
         Puhti <i>computing
         services</i> shut down"}} --> E;
     E{{"<b>End of August 2026</b>
-        Puhti <i>storage
+        Mahti <i>computing
         services</i> shut down"}} --> F;
-    F{{"<b>End of August 2026</b>
-        Mahti
+    F{{"<b>Mid October 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> G;
+    G{{"<b>Mid October 2026</b>
+        Mahti <i>storage services</i>
         shut down"}}
     style A fill:#dceeceff;
 ```
 
 **Roihu** will be installed in the same datacenter as LUMI, meaning that the
-system will be brought up without disturbing Puhti and Mahti services. There
+system will be brought up without disrupting Puhti and Mahti services. There
 will also be a margin between Roihu general availability and the
 decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
 a break in HPC access.
 
-Puhti will be decommissioned in two steps: First, the computing services of
-Puhti will be shut down one month after the general availability of Roihu. This
-means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible until end of August 2026, after which Puhti will be retired
-completely. Mahti will be closed end of August 2026.
+Puhti will be decommissioned in two stages: First, Puhti's computing services
+will be shut down one month after the general availability of Roihu, but earliest by 31 July 2026 at 12:00 EEST. This
+means that jobs will not run after this date on Puhti anymore. Puhti's storage and login nodes will,
+however, remain accessible until midday October 15th 2026, after which Puhti will be retired
+completely.
+
+Mahti will be closed in a similar two-stage process. Mahti’s computing services will be shut down on 31 August 2026 at 12:00 EEST, and jobs will not run on Mahti after this date.
+Its storage and login nodes will remain accessible until midday 15 October 2026, after which Mahti will be retired completely.
+
+Between September and October 2026, the storage services will not be covered by service contracts.
+As a result, we cannot guarantee that they will remain accessible throughout this period.
+We strongly encourage all users to prioritize moving their data by the end of August 2026.
 
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide after Roihu's general availability.
+prepared to do it during summer 2026, aiming to complete it by August 2026.
+CSC will publish a detailed Roihu migration guide after Roihu's general availability.
 
 If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
 consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
@@ -180,7 +190,7 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
 
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-04-28)
+  (updated 2026-06-15)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
