@@ -182,7 +182,7 @@ When you have filled in all metadata, you can finalize the submission, and the s
 
 ## Step 7: Dataset release
 
-To have your submission publicly available on EGA website, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
+To have your dataset publicly available on EGA website, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
