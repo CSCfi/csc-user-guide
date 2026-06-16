@@ -182,9 +182,9 @@ When you have filled in all metadata, you can finalize the submission, and the s
 
 ## Step 7: Dataset release
 
-To have your dataset publicly available on EGA website, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
+To have your dataset published on the EGA website, write to [CSC Service Desk](../../support/contact.md) to confirm that the dataset can be released.
 
-CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
+CSC helpdesk will complete the release process. You will receive confirmation of successful submission and dataset accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
 !!! note
     If someone wants to apply access to your dataset stored in Finnish FEGA, they must click the dataset application link on the EGA website. The link will direct the user to the application form in SD Apply. SD Apply is a service for applying and managing access rights to sensitive datasets stored at CSC. There is a separate [guide](./sd-apply-access.md) for applying data access.
