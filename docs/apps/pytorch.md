@@ -116,26 +116,26 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module                | Puhti | Mahti | Roihu-GPU | (LUMI)<br/>*see notes below* | Notes                    |
-|:--------|-----------------------|:-----:|:-----:|-----------|------------------------------|:-------------------------|
-| 2.10.0  | `python-pytorch/2.10` | -     | -     | X         | -                            | Default on Roihu-GPU     |
-| 2.9.1   | `pytorch/2.9`         | X     | X     |           | -                            | Default on Puhti, Mahti  |
-| 2.7.1   | `pytorch/2.7`         | X     | X     |           | (X)                          | No Slingshot (see below) |
-| 2.6.0   | `pytorch/2.6`         | X     | X     |           | -                            |                          |
-| 2.5.1   | `pytorch/2.5`         | X     | X     |           | (X)                          |                          |
-| 2.4.1   | `pytorch/2.4`         | -     | -     |           | (X)                          |                          |
-| 2.4.0   | `pytorch/2.4`         | X     | X     |           | -                            | New tykky-based wrappers |
-| 2.3.1   | `pytorch/2.3`         | X     | X     |           | -                            | New tykky-based wrappers |
-| 2.2.2   | `pytorch/2.2`         | -     | -     |           | (X)                          |                          |
-| 2.2.1   | `pytorch/2.2`         | X     | X     |           | -                            |                          |
-| 2.1.2   | `pytorch/2.1`         | -     | -     |           | (X)                          |                          |
-| 2.1.0   | `pytorch/2.1`         | X     | X     |           | -                            |                          |
-| 2.0.1   | `pytorch/2.0`         | -     | -     |           | (X)                          |                          |
-| 2.0.0   | `pytorch/2.0`         | X     | X     |           | -                            |                          |
-| 1.13.1  | `pytorch/1.13`        | -     | -     |           | (X)                          |                          |
-| 1.13.0  | `pytorch/1.13`        | X     | X     |           | -                            |                          |
-| 1.12.0  | `pytorch/1.12`        | X     | X     |           | -                            |                          |
-| 1.11.0  | `pytorch/1.11`        | X     | X     |           | -                            |                          |
+| Version | Module                | Roihu-GPU | Puhti | Mahti | (LUMI)<br/>*see notes below* | Notes                    |
+|:--------|-----------------------|-----------|:-----:|:-----:|------------------------------|:-------------------------|
+| 2.10.0  | `python-pytorch/2.10` | X         | -     | -     | -                            | Default on Roihu-GPU     |
+| 2.9.1   | `pytorch/2.9`         |           | X     | X     | -                            | Default on Puhti, Mahti  |
+| 2.7.1   | `pytorch/2.7`         |           | X     | X     | (X)                          | No Slingshot (see below) |
+| 2.6.0   | `pytorch/2.6`         |           | X     | X     | -                            |                          |
+| 2.5.1   | `pytorch/2.5`         |           | X     | X     | (X)                          |                          |
+| 2.4.1   | `pytorch/2.4`         |           | -     | -     | (X)                          |                          |
+| 2.4.0   | `pytorch/2.4`         |           | X     | X     | -                            | New tykky-based wrappers |
+| 2.3.1   | `pytorch/2.3`         |           | X     | X     | -                            | New tykky-based wrappers |
+| 2.2.2   | `pytorch/2.2`         |           | -     | -     | (X)                          |                          |
+| 2.2.1   | `pytorch/2.2`         |           | X     | X     | -                            |                          |
+| 2.1.2   | `pytorch/2.1`         |           | -     | -     | (X)                          |                          |
+| 2.1.0   | `pytorch/2.1`         |           | X     | X     | -                            |                          |
+| 2.0.1   | `pytorch/2.0`         |           | -     | -     | (X)                          |                          |
+| 2.0.0   | `pytorch/2.0`         |           | X     | X     | -                            |                          |
+| 1.13.1  | `pytorch/1.13`        |           | -     | -     | (X)                          |                          |
+| 1.13.0  | `pytorch/1.13`        |           | X     | X     | -                            |                          |
+| 1.12.0  | `pytorch/1.12`        |           | X     | X     | -                            |                          |
+| 1.11.0  | `pytorch/1.11`        |           | X     | X     | -                            |                          |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
@@ -200,17 +200,17 @@ file](https://github.com/pytorch/pytorch/blob/master/LICENSE).
 
 ## Usage
 
-To use the default version of PyTorch on Puhti or Mahti, initialize it
+To use the default version of PyTorch on Roihu-GPU, initialize it
 with:
 
 ```text
-module load pytorch
+module load python-pytorch
 ```
 
-To access PyTorch on Roihu-GPU:
+To access PyTorch on Puhti or Mahti:
 
 ```text
-module load python-pytorch
+module load pytorch
 ```
 
 To access PyTorch on LUMI - see the [caveats about the LUMI installation above](#lumi-note).
@@ -257,6 +257,21 @@ pip list
 Example batch script for reserving one GPU and a corresponding
 proportion of the available CPU cores in a single node:
 
+=== "Roihu-GPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=72
+    #SBATCH --mem=120G
+    #SBATCH --gres=gpu:gh200:1
+    #SBATCH --time=1:00:00
+    
+    module load python-pytorch/2.10
+    srun python3 myprog.py <options>
+    ```
+
 === "Puhti"
     ```bash
     #!/bin/bash
@@ -283,21 +298,6 @@ proportion of the available CPU cores in a single node:
     #SBATCH --gres=gpu:a100:1
     
     module load pytorch/2.9
-    srun python3 myprog.py <options>
-    ```
-
-=== "Roihu-GPU"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=72
-    #SBATCH --mem=120G
-    #SBATCH --gres=gpu:gh200:1
-    #SBATCH --time=1:00:00
-    
-    module load python-pytorch/2.10
     srun python3 myprog.py <options>
     ```
 
