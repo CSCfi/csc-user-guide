@@ -22,8 +22,8 @@ Deep learning framework for Python.
 
     **16.6.2026** TensorFlow is now available on Roihu-GPU, the module has been 
     renamed `python-tensorflow`.
-
-**5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
+    
+    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
     (RHEL8), **the number of fully supported TensorFlow versions has been
     reduced. Previously deprecated conda-based versions have been
     removed.** Please [contact our servicedesk](../support/contact.md) if
