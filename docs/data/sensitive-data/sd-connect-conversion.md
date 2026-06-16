@@ -36,7 +36,7 @@ Step 2: Choose the correct option and step by step guide
 |-----|----------------------------|------------|------------------------|
 | Urgent | Up to 1 TB | Download the SD Connect Conversion Tool application to your laptop | [SD Connect Conversion tool application](sd-connect-conversion-tool-ui.md) |
 |  | Up to 4 TB | Use the SD Connect Conversion CLI installed on Rhoihu | Link |
-|  | Up to 50 TB | Verify that your CSC project has enough quota to create a copy of your files during the conversion. Plan the process so that single buckets are converted at a time. Use the SD Connect Conversion CLI installed on Rhoihu | Add link here |
-|  | More than  50 TB| Contact us to plan teh comevrsion with our support |
+|  | Up to 50 TB | Verify that your CSC project has enough quota to create a copy of your files during the conversion.  Use the SD Connect Conversion CLI installed on Rhoihu. Plan the process to convert only a few buckets at a time, rather than the entire CSC project.| Add link here |
+|  | More than  50 TB| Verify that your CSC project has enough quota to create a copy of your files during the conversion.  Use the SD Connect Conversion CLI installed on Rhoihu. Plan the process to convert only a few buckets at a time, rather than the entire CSC project. |Contact us to plan the conversion with our support
 | By end of 2026 | Up to 1 TB | Download the SD Connect Conversion Tool application to your laptop and schedule conversion before the end of 2026 | Add link here |
 |  | More than 1 TB | Plan and schedule the conversion well ahead of the deadline | Add link here |
