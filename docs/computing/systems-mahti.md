@@ -5,10 +5,15 @@ search:
 
 # Technical details about Mahti
 
-!!! warning "Mahti retirement in August 2026"
-    Mahti will be decommissioned in August 2026 and replaced by Roihu, CSC's
+!!! warning "Mahti retirement in Fall 2026"
+    Mahti will be decommissioned in stages and replaced by Roihu, CSC's
     next-generation supercomputer offering enhanced performance and
     capabilities.
+
+    Mahti computing services will be shut down on 31 August 2026 at 12:00 EEST. Storage and
+    login nodes are planned to remain accessible until midday 15 October 2026, but
+    users are strongly encouraged to move any required data from the system by
+    the end of August 2026.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 

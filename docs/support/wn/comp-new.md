@@ -1,5 +1,23 @@
 # Computing environment
 
+## Roihu FAQ and data migration instructions updated, 11.6.2026
+
+The [Roihu FAQ](../faq/roihu.md) and [data migration instructions](../tutorials/roihu-data-preparation.md) have
+been updated with the latest information for the transition from Puhti
+and Mahti to Roihu. Roihu is scheduled to become generally available during end of June 2026.
+
+Puhti and Mahti will be fully decommissioned by mid October, after Roihu becomes available, so users
+should start preparing their data for migration. We recommend reviewing what data
+needs to be moved, deleting unnecessary files and ensuring that important data is
+moved, or saved, before Mahti and Puhti are decommissioned.
+
+Puhti and Mahti storage services will be fully inaccessible after October 15th 2026.
+
+See the updated instructions:
+
+* [Roihu FAQ](../faq/roihu.md)
+* [Roihu data preparation instructions](../tutorials/roihu-data-preparation.md)
+
 ## Puhti and Mahti web interface updated to release 33 and 17, 11.6.2026
 
 * The MATLAB version can now be selected.
