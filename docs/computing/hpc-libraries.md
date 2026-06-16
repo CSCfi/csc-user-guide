@@ -8,7 +8,7 @@ module version. For pure MPI applications and applications calling
 libraries from multiple threads it is recommended to use a single
 threaded library.
 
-Availibility of libraries may depend on the loaded compiler suite and
+Availability of libraries may depend on the loaded compiler suite and
 MPI environment, use `module avail` for finding out available
 libraries. See the documentation of library for
 instructions on how to build against that particular library. Note

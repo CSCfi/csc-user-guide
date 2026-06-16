@@ -1,6 +1,6 @@
 # Cloud services
 
-## New Ubuntu cloud image Resolute Racoon 26.04, 11.05.2026
+## New Ubuntu cloud image Resolute Raccoon 26.04, 11.05.2026
 
 The newest LTS (Long-Term Support) Ubuntu cloud image, Ubuntu-26.04, has been added to Pouta.
 

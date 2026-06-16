@@ -366,7 +366,7 @@ remains before access is removed.
 * All terminals in the desktop now open outside the container -> should work exactly as a normal login shell
   * Host terminal has been renamed Terminal on the desktop
 * Graphical Emacs now available in the desktop
-* Jupyter app now accepts full path to Python interpeter, enabling direct usage of Tykky installations.
+* Jupyter app now accepts full path to Python interpreter, enabling direct usage of Tykky installations.
 * Time left for job is now correctly calculated and displayed at the bottom of the terminal when reconnecting to a compute node shell. 
 
 ## Puhti disk cleaning policy changed, 17.1.2023

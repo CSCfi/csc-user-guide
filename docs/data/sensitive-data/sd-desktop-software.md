@@ -67,7 +67,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 * Log in to the [SD Connect service](https://sd-connect.csc.fi) and if you haven't used the service before, please upload a small test file to a folder first. Currently, there is a technical issue that affects users who have not yet uploaded any files.
 * On the homepage, look for the “Copy Share ID” icon next to the project selection menu. By clicking on it you can  copy your project’s Share ID. This is a unique code of 32 letters and numbers that we’ll use to share the installer application with your project.
       * Example Share ID: 71bbe38a3cd398b48b1f2582dc00297p
-* Next, please send an email to [CSC Service Desk](../../support/contact.md) (subject: SD Desktop)  letting  them know you would like access to the Software Installer and including the project  Share ID by pastinng it in the message. Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
+* Next, please send an email to [CSC Service Desk](../../support/contact.md) (subject: SD Desktop)  letting  them know you would like access to the Software Installer and including the project  Share ID by pasting it in the message. Once the Service Desk confirms access, the installer will be available via the SD Desktop service.
 
 ![(screenshot)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_ShareID.png)
 

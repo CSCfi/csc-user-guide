@@ -66,13 +66,13 @@ If you need assistance, please [contact CSC Service Desk](../support/contact.md)
 
 If you are a registered CSC user and need another account for managing
 services that you run in the CSC services, we can create a
-machine-to-machine robot account for you. Please note that each service requires it's own unique robot account. Send the following
+machine-to-machine robot account for you. Please note that each service requires its own unique robot account. Send the following
 information to servicedesk@csc.fi.
 
 * Project identifier (e.g. 2001679, uef4713) of the project your
   service uses
 * The CSC service your service uses (e.g. cPouta, Rahti)
-* Your mobile number (to which the password are sent via SMS)
+* Your mobile number (to which the password is sent via SMS)
 
 Once the account has been created, if you are using it with a CSC supercomputer, you also need to
 [generate a new SSH key pair](../computing/connecting/ssh-keys.md#generating-ssh-keys) for the robot

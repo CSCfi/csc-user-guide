@@ -2,7 +2,7 @@
 
 In this tutorial we use cPouta to create Apptainer containers to import new software to SD Desktop.
 
-**Steps 1 and 2** describe how to setup you own Virtual Machine with Apptainer environment to cPouta. This is 
+**Steps 1 and 2** describe how to setup your own Virtual Machine with Apptainer environment to cPouta. This is 
 not the only option and if you have already an Apptainer installed elsewhere, you can skip these steps and 
 use your own Apptainer environment.
 
@@ -89,7 +89,7 @@ export LC_NUMERIC=en_GB.UTF-8
 export PATH="/opt/miniconda/bin:$PATH"
 
 %help
-Container based on unbuntu containing miniconda.
+Container based on ubuntu containing miniconda.
 
 %runscript
 # sample runscript: bamtools passing all arguments from cli: $@

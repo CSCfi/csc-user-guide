@@ -9,7 +9,7 @@ In this tutorial we use Delayed functions. Delayed functions are useful in paral
 
 Keep in mind that the other ways of code parallelisation might suit better in different use cases. For Dask DataFrames, see [CSC dask-geopandas example](https://github.com/csc-training/geocomputing/edit/master/python/dask_geopandas) and for Dask Arrays [CSC STAC example with Xarray](https://github.com/csc-training/geocomputing/edit/master/python/STAC). 
 
-## Single-node parallellisation with delayed functions and a local cluster
+## Single-node parallelisation with delayed functions and a local cluster
 
 This way you can utilize one full computing node's worth of CPUs (40 in Puhti)
 
@@ -53,9 +53,9 @@ compute(list_of_delayed_functions)
 
 ```
 
-## Multi-node parallellisation with delayed functions and SLURMCluster
+## Multi-node parallelisation with delayed functions and SLURMCluster
 
-To achieve parallellisation over multiple HPC computing nodes, use SLURMCluster from [Dask-Jobqueue library](https://jobqueue.dask.org/en/latest/).
+To achieve parallelisation over multiple HPC computing nodes, use SLURMCluster from [Dask-Jobqueue library](https://jobqueue.dask.org/en/latest/).
 
 The workflow with this approach is that you first submit a master job, which then submits further worker SLURM jobs to the queuing system. 
 Once at least some worker SLURM jobs have started, the master sets up a Dask cluster with Dask workers. 
@@ -161,7 +161,7 @@ This currently only works when starting the cluster from the extension (not if t
 3. Click `<>`, which will create a new cell at cursor position in currently open notebook with all code needed to connect your notebook to the running cluster via a client.   
 4. Adapt your Client as needed, while keeping the address that is suggested by Dask extension.
 5. Run that cell to connect your notebook via the client to the running cluster.
-6. Find all available dashboards from the extension (orange boxes) and activate the ones you want with a click (draging allows you to dock multiple dashboard tabs side by side).
+6. Find all available dashboards from the extension (orange boxes) and activate the ones you want with a click (dragging allows you to dock multiple dashboard tabs side by side).
 
 Please note:
 

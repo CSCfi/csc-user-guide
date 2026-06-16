@@ -77,7 +77,7 @@ In the web interface, use the **Create volume** button on the
 size for the volume (1 GB is the minimum). The only mandatory argument
 is the size of the volume.
 
-![Create persistent Volmume](../../img/create-volume-horizon.png)
+![Create persistent Volume](../../img/create-volume-horizon.png)
 
 Once the volume has been created, it can be attached to a running
 virtual machine. One volume can be attached to only one virtual

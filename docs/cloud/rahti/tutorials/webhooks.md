@@ -15,7 +15,7 @@ In this example we will use the GitHub type.
 
 ## Creating a secret
 
-After loggin in at Rahti, in the left hand side menu, click on `Workloads` dropdown list, go to the **Secrets** page. Make sure that you are in the right project and then click in **Create -> Webhook secret**. Write any sensible name. And click on **Generate**. Write down the generated secret. And **Save**.
+After logging in at Rahti, in the left hand side menu, click on `Workloads` dropdown list, go to the **Secrets** page. Make sure that you are in the right project and then click in **Create -> Webhook secret**. Write any sensible name. And click on **Generate**. Write down the generated secret. And **Save**.
 
 ![CreateWebhookSecret](../../img/CreateWebhookSecret.png)
 
