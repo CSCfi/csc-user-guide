@@ -174,15 +174,15 @@ Using the submitter portal, you can register the following metadata objects:
 
 * **Dataset**. Contains the collection of data files organized under runs and/or analyses and to be subject to controlled access. Associated with Policy, which includes access application link and is created by CSC helpdesk. The title should be a 3–20-word overview of the dataset content, and the description should be a 3 - 4 sentences definition of the dataset content, including sample number and details, file type and technology/experimentation used. Dataset's metadata will be publicly available on the EGA website.
 
-When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After data release, each of these objects will be assigned with a permanent identifier (EGA ID).
+When you have filled in all metadata, you can finalize the submission, and the submission will move to Finnish FEGA helpdesk for approval and release. After helpdesk has approved the submission, each of these objects will be assigned with a permanent identifier (EGA ID).
 
 !!! note
     * Dataset specific **Policy** item for the metadata submission need to be created separately by CSC helpdesk before it can be selected in the submitter portal. This Policy metadata item links the dataset to the data access application created by your organisation in SD Apply (see [Step 1](./fega-submission.md#step-1-legal-agreements-data-access-committee-and-access-policies)).
     * **Study**, **Samples**, and **Experiment** metadata can be registered before uploading files, while **Run** and **Analysis** objects cannot be registered before the files have been uploaded to Finnish FEGA. You can choose **Policy** for your submission only after you have registered all the other metadata, while you are registering **Dataset** metadata.
 
-## Step 7: Data release
+## Step 7: Dataset release
 
-To have your submission approved and released, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
+To have your submission publicly available on EGA website, write to [CSC Service Desk](../../support/contact.md) to confirm that the submission can be released.
 
 CSC helpdesk will complete the release process. You will receive confirmation of successful submission and accessions suitable for publication, grants, etc. from the CSC helpdesk.
 
