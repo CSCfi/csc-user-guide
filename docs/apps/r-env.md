@@ -525,11 +525,11 @@ To use it, one must set the correct path to CmdStan using `cmdstanr`. For exampl
     cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/452-stan/cmdstan-2.38.0")
     ```
 
-If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
+If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs on Puhti and Mahti, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 === "Roihu-CPU"
-    Under construction. Sorry for any inconvenience and please check back later!
-
+    No Cmdstan-specific settings needed in the batch job script.
+    
 === "Puhti"
     ```r
     # Set R version
@@ -539,7 +539,6 @@ If you are using CmdStan in an interactive session, the above command will work 
     SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
     srun apptainer_wrapper exec Rscript --no-save script.R
     ```
-
 === "Mahti"
     ```r
     # Set R version
