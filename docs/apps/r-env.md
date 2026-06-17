@@ -513,9 +513,7 @@ To use it, one must set the correct path to CmdStan using `cmdstanr`. For exampl
 === "Roihu-CPU"
     ```r
     cmdstanr::set_cmdstan_path("/appl/soft/manual/aida/x86_64/r-env/452-stan/cmdstan-2.39.0")
-    ```
-    If a model fails to compile, try running `module purge` before starting R.
-    
+    ```    
 === "Puhti"   
     ```r
     cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/452-stan/cmdstan-2.38.0")
