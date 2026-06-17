@@ -40,6 +40,7 @@
 * [How to run many short jobs with GNU Parallel](many.md)
 * [Running Nextflow pipelines](nextflow-tutorial.md)
 * [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
+* [Advanced: Changing Lustre compression on Roihu](lustre-compression.md)
 
 ## Resources for courses
 
