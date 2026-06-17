@@ -155,6 +155,16 @@ lmm_stripe_offset: 6
      * using `setstripe`, create a new, empty file with the desired stripe settings and then copy the old file to the new file, or
      * setup a directory with the desired configuration and copy (not move) the file into the directory.
 
+## Lustre compression
+
+The Lustre file system on Roihu also allows users to change settings for enabling file compression.
+Compression can significantly reduce the physical storage space used by files that compress well,
+and in some cases it can also improve I/O performance by reducing the amount
+of data transferred between the storage system and compute nodes.
+
+Lustre compression is **not yet supported on Roihu**, and will be
+announced later.
+
 ## Differences between Roihu, Puhti and Mahti
 
 Roihu, Puhti, and Mahti have similar storage areas
