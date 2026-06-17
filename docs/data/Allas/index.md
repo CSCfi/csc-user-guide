@@ -33,7 +33,7 @@ This Allas object storage service user guide consists of following parts:
 
 ## Allas FAQ
 
-* [How to move data from Puhti to Allas and vice versa?](../../support/faq/how-to-move-data-between-puhti-and-allas.md)
+* [How to move data from Puhti to Allas and vice versa?](../../support/faq/how-to-move-data-between-roihu-and-allas.md)
 * [Can I have a personal project or bucket in Allas?](../../support/faq/can-i-have-a-personal-project-or-bucket-in-allas.md)
 * [Is it possible to move data in Allas to new project?](../../support/faq/is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](../../support/faq/is-it-possible-to-make-data-in-allas-read-only.md)

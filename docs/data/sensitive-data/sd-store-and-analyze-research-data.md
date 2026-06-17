@@ -37,7 +37,7 @@ Responsibilities include:
   
 * Defining data access by deciding who can join the project.
 
-* Define what type of data are processed (personal sensitive data, confidential data) and describe it in the Description of processing acitivity form via MYCSC portal. 
+* Define what type of data are processed (personal sensitive data, confidential data) and describe it in the Description of processing activity form via MYCSC portal. 
   
 * Managing project lifetime, storage space (quota) and resources (here called Billing Units) via MyCSC portal. 
   

@@ -88,7 +88,7 @@ drwxr-xr-x+ 2 testuser csc   11 Nov  9 10:44 project_3
 
 The `tar` command does not require that you assign a certain extension,
 like `.tar`, for your archive files. However, applying commonly used
-file name extensions will help you and other users to select right
+file name extensions will help you and other users to select the right
 commands for processing the file later on. The newly created tar archive
 file can now be easily moved to another directory or system and then
 unarchived with the extract (`x`) command:

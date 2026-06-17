@@ -61,7 +61,7 @@ Plugin from the Extension tab on the program.
     [Read the instructions here](../../computing/connecting/ssh-keys.md).
 
 Once you've set up SSH keys, added the public key to MyCSC, and installed the
-Remote SSH extenstion, go to the Remote Explorer tab in VS Code and add new
+Remote SSH extension, go to the Remote Explorer tab in VS Code and add new
 remote machine from the **+** symbol. When VS Code asks for the SSH command,
 type
 
@@ -128,7 +128,7 @@ need to
    choose the label after `Host` (`puhti-software-environment`) and this is how
    it will appear in the remote host selection of the VS Code Remote SSH
    extension when you make a connection. We recommend giving each combination
-   of system and software environment you work with a recongnizable name (e.g.,
+   of system and software environment you work with a recognizable name (e.g.,
    `puhti-pytorch`). If you have saved your SSH key in a non-default location,
    add `IdentityFile <path_to_your_keyfile>` to the host configuration block
    shown above.

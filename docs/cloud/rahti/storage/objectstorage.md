@@ -113,7 +113,7 @@ spec:
 Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`
 The deployment is using a `PersistentVolumeClaim` for our example.
 
-Now we have our running `nginx` pod, we want want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.
+Now we have our running `nginx` pod, we want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.
 
 ### First example: using another pod
 
@@ -138,7 +138,7 @@ endpoint = a3s.fi
 acl = private
 ```
 
-_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` by your own credentilas._
+_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` by your own credentials._
 
 Create a `rclone.sh` script:
 

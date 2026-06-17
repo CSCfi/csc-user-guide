@@ -151,7 +151,7 @@ within the node to "schedule" all 3200 runs in a job, so that at any point
 in time all 40 cores are busy, but not overloaded.
 
 Next lines calculate which directories belong to the current array job, using
-the `SLURM_ARRAY_TASK_ID` environment varible.
+the `SLURM_ARRAY_TASK_ID` environment variable.
 
 The main "loop" of the script is implemented with GNU parallel command
 `parallel`. With the option `-j $SLURM_CPUS_PER_TASK` we tell GNU parallel to

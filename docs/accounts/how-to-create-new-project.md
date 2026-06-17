@@ -142,7 +142,7 @@ Here we describe how the Haka identity linked to your CSC account affects your r
 | Haka Affiliation ([eduPersonScopedAffiliation](https://wiki.eduuni.fi/spaces/CSCHAKA/pages/256884450/funetEduPersonSchema2dot5#funetEduPersonSchema2dot5-eduPersonScopedAffiliation)) | Description ([from Haka documentation](https://wiki.eduuni.fi/spaces/CSCHAKA/pages/256884450/funetEduPersonSchema2dot5#funetEduPersonSchema2dot5-eduPersonAffiliation)) | Academic Project | Course Project | Student Project |
 | -- | -- | -- | -- | -- |
 | `faculty@org.fi` | research and education workers at laboratories and institutes; e.g. professors, researchers, lecturers, assistants, whether employed by the institution or some other organisation (such as Academy of Finland). Docents may be affiliated as faculty, if they are actively involved in research or education in an institute. | ✅ | ✅ | ❌ |
-| `staff@org.fi` | administrational workers at the institution, whether employed by the institution or some other organisation | ✅ | ✅ | ❌ |
+| `staff@org.fi` | administrative workers at the institution, whether employed by the institution or some other organisation | ✅ | ✅ | ❌ |
 | `employee@org.fi` |a person actually employed by the institution  | ✅ | ✅ | ❌ |
 | `student@org.fi` (without being faculty, staff or employee) | a student who has registered as being present (läsnäoleva). | ❌ | ❌ | ✅ |
 | `member@org.fi` (without being faculty, staff or employee) | This value covers all categories mentioned above plus students taking qualifying education courses, further education courses or open university and further education center students (pätevöitymiseen tähtäävä täydennyskoulutus, muu täydennyskoulutus, avoin yliopisto/korkeakoulu, täydennyskoulutuskeskuksen opiskelijat). | ❌ | ❌ | ✅ |
@@ -162,7 +162,7 @@ You can check your Haka attributes in MyCSC portal:
 3. Your affiliations are in the **eduPersonScopedAffiliation** section
 
 ### Problems with the Haka affiliation information
-- If you cannot create a CSC Project, please log in to MyCSC again with Haka to update you Haka affiliation information.
+- If you cannot create a CSC Project, please log in to MyCSC again with Haka to update your Haka affiliation information.
 - If you think that your Haka affiliation information may be incorrect, please contact your home organisation.
 
 

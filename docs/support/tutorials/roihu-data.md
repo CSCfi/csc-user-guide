@@ -16,6 +16,12 @@
     of data or other special requirements, please also read the other sections
     carefully.
 
+!!! warning "Roihu is not yet available"
+     Roihu will be available around end of June 2026. Direct
+     data transfers between Mahti and Puhti to Roihu are not yet
+     possible.
+     Follow this guide only **after Roihu is available**.
+
 ## 1. General guidelines and prerequisites
 
 ### 1.1 Review and clean up your data before migration
@@ -55,7 +61,7 @@
     |-----------|-----------------------|-------------:|--------------------:|--------------------------:|----------------------------:|
     | Home      | `/users/$USER`        | 15 GiB       | 15 GiB              | 150k                      | 150k                        |
     | ProjAppl  | `/projappl/<project>` | 15 GiB       | 250 GiB             | 150k                      | 2.5M                        |
-    | ProjData  | `/projdata/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
+    | Dataset  | `/dataset/<project>` | 0 GiB        | case-by-case        | 0                         | case-by-case                |
     | Scratch   | `/scratch/<project>`  | 250 GiB      | 100 TiB             | 500k                      | 10M                         |
 
 
@@ -65,15 +71,15 @@
   via [MyCSC](https://my.csc.fi) beforehand if your data does not fit
   within the default limits.
 
-??? info "New ProjData disk area on Roihu"
+??? info "New Dataset disk area on Roihu"
     Users may apply for new "dataset projects" (cf. regular computing projects)
-    to get access to a new disk area on Roihu – **ProjData**. This disk area
+    to get access to a new disk area on Roihu – **Dataset**. This disk area
     allows storing datasets on the disk for a longer timer (no cleaning,
     lifetime is limited by the data project lifetime). Read access to the data
     can be shared globally, or with specific project IDs.
 
-    Dataset projects and ProjData quotas are applied for and managed via
-    [MyCSC](https://my.csc.fi). ProjData quota consumes Storage BUs.
+    Dataset projects and Dataset quotas are applied for and managed via
+    [MyCSC](https://my.csc.fi). Dataset quota consumes Storage BUs.
 
 ### 1.3. Add Roihu service access to your CSC project
 
@@ -87,7 +93,7 @@
 ### 1.4 Transfer your data directly from Puhti/Mahti to Roihu
 
 * It is **not** recommended to transfer data to Roihu via Allas or your local
-  workstation. Instead, CSC recommends using command-line based tools such as
+  workstation. Instead, CSC recommends using command-line tools such as
   [`rsync`](#2-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
 
@@ -108,7 +114,7 @@
 
 * **`rsync`** is the preferred tool for transferring data from Puhti or Mahti
   to Roihu. [Read more about `rsync` here](../../data/moving/rsync.md).
-* **We will use Puhti as an example**, but the exact same steps apply for Mahti and LUMI
+* **We will use Puhti as an example**, but the exact same steps apply to Mahti and LUMI
   also. Simply replace all occurrences of `puhti` in host names etc. with
   `mahti`.
 * All examples require that you've **forwarded your SSH agent** including your
@@ -425,8 +431,8 @@ GB, <100 files).
 
 ### 4.2 Using the web interfaces to migrate data
 
-Unfortunately, there is no good way that the Puhti or Mahti web interfaces can
-be used to move data directly to Roihu. There are some indirect ways, but none
+Unfortunately, there is no good way for using the Puhti or Mahti web interfaces
+to move data directly to Roihu. There are some indirect ways, but none
 of them are efficient, which is why we primarily recommend the command-line
 based approaches above. The following options should therefore be considered as
 "last resort" choices.

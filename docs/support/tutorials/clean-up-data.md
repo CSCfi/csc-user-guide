@@ -1,6 +1,6 @@
-# Managing data on Puhti and Mahti scratch disks
+# Managing data on supercomputer scratch disks
 
-An important task for all users on Puhti and Mahti is to manage what data resides in project
+An important task for all users on CSC supercomputers is to manage what data resides in project
 folders in `scratch`. These are only intended as temporary storage space for data that is in
 active use. All other data should be removed, or stored in other more suitable storage systems.
 Users are not expected to use all of their quota, the maximum quota is only meant for
@@ -215,7 +215,7 @@ grep "/scratch/${my_project:?}/important-dir" ~/purge_list
 #### Find the biggest files on the list
 
 LCleaner has an option to sort the files by size. This option is called `--sort-by-size` and always
-sorts in a decending order (i.e., biggest files first). If you want to see the size of the files
+sorts in a descending order (i.e., biggest files first). If you want to see the size of the files
 when they are printed, use the `--csv` option. By default, only the file paths are printed.
 You can also limit the output to include a given number of files with the `--limit N` parameter,
 where `N` is the number of lines you want to see.

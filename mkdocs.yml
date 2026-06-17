@@ -16,7 +16,10 @@ extra:
     content: |-
       <p>Warning!</p>
       <div>
-        <p>Puhti scratch disk is becoming very full (80+ % ) resulting in performance degradation. Everybody is advised to only keep actively processed data on scratch, all other data should be deleted, transferred to host institute or stored in Lumi-O. No new quota will be granted. <a href="{{ base_url }}/support/tutorials/lue/">Click here for a tool for examining your disk usage.</a></p>
+        <p>Puhti and Mahti will be decommissioned after Roihu becomes available. Users should clean up unnecessary files and move any required data by the end of August 2026. See the <a href="{{ base_url }}/support/tutorials/roihu-data-preparation/">Roihu data preparation instructions</a> for details.</p>
+      </div>
+      <div>
+        <p>Puhti scratch is very full: keep only active data there and move or delete everything else. No new Puhti scratch quota will be granted.
       </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
@@ -24,7 +27,7 @@ extra:
     title: Roihu supercomputer – get started here!
     link: support/tutorials/roihu/
     description: |-
-      Puhti and Mahti will be decommissioned in August 2026 and replaced by
+      Puhti and Mahti will be decommissioned by October 2026 and replaced by
       Roihu, CSC's next-generation supercomputer offering enhanced performance
       and capabilities.
     visible: true

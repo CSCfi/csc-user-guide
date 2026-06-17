@@ -16,7 +16,7 @@ If you find you in the need of creating a network and or router, you can recreat
     - **Network Name** - Specify a name for your network.
     - **Enable Admin State** - Enable the network.
     - **Create Subnet** - Leave check if you want to create a subnet.
-    - **Availabity Zone Hints** - Leave "nova" by default.
+    - **Availability Zone Hints** - Leave "nova" by default.
 
 1. When done, click on **Next**. It will open the next tab regarding the subnet.
 
@@ -99,7 +99,7 @@ A security group can be edited or created in any moment of the Virtual Machine l
     In the example above we have 3 security groups other than the  `default` one, two internal for monitoring and management, and one public for the service we offer to our users.
 
     !!! Info "Instance view"
-        The instance view shows all the configurations of a VM, including all the securitity groups added to it, and the configuration of each of them. It is very useful to debug network connections issues and confirm the security of a VM.
+        The instance view shows all the configurations of a VM, including all the security groups added to it, and the configuration of each of them. It is very useful to debug network connections issues and confirm the security of a VM.
 
 * The `Default` security group comes with rules that allow internal communication between virtual machines that are members of the security group:
 

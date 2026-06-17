@@ -19,16 +19,19 @@ graph LR;
     C{{"<b>June 2026</b>
         Roihu general
         availability (GA)"}} --> D;
-    D{{"<b>One month after Roihu GA</b>
+    D{{"<b>End of July 2026</b>
         Puhti <i>computing
         services</i> shut down"}} --> E;
     E{{"<b>End of August 2026</b>
-        Puhti <i>storage
+        Mahti <i>computing
         services</i> shut down"}} --> F;
-    F{{"<b>End of August 2026</b>
-        Mahti
+    F{{"<b>Mid October 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> G;
+    G{{"<b>Mid October 2026</b>
+        Mahti <i>storage services</i>
         shut down"}}
-    style A fill:#dceeceff;
+    style C fill:#dceeceff;
 ```
 
 **Roihu** will be installed in the same datacenter as LUMI, meaning that the
@@ -37,17 +40,25 @@ will also be a margin between Roihu general availability and the
 decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
 a break in HPC access.
 
-Puhti will be decommissioned in two steps: First, the computing services of
-Puhti will be shut down one month after the general availability of Roihu. This
-means that jobs cannot be submitted on Puhti anymore. Puhti's storage will,
-however, remain accessible until end of August 2026, after which Puhti will be retired
-completely. Mahti will be closed end of August 2026.
+Puhti will be decommissioned in two stages: First, Puhti's computing services
+will be shut down one month after the general availability of Roihu, but earliest by 31 July 2026 at 12:00 EEST. This
+means that jobs will not run after this date on Puhti anymore. Puhti's storage and login nodes will,
+however, remain accessible until midday October 15th 2026, after which Puhti will be retired
+completely.
+
+Mahti will be closed in a similar two-stage process. Mahti’s computing services will be shut down on 31 August 2026 at 12:00 EEST, and jobs will not run on Mahti after this date.
+Its storage and login nodes will remain accessible until midday 15 October 2026, after which Mahti will be retired completely.
+
+Between September and October 2026, the storage services will not be covered by service contracts.
+As a result, we cannot guarantee that they will remain accessible throughout this period.
+We strongly encourage all users to prioritize moving their data by the end of August 2026.
 
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, at the very latest in August 2026. CSC
-will publish a detailed Roihu migration guide after Roihu's general availability.
+prepared to do it during summer 2026, at the very latest in August 2026.
+See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
+directly from Mahti and Puhti to Roihu.
 
 If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
 consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
@@ -82,6 +93,10 @@ single-thread performance.
 
 ### Nodes
 
+!!! note "Node names"
+     The node names below describe the different node types in Roihu. Batch job partitions and allocation types in Slurm may use different names. 
+     See the [Slurm partition documentation](running/batch-job-partitions.md) for how to request these resources in Slurm.
+
 | Name | Number of nodes | Compute        | Cores                          | Memory (GiB) | Local disk (TB) |
 |:-----|----------------:|---------------:|-------------------------------:|-------------:|----------------:|
 | M    | 414             | AMD Turin 9965 | 2 x 192 cores (x86) @ 2.25 GHz | 768          | 0.96            |
@@ -109,10 +124,12 @@ disk areas are expected to have read and write bandwidths of 120 GB/s and
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
 have not been accessed in the last 180 days to avoid inactive data accumulating
-on the system. For longer-term storage and sharing of datasets we will
-introduce a new disk area called **ProjData**. ProjData access and quota will
+on the system. For longer-term storage and sharing of datasets between multiple projects, we will
+introduce a new disk area called **Dataset**. Dataset access and quota will
 be applied for and managed in MyCSC, and the disk area will have its own
 billing model.
+
+The dataset project will be implemented into Roihu after general availability.
 
 ### Local storage capacity
 
@@ -124,13 +141,13 @@ node will include a total of 13 TiB of fast NVMe disks.
 The available storage quota that a single user can access in their jobs depends
 on the system [partition](running/batch-job-partitions.md) they use:
 
-| Allocation type    | Quota per user |
-|:-------------------|---------------:|
-| R (shared nodes)   | 20 GiB         |
-| N (full nodes)     | 600 GiB        |
-| G (GPU nodes)      | 150 GiB        |
-| Hugemem (XL) nodes | 1.6 TiB        |
-| VIZ nodes          | 6.5 TiB        |
+| Allocation type         | Quota per user |
+|:------------------------|---------------:|
+| R (shared nodes)        | 20 GiB         |
+| N (full nodes)          | 600 GiB        |
+| G (GPU nodes)           | 150 GiB        |
+| Hugemem (XL) nodes      | 1.6 TiB        |
+| V (visualization nodes) | 6.5 TiB        |
 
 As a new feature, users will also be able to request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity will be
@@ -164,6 +181,9 @@ including:
 Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
 
+A list of currently supported applications on Roihu can be found on the
+[applications page](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/apps/by_availability/#roihu).
+
 ## Sensitive data services in Roihu
 
 CSC supercomputers, including Roihu, are maintained according to the best practices of HPC
@@ -195,7 +215,7 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
 * [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
-  (updated 2026-04-28)
+  (updated 2026-06-15)
 * Do you have questions about Roihu or the retirement of Puhti and Mahti?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!

@@ -82,7 +82,7 @@ samtools sort aln.bam aln-sorted
 samtools index aln-sorted.bam
 ```
 In the batch job example above one task (-n 1) is executed. The maximum duration of the job is four hours 
-(-t 04:00:00 ) and the reserved memory size is about 4 GB (--mem=4000). You must cange the --account 
+(-t 04:00:00 ) and the reserved memory size is about 4 GB (--mem=4000). You must change the --account 
 setting, so that it defines the project from which the computing will be billed.
 
 You can submit the batch job file to the batch job system with command:

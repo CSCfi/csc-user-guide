@@ -1,7 +1,7 @@
 # I need a Database, where can I deploy it?
 
 If you need a Database that needs to be accessible from other systems (like
-Puhti or Mahti), the best and easiest option is the
+Roihu), the best and easiest option is the
 [Pukki DBaaS service](../../cloud/dbaas/index.md), which currently supports
 PostgreSQL databases. Other types are under consideration.
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Often dataset oriented work produces new datasets, either as primary outcomes or possible as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in the future. Publishing should be based on commonly accepted standards and with good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so the effort spent on publishing data properly is quickly paid back.
+Often dataset oriented work produces new datasets, either as primary outcomes or possibly as supporting material to primary results, such as scientific publications. When publishing datasets, the focus should be on enabling new work to be carried on them at some undefined point in the future. Publishing should be based on commonly accepted standards and with good metadata, as datasets might be used in contexts that are completely different from the project that produced them. However, often the most important future user for datasets is the original author, so the effort spent on publishing data properly is quickly paid back.
 
 ## Where to host and publish datasets
 
@@ -16,7 +16,7 @@ If possible, use discipline specific repositories for your data. We recommend co
 
 [EUDAT Services](https://www.eudat.eu/)
 
-[How to publish youre spatial data to Paituli service](https://paituli.csc.fi/opendata.html)
+[How to publish your spatial data to Paituli service](https://paituli.csc.fi/opendata.html)
 
 [Example case 1: Sharing data during research project, publish FAIR when ready](https://research.csc.fi/example-case-1)
 

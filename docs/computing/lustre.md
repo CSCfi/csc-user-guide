@@ -147,14 +147,23 @@ lmm_stripe_offset: 6
 
 ```
 
-!!!! Note If the file is already created with a specific stripe, you
+!!! warning "Setting a stripe to a file is persistent"
+     If the file is already created with a specific stripe, you
      can not change it. Also, if you move a file, its stripe settings will not
-     change. In order to change striping, file needs to be copied:
+     change. In order to change striping, the file needs to be copied:
 
-* using `setstripe`, create a new, empty file with the desired stripe settings
-  and then copy the old file to the new file, or
-* setup a directory with the desired configuration and copy (not move) the
-  file into the directory.
+     * using `setstripe`, create a new, empty file with the desired stripe settings and then copy the old file to the new file, or
+     * setup a directory with the desired configuration and copy (not move) the file into the directory.
+
+## Lustre compression
+
+The Lustre file system on Roihu also allows users to change settings for enabling file compression.
+Compression can significantly reduce the physical storage space used by files that compress well,
+and in some cases it can also improve I/O performance by reducing the amount
+of data transferred between the storage system and compute nodes.
+
+Lustre compression is **not yet supported on Roihu**, and will be
+announced later.
 
 ## Differences between Roihu, Puhti and Mahti
 

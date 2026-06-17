@@ -30,7 +30,7 @@ In addition to the above commands, there are separate tools for other purposes:
  
 If you use the `a`-commands outside the supercomputers, check the [allas-cli-utils documentation:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/README.md){ target=_blank } for how to install these tools.
 
-Below we discuss briefly of the most frequetly used features of `a`-commands. New features are added to `a`-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
+Below we discuss briefly of the most frequently used features of `a`-commands. New features are added to `a`-commands every now and then and they may not be covered in the examples below. Use the help option `--help` to check the command specific information. For example:
 ```bash
 a-put --help
 ```
@@ -192,7 +192,7 @@ This file of missing items can be used with `a-put` option --input-list, to cont
 a-put --input-list missing_job123_67889
 ```
 
-You should note, that `a-check` does does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
+You should note, that `a-check` does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
 
 In addition to checking, if upload was successful, `a-check` can be used to do a "dry-run" test for `a-put` to see, what objects will be created or replaced before running the actual `a-put` command. 
 
@@ -304,7 +304,7 @@ a-find query_term
 The query term is compared to the names and original paths of the files that have been uploaded to
 Allas, and matching objects are reported (but not downloaded).
 
-The query term is processed as a regular repression where some characters, e.g. period (.), have a special meaning.
+The query term is processed as a regular expression where some characters, e.g. period (.), have a special meaning.
 The same regular expression syntax is used with e.g. the _grep_, _awk_ and _sed_ commands.
 The most commonly occurring special characters:
 
