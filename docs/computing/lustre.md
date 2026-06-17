@@ -162,11 +162,8 @@ Compression can significantly reduce the physical storage space used by files th
 and in some cases it can also improve I/O performance by reducing the amount
 of data transferred between the storage system and compute nodes.
 
-However, Lustre compression is an advanced feature. Most users should use the default uncompressed layout,
-which is suitable for general use on Roihu. Compression should only be enabled when
-there is a clear reason to test it.
-
-For instructions on inspecting and changing Lustre compression settings, see the [Lustre compression tutorial](../support/tutorials/lustre-compression.md).
+Lustre compression is **not yet supported on Roihu**, and will be
+announced later.
 
 ## Differences between Roihu, Puhti and Mahti
 
