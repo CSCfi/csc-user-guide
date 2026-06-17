@@ -71,7 +71,7 @@ If you are using CSC login and have forgotten your CSC user account password, [*
 
 ### Step 3: Enter verification code
 
-Complete the task that your authentication app requires. Once the task is completed, **fill in the verification code from your authentication app** in the input field on the CSC MFA activation page and click the **Enable Multi-Factor Auhtentication** button.
+Complete the task that your authentication app requires. Once the task is completed, **fill in the verification code from your authentication app** in the input field on the CSC MFA activation page and click the **Enable Multi-Factor Authentication** button.
 
 ![authentication app screen](images/small/haka-one-time-code.jpeg 'The 6-digit code on your phone')
 

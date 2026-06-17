@@ -33,10 +33,10 @@ New users are recommended to start working on the
 [Roihu supercomputer](../../computing/available-systems.md#roihu), as
 Puhti and Mahti are being decommissioned in 2026.
 
-- Puhti computing services will be shut down one month after Roihu general
-  availability in summer 2026.
-- Puhti storage will remain accessible until August 2026.
-- Mahti will be shut down in August 2026.
+* Puhti computing services will be shut down on month after Roihu becomes available, earliest by 31 July 2026
+* Mahti computing services will be shut down by 31 August 2026
+* Puhti and Mahti storage and login nodes are planned to remain accessible
+until 15 October 2026
 
 Roihu is CSC's
 next-generation supercomputer offering enhanced performance and capabilities.

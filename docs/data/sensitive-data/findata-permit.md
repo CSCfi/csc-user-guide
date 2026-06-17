@@ -46,7 +46,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 !!! warning-label
     Team manager
 
-- Sign in to MyCSC with you Haka or Virtu credentials.
+- Sign in to MyCSC with your Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**. 
 

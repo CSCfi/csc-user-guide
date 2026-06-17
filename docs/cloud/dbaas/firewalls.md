@@ -7,7 +7,7 @@ All database instances have their own firewalls. Users are responsible for makin
 You can change the firewalls from the [web interface](https://pukki.dbaas.csc.fi) on existing
 instances by pressing the "Update Instance".
 
-With the [openstack CLI](cli.md) tool you can use the `opsenstack database instance update --help` command.
+With the [openstack CLI](cli.md) tool you can use the `openstack database instance update --help` command.
 Note that the command override the existing firewalls rules which means that you need to set all
 the firewall opening each time you update the firewalls for an instance with `--allowed-cidr` flag.
 
@@ -104,7 +104,7 @@ Accessing your Pukki database from login and compute nodes you can allow this:
 ```
 
 <!--
-If one would like to have even strictre rules one could limit it only these
+If one would like to have even stricter rules one could limit it only these
 puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
 -->
 

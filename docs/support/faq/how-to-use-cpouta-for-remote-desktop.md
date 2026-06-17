@@ -27,7 +27,7 @@ We will utilize the following technologies to install the remote desktop:
 !!! Warning  
     Do not use the `standard.tiny` flavor. As this flavor has only 1Go of RAM, noVNC cannot be installed
 
-1. Launch a standard-flavor instance with the Alamlinux-9 image.
+1. Launch a standard-flavor instance with the Almalinux-9 image.
 2. Attach a floating IP to the instance.
 3. In the security rules allow ingress ssh (port 22).
 4. We will ssh into the instance with this command and create a ssh-tunnel.
@@ -96,7 +96,7 @@ exit
 ```
 
 Configure a resolution you would like to use. 1440x900 is a common resolution
-but this have been tested to work with an resolution as big as 3840x2160 .
+but this has been tested to work with an resolution as big as 3840x2160 .
 This can be configured globally for all the users.
 
 ```
@@ -272,7 +272,7 @@ exit
 ```
 
 Configure a resolution you would like to use. 1440x900 is a common resolution
-but this have been tested to work with an resolution as big as 3840x2160 .
+but this has been tested to work with an resolution as big as 3840x2160 .
 This can be configured globally for all the users.
 
 ```

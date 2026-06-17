@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: R for GIS
-  description: R spataial analysis libraries
+  description: R spatial analysis libraries
   license_type: Free
   disciplines:
     - Geosciences
@@ -27,7 +27,7 @@ This page is for the spatial R libraries and tools installed in the R environmen
 * [geofi](https://ropengov.github.io/geofi/) - download geospatial data on municipalities, zipcodes and population and statistical grids from Statistics Finland
 * [geoR](https://cran.r-project.org/web/packages/geoR/index.html) - geostatistical analysis including traditional, likelihood-based and Bayesian methods
 * [geosphere](https://cran.r-project.org/web/packages/geosphere/index.html) - spherical trigonometry for geographic coordinates (lat, lon)
-* [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be ued (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
+* [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be used (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
 * [ggspatial](https://cran.r-project.org/web/packages/ggspatial/index.html) - for map plotting
 * [gstat](https://cran.r-project.org/web/packages/gstat/index.html) - spatial and spatio-temporal geostatistical modelling, prediction and simulation. Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions
 * [GWmodel](https://cran.r-project.org/web/packages/GWmodel/index.html) - geographically-weighted models: GW summary statistics, GW principal components analysis, GW discriminant analysis and various forms of GW regression

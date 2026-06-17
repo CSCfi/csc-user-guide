@@ -39,7 +39,7 @@ in the virtual machine and saves the entire state of the machine
 (memory, application state etc.) on the host compute node. You are
 not able to access your virtual machine or hosted applications when
 the virtual machine is in a *paused* state. Some applications may
-suffer from side effects when  paused, thus this sate is not
+suffer from side effects when  paused, thus this state is not
 recommended for production systems. Some legacy computational tasks
 may benefit from the paused state but modern workflows generally do
 not use this state. Pausing a virtual machine is billed in the same

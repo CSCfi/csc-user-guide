@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: CloudCompare
-  description: for visualizing, editing and processing poing clouds
+  description: for visualizing, editing and processing point clouds
   license_type: Free
   disciplines:
     - Geosciences

@@ -133,6 +133,8 @@ and/or Mahti will not be carried over to Roihu.
 Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026.
 Mahti and Puhti storage will be fully shut down 15 October 2026.
 
+See the detailed schedule in the [Roihu docs page](../../computing/systems-roihu.md#schedule).
+
 See the [data migration guide](../tutorials/roihu-data.md), for how you can move data directly from Mahti and Puhti to Roihu.
 
 Short talk: Roihu data migration tips:
@@ -242,7 +244,7 @@ There will be some changes in the available partition names and the correspondin
 ### 21. Will Roihu have a longrun partition? What will be the maximum runtime?
 
 There will be a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition will be 10 days.
-The small partion for partial or single nodes has a time limit of 72 hours.
+The small partition for partial or single nodes has a time limit of 72 hours.
 
 ### 22. I did not find an answer to my question here. Who should I contact?
 

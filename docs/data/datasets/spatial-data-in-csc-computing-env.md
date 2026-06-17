@@ -38,13 +38,13 @@ CSC computing services users are welcome to share spatial data in [Allas](../All
 
 Currently available:
 
-1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) and Arttu Kivimäki (NLS/FGI) have downloaded Finnihs data from vegetation period (ca 10.5.-1.9.) in 2016->. The easiest way to find Sentinel data stored in Allas is with [Paituli STAC](https://paituli.csc.fi/stac.html). These files are public, so anybody can download them, also from own computer or other services.
+1.  **[Sentinel2 2A level images](https://a3s.fi/sentinel-readme/README.txt)**. Maria Yli-Heikkilä (LUKE) and Arttu Kivimäki (NLS/FGI) have downloaded Finnish data from vegetation period (ca 10.5.-1.9.) in 2016->. The easiest way to find Sentinel data stored in Allas is with [Paituli STAC](https://paituli.csc.fi/stac.html). These files are public, so anybody can download them, also from own computer or other services.
 
 For using data in Allas, see [CSC webinar about Allas and geospatial data](https://youtu.be/mnFXe2-dJ_g) and [Using geospatial files directly from cloud, inc Allas tutorial](../../support/tutorials/gis/gdal_cloud.md). 
 
 ## Puhti virtual rasters
 
-Virtaul rasters is a very practical concept for working with bigger raster datasets, see CSC [Virtual rasters](../../support/tutorials/gis/virtual-rasters.md) page for longer explanation and how to create own virtual rasters, inc from STAC search results.
+Virtual rasters is a very practical concept for working with bigger raster datasets, see CSC [Virtual rasters](../../support/tutorials/gis/virtual-rasters.md) page for longer explanation and how to create own virtual rasters, inc from STAC search results.
 
 ### NLS DEM and orthophotos ready-made virtual rasters
 CSC has added  to NLS 2m and 10m elevation models and infrared ortophotos in Puhti. There are two variants of virtual rasters for the elevation models: 

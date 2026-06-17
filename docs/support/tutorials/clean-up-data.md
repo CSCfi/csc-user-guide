@@ -215,7 +215,7 @@ grep "/scratch/${my_project:?}/important-dir" ~/purge_list
 #### Find the biggest files on the list
 
 LCleaner has an option to sort the files by size. This option is called `--sort-by-size` and always
-sorts in a decending order (i.e., biggest files first). If you want to see the size of the files
+sorts in a descending order (i.e., biggest files first). If you want to see the size of the files
 when they are printed, use the `--csv` option. By default, only the file paths are printed.
 You can also limit the output to include a given number of files with the `--limit N` parameter,
 where `N` is the number of lines you want to see.
