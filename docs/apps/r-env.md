@@ -126,7 +126,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 **The recommended way to launch RStudio is to use the [supercomputer web interface](../computing/webinterface/index.md)**. See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
 
-It is also possible to launch RStudio Server via SSH tunnelling. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
+It is also possible to launch RStudio Server via SSH tunnelling on Puhti and Mahti. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 !!! note ""
     **RStudio is meant for interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as [non-interactive batch jobs](#non-interactive-batch-jobs).
