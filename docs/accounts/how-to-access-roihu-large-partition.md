@@ -48,9 +48,9 @@ performed. Here are some general guidelines for scalability testing.
 
 * Testing should be done for at least three different node counts up to the
   target in production (for example with 10, 20, 30 and 40 nodes on Roihu-CPU, or with 1-10 nodes on Roihu-GPU).
-  * Choose the smallest node count as the smallest value, where your input
+    * Choose the smallest node count as the smallest value, where your input
    data can be stored on the nodes.
-  * The input data must be the same for all runs.
+    * The input data must be the same for all runs.
 * Tests must be run on Roihu, through the Slurm batch job system.
 * The test runs should reflect real production runs. For example, the number of atoms,
   number of grid points, disk I/O load, and other relevant parameters should be
@@ -58,23 +58,23 @@ performed. Here are some general guidelines for scalability testing.
 * In scalability testing, however, you are not expected to showcase full production runs of your
   program. Choose a test run where you run a short job, by minimizing the amount of,
   for example, time steps, iterations, etc. that your job executes.
-  * The run time should still be long enough that initialization does not significantly
+    * The run time should still be long enough that initialization does not significantly
    affect results. Typically, a few minutes for the shortest run time (largest
    node count) is fine.
-  * Especially in some AI/ML workflows, the initialization stage can take a long time.
+    * Especially in some AI/ML workflows, the initialization stage can take a long time.
    Choose your parameters so that the initialization stage does not dominate the total run time and
    so that the run time after initialization is sufficiently long.
 * Parameters affecting the scalability can, and are encouraged to be, changed.
   Note also the
   [performance checklist](../computing/running/performance-checklist.md).
 * The minimum requirement is 75 % parallel efficiency.
-  * This translates to a speedup of 1.5 when doubling the number of nodes.
-  * Parallel efficiency is described with the following formula:
-    * !["Formula for parallel efficiency: baseline processing units times baseline execution time, divided by scaled-up processing units times scaled-up execution time."](./images/small/equation.svg 'Equation describing parallel efficiency'), where
-    * p<sub>b</sub> is the number of processing units in the baseline case
-    * p<sub>N</sub> is the number of processing units in a scaled-up case with N nodes
-    * T<sub>b</sub> is the total time spent in execution in the baseline case
-    * T<sub>N</sub> is the total time spent in execution in a scaled-up case with N nodes
+    * This translates to a speedup of 1.5 when doubling the number of nodes.
+    * Parallel efficiency is described with the following formula:
+        * !["Formula for parallel efficiency: baseline processing units times baseline execution time, divided by scaled-up processing units times scaled-up execution time."](./images/small/equation.svg 'Equation describing parallel efficiency'), where
+        * p<sub>b</sub> is the number of processing units in the baseline case
+        * p<sub>N</sub> is the number of processing units in a scaled-up case with N nodes
+        * T<sub>b</sub> is the total time spent in execution in the baseline case
+        * T<sub>N</sub> is the total time spent in execution in a scaled-up case with N nodes
 
 To get started with gathering runtime characteristics of your program,
 see CSC documentation on [performance analysis](../computing/performance.md).
