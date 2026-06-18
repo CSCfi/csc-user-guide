@@ -230,7 +230,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 === "Roihu-CPU"
     ``` bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_serial     # Job name
     #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
@@ -251,7 +251,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 === "Puhti"
     ``` bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_serial     # Job name
     #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
@@ -280,7 +280,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 === "Mahti"
     ``` bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_serial     # Job name
     #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
