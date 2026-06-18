@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu-CPU
 ---
 
 # Elmer
@@ -30,6 +31,7 @@ directives implemented.
 - Puhti: 9.0
 - Mahti: 9.0
 - LUMI: 9.0
+- Roihu-CPU: 26.2.1
 
 ## License
 
@@ -41,6 +43,12 @@ On Puhti and Mahti, the Elmer versions available can be listed using the command
 
 ```bash
 module avail elmer
+```
+
+On Roihu-CPU, the elmer versions are named `elmerfem` are listed by
+
+```bash
+module avail elmerfem
 ```
 
 On LUMI, one needs to first take into use the module files of CSC installed software:
