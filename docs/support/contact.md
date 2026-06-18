@@ -45,3 +45,4 @@ Having trouble finding an email or a newsletter sent to you by CSC? Browse the a
 * [rahti-users](archives/rahti-users.md)
 * [sd-desktop-users](archives/sd-desktop-users.md)
 * [compute-server-announcements](archives/compute-server-announcements.md)
+* [compute-server-users](archives/compute-server-users.md)
