@@ -438,12 +438,12 @@ individual files. Copying such datasets to Allas takes time and is not always
 straightforward. The most reasonable way to upload this kind of data depends on
 the case. This example introduces a few alternatives.
 
-First, we open a `screen` session on Roihu and set up an Allas connection just
+First, we open a `tmux` session on Roihu and set up an Allas connection just
 like in the previous example:
 
 ```bash
 ssh <username>@roihu-cpu.csc.fi
-screen
+tmux new -s allas-upload
 module load allas
 allas-conf
 ```
@@ -521,9 +521,19 @@ downside, preprocessing the data into `10 * 5 * 365 = 18250` objects probably
 takes quite a long time.
 
 Copying millions of files to Allas takes a long time regardless of the method.
-If we have started the `a-put` command inside a `screen` session, we can detach
-from the virtual session by pressing `Ctrl-A D`, log out from Roihu and leave
-the upload process running for days.
+If we have started the `a-put` command inside a `tmux` session, we can detach
+from the virtual session by pressing `Ctrl-b d`, log out from Roihu and leave
+the upload process running for long periods. However, if the login node
+reboots between the sessions, your tmux session will end.
+
+To return to the session later, reconnect to Roihu and run:
+
+```bash
+tmux attach -t allas-upload
+```
+
+When you no longer need the `tmux` session, you can kill the session by typing `exit`
+inside the session.
 
 Once the `a-put` command is finished, we will run `a-check` command to check if
 all the data objects have been created. `a-check` needs to be executed with the
