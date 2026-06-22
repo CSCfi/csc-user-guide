@@ -16,12 +16,6 @@
     of data or other special requirements, please also read the other sections
     carefully.
 
-!!! warning "Roihu is not yet available"
-     Roihu will be available around end of June 2026. Direct
-     data transfers between Mahti and Puhti to Roihu are not yet
-     possible.
-     Follow this guide only **after Roihu is available**.
-
 ## 1. General guidelines and prerequisites
 
 ### 1.1 Review and clean up your data before migration
