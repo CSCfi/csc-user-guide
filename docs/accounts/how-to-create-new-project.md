@@ -76,6 +76,22 @@ When applying for a dataset project:
 4. Select "Dataset project is intended for public access" if the dataset can be accessible by all current and future projects on the system
 5. Apply for quota. Request only the amount of data you actually need.
 
+### Adding access to the dataset
+
+After creating the dataset project, you can configure access to it.
+
+A public dataset is by default accessible to everyone in the system.
+
+When configuring access, you can add access to:
+
+- Single or multiple users
+- Individual or multiple projects
+- Your whole organization
+
+When granting access to the whole organization, all users on the system affiliated with your home organization
+will gain access to reading the dataset. Additionally, all users who are a part of a project created by your home organization,
+will gain access.
+
 ## How to create Finnish LUMI projects
 
 LUMI projects are used to manage access to LUMI and the resources provided by it. LUMI projects are restricted to LUMI environment only (LUMI-C, LUMI-G etc.). Finnish LUMI projects are fixed in time and resources, and the total resources must be defined already in the project application.
