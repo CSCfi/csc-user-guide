@@ -48,6 +48,7 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
+        - marimo (Roihu only)
         - MATLAB
         - MLflow
         - R-Jupyter (Roihu and Mahti only)
