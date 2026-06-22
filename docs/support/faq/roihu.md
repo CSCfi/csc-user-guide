@@ -6,14 +6,11 @@
 
 ### 1. When will Roihu be available?
 
-Installation of new supercomputers is a complex process. Thus, it is hard to
-provide an exact date for when Roihu will be generally available.
+Roihu is now in active use.
 
-The Roihu pilot phase started in April 2026. The
-general availability of the system should happen around end of June 2026.
-Please observe that delays are still possible.
+See the [getting started tutorial for Roihu](../tutorials/roihu.md).
 
-[Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
+[More information on Roihu](../../computing/systems-roihu.md).
 
 ### 2. When will Puhti/Mahti be shut down?
 
@@ -86,7 +83,7 @@ CSC accounts and projects are not tied to specific services. In other words,
 the same CSC account and projects can be used for different CSC services,
 including Roihu.
 
-Once Roihu is available, you can add it as a service to your existing project(s) in MyCSC, similarly to Puhti or Mahti.
+You can add Roihu as a service to your existing project(s) in MyCSC, similarly to Puhti or Mahti.
 The existing billing units can be used on Roihu. Scratch/projappl space will be available there automatically, but data is NOT transferred automatically.
 
 To be able to use Roihu, you will need to
@@ -101,7 +98,7 @@ _Level of Identity Assurance_).
 Users with no or low LoA should read the
 [instructions on how to elevate their assurance level](../../accounts/strong-identification.md).
 
-### 8. Will existing disk quota extensions on Puhti/Mahti automatically apply on Roihu as well?
+### 8. Are existing disk quota extensions on Puhti/Mahti automatically applied on Roihu as well?
 
 No, all projects will start with default quotas. Any quota extensions must be
 applied for separately and the needs properly motivated.
@@ -133,7 +130,7 @@ and/or Mahti will not be carried over to Roihu.
 Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026.
 Mahti and Puhti storage will be fully shut down 15 October 2026.
 
-See the detailed schedule in the [Roihu docs page](../../computing/systems-roihu.md#schedule).
+See the detailed schedule of Puhti and Mahti shutdown in the [Roihu docs page](../../computing/systems-roihu.md#schedule).
 
 See the [data migration guide](../tutorials/roihu-data.md), for how you can move data directly from Mahti and Puhti to Roihu.
 
@@ -169,7 +166,7 @@ As a ballpark number, a single file of about 100 GB would take ~10 minutes to tr
 
 ### 13. I have multiple projects in Mahti and Puhti. Should I move data for each project individually?
 
-After Roihu is available, you can add Roihu as a service to each project individually.
+You can add Roihu as a service to each project individually.
 Data transfer can be done on a project-by-project basis, so the answer really depends on your workflow.
 If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk.md#dataset-directory),
 where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
@@ -177,13 +174,13 @@ where you can apply for a special disk area for storing data that multiple (or a
 
 ## Roihu hardware and software
 
-### 14. What kind of hardware will Roihu have?
+### 14. What kind of hardware does Roihu have?
 
 See the [Roihu system description](../../computing/systems-roihu.md) for details.
 
-Notably, Roihu will have different CPU architectures on the AMD Turin-based CPU
+Notably, Roihu has different CPU architectures on the AMD Turin-based CPU
 nodes (x86) and NVIDIA Grace-Hopper GH200-based GPU nodes (ARM). Accordingly,
-there will also be two different login node flavors for users targeting the CPU
+there are also two different login node flavors for users targeting the CPU
 or GPU partitions, respectively:
 
 * `roihu-cpu.csc.fi` (x86, AMD Turin), and
@@ -194,11 +191,11 @@ while software built on the ARM login nodes will only run on the GPU nodes.
 Similarly, CPU and GPU Slurm jobs can only be submitted from the x86 and ARM
 login nodes, respectively.
 
-### 15. What operating system will Roihu have?
+### 15. What operating system does Roihu have?
 
-The operating system of Roihu will be Red Hat Enterprise Linux (RHEL) 9.
+The operating system of Roihu is Red Hat Enterprise Linux (RHEL) 9.
 
-### 16. Will Roihu have pre-installed applications available like Puhti and Mahti?
+### 16. Does Roihu have pre-installed applications available like Puhti and Mahti?
 
 Yes, we intend to provide a comprehensive pre-installed stack of scientific
 software on Roihu like we currently do on Puhti and Mahti. However, please note
@@ -211,6 +208,8 @@ the process of installing new libraries for these.
 As before, missing software can be requested to be installed by CSC, and if
 there is enough demand, we will consider creating a system-wide installation.
 We cannot, however, promise to install everything that users might want.
+
+A list of installed software is available in the [application section](../../apps/by_availability/#roihu) in the documentation.
 
 ### 17. Will Tykky be available on Roihu?
 
@@ -233,17 +232,19 @@ The goal is to have similar module support as in Puhti and Mahti, with some nece
 version numbers of some supported applications and modules.
 Some modules will change names, for example pytorch → python-pytorch.
 
-A list of installed software is not yet available in the documentation, but will be added at Roihu's general availability.
+A list of installed software is available in the [application section](../../apps/by_availability/#roihu) in the documentation.
 
 ## Installing and running software on Roihu
 
-### 20. Will Roihu partitions have the same memory/time limits as on Mahti and Puhti?
+### 20. Do Roihu's Slurm partitions have the same memory/time limits as on Mahti and Puhti?
 
-There will be some changes in the available partition names and the corresponding hardware. You can already see the available partitions and the corresponding limits in the [Slurm partition documentation for Roihu](../../computing/running/batch-job-partitions.md#roihu-partitions).
+There are some differences in the available partition names and the corresponding hardware, when compared to Mahti and Puhti.
 
-### 21. Will Roihu have a longrun partition? What will be the maximum runtime?
+You can see the available partitions and the corresponding limits in the [Slurm partition documentation for Roihu](../../computing/running/batch-job-partitions.md#roihu-partitions).
 
-There will be a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition will be 10 days.
+### 21. Does Roihu have a longrun partition? What is the maximum runtime?
+
+There is a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition is 10 days.
 The small partition for partial or single nodes has a time limit of 72 hours.
 
 ### 22. I did not find an answer to my question here. Who should I contact?
