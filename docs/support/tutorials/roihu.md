@@ -68,10 +68,6 @@ For platform-specific instructions, see:
 
 ### Roihu web interface
 
-!!! warning "Roihu web interface availability during the pilot period"
-     Roihu web interface will only be available after General Availability. Please connect via SSH during the pilot phase.
-     
-
 The simplest way to connect to Roihu is to use the web interface.
 
 1. Go to [www.roihu.csc.fi](https://www.roihu.csc.fi).
@@ -276,7 +272,7 @@ See the relevant documentation below for detailed information:
 
 For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
-### Known issues (pilot phase)
+### Known issues
 
 #### Argos errors
 

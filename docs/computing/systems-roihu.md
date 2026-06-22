@@ -1,10 +1,12 @@
 # Roihu supercomputer
 
 !!! info "Note"
-    This page contains preliminary information about CSC's next national
-    supercomputer Roihu, which is projected to be available for researchers
-    in summer 2026. Please note that the details may evolve over time.
-    [See tentative schedule below](#schedule).
+    This page contains information about CSC's next national
+    supercomputer Roihu, which is now available for researchers.
+
+    As part of the transition, Mahti and Puhti will be decommissioned
+    in steps over summer and fall 2026.
+    [See the chedule for Mahti and Puhti shutdown below](#schedule).
 
 ## Schedule
 
@@ -56,7 +58,7 @@ We strongly encourage all users to prioritize moving their data by the end of Au
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, at the very latest in August 2026.
+prepared to do it during summer 2026, aiming to complete it by the end of August.
 See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
 directly from Mahti and Puhti to Roihu.
 
@@ -69,25 +71,25 @@ or attend [CSC's weekly user support coffee breaks](https://research.csc.fi/trai
 
 ## Compute
 
-Roihu will have a total of 486 CPU nodes and 132 GPU nodes. The
+Roihu has a total of 486 CPU nodes and 132 GPU nodes. The
 high-performance LINPACK (HPL) performance is estimated to be 10.5 PFlop/s for
 the CPU nodes and 23.4 PFlop/s for the GPU nodes, resulting in an aggregate HPL
 performance of 33.9 PFlop/s for the full system.
 
-The CPU nodes will have two 192-core AMD Turin 9965 CPUs each, amounting to
+The CPU nodes have two 192-core AMD Turin 9965 CPUs each, amounting to
 186 624 CPU cores altogether. The CPUs are based on the AMD Zen 5 architecture,
-which supports the AVX-512 vector instruction set. 414 of the CPU nodes will
-have 768 GiB of memory, while the remaining 72 nodes will have an extended
+which supports the AVX-512 vector instruction set. 414 of the CPU nodes
+have 768 GiB of memory, while the remaining 72 nodes have an extended
 memory of 1 536 GiB each.
 
-Each GPU node will be equipped with 4 Nvidia GH200 Grace Hopper superchips.
+Each GPU node is be equipped with 4 Nvidia GH200 Grace Hopper superchips.
 Each GH200 superchip comprises one Hopper (H100) GPU and one Grace CPU with
 72 ARM CPU cores, which are connected via a very fast interface. Each
 GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing
 a total of 480 GiB CPU memory per node. This results in a total of 528 GPUs and
 38 016 CPU cores in the whole GPU partition.
 
-The system will also provide four visualization nodes with two Nvidia L40 GPUs
+The system also provides four visualization nodes with two Nvidia L40 GPUs
 each, as well as four high-memory CPU nodes with 6 TiB memory and higher
 single-thread performance.
 
@@ -111,12 +113,12 @@ The operating system of Roihu will be Red Hat Enterprise Linux 9 (RHEL9).
 
 ### Parallel file system
 
-Roihu will have two independent flash-based DDN EXAScaler Lustre file systems –
+Roihu has two independent flash-based DDN EXAScaler Lustre file systems –
 a 6.0 PiB Scratch space and a 0.5 PiB storage system for project applications
-and users' personal Home directories. Separate file systems will ensure
+and users' personal Home directories. Separate file systems ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
-The Scratch disk of Roihu will be more than ten times as performant as Puhti
+The Scratch disk of Roihu is more than ten times as performant as Puhti
 Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected
 to be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl
 disk areas are expected to have read and write bandwidths of 120 GB/s and
@@ -133,10 +135,10 @@ The dataset project will be implemented into Roihu after general availability.
 
 ### Local storage capacity
 
-Each Roihu CPU and GPU node will have a small 960 GB local disk suitable for
-storing temporary files during jobs. High-performance local storage will be
+Each Roihu CPU and GPU node have a small 960 GB local disk suitable for
+storing temporary files during jobs. High-performance local storage is
 available on the high-memory (XL) and visualization (VIZ) nodes, where each
-node will include a total of 13 TiB of fast NVMe disks.
+node includes a total of 13 TiB of fast NVMe disks.
 
 The available storage quota that a single user can access in their jobs depends
 on the system [partition](running/batch-job-partitions.md) they use:
@@ -149,16 +151,16 @@ on the system [partition](running/batch-job-partitions.md) they use:
 | Hugemem (XL) nodes      | 1.6 TiB        |
 | V (visualization nodes) | 6.5 TiB        |
 
-As a new feature, users will also be able to request local disk mounts from a
-centralized pool of fast storage resources. This fast storage capacity will be
+As a new feature, users can also request local disk mounts from a
+centralized pool of fast storage resources. This fast storage capacity is
 provided over the network and will appear as local scratch storage from within a
-Slurm job. The total capacity of the disaggregated NVMe resource will be 307.2 TB.
+Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB.
 
 ## Network
 
 The network of Roihu is based on an InfiniBand NDR interconnect. Each CPU node
-will be connected to the network with one 200 Gb/s link, while in the GPU
-partition there will be four 200 Gb/s links per node, one per GPU.
+is connected to the network with one 200 Gb/s link, while in the GPU
+partition there are four 200 Gb/s links per node, one per GPU.
 
 ## Software and programming environment
 
@@ -170,7 +172,7 @@ recompiled on Roihu.
 Instructions for installing applications are provided in
 [the getting started with Roihu tutorial](../support/tutorials/roihu.md#installing-software)
 
-The programming environment of Roihu will otherwise be similar to Mahti,
+The programming environment of Roihu is otherwise similar to Mahti,
 including:
 
 * The GNU compiler stack
@@ -182,7 +184,7 @@ Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
 interactive access and running graphical user interfaces.
 
 A list of currently supported applications on Roihu can be found on the
-[applications page](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/apps/by_availability/#roihu).
+[applications page](../apps/by_availability.md#roihu).
 
 ## Sensitive data services in Roihu
 
