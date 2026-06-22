@@ -22,6 +22,11 @@
      possible.
      Follow this guide only **after Roihu is available**.
 
+     Puhti and Mahti storage services will be decommissioned 15 October 2026, at 12:00 EEST but
+     are not covered by service contracts after end of August.
+     Due to this, aim to complete your data transfers from Mahti and/or Puhti
+     by the end of August 2026, or by October 15th at the very latest.
+
 ## 1. General guidelines and prerequisites
 
 ### 1.1 Review and clean up your data before migration
