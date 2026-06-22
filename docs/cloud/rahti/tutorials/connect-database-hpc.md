@@ -4,7 +4,13 @@
 
 # Accessing databases on Rahti from CSC supercomputers
 
-Many HPC workflows require a database, for most cases [Pukki](../../dbaas/index.md) is probably the preferred solution. However, it is possible to use Rahti as well to deploy and expose your databases. This tutorial explains how to access your Rahti database from CSC super computers.
+Many HPC workflows require a database, for most cases [Pukki](../../dbaas/index.md) is probably the preferred solution. However, it is possible to use Rahti as well to deploy and expose your databases (e.g., if your database is not available in Pukki). 
+This tutorial explains how to access your Rahti database from CSC super computers.
+
+## Prerequisites
+
+- Logged in to Rahti with [oc CLI](../usage/cli.md#how-to-login-with-oc).
+- Install [Helm CLI](../../../support/faq/helm.md).
 
 ## Step 1: Setting up MariaDB on Rahti
 
@@ -13,7 +19,7 @@ We will use the [Bitnami MariaDB Helm chart](https://github.com/bitnami/charts/t
 Simply run this command:
 
 ```bash
-helm install my-release oci://registry-1.docker.io/bitnamicharts/mariadb
+helm install my-mariadb-release oci://registry-1.docker.io/bitnamicharts/mariadb
 ```
 
 ## Step 2: Setup a LoadBalancer Service Type on Rahti
@@ -55,7 +61,7 @@ and then run `oc` to create the Service:
 oc create -f sevice.yaml
 ```
 
-You now have your database exposed on the **LoadBalancer IP** you recevied and on port **33306**.
+You now have your database exposed on the assigned **LoadBalancer IP** you recevied and on port **33306**.
 
 ## Step 3: Connect to MariaDB from CSC supercomputers
 
