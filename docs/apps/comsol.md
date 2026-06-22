@@ -61,8 +61,7 @@ and
 ```
 Copy the file and modify it for your own use.
 
-The preferred method to use COMSOL interactively is via [the Puhti web interface
-desktop application](../computing/webinterface/desktop.md). In the web interface,
+The preferred method to use COMSOL interactively is via [the Roihu web interface](../computing/webinterface/desktop.md). In the web interface,
 select `Desktop` from the `Apps` view and specify the required resources (cores,
 execution time and memory). Remember to add your billing project, too.
 
