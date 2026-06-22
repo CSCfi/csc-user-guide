@@ -209,7 +209,7 @@ As before, missing software can be requested to be installed by CSC, and if
 there is enough demand, we will consider creating a system-wide installation.
 We cannot, however, promise to install everything that users might want.
 
-A list of installed software is available in the [application section](../../apps/by_availability#roihu) in the documentation.
+A list of installed software is available in the [application section](../../apps/by_availability.md#roihu) in the documentation.
 
 ### 17. Will Tykky be available on Roihu?
 
@@ -232,7 +232,7 @@ The goal is to have similar module support as in Puhti and Mahti, with some nece
 version numbers of some supported applications and modules.
 Some modules will change names, for example pytorch → python-pytorch.
 
-A list of installed software is available in the [application section](../../apps/by_availability#roihu) in the documentation.
+A list of installed software is available in the [application section](../../apps/by_availability.md#roihu) in the documentation.
 
 ## Installing and running software on Roihu
 
