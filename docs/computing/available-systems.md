@@ -10,17 +10,34 @@
     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
     * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
-CSC's computing environment consists of supercomputers Puhti and
+CSC's computing environment consists of supercomputers Roihu, Puhti and
 Mahti. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
 workloads that can utilize both efficiently. At the same time their
 hardware is different, and this makes some workloads uniquely suitable
 for either Puhti or Mahti.
 
-In addition to the national supercomputer Roihu, CSC's data center in Kajaani hosts the
+Mahti and Puhti are being decommissioned over the summer 2026, with their storage services shutting down 15 October 2026.
+
+In addition to the national supercomputers, CSC's data center in Kajaani hosts the
 pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has
 been available since early 2022, while the largest partition of the system
 consisting of GPU-accelerated nodes became available in 2023.
+
+## Roihu
+
+The Roihu supercomputer, BullSequana XH3000 hybrid system, is CSC's next
+national supercomputer and will replace Puhti and Mahti in summer 2026. Roihu is
+designed as a versatile system for CPU and GPU computing, AI workloads,
+data-intensive research and applications requiring large memory.
+
+Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
+and software environments. The CPU partition contains AMD EPYC
+CPUs, while the GPU partition is based on NVIDIA GH200 Grace Hopper Superchips.
+The system also includes special-purpose nodes for visualization and high-memory
+tasks, and will provide enhanced support for processing sensitive and confidential data.
+
+- [More information about Roihu](systems-roihu.md)
 
 ## Puhti
 
@@ -66,22 +83,6 @@ The selection of installed [scientific software](../apps/by_availability.md#maht
 Mahti is more limited than in Puhti.
 
 - [A more technical description of Mahti](systems-mahti.md)
-
-## Roihu
-
-The Roihu supercomputer, BullSequana XH3000 hybrid system, is CSC's next
-national supercomputer and will replace Puhti and Mahti in summer 2026. Roihu is
-designed as a versatile system for CPU and GPU computing, AI workloads,
-data-intensive research and applications requiring large memory.
-
-Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
-and software environments. The CPU partition contains AMD EPYC
-CPUs, while the GPU partition is based on NVIDIA GH200 Grace Hopper Superchips.
-The system also includes special-purpose nodes for visualization and high-memory
-tasks, and will provide enhanced support for processing sensitive and confidential
-data.
-
-- [More information about Roihu](systems-roihu.md)
 
 ## LUMI
 
