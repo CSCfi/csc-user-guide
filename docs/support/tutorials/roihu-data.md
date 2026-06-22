@@ -372,6 +372,14 @@ Using `screen` is useful if your data transfer will take several hours. You
 can, for example, power off your computer and leave the `rsync` process running
 overnight.
 
+!!! note "Use `tmux` in Roihu"
+     The `screen` command is not available on Roihu, but you can
+     do all data transfers to Roihu from the Mahti and/or Puhti login.
+     If you need to have a longer terminal
+     session open on Roihu, use `tmux` instead.
+
+     See instructions for `tmux` in the [Roihu tmux tutorial](tmux.md).
+
 ### 3.3 Using checksums to verify data integrity
 
 `rsync` ensures data integrity using internal checksum mechanisms by default.

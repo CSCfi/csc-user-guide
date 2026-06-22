@@ -410,7 +410,26 @@ Copy a directory:
 rclone copy -P /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfer-${USER}/mydata
 ```
 
-For large transfers, run the command inside `tmux` or `screen`, and write a log file:
+For large transfers, run the command inside `tmux`, and write a log file:
+
+??? info "Using tmux"
+     Use `tmux`, for example, in a session in Puhti/Mahti:
+
+     ```bash
+     tmux new -s roihu-transfer
+     ```
+
+     Start the transfer inside the `tmux` session. You can detach from the session with:
+
+     ```text
+     Ctrl-b d
+     ```
+
+     Later, reconnect with:
+
+     ```bash
+     tmux attach -t roihu-transfer
+     ```
 
 ```bash
 rclone copy /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfer-${USER}/mydata \
@@ -483,7 +502,7 @@ rclone rmdir lumi-46500XXXX-private:roihu-transfer-${USER}
 
 Large transfers may take a long time. Do not run them in a normal SSH session without protection, because the transfer may stop if the connection is interrupted.
 
-Use `screen` or `tmux`, for example, in a session in Puhti/Mahti:
+Use `tmux`, for example, in a session in Puhti/Mahti:
 
 ```bash
 tmux new -s roihu-transfer
