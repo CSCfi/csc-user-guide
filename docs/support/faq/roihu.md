@@ -159,7 +159,7 @@ It is ok to use rsync on the Mahti/Puhti login nodes. Please read the [data migr
 carefully, and consider compressing your data before transferring it, to save time and resources
 used in the migration. Only move data that you truly need.
 
-Utilize `tmux` for long transfers. See the guide above for details, or our [tmux usage tutorial](tmux.md).
+Utilize `tmux` for long transfers. See the guide above for details, or our [tmux usage tutorial](../tutorials/tmux.md).
 
 ### 12. How should I migrate larger datasets without the connection cutting out during the transfer? How long do transfers take between Mahti/Puhti to Roihu?
 
