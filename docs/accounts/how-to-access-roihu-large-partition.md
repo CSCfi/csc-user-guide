@@ -84,10 +84,10 @@ see CSC documentation on [performance analysis](../computing/performance.md).
 The scalability report should contain:
 
 1. A short description of the software and the test case
-   - If the software is not pre-installed by CSC, you are also expected to briefly describe the parallelization strategy
+    - If the software is not pre-installed by CSC, you are also expected to briefly describe the parallelization strategy
    used in the software, and to include details about the I/O implementation and load of the program at runtime
 2. Wall-times for each node count in your test case
-   - If you are applying for access to the **gpularge** partition, you should also
+    - If you are applying for access to the **gpularge** partition, you should also
    showcase gpu utilization during the program run time.
 3. A representative batch job script (as an attachment or in the free-form justification)
 
