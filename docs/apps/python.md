@@ -66,7 +66,8 @@ In Puhti and Mahti, Python 3.9 can be launched with:
 python3.9
 ```
 
-Note that the  the default version launched by `python3` (3.6.8) has [reached end-of-life](https://devguide.python.org/versions/) and it is strongly advised to explicitly launch Python version 3.9 as above.
+Note that the  the default version launched by `python3` (3.6.8) in Puhti and Mahti has [reached end-of-life](https://devguide.python.org/versions/) and it is strongly advised to explicitly launch Python version 3.9 as above.
+
 ### Pre-installed Python environments
 
 Roihu, Puhti and Mahti have several pre-installed
