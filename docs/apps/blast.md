@@ -159,7 +159,7 @@ makeblastdb -in nrbirds.fasta -dbtype prot
 To use your own database, you must redefine environment variable `BLASTDB` so that it points to the directory where you have the index. For example if the indexes locate in directory `my_blastdb` in the scratch directory of project `project_20012345`, the variable would be set with command:
 
 ```bash
-export BLASTDB=/scrartch/project_20012345/my_blastdb
+export BLASTDB=/scratch/project_20012345/my_blastdb
 ```
 
 Now you can use your own database in the BLAST search:

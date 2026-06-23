@@ -5,18 +5,16 @@
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu general
-      availability in spring 2026.
-    * Puhti storage will remain accessible until August 2026.
-    * Mahti will be shut down in August 2026.
-
-    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
+    * Puhti computing services will be shut down one month after Roihu is available, earliest by 31 July 2026 at 12:00 EEST.
+    * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
+    * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
+    * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
 CSC's computing environment consists of supercomputers Puhti and
 Mahti. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
 workloads that can utilize both efficiently. At the same time their
-hardware is different, and this makes some worklods uniquely suitable
+hardware is different, and this makes some workloads uniquely suitable
 for either Puhti or Mahti.
 
 In addition to the national resources, CSC's data center in Kajaani hosts the
@@ -54,7 +52,7 @@ allowing jobs to scale across the full system. In Mahti user reserves
 full nodes so that the jobs can extract full performance from each
 node. Mahti is in particular geared towards medium to large scale
 simulations requiring Petaflops of compute power. Also smaller
-parellel workloads that are able to use full nodes efficiently can
+parallel workloads that are able to use full nodes efficiently can
 utilize Mahti.
 
 There are also 24 GPU nodes, with total of 96 Nvidia Ampere A100 GPUs. This

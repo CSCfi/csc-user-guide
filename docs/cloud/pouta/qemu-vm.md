@@ -43,7 +43,7 @@ When you download a backup or snapshot of your virtual machine (VM) from cPouta,
 - **RAW**: A raw disk image format. It's generally larger in size than QCOW2 images.
 - **VDI (Virtual Disk Image)**: This format is mainly associated with VirtualBox but can also be used with OpenStack.
 
-The following command tell you the format of the image, providede that you have the `qemu-img` tool installed. See [QEMU installation](https://www.qemu.org/download/#linux) for more information.
+The following command tell you the format of the image, provided that you have the `qemu-img` tool installed. See [QEMU installation](https://www.qemu.org/download/#linux) for more information.
 
 ```bash
 qemu-img info /path/to/your/image
@@ -142,7 +142,7 @@ The downloaded backup or snapshot image from cPouta, which is typically in the `
 
     The command will output `VNC server running on ::1:5900`.
 
-    The output `VNC server running on ::1:5900` indicates that QEMU started the virtual machine and is providing a graphical console via a VNC server. You can connect to this VNC server to see the VM's display and interact with it. We will try to onnect it using SSH.
+    The output `VNC server running on ::1:5900` indicates that QEMU started the virtual machine and is providing a graphical console via a VNC server. You can connect to this VNC server to see the VM's display and interact with it. We will try to connect it using SSH.
 
     The given QEMU command does a few things:
 
