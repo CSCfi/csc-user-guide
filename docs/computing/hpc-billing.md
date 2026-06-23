@@ -11,13 +11,13 @@ disk usage is billed separately. More precisely:
 
 Jobs in the  small, longrun, interactive, and test  partitions are run on M and L nodes. These jobs are billed as follows:
 
-`CPU BU = max ( 0.75 BU/coreh * cores , 0.375 BU/GiBh * mem) * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
+`Total CPU BU = max ( 0.75 BU/coreh * cores , 0.375 BU/GiBh * mem) * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
 
 where reservedstorage is the amount of SBOF mounted storage. 
 
 Jobs in the hugemem and hugemem_longrun partitions are run on XL nodes. These jobs are billed as follows:
 
-`CPU BU = = max ( 12 BU/coreh * cores , 0.25 BU/GiBh * mem) * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
+`Total CPU BU = = max ( 12 BU/coreh * cores , 0.25 BU/GiBh * mem) * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
 
 where reservedstorage is the SBOF mounted storage, or local storage reserved with gres field.
 
@@ -25,17 +25,17 @@ where reservedstorage is the SBOF mounted storage, or local storage reserved wit
 
 Jobs in the medium and large partitions are run on full M nodes. These jobs are billed as follows:
 
-`CPU BU = nodes * 288 BU/nodeh * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
+`Total CPU BU = nodes * 288 BU/nodeh * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
 
-where reservedstorage is the SBOF mounted storage.
+where reservedstorage is the total amount of disaggregated storage.
 
 ### GPU partitions
 
 The price per job in GPU partitions, including the ones for interactive visualization, are billed as follows:
  
-`GPU BU = numOfGPUs *  200 BU/GPUh * runtime-hours+  0.02 BU/GiBh * reservedstorage * runtime-hours`
+`Total GPU BU = numOfGPUs *  200 BU/GPUh * runtime-hours + 0.02 BU/GiBh * reservedstorage * runtime-hours`
 
-where reservedstorage is the SBOF mounted storage (not yet supported), or the real local storage (gres) on viz nodes.
+where reservedstorage is the total amount of disaggregated storage, or total amount of local storage reserved via gres fields.
 
 
 
@@ -45,11 +45,11 @@ Storage is billed per used  TiB per hour.
 
 The pricing is 
 
- * Scratch: `storage-BU = 6 BU  * TiB * storage-hours`
- * Home:  `storage-BU = 10 BU  * TiB * storage-hours`
- * Projappl:  `storage-BU = 10 BU  * TiB * storage-hours`
- * Dataset - public:  `storage-BU = 6 BU  * TiB * storage-hours`
- * Dataset - shared:  `storage-BU = 10 BU  * TiB * storage-hours`
+ * Scratch: `storage BU = 6 BU  * TiB * storage-hours`
+ * Home:  `storage BU = 10 BU  * TiB * storage-hours`
+ * Projappl:  `storage BU = 10 BU  * TiB * storage-hours`
+ * Dataset - public:  `storage BU = 6 BU  * TiB * storage-hours`
+ * Dataset - shared:  `storage BU = 10 BU  * TiB * storage-hours`
 
 
 ## Mahti compute billing
