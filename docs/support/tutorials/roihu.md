@@ -43,6 +43,25 @@ Adding Roihu as a service:
 Note, that it may take a few minutes for Roihu to become accessible for you,
 and other project members.
 
+??? info "I need more disk quota"
+     The default disk quotas are more restrictive on Roihu, than on Mahti and Puhti.
+
+     |            |Capacity|Number of files|Notes                         |
+     |------------|--------|---------------|------------------------------|
+     |**home**    |15 GiB  |150 000 files  |                              |
+     |**projappl**|15 GiB  |150 000 files  |                              |
+     |**scratch** |250 GiB |500 000 files  |                              |
+
+     After adding the Roihu service, you can apply for a disk quota increase
+     for your project in MyCSC for it.
+
+     1. Go to your project with Roihu
+     2. In the "Services" tab, find Roihu and click **Configure**
+     3. In the "Quota settings", specify how much quota you would require, and motivate your request in the text box if needed
+
+     See the ["increasing disk quotas" section](../../accounts/how-to-increase-disk-quotas.md) for
+     details and the maximum disk quotas you can apply for.
+
 ### Project members
 
 After your project manager has applied for the Roihu service,
@@ -317,7 +336,7 @@ For common Slurm error messages, see our FAQ on [Why does my batch job fail?](..
 
 #### Argos errors
 
-During the pilot phase, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
+During early use on Roihu, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
 
 ```
 error: argos:slurm_spank_task_init: get_env_var: cannot get SLURM_ARGOS_SPANK_OPT from job(22474) environment (No such environment variable)
@@ -342,6 +361,18 @@ srun --argos=no <your-executable>
 ```
 
 The same option can also be passed as an `#SBATCH` input.
+
+Argos will be fully disabled on Roihu after general availability.
+
+#### Profiling on Roihu with `nsys`
+
+Profiling on Roihu-GPU can be done with `nsys`.
+However, for `nsys` to work reliably in a batch job, Argos needs to be disabled.
+
+Add the `--argos=no` option to your job script as specified above, when doing profiling on the system.
+
+For more information about `nsys` and profiling on Roihu,
+see the [performance analysis section](../../computing/performance.md) in the docs.
 
 ## More information
 
