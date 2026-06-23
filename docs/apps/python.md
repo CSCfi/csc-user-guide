@@ -54,17 +54,19 @@ is also available.
 ### System Python
 
 If using a pre-installed environment is not suitable,
-the basic system Python 3.9 can be launched with:
+the basic system Python 3.9 in Roihu can be launched with:
+
+```bash
+python
+```
+
+In Puhti and Mahti, Python 3.9 can be launched with:
 
 ```bash
 python3.9
 ```
 
-!!! warning
-    It is strongly advised to explicitly launch Python version 3.9 as
-    above, since **the default version launched by `python3` (3.6.8) has
-    [reached end-of-life](https://devguide.python.org/versions/)**.
-
+Note that the  the default version launched by `python3` (3.6.8) has [reached end-of-life](https://devguide.python.org/versions/) and it is strongly advised to explicitly launch Python version 3.9 as above.
 ### Pre-installed Python environments
 
 Roihu, Puhti and Mahti have several pre-installed
@@ -79,6 +81,7 @@ In Roihu:
 | [python-data](python-data.md) | data analysis and ML utilities | CPU/GPU |
 | [python-pytorch](pytorch.md) | PyTorch ML framework | GPU |
 | [python-vllm](vllm.md) | LLM inference | GPU |
+| [python-tensorflow](tensorflow.md) | Tensorflow ML framework | GPU |
 
 In Puhti and Mahti:
 
