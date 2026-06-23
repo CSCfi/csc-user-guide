@@ -19,6 +19,47 @@ enabled. [Read more about CSC accounts and projects](../../accounts/index.md).
 
     These differences affect most workflows, so read the sections below carefully.
 
+## Add Roihu as a service
+
+Before you start using Roihu, you need to enable it as a service in MyCSC, for your project.
+
+### Project managers
+
+If you already have a computational project, e.g. for Mahti or Puhti already,
+you can add Roihu there as a service.
+
+If you do not have a computing project yet, apply for one in MyCSC following the instructions
+for [creating a new project](../../accounts/how-to-create-new-project.md).
+
+Adding Roihu as a service:
+
+1. Go to my.csc.fi and log in e.g. with your HAKA identification
+2. Go to the "Profile" section, and in the bottom right corner, check that your Level of identity assurance (LoA) is **medium** or **high**
+    - If your LoA is **low**, you need to raise it to access Roihu. See the [instructions for raising LoA](../../accounts/strong-identification.md).
+3. Go to the "Projects" section, and open your project.
+4. In the right-side Services tab, click the "+ Add services" option.
+5. Choose Roihu, click Next and confirm this option.
+
+Note, that it may take a few minutes for Roihu to become accessible for you,
+and other project members.
+
+### Project members
+
+After your project manager has applied for the Roihu service,
+you will get an email titled "Roihu supercomputer for your use"
+
+Next, accept the terms of service for Roihu, with the following instructions:
+
+1. Go to my.csc.fi and log in e.g. with your HAKA identification
+2. Go to the "Profile" section, and in the bottom right corner, check that your Level of identity assurance (LoA) is **medium** or **high**
+    - If your LoA is **low**, you need to raise it to access Roihu. See the [instructions for raising LoA](../../accounts/strong-identification.md).
+3. Go to the "Projects" section, and open your project.
+4. In the right-side Services tab, click open Roihu
+5. Accept the terms of service.
+
+After adding Roihu to your project, you can connect to the system.
+Note that there might be a short (few minutes) delay, before you can connect.
+
 ## Connecting
 
 Connect to Roihu using either:
