@@ -134,6 +134,11 @@ ERROR 1044 (42000): Access denied for user 'username'@'%' to database 'databasen
 
 Either the database specified does not exist, or the username specified has no access to it.
 
+```
+mariadb-dump: Got error: 2026: "TLS/SSL error: self-signed certificate" when trying to connect.
+```
+
+The `--ssl` flag alone isn't enough, you need to supply the client `--ssl-verify-server-cert=OFF` to skip certificate verification.
 
 ### Accessing your Pukki MariaDB database from Roihu
 
