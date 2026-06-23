@@ -202,7 +202,7 @@ There will be some changes in the available partition names and the correspondin
 ## 18. Will Roihu have a longrun partition? What will be the maximum runtime?
 
 There will be a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition will be 10 days.
-The small partion for partial or single nodes has a time limit of 72 hours.
+The small partition for partial or single nodes has a time limit of 72 hours.
 
 ## 19. I did not find an answer to my question here. Who should I contact?
 

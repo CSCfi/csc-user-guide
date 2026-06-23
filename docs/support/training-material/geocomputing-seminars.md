@@ -37,7 +37,7 @@
         * [Using data from STAC with Python](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
 * [Archived questions and answers from the workshop](https://a3s.fi/gis-workshops/spatial_puhti_2022/HedgeDoc_spatialCSC22.html)
 
-## Earth observationin CSC computing environment (2022)
+## Earth observation in CSC computing environment (2022)
 
 * Eetu Jutila, SYKE: Samantha Wittke (CSC: [Getting started using EO data](https://a3s.fi/gis-workshops/22_EO_workshop/eo_workshop_intro.pdf)
 * Mwaba Hiltunen, FMI: [Access to Copernicus data from the Finnish Data Hub](https://a3s.fi/gis-workshops/22_EO_workshop/hiltunen_finhub.pdf)

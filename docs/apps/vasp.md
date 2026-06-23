@@ -36,7 +36,7 @@ module avail vasp
 The usage of VASP requires a license, which must be acquired directly
 from the developers of the software.
 
-VASP versions prior to 6.5.1 use unix goups 'vasp' and 'vasp6' to control access to
+VASP versions prior to 6.5.1 use unix groups 'vasp' and 'vasp6' to control access to
 pre-installed executables. After acquiring the license, or after your email address has been
 added to an existing license, please send an email to [CSC Service Desk](../support/contact.md),
 including your _username_ at CSC, and the _email address_ you have registered for the VASP

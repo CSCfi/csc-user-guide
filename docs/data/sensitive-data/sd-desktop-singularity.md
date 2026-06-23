@@ -9,7 +9,7 @@ Instead, you can use  [Apptainer](https://apptainer.org/docs/user/latest/introdu
 Note: Apptainer is a fork on Singularity container system, so in many occasions instructions may refer to Singularity. In most cases you can just replace "Singularity" with "Apptainer".
 
 If you have root access to a machine with Apptainer, you can build your own container that contains exactly the software and datasets you need. Many software are also available as ready-made Apptainer containers or as Docker containers that can be converted into
-Appainer containers. In this document we show how to import a ready-made Apptaner container from a public repository to SD Desktop.
+Apptainer containers. In this document we show how to import a ready-made Apptainer container from a public repository to SD Desktop.
 
 
 ## Step by step tutorial
@@ -97,7 +97,7 @@ Unzip the test dataset:
 unzip BETA_test_data.zip
 ```
 
-Now you can run BETA through _apptainser_ command. 
+Now you can run BETA through _apptainer_ command. 
 For example the _help_ of command _BETA minus_ is shown with command:
 
 ```text

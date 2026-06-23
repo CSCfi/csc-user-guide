@@ -1,6 +1,6 @@
 # Training material
 
-Get the basics right! In addition the the [Tutorials](../tutorials/index.md)
+Get the basics right! In addition the [Tutorials](../tutorials/index.md)
 and [FAQ](../faq/index.md) collections, this page links to a selection of
 additional training material useful for self study. At the bottom of the
 page, you can also find a summary of trainings and training material sources

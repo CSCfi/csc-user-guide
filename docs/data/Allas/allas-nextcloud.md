@@ -2,7 +2,7 @@
 
 Motivation: Allas is a general purpose storage system for research data. 
 It can be used with tools based on Swift and S3 protocols. However, in many cases, 
-using Allas directly trough S3 or Swift is limited by the rather plain structure 
+using Allas directly through S3 or Swift is limited by the rather plain structure 
 of user management and by the fact that the access is based on personal CSC user accounts.
 
 Using Nextcloud server as a front end allows you to create and manage your own user 
@@ -63,7 +63,7 @@ For example the case of IP:86.50.252.77 the definition could be done with comman
 sudo nextcloud.occ config:system:set trusted_domains 1 --value=86.50.252.77
 ```
 
-Now you should be able to connect your Nextcoud server running in _https://ip-of-your-VM_
+Now you should be able to connect your Nextcloud server running in _https://ip-of-your-VM_
 
 So in this example: _https://86.50.252.77_
 
@@ -187,7 +187,7 @@ Common line usage is possible too. This can be utilized for example in cases you
 In security section section *Devices & Sessions*, an application password is created by clicking button: *Create a new app password*. Note that you have to copy and save the application password, that was just generated, as you can't check it later on. 
 
 In addition to user name and application password, the user needs to know the IP address or server name to access the service. 
-With this information available, data can be downloaded from Nextcould using curl command syntax:
+With this information available, data can be downloaded from Nextcloud using curl command syntax:
 ```bash
 curl -k -u username:app-password "https://server-ip/remote.php/webdav/nextcloudirectiory/file-name"
 ```
@@ -200,7 +200,7 @@ curl -k -u username:app-password -T file-to-upload "https://server-ip/remote.php
 In the commands above option `-k` is needed when the Nextcould server uses self signed certificates.
 
 In this example the app password that user _ncuser1_  generated is: _Q34EN-Ni7pH-9oSes-ZQsF7-NdkYi_
-and the IP address of the NectCloud server is 123.456.768.910. Earlier the the Nextcloud admin had linked Allas bucket _2001234-nextcloud_
+and the IP address of the NextCloud server is 123.456.768.910. Earlier the Nextcloud admin had linked Allas bucket _2001234-nextcloud_
 to the next cloud service.
 
 Now the _ncuser1_ is able to upload a file _image1.jpg_ to Allas bucket _2001234-nextcloud_ with command:

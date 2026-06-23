@@ -189,7 +189,7 @@ CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
 
 ![LAMMPS performance](../img/lammps-bench.png 'LAMMPS performance')
 
-* LAMMPS peformance is measured here in Gatom-steps/s, i.e. how many billion
+* LAMMPS performance is measured here in Gatom-steps/s, i.e. how many billion
   atoms can be propagated one time step each second.
 * Large systems (millions of atoms) are able to utilize multiple GPUs
   efficiently. The example system of 16M atoms scales well to several GPU nodes

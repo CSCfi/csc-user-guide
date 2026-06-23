@@ -14,7 +14,7 @@ Please note following details that limit the usage of this procedure:
 
 # Security aspects
 
-The Puhti cluster of CSC provides a secure and well maintaned environment for comitational research and data analysis.
+The Puhti cluster of CSC provides a secure and well maintained environment for computational research and data analysis.
 The [Technical and Organizational Measures (TOMs) in the Puhti Supercomputer Service](https://research.csc.fi/puhti-service-description/puhti-toms/) give detailed information about the security measures of the cluster.
 
 The sensitive data job submission using sdsi-client provides even increased security level for using Puhti.
@@ -24,7 +24,7 @@ The increased security is based on two main features:
    2. For the actual analysis the data is temporarily decrypted to the local disk area of a compute node that is fully reserved for only this one job. Thus there are no other users in the node during the execution of the job, and other users cannot access the disk areas, memory or process list of the node during the processing. The technical and operational measures that implements this key restriction are described in the Puhti TOMs.
 
 
-# Getting stared 
+# Getting started 
 
 Add Puhti service to your project. Next, contact CSC (servicedesk@csc.fi) and request that Puhti access will be created for your SD Desktop environment. If CSC evaluates your use case suitable for this service, a robot account will be created for your project and a project specific server process is launched for you project by CSC.
 
@@ -45,7 +45,7 @@ When you submit a batch job from SD Desktop, you must define following informati
 1. What files need be downloaded from SD Connect to Puhti to be used as input files (`data:`)
 2. What commands will be executed (`run: `)
 3. What data will be exported from Puhti to SD Connect when the job ends
-4. How much resources (time, memory, temporary dick space ) the job needs. (`sbatch:`)
+4. How much resources (time, memory, temporary disk space ) the job needs. (`sbatch:`)
 
 You can define this this in command line as _sdsi-client_ command options, but normally
 it is more convenient to give this information as a batch job definition file. 
@@ -73,7 +73,7 @@ The batch job defined in the file can be submitted with command:
 ```text  
 sdsi-client new -input job1.sdsi
 ```
-The submission command will ask for your CSC password, after which it submits the task to thae batch job queue. After submission the command prints the ID number of the job.
+The submission command will ask for your CSC password, after which it submits the task to the batch job queue. After submission the command prints the ID number of the job.
 You can use this ID number to check the status of your job. For example for job 123456 you can check the status in *SD Desk desktop* with command:
 
 ```text
@@ -121,13 +121,13 @@ The results are uploaded from Puhti to SD Connect into bucket named as: *sdhpc-r
 The jobs that sdsi-client submits reserve always one full Puhti node. These nodes have 40 computing cores so you should use these batch jobs for tasks that can utilize multiple computing cores. Preferably all 40. 
 
 In the previous example, the actual computing task consisted of calculating md5 
-checksums for two files. The command used, `md5sum`, is able to use just one computing core so the job waisted resources as 40 cores were reserved but only one was used.
+checksums for two files. The command used, `md5sum`, is able to use just one computing core so the job wasted resources as 40 cores were reserved but only one was used.
 
 However if you need to calculate a large amount of unrelated tasks that are able to use only one 
-or few computing cores, you can use tools like _gnuparallel_, _nextfllow_ or _snakemake_ to submit several
+or few computing cores, you can use tools like _gnuparallel_, _nextflow_ or _snakemake_ to submit several
 computing tasks to be executed in the same time.
 
-In the examples below we have a tar-archive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum.  Bellow we have three alternative ways to run the tasks so that all 40 cores are effectively used.
+In the examples below we have a tar-archive file that has been stored to SD Connect: `2008749-sdsi-input/data_1000.tar.c4gh`. The tar file contains 1000 text files (_.txt_) for which we want to compute md5sum. Below we have three alternative ways to run the tasks so that all 40 cores are effectively used.
  
 ### GNUparallel
 
