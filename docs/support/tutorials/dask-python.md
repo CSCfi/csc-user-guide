@@ -20,7 +20,7 @@ __batch job file__
 #SBATCH --account=<YOUR-PROJECT>
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=384
 #SBATCH --mem-per-cpu=4G
 #SBATCH --partition=small
 
