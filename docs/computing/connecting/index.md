@@ -112,6 +112,13 @@ should again verify the new key against fingerprints provided by CSC.
 
 #### Host key fingerprints
 
+=== "Roihu"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
+    | cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
+
 === "Puhti"
     | SHA256 checksum                             | Key                                |
     |---------------------------------------------|------------------------------------|
@@ -125,22 +132,6 @@ should again verify the new key against fingerprints provided by CSC.
     | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
     | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
     | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
-=== "Roihu (pilot phase)"
-    | SHA256 checksum                             | Key                                |
-    |---------------------------------------------|------------------------------------|
-    | NnNuy5xLxXDhDyBTVCtRbGNSMmTTKdnH6dlomerCg14 | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | mAkMF6xpb4wc1eq+vPc4q4mo7YvcL4GHxe8XauPqGas | ssh_host_ed25519_key.pub (ED25519) |
-    | IHUo4GZOYH8V9qlcv155iP3w/83SdlS6E2jOb/z01hE | ssh_host_rsa_key.pub (RSA)         |
-=== "Roihu (general availability)"
-    | SHA256 checksum                             | Key                                |
-    |---------------------------------------------|------------------------------------|
-    | h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
-    | cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
-
-!!! info "Note"
-    For security reasons, Roihu host keys will be changed after the pilot
-    phase.
 
 ### Graphical connection
 
