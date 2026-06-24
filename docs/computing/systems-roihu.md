@@ -6,7 +6,7 @@
 
     As part of the transition, Mahti and Puhti will be decommissioned
     in steps over summer and fall 2026.
-    [See the chedule for Mahti and Puhti shutdown below](#schedule).
+    [See the schedule for Mahti and Puhti shutdown below](#schedule).
 
 ## Schedule
 
@@ -36,14 +36,14 @@ graph LR;
     style C fill:#dceeceff;
 ```
 
-**Roihu** will be installed in the same datacenter as LUMI, meaning that the
+**Roihu** is installed in the same datacenter as LUMI, meaning that the
 system will be brought up without disrupting Puhti and Mahti services. There
 will also be a margin between Roihu general availability and the
 decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
 a break in HPC access.
 
 Puhti will be decommissioned in two stages: First, Puhti's computing services
-will be shut down one month after the general availability of Roihu, but earliest by 31 July 2026 at 12:00 EEST. This
+will be shut down 31 July 2026 at 12:00 EEST. This
 means that jobs will not run after this date on Puhti anymore. Puhti's storage and login nodes will,
 however, remain accessible until midday October 15th 2026, after which Puhti will be retired
 completely.
@@ -58,7 +58,7 @@ We strongly encourage all users to prioritize moving their data by the end of Au
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
 If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, aiming to complete it by the end of August.
+prepared to do it during summer 2026, aiming to complete it by the **end of August**.
 See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
 directly from Mahti and Puhti to Roihu.
 
