@@ -247,15 +247,12 @@ need to process large amounts (over 100 000) of small files.
 Data in local storage is removed when the job finishes. You must copy any results you want to
 keep to `scratch` or Allas before the job ends.
 
-Based on your [Slurm job reservation](../computing/running/batch-job-partitions.md#roihu-partitions) type, you will have access
+Based on your [Slurm job reservation](running/batch-job-partitions.md#roihu-partitions) type, you will have access
 to the following amount of local disk space:
 
 #### Automatic local temporary storage
 
 For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
-You do not need to reserve this storage separately in your job script.
-
-Using $TMPDIR does not consume billing units.
 
 | Allocation type           | Path      | Quota per user |
 |:--------------------------|-----------|---------------:|
@@ -270,7 +267,7 @@ your job script to be usable. Using the local disk does not consume [billing uni
 
 #### Reserved local scratch storage
 
-XL and visualization nodes provide some local disk storage under `$TMPDIR`.
+Roihu's hugemem (XL) and visualization (Viz) nodes provide some local disk storage under `$TMPDIR`.
 On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for larger temporary storage needs.
 
 This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
