@@ -9,6 +9,8 @@ There are two main ways of connecting to CSC supercomputers.
 2. We also offer a [web interface](#using-the-web-interface) to our systems,
    which enables running both graphical applications and command-line shells.
 
+Additionally, we also offer a [RESTful HTTP API](#using-the-firecrest-hpc-api) based on [FirecREST v2](https://eth-cscs.github.io/firecrest-v2/), which is the primary interface for [machine-to-machine robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) usage.
+
 For instructions on connecting to the LUMI supercomputer, please see the
 [Get Started page in the LUMI user guide](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
 
@@ -34,6 +36,10 @@ connection. The shell applications are especially convenient for users whose
 workstation has a Windows operating system, since Windows does not
 typically come with a pre-installed SSH client. See the instructions for
 [connecting to HPC web interfaces](../webinterface/connecting.md).
+
+## Using the FirecREST HPC API
+
+The [FirecREST HPC API](../firecrest/index.md) provides a standardized RESTful interface for accessing computing resources from web-based software. It offers APIs for managing jobs through Slurm scheduler, performing file system operations over personal and project data, and for transferring large amounts of data to or from the system.
 
 ## Using an SSH client
 
