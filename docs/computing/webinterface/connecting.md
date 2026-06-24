@@ -9,7 +9,7 @@
 3. On the landing page, click on "Log in" and select an appropriate
    authentication provider.
 
-    ![Puhti web interface login page](../../img/ood_login.png)
+    ![Roihu web interface login page](../../img/ood_login.png)
 
 === "CSC login"
     1. Enter your CSC username and password.
@@ -53,7 +53,7 @@ After successful authentication, you will see the dashboard. From here, you can
 [available applications](apps.md). The dashboard also contains some important
 system information.
 
-![Puhti web interface front page](../../img/ood_main.png)
+![Roihu web interface front page](../../img/ood_main.png)
 
 ## More information
 
