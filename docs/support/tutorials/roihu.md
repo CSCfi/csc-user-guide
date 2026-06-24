@@ -99,7 +99,7 @@ To connect via SSH:
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
     * Certificates are valid for **24 hours**
-    * See our instructions for managing certificates: [Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key)
+    * See our instructions for managing certificates: [Signing public SSH keys (section to be added)](../../computing/connecting/ssh-keys.md)
 
 For platform-specific instructions, see:
 
@@ -169,8 +169,8 @@ HPC software written using programming languages, such as C, C++, or Fortran nee
 
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU (section TBA)](../../computing/)
-- [Compiling on Roihu-GPU (section TBA)](../../computing/)
+- [Compiling on Roihu-CPU (section TBA)](../../computing/index.md)
+- [Compiling on Roihu-GPU (section TBA)](../../computing/index.md)
 
 ### Containers
 
