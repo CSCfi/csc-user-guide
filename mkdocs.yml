@@ -16,12 +16,7 @@ extra:
     content: |-
       <p>Warning!</p>
       <div>
-        <p>Puhti and Mahti are being decommissioned in stages, and their storage areas will be fully unavailable from <strong>15 October 2026</strong>. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>.</p>
-        <p>
-          See the
-          <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration instructions</a>
-          for details.
-        </p>
+        <p>Puhti and Mahti are being decommissioned in stages, and their storage areas will be fully unavailable from <strong>15 October 2026</strong>. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration instructions</a> for details</p>
       </div>
       <div>
         <p>Puhti scratch is very full: keep only active data there and move or delete everything else. No new Puhti scratch quota will be granted.
