@@ -1,5 +1,5 @@
 # Visual Studio Code
-The Visual Studio Code interactive app can be used for editing and running code on Roiuhu, Puhti, or
+The Visual Studio Code interactive app can be used for editing and running code on Roihu, Puhti, or
 Mahti. Make sure to load the correct modules before launching the session for the debugger to work
 correctly.
 

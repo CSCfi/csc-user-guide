@@ -82,7 +82,7 @@ requires using virtual environments.
 
 
 To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky
-installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then, open the Puhti
+installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then, open the Roihu, Puhti,
 or Mahti web interface and navigate to the Jupyter app page. In the form, select the `Custom path`
 option from the Python dropdown. Then, enter the full path to the Python interpreter of your Tykky
 installation. So, if you created an installation with the command `conda-containerize new

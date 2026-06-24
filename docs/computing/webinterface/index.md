@@ -34,7 +34,7 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
 
 ## Available features
 
-- **Features available in both the web interfaces:**
+- **Features available in the Roihu, Puhti and Mahti web interfaces:**
     - View, download, upload and move files between Allas, the supercomputer
       and your local computer
     - Open a shell on the login node

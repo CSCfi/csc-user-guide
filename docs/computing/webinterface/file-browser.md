@@ -92,6 +92,7 @@ staging area to the frozen area, are only possible though the
 [IDA web interface](https://ida.fairdata.fi).
 
 To use IDA from the Puhti/Mahti web interfaces, it must first be configured for
+To use IDA from the Roihu, Puhti, or Mahti web interfaces, it must first be configured for
 use with Rclone in a login node shell as follows:
 
 ```

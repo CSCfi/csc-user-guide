@@ -1,5 +1,5 @@
 # Desktop
-The desktop enables using graphical applications on a Puhti or Mahti compute node.
+The desktop enables using graphical applications on a Roihu, Puhti, or Mahti compute node.
 
 ## Available applications
 
