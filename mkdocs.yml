@@ -420,6 +420,7 @@ nav:
                   - cloud/pouta/storage.md
                   - Ephemeral storage: cloud/pouta/ephemeral-storage.md
                   - Persistent volumes: cloud/pouta/persistent-volumes.md
+                  - Encrypted persistent volumes: cloud/pouta/encrypted-volumes.md
                   - Snapshots: cloud/pouta/snapshots.md
                   - Snapshot using QEMU: cloud/pouta/qemu-vm.md
                   - Multi-attach Cinder storage: cloud/pouta/multiattach.md
