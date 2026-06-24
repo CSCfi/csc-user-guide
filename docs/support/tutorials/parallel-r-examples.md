@@ -27,7 +27,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
 
 === "Roihu-CPU"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array
     #SBATCH --account=<project>
     #SBATCH --output=output_%A_%a.txt
@@ -49,7 +49,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array
     #SBATCH --account=<project>
     #SBATCH --output=output_%A_%a.txt
@@ -79,7 +79,7 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
 
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array
     #SBATCH --account=<project>
     #SBATCH --output=output_%A_%a.txt
@@ -128,7 +128,7 @@ The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`)
 
 === "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multicore
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -149,7 +149,7 @@ The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`)
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multicore
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -177,7 +177,7 @@ The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`)
     ```
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multicore
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -254,7 +254,7 @@ An example batch job script can be found below. Here we submit a job using eight
 
 === "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -283,7 +283,7 @@ An example batch job script can be found below. Here we submit a job using eight
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -319,7 +319,7 @@ An example batch job script can be found below. Here we submit a job using eight
 
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -415,7 +415,7 @@ For example, for a job requiring as many workers as possible on two nodes, we co
     Multiple full nodes:
     
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_future
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -436,7 +436,7 @@ For example, for a job requiring as many workers as possible on two nodes, we co
     Partial node MPI job:
     
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_future
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -457,7 +457,7 @@ For example, for a job requiring as many workers as possible on two nodes, we co
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_future
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -485,7 +485,7 @@ For example, for a job requiring as many workers as possible on two nodes, we co
 
 === "Mahti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_future
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -531,7 +531,7 @@ To launch a multi-node R job directly using `snow` that requires as many workers
     Multiple full nodes:
     
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_snow
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -552,7 +552,7 @@ To launch a multi-node R job directly using `snow` that requires as many workers
     Partial node MPI job:
     
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_snow
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -572,7 +572,7 @@ To launch a multi-node R job directly using `snow` that requires as many workers
     
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_snow
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -600,7 +600,7 @@ To launch a multi-node R job directly using `snow` that requires as many workers
 
 === "Mahti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_snow
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -682,7 +682,7 @@ Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal
     Partial node MPI job:
     
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_dompi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -702,7 +702,7 @@ Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_dompi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -730,7 +730,7 @@ Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal
 
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_dompi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -780,7 +780,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
     Multiple full nodes:
    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_pbdmpi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -800,7 +800,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_pbdmpi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -828,7 +828,7 @@ In analyses using the `pbdMPI` package, each process runs the same copy of the p
 
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_pbdmpi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -882,7 +882,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
 
 === "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread_multinode
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -911,7 +911,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread_multinode
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -946,7 +946,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     ```
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread_multinode
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -1000,7 +1000,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
 
 === "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
     #SBATCH --account=<project>
     #SBATCH --output=output_%j_%a.txt
@@ -1029,7 +1029,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
 
 === "Puhti"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
     #SBATCH --account=<project>
     #SBATCH --output=output_%j_%a.txt
@@ -1066,7 +1066,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
 
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
     #SBATCH --account=<project>
     #SBATCH --output=output_%j_%a.txt

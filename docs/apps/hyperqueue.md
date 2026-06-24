@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # HyperQueue
@@ -32,10 +33,12 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 * Puhti: 0.13.0, 0.15.0, 0.16.0
 * Mahti: 0.13.0, 0.15.0, 0.16.0
 * LUMI: 0.18.0
+* Roihu-CPU: 0.25.1
+* Roihu-GPU: 0.25.1
 
 ## Usage
 
-Load the default version of HyperQueue on Puhti and Mahti like this:
+Load the default version of HyperQueue on Roihu-CPU or Roihu-GPU like this:
 
 ```bash
 module load hyperqueue

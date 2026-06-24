@@ -16,11 +16,20 @@
     of data or other special requirements, please also read the other sections
     carefully.
 
-!!! warning "Roihu is not yet available"
-     Roihu will be available around end of June 2026. Direct
-     data transfers between Mahti and Puhti to Roihu are not yet
-     possible.
-     Follow this guide only **after Roihu is available**.
+!!! warning "Mahti and Puhti shutdown in Fall 2026"
+     Mahti and Puhti are being decommissioned by October 2026.
+
+     * Puhti computing services will be shut down one month after Roihu is available, earliest by 31 July 2026 at 12:00 EEST.
+     * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
+     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
+     
+     Users are strongly encouraged to move any required data from these systems by the **end of August 2026**,
+     as storage access cannot be fully guaranteed after that.
+
+     Puhti and Mahti storage services will be decommissioned 15 October 2026, at 12:00 EEST but
+     are not covered by service contracts after end of August.
+     Due to this, aim to complete your data transfers from Mahti and/or Puhti
+     by the end of August 2026, or by October 15th at the very latest.
 
 ## 1. General guidelines and prerequisites
 
@@ -93,7 +102,7 @@
 ### 1.4 Transfer your data directly from Puhti/Mahti to Roihu
 
 * It is **not** recommended to transfer data to Roihu via Allas or your local
-  workstation. Instead, CSC recommends using command-line based tools such as
+  workstation. Instead, CSC recommends using command-line tools such as
   [`rsync`](#2-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
 
@@ -114,7 +123,7 @@
 
 * **`rsync`** is the preferred tool for transferring data from Puhti or Mahti
   to Roihu. [Read more about `rsync` here](../../data/moving/rsync.md).
-* **We will use Puhti as an example**, but the exact same steps apply for Mahti and LUMI
+* **We will use Puhti as an example**, but the exact same steps apply to Mahti and LUMI
   also. Simply replace all occurrences of `puhti` in host names etc. with
   `mahti`.
 * All examples require that you've **forwarded your SSH agent** including your
@@ -372,6 +381,14 @@ Using `screen` is useful if your data transfer will take several hours. You
 can, for example, power off your computer and leave the `rsync` process running
 overnight.
 
+!!! note "Use `tmux` in Roihu"
+     The `screen` command is not available on Roihu, but you can
+     do all data transfers to Roihu from the Mahti and/or Puhti login.
+     If you need to have a longer terminal
+     session open on Roihu, use `tmux` instead.
+
+     See instructions for `tmux` in the [Roihu tmux tutorial](tmux.md).
+
 ### 3.3 Using checksums to verify data integrity
 
 `rsync` ensures data integrity using internal checksum mechanisms by default.
@@ -431,8 +448,8 @@ GB, <100 files).
 
 ### 4.2 Using the web interfaces to migrate data
 
-Unfortunately, there is no good way that the Puhti or Mahti web interfaces can
-be used to move data directly to Roihu. There are some indirect ways, but none
+Unfortunately, there is no good way for using the Puhti or Mahti web interfaces
+to move data directly to Roihu. There are some indirect ways, but none
 of them are efficient, which is why we primarily recommend the command-line
 based approaches above. The following options should therefore be considered as
 "last resort" choices.

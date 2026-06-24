@@ -33,7 +33,7 @@ The tools used in the workflow can be installed in following ways:
 ```
 # If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image":
 container: "image/tutorial.sif"
-# If you would like to covert a Docker iamge to Apptainer container image on-the-fly:
+# If you would like to convert a Docker image to Apptainer container image on-the-fly:
 container: "docker://<repository>/<image_name>"
 ```
 
@@ -55,7 +55,7 @@ sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g
 conda-containerize update <path to installation> --post-install post.sh
 ```
 
-If you use own Tykky installation, then in the examples below, replace `module load snakemake` with the export commant printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
+If you use own Tykky installation, then in the examples below, replace `module load snakemake` with the export command printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
 
 !!! info "Note"
         Please note, create one Tykky installation for the whole workflow, not individual installations for each Snakemake rule.

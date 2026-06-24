@@ -167,7 +167,7 @@ You can find information about geocomputing using CSC resources and how to get s
 
 ### What to consider when choosing a software?
 
-There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. The following list sunmmarizes things that need to be considered when choosing a software. 
+There is no single software perfect for every task and taste. The right software depends as much on the task to be worked on, as on the taste and skillset of the user. The following list summarizes things that need to be considered when choosing a software. 
 
 * Functionality: Does the software provide the tools you need to reach your goal?
 * Interaction type: How do you want to interact with the software?
@@ -212,7 +212,7 @@ There is no single software perfect for every task and taste. The right software
 
 [**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Roihu](https://github.com/csc-training/geocomputing/tree/master/snap).
 
-[**allas'']](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
+[**allas**]](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
 
 If you need further applications, you can ask CSC to install them for you. 
  

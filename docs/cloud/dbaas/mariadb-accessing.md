@@ -80,6 +80,31 @@ ssl
 password
 ```
 
+## Export Your Current MariaDB Database
+
+To migrate your database, you must first create a backup (or "dump") of your existing MariaDB instance. MariaDB provides the [mariadb-dump](https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump) utility, which exports a database to a plain SQL file. This format is commonly used for backups, migrations, and data archiving.
+
+Database dumps can be used to migrate data away from Pukki or to keep an independent backup outside CSC services. This could be a useful tool that will help you to achieve your backup strategy.
+
+Run the `mariadb-dump` command to create a SQL dump of your database:
+
+```
+mariadb-dump -h ${PUBLIC_IP} -u ${USERNAME} -p${PASSWORD} --ssl --ssl-verify-server-cert=OFF ${DATABASE_NAME} > database_backup.sql
+```
+
+- `-p${PASSWORD}`: Password with no space after `-p`. If you use `-p` alone,`mariadb-dump` prompts for the password interactively.
+- `--ssl`: Enables an encrypted connection. Required for all Pukki MariaDB connections.
+- `--ssl-verify-server-cert=OFF`: This flag keeps the connection encrypted while skipping certificate validation. The `mariadb-dump` is stricter and requires this flag explicitly.
+- `database_backup.sql`: The name of the output file.
+
+To dump all databases at once:
+
+```
+mariadb-dump -h ${PUBLIC_IP} -u ${USERNAME} -p${PASSWORD} --ssl --ssl-verify-server-cert=OFF --all-databases > all_databases_backup.sql
+```
+
+- `--all-databases`: Exports all databases the user has access to.
+
 
 ### Common issues with CLI connections
 
@@ -109,6 +134,11 @@ ERROR 1044 (42000): Access denied for user 'username'@'%' to database 'databasen
 
 Either the database specified does not exist, or the username specified has no access to it.
 
+```
+mariadb-dump: Got error: 2026: "TLS/SSL error: self-signed certificate" when trying to connect.
+```
+
+The `--ssl` flag alone isn't enough, you need to supply the client `--ssl-verify-server-cert=OFF` to skip certificate verification.
 
 ### Accessing your Pukki MariaDB database from Roihu
 

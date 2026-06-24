@@ -66,7 +66,7 @@ command. You can use variable `$SLURM_CPUS_PER_TASK` to automatically match the 
 number.
 
 
-Example batch job script (use your actual project neame for `--account`)
+Example batch job script (use your actual project name for `--account`)
 
 ```text
 #!/bin/bash -l
@@ -81,7 +81,7 @@ Example batch job script (use your actual project neame for `--account`)
 # Load HUMaN module
 module load humann
 
-# Dowload a test file
+# Download a test file
 wget https://github.com/biobakery/humann/raw/master/examples/demo.fastq.gz
 
 # Run HUMaN

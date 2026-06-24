@@ -1,16 +1,18 @@
 # Preparing data for Roihu: Data management and temporary storage options
 
-!!! note "Roihu schedule"
-     **Roihu is not yet available for use**, and cannot be added as a service yet in MyCSC.
+!!! note "Mahti and Puhti schedule"
+     **Roihu is now available for use**, and can be added as a service for computational projects in MyCSC.
 
-     The target for Roihu general availability is end of June 2026.
+     Mahti and Puhti storage services will shut down 15 October 2026.
 
-     Mahti and Puhti storage services will shut down end of August 2026.
+     However, we strongly encourage all users to prioritize moving their data by the **end of August 2026**,
+     because between September and October 2026, the storage services will not be covered by service
+     contracts and availability cannot be guaranteed.
 
 This tutorial helps you prepare your data for the transition from Mahti and Puhti to Roihu.
 The main recommendation is to plan the migration in advance, review what data you need to keep,
 and transfer actively used data
-directly from Mahti or Puhti to Roihu after Roihu is available.
+directly from Mahti or Puhti to Roihu.
 
 !!! info "Direct transfer from Mahti/Puhti to Roihu"
      Instructions for direct data transfer from Mahti or Puhti to Roihu are available in the
@@ -18,7 +20,8 @@ directly from Mahti or Puhti to Roihu after Roihu is available.
 
      Use the direct transfer guide as the primary migration instructions.
 
-If your research group cannot wait until Roihu is available,
+If you cannot manage direct data transfers from Mahti and Puhti
+to Roihu,
 you might consider utilizing Allas or LUMI-O as a temporary storage service to host your data.
 
 Using Allas or LUMI-O might be applicable, for example, if key project members will be
@@ -43,8 +46,6 @@ The recommended temporary storage options are:
 - **A:** Allas, if your CSC project has enough available Allas quota
 - **B:** LUMI-O, if you have a project that has access to LUMI-O, and enough available storage quota there
 
-After Roihu becomes available, you can copy the data from Allas or LUMI-O to Roihu.
-
 !!! warning "Only use Allas or LUMI-O if strictly needed"
      Your primary approach in data migration from Mahti and Puhti to Roihu
      should be a direct copy from one machine to the other.
@@ -66,7 +67,7 @@ See a CSC short talk for **how to use object storage** and **how to apply for a 
 
 1. **Review and clean up your data now.** Decide what must be preserved, what can be deleted, and what should be rebuilt or regenerated on Roihu.
 2. **Plan where the data should go on Roihu.** Only data that you are actively processing should be moved directly to Roihu's working disk areas.
-3. **Transfer data directly from Mahti or Puhti to Roihu when Roihu is available.** See the [guide](./roihu-data.md) for transferring data from Mahti and Puhti directly to Roihu.
+3. **Transfer data directly from Mahti or Puhti to Roihu.** See the [guide](./roihu-data.md) for transferring data from Mahti and Puhti directly to Roihu.
 4. **Use Allas or LUMI-O only if direct transfer is not possible in time.** These services can be used as temporary storage if you cannot complete the migration between Roihu general availability and the Mahti/Puhti storage shutdown.
 5. **Verify the copied data before deleting anything.** Keep the original data on Mahti or Puhti until the migration has been fully completed and verified.
 
@@ -74,7 +75,7 @@ See a CSC short talk for **how to use object storage** and **how to apply for a 
 
 Use the Allas or LUMI-O instructions if:
 
-- you have data on Mahti or Puhti that must be preserved before the storage servers are shut down (end of August 2026)
+- you have data on Mahti or Puhti that must be preserved before the storage servers are shut down (15 October 2026)
 - you cannot wait until Roihu is generally available before starting the transfer (end of June 2026), or you cannot complete a direct transfer to Roihu before the Mahti/Puhti storage shutdown
 - you need temporary object storage for the transition period
 
@@ -406,7 +407,26 @@ Copy a directory:
 rclone copy -P /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfer-${USER}/mydata
 ```
 
-For large transfers, run the command inside `tmux` or `screen`, and write a log file:
+For large transfers, run the command inside `tmux`, and write a log file:
+
+??? info "Using tmux"
+     Use `tmux`, for example, in a session in Puhti/Mahti:
+
+     ```bash
+     tmux new -s roihu-transfer
+     ```
+
+     Start the transfer inside the `tmux` session. You can detach from the session with:
+
+     ```text
+     Ctrl-b d
+     ```
+
+     Later, reconnect with:
+
+     ```bash
+     tmux attach -t roihu-transfer
+     ```
 
 ```bash
 rclone copy /scratch/project_2000000/mydata lumi-46500XXXX-private:roihu-transfer-${USER}/mydata \
@@ -479,7 +499,7 @@ rclone rmdir lumi-46500XXXX-private:roihu-transfer-${USER}
 
 Large transfers may take a long time. Do not run them in a normal SSH session without protection, because the transfer may stop if the connection is interrupted.
 
-Use `screen` or `tmux`, for example, in a session in Puhti/Mahti:
+Use `tmux`, for example, in a session in Puhti/Mahti:
 
 ```bash
 tmux new -s roihu-transfer

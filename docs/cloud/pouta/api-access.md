@@ -30,7 +30,7 @@ source <project_name>-openrc.sh
 ```
 
 And supplying your CSC account username and password when prompted. After this 
-You coud make requests to the Pouta cloud. Normally you would start with 
+You could make requests to the Pouta cloud. Normally you would start with 
 authenticating yourself as: 
 
 ```bash

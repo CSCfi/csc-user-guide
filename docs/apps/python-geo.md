@@ -42,6 +42,7 @@ includes following python packages:
 -   [geoparquet-io](https://geoparquet.io/) - fast reader for GeoParquet files. NEW 2026
 -   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services.
 -   [geoviews](https://geoviews.org/) - geographic visualizations for HoloViews. NEW 2026
+-   [geo2ml](https://github.com/mayrajeo/geo2ml) - for preparing spatial data for machine learning.
 -   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication](#google-earth-engine-authentication-set-up). 
 -   [holoviews](https://holoviews.org/) - plot big datasets. NEW 2026
 -   [h3pandas](https://h3-pandas.readthedocs.io/en/latest/) - for hexagonal geospatial indexing system, with Pandas and GeoPandas. 
@@ -68,6 +69,7 @@ includes following python packages:
     OpenStreetMap's APIs. [Routing examples in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/routing) 
 -   [owslib](https://geopython.github.io/OWSLib/index.html) -  for retrieving data from Open Geospatial Consortium (OGC) web services
 -   [pcraster](https://pcraster.geo.uu.nl/) - for spatio-temporal environmental modelling.
+-   [planetary-computer](https://github.com/microsoft/planetary-computer-sdk-for-python) - supports accessing data in [Microsoft's Planetary Computer](https://planetarycomputer.microsoft.com/) NEW 2026
 -   [psycopg2](https://www.psycopg.org/docs/) - PostgreSQL database adapter for Python.
 -   [python-pdal](https://github.com/PDAL/python) - PDAL Python extension for lidar data
 -   [pysal] - spatial analysis functions.    
@@ -97,6 +99,7 @@ includes following python packages:
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [cf_xarray](https://cf-xarray.readthedocs.io/en/latest/) - interpret Climate and Forecast metadata convention attributes present on xarray objects. NEW 2026
     -   [flox](https://flox.readthedocs.io/en/latest/) - fast GroupBy reductions for Xarray. NEW 2026
+    -   [xarray-eopf](https://eopf-sample-service.github.io/xarray-eopf/) - for reading the [ESA EOPF data products](https://eopf.copernicus.eu/eopf-products-and-adfs/) in Zarr format. NEW 2026
     -   [xarray-spatial](https://xarray-spatial.readthedocs.io/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
     -   [xclim](https://xclim.readthedocs.io/en/stable/) - for climate analysis. NEW 2026
 -   [xgboost](https://xgboost.readthedocs.io/) - Gradient Boosting machine learning algorithms. NEW 2026
@@ -108,6 +111,7 @@ includes following python packages:
 Additionally python-geo includes:
 
 -   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../computing/webinterface/index.md) with [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
+-   [spyder](https://www.spyder-ide.org/) - Scientific Python Development Environment with graphical interface (similar to RStudio for R).
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
 -   [PDAL](https://pdal.io/) - Point Data Abstraction Library
@@ -200,7 +204,10 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 Python-geo was installed to Roihu using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
-conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools python-geo_3.11.10.yml
+conda-containerize new --mamba \
+  --prefix install_dir --post download_wbt \
+  -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools \
+  python-geo_3.11.10.yml
 ```
 
 Python-geo conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/python-geo). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked using `list-packages` command after loading the `python-geo` module.

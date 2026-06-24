@@ -215,7 +215,7 @@ grep "/scratch/${my_project:?}/important-dir" ~/purge_list
 #### Find the biggest files on the list
 
 LCleaner has an option to sort the files by size. This option is called `--sort-by-size` and always
-sorts in a decending order (i.e., biggest files first). If you want to see the size of the files
+sorts in a descending order (i.e., biggest files first). If you want to see the size of the files
 when they are printed, use the `--csv` option. By default, only the file paths are printed.
 You can also limit the output to include a given number of files with the `--limit N` parameter,
 where `N` is the number of lines you want to see.
@@ -245,29 +245,39 @@ to take place. If you are happy with purging all of the files that were listed i
 
 !!! Note
     The deletion process may take a considerable amount of time (several hours, depending on the
-    amount of files), so it is best to start it within a `screen` or `tmux` session, so that you
+    amount of files), so it is best to start it within a `tmux` session, so that you
     can disconnect from your SSH session while the deletion keeps running.
 
+Start a `tmux` session:
+
 ```bash
-# Start a screen session
-screen
-# Delete all of the files on your purge list:
-# Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
-lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
-# Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
-# the deletion running in the background.
-# Run "screen -r" to reattach your screen.
-# Close the screen session by typing "exit" in the shell.
+tmux new -s purge-cleanup
 ```
 
-If you want to delete only a part of the files, e.g., inside a certain directory, you can for
-example use a command like this:
+Then delete all of the files on your purge list:
+```bash
+# Replace "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
+lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
+```
+
+To detach from the `tmux` session while keeping the deletion running, press `Ctrl-b` and then `d`.
+
+To return to the session later, reconnect to the cluster and run:
+
+```bash
+tmux attach -t purge-cleanup
+```
+
+If you want to delete only a part of the files, e.g., inside a certain directory,
+start
+a `tmux` session as shown above and then run a command like this inside the session:
 
 ```bash
 # Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
-screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
-# Ctrl + a, d to detach from the screen.
+lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
 ```
+
+When the deletion has finished, close the `tmux` session by typing `exit` in the session.
 
 #### LCleaner output formats
 

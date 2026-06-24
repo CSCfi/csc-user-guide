@@ -126,7 +126,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 **The recommended way to launch RStudio is to use the [supercomputer web interface](../computing/webinterface/index.md)**. See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
 
-It is also possible to launch RStudio Server via SSH tunnelling. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
+It is also possible to launch RStudio Server via SSH tunnelling on Puhti and Mahti. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 !!! note ""
     **RStudio is meant for interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as [non-interactive batch jobs](#non-interactive-batch-jobs).
@@ -230,7 +230,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 === "Roihu-CPU"
     ``` bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_serial     # Job name
     #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
@@ -251,7 +251,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 === "Puhti"
     ``` bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_serial     # Job name
     #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
@@ -280,7 +280,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 === "Mahti"
     ``` bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_serial     # Job name
     #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
     #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
@@ -525,11 +525,11 @@ To use it, one must set the correct path to CmdStan using `cmdstanr`. For exampl
     cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/452-stan/cmdstan-2.38.0")
     ```
 
-If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
+If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs on Puhti and Mahti, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 === "Roihu-CPU"
-    Under construction. Sorry for any inconvenience and please check back later!
-
+    No Cmdstan-specific settings needed in the batch job script.
+    
 === "Puhti"
     ```r
     # Set R version
@@ -539,7 +539,6 @@ If you are using CmdStan in an interactive session, the above command will work 
     SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
     srun apptainer_wrapper exec Rscript --no-save script.R
     ```
-
 === "Mahti"
     ```r
     # Set R version
