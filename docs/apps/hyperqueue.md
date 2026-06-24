@@ -9,8 +9,6 @@ catalog:
     - Miscellaneous
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -30,11 +28,9 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 
 ## Available
 
-* Puhti: 0.13.0, 0.15.0, 0.16.0
-* Mahti: 0.13.0, 0.15.0, 0.16.0
-* LUMI: 0.18.0
 * Roihu-CPU: 0.25.1
 * Roihu-GPU: 0.25.1
+* LUMI: 0.18.0
 
 ## Usage
 
@@ -81,8 +77,7 @@ command2 arguments2
 # and so on
 ```
 
-For example, let's reserve one compute node for the whole job, which means we could
-run either five tasks simultaneously using Puhti or 16 tasks simultaneously using Mahti.
+For example, let's reserve eights cores for the whole job:
 
 ```bash
 module load sbatch-hq
@@ -135,7 +130,7 @@ We reserve a fraction of the CPUs and memory on a node per worker in a partial
 node allocation and all the CPUs and memory on a node per worker in a full node
 allocation.
 
-=== "Puhti partial single node"
+=== "Roihu-CPU partial single node"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -147,50 +142,38 @@ allocation.
     #SBATCH --time=00:15:00
     ```
 
-=== "Puhti partial multinode"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=large    # multi node partition
-    #SBATCH --nodes=2            # two or more nodes
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
-    #SBATCH --cpus-per-task=10   # one or more cpus per worker
-    #SBATCH --mem-per-cpu=1000   # desired amount of memory per cpu
-    #SBATCH --time=00:15:00
-    ```
-
-=== "Puhti full single node"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small    # single node partition
-    #SBATCH --nodes=1            # one compute node
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker
-    #SBATCH --cpus-per-task=40   # all cpus on a node
-    #SBATCH --mem=0              # reserve all memory on a node
-    #SBATCH --time=00:15:00
-    ```
-
-=== "Puhti full multinode"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=large    # multi node partition
-    #SBATCH --nodes=2            # two or more nodes
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
-    #SBATCH --cpus-per-task=40   # reserve all cpus on a node
-    #SBATCH --mem=0              # reserve all memory on a node
-    #SBATCH --time=00:15:00
-    ```
-
-=== "Mahti full node"
+=== "Roihu-CPU partial multinode"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium   # multi node partition
-    #SBATCH --nodes=1            # one or more nodes
+    #SBATCH --nodes=2            # two or more nodes
     #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
-    #SBATCH --cpus-per-task=128  # all cpus on a node
+    #SBATCH --cpus-per-task=10   # one or more cpus per worker
+    #SBATCH --mem-per-cpu=1000   # desired amount of memory per cpu
+    #SBATCH --time=00:15:00
+    ```
+
+=== "Roihu-CPU full single node"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small    # single node partition
+    #SBATCH --nodes=1            # one compute node
+    #SBATCH --ntasks-per-node=1  # one HyperQueue worker
+    #SBATCH --cpus-per-task=384  # all cpus on a node
+    #SBATCH --mem=0              # reserve all memory on a node
+    #SBATCH --time=00:15:00
+    ```
+
+=== "Roihu-CPU full multinode"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium   # multi node partition
+    #SBATCH --nodes=2            # two or more nodes
+    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
+    #SBATCH --cpus-per-task=384  # reserve all cpus on a node
     #SBATCH --mem=0              # reserve all memory on a node
     #SBATCH --time=00:15:00
     ```
@@ -342,7 +325,7 @@ Without the options, `srun` would run the executable on every Slurm task, which
 could be on the same node. The `srun` command can be omitted if only a single node
 is requested.
 
-### Complete example scripts for Puhti
+### Complete example scripts for Roihu-CPU
 
 === "Single node"
 
@@ -395,26 +378,26 @@ is requested.
     hq server stop
     ```
 
-=== "Multinode + local disk"
+=== "Multinode"
 
     The archive `input.tar.gz` used in this example extracts into `input` directory.
 
     ```bash title="extract"
     #!/bin/bash
-    tar xf input.tar.gz -C "$LOCAL_SCRATCH"
-    mkdir -p "$LOCAL_SCRATCH/output"
+    tar xf input.tar.gz -C "$TMPDIR"
+    mkdir -p "$TMPDIR/output"
     ```
 
     ```bash title="task"
     #!/bin/bash
-    cd "$LOCAL_SCRATCH"
+    cd "$TMPDIR"
     cat "input/$HQ_TASK_ID.inp" > "output/$HQ_TASK_ID.out"
     sleep 1
     ```
 
     ```bash title="archive"
     #!/bin/bash
-    cd "$LOCAL_SCRATCH"
+    cd "$TMPDIR"
     tar czf "output-$SLURMD_NODENAME.tar.gz" output
     cp "output-$SLURMD_NODENAME.tar.gz" "$SLURM_SUBMIT_DIR"
     ```
@@ -422,13 +405,12 @@ is requested.
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=large
+    #SBATCH --partition=medium
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=40
     #SBATCH --mem=0
     #SBATCH --time=00:15:00
-    #SBATCH --gres=nvme:1
 
     module load hyperqueue
 
