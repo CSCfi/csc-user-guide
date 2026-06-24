@@ -90,12 +90,6 @@ appendix:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201908161"
 
-  - name: "finnish-parse"
-    description: "Dependency Parser for Finnish"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2017030801"
-
   - name: "HFST"
     description: "Helsinki Finite-State Transducer Technology"
     disciplines:
@@ -114,14 +108,26 @@ appendix:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201509035"
 
-  - name: "Kaldi"
-    description: "Kaldi Speech Recognition Toolkit"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2019121020"
-
   - name: "UDPipe"
     description: "UDPipe Kielipankki version"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
+
+  - name: "trankit"
+    description: "Transformer-based Python toolkit for multilingual Natural Language Processing (NLP)"
+    disciplines:
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2026011401"
+
+  - name: "HeLI-OTS"
+    description: "Language identifier with language models for 220 languages"
+    disciplines:
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2024040301"
+
+  - name: "praat"
+    description: "Toolkit for annotating, processing and analysing speech and other audio samples"
+    disciplines:
+      - "Language Research and Other Digital Humanities and Social Sciences"
+    doc: "http://urn.fi/urn:nbn:fi:lb-2024032101"
