@@ -152,13 +152,13 @@ that you:
 Note that previous extended disk quotas on Puhti or Mahti will not be automatically moved to Roihu.
 Quota extensions on Roihu must be separately applied for and properly motivated.
 
-**[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
+**[Read the detailed instructions in the Roihu data migration guide](roihu-data-preparation.md).**
 
 ## Installing software
 
 Before installing anything, check if the software is already available:
 
-- [List of pre-installed applications](../../apps/by_availability.md#roihu)
+- [List of pre-installed applications](../../apps/by_availability.md
 - `module spider <software name>`
 
 If not available, choose one of the following approaches depending on your needs:
@@ -169,8 +169,8 @@ HPC software written using programming languages, such as C, C++, or Fortran nee
 
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-cpu)
-- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
+- [Compiling on Roihu-CPU (section TBA)](../../computing/)
+- [Compiling on Roihu-GPU (section TBA)](../../computing/)
 
 ### Containers
 
@@ -305,7 +305,7 @@ Spack is similar to the EasyBuild package manager extensively used on LUMI.
 CSC provides user Spack modules on Roihu, that can be used to build software on top of the available compilers and libraries.
 It is also possible to install different customized versions of packages available in the module tree for special use cases.
 
-[See here for a short tutorial on how to install software on Roihu using Spack.](roihu-user-spack.md)
+[See here for a short tutorial on how to install software on Roihu using Spack.](user-spack.md)
 
 ### Python/R environments
 
@@ -331,8 +331,8 @@ Basic workflow:
 See the relevant documentation below for detailed information:
 
 1. [Available batch job partitions](../../computing/running/batch-job-partitions.md)
-1. [Creating a batch job script](../../computing/running/creating-job-scripts-roihu.md)
-1. [Example job scripts](../../computing/running/example-job-scripts-roihu.md)
+1. [Creating a batch job script](../../computing/running/creating-job-scripts-mahti.md)
+1. [Example job scripts](../../computing/running/example-job-scripts-mahti.md)
 1. [Submit a batch job](../../computing/running/submitting-jobs.md)
 1. [Performance checklist](../../computing/running/performance-checklist.md)
 
