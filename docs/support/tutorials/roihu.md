@@ -43,21 +43,21 @@ Adding Roihu as a service:
 Note, that it may take a few minutes for Roihu to become accessible for you,
 and other project members.
 
-??? info "I need more disk quota"
+??? info "What if I need more disk quota on Roihu?"
      The default disk quotas are more restrictive on Roihu, than on Mahti and Puhti.
 
-     |            |Capacity|Number of files|Notes                         |
-     |------------|--------|---------------|------------------------------|
-     |**home**    |15 GiB  |150 000 files  |                              |
-     |**projappl**|15 GiB  |150 000 files  |                              |
-     |**scratch** |250 GiB |500 000 files  |                              |
+     |            |Capacity|Number of files|
+     |------------|--------|---------------|
+     |**home**    |15 GiB  |150 000 files  |
+     |**projappl**|15 GiB  |150 000 files  |
+     |**scratch** |250 GiB |500 000 files  |
 
      After adding the Roihu service, you can apply for a disk quota increase
      for your project in MyCSC for it.
 
-     1. Go to your project with Roihu
-     2. In the "Services" tab, find Roihu and click **Configure**
-     3. In the "Quota settings", specify how much quota you would require, and motivate your request in the text box if needed
+     1. Go to your project with Roihu.
+     2. In the "Services" tab, find Roihu and click **Configure**.
+     3. In the "Quota settings", specify how much quota you would require, and motivate your request in the text box.
 
      See the ["increasing disk quotas" section](../../accounts/how-to-increase-disk-quotas.md) for
      details and the maximum disk quotas you can apply for.
