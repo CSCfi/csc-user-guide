@@ -21,11 +21,11 @@ enabled. [Read more about CSC accounts and projects](../../accounts/index.md).
 
 ## Add Roihu as a service
 
-Before you start using Roihu, you need to enable it as a service in MyCSC, for your project.
+Before you start using Roihu, you need to enable it as a service for your project in MyCSC.
 
 ### Project managers
 
-If you already have a computational project, e.g. for Mahti or Puhti already,
+If you already have a computational project, for example for Mahti or Puhti,
 you can add Roihu there as a service.
 
 If you do not have a computing project yet, apply for one in MyCSC following the instructions
@@ -40,8 +40,8 @@ Adding Roihu as a service:
 4. In the right-side Services tab, click the "+ Add services" option.
 5. Choose Roihu, click Next and confirm this option.
 
-Note, that it may take a few minutes for Roihu to become accessible for you,
-and other project members.
+Note that it may take a few minutes for Roihu to become accessible for you,
+and the other project members.
 
 ??? info "What if I need more disk quota on Roihu?"
      The default disk quotas are more restrictive on Roihu, than on Mahti and Puhti.
@@ -52,12 +52,11 @@ and other project members.
      |**projappl**|15 GiB  |150 000 files  |
      |**scratch** |250 GiB |500 000 files  |
 
-     After adding the Roihu service, you can apply for a disk quota increase
-     for your project in MyCSC for it.
+     After adding the Roihu service for your project, you can apply for a disk quota increase for the project in MyCSC.
 
-     1. Go to your project with Roihu.
+     1. In MyCSC, go to your project where you have Roihu enabled.
      2. In the "Services" tab, find Roihu and click **Configure**.
-     3. In the "Quota settings", specify how much quota you would require, and motivate your request in the text box.
+     3. In "Quota settings", specify how much quota you require, and justify your request in the text box.
 
      See the ["increasing disk quotas" section](../../accounts/how-to-increase-disk-quotas.md) for
      details and the maximum disk quotas you can apply for.
@@ -65,7 +64,7 @@ and other project members.
 ### Project members
 
 After your project manager has applied for the Roihu service,
-you will get an email titled "Roihu supercomputer for your use"
+you will get an email titled "Roihu supercomputer for your use".
 
 Next, accept the terms of service for Roihu, with the following instructions:
 
@@ -77,7 +76,7 @@ Next, accept the terms of service for Roihu, with the following instructions:
 5. Accept the terms of service.
 
 After adding Roihu to your project, you can connect to the system.
-Note that there might be a short (few minutes) delay, before you can connect.
+Note that there may be a short delay of a few minutes before you can connect.
 
 ## Connecting
 
@@ -105,7 +104,7 @@ For platform-specific instructions, see:
 !!! warning "Separate CPU and GPU environments"
     Roihu has
     [different CPU architectures on Roihu-CPU (x86) and Roihu-GPU (ARM)](../../computing/systems-roihu.md#compute).
-    Hence, there are separate login nodes for building programs and submitting
+    Therefore, there are separate login nodes for building programs and submitting
     jobs to their respective nodes:
     
     1. **`roihu-cpu.csc.fi`**
@@ -131,7 +130,7 @@ For platform-specific instructions, see:
 The simplest way to connect to Roihu is to use the web interface.
 
 1. Go to [www.roihu.csc.fi](https://www.roihu.csc.fi).
-2. Log in using your Haka, Virtu or CSC user account.
+2. Log in using your HAKA, Virtu or CSC user account.
    [Multi-factor authentication (MFA)](../../accounts/mfa.md) is required.
 
 ## Migrating research data
@@ -171,7 +170,7 @@ For instructions on the available compilers and preferred options, see the instr
 Roihu supports Apptainer/Singularity containers for container installations. 
 In most cases, ready-made Docker containers can be easily converted into an Apptainer image.
 Another option is to build your own container from scratch. 
-You can build containers on top of Roihu base containers which have the same software stack as is available via the module system natively.
+You can build containers on top of Roihu base containers, which have the same software stack as is available via the module system natively.
 Base containers are built on top of Rocky Linux 9.
 
 ---
@@ -275,7 +274,7 @@ Base containers are built on top of Rocky Linux 9.
     apptainer build --fakeroot container.sif container.def
     ```
 
-    Now, you can run commands inside the container. For example to launch python3:
+    Now, you can run commands inside the container. For example, to launch python3:
 
     ```bash
     apptainer exec --nv --bind=$(csc-common-bind) container.sif python3
@@ -347,7 +346,7 @@ Your job will continue normally with Argos disabled.
 
 If your job completes successfully, you can safely ignore these messages.
 
-To suppress most of the Argos related warnings and errors, you can pass the `--argos=no` flag option to srun in the following manner:
+To suppress most of the Argos-related warnings and errors, you can pass the `--argos=no` option to srun in the following manner:
 
 ```bash
 #!/bin/bash
@@ -369,7 +368,7 @@ Argos will be fully disabled on Roihu after general availability.
 Profiling on Roihu-GPU can be done with `nsys`.
 However, for `nsys` to work reliably in a batch job, Argos needs to be disabled.
 
-Add the `--argos=no` option to your job script as specified above, when doing profiling on the system.
+Add the `--argos=no` option to your job script as specified above, when profiling on the system.
 
 For more information about `nsys` and profiling on Roihu,
 see the [performance analysis section](../../computing/performance.md) in the docs.
