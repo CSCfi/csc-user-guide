@@ -2,34 +2,36 @@
 
 ##  Roihu compute billing
 
-Jobs in Roihu's CPU partitions consume CPU BUs, either based on number
-of reserved nodes (node-based allocation) or number of reserved cores
+Jobs in Roihu's CPU partitions consume CPU BUs, either based on the number
+of reserved nodes (node-based allocation) or the number of reserved cores
 (core-based allocation). Memory is not billed separately, but local
-disk usage is billed separately. On GPU partitions the pricing is always based 
-on the amount of reserved GPUs. CPU cores and memory are not billed separately, each job 
-will at most be able to reserve a corresponding share of CPU and memory resources of the node.
+disk usage is.
+
+On GPU partitions, the pricing is always based
+on the number of reserved GPUs. CPU cores and memory are not billed separately.
+Each job can reserve at most the corresponding share of the node's CPU and memory resources.
 
 ### Core based allocations
 
-Jobs in the  small, longrun, interactive, and test partitions are run on M and L nodes. These jobs are billed as follows:
+Jobs in the small, longrun, interactive, and test partitions are run on M and L nodes. These jobs are billed as follows:
 
 `Total CPU BU = max ( 0.75 BU/coreh * cores , 0.375 BU/GiBh * mem) * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
 
-where reservedstorage is the total amount of disaggregated storage. 
+where `reservedstorage` is the total amount of disaggregated storage.
 
 Jobs in the hugemem and hugemem_longrun partitions are run on XL nodes. These jobs are billed as follows:
 
 `Total CPU BU = max ( 12 BU/coreh * cores , 0.25 BU/GiBh * mem) * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
 
-where reservedstorage is  the total amount of disaggregated storage, or local storage reserved with gres field.
+where `reservedstorage` is the total amount of disaggregated storage, or local storage reserved with the `gres` option in Slurm.
 
-### Node based slurm partitions
+### Node based Slurm partitions
 
 Jobs in the medium and large partitions are run on full M nodes. These jobs are billed as follows:
 
 `Total CPU BU = nodes * 288 BU/nodeh * runtime-hours +  0.02 BU/GiBh * reservedstorage * runtime-hours`
 
-where reservedstorage is the total amount of disaggregated storage.
+where `reservedstorage` is the total amount of disaggregated storage.
 
 ### GPU partitions
 
@@ -37,13 +39,14 @@ The price per job in GPU partitions, including the ones for interactive visualiz
  
 `Total GPU BU = numOfGPUs *  200 BU/GPUh * runtime-hours + 0.02 BU/GiBh * reservedstorage * runtime-hours`
 
-where reservedstorage is the total amount of disaggregated storage, or total amount of local storage reserved via gres fields on the visualization nodes.
+where `reservedstorage` is the total amount of disaggregated storage,
+or the total amount of local storage reserved via the `gres` Slurm option on the visualization nodes.
 
 
 
 ### Storage
 
-Storage is billed per used  TiB per hour.
+Storage is billed per used TiB per hour.
 
 The pricing is 
 
