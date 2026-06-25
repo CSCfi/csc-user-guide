@@ -331,48 +331,6 @@ See the relevant documentation below for detailed information:
 
 For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
-### Known issues
-
-#### Argos errors
-
-During early use on Roihu, you may encounter multiple warnings or errors related to *Argos* in your Slurm job output, for example:
-
-```
-error: argos:slurm_spank_task_init: get_env_var: cannot get SLURM_ARGOS_SPANK_OPT from job(22474) environment (No such environment variable)
-```
-
-These messages are **harmless** and do not affect your job execution.
-Your job will continue normally with Argos disabled.
-
-If your job completes successfully, you can safely ignore these messages.
-
-To suppress most of the Argos-related warnings and errors, you can pass the `--argos=no` option to srun in the following manner:
-
-```bash
-#!/bin/bash
-#SBATCH --account=<project_id>
-#SBATCH --partition=test
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --time=DD:HH:MM
-
-srun --argos=no <your-executable>
-```
-
-The same option can also be passed as an `#SBATCH` input.
-
-Argos will be fully disabled on Roihu after general availability.
-
-#### Profiling on Roihu with `nsys`
-
-Profiling on Roihu-GPU can be done with `nsys`.
-However, for `nsys` to work reliably in a batch job, Argos needs to be disabled.
-
-Add the `--argos=no` option to your job script as specified above, when profiling on the system.
-
-For more information about `nsys` and profiling on Roihu,
-see the [performance analysis section](../../computing/performance.md) in the docs.
-
 ## More information
 
 * [Roihu system overview](../../computing/systems-roihu.md)
