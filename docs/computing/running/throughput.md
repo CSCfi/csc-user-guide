@@ -50,7 +50,7 @@ simulation, one dataset to analyze, or one parameter value to evaluate. Use the 
   simple [HTC tools](#high-throughput-computing-on-hpc). Tasks with dependencies
   generally call for a [workflow manager](#workflows-on-hpc).
 
-Workflows containing hundreds or thousands of *multi-node* tasks may require a
+Workflows containing a large number of *multi-node* tasks may require a
 special solution. Don't hesitate to [contact CSC Service Desk](../../support/contact.md)
 if you have any concerns about how to implement your workflow.
 
@@ -107,8 +107,7 @@ You can also use the Linux `xargs` utility for the same purpose, see [xargsjob.s
 [HyperQueue](../../apps/hyperqueue.md) is the recommended general-purpose tool for high-throughput computing.
 Instead of submitting each task as a separate Slurm job or job step, you allocate a
 large resource block and let HyperQueue schedule your tasks into it with minimal
-load on Slurm and little extra I/O. It can schedule tasks at sub-node granularity,
-supports MPI tasks, and scales to large numbers of tasks across many nodes.
+load on Slurm and little extra I/O. It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
 
 For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue
 so you can submit an ensemble of similar independent tasks directly from a file of
@@ -133,8 +132,8 @@ parallel and distributed computing facilities are often the simplest option:
 ## Workflows on HPC
 
 When your tasks have dependencies and form a pipeline, use a workflow manager. These
-tools track which tasks depend on which, run tasks in the correct order, recover from
-errors by restarting failed tasks, and typically integrate containers automatically.
+tools track which tasks depend on which, run tasks in the correct order and recover from
+errors by restarting failed tasks.
 The following is not a complete list, and other tools may also work for your use case.
 
 ### HyperQueue
