@@ -154,7 +154,7 @@ Before installing anything, check if the software is already available:
 - [List of pre-installed applications](../../apps/by_availability.md#roihu)
 - `module spider <software name>`
 
-If not available, choose one of the following approaches depending on your needs:
+If the software is not available as a module, choose one of the following approaches depending on your needs:
 
 ### Compiling C/C++/Fortran code
 
