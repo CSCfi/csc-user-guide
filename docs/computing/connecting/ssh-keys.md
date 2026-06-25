@@ -113,7 +113,7 @@ same `${USER}.pub` file.
 ## Signing public key
 
 !!! warning "The following is a requirement for connecting to Roihu only"
-     Roihu is not yet available for use, and cannot be added as a service in MyCSC yet.
+     Roihu is **not yet available for use**, and cannot be added as a service in MyCSC yet.
 
      You can use this section to familiarize yourself with moving to Roihu
      and getting started before it becomes available on 29 June 2026.

@@ -15,6 +15,16 @@ In Windows, 2 different key types are widely used:
 
 ## Windows SSH and SFTP tools for Roihu
 
+!!! warning "This section is a requirement for connecting to Roihu only"
+     Roihu is **not yet available for use**, and cannot be added as a service in MyCSC yet.
+
+     You can use this section to familiarize yourself with moving to Roihu
+     and getting started before it becomes available on 29 June 2026.
+
+     Additionally, if you want to test SSH Certificate Authentication (SSH CA) for Roihu,
+     `mahti-login15` currently enforces SSH CA authentication. You can log in
+     there to verify that your setup works.
+
 --8<-- "ssh-ca.md"
 
 CSC provides two options for this:
