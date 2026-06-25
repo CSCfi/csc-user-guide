@@ -43,7 +43,7 @@ it with a suitable tool (see below).
 A *task* (or *subtask*) is a single unit of work in your workflow, for example one
 simulation, one dataset to analyze, or one parameter value to evaluate. Use the following properties of your tasks to drive the choice of tool:
 
-- **Large number of small tasks.** Running a large number (over 100) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
+- **Large number of small tasks.** Running a large number (more than fits in the queue of the used slurm partition) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
 
 - **Dependencies between tasks.** Are the tasks independent of each other, or must
   some tasks finish before others can start? Independent tasks can be handled by
