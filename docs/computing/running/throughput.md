@@ -90,17 +90,7 @@ same time.
 
 [Array jobs](array-jobs.md) are the native Slurm way to submit many similar independent tasks with
 a single command. They integrate seamlessly with Slurm and support MPI/OpenMP tasks,
-but do not pack job steps or handle dependencies. On Puhti you can also use
-`sbatch_commandlist` to run a list of commands as an array job, though `sbatch-hq`
-(see [HyperQueue](../../apps/hyperqueue.md)) is a more efficient alternative.
-
-### GNU Parallel and xargs
-
-[GNU Parallel](../../support/tutorials/many.md) lets you efficiently run a very large number of short, *serial*,
-independent tasks without bloating the Slurm log. It does not require a database or
-a persistent manager and does not support dependencies between tasks.
-You can also use the Linux `xargs` utility for the same purpose, see [xargsjob.sh](https://a3s.fi/pub/xargsjob.sh) for an example.
-
+but do not pack job steps or handle dependencies.
 
 ### HyperQueue
 
@@ -113,6 +103,13 @@ For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQue
 so you can submit an ensemble of similar independent tasks directly from a file of
 commands. HyperQueue can also act as the [task executor for workflow
 managers](#workflows-on-hpc).
+
+### GNU Parallel and xargs
+
+[GNU Parallel](../../support/tutorials/many.md) lets you efficiently run a very large number of short, *serial*,
+independent tasks without bloating the Slurm log. It does not require a database or
+a persistent manager and does not support dependencies between tasks.
+You can also use the Linux `xargs` utility for the same purpose, see [xargsjob.sh](https://a3s.fi/pub/xargsjob.sh) for an example.
 
 ### Distributed computing in your programming language
 
