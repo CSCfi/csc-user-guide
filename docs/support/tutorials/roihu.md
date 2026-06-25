@@ -99,7 +99,7 @@ To connect via SSH:
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
     * Certificates are valid for **24 hours**
-    * See our instructions for managing certificates: [Signing public SSH keys (section to be added)](../../computing/connecting/ssh-keys.md)
+    * See our instructions for managing certificates: [Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key)
 
 For platform-specific instructions, see:
 
