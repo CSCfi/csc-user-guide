@@ -83,6 +83,7 @@ In Roihu:
 | [python-pytorch](pytorch.md) | PyTorch ML framework | GPU |
 | [python-vllm](vllm.md) | LLM inference | GPU |
 | [python-tensorflow](tensorflow.md) | Tensorflow ML framework | GPU |
+| [python-jax](jax.md) | JAX ML framework | GPU |
 
 In Puhti and Mahti:
 
