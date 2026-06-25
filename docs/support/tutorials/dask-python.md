@@ -11,7 +11,7 @@ Keep in mind that the other ways of code parallelisation might suit better in di
 
 ## Single-node parallelisation with delayed functions and a local cluster
 
-This way you can utilize one full computing node's worth of CPUs (40 in Puhti)
+In this example, we use four CPUs per tasks because we have four datasets. With this approach, you can utilize up to the full CPU capacity of a single compute node.
 
 __batch job file__
 ```
@@ -20,8 +20,8 @@ __batch job file__
 #SBATCH --account=<YOUR-PROJECT>
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=384
-#SBATCH --mem-per-cpu=4G
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
 
 ### Load the python-data module
@@ -72,7 +72,7 @@ __master job batch job file__
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=4G
+#SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
 
 ### Load the python-data module
