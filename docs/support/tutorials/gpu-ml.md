@@ -8,28 +8,32 @@ This guide explains the basics of using GPUs in CSC's supercomputers. It is part
 of our [Machine learning guide](ml-guide.md).
 
 
-## Puhti, Mahti, Roihu or LUMI?
+## Roihu-GPU or LUMI?
 
-Puhti, Mahti and Roihu are CSC's national supercomputers. Roihu is
-planned to be available in May 2026, while Puhti and Mahti will be
-shutdown during 2026. Of the two currently available ones, Puhti has
-the larger number of GPUs (NVIDIA V100) and offers the widest
-selection of installed software, while Mahti has a smaller number of
-faster newer generation NVIDIA A100 GPUs. Roihu will have 528 GPUs
-(NVIDIA GH200) and provide a similar wide software stack as Puhti.
+Roihu is the most recent of CSC's national supercomputers, opened in
+June 2026. The older supercomputers Puhti and Mahti will be shutdown
+during the summer 2026, and we don't recommend starting any new
+projects on them. Roihu-GPU, which refers to the GPU side of Roihu,
+has 528 GPUs (NVIDIA GH200) and aims to provide a wide software stack
+for Finnish researchers.
 
 The CSC-hosted European supercomputer
 [LUMI](https://docs.lumi-supercomputer.eu/hardware/) provides a
 massive GPU resource based on AMD GPUs.
 
+Roihu-GPU has a wide set of software for different fields of science and
+getting access is very easy for Finnish-affiliated researchers. LUMI,
+on the other hand provides a massive GPU resource, and enables much
+larger jobs.
+
 The main GPU-related statistics are summarized in the table below.
 
-|       | GPU type            | GPU memory  | GPU nodes | GPUs/node | Total GPUs    | Notes                                                  |
-|-------|---------------------|-------------|-----------|-----------|---------------|--------------------------------------------------------|
-| Puhti | NVIDIA Volta V100   | 32 GB       | 80        | 4         | 320           | [Shutdown in June](../../computing/systems-roihu.md)   |
-| Mahti | NVIDIA Ampere A100  | 40 GB       | 24        | 4         | 96            | [Shutdown in August](../../computing/systems-roihu.md) |
-| Roihu | NVIDIA Hopper GH200 | 96 GB       | 132       | 4         | 528           | [Available in May](../../computing/systems-roihu.md)   |
-| LUMI  | AMD MI250x          | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |                                                        |
+|       | GPU type            | GPU memory  | GPU nodes | GPUs/node | Total GPUs    | Notes                                                      |
+|-------|---------------------|-------------|-----------|-----------|---------------|------------------------------------------------------------|
+| Roihu-GPU | NVIDIA Hopper GH200 | 96 GB       | 132       | 4         | 528           | [Available in June 2026](../../computing/systems-roihu.md) |
+| Puhti | NVIDIA Volta V100   | 32 GB       | 80        | 4         | 320           | [Shutdown in July](../../computing/systems-roihu.md)       |
+| Mahti | NVIDIA Ampere A100  | 40 GB       | 24        | 4         | 96            | [Shutdown in August](../../computing/systems-roihu.md)     |
+| LUMI  | AMD MI250x          | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |                                                            |
 
 !!! info "Note"
 
@@ -48,24 +52,21 @@ queuing times are typically shorter than in the national systems.
 Note that all supercomputers have distinct file systems, so you need
 to manually copy your files if you wish to change the system. 
 
-<!-- **In case you are unsure which supercomputer to use, Puhti is a good -->
-<!-- default** as it has a wider set of software supported. -->
-
 
 ## Available machine learning software
 
 We support [a number of
 applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
 for GPU-accelerated machine learning on CSC's supercomputers,
-including [TensorFlow](../../apps/tensorflow.md) and
-[PyTorch](../../apps/pytorch.md).  Please read the detailed
+including [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md)
+and [TensorFlow](../../apps/tensorflow.md).  Please read the detailed
 instructions for the specific application that you are interested in.
 
 You need to use the [module system](../../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
-module load pytorch/2.9
+module load python-pytorch/2.10
 ```
 
 Please note that our modules already include CUDA and cuDNN libraries, so there
@@ -89,15 +90,29 @@ Apptainer container](../../computing/containers/overview.md#building-container-i
 
 ## Running GPU jobs
 
-To submit a GPU job to the Slurm workload manager, you need to use the `gpu`
-partition on Puhti or `gpusmall` or `gpumedium` on Mahti, and specify the type
-and number of GPUs required using the `--gres` flag. 
+To submit a GPU job to the Slurm workload manager, you need to use the
+`gpumedium` partition on Roihu-GPU, `gpu` partition on Puhti or `gpusmall`
+or `gpumedium` on Mahti, and specify the type and number of GPUs
+required using the `--gres` flag.
 
 On LUMI you need to use one of the GPU-partitions such as `dev-g`,
 `small-g` or `standard-g`.
 
 Below are example batch scripts for reserving one GPU and a
 corresponding proportion of the CPU cores and memory of a single node:
+
+=== "Roihu-GPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=72
+    #SBATCH --gres=gpu:gh200:1
+    #SBATCH --time=1:00:00
+    
+    # load any modules and run your program here
+    ```
 
 === "Puhti"
     ```bash
@@ -142,6 +157,9 @@ corresponding proportion of the CPU cores and memory of a single node:
     # load any modules and run your program here
     ```
 
+Roihu-GPU also has a [`gpularge` partition which requires a scalability
+test for
+access](../../accounts/how-to-access-roihu-large-partition.md)
 
 Mahti's `gpusmall` partition supports only jobs with 1-2 GPUs. If you need more
 GPUs, use the `gpumedium` queue. You can read more about [multi-GPU and
@@ -199,7 +217,7 @@ GPU memory
        r01g07             0         16.72          1.74         16.91 
 ```
 
-#### `nvidia-smi` for a running job (Puhti and Mahti)
+#### `nvidia-smi` for a running job (Roihu-GPU, Puhti and Mahti)
 
 When the job is running you can run `nvidia-smi` over `ssh` on the
 node where it is running. You can check the node's hostname with the
@@ -274,19 +292,14 @@ One common reason for the GPU utilization being low is when the CPU
 cannot load and pre-process the data fast enough, and the GPU has to
 wait for the next batch to process. It is then a common practice to
 reserve more CPUs to perform data loading and pre-processing in
-several parallel threads or processes. A good rule of thumb in Puhti
-is to **reserve 10 CPUs per GPU** (as there are 4 GPUs and 40 CPUs on
-each node). On Mahti you can reserve up to 32 cores, as that
-corresponds to 1/4 of the node. On LUMI we recommend using 7 CPU
-cores, as there are 63 cores for 8 GPUs. **Remember that CPUs are a
-much cheaper resource than the GPU!**
+several parallel threads or processes. For example on Roihu-GPU for each
+GPU you can reserve a maximum of 72 CPU cores.
 
-You might have noticed that we have already followed this advice in our example
-job scripts:
+On LUMI we recommend using 7 CPU cores, as there are 63 cores for 8
+GPUs.
 
-```bash
-#SBATCH --cpus-per-task=10
-```
+You might have noticed that we have already followed this advice in
+our example job scripts.
 
 Your code also has to support parallel pre-processing. However, most high-level
 machine learning frameworks support this out of the box. For example in
@@ -367,6 +380,8 @@ GPU energy
         r01g01             3         62.21
 ```
 
+Roihu-GPU doesn't yet have this built in support for monitoring the
+GPU energy usage.
 
 ### `gpu-energy` tool (LUMI)
 
