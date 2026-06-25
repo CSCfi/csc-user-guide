@@ -25,12 +25,6 @@ images into videos.
 * Puhti: 4.4.1
 * Roihu: 7.1
 
-To list the available versions, use:
-
-```bash
-module spider ffmpeg
-```
-
 ## License
 
 FFmpeg is free software, licensed under the

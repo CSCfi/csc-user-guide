@@ -78,12 +78,6 @@ appendix:
       - "Biosciences"
     doc: "support/tutorials/MaxQuant-tutorial.md"
 
-  - name: "eBay's tsv-tools"
-    description: "Utilities for manipulating large tabular data files"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-202006081"
-
   - name: "Finnish Tagtools"
     description: "Finnish Tagtools"
     disciplines:
@@ -114,20 +108,8 @@ appendix:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
 
-  - name: "trankit"
-    description: "Transformer-based Python toolkit for multilingual Natural Language Processing (NLP)"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2026011401"
-
   - name: "HeLI-OTS"
     description: "Language identifier with language models for 220 languages"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-2024040301"
-
-  - name: "praat"
-    description: "Toolkit for annotating, processing and analysing speech and other audio samples"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2024032101"
