@@ -118,7 +118,7 @@ same `${USER}.pub` file.
      You can use this section to familiarize yourself with moving to Roihu
      and getting started before it becomes available on 29 June 2026.
 
-     Additionally, if you want to test SSH Certificate Authentication (SSH CA) for Roihu,
+     Additionally, if you want to test SSH Certificate Authentication (SSH CA) for Roihu already in advance,
      `mahti-login15` currently enforces SSH CA authentication. You can log in
      there to verify that your setup works.
 
