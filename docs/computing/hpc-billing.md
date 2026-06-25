@@ -198,4 +198,4 @@ Puhti and Mahti have the same billing for ProjAppl storage. Usage up to 50 GiB i
 ## Additional information
 
 * [What happens when I run out of billing units?](usage-policy/#running-out-of-billing-units)
-* [How to apply for more billing units](../accounts/how-to-apply-for-billing-units/)
+* [How to apply for more billing units](../accounts/how-to-apply-for-billing-units.md)
