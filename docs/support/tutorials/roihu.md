@@ -5,7 +5,7 @@
      as a service yet in MyCSC.
 
      You can use this tutorial to familiarize yourself with moving to Roihu
-     and getting started before it becomes available on 29 June 2026.
+     and getting started before it becomes available end of June 2026.
 
 This guide assumes familiarity with CSC supercomputers such as Puhti, Mahti or LUMI.
 
