@@ -29,14 +29,15 @@ csc-projects
 
 ## Roihu compute billing
 
-Jobs in Roihu's CPU partitions consume CPU BUs, either based on the number
-of reserved nodes (node-based allocation) or the number of reserved cores
-(core-based allocation). Memory is not billed separately, but local
-disk usage is.
+Jobs in Roihu's CPU partitions consume CPU BUs based on either the CPU resource allocation
+(per node price for node-based allocation or per core price for core-based allocation) or
+the memory allocation, whichever consumes the most BUs, but not both.
 
-On GPU partitions, the pricing is always based
-on the number of reserved GPUs. CPU cores and memory are not billed separately.
-Each job can reserve at most the corresponding share of the node's CPU and memory resources.
+On GPU partitions the pricing is always based on the amount of reserved GPUs. CPU cores
+and memory are not billed separately, each job will at most be able to reserve a corresponding
+share of CPU and memory resources of the node.
+
+For all partitions local disk usage is billed additionally to the above BUs.
 
 See details of the different [CPU and GPU partitions on Roihu](running/batch-job-partitions.md#roihu-partitions).
 
