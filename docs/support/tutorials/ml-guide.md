@@ -23,10 +23,11 @@ In addition to this page, this guide contains the following subsections:
 
 CSC offers several services which might be relevant for machine learning users:
 
-- [Supercomputers, Puhti, Mahti](../../computing/index.md) and
-  [LUMI](https://docs.lumi-supercomputer.eu/) are multi-user clusters
-  and offer the highest computing performance, including GPU
-  acceleration in a centrally controlled software environment,
+- [Roihu](../../computing/index.md) and
+  [LUMI](https://docs.lumi-supercomputer.eu/) supercomputers are
+  multi-user clusters and offer the highest computing performance,
+  including GPU acceleration in a centrally controlled software
+  environment,
 
 - [Pouta](../../cloud/pouta/index.md) offers your own virtual server with full
   control of the software environment, but restricted computing performance
@@ -60,18 +61,19 @@ and as with any shared resource one must follow the [usage
 policy](../../computing/usage-policy.md) so that the service can
 remain usable.
 
-CSC hosts two national supercomputers: Puhti and Mahti, and the
-European LUMI supercomputer. If you are [unsure which supercomputer to
-choose, read the discussion here](gpu-ml.md).
+CSC hosts the national supercomputer Roihu and the European LUMI
+supercomputer. If you are [unsure which supercomputer to choose, read
+the discussion here](gpu-ml.md).
 
-If you are a new user, please read [how to access Puhti and
-Mahti](../../computing/index.md#accessing-csc-supercomputers), and [how
-to submit computing
+If you are a new user, please read [how to access
+Roihu](../../computing/index.md#accessing-csc-supercomputers), and
+[how to submit computing
 jobs](../../computing/running/getting-started.md). If you have opted
 for LUMI read the [LUMI Get Started
 page](https://docs.lumi-supercomputer.eu/firststeps/). LUMI users may
 also be interested in the [AI Software Environment provided by the
-LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
+LUMI AI
+Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 All supercomputers also provide a [web user
 interface](https://docs.csc.fi/computing/webinterface/), through which
