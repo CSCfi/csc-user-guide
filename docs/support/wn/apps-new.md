@@ -652,7 +652,7 @@ instead.
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
 similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq-tool).
+details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
 
 ## PyTorch 1.13, 9.12.2022
 

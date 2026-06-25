@@ -219,7 +219,7 @@ Finally, you can submit the batch job from the login node:
 sbatch snakemake-hyperqueue.sh
 ```
 
-See [CSC HyperQueue page](../../apps/hyperqueue.md#using-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
+See [CSC HyperQueue page](../../apps/hyperqueue.md#running-hyperqueue-in-a-slurm-batch-job) for more options and details about HyperQueue.
 
 !!! info "Note"
     HyperQueue creates task-specific folders (`job-<n>`) in the same directory

@@ -156,7 +156,7 @@ Notes on the resource request: each Slurm task becomes one HyperQueue worker. Us
 `--cpus-per-task` and `--mem-per-cpu` to reserve a fraction of a node per worker (a
 *partial* node allocation, as above), or `--cpus-per-task=<all cpus on a node>` together
 with `--mem=0` to reserve a whole node per worker (a *full* node allocation). Increase
-`--nodes` to run workers on more nodes; the [multinode example](#using-local-disks-with-hyperqueue)
+`--nodes` to run workers on more nodes; the [multinode example](#example-multinode-job-on-roihu-cpu-with-local-disks)
 below uses a full multinode allocation.
 
 It is worth reading the sections about
