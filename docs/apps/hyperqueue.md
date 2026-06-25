@@ -19,12 +19,8 @@ task scheduler. Instead of submitting each of your computational tasks as separa
 jobs or job steps, you can allocate a large resource block and then use HyperQueue to
 submit your tasks to this allocation. A single resource allocation will be much less
 stressful for the batch queue system and is the recommended way to run your high-throughput
-computing use cases. Furthermore, we can use HyperQueue instead of Slurm as the task
-executor for other workflow managers, such as Snakemake and Nextflow.
-
-## License
-
-Free to use and open source under [MIT License](https://github.com/It4innovations/hyperqueue/blob/main/LICENSE)
+computing use cases. HyperQueue can also act as the task executor for workflow managers
+such as [Snakemake or Nextflow](#using-snakemake-or-nextflow-with-hyperqueue).
 
 ## Available
 
@@ -32,44 +28,37 @@ Free to use and open source under [MIT License](https://github.com/It4innovation
 * Roihu-GPU: 0.25.1
 * LUMI: 0.18.0
 
+## License
+
+Free to use and open source under [MIT License](https://github.com/It4innovations/hyperqueue/blob/main/LICENSE)
+
 ## Usage
 
-Load the default version of HyperQueue on Roihu-CPU or Roihu-GPU like this:
+### Loading the module
+
+Load the default version of HyperQueue on **Roihu-CPU** or **Roihu-GPU** like this:
 
 ```bash
 module load hyperqueue
 ```
 
-To load a specific version, use:
-
-```bash
-module load hyperqueue/<version>
-```
-
-Replace `<version>` with suitable version number ([see above](#available)).
-Use `module spider` to locate other versions.
-
-To access CSC's HyperQueue modules on LUMI,
-remember to first run `module use /appl/local/csc/modulefiles`.
+To access CSC's HyperQueue modules on **LUMI**, you first need to make the CSC modules available:
 
 ```bash
 module use /appl/local/csc/modulefiles
 module load hyperqueue
 ```
 
-### Task-farming with sbatch-hq tool
+### Task farming with sbatch-hq
 
 For simple task-farming workflows, where you only want to run many similar, independent,
-and non-MPI parallel programs, you can use the CSC utility tool `sbatch-hq`.
-Just specify the list of commands to run in a file, one command per line.
-The tool `sbatch-hq` will create and launch a batch job that starts running
-commands from the file using HyperQueue. You can specify how many nodes you
-want to run the commands on, and `sbatch-hq` will keep executing the commands
-until all are done or the batch job time limit is reached.
+and non-MPI parallel programs, you can use the CSC utility tool `sbatch-hq`. It creates
+and launches a batch job that runs your commands using HyperQueue, executing them until
+all are done or the batch job time limit is reached.
 
-Let's assume we have a `tasks` file with a list of commands we want to run using
-eight threads each. **Do not use `srun` in the commands!** HyperQueue will launch
-the tasks using the allocated resources as requested. For example,
+Specify the list of commands to run in a file, one command per line. **Do not use `srun`
+in the commands!** HyperQueue launches the tasks using the allocated resources as
+requested. For example, a `tasks` file might contain:
 
 ```text
 command1 arguments1
@@ -77,7 +66,7 @@ command2 arguments2
 # and so on
 ```
 
-For example, let's reserve eights cores for the whole job:
+Then submit the tasks, reserving for example eight cores on a single node:
 
 ```bash
 module load sbatch-hq
@@ -88,7 +77,10 @@ The number of commands in the file can (usually should) be much larger than the 
 tasks that can fit running simultaneously in the reserved nodes. See `sbatch-hq --help`
 for more details on usage and input options.
 
-### Using HyperQueue in a Slurm batch job
+### Running HyperQueue in a Slurm batch job
+
+For more control than `sbatch-hq` offers, you can drive HyperQueue yourself from a Slurm
+batch job.
 
 HyperQueue works on a worker-server-client basis. The server manages connections
 between workers and the client. The client submits tasks to the server, which sends
@@ -97,211 +89,84 @@ and the workers run on compute nodes. HyperQueue resembles a Slurm within a Slur
 but you must start the server and workers yourself. We recommend reading the official
 [HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/).
 
-This example consists of a batch script and an executable task script. The batch
-script starts the HyperQueue server and workers and submits tasks to the workers.
-The task script is an executable script that we submit to the workers. You can copy
-the following example, run it as given, and modify it to suit your needs. The
-directory structure looks as follows:
+In a Slurm batch job, each Slurm task corresponds to one HyperQueue worker. The example
+below uses a job-specific directory containing an executable `task.sh` script and a `batch.sh`
+script that starts the server and workers, submits the tasks, and shuts everything down:
 
 ```text
 .             # Current working directory
 ├── batch.sh  # Batch script for HyperQueue server and workers
-└── task      # Executable task script for HyperQueue
+└── task.sh   # Executable task script for HyperQueue
 ```
 
-#### Task
+#### Example: Single-node job on Roihu-CPU
 
-We assume that HyperQueue tasks are independent and run on a single node.
-Here is an example of a simple, executable `task` script written in Bash.
+The `task.sh` script is an executable script submitted to the workers. We assume tasks are
+independent and run on a single node. Here is a trivial example written in Bash:
 
-```bash
+```bash title="task.sh"
 #!/bin/bash
-sleep 1
+sleep 1   # ~0.1 ms HyperQueue overhead per task, so even tiny tasks run efficiently
 ```
 
-The overhead per task is around 0.1 milliseconds.
-Therefore, we can efficiently execute even very small tasks.
+The `batch.sh` script orchestrates the run. The inline comments explain each step:
 
-#### Batch job
+```bash title="batch.sh"
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1   # one HyperQueue worker
+#SBATCH --cpus-per-task=10    # cpus per worker
+#SBATCH --mem-per-cpu=1000    # memory per cpu
+#SBATCH --time=00:15:00
 
-In a Slurm batch job, each Slurm task corresponds to one HyperQueue worker.
-We can increase the number of workers by increasing the number of Slurm tasks.
-We reserve a fraction of the CPUs and memory on a node per worker in a partial
-node allocation and all the CPUs and memory on a node per worker in a full node
-allocation.
-
-=== "Roihu-CPU partial single node"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small    # single node partition
-    #SBATCH --nodes=1            # one compute node
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker
-    #SBATCH --cpus-per-task=10   # one or more cpus per worker
-    #SBATCH --mem-per-cpu=1000   # desired amount of memory per cpu
-    #SBATCH --time=00:15:00
-    ```
-
-=== "Roihu-CPU partial multinode"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium   # multi node partition
-    #SBATCH --nodes=2            # two or more nodes
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
-    #SBATCH --cpus-per-task=10   # one or more cpus per worker
-    #SBATCH --mem-per-cpu=1000   # desired amount of memory per cpu
-    #SBATCH --time=00:15:00
-    ```
-
-=== "Roihu-CPU full single node"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small    # single node partition
-    #SBATCH --nodes=1            # one compute node
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker
-    #SBATCH --cpus-per-task=384  # all cpus on a node
-    #SBATCH --mem=0              # reserve all memory on a node
-    #SBATCH --time=00:15:00
-    ```
-
-=== "Roihu-CPU full multinode"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium   # multi node partition
-    #SBATCH --nodes=2            # two or more nodes
-    #SBATCH --ntasks-per-node=1  # one HyperQueue worker per node
-    #SBATCH --cpus-per-task=384  # reserve all cpus on a node
-    #SBATCH --mem=0              # reserve all memory on a node
-    #SBATCH --time=00:15:00
-    ```
-
-#### Module
-
-We load the HyperQueue module to make the `hq` command available.
-
-```bash
 module load hyperqueue
-```
 
-#### Server
-
-Next, we specify where HyperQueue places the server files.
-All `hq` commands respect this variable, so we set it before using any `hq` commands.
-If a server directory is not specified, it will default to the user's home directory.
-In this case, one has to be careful not to mix up separate computations as well as
-mind the limited storage space available under `$HOME`. We recommend starting one
-server per job in a job-specific directory for simple cases that fit inside one
-Slurm job.
-
-```bash
-# Specify a location for the server
+# Server files go in a job-specific directory: start one server per job to avoid
+# mixing up separate computations and the limited storage under $HOME (the default
+# location if HQ_SERVER_DIR is unset). All hq commands respect this variable.
 export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
-
-# Create a directory for the server
 mkdir -p "$HQ_SERVER_DIR"
-```
 
-Now, we start the server in the background and wait for it to start. The server
-keeps running until we stop it; therefore, we place it in the background so it
-does not block the execution of the rest of the script.
-
-```bash
-# Start the server in the background
+# Start the server in the background and wait until it is up. We background it because
+# the server keeps running until we stop it and must not block the rest of the script.
 hq server start &
-
-# Wait until the server has started
 until hq job list &> /dev/null ; do sleep 1 ; done
-```
 
-#### Workers
-
-<!--
-Next, we start HyperQueue workers in the background with the number of CPUs and the amount
-of memory defined in the batch script. We access those values using the `SLURM_CPU_PER_TASK`
-and `SLURM_MEM_PER_CPU` environment variables. By starting the workers using the `srun`
-command, we create one worker per Slurm task. We also wait for all workers to connect,
-which is generally good practice as we can notice issues with the workers early.
-
-```bash
-# Set memory for workers in bytes according to SLURM_MEM_PER_CPU if greater than zero.
-# Otherwise, leave unset to use all the memory of the node.
-if [[ "${SLURM_MEM_PER_CPU:-0}" -gt 0 ]]; then
-    # Calculate the total memory reservation and convert it from megabytes to bytes.
-    TOTAL_MEM_BYTES=$((SLURM_CPUS_PER_TASK * SLURM_MEM_PER_CPU * 1000000))
-    TOTAL_MEM_OPT="--resource mem=sum($TOTAL_MEM_BYTES)"
-else
-    TOTAL_MEM_OPT=""
-fi
-
-# Start the workers in the background.
-srun --overlap --cpu-bind=none --mpi=none hq worker start \
-    --manager slurm \
-    --on-server-lost finish-running \
-    --cpus="$SLURM_CPUS_PER_TASK" \
-    $TOTAL_MEM_OPT &
-
-# Wait until all workers have started
-hq worker wait "$SLURM_NTASKS"
-```
--->
-
-Next, we start HyperQueue workers in the background with the number of CPUs defined
-in the batch script using the `$SLURM_CPUS_PER_TASK` environment variable. By starting
-the workers using the `srun` command, we create one worker per Slurm task. We also
-wait for all workers to connect, which is generally good practice as we can notice
-issues with the workers early.
-
-```bash
-# Start the workers in the background.
+# Start one worker per Slurm task with srun, reserving the requested cpus. We wait for
+# all workers to connect so that any worker problems surface early.
 srun --overlap --cpu-bind=none --mpi=none hq worker start \
     --manager slurm \
     --on-server-lost finish-running \
     --cpus="$SLURM_CPUS_PER_TASK" &
-
-# Wait until all workers have started
 hq worker wait "$SLURM_NTASKS"
-```
 
-#### Computing tasks
-
-Now we can submit tasks with `hq submit` to the server, which executes them on the
-available workers. It is a non-blocking command; thus, we do not need to run it in
-the background. Regarding file I/O, we turn off output by setting `--stdout=none`
-and `--stderr=none`. Otherwise, HyperQueue will create output files for each task,
-which can create excess I/O on the parallel filesystem when there are many tasks.
-After submitting all the tasks, we wait for them to complete to synchronize the script.
-
-```bash
-# Submit tasks to workers
-hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
-
-# Wait for all the tasks to finish
+# Submit the tasks (non-blocking). We disable per-task stdout/stderr files to avoid
+# excess I/O on the parallel filesystem when there are many tasks. Then wait for them.
+hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task.sh
 hq job wait all
+
+# Shut down the workers and server to avoid a false error from Slurm when the job ends.
+hq worker stop all
+hq server stop
 ```
+
+Notes on the resource request: each Slurm task becomes one HyperQueue worker. Use
+`--cpus-per-task` and `--mem-per-cpu` to reserve a fraction of a node per worker (a
+*partial* node allocation, as above), or `--cpus-per-task=<all cpus on a node>` together
+with `--mem=0` to reserve a whole node per worker (a *full* node allocation). Increase
+`--nodes` to run workers on more nodes; the [multinode example](#using-local-disks-with-hyperqueue)
+below uses a full multinode allocation.
 
 It is worth reading the sections about
 [Jobs and Tasks](https://it4innovations.github.io/hyperqueue/stable/jobs/jobs/)
 and [Task Arrays](https://it4innovations.github.io/hyperqueue/stable/jobs/arrays/)
 to understand the different ways to run computations with HyperQueue. For more
-complex task dependencies, we can use HyperQueue as the executor for other workflow
-managers, such as [Snakemake](#using-snakemake-or-nextflow-with-hyperqueue) or
-[Nextflow](#using-snakemake-or-nextflow-with-hyperqueue).
+complex task dependencies, you can use HyperQueue as the executor for other workflow
+managers, such as [Snakemake or Nextflow](#using-snakemake-or-nextflow-with-hyperqueue).
 
-#### Stopping the workers and the server
-
-Once we are done running all of our tasks, we shut down the workers and server to
-avoid a false error from Slurm when the job ends.
-
-```bash
-# Shut down the workers and server
-hq worker stop all
-hq server stop
-```
-
-### Using local disks with HyperQueue
+#### Example: Multinode job on Roihu-CPU with local disks
 
 We can use [temporary local disk areas](../computing/disk.md#temporary-local-disk-areas)
 with HyperQueue to perform I/O intensive tasks. Since a HyperQueue task can run on any
@@ -325,131 +190,77 @@ Without the options, `srun` would run the executable on every Slurm task, which
 could be on the same node. The `srun` command can be omitted if only a single node
 is requested.
 
-### Complete example scripts for Roihu-CPU
+The following complete multinode example stages input to and output from the local disk.
+The archive `input.tar.gz` used here extracts into an `input` directory.
 
-=== "Single node"
+```bash title="extract.sh"
+#!/bin/bash
+tar xf input.tar.gz -C "$TMPDIR"
+mkdir -p "$TMPDIR/output"
+```
 
-    ```bash title="task"
-    #!/bin/bash
-    echo "Hello from task $HQ_TASK_ID!" > "output/$HQ_TASK_ID.out"
-    sleep 1
-    ```
+```bash title="task.sh"
+#!/bin/bash
+cd "$TMPDIR"
+cat "input/$HQ_TASK_ID.inp" > "output/$HQ_TASK_ID.out"
+sleep 1
+```
 
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem-per-cpu=1000
-    #SBATCH --time=00:15:00
+```bash title="archive.sh"
+#!/bin/bash
+cd "$TMPDIR"
+tar czf "output-$SLURMD_NODENAME.tar.gz" output
+cp "output-$SLURMD_NODENAME.tar.gz" "$SLURM_SUBMIT_DIR"
+```
 
-    module load hyperqueue
+```bash title="batch.sh"
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=medium
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=384
+#SBATCH --mem=0
+#SBATCH --time=00:15:00
 
-    # Specify a location and create a directory for the server
-    export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
-    mkdir -p "$HQ_SERVER_DIR"
+module load hyperqueue
 
-    # Start the server in the background and wait until it has started
-    hq server start &
-    until hq job list &> /dev/null ; do sleep 1 ; done
+# Specify a location and create a directory for the server
+export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
+mkdir -p "$HQ_SERVER_DIR"
 
-    # Start the workers in the background
-    srun --overlap --cpu-bind=none --mpi=none hq worker start \
-        --manager slurm \
-        --on-server-lost finish-running \
-        --cpus="$SLURM_CPUS_PER_TASK" &
+# Start the server in the background and wait until it has started
+hq server start &
+until hq job list &> /dev/null ; do sleep 1 ; done
 
-    # Wait until all workers have started
-    hq worker wait "$SLURM_NTASKS"
+# Start the workers in the background
+srun --overlap --cpu-bind=none --mpi=none hq worker start \
+    --manager slurm \
+    --on-server-lost finish-running \
+    --cpus="$SLURM_CPUS_PER_TASK" &
 
-    # Create a directory for output files
-    mkdir -p output
+# Wait until all workers have started
+hq worker wait "$SLURM_NTASKS"
 
-    # Submit tasks to workers
-    hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
+# Download some example input files
+wget https://a3s.fi/CSC_training/input.tar.gz
 
-    # Wait for all tasks to finish
-    hq job wait all
+# Extract input files to the local disk and create a directory for outputs
+srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./extract.sh
 
-    # Shut down the workers and server
-    hq worker stop all
-    hq server stop
-    ```
+# Submit tasks to workers
+hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task.sh
 
-=== "Multinode"
+# Wait for all tasks to finish
+hq job wait all
 
-    The archive `input.tar.gz` used in this example extracts into `input` directory.
+# Archive and copy output from each local disk to working directory on Lustre
+srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./archive.sh
 
-    ```bash title="extract"
-    #!/bin/bash
-    tar xf input.tar.gz -C "$TMPDIR"
-    mkdir -p "$TMPDIR/output"
-    ```
-
-    ```bash title="task"
-    #!/bin/bash
-    cd "$TMPDIR"
-    cat "input/$HQ_TASK_ID.inp" > "output/$HQ_TASK_ID.out"
-    sleep 1
-    ```
-
-    ```bash title="archive"
-    #!/bin/bash
-    cd "$TMPDIR"
-    tar czf "output-$SLURMD_NODENAME.tar.gz" output
-    cp "output-$SLURMD_NODENAME.tar.gz" "$SLURM_SUBMIT_DIR"
-    ```
-
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=0
-    #SBATCH --time=00:15:00
-
-    module load hyperqueue
-
-    # Specify a location and create a directory for the server
-    export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
-    mkdir -p "$HQ_SERVER_DIR"
-
-    # Start the server in the background and wait until it has started
-    hq server start &
-    until hq job list &> /dev/null ; do sleep 1 ; done
-
-    # Start the workers in the background
-    srun --overlap --cpu-bind=none --mpi=none hq worker start \
-        --manager slurm \
-        --on-server-lost finish-running \
-        --cpus="$SLURM_CPUS_PER_TASK" &
-
-    # Wait until all workers have started
-    hq worker wait "$SLURM_NTASKS"
-
-    # Download some example input files
-    wget https://a3s.fi/CSC_training/input.tar.gz
-
-    # Extract input files to the local disk and create a directory for outputs
-    srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./extract
-
-    # Submit tasks to workers
-    hq submit --stdout=none --stderr=none --cpus=1 --array=1-1000 ./task
-
-    # Wait for all tasks to finish
-    hq job wait all
-
-    # Archive and copy output from each local disk to working directory on Lustre
-    srun -m arbitrary -w "$SLURM_JOB_NODELIST" ./archive
-
-    # Shut down the workers and server
-    hq worker stop all
-    hq server stop
-    ```
+# Shut down the workers and server
+hq worker stop all
+hq server stop
+```
 
 ### Using Snakemake or Nextflow with HyperQueue
 
@@ -470,6 +281,14 @@ We recommend avoiding using the automatic allocator. It automatically generates
 and submits batch scripts to start workers, which adds unnecessary complexity.
 Also, the automatically generated batch scripts have some issues and could be more
 flexible.
+
+## References
+
+If you use HyperQueue in your work, the developers ask that you cite:
+
+> Jakub Beránek, Ada Böhm, Gianluca Palermo, Jan Martinovič, Branislav Jansík.
+> HyperQueue: Efficient and ergonomic task graphs on HPC clusters. *SoftwareX*,
+> 27:101814, 2024. <https://doi.org/10.1016/j.softx.2024.101814>
 
 ## More information
 
