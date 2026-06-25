@@ -16,6 +16,9 @@ catalog:
 [CDO](https://code.mpimet.mpg.de/projects/cdo) Climate Data Operators is a collection of command line tools to manipulate and analyse Climate and NWP model Data.
 Supported data formats are GRIB 1/2, netCDF 3/4, SERVICE, EXTRA and IEG. There are more than 600 operators available.
 
+## License
+
+CDO is free to use and open source under the GNU General Public License, version 2.
 
 ## Available
 
@@ -26,7 +29,7 @@ CDO is available with following versions:
 
 ## Usage
 
-CDO is included in the module/container listed above, so it can be used when this module is loaded. 
+CDO is included in the module/container listed above, so it can be used when this module is loaded.
 
 
 ## Installation 
