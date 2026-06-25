@@ -188,6 +188,7 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
 
 ## More information
 
+* [Getting started with Roihu](../support/tutorials/roihu.md)
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
   (updated 2026-06-15)
