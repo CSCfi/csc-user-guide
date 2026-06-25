@@ -41,18 +41,18 @@ it with a suitable tool (see below).
 ### Tasks: count, size, and dependencies
 
 A *task* (or *subtask*) is a single unit of work in your workflow, for example one
-simulation, one dataset to analyze, or one parameter value to evaluate. Use the following properties of your tasks drive the choice of tool:
+simulation, one dataset to analyze, or one parameter value to evaluate. Use the following properties of your tasks to drive the choice of tool:
 
-- **Large number of small tasks.** Running large number (over 100) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
+- **Large number of small tasks.** Running a large number (over 100) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
 
 - **Dependencies between tasks.** Are the tasks independent of each other, or must
   some tasks finish before others can start? Independent tasks can be handled by
   simple [HTC tools](#high-throughput-computing-on-hpc). Tasks with dependencies
   generally call for a [workflow manager](#workflows-on-hpc).
 
-Don't hesitate to [contact CSC Service Desk](../../support/contact.md) if you have any concerns about how to
-implement your workflow.
-Workflows contains hundreds or thousands of *multi-node* tasks may require a special solution.
+Workflows containing hundreds or thousands of *multi-node* tasks may require a
+special solution. Don't hesitate to [contact CSC Service Desk](../../support/contact.md)
+if you have any concerns about how to implement your workflow.
 
 
 ## High-throughput computing on HPC
@@ -135,6 +135,7 @@ parallel and distributed computing facilities are often the simplest option:
 When your tasks have dependencies and form a pipeline, use a workflow manager. These
 tools track which tasks depend on which, run tasks in the correct order, recover from
 errors by restarting failed tasks, and typically integrate containers automatically.
+The following is not a complete list, and other tools may also work for your use case.
 
 ### HyperQueue
 
@@ -163,10 +164,6 @@ including with the HyperQueue executor.
 [FireWorks](fireworks.md) is a workflow tool for complex dependencies and multi-node subtasks. Be
 aware that it can create a lot of job steps and extra files, which is less ideal for
 HTC; prefer the options above when they fit your use case.
-
-### Other options
-
-This is not a complete list, and other tools may also work for your use case.
 
 ## Other considerations
 
