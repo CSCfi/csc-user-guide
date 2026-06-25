@@ -138,17 +138,17 @@ When the worker SLURM jobs finish, they will be displayed as CANCELLED on SLURM,
 
 ## Dask with Jupyter 
 
-For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [geoconda](../../apps/geoconda.md) module). 
+For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [python-geo](../../apps/python-geo.md) module). 
 
-Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
+Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Roihu web interface, pay attention to computing resource reservation: 
 
-* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Puhti. With `LocalCluster` maximum of one HPC node can be used, so 40 cores in Puhti.
+* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Roihu. With `LocalCluster` maximum of one HPC node can be used, so 384 cores in Roihu.
 * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
 ### Dask Dashboard on separate browser tab
 
 * Create new cluster from Python code.
-* Open [Dask Dashboard](https://docs.dask.org/en/latest/dashboard.html) in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
+* Open [Dask Dashboard](https://docs.dask.org/en/latest/dashboard.html) in a separate browser tab. The URL is something like this: `https://roihu.csc.fi/rnode/rc4183/8787/status`. Replace the node name (`rc4183`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
 
 Info tab does not work in this set-up, but other tabs should work.
 
@@ -176,7 +176,7 @@ Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-o
 - [Dask homepage](https://dask.org/)
 - [Dask tutorials](https://tutorial.dask.org/index.html)
 - [Dask examples](https://examples.dask.org/)
-- [Full examples of Dask used in Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti/06_parallel_dask)
+- [Full examples of Dask used in Roihu](https://github.com/csc-training/geocomputing/tree/master/python/roihu/06_parallel_dask)
 - [CECAM, High Throughput Computing with Dask course materials](https://www.cecam.org/workshop-details/1022)
 - [ENCCS Dask for scalable analytics lesson](https://enccs.github.io/hpda-python/dask/)
 - [NCAR Dask tutorial](https://ncar.github.io/dask-tutorial/README.html)
