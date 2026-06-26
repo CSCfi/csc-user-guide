@@ -349,7 +349,7 @@ nav:
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
           - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
-          - High throughput: computing/running/throughput.md
+          - High-throughput computing and workflows: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
       - Installing software:

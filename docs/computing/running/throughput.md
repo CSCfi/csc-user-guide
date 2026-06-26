@@ -50,9 +50,11 @@ simulation, one dataset to analyze, or one parameter value to evaluate. Use the 
   simple [HTC tools](#high-throughput-computing-on-hpc). Tasks with dependencies
   generally call for a [workflow manager](#workflows-on-hpc).
 
-Workflows containing a large number of *multi-node* tasks may require a
-special solution. Don't hesitate to [contact CSC Service Desk](../../support/contact.md)
-if you have any concerns about how to implement your workflow.
+
+!!! Info "Support"
+    Workflows containing a large number of *multi-node* tasks may require a
+    special solution. Don't hesitate to [contact CSC Service Desk](../../support/contact.md)
+    if you have any concerns about how to implement your workflow.
 
 
 ## High-throughput computing on HPC
@@ -98,11 +100,11 @@ but do not pack job steps or handle dependencies.
 Instead of submitting each task as a separate Slurm job or job step, you allocate a
 large resource block and let HyperQueue schedule your tasks into it with minimal
 load on Slurm and little extra I/O. It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
+HyperQueue can also act as the [task executor for workflow managers](#workflows-on-hpc).
 
 For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue
 so you can submit an ensemble of similar independent tasks directly from a file of
-commands. HyperQueue can also act as the [task executor for workflow
-managers](#workflows-on-hpc).
+commands.
 
 ### GNU Parallel and xargs
 
@@ -131,6 +133,10 @@ Julia:
 
 * [Julia multiprocessing on single node](../../support/tutorials/julia.md#multi-processing-on-single-node)
 * [Julia multiprocessing on multiple nodes](../../support/tutorials/julia.md#multi-processing-on-multiple-nodes)
+
+### Further reading
+
+- [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 
 ## Workflows on HPC
 
@@ -166,41 +172,3 @@ including with the HyperQueue executor.
 [FireWorks](../../apps/fireworks.md) is a workflow tool for complex dependencies and multi-node subtasks. Be
 aware that it can create a lot of job steps and extra files, which is less ideal for
 HTC; prefer the options above when they fit your use case.
-
-## Other considerations
-
-### I/O and the parallel file system
-
-When running many parallel tasks, input/output (IO) efficiency often becomes a
-problem. CSC supercomputers use [Lustre](../lustre.md) as the parallel distributed file system.
-It is designed for efficient parallel IO of large files, but when dealing with many
-small files IO quickly becomes a bottleneck. Intensive IO-operations risk degrading
-the file system performance for all users and should be moved away from Lustre.
-
-If you need to read and write thousands of files, choose a faster location for the
-IO-heavy part of your workflow:
-
-- If your application is containerized, [mount your datasets with SquashFS](../containers/overview.md#reading-datasets-from-squashfs-file). This
-  reduces a dataset of thousands of files to a single file from Lustre's point of
-  view, while appearing as an ordinary directory inside the [Singularity container](../containers/overview.md).
-- If you run a Conda/pip environment, [containerize it with Tykky](../containers/tykky.md). CSC has
-  [deprecated direct usage of Conda environments](../../support/tutorials/conda.md) because they bring about a huge
-  number of files that are read on every run, causing system-wide slowdowns.
-- Otherwise, use [fast local NVMe disk](../disk.md#compute-nodes-with-local-ssd-nvme-disks) (available on the CPU nodes of Puhti and on
-  Mahti), or [ramdisk](../disk.md#compute-nodes-without-local-ssd-nvme-disks) (`/dev/shm`) on Mahti CPU partitions with node-based
-  allocation (only if you know what you are doing).
-- If you must use Lustre for IO-heavy tasks, leverage [file striping](../lustre.md#file-striping-and-alignment).
-
-Further details on [how to work efficiently with Lustre are documented here](../lustre.md#best-practices).
-
-!!! warning "Note"
-    Please do not reserve GPU nodes just to use the node's NVMe disk. To run on
-    GPUs, your code must be GPU-enabled and benefit from the resources, [see usage
-    policy](../usage-policy.md#gpu-nodes). Remember that the CPU nodes of Puhti also have NVMe disks.
-
-### Further reading
-
-- [Data storage guide for machine learning](../../support/tutorials/ml-data.md) — where to work with ML data and how
-  to use the shared file system efficiently
-- [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
-- [Fast disk areas in CSC computing environment](https://csc-training.github.io/csc-env-eff/hands-on/data-io/tutorial-fastdisks.html)
