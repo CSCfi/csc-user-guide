@@ -1,4 +1,4 @@
-# GNU Parallel workflow for many small, independent runs
+# GNU Parallel and xargs workflows for many small, independent runs
 
 The goal is to have a workflow that is
 
@@ -6,19 +6,22 @@ The goal is to have a workflow that is
 2. fits well into the *batch queue system*, and
 3. does not stress the *parallel file system*.
 
-There is a plethora of workflow tools. Whatever tool one chooses, it will
+There is a plethora of workflow tools. Whatever generic tool one chooses, it will
 unlikely match the particular workflow and underlying computing platform out of
 the box. Some amount of programming is needed in most cases. A very much related
 discussion is in [Array jobs](../../computing/running/array-jobs.md)
 chapter of <https://docs.csc.fi>.
 
-## Strengths of GNU Parallel
+Both GNU Parallel and xargs tools work about the same. In this tutorial we use
+xargs, as it is simple, lightweight, and a bit more common.
+
+## Strengths of GNU Parallel and xargs 
 
 * Does not require a database or persistent manager process
 * Easily scales to a large number of tasks/nodes
 * Efficient use of scheduler resources
 
-## Disadvantages of GNU Parallel
+## Disadvantages of GNU Parallel and xargs
 
 * User is required to do careful organization of input and output files
 * Scaling up requires consideration of system I/O performance
@@ -124,8 +127,6 @@ Let's look at the job script for our example case:
 #SBATCH --gres=nvme:3600
 #SBATCH --array=0-24
 
-module load parallel
-
 cd /scratch/${SLURM_JOB_ACCOUNT}/many
 
 (( from_dir_index = SLURM_ARRAY_TASK_ID * 8 + 1 ))
@@ -134,7 +135,7 @@ cd /scratch/${SLURM_JOB_ACCOUNT}/many
 job_dirs=$(printf "%dir-%03d " $(seq $from_dir_index $to_dir_index))
 
 find $job_dirs -name 'input-*' | \
-    parallel -j $SLURM_CPUS_PER_TASK bash wrapper.sh {}
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK bash wrapper.sh {}
 ```
 
 The batch job reserves a whole node for 40 hours. One task starts in the node,
@@ -145,21 +146,22 @@ system to execute 25 copies of this job, each job identified by a unique number
 in environment variable `SLURM_ARRAY_TASK_ID`. Depending on the queue situation,
 many of these jobs can run in parallel.
 
-Next we load a module providing
-[GNU parallel](https://www.gnu.org/software/parallel/). We use this tool
+The `xargs` command is usually provided by the base operating system. In HPC systems
+one often needs to load a module to make similar GNU Parallel `parallel` command
+available. We use xargs command (or GNU Parallel)
 within the node to "schedule" all 3200 runs in a job, so that at any point
 in time all 40 cores are busy, but not overloaded.
 
 Next lines calculate which directories belong to the current array job, using
 the `SLURM_ARRAY_TASK_ID` environment variable.
 
-The main "loop" of the script is implemented with GNU parallel command
-`parallel`. With the option `-j $SLURM_CPUS_PER_TASK` we tell GNU parallel to
+The main "loop" of the script is implemented with `xargs` command (or GNU Parallel `parallel command).
+With the option `-P $SLURM_CPUS_PER_TASK` we tell xargs to
 keep running 40 commands (applications) in parallel. Since we need to copy
 files into and out from the local SSD for each run, we wrap our application in a
 small shell script, `wrapper.sh`, which takes the input file name as an
-argument. The names of the input files are fed to GNU parallel through a pipe,
-and GNU parallel keeps on running the `bash wrapper.sh <input file>` command as
+argument. The names of the input files are fed to xargs through a pipe,
+and xargs keeps on running the `bash wrapper.sh <input file>` command as
 long as there are arguments in the pipe.
 
 Separating the wrapper script from the batch job script makes it possible to
