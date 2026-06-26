@@ -112,6 +112,7 @@ plugins:
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
       "support/tutorials/snakemake-puhti.md": "apps/snakemake.md"
       "support/tutorials/nextflow-tutorial.md": "apps/nextflow.md"
+      "computing/running/fireworks.md": "apps/fireworks.md"
       # deprecation:
       "apps/nomachine.md": "support/faq/deprecated-apps.md"
       "apps/materialsstudio.md": "support/faq/deprecated-apps.md"

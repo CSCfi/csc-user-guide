@@ -36,7 +36,7 @@
 * [Optimising parallel I/O](lustre_performance.md)
 * [Dask & parallel Python](dask-python.md)
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
-* [FireWorks workflow manager](../../computing/running/fireworks.md)
+* [FireWorks workflow manager](../../apps/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
 * [Running Nextflow pipelines](../../apps/nextflow.md)
 * [Running Snakemake pipelines on Puhti](../../apps/snakemake.md)

@@ -1,6 +1,28 @@
-# FireWorks workflow tool
+---
+tags:
+  - Free
+catalog:
+  name: FireWorks
+  description: FireWorks is a free, open-source tool for defining, managing and executing workflows with multiple steps and complex dependencies
+  license_type: Free
+  disciplines:
+    - Miscellaneous
+  available_on:
+    - Puhti
+    - Mahti
+---
+
+# FireWorks
 
 [FireWorks](https://materialsproject.github.io/fireworks/) is a free, open-source tool for defining, managing and executing workflows with multiple steps and potentially complex dependencies. Workflows are flexibly defined using YAML, JSON or through a Python API and stored in a MongoDB database. This page describes how to define and execute FireWorks workflows in CSC's computing environment using a MongoDB running in the Rahti container cloud.
+
+If you are still wondering about workflows at more general level or which workflow tool to use, see also our [high-throughput computing and workflows page](../computing/running/throughput.md).
+
+[TOC]
+
+## License
+
+FireWorks is released under a [modified GNU GPL license](https://github.com/materialsproject/fireworks/blob/main/LICENSE).
 
 ## Strengths of FireWorks
 
@@ -18,11 +40,11 @@
 
 ## Installing FireWorks and setting up MongoDB in Rahti
 
-FireWorks is easy to install. We recommend using [Tykky](../containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../containers/tykky.md#pip-based-installations). 
+FireWorks is easy to install. We recommend using [Tykky](../computing/containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../computing/containers/tykky.md#pip-based-installations). 
 
 Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loading modules. FireWorks requires at least Python 3.7, so make sure you're using at least this version. To this end, you can use the `--slim` flag of `pip-containerize` to utilize a pre-built minimal Python container with a much newer version of Python than the system default 3.6.8.
 
-The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12. Thus, you may need to separately specify the PyMongo version in the `req.txt` file when installing FireWorks. For example,
+The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12. Thus, you may need to separately specify the PyMongo version in the `req.txt` file when installing FireWorks. For example,
 
 ```
 # req.txt
@@ -33,13 +55,13 @@ pymongo==3.10.0
 
 !!! Note
     Please do not install FireWorks in a Conda environment that is sitting directly on the shared
-    Lustre file system. [CSC has deprecated the direct usage of Conda](../../support/tutorials/conda.md)
+    Lustre file system. [CSC has deprecated the direct usage of Conda](../support/tutorials/conda.md)
     installations on our supercomputers to avoid performance issues due to the large number of files
     brought by Conda. For reference, a Conda installation of FireWorks contains more than 24000
     files, most of which are read each time the application is run. This causes startup delays and
     degrades the performance of Lustre for all users. With this said, you can still continue to use
     Conda environments, but only in case they are containerized. To achieve this easily, please see
-    the [Tykky container wrapper tool](../containers/tykky.md).
+    the [Tykky container wrapper tool](../computing/containers/tykky.md).
 
 ## Defining and executing workflows with FireWorks
 
@@ -57,7 +79,7 @@ A FireWorker (e.g. your laptop or in this case either of CSC's supercomputers) f
 !!! Note
     This page focuses on the usage of YAML files and the FireWorks command-line interface to define and execute workflows. For instructions on using the FireWorks Python API, see the [official FireWorks documentation](https://materialsproject.github.io/fireworks/).
 
-Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using a LoadBalancer as outlined in [Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md#step-2-setup-a-loadbalancer-service-type-on-rahti). With the obtained target IP and port, database username and password, run `lpad init` to interactively configure the LaunchPad:
+Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using a LoadBalancer as outlined in [Accessing databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/connect-database-hpc.md#step-2-setup-a-loadbalancer-service-type-on-rahti). With the obtained target IP and port, database username and password, run `lpad init` to interactively configure the LaunchPad:
 
 ```console
 $ lpad init
@@ -97,7 +119,7 @@ pre_rocket: |
 post_rocket: null
 ```
 
-In addition to queue parameters (resource requests, billing project), the QueueAdapter contains the `rocket_launch` key which specifies how the workflow should be launched within the batch job. This detail is discussed further in [Step 3](fireworks.md#step-3-defining-and-executing-a-simple-fireworks-workflow). Additionally, the batch queue system (SLURM) is specified with the `_fw_q_type` key, and any commands to be run before and/or after the workflow are provided using the `pre_rocket` and `post_rocket` keys.
+In addition to queue parameters (resource requests, billing project), the QueueAdapter contains the `rocket_launch` key which specifies how the workflow should be launched within the batch job. This detail is discussed further in [Step 3](#step-3-defining-and-executing-a-simple-fireworks-workflow). Additionally, the batch queue system (SLURM) is specified with the `_fw_q_type` key, and any commands to be run before and/or after the workflow are provided using the `pre_rocket` and `post_rocket` keys.
 
 For all possible SLURM flags that can be specified in the QueueAdapter, see the [SLURM template file](https://github.com/materialsproject/fireworks/blob/main/fireworks/user_objects/queue_adapters/SLURM_template.txt) distributed with FireWorks. Note the usage of underscores instead of dashes compared to the common SLURM options, e.g. `cpus_per_task` vs. `--cpus-per-task`, as well as the keys `walltime` and `queue` in contrast to `time` and `partition` used by SLURM. If the existing SLURM template does not suit your needs, please consult the official FireWorks documentation on [how to program custom QueueAdapters](https://materialsproject.github.io/fireworks/qadapter_programming.html).
 
@@ -162,7 +184,7 @@ Based on the content of the `my_qadapter.yaml` file, FireWorks creates a submiss
 Although `qlaunch` is run instead of the basic `rlaunch` command that is normally used in the absence of a batch queue system, `rlaunch` is still used inside the `my_qadapter.yaml` file to instruct FireWorks how the workflow should be run *within* the batch job. In the above case, the `multi 1` option is used to launch a single parallel job using all the requested resources. The `multi` launcher is designed to spawn a specified number of workers that run FireTasks with identical resources requirements in parallel. If more than one worker is specified, `srun` commands issued within any `ScriptTask` must be modified to use the appropriate amount of tasks/threads together with the `--exclusive` option so that the jobs are actually able to run concurrently within the same resource allocation. For example if one full Puhti node (40 cores) is requested for running two concurrent jobs (`multi 2`) with the same number of MPI tasks, the FireTasks should read `srun -n 20 --exclusive <my program>`. However, beware of idling resources if the FireTasks complete asynchronously! For further details on running parallel jobs using FireWorks, see the [official documentation on the multi job launcher](https://materialsproject.github.io/fireworks/multi_job.html).
 
 !!! Note
-    Each time `srun` is issued, a SLURM job step is created. If your workflow is composed of a large number of FireTasks in which `srun` is used, the SLURM log will get bloated, risking degrading the performance of the batch queue system. If unavoidable, consider using `orterun` instead of `srun` to launch your parallel jobs through the queue, or use another workflow tool that packs your tasks within a single large job step. Note also that serial jobs do not require the usage of `srun`. Don't hesitate to [contact our Service Desk](../../support/contact.md) if you're unsure about the efficiency of your workflow.
+    Each time `srun` is issued, a SLURM job step is created. If your workflow is composed of a large number of FireTasks in which `srun` is used, the SLURM log will get bloated, risking degrading the performance of the batch queue system. If unavoidable, consider using `orterun` instead of `srun` to launch your parallel jobs through the queue, or use another workflow tool that packs your tasks within a single large job step. Note also that serial jobs do not require the usage of `srun`. Don't hesitate to [contact our Service Desk](../support/contact.md) if you're unsure about the efficiency of your workflow.
 
 ### Step 4. Monitoring the state of your workflow
 

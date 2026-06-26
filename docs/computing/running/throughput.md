@@ -163,7 +163,7 @@ including with the HyperQueue executor.
 
 ### FireWorks
 
-[FireWorks](fireworks.md) is a workflow tool for complex dependencies and multi-node subtasks. Be
+[FireWorks](../../apps/fireworks.md) is a workflow tool for complex dependencies and multi-node subtasks. Be
 aware that it can create a lot of job steps and extra files, which is less ideal for
 HTC; prefer the options above when they fit your use case.
 
