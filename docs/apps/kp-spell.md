@@ -16,7 +16,7 @@ catalog:
 
 kp-spell provides Finnish and Swedish spell-checking on CSC systems. While it is
 used through the command-line tools of
-[enchant](https://abiword.github.io/enchant/) — a generic library that offers a
+[enchant-2](https://github.com/deepin-community/enchant-2) — a generic library that offers a
 single interface to several spelling backends — kp-spell is more than plain
 enchant: it bundles the language-specific backends and dictionaries needed for
 Finnish (via [Voikko](https://voikko.puimula.org/)) and Swedish (via
@@ -61,6 +61,6 @@ A personal word list can be supplied with the `-p` option.
 
 ## More information
 
-* [enchant home page](https://abiword.github.io/enchant/)
+* [enchant home page](https://github.com/deepin-community/enchant-2)
 * [Voikko](https://voikko.puimula.org/)
 * [Hunspell](https://hunspell.github.io/)
