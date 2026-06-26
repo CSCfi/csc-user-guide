@@ -131,8 +131,6 @@ introduce a new disk area called **Dataset**. Dataset access and quota will
 be applied for and managed in MyCSC, and the disk area will have its own
 billing model.
 
-The dataset project will be implemented into Roihu after general availability.
-
 ### Local storage capacity
 
 Each Roihu CPU and GPU node have a small 960 GB local disk suitable for

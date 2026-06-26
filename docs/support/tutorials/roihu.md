@@ -83,7 +83,7 @@ Note that there may be a short delay of a few minutes before you can connect.
 Connect to Roihu using either:
 
 * [SSH client](#ssh-client)
-* [Roihu web interface (available after general availability)](#roihu-web-interface)
+* [Roihu web interface](#roihu-web-interface)
 
 ### SSH client
 

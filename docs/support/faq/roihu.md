@@ -26,7 +26,7 @@ We strongly encourage users to move any required data by the end of August
 2026, as Mahti and Puhti storage services will not be covered by service contracts between
 September and October, and availability cannot be fully guaranteed.
 
-[Read more about the tentative schedule here](../../computing/systems-roihu.md#schedule).
+[Read more about the shutdown schedule here](../../computing/systems-roihu.md#schedule).
 
 ### 3. I heard that Puhti will be donated for continued use. Can I apply for hardware?
 
@@ -52,16 +52,16 @@ Short talk: SSH authentication changes to Roihu
 * [Slides](https://a3s.fi/media/SSH_CA_USER_COFFEE-20260422.pdf)
 * [Recording](https://video.csc.fi/media/t/0_el9fzv7f)
 
-Roihu will also support a web interface for connecting, similarly to Mahti and Puhti, at www.roihu.csc.fi.
+Roihu also supports a web interface for connecting, similarly to Mahti and Puhti, at www.roihu.csc.fi.
 
-### 5. Will there be a web interface for Roihu like Puhti and Mahti have?
+### 5. Is there a web interface for Roihu like Puhti and Mahti have?
 
-Yes. The Roihu web interface will provide easy access to the computing and
-storage resources of Roihu. Like the current web interfaces, the Roihu web
-interface will be particularly aimed at interactive workloads and running
+Yes. The Roihu web interface provides easy access to the computing and
+storage resources of Roihu. Like the web interfaces for Mahti, Puhti and LUMI, the Roihu web
+interface is particularly aimed at interactive workloads and running
 graphical applications like Jupyter Notebooks, RStudio, etc.
 
-Roihu web interface will become available at www.roihu.csc.fi, similarly to Mahti, Puhti and LUMI.
+Roihu web interface is available at www.roihu.csc.fi, similarly to Mahti, Puhti and LUMI.
 
 See documentation on the [Roihu web interface](../../computing/webinterface/index.md).
 
@@ -143,7 +143,7 @@ Short talk: Roihu data migration tips:
 
 Allas is not affected in this update. You can keep your current data there.
 If you have your data in Allas, you can access that data from Roihu too.
-That data does not need to be migrated, as Allas service will stay available also after Roihu comes.
+That data does not need to be migrated, as Allas will remain available during and after the Roihu transition.
 
 It is not recommended to transfer data from Mahti/Puhti to Roihu via Allas or your local workstation.
 Instead, CSC recommends using command-line based tools such as
@@ -160,7 +160,7 @@ Utilize `tmux` for long transfers. See the guide above for details, or our [tmux
 
 ### 12. How should I migrate larger datasets without the connection cutting out during the transfer? How long do transfers take between Mahti/Puhti to Roihu?
 
-You can use `screen` or `tmux` in Mahti/Puhti to transfer larger files without worrying about the connection dropping out. See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#32-running-long-transfer-processes-safely)
+You can use `screen` or `tmux` in Mahti/Puhti to transfer larger files without worrying about the connection dropping out. See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#32-running-long-transfer-processes-safely).
 Transfer times depend on the amount and size of the files. Large numbers of small files take longer, consider archiving them into a single file for transfers.
 As a ballpark number, a single file of about 100 GB would take ~10 minutes to transfer directly between the systems.
 
@@ -211,10 +211,10 @@ We cannot, however, promise to install everything that users might want.
 
 A list of installed software is available in the [application section](../../apps/by_availability.md#roihu) in the documentation.
 
-### 17. Will Tykky be available on Roihu?
+### 17. Is Tykky available on Roihu?
 
 Yes, [Tykky](../../computing/containers/tykky.md) (tool for creating
-containerized Conda etc. environments with wrapper scripts) will also be
+containerized Conda etc. environments with wrapper scripts) is also
 available on Roihu.
 
 ### 18. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
