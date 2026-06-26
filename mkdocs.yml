@@ -111,6 +111,7 @@ plugins:
       "computing/containers/run-existing.md": "computing/containers/overview.md"
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
       "support/tutorials/snakemake-puhti.md": "apps/snakemake.md"
+      "support/tutorials/nextflow-tutorial.md": "apps/nextflow.md"
       # deprecation:
       "apps/nomachine.md": "support/faq/deprecated-apps.md"
       "apps/materialsstudio.md": "support/faq/deprecated-apps.md"

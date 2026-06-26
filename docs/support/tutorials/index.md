@@ -38,7 +38,7 @@
 * [HyperQueue meta-scheduler](../../apps/hyperqueue.md)
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
-* [Running Nextflow pipelines](nextflow-tutorial.md)
+* [Running Nextflow pipelines](../../apps/nextflow.md)
 * [Running Snakemake pipelines on Puhti](../../apps/snakemake.md)
 
 ## Resources for courses

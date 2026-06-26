@@ -158,7 +158,7 @@ including with the HyperQueue executor.
 
 [Nextflow](../../apps/nextflow.md) is a popular workflow manager based on Groovy, with dependency support
 and container integration. See the [Nextflow
-tutorial](../../support/tutorials/nextflow-tutorial.md) for how to run it at CSC,
+page](../../apps/nextflow.md#usage) for how to run it at CSC,
 including with the HyperQueue executor.
 
 ### FireWorks
