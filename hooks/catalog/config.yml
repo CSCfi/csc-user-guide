@@ -101,15 +101,3 @@ appendix:
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201509035"
-
-  - name: "UDPipe"
-    description: "UDPipe Kielipankki version"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-201902131"
-
-  - name: "HeLI-OTS"
-    description: "Language identifier with language models for 220 languages"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2024040301"
