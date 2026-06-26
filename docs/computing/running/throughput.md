@@ -129,13 +129,13 @@ To define dependencies between tasks, use the [HyperQueue Python API](https://it
 
 ### Snakemake
 
-[Snakemake](../../apps/snakemake.md) is a popular Python-based workflow manager with dependency support and automatic container integration.
-See the [Snakemake page](../../apps/snakemake.md#usage) for how to run it at CSC, including with the HyperQueue executor.
+Snakemake is a popular Python-based workflow manager with dependency support and automatic container integration.
+See the [Snakemake page](../../apps/snakemake.md) for how to run it at CSC, including with the HyperQueue executor.
 
 ### Nextflow
 
-[Nextflow](../../apps/nextflow.md) is a popular workflow manager based on Groovy, with dependency support and container integration.
-See the [Nextflow page](../../apps/nextflow.md#usage) for how to run it at CSC, including with the HyperQueue executor.
+Nextflow is a popular workflow manager based on Groovy, with dependency support and container integration.
+See the [Nextflow page](../../apps/nextflow.md) for how to run it at CSC, including with the HyperQueue executor.
 
 ### FireWorks
 
