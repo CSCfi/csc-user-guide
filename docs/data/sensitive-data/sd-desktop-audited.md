@@ -33,7 +33,7 @@ Contents:
 
 * **The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from the data controller, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
 
-* **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided in the next paragraph.
+* **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
 
 
 * Lastly, we are not yet providing a virtual Desktop with Windows operating system or with GPUs. 
