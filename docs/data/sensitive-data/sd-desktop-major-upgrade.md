@@ -14,6 +14,8 @@ Your next steps depend on whether your virtual desktop currently has a volume at
 4. Checking **Volumes column** to see if the desktop has a volume attached. If number is "1" you have a volume attached and if it is "0" you don't have a volume attached.
 5. Repeat for all projects. You can change CSC project from dropdown at the top left.
 
+![Find volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Findvolume.png)
+
 
 ## Step 2: Choose the correct option for your needs
 
