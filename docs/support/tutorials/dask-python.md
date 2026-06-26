@@ -11,7 +11,7 @@ Keep in mind that the other ways of code parallelisation might suit better in di
 
 ## Single-node parallelisation with delayed functions and a local cluster
 
-In this example, we use four CPUs per tasks because we have four datasets. With this approach, you can utilize up to the full CPU capacity of a single compute node.
+In this example, we use four CPUs per tasks because we have four datasets. With this approach, you can utilize at maximum one full computing node's worth of CPUs.
 
 __batch job file__
 ```
@@ -84,7 +84,7 @@ srun python dask_multinode.py <YOUR-PROJECT>
 
 The worker jobs are defined inside the Python file started by master SLURM job, for further details see: [Dask Jobqueue configurations documentation](https://jobqueue.dask.org/en/latest/configuration-setup.html).
 
-* `cores` - How many cores per node to use? In bigger jobs one worker SLURM job should fill the whole HPC node, ie 40 cores in Puhti.
+* `cores` - How many cores per node to use? In bigger jobs one worker SLURM job should fill the whole HPC node.
 * `processes` - How many Python processes per node to use?
 * `memory`- How much memory per node to use? This should be enough for all Dask workers in that node. If unsure, try with cores*6Gb.
 * `walltime` - Reserve enough time as one worker may handle several delayed functions, if the number of workers is smaller than the number of delayed functions.
@@ -138,7 +138,7 @@ When the worker SLURM jobs finish, they will be displayed as CANCELLED on SLURM,
 
 ## Dask with Jupyter 
 
-For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [python-geo](../../apps/python-geo.md) module). 
+For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Roihu it is available in [python-geo](../../apps/python-geo.md) module). 
 
 Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Roihu web interface, pay attention to computing resource reservation: 
 
