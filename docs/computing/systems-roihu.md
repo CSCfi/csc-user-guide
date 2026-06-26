@@ -82,7 +82,7 @@ which supports the AVX-512 vector instruction set. 414 of the CPU nodes
 have 768 GiB of memory, while the remaining 72 nodes have an extended
 memory of 1 536 GiB each.
 
-Each GPU node is be equipped with 4 Nvidia GH200 Grace Hopper superchips.
+Each GPU node is equipped with 4 Nvidia GH200 Grace Hopper superchips.
 Each GH200 superchip comprises one Hopper (H100) GPU and one Grace CPU with
 72 ARM CPU cores, which are connected via a very fast interface. Each
 GH200 superchip has 120 GiB CPU memory and 96 GiB GPU memory, providing
@@ -107,7 +107,7 @@ single-thread performance.
 | V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 15.36 |
 | GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
 
-The operating system of Roihu will be Red Hat Enterprise Linux 9 (RHEL9).
+The operating system of Roihu is Red Hat Enterprise Linux 9 (RHEL9).
 
 ## Storage
 
@@ -180,7 +180,7 @@ including:
 * CUDA and NVIDIA HPC Software Development Kit (SDK)
 * OpenMPI as the main MPI library
 
-Like Puhti and Mahti, Roihu will also feature a web interface for easy-to-use
+Like Puhti and Mahti, Roihu also features a web interface for easy-to-use
 interactive access and running graphical user interfaces.
 
 A list of currently supported applications on Roihu can be found on the

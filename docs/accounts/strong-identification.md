@@ -23,9 +23,8 @@ the instructions below. This process raises your assurance level to high.
 
 Please follow our instructions carefully:
 
-1. Login to [MyCSC](http://my.csc.fi) and make sure you have your passport with you.
+1. Log in to [MyCSC](http://my.csc.fi) and make sure you have your passport with you. Your passport must be NFC-enabled.
 1. Download Candour ID app from App Store or Google Play.
-1. Make sure you have your passport with you. Your passport must be NFC-enabled.
 1. Go to your MyCSC Profile page.
 1. In the bottom right, find the box titled **LEVEL OF IDENTITY ASSURANCE**.
 1. Select **Raise identity assurance level**.

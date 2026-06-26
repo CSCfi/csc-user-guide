@@ -154,7 +154,7 @@ The CLI allows you to
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
 to the Slurm job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
-on the *compute nodes* opposed to the *login nodes*,
+on the *compute nodes* as opposed to the *login nodes*,
 which are [**not** intended for heavy computing](../../computing/usage-policy.md).
 Another benefit of batch jobs is that running computations does not necessitate
 being tied to your workstation. While setting up this automation can require
@@ -230,7 +230,7 @@ using specific resources like GPUs.
 CSC supercomputers provide distinct [disk areas](../../computing/disk.md) for
 different data storage purposes. The *project-based* shared storage can be found
 under `/scratch/<project>`. This folder is shared by *all users* in a project
-and has a default quota of 1 TB.
+and has a default quota of 250 GB on Roihu.
 
 Please note that the **scratch disk is not meant for long-term data storage**
 and, on Roihu, files that have not been used for 180 days will be automatically removed.

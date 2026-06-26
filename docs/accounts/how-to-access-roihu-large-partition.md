@@ -25,7 +25,7 @@ To request the 30-day test period, proceed as follows:
 3. Click the _Apply for trial access_ button. After access has been
    granted, you will be able to submit jobs to the large or gpularge partition.
 
-!!! note "Immediate access to large/gpularge patitions"
+!!! note "Immediate access to large/gpularge partitions"
     Right after you click the _Apply for trial access_ button, you will be granted test access
     to the large partition. Note that scalability results, as described in the section below, are expected
     30 days after this.
@@ -88,7 +88,7 @@ The scalability report should contain:
    used in the software, and to include details about the I/O implementation and load of the program at runtime
 2. Wall-times for each node count in your test case
     - If you are applying for access to the **gpularge** partition, you should also
-   showcase gpu utilization during the program run time.
+   showcase GPU utilization during the program run time.
 3. A representative batch job script (as an attachment or in the free-form justification)
 
 Additionally, if the application was run with hybrid MPI/OpenMP parallelization, attach the `stderr` of a

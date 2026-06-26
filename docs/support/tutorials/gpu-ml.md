@@ -176,9 +176,9 @@ should be maximally utilized once they have been allocated. We provide
 some tools to monitor the utilization of GPU jobs on different
 supercomputers. The GPU utilization, should ideally be close to
 100%. If your utilization is consistently low (for example under 50%)
-it might because of several reasons:
+it might be because of several reasons:
 
-- You may have have a processing bottle-neck, for example you should
+- You may have a processing bottleneck, for example you should
   use a data loading framework (and reserve enough CPU cores for it)
   to be able to feed the GPU with data fast enough. [See our
   documentation on using multiple CPU cores for data
@@ -380,7 +380,7 @@ GPU energy
         r01g01             3         62.21
 ```
 
-Roihu-GPU doesn't yet have this built in support for monitoring the
+Roihu-GPU doesn't yet have this built-in support for monitoring the
 GPU energy usage.
 
 ### `gpu-energy` tool (LUMI)

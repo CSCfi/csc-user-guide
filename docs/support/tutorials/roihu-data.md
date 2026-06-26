@@ -80,7 +80,7 @@
 ??? info "New Dataset disk area on Roihu"
     Users may apply for new "dataset projects" (cf. regular computing projects)
     to get access to a new disk area on Roihu – **Dataset**. This disk area
-    allows storing datasets on the disk for a longer timer (no cleaning,
+    allows storing datasets on the disk for a longer time (no cleaning,
     lifetime is limited by the data project lifetime). Read access to the data
     can be shared globally, or with specific project IDs.
 
@@ -121,7 +121,7 @@
 * **`rsync`** is the preferred tool for transferring data from Puhti or Mahti
   to Roihu. [Read more about `rsync` here](../../data/moving/rsync.md).
 * **We will use Puhti as an example**, but the exact same steps apply to Mahti and LUMI
-  also. Simply replace all occurrences of `puhti` in host names etc. with
+  as well. Simply replace all occurrences of `puhti` in host names etc. with
   `mahti`.
 * All examples require that you've **forwarded your SSH agent** including your
   **SSH keys** and a **valid SSH certificate** to Puhti when connecting.
