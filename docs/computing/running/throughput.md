@@ -116,15 +116,21 @@ You can also use the Linux `xargs` utility for the same purpose, see [xargsjob.s
 If your work is already written in a high-level language, the language's own
 parallel and distributed computing facilities are often the simplest option:
 
-- Python:
-    * [Python parallel jobs](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
-    * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
-    * [CSC machine learning guide](../../support/tutorials/ml-guide.md)
-- R:
-    * [Parallel jobs using R](../../support/tutorials/parallel-r.md)
-    * [R targets library](https://docs.ropensci.org/targets/)
-- Julia:
-    * [Julia batch jobs](../../support/tutorials/julia.md)
+Python:
+
+* [Python parallel jobs](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
+* [CSC Dask tutorial](../../support/tutorials/dask-python.md)
+* [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+
+R:
+
+* [Parallel jobs using R](../../support/tutorials/parallel-r.md)
+* [R targets library](https://docs.ropensci.org/targets/)
+
+Julia:
+
+* [Julia multiprocessing on single node](../../support/tutorials/julia.md#multi-processing-on-single-node)
+* [Julia multiprocessing on multiple nodes](../../support/tutorials/julia.md#multi-processing-on-multiple-nodes)
 
 ## Workflows on HPC
 
