@@ -7,24 +7,53 @@ Before you begin, make sure you read the instructions carefully and agree on the
 
 ## Step-by-step
 
-* [Step 1: Update Data Gateway application](#step-1-update-data-gateway-application)
-* [Step 2: Export all needed files to SD Connect](#step-2-export-all-needed-files-to-sd-connect)
-* [Step 3: Create a new virtual desktop](#step-3-create-a-new-virtual-desktop)
-* [Step 4: Create a volume](#step-4-create-a-volume)
-* [Step 5: Attach a volume to a virtual desktop](#step-5-attach-a-volume-to-a-virtual-desktop)
-* [Step 6: Import data to your volume via the Data Gateway application](#step-6-import-data-to-your-volume-via-the-data-gateway-application)
-* [Step 7: Delete old virtual desktop to save resources](#step-6-delete-old-virtual-desktop-to-save-resources)
-* [Step 8: Customising virtual desktop](#step-8-customising-virtual-desktop)
+* [Step 1: Access desktop](#step-1-access-desktop)
+* [Step 2: Update Data Gateway application](#step-2-update-data-gateway-application)
+* [Step 3: Export all needed files to SD Connect](#step-3-export-all-needed-files-to-sd-connect)
+* [Step 4: Create a new virtual desktop](#step-4-create-a-new-virtual-desktop)
+* [Step 5: Create a volume](#step-5-create-a-volume)
+* [Step 6: Attach a volume to a virtual desktop](#step-6-attach-a-volume-to-a-virtual-desktop)
+* [Step 7: Import data to your volume via the Data Gateway application](#step-7-import-data-to-your-volume-via-the-data-gateway-application)
+* [Step 8: Delete old virtual desktop to save resources](#step-8-delete-old-virtual-desktop-to-save-resources)
+* [Step 9: Customising virtual desktop](#step-9-customising-virtual-desktop)
 
 
+### Step 1: Access desktop
 
-### Step 1: Update Data Gateway application (project manager)
+1. [Login](./sd-desktop-login.md) to SD Desktop. Select the correct CSC project in the top left corner. Now you can see all desktops in this project.
+
+2. Make sure the virtual desktop you want to access is running. If it is paused, you need to [unpause](sd-desktop-manage.md#unpausing-a-virtual-desktop) it before you can access it.
+  
+3. Access virtual desktop by clicking **Access desktop** on right side of the desktop name.
+
+When you open the connection, a virtual desktop will open in your browser in a new window. 
+
+![Access virtual desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
+
+
+### Step 2: Update Data Gateway application (project manager)
 
 * Open terminal.
-* Type 
-* Now new version of Data Gateway has been installed. There is a second Data Gateway icon on your desktop.
 
-### Step 2: Export all needed files to SD Connect 
+![Open terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard1.png)
+
+
+* Copy this command:
+
+
+* Press **Ctrl + Alt + Shift** to open the **Clipboard panel.** Select **Text input** to enable copy-paste. Clipboard panel will close automatically. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
+
+![Open Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard2.png)
+
+*  Move your mouse over the black bar in the bottom of the screen.
+    * Right-click and **Paste** the command you copied. 
+    * Command will appear in the terminal. Presss **Enter**. Update will start.
+
+![Use Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard3.png)
+
+* When update is finished, an icon called **New Data Gateway** will appear on your desktop. Use this icon to launch Data Gateway.
+
+### Step 3: Export all needed files to SD Connect 
 
 1. All project members move their data to **Shared folder** visible on their desktop. 
 2. **Only project manager** can export data to SD Connect. 
@@ -68,7 +97,7 @@ Before you begin, make sure you read the instructions carefully and agree on the
     ![Open export tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Export4.png)
 
 
-### Step 3: Create a new virtual desktop
+### Step 4: Create a new virtual desktop
 
 1. Select correct CSC project from dropdown on the left side.
 2. Click **Create desktop**.
@@ -90,7 +119,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 ![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
 
 
-### Step 4: Create a volume
+### Step 5: Create a volume
 
 1. Select correct CSC project from dropdown on the left side.
 2. Click **Create volume**. 
@@ -132,7 +161,7 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
 | Large  | 1000      | 4.7        |
 
 
-### Step 5: Attach a volume to a virtual desktop
+### Step 6: Attach a volume to a virtual desktop
 
 * [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Manage volumes** on the right side of the correct desktop.
 
@@ -146,7 +175,7 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
 ![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
 
 
-### Step 6: Import data to your volume via the Data Gateway application
+### Step 7: Import data to your volume via the Data Gateway application
 
 1. Access your desktop.  Launch **Data Gateway** by clicking icon on the left side of desktop.
 2. Select **SD Connect**. 
@@ -178,7 +207,7 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
 
 
 
-### Step 7: Delete old virtual desktop to save resources
+### Step 8: Delete old virtual desktop to save resources
 
 Users should delete old desktops to save resources.
 
@@ -201,6 +230,6 @@ Users should delete old desktops to save resources.
 
 ![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
 
-### Step 8: Customising virtual desktop
+### Step 9: Customising virtual desktop
 
 Continue to customise your desktop and learn about [available software](sd-desktop-software.md).

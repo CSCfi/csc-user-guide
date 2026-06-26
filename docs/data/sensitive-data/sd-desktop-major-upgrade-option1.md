@@ -5,22 +5,38 @@ Choose this if your analysis is short-term or almost finished, and you prefer to
 
 ## Step-by-step
 
-### Step 1: Save all important data to the volume
+### Step 1: Access desktop
+
+1. [Login](./sd-desktop-login.md) to SD Desktop. Select the correct CSC project in the top left corner. Now you can see all desktops in this project.
+
+2. Make sure the virtual desktop you want to access is running. If it is paused, you need to [unpause](sd-desktop-manage.md#unpausing-a-virtual-desktop) it before you can access it.
+  
+3. Access virtual desktop by clicking **Access desktop** on right side of the desktop name.
+
+When you open the connection, a virtual desktop will open in your browser in a new window. 
+
+![Access virtual desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
+
+
+### Step 2: Save all important data to the volume
 
 All project members should save data they want to keep to the volume. 
 
-* Log in to SD Desktop.
-* Access the correct desktop.
 * Open **Volume**.
 * Save data you want to keep to the volume. 
 
+![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Volume.png)
 
-### Step 2: Update Data Gateway application
 
-All project members who **plan to export data** to SD Connect need to update Data Gateway application.
+### Step 3: Update Data Gateway application
+
+All project members who **plan to import data** to SD Connect need to update Data Gateway application.
+
+Project manager needs to update update Data Gateway application to **export data**.
 
 * Open terminal.
-* Type 
+* Copy/paste this command to the terminal using **Clipboard.**
+* When update is finished, an icon called **New Data Gateway** will appear on your desktop. Use this icon to launch Data Gateway.
 
-Now you and project members can continue working in virtual desktop. 
+
 

@@ -4,25 +4,39 @@ Choose this if you want to use the latest features and your analysis will contin
 
 ## Step-by-step
 
-* [Step 1: Save all important data to the volume](#step-1-save-all-important-data-to-the-volume)
-* [Step 2: Set permissions for shared access](#step-2-set-permissions-for-shared-access)
-* [Step 3: Detach the volume](#step-3-detach-the-volume)
-* [Step 4: Create a new virtual desktop](#step-4-create-a-new-virtual-desktop)
-* [Step 5: Attach a volume to a virtual desktop](#step-5-attach-a-volume-to-a-virtual-desktop)
-* [Step 6: Delete old virtual desktop to save resources](#step-7-delete-old-virtual-desktop-to-save-resources)
-* [Step 7: Customising virtual desktop](#step-7-customising-virtual-desktop)
+* [Step 1: Access desktop](#step-1-access-desktop)
+* [Step 2: Save all important data to the volume](#step-2-save-all-important-data-to-the-volume)
+* [Step 3: Set permissions for shared access](#step-3-set-permissions-for-shared-access)
+* [Step 4: Detach the volume](#step-4-detach-the-volume)
+* [Step 5: Create a new virtual desktop](#step-5-create-a-new-virtual-desktop)
+* [Step 6: Attach a volume to a virtual desktop](#step-6-attach-a-volume-to-a-virtual-desktop)
+* [Step 7: Delete old virtual desktop to save resources](#step-7-delete-old-virtual-desktop-to-save-resources)
+* [Step 8: Customising virtual desktop](#step-8-customising-virtual-desktop)
 
 
-### Step 1: Save all important data to the volume
+### Step 1: Access desktop
+
+1. [Login](./sd-desktop-login.md) to SD Desktop. Select the correct CSC project in the top left corner. Now you can see all desktops in this project.
+
+2. Make sure the virtual desktop you want to access is running. If it is paused, you need to [unpause](sd-desktop-manage.md#unpausing-a-virtual-desktop) it before you can access it.
+  
+3. Access virtual desktop by clicking **Access desktop** on right side of the desktop name.
+
+When you open the connection, a virtual desktop will open in your browser in a new window. 
+
+![Access virtual desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
+
+
+### Step 2: Save all important data to the volume
 
 All project members should save data they want to keep to the volume. 
 
-* Log in to SD Desktop.
-* Access the correct desktop.
 * Open **Volume**.
 * Save data to the volume. 
 
-### Step 2: Set permissions for shared access
+![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Volume.png)
+
+### Step 3: Set permissions for shared access
 
 All project members should set permissions to their own files.
 
@@ -39,30 +53,18 @@ After saving files to volume, adjust permissions for folders and files to enable
 
 </div>
 
-
 ??? default "Method 1: Use CSC Tools to set access permissions"
 
-    If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions](sd-desktop-software.md#21-install-sd-software-installer).
-
-    1. Keep the **Data Gateway** connection open or launch Data Gateway:
-        - Select **SD Connect**.
-        - Click **Continue**. 
-        - In the next view you are asked to choose a folder for accessible files. Check that **Projects** folder is selected. 
-        - Click **Continue**.
-    2. **Launch SD Software Installer** by clicking the icon on your virtual desktop. The application will open and you can see the software available. 
+    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
     3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
-
-        ![Launch SD Installer](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CSC-tools2.png)
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
 
     4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
-
-        ![Install CSC Tools](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CSC-tools3.png)
-
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
     6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
     7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
     8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
-
-
 
 
 ??? default "Method 2: Set access permissions manually"
@@ -70,18 +72,14 @@ After saving files to volume, adjust permissions for folders and files to enable
     By default, permissions are limited to your access only (orange lock icon).
 
     1. Right-click the folder and select **Properties**.
-        ![Select properties](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Permissions1.png)
-
     2. Open the **Permissions** tab.
-        ![Select permissions tab](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Permissions2.png)
-
     3. Set permissions to **Create and Delete Files**:
        
         * Owner -> Access -> Select “Create and delete files”.
         * Group -> Access -> Select “Create and delete files”.
         * Others -> Access -> Select “Create and delete files”.
             
-        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Permissions3.png)
+        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
 
     * Next select **Change Permissions for Enclosed Files** button to adjust file permisssions inside the folder.
     * Set permissions to **Create and Delete files**:
@@ -89,18 +87,21 @@ After saving files to volume, adjust permissions for folders and files to enable
         * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         * Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Click **Change**.
 
-        ![Set file permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Permissions4.png)
+        ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
 
-    6. Click **Change**.
-    7. Close the permission tab (top right corner).
+    5. Close the permission tab (top right corner).
     
     The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
         
     **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 
-### Step 3: Detach the volume
+
+
+
+### Step 4: Detach the volume
 
 1. Log out of your virtual desktop.
 
@@ -115,7 +116,7 @@ After saving files to volume, adjust permissions for folders and files to enable
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
 
-### Step 4: Create a new virtual desktop
+### Step 5: Create a new virtual desktop
 
 1. Make sure you you have correct CSC project selected in **Select project** dropdown.
 2. Click **Create desktop**.
@@ -137,7 +138,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 ![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
 
 
-### Step 5: Attach a volume to a virtual desktop
+### Step 6: Attach a volume to a virtual desktop
 
 When you desktop is running, click **Manage volumes** on the right side of the correct desktop.
 
@@ -153,7 +154,7 @@ When you desktop is running, click **Manage volumes** on the right side of the c
 * Access your desktop and verify that all data is accessible.
 
 
-### Step 6: Delete old virtual desktop to save resources
+### Step 7: Delete old virtual desktop to save resources
 
 Users should delete old desktops to save resources.
 
@@ -177,6 +178,6 @@ Users should delete old desktops to save resources.
 ![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
 
 
-### Step 7: Customising virtual desktop
+### Step 8: Customising virtual desktop
 
 Continue to customise your desktop and learn about [available software](sd-desktop-software.md).
