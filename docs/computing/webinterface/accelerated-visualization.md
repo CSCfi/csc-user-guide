@@ -7,6 +7,7 @@ The Accelerated visualization app enables using visualization applications with 
 
 * [Blender](../../apps/blender.md)
 * [CloudCompare](../../apps/cloudcompare.md)
+* [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
 * [VisIt](../../apps/visit.md)
 
