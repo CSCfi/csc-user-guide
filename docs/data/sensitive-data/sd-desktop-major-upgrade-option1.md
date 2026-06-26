@@ -34,9 +34,28 @@ All project members who **plan to import data** to SD Connect need to update Dat
 
 Project manager needs to update update Data Gateway application to **export data**.
 
+
 * Open terminal.
-* Copy/paste this command to the terminal using **Clipboard.**
+
+![Open terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard1.png)
+
+
+* Copy this command:
+
+
+* Press **Ctrl + Alt + Shift** to open the **Clipboard panel.** Select **Text input** to enable copy-paste. Clipboard panel will close automatically. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
+
+![Open Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard2.png)
+
+*  Move your mouse over the black bar in the bottom of the screen.
+    * Right-click and **Paste** the command you copied. 
+    * Command will appear in the terminal. Presss **Enter**. Update will start.
+
+![Use Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard3.png)
+
 * When update is finished, an icon called **New Data Gateway** will appear on your desktop. Use this icon to launch Data Gateway.
+
+
 
 
 
