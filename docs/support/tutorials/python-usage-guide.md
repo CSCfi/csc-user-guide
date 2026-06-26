@@ -284,7 +284,7 @@ There are two ways to run VSCode on CSC supercomputers:
 
 [Spyder](https://www.spyder-ide.org/) is a scientific Python development
 environment. The [python-data](../../apps/python-data.md) and
-[geoconda](../../apps/geoconda.md) modules
+[python-geo](../../apps/python-geo.md) modules
 have Spyder included. The best option for using it is through the
 [Puhti web interface remote desktop](../../computing/webinterface/desktop.md).
 
@@ -307,13 +307,9 @@ parallelization. Please see the [CSC Dask tutorial](./dask-python.md) for
 examples of both single-node (max. 40 cores) and multi-node parallelization.
 
 In addition, there are examples of
-[using different parallelization options on Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+[using different parallelization options on Roihu](https://github.com/csc-training/geocomputing/tree/master/python/roihu)
 on our CSC Training GitHub organization. Of the above four packages, examples are
 provided for `multiprocessing`, `joblib` and `dask`.
 
 The `mpi4py` package is included in our [PyTorch environment](../../apps/pytorch.md).
 It is generally the most efficient option for multinode jobs with non-trivial parallelization.
-For a short tutorial on `mpi4py`, along with other approaches for improving the
-performance of Python programs, please see the free
-[Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc)
-online course.
