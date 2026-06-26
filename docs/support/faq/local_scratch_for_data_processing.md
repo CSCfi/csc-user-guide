@@ -20,7 +20,7 @@ One of the useful features of interactive batch jobs on Puhti is the NVMe-based
 project-specific directories *scratch* and *projappl* can store large amounts
 of data and are accessible to all nodes of Puhti. However, these directories
 are
-[inefficient for managing thousands of files](../../computing/running/throughput.md#io-and-the-parallel-file-system).
+[inefficient for managing thousands of files](../../computing/running/performance-checklist.md#mind-your-io---it-can-make-a-big-difference).
 
 Generally, you should avoid workflows that require creating large amounts of
 small files. If you anyhow need to work with thousands of files, you should
