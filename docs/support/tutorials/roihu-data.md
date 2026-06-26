@@ -22,14 +22,11 @@
      * Puhti computing services will be shut down one month after Roihu is available, earliest by 31 July 2026 at 12:00 EEST.
      * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
      * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
-     
-     Users are strongly encouraged to move any required data from these systems by the **end of August 2026**,
-     as storage access cannot be fully guaranteed after that.
 
-     Puhti and Mahti storage services will be decommissioned 15 October 2026, at 12:00 EEST but
+     Puhti and Mahti storage services will be decommissioned 15 October 2026 at 12:00 EEST, but
      are not covered by service contracts after end of August.
      Due to this, aim to complete your data transfers from Mahti and/or Puhti
-     by the end of August 2026, or by October 15th at the very latest.
+     by the **end of August 2026**, or by October 15th at the very latest.
 
 ## 1. General guidelines and prerequisites
 

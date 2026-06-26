@@ -33,7 +33,7 @@ New users are recommended to start working on the
 [Roihu supercomputer](../../computing/available-systems.md#roihu), as
 Puhti and Mahti are being decommissioned in 2026.
 
-* Puhti computing services will be shut down on month after Roihu becomes available, earliest by 31 July 2026
+* Puhti computing services will be shut down by 31 July 2026
 * Mahti computing services will be shut down by 31 August 2026
 * Puhti and Mahti storage and login nodes are planned to remain accessible
 until 15 October 2026
@@ -82,7 +82,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
 
 !!! warning "Do not start new work on Puhti"
      Puhti will be decommissioned over the summer 2026, and its storage will be
-     fully inaccessible after the end of August 2026.
+     fully inaccessible after mid October 2026.
 
      If you are a new user, we advise you to start using Roihu for your supercomputing needs.
 
@@ -97,7 +97,7 @@ CPU nodes on Puhti have
 
 !!! warning "Do not start new work on Mahti"
      Mahti will be decommissioned over the summer 2026, and it will be
-     fully inaccessible after the end of August 2026.
+     fully inaccessible after mid October 2026.
 
      If you are a new user, we advise you to start using Roihu for your supercomputing needs.
 

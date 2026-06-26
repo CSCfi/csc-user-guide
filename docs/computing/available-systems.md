@@ -5,8 +5,8 @@
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu is available, earliest by 31 July 2026 at 12:00 EEST.
-    * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
+    * Puhti computing services will be shut down 31 July 2026 at 12:00 EEST.
+    * Mahti computing services will be shut down 31 August 2026 at 12:00 EEST.
     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
     * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
@@ -27,8 +27,8 @@ consisting of GPU-accelerated nodes became available in 2023.
 ## Roihu
 
 The Roihu supercomputer, BullSequana XH3000 hybrid system, is CSC's next
-national supercomputer and will replace Puhti and Mahti in summer 2026. Roihu is
-designed as a versatile system for CPU and GPU computing, AI workloads,
+national supercomputer and is replacing Puhti and Mahti over the summer, in 2026.
+Roihu is designed as a versatile system for CPU and GPU computing, AI workloads,
 data-intensive research and applications requiring large memory.
 
 Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes

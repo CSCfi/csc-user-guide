@@ -115,7 +115,7 @@ and automatically provides a GPU slice when run from a Roihu-GPU login node.
     The Roihu `gpuinteractive` partition uses GH200 superchips divided into 48 smaller slices.
     Each slice has one-seventh of the compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
 
-!!! note "GPU slices during the pilot"
+!!! note "GPU slices not yet fully configured"
     GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
     will instead provide full GPUs.
 
@@ -129,17 +129,6 @@ Roihu also features the following partition for interactive use and data visuali
 
 Each node in the partition has 2 Nvidia L40 GPUs with 44 GiB of memory and a 64-core AMD EPYC 9335 CPU.
 Each reserved GPU grants access to up to 32 CPU cores and 183 GiB of CPU memory.
-
-### Roihu pilot partitions
-
-In addition to the regular partitions, the following partitions are
-available during the Roihu pilot phase:
-
-| Partition  | Allocation type | Time limit | Nodes   | Max CPUs      | Max GPUs      | [Node types](../systems-roihu.md#nodes) |
-|------------|-----------------|------------|---------|---------------|---------------|-----------------------------------------|
-| `pilot`    | N               | 24 hours   | 1 - 200 | 384 per node  | 0             | M                                       |
-| `gpupilot` | G               | 48 hours   | 1 - 60  | 288 per node  | 4 per node    | GPU                                     |
-
 
 ### Local storage on Roihu nodes
 
