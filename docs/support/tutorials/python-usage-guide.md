@@ -257,7 +257,7 @@ Many of our Python environments, including
 as well as deep learning modules like [`python-pytorch`](../../apps/pytorch.md) (pytorch on Puhti and Mahti)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
-[list of supported environments](../../computing/webinterface/jupyter.md#currently-supported-python-environments).
+[list of supported environments](../../computing/webinterface/jupyter.md#supported-python-environments-on-roihu).
 
 ### Visual Studio Code
 

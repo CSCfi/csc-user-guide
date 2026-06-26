@@ -379,6 +379,7 @@ nav:
               - Jupyter: computing/webinterface/jupyter.md
               - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
               - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
+              - marimo: computing/webinterface/marimo.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
               - R-Jupyter: computing/webinterface/r-jupyter.md
