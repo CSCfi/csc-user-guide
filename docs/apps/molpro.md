@@ -215,28 +215,58 @@ is one core less per node available for the actual calculation.
 | 2×20  | 786                  | 729                |
 | 2×40  | 716                  | 701                |
 
-The following results were obtained on Roihu for a benzene CCSD(T)/aug-cc-pVQZ
-single-point energy calculation (756 basis functions) with `memory,1000,m` on
-an M-node with Lustre scratch. Each run used one node with the specified number
-of MPI tasks (one of which is a helper process). The jobs were run in isolation
-with no other jobs on the node.
+The following results were obtained on Roihu M-nodes with Lustre scratch.
+Jobs were run sequentially with no other jobs on the node. Wall times on
+shared nodes (typical in the `small` partition) may vary by ±20–50% due to
+I/O and memory bandwidth contention from co-located jobs.
 
-| MPI tasks | Workers | Wall time (s) | Peak scratch | Energy (Eh)          |
-|-----------|---------|---------------|--------------|----------------------|
-| 6         | 5       | 662           | ~98 GB       | -231.877529525498    |
-| 12        | 11      | 552           | ~98 GB       | -231.877529525485    |
-| 24        | 23      | 495           | ~98 GB       | -231.877529525481    |
-| 48        | 47      | 521           | ~98 GB       | -231.877529525485    |
+**Conventional CCSD(T)/aug-cc-pVQZ — benzene (756 basis functions),
+`memory,1000,m`:**
+
+| MPI tasks | Workers | Wall time (s) | Peak scratch |
+|-----------|---------|---------------|--------------|
+| 6         | 5       | 662           | ~98 GB       |
+| 12        | 11      | 552           | ~98 GB       |
+| 24        | 23      | 495           | ~98 GB       |
+| 48        | 47      | 521           | ~98 GB       |
 
 The input file is available at
 [benzene_ccsd_t_avqz.inp](https://a3s.fi/project_2001659-molpro/benzene_ccsd_t_avqz.inp).
 
-!!! note
-    These timings reflect isolated runs. On a shared node (typical in the
-    `small` partition) wall times may be longer due to I/O and memory bandwidth
-    contention from other jobs. The `memory,1000,m` setting is sufficient for
-    this calculation — increasing memory does not improve performance since the
-    bottleneck is CPU, not memory or I/O.
+**CCSD(T)-F12b/cc-pVTZ-F12 — naphthalene (674 basis functions),
+`memory,1000,m`:**
+
+| MPI tasks | Workers | Wall time (s) | Peak scratch |
+|-----------|---------|---------------|--------------|
+| 6         | 5       | 1250          | ~62 GB       |
+| 12        | 11      | 761           | ~62 GB       |
+| 24        | 23      | 811           | ~62 GB       |
+| 48        | 47      | 842           | ~62 GB       |
+
+The input file is available at
+[naphthalene_ccsd_t_f12b_vtz.inp](https://a3s.fi/project_2001659-molpro/naphthalene_ccsd_t_f12b_vtz.inp).
+
+For comparison, the same naphthalene calculation at the conventional
+CCSD(T)/aug-cc-pVQZ level would require ~400 GB of scratch disk. The F12
+approach reduces this to ~62 GB while using a smaller basis set (674 vs ~1500
+basis functions for aug-cc-pVQZ).
+
+!!! note "Estimating memory requirements"
+    Molpro's internal memory statistics (printed at the end of the output
+    file) only cover the CCSD steps and underestimate the true peak. After
+    a completed run, check actual memory usage with:
+
+    ```bash
+    sacct -j <jobid> --format=JobID,MaxRSS,Elapsed,State
+    ```
+
+    Divide `MaxRSS` by the number of worker tasks and by 8 to get the
+    equivalent value in MW for the `memory` directive. Use this to tune
+    `--mem-per-cpu` and `memory` for future runs.
+
+    For naphthalene CCSD(T)-F12b/cc-pVTZ-F12 with 12 tasks, the minimum
+    working memory is ~500 MW (`--mem-per-cpu=4000`). Using `memory,1000,m`
+    (`--mem-per-cpu=8000`) gives the best performance.
 
 
 ## References
