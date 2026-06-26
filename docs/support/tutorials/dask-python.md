@@ -11,7 +11,7 @@ Keep in mind that the other ways of code parallelisation might suit better in di
 
 ## Single-node parallelisation with delayed functions and a local cluster
 
-This way you can utilize one full computing node's worth of CPUs (40 in Puhti)
+In this example, we use four CPUs per tasks because we have four datasets. With this approach, you can utilize at maximum one full computing node's worth of CPUs.
 
 __batch job file__
 ```
@@ -21,7 +21,7 @@ __batch job file__
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem-per-cpu=4G
+#SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
 
 ### Load the python-data module
@@ -72,7 +72,7 @@ __master job batch job file__
 #SBATCH --time=01:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=4G
+#SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
 
 ### Load the python-data module
@@ -84,7 +84,7 @@ srun python dask_multinode.py <YOUR-PROJECT>
 
 The worker jobs are defined inside the Python file started by master SLURM job, for further details see: [Dask Jobqueue configurations documentation](https://jobqueue.dask.org/en/latest/configuration-setup.html).
 
-* `cores` - How many cores per node to use? In bigger jobs one worker SLURM job should fill the whole HPC node, ie 40 cores in Puhti.
+* `cores` - How many cores per node to use? In bigger jobs one worker SLURM job should fill the whole HPC node.
 * `processes` - How many Python processes per node to use?
 * `memory`- How much memory per node to use? This should be enough for all Dask workers in that node. If unsure, try with cores*6Gb.
 * `walltime` - Reserve enough time as one worker may handle several delayed functions, if the number of workers is smaller than the number of delayed functions.
@@ -138,17 +138,17 @@ When the worker SLURM jobs finish, they will be displayed as CANCELLED on SLURM,
 
 ## Dask with Jupyter 
 
-For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Puhti it is available in [geoconda](../../apps/geoconda.md) module). 
+For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Roihu it is available in [python-geo](../../apps/python-geo.md) module). 
 
-Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Puhti web interface, pay attention to computing resource reservation: 
+Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Roihu web interface, pay attention to computing resource reservation: 
 
-* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Puhti. With `LocalCluster` maximum of one HPC node can be used, so 40 cores in Puhti.
+* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Roihu. With `LocalCluster` maximum of one HPC node can be used, so 384 cores in Roihu.
 * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
 ### Dask Dashboard on separate browser tab
 
 * Create new cluster from Python code.
-* Open [Dask Dashboard](https://docs.dask.org/en/latest/dashboard.html) in a separate browser tab. The URL is something like this: `https://puhti.csc.fi/rnode/r07c51.bullx/8787/status`. Replace the node name (`r07c51.bullx`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
+* Open [Dask Dashboard](https://docs.dask.org/en/latest/dashboard.html) in a separate browser tab. The URL is something like this: `https://roihu.csc.fi/rnode/rc4183/8787/status`. Replace the node name (`rc4183`), with the node used in your job, visible in URL of your Jupyter page, and the port number (`8787`), given in the printout after cluster is created on Dashboard row.
 
 Info tab does not work in this set-up, but other tabs should work.
 
@@ -176,7 +176,7 @@ Another option would be to use [Jupyter opened the SSH tunnelling way](rstudio-o
 - [Dask homepage](https://dask.org/)
 - [Dask tutorials](https://tutorial.dask.org/index.html)
 - [Dask examples](https://examples.dask.org/)
-- [Full examples of Dask used in Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti/06_parallel_dask)
+- [Full examples of Dask used in Roihu](https://github.com/csc-training/geocomputing/tree/master/python/roihu/06_parallel_dask)
 - [CECAM, High Throughput Computing with Dask course materials](https://www.cecam.org/workshop-details/1022)
 - [ENCCS Dask for scalable analytics lesson](https://enccs.github.io/hpda-python/dask/)
 - [NCAR Dask tutorial](https://ncar.github.io/dask-tutorial/README.html)

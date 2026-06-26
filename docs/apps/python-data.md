@@ -57,7 +57,7 @@ Current versions in Roihu are:
   includes for example Cupy 14.0.1 in addition to the Python libraries available in Roihu-CPU python-data.
 
 - Roihu-GPU: `python-data/3.10-17.04`: installed in April 2026,
-  includes for example Cupy 13.6.0 in addition to the Python libraries available in Roihu-CPU python-data.
+  includes the Python libraries available in the default Roihu-GPU python-data environment with Python 3.10.
 
 Current versions in Puhti and Mahti are:
 
