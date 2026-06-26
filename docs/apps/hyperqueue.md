@@ -264,7 +264,7 @@ hq server stop
 
 ### Using Snakemake or Nextflow with HyperQueue
 
-See a [Nextflow](../support/tutorials/nextflow-tutorial.md#running-nextflow-with-hyperqueue-executor) or [Snakemake tutorial](../support/tutorials/snakemake-puhti.md#running-snakemake-with-hyperqueue-executor) for instructions on
+See a [Nextflow](../support/tutorials/nextflow-tutorial.md#running-nextflow-with-hyperqueue-executor) or [Snakemake](../apps/snakemake.md#running-snakemake-with-hyperqueue-executor) page for instructions on
 using HyperQueue as an executor for Nextflow or Snakemake workflows.
 
 ### Multinode tasks

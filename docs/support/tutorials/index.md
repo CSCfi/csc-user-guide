@@ -39,7 +39,7 @@
 * [FireWorks workflow manager](../../computing/running/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
 * [Running Nextflow pipelines](nextflow-tutorial.md)
-* [Running Snakemake pipelines on Puhti](snakemake-puhti.md)
+* [Running Snakemake pipelines on Puhti](../../apps/snakemake.md)
 
 ## Resources for courses
 

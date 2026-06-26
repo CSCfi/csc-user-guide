@@ -150,8 +150,8 @@ which lets you build a task graph where each task can declare the tasks it depen
 ### Snakemake
 
 [Snakemake](../../apps/snakemake.md) is a popular Python-based workflow manager with dependency support and
-automatic container integration. See the [Snakemake on Puhti
-tutorial](../../support/tutorials/snakemake-puhti.md) for how to run it at CSC,
+automatic container integration. See the [Snakemake
+page](../../apps/snakemake.md#usage) for how to run it at CSC,
 including with the HyperQueue executor.
 
 ### Nextflow
