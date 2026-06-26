@@ -63,7 +63,7 @@ Since version 0.4.30, the JAX module comes in two flavours:
   check `pip list` for a full list of all included packages. These follow the naming scheme `jax/<version>`,
   or you can simply use `jax` to load the default (latest) version.
 
-On Roihu-GPU there only a single module with a full set of
+On Roihu-GPU there is only a single module with a full set of
 packages. The module on Roihu-GPU has been renamed to `python-jax`.
 
 All modules are based on containers using Apptainer (previously known

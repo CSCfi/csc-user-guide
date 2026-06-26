@@ -1,8 +1,8 @@
 # Dask tutorial
 
-[Dask](https://dask.org/) is a versatile Python library for scalable analytics. When using Dask, two main decisions have to be made for running code in Parallel. 
+[Dask](https://dask.org/) is a versatile Python library for scalable analytics. When using Dask, two main decisions have to be made for running code in parallel.
 
-1. **How to make the code parallel?** Dask provides several options, inc [Dask DataFrames](https://docs.dask.org/en/stable/dataframe.html), [Dask Arrays](https://docs.dask.org/en/stable/array.html) and [Dask Delayed](https://docs.dask.org/en/stable/delayed.html). This decision depends on the type of analyzed data and already existing code. Additionally Dask has support for scalable machine learning with [DaskML](https://ml.dask.org/).
+1. **How to make the code parallel?** Dask provides several options, inc. [Dask DataFrames](https://docs.dask.org/en/stable/dataframe.html), [Dask Arrays](https://docs.dask.org/en/stable/array.html) and [Dask Delayed](https://docs.dask.org/en/stable/delayed.html). This decision depends on the type of analyzed data and already existing code. Additionally Dask has support for scalable machine learning with [DaskML](https://ml.dask.org/).
 2. **How to run the parallel code?** Again Dask supports several options: default local cluster and many different [Distributed Clusters](https://distributed.dask.org/en/stable/) for [Cloud](https://docs.dask.org/en/latest/deploying-cloud.html), [Kubernetes](https://docs.dask.org/en/latest/deploying-kubernetes.html) and [supercomputers](https://docs.dask.org/en/latest/deploying-hpc.html) etc. This depends on available hardware. Changing from one cluster to another is code-wise relatively easy. So when starting with Dask, it is recommended to first use a local cluster and go to more advanced Distributed Clusters after understanding the basics.
 
 In this tutorial we use Delayed functions. Delayed functions are useful in parallelising existing code. This approach delays function calls and creates a graph of the computing process. From the graph, Dask can then divide the work tasks to different workers whenever parallel computing is possible. Two options suitable for supercomputers are provided for running Dask clusters: single node using a local cluster and multiple nodes using SLURMCluster.
@@ -11,7 +11,7 @@ Keep in mind that the other ways of code parallelisation might suit better in di
 
 ## Single-node parallelisation with delayed functions and a local cluster
 
-In this example, we use four CPUs per tasks because we have four datasets. With this approach, you can utilize at maximum one full computing node's worth of CPUs.
+In this example, we use four CPUs per task because we have four datasets. With this approach, you can utilize at maximum one full computing node's worth of CPUs.
 
 __batch job file__
 ```

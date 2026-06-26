@@ -222,4 +222,4 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
 
-![Roihu supercomputer – coming in spring 2026!](https://a3s.fi/docs-files/ROIHU_MACHINE_Transp.png 'Roihu supercomputer – coming in spring 2026!')
+![Roihu supercomputer – now available for use!](https://a3s.fi/docs-files/ROIHU_MACHINE_Transp.png 'Roihu supercomputer – now available for use!')

@@ -76,7 +76,7 @@ See a CSC short talk for **how to use object storage** and **how to apply for a 
 Use the Allas or LUMI-O instructions if:
 
 - you have data on Mahti or Puhti that must be preserved before the storage servers are shut down (15 October 2026)
-- you cannot wait until Roihu is generally available before starting the transfer (end of June 2026), or you cannot complete a direct transfer to Roihu before the Mahti/Puhti storage shutdown
+- you cannot complete a direct transfer to Roihu before the Mahti/Puhti storage shutdown
 - you need temporary object storage for the transition period
 
 Do not use the Allas or LUMI-O instructions to automatically move everything to Allas or LUMI-O. Before transferring data, **review what you actually need to keep**.
@@ -257,7 +257,7 @@ rclone copy /scratch/project_2000000/mydata s3allas:project-2000000-roihu-transf
 ### 6. Downloading data later to Roihu from Allas
 
 After Roihu is available, log in to Roihu and configure access to the object storage service that contains your data, following
-instructions that will be provided in the [tutorial for using Allas in CSC supercomputers](https://csc-guide-preview.2.rahtiapp.fi/origin/roihu/data/Allas/allas-hpc/).
+instructions in the [tutorial for using Allas in Roihu](../../data/Allas/allas-roihu.md).
 The approach is very similar to Mahti and Puhti.
 
 Then copy the data from object storage to the appropriate Roihu disk area.
