@@ -1,28 +1,14 @@
 # Array jobs
 
-In many cases, a computational analysis job contains a number of similar independent subtasks.
-A user may have several datasets that are analyzed in the same way, or the same simulation code
-is executed with a number of different parameters. These kinds of tasks are often called
-_embarrassingly parallel_ jobs, or collectively _task farming_, since they can, in principle,
-be distributed to as many processors as there are tasks to run.
+Array jobs are the native Slurm mechanism for submitting a number of similar, independent
+subtasks with a single command, for example analyzing several datasets the same way or running
+the same simulation with a number of different parameters.
 
-Array jobs may be a suitable approach if:
-
-1. The runtime of each independent job is long enough for the SLURM batch system
-    overhead to be irrelevant.
-    * Individual runtimes are longer than about 30 minutes.
-2. The total number of independent jobs is not excessively large.
-    * A user can only have up to 400 jobs either running or queuing on the batch
-      system.
-
-!!! note "Other options"
-    When the runtimes are very short or the number of individual jobs is very large,
-    there are more suitable options for running high-throughput calculations.
-    The recommended tool for these use cases is [HyperQueue](../../apps/hyperqueue.md).
-    Alternatives include the
-    [Linux `xargs` utility](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/xargs.html)
-    (see [this batch script](https://a3s.fi/pub/xargsjob.sh) for a usage example)
-    and the [GNU Parallel shell tool](../../support/tutorials/many.md).
+Array jobs are a good fit when the runtime of each subtask is long enough (longer than about
+30 minutes) that the Slurm scheduling overhead is negligible. When the runtimes are very short,
+the number of subtasks is very large, or the tasks have dependencies, see
+[high-throughput computing and workflows](throughput.md) for more suitable tools such as
+HyperQueue.
 
 ## Defining an array job
 
