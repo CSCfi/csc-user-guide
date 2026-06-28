@@ -472,7 +472,6 @@ srun myprog -i input -o output
 ```
 
 ### Using the small partition for non-parallel pre- or post-processing
-``
 
 In many cases, large computing tasks include pre- or post-processing steps that are not able to utilize parallel computing.
 In these cases it is recommended that, if possible, the task is split into several, chained, batch jobs and that the non-parallel

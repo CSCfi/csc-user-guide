@@ -36,7 +36,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**scratch** |250 GiB |500 000 files  |                              |
 |**dataset**|0 GiB   |0 files        |Must be applied for separately|
 
-!!! info "LUE (not implemented 2026-04-22)"
+!!! info "LUE"
     To easily check the amount of data and number of files within a given folder on
     the parallel file system, please consider using the [LUE](../support/tutorials/lue.md)
     tool. This tool is significantly faster than tools like `stat` or `du` and causes
