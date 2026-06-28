@@ -172,8 +172,9 @@ Allas can be found in the [Allas guide](../data/Allas/index.md).
 Roihu users can apply for separate dataset projects, which provide access to a shared disk
 area under `/dataset/<project>`, but no computational resources.
 
-!!! note "Dataset project is not available yet"
-     The dataset project is not yet available, and will be implemented into Roihu after general availability.
+!!! note "Dataset project access begins in early August" 
+     You can already apply for a dataset project in MyCSC.
+     Based on the applications, the first dataset projects will be approved and granted access in early August 2026.
 
 Unlike normal computational projects, dataset projects do not include scratch or projappl
 directories. Instead, they are designed specifically for sharing data between multiple
@@ -247,19 +248,43 @@ need to process large amounts (over 100 000) of small files.
 Data in local storage is removed when the job finishes. You must copy any results you want to
 keep to `scratch` or Allas before the job ends.
 
-Based on your [Slurm job reservation](running/batch-job-partitions.md) type, you will have access
+Based on your [Slurm job reservation](running/batch-job-partitions.md#roihu-partitions) type, you will have access
 to the following amount of local disk space:
 
-| Allocation type           | Quota per user |
-|:--------------------------|---------------:|
-| R (Shared nodes)          | 20 GiB         |
-| N (Full nodes)            | 600 GiB        |
-| G (GPU nodes)             | 150 GiB        |
-| XL (Hugemem nodes)        | 1.6 TiB        |
-| VIZ (Visualization nodes) | 6.5 TiB        |
+#### Automatic local temporary storage
+
+For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
+
+| Allocation type           | Path      | Quota per user |
+|:--------------------------|-----------|---------------:|
+| R (Shared nodes)          | `$TMPDIR` | 20 GiB         |
+| N (Full nodes)            | `$TMPDIR` | 600 GiB        |
+| G (GPU nodes)             | `$TMPDIR` | 150 GiB        |
+| XL (Hugemem nodes)        | `$TMPDIR` | 1.6 TiB        |
+| VIZ (Visualization nodes) | `$TMPDIR` | 6.5 TiB        |
 
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
+
+#### Reserved local scratch storage
+
+Roihu's hugemem (XL) and visualization (Viz) nodes provide some local disk storage under `$TMPDIR`.
+On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for larger temporary storage needs.
+
+This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
+Reserved `$LOCAL_SCRATCH` storage consumes billing units.
+
+!!! note "Local scratch support will be added later"
+     The local scratch feature on XL and Visualization nodes is not yet
+     implemented. Use `$TMPDIR` for your local storage needs until this feature is added.
+
+| Allocation type           | Path             | Maximum reservable local scratch |
+|:--------------------------|------------------|---------------------------------:|
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | TBA                              |
+| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
+
+Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
+local scratch usage consumes.
 
 ## Disaggregated storage
 
