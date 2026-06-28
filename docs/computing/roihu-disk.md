@@ -212,7 +212,7 @@ as this can lead to performance issues on the whole filesystem.
 
 !!! info
     To find out how much data/files you have on the disk, please use our [LUE
-    tool](../support/tutorials/lue.md) (not implemented 2026-04-22) which is much more performant than standard
+    tool](../support/tutorials/lue.md) which is much more performant than standard
     tools such as `stat` or `du`.
 
 ## Temporary local disk areas
