@@ -1,4 +1,4 @@
-# GNU Parallel and xargs workflows for many small, independent runs
+# GNU xargs and parallel workflows for many small, independent runs
 
 ## Overview
 
@@ -112,7 +112,7 @@ in time all 40 cores are busy, but not overloaded.
 Next lines calculate which directories belong to the current array job, using
 the `SLURM_ARRAY_TASK_ID` environment variable.
 
-The main "loop" of the script is implemented with `xargs` command (or GNU Parallel `parallel command).
+The main "loop" of the script is implemented with `xargs` command (or GNU Parallel `parallel` command).
 With the option `-P $SLURM_CPUS_PER_TASK` we tell xargs to
 keep running 40 commands (applications) in parallel. Since we need to copy
 files into and out from the local SSD for each run, we wrap our application in a
