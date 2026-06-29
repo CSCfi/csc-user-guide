@@ -394,6 +394,11 @@ nav:
           - Technical details: computing/quantum-computing/specs.md
           - FiQCI partition: computing/quantum-computing/fiqci-partition.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
+      - FirecREST HPC API:
+          - computing/firecrest/index.md
+          - Connecting: computing/firecrest/connecting.md
+          - Data transfer over S3: computing/firecrest/data-transfer-s3.md
+          - Python SDK: computing/firecrest/pyfirecrest.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
