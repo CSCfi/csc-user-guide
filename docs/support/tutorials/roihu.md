@@ -1,12 +1,5 @@
 # Getting started with Roihu
 
-!!! warning "Roihu not yet available for use"
-     Roihu is not yet available for use and cannot be added
-     as a service yet in MyCSC.
-
-     You can use this tutorial to familiarize yourself with moving to Roihu
-     and getting started before it becomes available end of June 2026.
-
 This guide assumes familiarity with CSC supercomputers such as Puhti, Mahti or LUMI.
 
 If you are new to CSC systems, start with the [getting started with supercomputing guide](hpc-quick.md).
@@ -90,7 +83,7 @@ Note that there may be a short delay of a few minutes before you can connect.
 Connect to Roihu using either:
 
 * [SSH client](#ssh-client)
-* [Roihu web interface (available after general availability)](#roihu-web-interface)
+* [Roihu web interface](#roihu-web-interface)
 
 ### SSH client
 
@@ -99,7 +92,7 @@ To connect via SSH:
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
     * Certificates are valid for **24 hours**
-    * See our instructions for managing certificates: [Signing public SSH keys (Section to be added)](../../computing/connecting/ssh-keys.md)
+    * See our instructions for managing certificates: [Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key)
 
 For platform-specific instructions, see:
 
@@ -152,13 +145,13 @@ that you:
 Note that previous extended disk quotas on Puhti or Mahti will not be automatically moved to Roihu.
 Quota extensions on Roihu must be separately applied for and properly motivated.
 
-**[Read the detailed instructions in the Roihu data migration guide](roihu-data-preparation.md).**
+**[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
 
 ## Installing software
 
 Before installing anything, check if the software is already available:
 
-- [List of pre-installed applications](../../apps/by_availability.md)
+- [List of pre-installed applications](../../apps/by_availability.md#roihu)
 - `module spider <software name>`
 
 If the software is not available as a module, choose one of the following approaches depending on your needs:
@@ -169,8 +162,8 @@ HPC software written using programming languages, such as C, C++, or Fortran nee
 
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU (section TBA)](../../computing/index.md)
-- [Compiling on Roihu-GPU (section TBA)](../../computing/index.md)
+- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-cpu)
+- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
 
 ### Containers
 
@@ -305,7 +298,7 @@ Spack is similar to the EasyBuild package manager extensively used on LUMI.
 CSC provides user Spack modules on Roihu, that can be used to build software on top of the available compilers and libraries.
 It is also possible to install different customized versions of packages available in the module tree for special use cases.
 
-[See here for a short tutorial on how to install software on Roihu using Spack.](user-spack.md)
+[See here for a short tutorial on how to install software on Roihu using Spack.](roihu-user-spack.md)
 
 ### Python/R environments
 
@@ -331,8 +324,8 @@ Basic workflow:
 See the relevant documentation below for detailed information:
 
 1. [Available batch job partitions](../../computing/running/batch-job-partitions.md)
-1. [Creating a batch job script](../../computing/running/creating-job-scripts-mahti.md)
-1. [Example job scripts](../../computing/running/example-job-scripts-mahti.md)
+1. [Creating a batch job script](../../computing/running/creating-job-scripts-roihu.md)
+1. [Example job scripts](../../computing/running/example-job-scripts-roihu.md)
 1. [Submit a batch job](../../computing/running/submitting-jobs.md)
 1. [Performance checklist](../../computing/running/performance-checklist.md)
 

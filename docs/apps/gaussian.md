@@ -10,6 +10,7 @@ catalog:
   available_on:
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # Gaussian
@@ -21,13 +22,14 @@ electronic structure modeling.
 
 - Puhti: `G16RevC.02`
 - Mahti: `G16RevC.02`
+- Roihu: `G16RevC.02`
 
 ## License
 
 CSC has acquired a full commercial license for Gaussian. It is available to all
 approved account holders, subject to license restrictions. To use Gaussian at
-CSC, **your user ID must be added to the Gaussian user group.** Send a request
-to the [CSC Service Desk](../support/contact.md).
+CSC, **your user ID must be added to the `gaussian2` user group.** Send a
+request to the [CSC Service Desk](../support/contact.md).
 
 ## Usage
 
@@ -50,6 +52,52 @@ where:
 - `[NVMe disk]` (optional) is the request for fast local NVMe disk in GB.
 
 Run `subg16` without arguments to display more details.
+
+### Running on Roihu
+
+On Roihu, Gaussian jobs must be submitted from the **CPU login node**
+(`roihu-cpu`). The workflow is otherwise the same as on Puhti and Mahti: load
+the module and use `subg16` to submit jobs:
+
+```bash
+module load gaussian/G16RevC.02
+subg16 hhh:mm:ss jobname <your project id> [local disk GB] [--no-submit]
+```
+
+Examples:
+
+```bash
+subg16 05:30:00 h2o <your project id>                  # basic submission
+subg16 05:30:00 h2o <your project id> 10               # with 10 GiB local disk (future use, see below)
+subg16 05:30:00 h2o <your project id> --no-submit      # generate the job file without submitting
+```
+
+The number of cores (`%NProcShared`) and memory (`%Mem`) are read directly
+from the input `.com` file. Run `subg16` without arguments for a full usage
+summary.
+
+**Partitions.** The Roihu `subg16` script selects the batch partition
+automatically based on the requested wall time:
+
+| Partition | Maximum wall time |
+|-----------|-------------------|
+| `small`   | 72 hours (3 days) |
+| `longrun` | 240 hours (10 days) |
+
+**Memory.** The script adds a 1 500 MB overhead on top of your `%Mem` value
+when reserving memory from Slurm. The maximum supported `%Mem` is capped at
+the M-node limit of 768 GiB. Set `%Mem` to slightly less than the total node
+memory to leave room for the operating system.
+
+**Local NVMe disk.** While Roihu CPU nodes include a 960 GB local disk,
+on-demand local NVMe allocation via `subg16` is **not yet available** for
+standard M-nodes. When a local disk size is requested, scratch I/O currently
+falls back to Lustre with optimised striping applied automatically by the
+script. Local NVMe support will be enabled in a future update. Roihu's
+Lustre scratch is over ten times faster than Puhti's, so performance for most
+jobs is not significantly impacted in the meantime.
+
+
 
 ## Performance considerations
 
@@ -100,6 +148,13 @@ memory needs.
     result, the optimal number of cores used by Gaussian may sometimes be lower
     than the number of reserved cores, depending on memory requirements.
 
+!!! info "Note"
+    On Roihu, the standard CPU nodes (M-nodes) have 768 GiB of memory shared
+    across 384 cores, giving approximately **2 GiB per core**. The `subg16`
+    script enforces this as a hard upper limit for `%Mem`. A 1 500 MB overhead
+    is automatically added to your `%Mem` value when reserving memory from
+    Slurm, so set `%Mem` accordingly to stay within the node limit.
+
 ### Using local disk (NVMe)
 
 For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
@@ -109,6 +164,12 @@ calculations**, using the fast **NVMe local disk** on
 [Mahti](../computing/running/creating-job-scripts-mahti.md#local-storage) can
 significantly improve performance. Using local disk for such jobs will also
 reduce the overall load on the Lustre parallel file system.
+
+On **Roihu**, local NVMe allocation via `subg16` is not yet available for
+standard CPU nodes; scratch I/O currently uses Lustre with optimised striping.
+Roihu's Lustre scratch is over ten times faster than Puhti's, so the impact
+on most jobs is modest. NVMe support via `subg16` will be enabled in a future
+update.
 
 ```bash
 subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
@@ -146,10 +207,11 @@ Gaussian's performance and what factors should be considered. We use
 vitamin E) as the input structure. The input file is available at
 [vitamin_e.com](https://a3s.fi/gaussian/vitamin_e.com).
 
-The tests were conducted in a **production environment**, where job
-interference may introduce performance fluctuations. Additionally, some
-variability arises from the arbitrary placement of allocated cores within a
-node. This internal hierarchy can influence performance.
+The tests below were conducted on **Puhti and Mahti** in a production
+environment, where job interference may introduce performance fluctuations.
+Additionally, some variability arises from the arbitrary placement of allocated
+cores within a node. Performance benchmarks for **Roihu** will be added once
+they are available.
 
 First, we compare the runtime and scaling of a `b3lyp/cc-pVDZ, %mem=10GB, 10GB
 NVMe` single-point calculation. This calculation requires only modest memory

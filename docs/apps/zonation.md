@@ -10,7 +10,9 @@ catalog:
   available_on:
     - web_interfaces:
         - Puhti
+        - Roihu
     - Puhti
+    - Roihu
 ---
 
 # Zonation
@@ -20,12 +22,13 @@ catalog:
 
 ## Available
 
-__Zonation__ including Graphical User Interface is available in Puhti with following versions:
+__Zonation__ including Graphical User Interface is available with following versions:
 
-* 5.2.3
-* 5.2.1 
-* 5.2.0.2 
-* 5.1.0
+* 5.2.4 in Roihu
+* 5.2.3 in Puhti
+* 5.2.1 in Puhti
+* 5.2.0.2 in Puhti
+* 5.1.0 in Puhti
 
 
 ## Usage
@@ -39,7 +42,7 @@ z5 <command arguments>
 
 With version 5.2.1 you can also use `zonation5 <command arguments>`
 
-Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
+Zonation can be used with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. It can use one node, which is max 40 cores in Puhti and 384 in Roihu.  
 
 Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
 
@@ -84,7 +87,7 @@ Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) 
 
 ## Citation
 
-`Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution`
+Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution
 
 
 ## Acknowledgement

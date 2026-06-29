@@ -14,8 +14,11 @@ In the form for launching the application:
 
 ## Creating a course environment
 
-The files for course environments (modules) can be created in `/projappl/<project>/www_puhti_modules/` on Puhti and `/projappl/<project>/www_mahti_modules` on Mahti.
-The directories can be created if they do not exist.
+The files for course environments (modules) can be created in
+`/projappl/<project>/www_roihu_modules/` on Roihu,
+`/projappl/<project>/www_puhti_modules/` on Puhti, and
+`/projappl/<project>/www_mahti_modules` on Mahti. The directories can be created
+if they do not exist.
 
 The course environment is only visible for the project that it was created for.
 Note that you may need to *Restart Web Server* in the *Help* menu in the web interface if the course
@@ -28,7 +31,7 @@ Two files are needed for the course modules:
  - a `<course>-resources.yml` that defines the default resources used for Jupyter.
 
 ### Examples
-Module (`/projappl/project_1234567/www_puhti_modules/some-course.lua`):
+Module (`/projappl/project_1234567/www_roihu_modules/some-course.lua`):
 ```
 -- Jupyter
 depends_on("module1","module2")
@@ -42,7 +45,7 @@ setenv("_COURSE_GIT_REF","")
 -- lab / notebook / empty (defaults to jupyter)
 setenv("_COURSE_NOTEBOOK_TYPE","notebook")
 ```
-Resources (`/projappl/project_1234567/www_puhti_modules/some-course-resources.yml`):
+Resources (`/projappl/project_1234567/www_roihu_modules/some-course-resources.yml`):
 ```
 cores: 4
 time: "02:00:00"
