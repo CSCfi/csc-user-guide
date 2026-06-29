@@ -10,7 +10,9 @@ Example job scripts for running different types of programs:
     with the executable (and options) of the program you wish to run as well
     as `<project>` with the name of your project.
 
-## Serial CPU
+## Roihu-CPU
+
+### Serial CPU
 
 ```bash
 #!/bin/bash
@@ -26,7 +28,7 @@ Example job scripts for running different types of programs:
 srun myprog <options>
 ```
 
-## Partial CPU node: MPI
+### Partial CPU node: MPI
 
 ```bash
 #!/bin/bash
@@ -42,7 +44,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Partial CPU node: OpenMP
+### Partial CPU node: OpenMP
 
 ```bash
 #!/bin/bash
@@ -67,7 +69,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Partial CPU node: MPI+OpenMP
+### Partial CPU node: MPI+OpenMP
 
 ```bash
 #!/bin/bash
@@ -92,7 +94,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full CPU nodes: MPI
+### Full CPU nodes: MPI
 
 ```bash
 #!/bin/bash
@@ -108,7 +110,7 @@ srun myprog <options>
 srun myprog <options>
 ```
 
-## Full CPU nodes: OpenMP
+### Full CPU nodes: OpenMP
 
 ```bash
 #!/bin/bash
@@ -132,7 +134,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full CPU nodes: MPI+OpenMP
+### Full CPU nodes: MPI+OpenMP
 
 ```bash
 #!/bin/bash
@@ -157,13 +159,9 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## GPU slices
+## Roihu-GPU
 
-!!! info "Work in progress"
-    This section is work in progress.
-
-
-## Partial GPU nodes: 1-16 GPUs
+### Partial GPU nodes: 1-16 GPUs
 
 ```bash
 #!/bin/bash
@@ -187,7 +185,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-## Full GPU nodes: 16 or more GPUs
+### Full GPU nodes: 16 or more GPUs
 
 ```bash
 #!/bin/bash
@@ -210,6 +208,12 @@ export OMP_PROC_BIND=spread
 # Run the program
 srun myprog <options>
 ```
+
+### GPU slices
+
+!!! info "Work in progress"
+    This section is work in progress.
+    GPU slices have not yet been configured on the system.
 
 ## Fast disk (NVMe over Fabric)
 
