@@ -42,13 +42,16 @@ All requests sent to the API are executed on Roihu using the same user account t
 
 FirecREST HPC API can be used with personal access tokens, which allow access to same computing resources and projects as your direct terminal access. Personal access tokens are useful for running desktop applications or automation utilities in interactive terminals, that integrate with HPC resources using [PyFirecREST](pyfirecrest.md) Python SDK, for example.
 
-As the name suggests, personal access tokens are intended for personal use. A [project-specific robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) should be used for implementing machine-to-machine HPC API integration for headless non-interactive systems, such as CI pipelines.
+As the name suggests, personal access tokens are intended for personal use. A [project-specific robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) should be used for implementing machine-to-machine HPC API integration for headless non-interactive systems.
 
 A personal access token can be retrieved from MyCSC portal. Personal access tokens generated at MyCSC are valid for 24 hours at a time.
 
 You can view and revoke your active tokens at [CSC IdP federated personal profile page](https://user-auth.csc.fi/idp/profile/userprofile), under *Connected organizations* -> *Firecrest-access-tokens*.
 
 ## Connecting with a robot account
+
+!!! Note 
+    Robot accounts are not yet supported, support coming in Q3 2026.
 
 [Machine-to-machine robot accounts](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) can access computing resources on Roihu using FirecREST HPC API.
 

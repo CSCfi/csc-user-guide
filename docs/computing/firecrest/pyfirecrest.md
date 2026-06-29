@@ -17,7 +17,7 @@ The PyFirecREST library ships with one built-in authorization class, `ClientCred
 
 In order to use the library with personal access token, a separate Authorization object needs to be created for the `firecrest.v2.Firecrest` client. In this example, we create a "pass-through" authorization class which reads the token from environment variable `FIRECREST_TOKEN`, makes sure it has not expired, and then hands it over to the `firecrest.v2.Firecrest` client as-is:
 
-```
+```python
 import os
 import time
 import jwt
