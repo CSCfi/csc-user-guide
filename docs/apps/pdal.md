@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # PDAL
@@ -21,6 +22,8 @@ catalog:
 
 PDAL is available in the following versions:
 
+* 2.10.1 - [QGIS-3.44.9 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Roihu
+* 2.10.0 - [geoconda-3.14.5 module](geoconda.md) with pdal Python library, in Roihu
 * 2.8.0 - [geoconda-3.11.10 module](geoconda.md) with pdal Python library, in Puhti
 * 2.7.2 - [QGIS-3.38 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Puhti
 * 2.7.2 - [geoconda-3.11.9 module](geoconda.md) with pdal Python library, in Puhti and Mahti
@@ -47,7 +50,7 @@ PDAL is licensed with the BSD open source license. [The full PDAL licence](https
 
 ## Citation
 
-```  PDAL contributors (2022). PDAL: The Point Data Abstraction Library, DOI: 10.5281/zenodo.2616780  ```
+```  PDAL contributors (2026). PDAL: The Point Data Abstraction Library, DOI: 10.5281/zenodo.2616780  ```
 
 
 

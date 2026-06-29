@@ -176,7 +176,7 @@ On LUMI, the 0.4.38 module fixes memory allocation instabilities that were prese
 
 ## Snakemake and Nextflow tutorials significantly improved
 
-Tutorials with major updates available for workflow tools: [Snakemake](../tutorials/snakemake-puhti.md) and [Nextflow](../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
+Tutorials with major updates available for workflow tools: [Snakemake](../../apps/snakemake.md) and [Nextflow](../../apps/nextflow.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
 
 ## Schrödinger Maestro 2025.1, 6.2.2025
 
@@ -440,8 +440,8 @@ previously supported packages (e.g., DeepSpeed and Transformers).
 ## Snakemake, 23.2.2024
 
 An [application page for the Snakemake workflow tool](../../apps/snakemake.md)
-has been added to Docs CSC. Check it out, as well as the accompanying tutorial
-on [how to use Snakemake efficiently on Puhti](../tutorials/snakemake-puhti.md).
+has been added to Docs CSC. Check it out for details on
+[how to use Snakemake efficiently on Puhti](../../apps/snakemake.md).
 
 ## GROMACS 2024.0, 16.2.2024
 
@@ -652,7 +652,7 @@ instead.
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
 similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq-tool).
+details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
 
 ## PyTorch 1.13, 9.12.2022
 

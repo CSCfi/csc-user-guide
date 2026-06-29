@@ -2,7 +2,7 @@
 
 Access can be granted to the following services:
 
-* Supercomputers **Puhti** and **Mahti**
+* Supercomputers **Roihu**, **Puhti** and **Mahti**
 * Cloud services **cPouta**, **Rahti** and **Pukki DBaaS**
 * Storage services **Allas** and **IDA**
 * Sensitive data services **SD Services**

@@ -1,15 +1,27 @@
 # Accelerated visualization
-The Accelerated visualization app enables using visualization applications with GPU acceleration on a Puhti compute node.
+The Accelerated visualization app enables using visualization applications with GPU acceleration on a compute node, and is available on Roihu and Puhti.
 
 ## Available applications
-* [Abaqus CAE](../../apps/abaqus.md)
-* [Ansys Workbench](../../apps/ansys.md)
+
+### Roihu
+
 * [Blender](../../apps/blender.md)
 * [CloudCompare](../../apps/cloudcompare.md)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
 * [VisIt](../../apps/visit.md)
+
+### Puhti
+
+* [Abaqus CAE](../../apps/abaqus.md)
+* [Ansys Workbench](../../apps/ansys.md)
+* [Blender](../../apps/blender.md)
+* [COMSOL](../../apps/comsol.md)
+* [CloudCompare](../../apps/cloudcompare.md)
+* [ParaView](../../apps/paraview.md)
 * [VMD](../../apps/vmd.md)
+* [VisIt](../../apps/visit.md)
+
 
 ## Launching
 1. Open the `Accelerated visualization` page under Apps.
@@ -21,8 +33,8 @@ The Accelerated visualization app enables using visualization applications with 
 
 !!! Note
 
-    Considerations about GPU partitions:
-    
+    Considerations about GPU partitions on Puhti:
+
     * `gputest` has 15 minute time limit, but should usually be available immediately or very soon.
     * `gpu` enables longer usage of application, but might have also longer wait time in the queue.
     * In terms of Billing Units, GPU computing time is ~60x more expensive than CPU time (see [Billing](../hpc-billing.md)). Thus, please keep the accelerated visualization application open only when you are actually using it. Use the `Delete` button on `My interactive Sessions` page to finish working.

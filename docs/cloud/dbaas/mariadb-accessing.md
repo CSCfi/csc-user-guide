@@ -134,25 +134,26 @@ ERROR 1044 (42000): Access denied for user 'username'@'%' to database 'databasen
 
 Either the database specified does not exist, or the username specified has no access to it.
 
-
 ```
 mariadb-dump: Got error: 2026: "TLS/SSL error: self-signed certificate" when trying to connect.
 ```
 
 The `--ssl` flag alone isn't enough, you need to supply the client `--ssl-verify-server-cert=OFF` to skip certificate verification.
 
+### Accessing your Pukki MariaDB database from Roihu
 
-### Accessing your Pukki MariaDB database from Puhti
+!!! info Puhti compatible
+    The following instructions also apply to Puhti, but it will be decommissioned in summer 2026. Please use Roihu instead.
 
-1. Ensure your database instance allows [network traffic from Puhti.](firewalls.md#puhti)
-2. `ssh` onto Puhti and load the `mariadb` module
+1. Ensure your database instance allows [network traffic from Roihu.](firewalls.md#roihu)
+2. `ssh` onto Roihu and load the `mariadb` module
 ```
 module load mariadb
 ```
 3. Now you can connect to the database with the mariadb-client
 
-<!-- ### Basic Puhti batch job example using mysql
-// I'm too lacy to verify the same example as in postgres-accessing.md
+<!-- ### Basic Roihu batch job example using mysql
+// I'm too lazy to verify the same example as in postgres-accessing.md
 
 1. This requires that you have configured `~/.my.cnf` correctly in the previous section.
 2. Create a file named `my-first-mariadb-batch-job.bash`:

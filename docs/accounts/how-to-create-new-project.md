@@ -13,6 +13,7 @@ A [CSC user account](how-to-create-new-user-account.md#getting-an-account-with-h
 4. Choose the **Project category**. Available categories are:
 	* [Academic](how-to-create-new-project.md#academic)
 	* [Course](how-to-create-new-project.md#course)
+	* [Dataset](how-to-create-new-project.md#dataset-project)
 	* [LUMI](how-to-create-new-project.md#how-to-create-finnish-lumi-projects)
 5. Fill in the **Project name**, **Project description** and all the required fields.
 6. Select the services you want to use in this project.
@@ -48,6 +49,49 @@ The course category is reserved for [free-of-charge](https://research.csc.fi/fre
 8. Click **Create project**.
 
 The easiest way to add students to a course project is to use an [invitation link](how-to-add-members-to-project.md#using-invitation-link).
+
+## Dataset project
+
+Dataset projects are used to share data between CSC projects in Roihu. A dataset project provides a shared disk area under `/dataset/<project>` in Roihu, but it **does not include computational resources**. A dataset project consumes storage [billing units](billing.md).
+
+Use a dataset project when you need to maintain one shared copy of data that several projects can read.
+
+!!! note "Dataset project access begins in early August" 
+     You can already apply for a dataset project in MyCSC.
+     Based on the applications, the first dataset projects will be approved and granted access in early August 2026.
+
+Each dataset directory has one owning project with write access. Other projects (or even all projects on the system) can be granted read access to the same dataset directory.
+
+A dataset project is valid for one year. After that, you need to apply for an extension if you want to keep using it.
+Dataset projects are intended for datasets up to a few terabytes in size and the dataset should be in active use. 
+
+!!! note "Dataset project is **not intended for long-term data storage**" 
+     For long-term object storage, use [Allas](../data/Allas/index.md)
+	 or [LUMI-O](https://docs.lumi-supercomputer.eu/storage/lumio/auth-lumidata-eu/)
+
+When applying for a dataset project:
+
+1. Specify the dataset name, description, and field of science
+2. Specify the owner of the dataset
+3. Provide a justification, an exit strategy, a PID if available, and the intended audience for this dataset
+4. Select "Dataset project is intended for public access" if the dataset can be accessible by all current and future projects on the system
+5. Apply for quota. Request only the amount of data you actually need.
+
+### Adding access to the dataset
+
+After creating the dataset project, you can configure access to it.
+
+A public dataset is by default accessible to everyone in the system.
+
+When configuring access, you can add access to:
+
+- Single or multiple users
+- Individual or multiple projects
+- Your whole organization
+
+When granting access to the whole organization, all users on the system affiliated with your home organization
+will gain access to reading the dataset. Additionally, all users who are a part of a project created by your home organization,
+will gain access.
 
 ## How to create Finnish LUMI projects
 

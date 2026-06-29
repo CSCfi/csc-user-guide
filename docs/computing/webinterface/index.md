@@ -1,16 +1,17 @@
-# Web interfaces for Puhti and Mahti
+# Web interfaces for Roihu, Puhti and Mahti
 
 ## Intro
 
-The web interfaces for Puhti and Mahti at
-[www.puhti.csc.fi](https://www.puhti.csc.fi) and
+The web interfaces for Roihu, Puhti, and Mahti at
+[www.roihu.csc.fi](https://www.roihu.csc.fi),
+[www.puhti.csc.fi](https://www.puhti.csc.fi), and
 [www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the
 supercomputers using only a web browser. A web interface for LUMI is also
-available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
-[LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
-more details.
+available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the [LUMI
+documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more
+details.
 
-Please note that logging in to Puhti and Mahti web interfaces requires
+Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
 **multi-factor authentication**.
 [More information on the Connecting page](connecting.md).
 
@@ -33,7 +34,7 @@ Please note that logging in to Puhti and Mahti web interfaces requires
 
 ## Available features
 
-- **Features available in both the Puhti and Mahti web interfaces:**
+- **Features available in the Roihu, Puhti and Mahti web interfaces:**
     - View, download, upload and move files between Allas, the supercomputer
       and your local computer
     - Open a shell on the login node
@@ -41,24 +42,19 @@ Please note that logging in to Puhti and Mahti web interfaces requires
     - View running batch jobs
     - View disk quotas and project status
     - Launch interactive apps and connect to them directly from the browser:
-        - Desktop with apps such as Maestro and VMD
+        - Accelerated Visualization with applications such as Blender and ParaView (Roihu and Puhti only)
+        - Desktop with applications such as Maestro and VMD
         - Julia-Jupyter
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
+        - marimo (Roihu only)
         - MATLAB
         - MLflow
+        - R-Jupyter (Roihu and Mahti only)
         - RStudio
         - TensorBoard
         - Visual Studio Code
-- **Apps available in Puhti only:**
-    - Accelerated visualization with applications:
-        - Blender
-        - COMSOL
-        - ParaView
-        - VMD
-- **Apps available in Mahti only:**
-    - R-Jupyter
 
 ### Shell
 
@@ -112,13 +108,20 @@ specific instructions, see the [Interactive apps](apps.md) page.
 ### Partitions and resources
 
 !!! warning-label
-    Only a few partitions of Puhti and Mahti are available for use in the web
+    Only a few partitions of the cluster are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
     than others.  
     The maximum length of jobs in the web interfaces is 16 hours to keep the
     queueing times for interactive resources short. If you have work that
     requires longer jobs than that, we recommend that you run your software as
     [batch jobs](../running/getting-started.md).
+
+In the **Roihu web interface**, the `interactive`, `small`, `test`, and `gputest` partitions are
+available. In the [Accelerated Visualization app](accelerated-visualization.md), the
+`vizinteractive` partition is used, and will reserve one Nvidia L40 GPU. On the `gputest` partition,
+one Nvidia GH200 GPU will be allocated. See the [Roihu partitions
+page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues on
+Roihu.
 
 In the **Puhti web interface**, the `interactive`, `small`, `test`, `gpu` and
 `gputest` partitions are available. Selecting the `gpu` or `gputest` partition
@@ -131,3 +134,4 @@ partitions are available. Selecting the `gpusmall` partition will allocate a
 split Nvidia A100 GPU (a100_1g.5g) with 1/7th of the compute capacity of a full
 A100. For more details about the split GPUs on Mahti, see the
 [Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).
+
