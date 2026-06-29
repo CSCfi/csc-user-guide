@@ -59,7 +59,7 @@ trankit produces JSON output. The companion script `trankit2conllu` converts it
 to CoNLL-U format:
 
 ```bash
-python trankit2conllu --input /path/to/trankit/output \
+trankit2conllu --input /path/to/trankit/output \
   --output_dir /path/to/conllu-output
 ```
 
