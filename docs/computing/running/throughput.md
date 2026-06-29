@@ -37,11 +37,8 @@ Use the following properties of your tasks to drive the choice of tool:
   Independent tasks can be handled by simple [HTC tools](#high-throughput-computing-on-hpc).
   Tasks with dependencies generally call for a [workflow manager](#workflows-on-hpc).
 
-
-!!! Info "Support"
-    Workflows containing a large number of *multi-node* tasks may require a special solution.
-    Don't hesitate to [contact CSC Service Desk](../../support/contact.md) if you have any concerns about how to implement your workflow.
-
+<!-- TODO: I/O and Parallel filesystem usage considerations, avoid reading and writing large amounts of small files into the Lustre parallel file system -->
+<!-- TODO: containerize software that consist of lots of small files, link to container page -->
 
 ## High-throughput computing on HPC
 
@@ -141,3 +138,9 @@ See the [Nextflow page](../../apps/nextflow.md) for how to run it at CSC, includ
 
 [FireWorks](../../apps/fireworks.md) is a workflow tool for complex dependencies and multi-node subtasks.
 Be aware that it can create a lot of job steps and extra files, which is less ideal for HTC; prefer the options above when they fit your use case.
+
+## Support
+
+!!! Info "Support"
+    Workflows containing a large number of *multi-node* tasks may require a special solution.
+    Don't hesitate to [contact CSC Service Desk](../../support/contact.md) if you have any concerns about how to implement your workflow.
