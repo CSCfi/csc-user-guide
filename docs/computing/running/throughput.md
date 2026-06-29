@@ -22,20 +22,8 @@ Running a large number of separate batch jobs (launched with `sbatch`) and job s
 Many jobs and job steps generate excess log data and slow down Slurm.
 Short jobs also have a large scheduling overhead, meaning that an increasing fraction of the time is spent waiting in the queue instead of computing.
 
-To enable high-throughput computing while avoiding these issues, **pack your tasks so that they run with as few `sbatch` and `srun` invocations as possible** — typically by reserving one large resource allocation and running many tasks inside it with a suitable tool (see below).
-
-### Tasks: count, size, and dependencies
-
-A *task* (or *subtask*) is a single unit of work in your workflow, for example one simulation, one dataset to analyze, or one parameter value to evaluate.
-Use the following properties of your tasks to drive the choice of tool:
-
-- **Large number of small tasks.**
-  Running a large number (more than fits in the queue of the used slurm partition) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
-
-- **Dependencies between tasks.**
-  Are the tasks independent of each other, or must some tasks finish before others can start?
-  Independent tasks can be handled by simple [HTC tools](#high-throughput-computing-on-hpc).
-  Tasks with dependencies generally call for a [workflow manager](#workflows-on-hpc).
+To enable high-throughput computing while avoiding these issues, **pack your tasks so that they run with as few `sbatch` and `srun` invocations as possible**, by reserving one large resource allocation and running many tasks inside it with a suitable tool.
+Generally, running a large number (more than fits in the Slurm queue) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
 
 <!-- TODO: I/O and Parallel filesystem usage considerations, avoid reading and writing large amounts of small files into the Lustre parallel file system -->
 <!-- TODO: containerize software that consist of lots of small files, link to container page -->
