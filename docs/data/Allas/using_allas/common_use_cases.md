@@ -2,7 +2,7 @@
 
 ## Storage for CSC computing projects
 
-The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. The inactive data should be moved to Allas. See [Allas HPC tutorial](../allas-hpc.md) for further information.
+The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. The inactive data should be moved to Allas. See [Allas HPC tutorial](../allas-roihu.md) for further information.
 
 ## Sharing data
 

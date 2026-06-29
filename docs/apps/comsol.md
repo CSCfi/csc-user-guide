@@ -9,8 +9,8 @@ catalog:
     - Computational Engineering
   available_on:
     - web_interfaces:
-        - Puhti
-    - Puhti
+        - Roihu
+    - Roihu
 ---
 
 # COMSOL Multiphysics
@@ -26,15 +26,13 @@ source terms and boundary conditions can all be arbitrary functions of
 the dependent variables.
 
 ## Available
- 
-- Puhti: 6.2, 6.1, 6.0
+COMSOL is available on CSC's [Roihu](../computing/available-systems.md) supercomputer on both the CPU and GPU (aarch64) partitions.
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff
 and students) of Finnish higher education institutions.
 
 ## Usage
-
 The following modules are currently available:
 
 -   Acoustics
@@ -45,8 +43,26 @@ The following modules are currently available:
 -   Particle Tracing
 -   Structural Mechanics
 
-The preferred method to use COMSOL interactively is via [the Puhti web interface
-desktop application](../computing/webinterface/desktop.md). In the web interface,
+To find out which versions of COMSOL are installed on Roihu, give a command
+```bash
+module available
+```
+and check lines `comsol/<version number>`. For example, to load comsol version 6.4, give a command
+```bash
+module load comsol/64
+```
+
+There are example **batch job files** available on Roihu server in directories
+```bash
+/appl/soft/manual/eng/x86_64/comsol/example_batch_job_scripts
+```
+and
+```bash
+/appl/soft/manual/eng/aarch64/comsol/example_batch_job_scripts
+```
+Copy the file and modify it for your own use.
+
+The preferred method to use COMSOL interactively is via [the Roihu web interface](../computing/webinterface/desktop.md). In the web interface,
 select `Desktop` from the `Apps` view and specify the required resources (cores,
 execution time and memory). Remember to add your billing project, too.
 
@@ -68,7 +84,8 @@ module load comsol
 comsol -3drend sw
 ```
 
+## Support
+In case of issues, please [contact CSC Service Desk](../support/contact.md).
 
 ## More information
-
 - [COMSOL Multiphysics home page](https://www.comsol.com)

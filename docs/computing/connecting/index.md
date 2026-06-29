@@ -1,6 +1,6 @@
 # Connecting to CSC supercomputers
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 There are two main ways of connecting to CSC supercomputers.
 
@@ -8,6 +8,8 @@ There are two main ways of connecting to CSC supercomputers.
    [using an SSH client](#using-an-ssh-client).
 2. We also offer a [web interface](#using-the-web-interface) to our systems,
    which enables running both graphical applications and command-line shells.
+
+Additionally, we also offer a [RESTful HTTP API](#using-the-firecrest-hpc-api) based on [FirecREST v2](https://eth-cscs.github.io/firecrest-v2/), which is the primary interface for [machine-to-machine robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) usage.
 
 For instructions on connecting to the LUMI supercomputer, please see the
 [Get Started page in the LUMI user guide](https://docs.lumi-supercomputer.eu/firststeps/getstarted/).
@@ -22,8 +24,7 @@ For instructions on connecting to the LUMI supercomputer, please see the
 ## Using the web interface
 
 The [web interface](../webinterface/index.md) is a good platform
-for using graphical applications on the Puhti and Mahti supercomputers.
-It hosts
+for using graphical applications on CSC supercomputers. It hosts
 [interactive applications for select programs](../webinterface/apps.md)
 like Jupyter and RStudio, and for other GUI programs you can use the
 [remote desktop](../webinterface/desktop.md) interface.
@@ -34,39 +35,63 @@ will keep running even if you close your browser or lose your internet
 connection. The shell applications are especially convenient for users whose
 workstation has a Windows operating system, since Windows does not
 typically come with a pre-installed SSH client. See the instructions for
-[connecting to Puhti and Mahti web interfaces](../webinterface/connecting.md).
+[connecting to HPC web interfaces](../webinterface/connecting.md).
+
+## Using the FirecREST HPC API
+
+The [FirecREST HPC API](../firecrest/index.md) provides a standardized RESTful interface for accessing computing resources from web-based software. It offers APIs for managing jobs through Slurm scheduler, performing file system operations over personal and project data, and for transferring large amounts of data to or from the system.
 
 ## Using an SSH client
 
-Logging in to Puhti and Mahti using an SSH client requires that you have
-[set up SSH keys](ssh-keys.md) and
-[added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc).
-Traditional password-based authentication and public keys stored in your
-personal `~/.ssh/authorized_keys` file will **not** work.
+Logging in to CSC supercomputers using an SSH client requires that you have
+
+1. [set up SSH keys](ssh-keys.md),
+2. [added your public key to MyCSC](ssh-keys.md#adding-public-key-in-mycsc),
+   and
+3. Only in Roihu: [sign your public key](ssh-keys.md#signing-public-key) to obtain a
+   time-based SSH certificate, must be repeated every 24 hours.
+
+```mermaid
+flowchart LR
+    A(<b>Before first connection:</b>
+      <a href='ssh-keys/'>Set up SSH keys</a>)
+    A --> B{Connecting
+            to Roihu?}
+    B -->|yes| C(<b>Once every 24 hours:</b>
+                 <a href='ssh-keys/#signing-public-key'>Get a new SSH certificate</a>)
+    C --> D(<a href='ssh-unix/'>SSH with Linux/macOS</a>
+            or
+            <a href='ssh-windows/'>SSH with Windows</a>)
+    B -->|no| D
+```
+
+Please note that traditional password-based authentication and public keys
+stored in your personal `~/.ssh/authorized_keys` file will **not** work.
 
 Unix-based systems like macOS and Linux typically come with a pre-installed
 terminal program called simply *Terminal*. The instructions for using an
 [SSH client on macOS and Linux](ssh-unix.md) show how to connect to a CSC
 supercomputer using the terminal program.
 
-While Windows systems do not have a similar pre-existing solution for connecting
-over SSH, there are multiple programs that can be used for this. The
-instructions for using an [SSH client on Windows](ssh-windows.md) lists a few
-popular options.
+Windows comes with the `Command Prompt` terminal program that typically has the OpenSSH
+ssh client installed. This client works in a similar fashion to the ssh clients on Linux and MacOS. 
+In addition to this client, Windows has multiple programs that can be used for this.
+The instructions for using an [SSH client on Windows](ssh-windows.md) lists a few popular options.
 
-Once you have set up SSH keys and added your public key to MyCSC, use a
-command like below to connect over SSH:
+Once you have set up SSH keys, added your public key to MyCSC, and signed it to
+generate an SSH certificate (only required for Roihu), use a command like below
+to connect over SSH:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
-# <host> with "puhti" or "mahti"
+# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
 
 ssh <username>@<host>.csc.fi
 ```
 
 !!! note
-    It might take up to one hour for your new key to become active after adding
-    it to MyCSC.
+    It might take up to one hour for your new key to become active on Puhti or Mahti after adding
+    it to MyCSC. Roihu has no such delay since it is based on SSH certificates.
 
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to
@@ -92,6 +117,13 @@ will not be asked again unless the server key changes, in which case you
 should again verify the new key against fingerprints provided by CSC.
 
 #### Host key fingerprints
+
+=== "Roihu"
+    | SHA256 checksum                             | Key                                |
+    |---------------------------------------------|------------------------------------|
+    | h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
+    | YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
+    | cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
 
 === "Puhti"
     | SHA256 checksum                             | Key                                |
@@ -125,17 +157,17 @@ the login nodes on the system. However, you can also use your SSH client to
 connect to a specific login node:
 
 ```bash
-ssh <username>@<host>-login<id>.csc.fi  # e.g. 'puhti-login11.csc.fi'
+ssh <username>@<host>-login<id>.csc.fi  # e.g. 'roihu-gpu-login1.csc.fi'
 ```
 
 The available login nodes are:
 
-| Puhti | Mahti |
-|-|-|
-| `puhti-login11` | `mahti-login11` |
-| `puhti-login12` | `mahti-login12` |
-| `puhti-login14` | `mahti-login14` |
-| `puhti-login15` | `mahti-login15` |
+| Puhti | Mahti | Roihu CPU | Roihu GPU |
+|-|-|-|-|
+| `puhti-login11` | `mahti-login11` | `roihu-cpu-login1` | `roihu-gpu-login1` |
+| `puhti-login12` | `mahti-login12` | `roihu-cpu-login2` | `roihu-gpu-login2` |
+| `puhti-login14` | `mahti-login14` | `roihu-cpu-login3` |                    |
+| `puhti-login15` | `mahti-login15` | `roihu-cpu-login4` |                    |
 
 This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and
@@ -157,26 +189,3 @@ If you try to connect to a node where you have no active jobs, you will
 receive the following error message: `Access denied by pam_slurm_adopt: you
 have no active jobs on this node`.
 
-#### Configuring SSH client
-
-You can save yourself some time by adding host-specific options for CSC
-supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
-(e.g. `~/.ssh/config`).
-
-```bash
-Host <host>  # e.g. "puhti"
-    HostName <host>.csc.fi
-    User <csc-username>
-```
-
-Now you can connect to the host simply by running:
-
-```bash
-ssh <host>
-```
-
-#### Remote development
-
-Some editors like Visual Studio Code and Notepad++ can be used to
-[work on files remotely](../../support/tutorials/remote-dev.md)
-using an appropriate plugin. **However, this is not recommended.**

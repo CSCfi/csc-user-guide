@@ -3,7 +3,7 @@
 ## General
 * [I'm a new CSC user. How to get started?](how-to-get-started-at-CSC.md)
 * [X11 remote graphics does not work](x11-graphics.md)
-* [How to get access to Puhti](how-to-get-puhti-access.md)
+* [How to get access to Roihu](how-to-get-roihu-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving/index.md)
@@ -17,6 +17,7 @@
 * [WARNING: connection is not using a post-quantum key exchange algorithm.](ssh-post-quantum.md)
 
 ## Roihu
+* [How to get access to Roihu](how-to-get-roihu-access.md)
 * [Frequently asked questions about Roihu](roihu.md)
 
 ## Batch jobs
@@ -56,7 +57,7 @@
 
 ## Allas
 
-* [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
+* [How to move data from Roihu to Allas and vice versa?](how-to-move-data-between-roihu-and-allas.md)
 * [Can I have a personal project or bucket in Allas?](can-i-have-a-personal-project-or-bucket-in-allas.md)
 * Export data
     * [How to download data from Allas with rclone?](../../data/Allas/using_allas/rclone.md#download-objects)

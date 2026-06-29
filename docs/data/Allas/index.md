@@ -24,7 +24,7 @@ This Allas object storage service user guide consists of following parts:
    
 ## Tutorials and other documents
 
-* [Using Allas interactively in Puhti and Mahti](./allas-hpc.md) 
+* [Using Allas interactively in Roihu](./allas-roihu.md)
 * [Using Allas in batch jobs](./allas_batchjobs.md)
 * [Using Allas to host a data set for a research group](./allas_project_example.md)
 * [Using Allas to transport sensitive data](../sensitive-data/sequencing_center_tutorial.md)
@@ -33,7 +33,7 @@ This Allas object storage service user guide consists of following parts:
 
 ## Allas FAQ
 
-* [How to move data from Puhti to Allas and vice versa?](../../support/faq/how-to-move-data-between-puhti-and-allas.md)
+* [How to move data from Puhti to Allas and vice versa?](../../support/faq/how-to-move-data-between-roihu-and-allas.md)
 * [Can I have a personal project or bucket in Allas?](../../support/faq/can-i-have-a-personal-project-or-bucket-in-allas.md)
 * [Is it possible to move data in Allas to new project?](../../support/faq/is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](../../support/faq/is-it-possible-to-make-data-in-allas-read-only.md)

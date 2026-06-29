@@ -9,21 +9,12 @@ catalog:
     - Geosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env` page](r-env.md). Spatial libraries are included in all R versions in Puhti.
-
-## Usage
-
-### Loading the module
-
-Load the general R module with
-
-```
-module load r-env
-```
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env` page](r-env.md).
 
 ### Installed spatial R libraries
 

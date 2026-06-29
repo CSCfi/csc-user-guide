@@ -10,8 +10,7 @@ search:
     replaced by Roihu, CSC's next-generation supercomputer offering enhanced
     performance and capabilities.
 
-    Puhti computing services will be shut down one month after Roihu becomes available,
-    but earliest by 31 July 2026 at 12:00 EEST. Storage and
+    Puhti computing services will be shut down  31 July 2026 at 12:00 EEST. Storage and
     login nodes are planned to remain accessible until midday 15 October 2026, but
     users are strongly encouraged to move any required data from the system
     by the end of August 2026.
