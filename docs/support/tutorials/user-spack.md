@@ -11,6 +11,9 @@ customers that enables per-project software installations using Spack.
     compiling and linking programs.
 
 !!! info "Available versions"
+    Similar tutorial for Roihu, in which Spack directly is used directly,
+    is in a separate document
+    [Using Spack to install software in Roihu](roihu-user-spack.md).
     This tutorial assumes you are on Puhti, which has `spack/v0.18-user`
     installed. Mahti has two versions of Spack available for users,
     `spack/v0.17-user` and `spack/v0.20-user`. Aside from the module versions,

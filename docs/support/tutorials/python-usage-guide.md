@@ -84,7 +84,11 @@ in a module provided by CSC, do not hesitate to contact our
 
     Packages are by default installed to your home
     directory under `.local/lib/pythonx.y/site-packages` (where `x.y` is
-    the version of Python being used). **Please note that if you install a lot of
+    the version of Python being used) except in Roihu. In Roihu, the 
+    default installation path for additional packages is set accordingly 
+    to the CPU architecture: `.local/x86_64/lib/pythonx.y/site-packages` 
+    for Roihu-CPU and `.local/aarch64/lib/pythonx.y/site-packages` for Roihu-GPU.
+    **Please note that if you install a lot of
     packages, your home directory can easily run out of space.**
     This can be avoided by changing the installation folder to make
     a project-wide installation instead of a personal one. This is
@@ -127,11 +131,12 @@ in a module provided by CSC, do not hesitate to contact our
         You can fix this by editing the first line of the executable
         (which in our example is located using `which whatshap`) to point
         to the real Python interpreter (can be found with `which python3`).
-        In our example we would edit the file `~/.local/bin/whatshap`
+        In our example we would edit the file `~/.local/bin/whatshap` (`~/.local/$(uname -m)/bin/whatshap` in Roihu)
         to have the following as its first line:
 
         ```bash
-        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3
+        #!/appl/soft/manual/aida/$(uname -m)/python-data/python-data-2026-03/bin/python3  # On Roihu
+        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3                             # On Puhti and Mahti
         ```
 
     ---
@@ -248,11 +253,11 @@ in a single document.
 The [Jupyter interactive application](../../computing/webinterface/jupyter.md)
 on our web interface allows using Jupyter on CSC supercomputers.
 Many of our Python environments, including
-[`python-data`](../../apps/python-data.md), [`geoconda`](../../apps/geoconda.md)
-as well as deep learning modules like [`pytorch`](../../apps/pytorch.md)
+[`python-data`](../../apps/python-data.md), [`python-geo`](../../apps/python-geo.md) (geoconda on Puhti and Mahti)
+as well as deep learning modules like [`python-pytorch`](../../apps/pytorch.md) (pytorch on Puhti and Mahti)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
-[list of supported environments](../../computing/webinterface/jupyter.md#currently-supported-python-environments).
+[list of supported environments](../../computing/webinterface/jupyter.md#supported-python-environments-on-roihu).
 
 ### Visual Studio Code
 
@@ -279,7 +284,7 @@ There are two ways to run VSCode on CSC supercomputers:
 
 [Spyder](https://www.spyder-ide.org/) is a scientific Python development
 environment. The [python-data](../../apps/python-data.md) and
-[geoconda](../../apps/geoconda.md) modules
+[python-geo](../../apps/python-geo.md) modules
 have Spyder included. The best option for using it is through the
 [Puhti web interface remote desktop](../../computing/webinterface/desktop.md).
 
@@ -302,13 +307,9 @@ parallelization. Please see the [CSC Dask tutorial](./dask-python.md) for
 examples of both single-node (max. 40 cores) and multi-node parallelization.
 
 In addition, there are examples of
-[using different parallelization options on Puhti](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+[using different parallelization options on Roihu](https://github.com/csc-training/geocomputing/tree/master/python/roihu)
 on our CSC Training GitHub organization. Of the above four packages, examples are
 provided for `multiprocessing`, `joblib` and `dask`.
 
 The `mpi4py` package is included in our [PyTorch environment](../../apps/pytorch.md).
 It is generally the most efficient option for multinode jobs with non-trivial parallelization.
-For a short tutorial on `mpi4py`, along with other approaches for improving the
-performance of Python programs, please see the free
-[Python in High Performance Computing](https://www.futurelearn.com/courses/python-in-hpc)
-online course.

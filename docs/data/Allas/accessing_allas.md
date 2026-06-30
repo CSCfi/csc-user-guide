@@ -24,7 +24,7 @@ When choosing the tool for accessing Allas, consider:
 * [Packaging of files](introduction.md#file-sizes-and-packaging), in case of moving many files, `a-tools` packages them by default to a .tar file and adds metadata, other tools usually move files as they are.
 * Sensitity of your data, for sensitive data use [tools that support client side encryption](allas_encryption.md).
 
-To use Allas from Puhti or Mahti, see [Tutorial for using Allas in CSC supercomputers](allas-hpc.md).
+To use Allas from Roihu, see [Tutorial for using Allas in CSC supercomputers](allas-roihu.md).
 
 ## Web browser interfaces
 

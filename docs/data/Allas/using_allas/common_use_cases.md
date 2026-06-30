@@ -2,7 +2,7 @@
 
 ## Storage for CSC computing projects
 
-The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. The inactive data should be moved to Allas. See [Allas HPC tutorial](../allas-hpc.md) for further information.
+The CSC supercomputers provide disk environments for working with large datasets. These storage areas are however not intended for storing data that is not actively used. The inactive data should be moved to Allas. See [Allas HPC tutorial](../allas-roihu.md) for further information.
 
 ## Sharing data
 
@@ -51,4 +51,4 @@ The object storage is also often used as a location for storing backups. It is a
 !!! note 
     Allas-backup is not a real backup service.
     It only copies the data to another bucket in Allas which can 
-    be easily removed or overwrited by any authenticated user.
+    be easily removed or overwritten by any authenticated user.

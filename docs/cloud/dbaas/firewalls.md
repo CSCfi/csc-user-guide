@@ -7,7 +7,7 @@ All database instances have their own firewalls. Users are responsible for makin
 You can change the firewalls from the [web interface](https://pukki.dbaas.csc.fi) on existing
 instances by pressing the "Update Instance".
 
-With the [openstack CLI](cli.md) tool you can use the `opsenstack database instance update --help` command.
+With the [openstack CLI](cli.md) tool you can use the `openstack database instance update --help` command.
 Note that the command override the existing firewalls rules which means that you need to set all
 the firewall opening each time you update the firewalls for an instance with `--allowed-cidr` flag.
 
@@ -58,7 +58,6 @@ This is done by allowing subnets.
 You can find the IP from the Pouta web interface under Network -> Routers -> The specific router ->
 "External Fixed IPs"
 
-
 ### ePouta
 
 It is important to remember that all traffic from ePouta to Pukki will be going over "the internet"
@@ -77,14 +76,26 @@ which makes it even more important to use a strong username and password for you
 
 More information can be found in [Rahti security guide](../rahti/security-guide.md)
 
-
-
 ### Noppe
+
 If you need to access your Pukki database instance from Noppe then you need to allow this IP
 `193.167.189.137/32` . Note that all other Notebook users will be able to access your database
 instances as well so it is important to use strong passwords for your database user.
 
+
+### Roihu
+
+Accessing your Pukki database from login and compute nodes you can allow this:
+
+```
+86.50.172.0/27
+```
+
 ### Puhti
+
+!!! warning "Puhti step-wise retirement during spring and summer 2026"
+    Puhti will be gradually decommissioned during spring and summer 2026 and
+    replaced by Roihu.
 
 Accessing your Pukki database from login and compute nodes you can allow this:
 
@@ -93,13 +104,16 @@ Accessing your Pukki database from login and compute nodes you can allow this:
 ```
 
 <!--
-If one would like to have even strictre rules one could limit it only these
+If one would like to have even stricter rules one could limit it only these
 puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
 -->
 
 ### Mahti
 
-Accessing your Pukki database from Mahti from both login nodes and compute node you can allow this:
+!!! warning "Mahti retirement in August 2026"
+    Mahti will be decommissioned in August 2026 and replaced by Roihu.
+
+Accessing your Pukki database from Roihu from both login nodes and compute node you can allow this:
 
 ```
 86.50.165.192/27

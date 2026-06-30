@@ -3,7 +3,7 @@
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/overview/index)
+* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/overview/index)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
@@ -280,7 +280,7 @@ spec:
 
 
 A _Job_ uses  pods to execute a specific task one or several times, and will continue to retry execution of the Pods until
-a specified number of them successfully terminate ot a backoff limit is reached. As pods successfully complete, the Job 
+a specified number of them successfully terminate or a backoff limit is reached. As pods successfully complete, the Job 
 tracks the successful completions. When a specified number of successful completions is reached, the task (ie, Job) is 
 complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job 
 is resumed again.

@@ -30,8 +30,10 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! info-label
     Team member
 
+Only create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
+
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
-- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu).
+- Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account with Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
 - Fill in your information on the Sign up page.
 - You will receive with instructions how to complete the registration. 
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
@@ -44,7 +46,7 @@ You need to access SD Desktop. You have a permit from Findata.
 !!! warning-label
     Team manager
 
-- Sign in to MyCSC with you Haka or Virtu credentials.
+- Sign in to MyCSC with your Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**. 
 

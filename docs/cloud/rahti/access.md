@@ -8,7 +8,7 @@ In order to use the Rahti container cloud with a CSC account, you need:
 1. A CSC user account. You can check which is your "CSC username" in [MyCSC profile page](https://my.csc.fi/profile). You can also change the password from there.
 2. A computing project with access to Rahti
 
-Access to another CSC computing system such as cPouta, Mahti or Puhti counts as a valid computing project. The same 
+Access to another CSC computing system such as cPouta or Roihu counts as a valid computing project. The same 
 project can be used in to access Rahti after adding this later to the list of enabled services.
 
 ### Applying for access

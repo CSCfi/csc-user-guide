@@ -3,27 +3,18 @@ tags:
   - Free
 catalog:
   name: R for GIS
-  description: R spataial analysis libraries
+  description: R spatial analysis libraries
   license_type: Free
   disciplines:
     - Geosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env` page](r-env.md). Spatial libraries are included in all R versions in Puhti.
-
-## Usage
-
-### Loading the module
-
-Load the general R module with
-
-```
-module load r-env
-```
+This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env` page](r-env.md).
 
 ### Installed spatial R libraries
 
@@ -36,7 +27,7 @@ module load r-env
 * [geofi](https://ropengov.github.io/geofi/) - download geospatial data on municipalities, zipcodes and population and statistical grids from Statistics Finland
 * [geoR](https://cran.r-project.org/web/packages/geoR/index.html) - geostatistical analysis including traditional, likelihood-based and Bayesian methods
 * [geosphere](https://cran.r-project.org/web/packages/geosphere/index.html) - spherical trigonometry for geographic coordinates (lat, lon)
-* [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be ued (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
+* [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be used (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
 * [ggspatial](https://cran.r-project.org/web/packages/ggspatial/index.html) - for map plotting
 * [gstat](https://cran.r-project.org/web/packages/gstat/index.html) - spatial and spatio-temporal geostatistical modelling, prediction and simulation. Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions
 * [GWmodel](https://cran.r-project.org/web/packages/GWmodel/index.html) - geographically-weighted models: GW summary statistics, GW principal components analysis, GW discriminant analysis and various forms of GW regression
@@ -54,7 +45,7 @@ module load r-env
 * [rstac](https://cran.r-project.org/web/packages/rstac/index.html) - client library for Spatio-Temporal Asset Catalog (STAC)
 * [rTLS](https://cran.r-project.org/web/packages/rTLS/index.html) - process terrestrial laser scanning (TLS) point clouds 
 * [Rsagacmd](https://cran.r-project.org/web/packages/Rsagacmd/index.html) - for using SAGA GIS commands from R
-* [sen2r](https://sen2r.ranghetti.info/) - find, download and process Sentinel-2 data
+* [sen2r](https://ranghetti.github.io/sen2r/index.html) - find, download and process Sentinel-2 data
 * [sf](https://cran.r-project.org/web/packages/sf/index.html) - main package for vector data, bindings to GDAL, GEOS and PROJ libraries. Works with tidyverse packages. Similar functionality, but newer and better than sp
 * [sp](https://cran.r-project.org/web/packages/sp/index.html) - older main package for vector data
 * [spacetime](https://cran.r-project.org/web/packages/spacetime/index.html) - for working with spatio-temporal data

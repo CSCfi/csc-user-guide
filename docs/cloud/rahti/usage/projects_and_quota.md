@@ -122,7 +122,7 @@ catalog where you can pick an application template or import your
 own one.
 
 For more information about using the web interface, refer to the
-[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.19). You can find out which version of the documentation to look at in the web interface by
+[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.20). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
 ## CSC computing project quotas
@@ -193,7 +193,7 @@ The user can set the limits explicitly within the available quota, but if no lim
 |limits|500m|1Gi|
 |requests|100m|500Mi|
 
-Note: `m` stands for milicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
+Note: `m` stands for millicores. `500m` will be the equivalent of 0.5 cores, or in other words half of the time of a CPU core.
 
 Rahti enforces a maximum limit/request ratio of 5. This means that the CPU or memory `limits` cannot be more than 5 times the `request`. So if the CPU request is 50m, the CPU limit cannot be higher than 250m. And if you want to increase the CPU limit to 1, you will have to increase as well the request to at least 200m.
 
@@ -205,7 +205,7 @@ If you need more resources than the defaults, you can apply for more quota by co
 
 !!! info
 
-    When creating a Rahti project which is associated with certain CSC computing project, by default all members the of
+    When creating a Rahti project which is associated with certain CSC computing project, by default all members of the 
     CSC computing project will have admin access to the Rahti project.
     You can also add individually an user to a specific Rahti project. The user must have a CSC or HAKA login.
 

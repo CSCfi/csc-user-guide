@@ -5,14 +5,14 @@
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu general
-      availability in spring 2026.
-    * Puhti storage will remain accessible until August 2026.
-    * Mahti will be shut down in August 2026.
+    * Puhti computing services will be shut down one month after Roihu is available, earliest by 31 July 2026 at 12:00 EEST.
+    * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
+    * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
+    * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
-Puhti and Mahti are CSC's supercomputers. Puhti has been available for CSC users
+Puhti, Mahti and Roihu are CSC's supercomputers. Puhti has been available for CSC users
 since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
 one of the pan-European pre-exascale supercomputers, located in CSC's data
 center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
@@ -25,8 +25,17 @@ since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-sy
 for details on the systems and [this page for an outline of differences between LUMI-C and
 Mahti](lumi-vs-mahti.md).
 
-Puhti and Mahti will be replaced in 2026 by CSC's next national supercomputer
-called **Roihu**. [Read more about Roihu here](systems-roihu.md).
+Puhti and Mahti are being replaced in by CSC's next national supercomputer
+called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu is accessible as a service in MyCSC
+around end of June 2026.
+
+Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
+and software environments.
+Roihu-CPU contains AMD EPYC CPUs and is intended for CPU-based computing, while
+Roihu-GPU provides GPU-accelerated computing with NVIDIA GH200 Grace Hopper
+Superchips. Roihu will also support jobs requiring larger amounts of memory than
+has been possible on CSC's previous national supercomputers, and provide
+enhanced support for sensitive data workloads.
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
@@ -35,8 +44,7 @@ basics of [Linux command line usage](../support/tutorials/env-guide/index.md) be
     For an overview of the LUMI supercomputer, see
     [the LUMI documentation](https://docs.lumi-supercomputer.eu/hardware/).
 
-
-## Accessing Puhti and Mahti
+## Accessing CSC supercomputers
 
 To be able to use CSC's supercomputers, you need to have a CSC user account that
 belongs to a computing project which has access to the respective supercomputers.
@@ -52,41 +60,46 @@ of this user guide.
 
 ## Connecting to the supercomputers
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 Connect using an SSH client:
 
 ```bash
-ssh yourcscusername@puhti.csc.fi
+ssh username@puhti.csc.fi
+# or
+ssh username@mahti.csc.fi
 ```
 
-or
+Roihu has separate login nodes for the Roihu-CPU and Roihu-GPU partitions:
 
 ```bash
-ssh yourcscusername@mahti.csc.fi
+ssh username@roihu-cpu.csc.fi
+# or
+ssh username@roihu-gpu.csc.fi
 ```
 
-This will connect you to one of the login nodes. If you need to connect
-to a specific login node, use the command:
+These commands will connect you to one of the login nodes. If you need to
+connect to a specific login node, use the commands:
 
 ```bash
-ssh yourcscusername@puhti-login[11-12,14-15].csc.fi
+ssh username@puhti-login[11-12,14-15].csc.fi
+# or
+ssh username@mahti-login[11-12,14-15].csc.fi
+# or
+ssh username@roihu-cpu-login[1-4].csc.fi
+# or
+ssh username@roihu-gpu-login[1-2].csc.fi
 ```
 
-or
-
-```bash
-ssh yourcscusername@mahti-login[11-12,14-15].csc.fi
-```
-
-Where `yourcscusername` is the username you get from CSC.
+Where `username` is the username you get from CSC.
 
 For more details, see the [connecting](connecting/index.md) page.
 
-Puhti and Mahti can also be accessed via their respective
+Puhti, Mahti and Roihu can also be accessed via their respective
 [web interfaces](webinterface/index.md) available at
-[www.puhti.csc.fi](https://www.puhti.csc.fi) and
-[www.mahti.csc.fi](https://www.mahti.csc.fi).
+[www.puhti.csc.fi](https://www.puhti.csc.fi),
+[www.mahti.csc.fi](https://www.mahti.csc.fi) and
+[www.roihu.csc.fi](https://www.roihu.csc.fi).
 
 ### Scalability
 
@@ -117,7 +130,7 @@ This command shows information for all your CSC projects. You can select just
 one project to be reported with the `-p` option. For example:
 
 ```bash
-[kkayttaj@puhti-login11 ~]$ csc-projects -p project_2012345
+[kkayttaj@roihu-login1 ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
 Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
@@ -144,15 +157,16 @@ The [disk areas](disk.md) of your projects can be checked with the command:
 csc-workspaces
 ```
 
-## Using Puhti and Mahti
+## Using CSC supercomputers
 
 * [Systems](available-systems.md): What computational resources are available
 * [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
 * [Connecting](connecting/index.md): How to connect to  CSC supercomputers
-* [Puhti web interface](webinterface/index.md): How to connect to Puhti using the web
-  interface
+* [Web interfaces](webinterface/index.md): How to connect to CSC supercomputers
+  using the web interfaces
 * [Disk areas](disk.md): What places are there for storing data on CSC
   supercomputers
+* [Object storage](allas-in-roihu.md): Opening connections to Allas and Lumi-O object storage services 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
 * [Running jobs](running/getting-started.md): How to run programs on the
@@ -161,6 +175,7 @@ csc-workspaces
     * [Installing software](installing.md)
     * [Compiling on Puhti](compiling-puhti.md)
     * [Compiling on Mahti](compiling-mahti.md)
+    * [Compiling on Roihu](compiling-roihu.md)
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of
   your applications

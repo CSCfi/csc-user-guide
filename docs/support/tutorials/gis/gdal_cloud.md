@@ -119,4 +119,4 @@ gdal_translate /vsis3/<name_of_your_bucket>/<name_of_your_input_file> /vsis3/<na
 	* QGIS connects by default to Amazon S3, for connecting to some other service add to Settings -> Options -> Variables new variable with name AWS_S3_ENDPOINT, for Allas the value is `a3s.fi`.
  	* QGIS supports also point clouds from URL. 
  * [Example Python code for working with Allas, rasterio, geopandas, and boto3](https://github.com/csc-training/geocomputing/blob/master/python/allas). 
- * [Example R code for workign with Allas, terra, sf, and aws.s3](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 
+ * [Example R code for working with Allas, terra, sf, and aws.s3](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R). 

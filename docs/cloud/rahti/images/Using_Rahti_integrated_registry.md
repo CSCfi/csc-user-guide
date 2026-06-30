@@ -59,6 +59,35 @@ Alternatively you can query images in remote registry with `docker image ls [OPT
 
 [oc](../usage/cli.md) must be installed locally on your machine.
 
+## Pulling Images from Rahti
+
+You can pull any image stored in the Rahti integrated registry to your local machine, save it as a portable archive, or push it to an external registry.
+
+1. Connect to the Rahti registry (same login as for pushing):
+
+   ```bash
+   sudo docker login -p $(oc whoami -t) -u unused image-registry.apps.2.rahti.csc.fi
+   ```
+
+   To list the images and tags available in your project:
+
+   ```bash
+   oc get imagestreams
+   oc describe imagestream {YOUR_IMAGE_NAME}
+   ```
+
+2. Pull the image to your local machine:
+
+   ```bash
+   sudo docker pull image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}:<tag>
+   ```
+
+3. (Optional) Save the image as a `.tar` archive:
+
+   ```bash
+   sudo docker save -o {YOUR_IMAGE_NAME}.tar image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}:<tag>
+   ```
+
 ## Using Manually Cached Images
 
 Go to your project's deployment, and edit it.
@@ -72,7 +101,7 @@ Finally select the new image.
 
 ## Access Control for the Rahti Integrated Registry
 
-Rahti provides granular control over access to the integrated image registry, allowing you to manage permissions based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/authentication_and_authorization/index).
+Rahti provides granular control over access to the integrated image registry, allowing you to manage permissions based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html/authentication_and_authorization/index).
 
 As a Rahti user, you can choose how broadly your stored images are exposed for different scenarios.
 

@@ -1,5 +1,9 @@
 # Cloud services
 
+## New Ubuntu cloud image Resolute Raccoon 26.04, 11.05.2026
+
+The newest LTS (Long-Term Support) Ubuntu cloud image, Ubuntu-26.04, has been added to Pouta.
+
 ## Storage quota change in cPouta and ePouta, 07.05.2026
 The storage quota in cPouta and ePouta has been updated. Instead of a single total limit, quotas are now defined per volume type.
 

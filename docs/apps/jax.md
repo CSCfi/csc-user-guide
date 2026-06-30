@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # JAX
@@ -18,26 +19,32 @@ catalog:
 JAX is Autograd and XLA, brought together for high-performance machine
 learning research.
 
+!!! info "News"
+
+    **25.6.2026** JAX is now available on Roihu-GPU, the module has been 
+    renamed `python-jax`.
+
 
 ## Available
 
 Currently supported JAX versions:
 
-| Version | Module             | Puhti   | Mahti   | LUMI       | Notes          |
-|:-------:|--------------------|:-------:|:-------:|:----------:|----------------|
-| 0.5.0   | `jax/0.5.0`        | default | default | -          | all packages   |
-|         | `jax/0.5.0-small`  | X       | X       | -          | framework only |
-| 0.4.38  | `jax/0.4.38`       | X       | X       | default*   | all packages   |
-|         | `jax/0.4.38-small` | X       | X       | X*         | framework only |
-| 0.4.30  | `jax/0.4.30`       | X       | X       | X*         | all packages   |
-|         | `jax/0.4.30-small` | X       | X       | X*         | framework only |
-| 0.4.23  | `jax/0.4.23-py3.9` | X       | X       | X*         |                |
-| 0.4.20  | `jax/0.4.20`       | X       | X       | X*         |                |
-| 0.4.18  | `jax/0.4.18`       | -       | -       | X*         |                |
-| 0.4.14  | `jax/0.4.14`       | X       | X       | -          |                |
-| 0.4.13  | `jax/0.4.13`       | X       | X       | -          |                |
-| 0.4.1   | `jax/0.4.1`        | X       | X       | -          |                |
-| 0.3.13  | `jax/0.3.13`       | X       | X       | -          |                |
+| Version | Module             | Roihu-GPU | Puhti   | Mahti   | LUMI     | Notes                |
+|:-------:|--------------------|-----------|:-------:|:-------:|:--------:|----------------------|
+| 0.10.2  | `python-jax/0.10`  | X         | -       | -       | -        | Default on Roihu-GPU |
+| 0.5.0   | `jax/0.5.0`        |           | default | default | -        | all packages         |
+|         | `jax/0.5.0-small`  |           | X       | X       | -        | framework only       |
+| 0.4.38  | `jax/0.4.38`       |           | X       | X       | default* | all packages         |
+|         | `jax/0.4.38-small` |           | X       | X       | X*       | framework only       |
+| 0.4.30  | `jax/0.4.30`       |           | X       | X       | X*       | all packages         |
+|         | `jax/0.4.30-small` |           | X       | X       | X*       | framework only       |
+| 0.4.23  | `jax/0.4.23-py3.9` |           | X       | X       | X*       |                      |
+| 0.4.20  | `jax/0.4.20`       |           | X       | X       | X*       |                      |
+| 0.4.18  | `jax/0.4.18`       |           | -       | -       | X*       |                      |
+| 0.4.14  | `jax/0.4.14`       |           | X       | X       | -        |                      |
+| 0.4.13  | `jax/0.4.13`       |           | X       | X       | -        |                      |
+| 0.4.1   | `jax/0.4.1`        |           | X       | X       | -        |                      |
+| 0.3.13  | `jax/0.3.13`       |           | X       | X       | -        |                      |
 
 The modules contain [JAX](https://github.com/google/jax/) for Python with GPU support via CUDA/ROCm as well as a large list of additional python packages commonly used together with JAX.
 The Python version differs between modules releases. Modules with JAX version up to 0.4.23 use Python 3.9, later modules use Python 3.12.
@@ -56,11 +63,8 @@ Since version 0.4.30, the JAX module comes in two flavours:
   check `pip list` for a full list of all included packages. These follow the naming scheme `jax/<version>`,
   or you can simply use `jax` to load the default (latest) version.
 
-!!! note
-
-    Since JAX releases new versions on a somewhat irregular schedule
-    we will not make all new versions immediately available.
-    Instead we endeavour to update the JAX version available on our systems approximately every six months, targeting February and August, on a best effort basis.
+On Roihu-GPU there is only a single module with a full set of
+packages. The module on Roihu-GPU has been renamed to `python-jax`.
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided via [tykky](../computing/containers/tykky.md)
@@ -90,20 +94,26 @@ JAX is licensed under [Apache License
 
 ## Usage
 
-To use the default version (most-recent) on Puhti or Mahti, initialize it with:
+To use the default version of JAX on Roihu-GPU, initialize it with:
 
-```bash
+```text
+module load python-jax
+```
+
+To access JAX on Puhti or Mahti:
+
+```text
 module load jax
 ```
 
 or
-```bash
+```text
 module load jax/small
 ```
 
 To access CSC-installed JAX on LUMI:
 
-```bash
+```text
 module use /appl/local/csc/modulefiles/
 module load jax  # jax/small
 ```
@@ -121,7 +131,8 @@ cuda, cudnn, or rocm modules separately!**
 This will show all available versions of JAX:
 
 ```bash
-module avail jax
+module avail python-jax  # on Roihu-GPU
+module avail jax         # on other systems
 ```
 
 !!! note

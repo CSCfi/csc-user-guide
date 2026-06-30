@@ -16,15 +16,18 @@ extra:
     content: |-
       <p>Warning!</p>
       <div>
-        <p>Puhti scratch disk is becoming very full (80+ % ) resulting in performance degradation. Everybody is advised to only keep actively processed data on scratch, all other data should be deleted, transferred to host institute or stored in Lumi-O. No new quota will be granted. <a href="{{ base_url }}/support/tutorials/lue/">Click here for a tool for examining your disk usage.</a></p>
+        <p>Puhti and Mahti are being decommissioned in stages, and their storage areas will become fully unavailable from <strong>15 October 2026</strong>. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions on transferring your data to Roihu.</p>
+      </div>
+      <div>
+        <p>Puhti scratch is very full: keep only active data there and move or delete everything else. No new Puhti scratch quota will be granted.</p>
       </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
-    image: roihu.png
-    title: Roihu supercomputer – coming in spring 2026!
-    link: /computing/systems-roihu/
+    image: roihu-new.png
+    title: Roihu supercomputer – get started here!
+    link: support/tutorials/roihu/
     description: |-
-      Puhti and Mahti will be decommissioned in August 2026 and replaced by
+      Puhti and Mahti will be decommissioned by October 2026 and replaced by
       Roihu, CSC's next-generation supercomputer offering enhanced performance
       and capabilities.
     visible: true
@@ -103,10 +106,13 @@ plugins:
       # reorganization:
       "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
-      "computing/allas.md": "data/Allas/allas-hpc.md"
+      "computing/allas.md": "data/Allas/allas-roihu.md"
       "computing/containers/creating.md": "computing/containers/overview.md"
       "computing/containers/run-existing.md": "computing/containers/overview.md"
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
+      "support/tutorials/snakemake-puhti.md": "apps/snakemake.md"
+      "support/tutorials/nextflow-tutorial.md": "apps/nextflow.md"
+      "computing/running/fireworks.md": "apps/fireworks.md"
       # deprecation:
       "apps/nomachine.md": "support/faq/deprecated-apps.md"
       "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
@@ -138,7 +144,7 @@ plugins:
       "computing/nsys.md": "apps/nsys.md"
       "computing/nvprof.md": "apps/nvprof.md"
       "computing/pdb.md": "apps/pdb.md"
-      "data/Allas/allas-examples.md": "data/Allas/allas-hpc.md"
+      "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
       # files moved to Allas:
       # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
       "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -307,7 +313,7 @@ nav:
       - Managing your project: accounts/how-to-manage-your-project.md
       - Applying for Billing Units: accounts/how-to-apply-for-billing-units.md
       - Increasing disk quotas: accounts/how-to-increase-disk-quotas.md
-      - Accessing Mahti large partition: accounts/how-to-access-mahti-large-partition.md
+      - Accessing Roihu large partition: accounts/how-to-access-roihu-large-partition.md
       - Reviewing Billing Unit usage: accounts/how-to-view-billing-unit-usage.md
       - Billing: accounts/billing.md
       - Multi-factor authentication: accounts/mfa.md
@@ -330,21 +336,25 @@ nav:
           - SSH client on Windows: computing/connecting/ssh-windows.md
       - Supercomputer storage:
           - computing/disk.md
+          - Roihu disk areas: computing/roihu-disk.md
           - Lustre filesystem: computing/lustre.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
           - Available batch job partitions: computing/running/batch-job-partitions.md
+          - Create Roihu batch jobs: computing/running/creating-job-scripts-roihu.md
+          - Roihu example scripts: computing/running/example-job-scripts-roihu.md
           - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
           - Puhti example scripts: computing/running/example-job-scripts-puhti.md
           - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
           - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
-          - High throughput: computing/running/throughput.md
+          - High-throughput computing and workflows: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
       - Installing software:
           - computing/installing.md
+          - Compiling on Roihu: computing/compiling-roihu.md
           - Compiling on Puhti: computing/compiling-puhti.md
           - Compiling on Mahti: computing/compiling-mahti.md
           - Compiling on LUMI: computing/compiling-lumi.md
@@ -369,6 +379,7 @@ nav:
               - Jupyter: computing/webinterface/jupyter.md
               - Julia on Jupyter: computing/webinterface/julia-on-jupyter.md
               - Jupyter for courses: computing/webinterface/jupyter-for-courses.md
+              - marimo: computing/webinterface/marimo.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
               - R-Jupyter: computing/webinterface/r-jupyter.md
@@ -383,6 +394,11 @@ nav:
           - Technical details: computing/quantum-computing/specs.md
           - FiQCI partition: computing/quantum-computing/fiqci-partition.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
+      - FirecREST HPC API:
+          - computing/firecrest/index.md
+          - Connecting: computing/firecrest/connecting.md
+          - Data transfer over S3: computing/firecrest/data-transfer-s3.md
+          - Python SDK: computing/firecrest/pyfirecrest.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
@@ -417,6 +433,7 @@ nav:
                   - cloud/pouta/storage.md
                   - Ephemeral storage: cloud/pouta/ephemeral-storage.md
                   - Persistent volumes: cloud/pouta/persistent-volumes.md
+                  - Encrypted persistent volumes: cloud/pouta/encrypted-volumes.md
                   - Snapshots: cloud/pouta/snapshots.md
                   - Snapshot using QEMU: cloud/pouta/qemu-vm.md
                   - Multi-attach Cinder storage: cloud/pouta/multiattach.md

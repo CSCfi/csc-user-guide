@@ -9,26 +9,34 @@ catalog:
     - Geosciences
   available_on:
     - Puhti
+    - LUMI
+    - Roihu
 ---
 
 # WhiteboxTools
 
-[WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html) is an advanced geospatial data analysis platform which includes more than 450 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.
+[Whitebox Next Gen](https://www.whiteboxgeo.com/products-wbw.html) is an advanced geospatial data analysis platform which includes more than 700 tools. Many tools operate in parallel, taking full advantage of your multi-core processor.
 
 ## Available
 
-Only WhiteboxTools Open Core tools are available on Puhti. WhiteboxTools is available with following versions:
+Only WhiteboxTools Open Core tools are available. WhiteboxTools is available with following versions:
 
-* 2.4.0 in 3.14.3 **geoconda** module, includes also Whitebox Workflows for Python.
-* 2.3.5 in 3.11.9 **geoconda** module
-* 2.2.0 in 3.10.x **geoconda** modules
-* 2.1.0 in the **WhiteboxTools** module 
+* 2.4.0 in 3.14.5 **python-geo** module, includes also Whitebox Workflows for Python, in Roihu
+* 2.4.0 in 3.14.3 **geoconda** module, includes also Whitebox Workflows for Python, in Puhti and LUMI.
+* 2.4.0 in 3.11.10 **geoconda** module, in Puhti and LUMI.
+* 2.3.5 in 3.11.9 **geoconda** module, in Puhti.
+* 2.2.0 in 3.10.x **geoconda** modules, in Puhti.
+* 2.1.0 in the **WhiteboxTools** module, in Puhti.
 
 ## Usage
 
 Load a module, select module based on version:
 
 ```
+# Roihu
+module load python-geo
+
+# Puhti/LUMI
 module load geoconda
 ```
 
@@ -58,18 +66,17 @@ whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.ti
 #SBATCH --time=00:10:00
 #SBATCH --mem=2G
 
-module load whiteboxtools
+module load python-geo
 whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
 ```
 
 ## License 
 
-The WhiteboxTools open-core platform is distributed under the MIT license. [The full WhiteboxTools license](https://www.whiteboxgeo.com/manual/wbt_book/license.html)
+The WhiteboxTools open-core platform is distributed under the MIT OR Apache-2.0 license. [The full WhiteboxTools license](https://github.com/jblindsay/whitebox_next_gen/blob/main/docs/legal/PRO_LICENSING_NOTICE.md)
 
 ## Citation
 
-`Lindsay, J.B. (2014) The Whitebox Geospatial Analysis Tools project and open-access GIS, Proceedings of the GIS Research UK 22nd Annual Conference, The University of Glasgow, 16-18 April, DOI: 10.13140/RG.2.1.1010.8962.`
-
+Lindsay, J.B. (2026). Whitebox Next Generation [Software]. Whitebox Geospatial Inc.
 
 
 ## Acknowledgement
@@ -80,14 +87,12 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Whiteboxtools are part of [Geoconda installation](./geoconda.md#installation).
+Whiteboxtools are part of [Geoconda](./geoconda.md#installation) or  [Python-geo](./python-geo.md#installation) installation.
 
 
 ## References
 
-* [WhiteboxTools User Manual](https://www.whiteboxgeo.com/manual/wbt_book/intro.html)
-* [Whitebox Geospatial Inc](https://www.whiteboxgeo.com/)
-* [WhiteboxTools Github](https://github.com/jblindsay/whitebox-tools)
-
+* [Whitebox Next Gen Github](https://github.com/jblindsay/whitebox_next_gen/)
+* [User documentation](https://github.com/jblindsay/whitebox_next_gen/tree/main/crates/wbw_python)
 
 

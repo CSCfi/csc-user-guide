@@ -71,6 +71,7 @@ Other useful links are:
 * [Introduction](storage.md)
 * [Ephemeral storage](ephemeral-storage.md)
 * [Persistent volumes](persistent-volumes.md)
+* [Encrypted persistent volumes](encrypted-volumes.md)
 * [Snapshots](snapshots.md)
 
 ## Self study and troubleshooting

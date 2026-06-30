@@ -3,7 +3,7 @@
 ## General
 * [I'm a new CSC user. How to get started?](how-to-get-started-at-CSC.md)
 * [X11 remote graphics does not work](x11-graphics.md)
-* [How to get access to Puhti](how-to-get-puhti-access.md)
+* [How to get access to Roihu](how-to-get-roihu-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving/index.md)
@@ -14,6 +14,11 @@
 * [My SSH keys do not work](ssh-keys-not-working.md)
 * [I have questions about the Billing Unit renewal (2025)](bu-renewal.md)
 * [Connecting to CSC supercomputers using VS Code fails with out-of-memory error](vscode-out-of-memory.md)
+* [WARNING: connection is not using a post-quantum key exchange algorithm.](ssh-post-quantum.md)
+
+## Roihu
+* [How to get access to Roihu](how-to-get-roihu-access.md)
+* [Frequently asked questions about Roihu](roihu.md)
 
 ## Batch jobs
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
@@ -52,8 +57,13 @@
 
 ## Allas
 
-* [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
+* [How to move data from Roihu to Allas and vice versa?](how-to-move-data-between-roihu-and-allas.md)
 * [Can I have a personal project or bucket in Allas?](can-i-have-a-personal-project-or-bucket-in-allas.md)
+* Export data
+    * [How to download data from Allas with rclone?](../../data/Allas/using_allas/rclone.md#download-objects)
+    * [How to download data from Allas with s3cmd?](../../data/Allas/using_allas/s3_client.md#download-objects-and-buckets)
+    * [How to download data from Allas with Python using S3?](../../data/Allas/using_allas/python_boto3.md#download-an-object)
+    * [How to download data from Allas with swift?](../../data/Allas/using_allas/swift_client.md#download-or-delete-projects)
 * [Is it possible to move data in Allas to new project?](is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](what-to-do-for-data-in-allas-after-project-ends.md)
@@ -64,6 +74,10 @@
 * [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-cpouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
+* Export data and images
+    * [How to download an instance snapshot?](../../cloud/pouta/snapshots.md#downloading-an-instance-snapshot)
+    * [How to download a volume snapshot?](../../cloud/pouta/snapshots.md#downloading-a-volume-snapshot)
+    * [How to download a backup or snapshot image file?](../../cloud/pouta/qemu-vm.md#1-downloading-a-backup-or-snapshot)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
@@ -81,14 +95,25 @@
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
 * [Do you provide Windows Virtual Machines?](do-you-provide-windows-vms.md)
 
+## Pukki
+
+* Export data and backup
+    * [How to export a PostgreSQL database?](../tutorials/pukki_data_migration.md#step-2-export-your-current-postgresql-database)
+    * [How to export a MariaDB database?](../../cloud/dbaas/mariadb-accessing.md#export-your-current-mariadb-database)
+    * [How to create a manual backup?](../../cloud/dbaas/backups.md#manual-backups)
+
 ## Rahti
 
 * [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/rahti_faq.md)
 * [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
 * [Does Rahti support UDP connections?](rahti-udp.md)
+* Export data and images
+    * [How to back up volume data to Allas?](../../cloud/rahti/storage/objectstorage.md#backup-to-allas)
+    * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
+    * [How to export container images?](../../cloud/rahti/images/Using_Rahti_integrated_registry.md#pulling-images-from-rahti)
+    * [How to share images between projects?](../../cloud/rahti/tutorials/allow-pull-from-other-projects.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
-* [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 * [How to package a Kubernetes application with Helm](helm.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
@@ -175,7 +200,7 @@
 
 ### SD Desktop for secondary use of health and social data (register data)
 
-* [What is SD Desktop for seconday use?](sensitive-data-desktop-audited.md#what-is-the-sd-desktop-for-secondary-use)
+* [What is SD Desktop for secondary use?](sensitive-data-desktop-audited.md#what-is-the-sd-desktop-for-secondary-use)
 * [How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?](sensitive-data-desktop-audited.md#how-does-processing-secondary-use-data-on-sd-desktop-differ-from-standard-use-of-sensitive-data-services)
 * [How can I access register data with SD Desktop?](sensitive-data-desktop-audited.md#how-can-i-access-register-data-with-sd-desktop)
 * [Can I combine my own data with register data on SD Desktop?](sensitive-data-desktop-audited.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
