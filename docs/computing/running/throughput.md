@@ -25,8 +25,19 @@ Short jobs also have a large scheduling overhead, meaning that an increasing fra
 To enable high-throughput computing while avoiding these issues, **pack your tasks so that they run with as few `sbatch` and `srun` invocations as possible**, by reserving one large resource allocation and running many tasks inside it with a suitable tool.
 Generally, running a large number (more than fits in the Slurm queue) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
 
-<!-- TODO: I/O and Parallel filesystem usage considerations, avoid reading and writing large amounts of small files into the Lustre parallel file system -->
-<!-- TODO: containerize software that consist of lots of small files, link to container page -->
+<!-- TODO:
+### I/O considerations
+- I/O and Parallel filesystem usage considerations
+- avoid reading and writing large amounts of small files into the Lustre parallel file system
+- problems reading when reading large amount files during startup
+- some workflow tools create large amount of files
+-->
+
+<!-- TODO:
+- containerize software that consist of lots of small files (python, r, etc)
+- run the high-throughput tool within a single container (instead of launching large amounts of containers)
+- link to container page
+-->
 
 ## High-throughput computing on HPC
 
@@ -61,19 +72,20 @@ Here `MaxJobs` is the maximum number of jobs that can run simultaneously and `Ma
 [Array jobs](array-jobs.md) are the native Slurm way to submit many similar independent tasks with a single command.
 They integrate seamlessly with Slurm and support MPI/OpenMP tasks, but do not pack job steps or handle dependencies.
 
-### HyperQueue
-
-[HyperQueue](../../apps/hyperqueue.md) is the recommended general-purpose tool for high-throughput computing.
-Instead of submitting each task as a separate Slurm job or job step, you allocate a large resource block and let HyperQueue schedule your tasks into it with minimal load on Slurm and little extra I/O.
-It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
-HyperQueue can also act as the [task executor for workflow managers](#workflows-on-hpc).
-
-For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
-
 ### GNU xargs and parallel
 
 [GNU xargs and parallel](../../support/tutorials/many.md) commands let you efficiently run a very large number of short, *serial*, independent tasks without bloating the Slurm log.
 It does not require a database or a persistent manager and does not support dependencies between tasks.
+
+### HyperQueue
+
+[HyperQueue](../../apps/hyperqueue.md) is a general-purpose tool for high-throughput computing.
+Instead of submitting each task as a separate Slurm job or job step, you allocate a large resource block and let HyperQueue schedule your tasks into it with minimal load on Slurm and little extra I/O.
+It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
+To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
+HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
+
+For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
 
 ### Distributed computing in your programming language
 
@@ -104,13 +116,6 @@ Julia:
 When your tasks have dependencies and form a pipeline, use a workflow manager.
 These tools track which tasks depend on which, run tasks in the correct order and recover from errors by restarting failed tasks.
 The following is not a complete list, and other tools may also work for your use case.
-
-### HyperQueue
-
-[HyperQueue](../../apps/hyperqueue.md) schedules task graphs efficiently and can run dependent tasks within a single resource allocation.
-It can also serve as the task executor underneath Snakemake or Nextflow.
-To define dependencies between tasks, use the [HyperQueue Python API](https://it4innovations.github.io/hyperqueue/stable/python/), which lets you build a task graph where each task can declare the tasks it depends on.
-
 ### Snakemake
 
 Snakemake is a popular Python-based workflow manager with dependency support and automatic container integration.
