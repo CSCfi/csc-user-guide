@@ -26,20 +26,21 @@ To enable high-throughput computing while avoiding these issues, **pack your tas
 Generally, running a large number (more than fits in the Slurm queue) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
 
 <!-- TODO:
-### I/O considerations
+### Best practices
+
+I/O considerations
 - I/O and Parallel filesystem usage considerations
 - avoid reading and writing large amounts of small files into the Lustre parallel file system
 - problems reading when reading large amount files during startup
 - some workflow tools create large amount of files
--->
 
-<!-- TODO:
+Containers
 - containerize software that consist of lots of small files (python, r, etc)
 - run the high-throughput tool within a single container (instead of launching large amounts of containers)
 - link to container page
 -->
 
-## High-throughput computing on HPC
+## Task farming on HPC
 
 This section covers tools for running a large number of *independent* tasks.
 They cover HTC use cases from tens to hundreds of thousands of tasks.
@@ -61,16 +62,55 @@ Examples available at CSC:
 Plain Slurm tools are a good fit when each task is long enough that the scheduling overhead is negligible (individual runtimes longer than ~30 minutes).
 Slurm should also be your first option for MPI jobs.
 
-You can check the limits on the number of running and queued jobs for a project as follows:
+You can check the limits on the number of running and queued jobs as follows:
 
 ```bash
-sacctmgr show assoc user=$USER account=<project> format=Account,Partition,MaxJobs,MaxSubmit -p
+sacctmgr show assoc user=$USER format=Account,Partition,MaxJobs,MaxSubmit -p
 ```
 
 Here `MaxJobs` is the maximum number of jobs that can run simultaneously and `MaxSubmit` is the maximum number of jobs that can be queued and running at the same time.
 
 [Array jobs](array-jobs.md) are the native Slurm way to submit many similar independent tasks with a single command.
 They integrate seamlessly with Slurm and support MPI/OpenMP tasks, but do not pack job steps or handle dependencies.
+
+### Task farming with Python multiprocess
+
+```python title="farming.py"
+#!/usr/bin/env python3
+#SBATCH --account=project_2001659
+#SBATCH --partition=small
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=1000
+
+import os
+import subprocess
+from concurrent.futures import ProcessPoolExecutor, as_completed
+
+def task(arg):
+    # Run your commands as a subprocess
+    ret = subprocess.run(["echo", "-n", arg], capture_output=True, text=True)
+    return ret
+
+if __name__ == "__main__":
+    # Number of workers
+    max_workers = int(os.getenv("SLURM_CPUS_PER_TASK", "1"))
+
+    with ProcessPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all tasks asynchronously
+        futures = [executor.submit(task, arg) for arg in range(1, 100)]
+
+        # Retrieve results as they are completed
+        for future in as_completed(futures):
+            result = future.result()
+            print(result.stdout)
+```
+
+```bash
+sbatch farming.py
+```
 
 ### GNU xargs and parallel
 
@@ -85,6 +125,7 @@ It can schedule tasks at sub-node granularity and scales to large numbers of tas
 To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
 HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
 
+<!-- TODO: move sbatch-hq from hyperqueue page to separate page -->
 For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
 
 ### Distributed computing in your programming language
