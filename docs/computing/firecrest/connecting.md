@@ -44,7 +44,7 @@ FirecREST HPC API can be used with personal access tokens, which allow access to
 
 As the name suggests, personal access tokens are intended for personal use. A [project-specific robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) should be used for implementing machine-to-machine HPC API integration for headless non-interactive systems.
 
-A personal access token can be retrieved from MyCSC portal. Personal access tokens generated at MyCSC are valid for 24 hours at a time.
+A personal access token can be retrieved from the [MyCSC portal](https://my.csc.fi/firecrest-token). Note that there's no direct link from the portal itself yet. Personal access tokens are valid for 24 hours at a time.
 
 You can view and revoke your active tokens at [CSC IdP federated personal profile page](https://user-auth.csc.fi/idp/profile/userprofile), under *Connected organizations* -> *Firecrest-access-tokens*.
 
