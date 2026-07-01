@@ -73,9 +73,9 @@ Roihu provides the following partitions for submitting jobs to GPU nodes:
 
 | Partition        | Allocation type | Time limit | Nodes  | Max GPUs      | [Node types](../systems-roihu.md#nodes) | Max memory       | Requirements       |
 |------------------|-----------------|------------|--------|---------------|-----------------------------------------|------------------|--------------------|
-| `gputest`        | G               | 15 minutes | 1 - 2  | 4 per node    | GPU                                     | 217 GiB per node |                    |
-| `gpumedium`      | G               | 36 hours   | 1      | 4 per job     | GPU                                     | 217 GiB per node |                    |
-| `gpularge`       | G               | 36 hours   | 1 - 10 | 4 per node    | GPU                                     | 217 GiB per node | [scalability test](../../accounts/how-to-access-roihu-large-partition.md) |
+| `gputest`        | G               | 15 minutes | 1 - 2  | 4 per node    | GPU                                     | 217 GiB per reserved GPU |                    |
+| `gpumedium`      | G               | 36 hours   | 1      | 4 per job     | GPU                                     | 217 GiB per reserved GPU |                    |
+| `gpularge`       | G               | 36 hours   | 1 - 10 | 4 per node    | GPU                                     | 217 GiB per reserved GPU | [scalability test](../../accounts/how-to-access-roihu-large-partition.md) |
 
 Each full GPU node has 4 GH200 GPUs. Each reserved GPU grants access to up to **72 CPU cores**, and
 95 GiB of HBM3 memory + 122 GiB of LPDDR5 memory, for a total of **217G available memory** per reserved GPU.
