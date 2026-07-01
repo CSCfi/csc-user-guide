@@ -63,11 +63,5 @@ with the `ncu-ui` GUI:
 ncu-ui profile.ncu-rep`
 ```
 
-<<<<<<< HEAD
-The `ncu-ui` can be run directly on the CSC supercomputers (**Note: in Roihu GUI does not work at the moment), however, for smoother operation of the GUI 
-=======
-The `ncu-ui` can be run directly on the CSC supercomputers (**Note**: in Roihu GUI does not work at the moment), however, for smoother operation of the GUI 
->>>>>>> dc985d3c (Fix typos and layout)
-it is recommended to copy the results files to your local workstation and view them using a local 
+The `ncu-ui` can be run directly on the CSC supercomputers (**Note: in Roihu GUI does not work at the moment), however, for smoother operation of the GUI it is recommended to copy the results files to your local workstation and view them using a local 
 installation of Nsight Compute.
-
