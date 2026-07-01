@@ -60,3 +60,7 @@ bottlenecks. At CSC, several profiling tools are available:
   for CUDA programs
 * [nsys](../apps/nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool designed to visualize an application’s algorithms
 * [ncu](../apps/ncu.md) is the command-line interface of Nsight Compute, a tool to debug and optimize CUDA kernels
+
+## CSC optimization service
+
+CSC application specialists can support you in improving the performance of your scientific computations, from small scripts to large software package. Smaller optimization requests are typically handled through the regular user support, while more extensive efforts may require establishing a funded development project. Read more about the service at [research.csc.fi](https://research.csc.fi/sciences/code-optimization/)
