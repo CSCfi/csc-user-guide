@@ -306,7 +306,7 @@ spack install
 
 ## What to do when concretization is not using an upstream dependency
 
-!!! Note
+!!! Warning
     This section is very much under development. The `spack install` step
     fails. Spack package build definition file needs a small update to
     support gcc version 15.
