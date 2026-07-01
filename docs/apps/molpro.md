@@ -25,7 +25,7 @@ associated methods.
 
 - Puhti: 2024.3
 - Mahti: 2024.3
-- Roihu: 2025.4, 2026.1 (default)
+- Roihu-CPU: 2025.4, 2026.1 (default)
 
 ## License
 
