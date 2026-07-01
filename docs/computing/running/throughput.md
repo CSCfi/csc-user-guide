@@ -46,22 +46,10 @@ This section covers tools for running a large number of *independent* tasks.
 They cover HTC use cases from tens to hundreds of thousands of tasks.
 The options are ordered roughly from "try this first" downwards.
 
-### Built-in HTC options in your software
-
-Many simulation packages can run multiple independent simulations within a single Slurm job step.
-**If your software offers such a built-in option, use it as your first choice.**
-Examples available at CSC:
-
-- [GROMACS `multidir` option](../../support/tutorials/gromacs-throughput.md)
-- [FARMING mode of CP2K](../../apps/cp2k.md#high-throughput-computing-with-cp2k) (also supports dependencies between subjobs)
-- [LAMMPS multi-partition switch](../../apps/lammps.md#high-throughput-computing-with-lammps)
-- [Amber multi-pmemd](../../apps/amber.md#high-throughput-computing-with-amber)
-
 ### Individual Slurm jobs, job steps, and array jobs
 
 Plain Slurm tools are a good fit when each task is long enough that the scheduling overhead is negligible (individual runtimes longer than ~30 minutes).
 Slurm should also be your first option for MPI jobs.
-
 You can check the limits on the number of running and queued jobs as follows:
 
 ```bash
@@ -71,13 +59,13 @@ sacctmgr show assoc user=$USER format=Account,Partition,MaxJobs,MaxSubmit -p
 Here `MaxJobs` is the maximum number of jobs that can run simultaneously and `MaxSubmit` is the maximum number of jobs that can be queued and running at the same time.
 
 [Array jobs](array-jobs.md) are the native Slurm way to submit many similar independent tasks with a single command.
-They integrate seamlessly with Slurm and support MPI/OpenMP tasks, but do not pack job steps or handle dependencies.
+They integrate seamlessly with Slurm and support MPI tasks, but do not pack job steps or handle dependencies.
 
-### Task farming with Python multiprocess
+### Task farming with Python multiprocess on single node
 
 ```python title="farming.py"
 #!/usr/bin/env python3
-#SBATCH --account=project_2001659
+#SBATCH --account=<project>
 #SBATCH --partition=small
 #SBATCH --time=00:15:00
 #SBATCH --nodes=1
@@ -89,48 +77,52 @@ import os
 import subprocess
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-def task(arg):
-    # Run your commands as a subprocess
-    ret = subprocess.run(["echo", "-n", arg], capture_output=True, text=True)
+def task(arg: str):
+    # Run your task. Use subprocess to run external commands.
+    ret = subprocess.run(["/usr/bin/echo", "-n", arg], capture_output=True, text=True)
     return ret
 
 if __name__ == "__main__":
-    # Number of workers
+    # Set the number of workers. Default is one worker per core.
     max_workers = int(os.getenv("SLURM_CPUS_PER_TASK", "1"))
 
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        # Submit all tasks asynchronously
-        futures = [executor.submit(task, arg) for arg in range(1, 100)]
+        futures = []
+
+        # Submit tasks with their arguments to the workers asynchronously
+        for arg in range(1, 100):
+            future = executor.submit(task, str(arg))
+            futures.append(future)
 
         # Retrieve results as they are completed
         for future in as_completed(futures):
+            # Fetch the result
             result = future.result()
+
+            # Process the result
             print(result.stdout)
 ```
+
+Submit to slurm
 
 ```bash
 sbatch farming.py
 ```
 
-### GNU xargs and parallel
-
-[GNU xargs and parallel](../../support/tutorials/many.md) commands let you efficiently run a very large number of short, *serial*, independent tasks without bloating the Slurm log.
-It does not require a database or a persistent manager and does not support dependencies between tasks.
-
-### HyperQueue
-
-[HyperQueue](../../apps/hyperqueue.md) is a general-purpose tool for high-throughput computing.
-Instead of submitting each task as a separate Slurm job or job step, you allocate a large resource block and let HyperQueue schedule your tasks into it with minimal load on Slurm and little extra I/O.
-It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
-To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
-HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
-
-<!-- TODO: move sbatch-hq from hyperqueue page to separate page -->
-For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
+- we can load modules with wrapper script
+- use Python standard library
+- Python scripting is more robust than shell scripting
+- allows pre and post processing data more easily
+- avoids writing unnecessary files to the parallel file system
 
 ### Distributed computing in your programming language
 
 If your work is already written in a high-level language, the language's own parallel and distributed computing facilities are often the simplest option:
+
+Bash:
+
+* [GNU xargs and parallel](../../support/tutorials/many.md) commands let you efficiently run a very large number of short, *serial*, independent tasks without bloating the Slurm log.
+It does not require a database or a persistent manager and does not support dependencies between tasks.
 
 Python:
 
@@ -148,6 +140,16 @@ Julia:
 * [Julia multiprocessing on single node](../../support/tutorials/julia.md#multi-processing-on-single-node)
 * [Julia multiprocessing on multiple nodes](../../support/tutorials/julia.md#multi-processing-on-multiple-nodes)
 
+### Built-in HTC options in your software
+
+Many simulation packages can run multiple independent simulations within a single Slurm job step.
+Examples available at CSC:
+
+- [GROMACS `multidir` option](../../support/tutorials/gromacs-throughput.md)
+- [FARMING mode of CP2K](../../apps/cp2k.md#high-throughput-computing-with-cp2k) (also supports dependencies between subjobs)
+- [LAMMPS multi-partition switch](../../apps/lammps.md#high-throughput-computing-with-lammps)
+- [Amber multi-pmemd](../../apps/amber.md#high-throughput-computing-with-amber)
+
 ### Further reading
 
 - [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
@@ -157,6 +159,17 @@ Julia:
 When your tasks have dependencies and form a pipeline, use a workflow manager.
 These tools track which tasks depend on which, run tasks in the correct order and recover from errors by restarting failed tasks.
 The following is not a complete list, and other tools may also work for your use case.
+### HyperQueue
+
+[HyperQueue](../../apps/hyperqueue.md) is a general-purpose tool for high-throughput computing.
+Instead of submitting each task as a separate Slurm job or job step, you allocate a large resource block and let HyperQueue schedule your tasks into it with minimal load on Slurm and little extra I/O.
+It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
+To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
+HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
+
+<!-- TODO: move sbatch-hq from hyperqueue page to separate page -->
+<!-- For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands. -->
+
 ### Snakemake
 
 Snakemake is a popular Python-based workflow manager with dependency support and automatic container integration.
