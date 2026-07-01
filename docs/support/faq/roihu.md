@@ -84,7 +84,9 @@ the same CSC account and projects can be used for different CSC services,
 including Roihu.
 
 You can add Roihu as a service to your existing project(s) in MyCSC, similarly to Puhti or Mahti.
-The existing billing units can be used on Roihu. Scratch/projappl space will be available there automatically, but data is NOT transferred automatically.
+The **existing billing units in your project can be used on Roihu**.
+Scratch/projappl space will be created to your project to Roihu automatically after applying,
+but data is NOT transferred automatically from Mahti or Puhti.
 
 To be able to use Roihu, you will need to
 [add Roihu service access for your project](../../accounts/how-to-add-service-access-for-project.md).

@@ -25,7 +25,7 @@ for efficient study of large systems.
 
 - Puhti: 7.5.1, 7.6, 7.7, 7.8
 - Mahti: 7.5.1, 7.6, 7.7, 7.8
-- Roihu: 8.0
+- Roihu-CPU: 8.0
 
 ## License
 

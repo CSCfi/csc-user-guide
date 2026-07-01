@@ -180,6 +180,9 @@ fine-tuning guide from Hugging
 Face](https://huggingface.co/blog/mlabonne/sft-llama3), which also
 covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
+### A fine-tuning example with climate data
+
+A practical fine-tuning example is provided in our [repository](https://github.com/CSCfi/climate-llm-finetuning). The example focuses on utilizing climate-related scientific articles from [Copernicus](https://publications.copernicus.org/open-access_journals/open_access_journals_a_z.html) to fine-tune smaller sized LLMs (in this case, Llama-3.1-8B-Instruct model).
 
 ## Quantization
 
