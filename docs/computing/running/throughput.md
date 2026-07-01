@@ -23,7 +23,7 @@ Many jobs and job steps generate excess log data and slow down Slurm.
 Short jobs also have a large scheduling overhead, meaning that an increasing fraction of the time is spent waiting in the queue instead of computing.
 
 To enable high-throughput computing while avoiding these issues, **pack your tasks so that they run with as few `sbatch` and `srun` invocations as possible**, by reserving one large resource allocation and running many tasks inside it with a suitable tool.
-Generally, running a large number (more than fits in the Slurm queue) of very short tasks (under ~30 minutes) is inefficient as individual Slurm jobs and should be packed.
+As a heuristic, if you are running more than 20 short tasks (under ~30 minutes) that run on a single node, you should consider packing them into a single slurm job.
 
 <!-- TODO:
 ### Best practices
@@ -95,12 +95,15 @@ if __name__ == "__main__":
             futures.append(future)
 
         # Retrieve results as they are completed
+        results = []
         for future in as_completed(futures):
             # Fetch the result
             result = future.result()
 
             # Process the result
-            print(result.stdout)
+            results.append(result.stdout)
+
+        print(results)
 ```
 
 Submit to slurm
@@ -110,10 +113,10 @@ sbatch farming.py
 ```
 
 - we can load modules with wrapper script
-- use Python standard library
+- Example uses only Python standard libraries available from the system Python.
 - Python scripting is more robust than shell scripting
-- allows pre and post processing data more easily
-- avoids writing unnecessary files to the parallel file system
+- We can easily integrate pre and post processing data to the script.
+- We can avoid writing unnecessary files to the parallel file system
 
 ### Distributed computing in your programming language
 
