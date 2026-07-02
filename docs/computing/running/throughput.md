@@ -25,20 +25,18 @@ Short jobs also have a large scheduling overhead, meaning that an increasing fra
 To enable high-throughput computing while avoiding these issues, **pack your tasks so that they run with as few `sbatch` and `srun` invocations as possible**, by reserving one large resource allocation and running many tasks inside it with a suitable tool.
 As a heuristic, if you are running more than 20 short tasks (under ~30 minutes) that run on a single node, you should consider packing them into a single slurm job.
 
-<!-- TODO:
-### Best practices
+### Other considerations
 
-I/O considerations
+TODO: I/O considerations
 - I/O and Parallel filesystem usage considerations
 - avoid reading and writing large amounts of small files into the Lustre parallel file system
 - problems reading when reading large amount files during startup
 - some workflow tools create large amount of files
 
-Containers
-- containerize software that consist of lots of small files (python, r, etc)
+TODO: Containers
+- containerize software that consist of lots of small files (python with external packages, r, etc)
 - run the high-throughput tool within a single container (instead of launching large amounts of containers)
 - link to container page
--->
 
 ## Task farming on HPC
 
@@ -65,14 +63,6 @@ They integrate seamlessly with Slurm and support MPI tasks, but do not pack job 
 
 ```python title="farming.py"
 #!/usr/bin/env python3
-#SBATCH --account=<project>
-#SBATCH --partition=small
-#SBATCH --time=00:15:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem-per-cpu=1000
-
 import os
 import subprocess
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -106,17 +96,30 @@ if __name__ == "__main__":
         print(results)
 ```
 
+```bash title="farming.sh"
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:15:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=1000
+# You can load modules and set environment here if needed.
+python3 farming.py
+```
+
 Submit to slurm
 
 ```bash
-sbatch farming.py
+sbatch farming.sh
 ```
 
-- we can load modules with wrapper script
-- Example uses only Python standard libraries available from the system Python.
-- Python scripting is more robust than shell scripting
+TODO: description
+- Uses only Python standard libraries available from the system Python.
+- Python scripting is more robust than shell scripting.
 - We can easily integrate pre and post processing data to the script.
-- We can avoid writing unnecessary files to the parallel file system
+- We can avoid writing unnecessary files to the parallel file system.
 
 ### Distributed computing in your programming language
 
@@ -162,6 +165,7 @@ Examples available at CSC:
 When your tasks have dependencies and form a pipeline, use a workflow manager.
 These tools track which tasks depend on which, run tasks in the correct order and recover from errors by restarting failed tasks.
 The following is not a complete list, and other tools may also work for your use case.
+
 ### HyperQueue
 
 [HyperQueue](../../apps/hyperqueue.md) is a general-purpose tool for high-throughput computing.
@@ -170,8 +174,7 @@ It can schedule tasks at sub-node granularity and scales to large numbers of tas
 To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
 HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
 
-<!-- TODO: move sbatch-hq from hyperqueue page to separate page -->
-<!-- For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands. -->
+For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
 
 ### Snakemake
 
