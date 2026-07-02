@@ -15,7 +15,7 @@
 
 SD Connect has been upgraded to a new version. Existing buckets must be converted to maintain access and functionality.
 
-## Step 1: Check Your Bucket Tag
+## Step 1: Check bucket tag
 
 ### 🔴 Urgent (fully incopatible name)
 
