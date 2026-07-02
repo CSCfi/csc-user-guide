@@ -27,16 +27,17 @@ As a heuristic, if you are running more than 20 short tasks (under ~30 minutes) 
 
 ### Other considerations
 
-TODO: I/O considerations
-- I/O and Parallel filesystem usage considerations
-- avoid reading and writing large amounts of small files into the Lustre parallel file system
-- problems reading when reading large amount files during startup
-- some workflow tools create large amount of files
+High-throughput workflows are often limited by I/O rather than by compute, so pay close attention to how your tasks use the parallel file system.
+The Lustre file systems at CSC are optimized for reading and writing a moderate number of large files, and they perform poorly when a workload reads or writes large numbers of small files.
+A common bottleneck occurs at task startup, when many tasks simultaneously open the same set of files, which can overload the file system and slow down not only your own jobs but the whole system for other users.
+Some workflow tools also generate a large number of small intermediate and log files, which compounds the problem.
+Whenever possible, reduce the number of files by keeping intermediate data in memory, bundling small files into archives, or directing heavy I/O to [local disk ares](../disk.md#temporary-local-disk-areas) instead of the shared parallel file system.
 
-TODO: Containers
-- containerize software that consist of lots of small files (python with external packages, r, etc)
-- run the high-throughput tool within a single container (instead of launching large amounts of containers)
-- link to container page
+Containers are an effective way to reduce the file-count problem described above.
+Software stacks that consist of a large number of small files, such as Python with its external packages or R with its libraries, are particularly problematic on the parallel file system, both when installed there and when imported at task startup.
+Packaging such software into a single container image collapses these many small files into one file, which the parallel file system handles much more efficiently and which speeds up task startup considerably.
+When running a high-throughput workload, run the task-farming or workflow tool inside a single long-running container rather than launching a separate container for each individual task, as starting many containers adds significant overhead.
+See the [containers documentation](../containers/overview.md) for how to build and run containers at CSC.
 
 ## Task farming on HPC
 
@@ -115,11 +116,11 @@ Submit to slurm
 sbatch farming.sh
 ```
 
-TODO: description
-- Uses only Python standard libraries available from the system Python.
-- Python scripting is more robust than shell scripting.
-- We can easily integrate pre and post processing data to the script.
-- We can avoid writing unnecessary files to the parallel file system.
+This approach is a good fit when your tasks run on a single node and you want fine-grained control over how they are executed.
+The example above relies only on the Python standard library available from the system Python, so it requires no additional installation or environment setup.
+Compared to shell scripting, Python scripting is more robust and easier to maintain, especially as the logic for launching and coordinating tasks grows more complex.
+It also lets you integrate pre- and post-processing of your data directly into the same script, keeping intermediate results in memory and avoiding writing unnecessary files to the parallel file system.
+The `ProcessPoolExecutor` distributes the tasks across the cores reserved for the job, and the number of workers is taken from `SLURM_CPUS_PER_TASK` so it automatically matches the resources requested in the batch script.
 
 ### Distributed computing in your programming language
 
