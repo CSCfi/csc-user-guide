@@ -33,7 +33,7 @@ The bucket content is still accessible, however bucket size is showed as zero an
 - Files can still be accessed and downloaded.  Sharing permissions are not be visible and bucket size is zero. 
 - Conversion is optional, but it is recommended to restore bucket size information and sharing permissions.
 
-During the conversion, no new bucket is created. Teh tool will represtinate the correct bucket size and repristinae sharing permssions. 
+During the conversion, no new bucket is created. The tool will represtinate the correct bucket size and repristinae sharing permssions. 
 
 
 ### 🟡 By End of 2026 (includes incompatible capital letters and underscore). 
