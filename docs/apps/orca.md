@@ -27,7 +27,7 @@ for academic use at academic institutions.
 
 - Puhti: 6.0.0
 - Mahti: 6.0.0
-- Roihu: 6.1.1
+- Roihu-CPU: 6.1.1
 
 Note that due to licensing issues every user has to install their own copy of the program.
 

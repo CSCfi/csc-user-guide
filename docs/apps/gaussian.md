@@ -22,7 +22,7 @@ electronic structure modeling.
 
 - Puhti: `G16RevC.02`
 - Mahti: `G16RevC.02`
-- Roihu: `G16RevC.02`
+- Roihu-CPU: `G16RevC.02`
 
 ## License
 
