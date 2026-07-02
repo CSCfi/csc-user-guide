@@ -48,7 +48,10 @@ The options are ordered roughly from "try this first" downwards.
 ### Individual Slurm jobs, job steps, and array jobs
 
 Plain Slurm tools are a good fit when each task is long enough that the scheduling overhead is negligible (individual runtimes longer than ~30 minutes).
-Slurm should also be your first option for MPI jobs.
+Slurm should also be your first option for MPI jobs because MPI jobs must be started using `srun`.
+[Array jobs](array-jobs.md) are the native Slurm way to submit many similar independent tasks with a single command.
+They integrate seamlessly with Slurm and support MPI tasks, but do not pack job steps or handle dependencies.
+
 You can check the limits on the number of running and queued jobs as follows:
 
 ```bash
@@ -56,9 +59,6 @@ sacctmgr show assoc user=$USER format=Account,Partition,MaxJobs,MaxSubmit -p
 ```
 
 Here `MaxJobs` is the maximum number of jobs that can run simultaneously and `MaxSubmit` is the maximum number of jobs that can be queued and running at the same time.
-
-[Array jobs](array-jobs.md) are the native Slurm way to submit many similar independent tasks with a single command.
-They integrate seamlessly with Slurm and support MPI tasks, but do not pack job steps or handle dependencies.
 
 ### Task farming with Python multiprocess on single node
 
