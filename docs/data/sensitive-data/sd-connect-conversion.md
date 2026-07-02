@@ -11,32 +11,70 @@
 
 </div>
 
+# SD Connect Conversion Guide
+
+SD Connect has been upgraded to a new version. Existing buckets must be converted to maintain access and functionality.
+
+## Step 1: Check Your Bucket Tag
+
+### 🔴 Urgent (fully incopatible name)
+
+The bucket name is not compatible with the new SD Connect version, and the bucket content is no longer accessible.
+
+- Files cannot be accessed and sharing permissions are not visible.
+- Conversion is required to regain access. 
+
+During the conversion, a new bucket is created and all files are copied to it. Make sure your CSC project has enough free quota to temporarily store both copies of the data.
+
+### 🟡 By End of 2026 (fully comapatible bucket name)
+
+The bucket content is still accessible, however bucket size is showed as zero and sharing prmissions are not visible. 
+
+- Files can still be accessed and downloaded.  Sharing permissions are not be visible and bucket size is zero. 
+- Conversion is optional, but it is recommended to restore bucket size information and sharing permissions.
+
+During the conversion, no new bucket is created. Teh tool will represtinate the correct bucket size and repristinae sharing permssions. 
 
 
-# Overview
+### 🟡 By End of 2026 (includes incompatible capital letters and underscore). 
 
-The SD Connect service has been upgraded to a new version with changes that are not fully backward compatible. This guide explains how to regain access to your files or convert them to the new format using the SD Connect Conversion Tool.
+The bucket content is still accessible, however bucket size is showed as zero and sharing prmissions are not visible. 
 
-## Step 1: Check the tags visible in the SD Connect user interface
+- Files can still be accessed and downloaded.  Sharing permissions are not be visible and bucket size is zero. 
+- Conversion is optional, but it is recommended to restore bucket size information and sharing permissions.
 
+During the conversion, a new bucket is created and all files are copied to it. Make sure your CSC project has enough free quota to temporarily store both copies of the data.
 
-- **Urgent**: The bucket name contains incompatible characters, so you no longer have access to your files and sharing permissions are not visible. Use the Conversion Tool to regain access. **The tool will create a new bucket with a compatible name (including the suffix “-conv”) and copy all files there**. Because this involves creating a full duplicate of your data, the process may take time and use significant network and storage resources. Before starting,we need to consider the available storage quota for yoru CSC project, where the Conversion Tool will be installed, and the potential impact on network performance during the process. At the end of the conversion, the oroginal bucket needs to be deleted. Please refer to the table below to find the relevant step by step guide.
+### 🔵 Multiple Tags
 
+If your project contains buckets with different tags, convert all **Urgent** buckets first and then proceed with the remaining buckets.
 
-- **By the end of 2026**: The bucket name contains compatible characters, so you can still access and download your files; however, file sizes may appear as zero and sharing permissions are no longer visible. Use the Conversion Tool to improve usability, update the file format, restore the correct file sizes and sharign perssmions. 
-In this case, the conversion process is faster because no data is duplicated—only the format and metadata are updated—resulting in fewer constraints. Please refer to the table below to find the relevant guide.
+---
 
+## Step 2: Choose the Appropriate Conversion Method
 
-- **Both tags are present**: Your project contains both types of buckets. In this case, you can the buckets marked as urgent first, and in a second steo al the remianing one. 
+| Tag | Data Size | Recommended Action | User Guide |
+|-------|------------|-------------------|------------|
+| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | Link |
+| Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Rhoihu. | Link |
+| Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with comaptible name.  Use the CLI on Rhoihu and convert a few buckets at a time. | Link |
+| Urgent | More than 50 TB | Contant CSC support to plan the conversion. | Contact us |
+| By End of 2026 | Up to 1 TB | Use the SD Connect Conversion Tool user inetrface on your local computer. | Link |
+| By End of 2026  | More than 1 TB | Use the SD Connect Conversion CLI on Rhoihu.| Link |
+| By End of 2026 (name includes Capoital letters and underscores)| Any size |Contant CSC support to plan the conversion.| Link |
 
+---
 
-Step 2: Choose the correct option and step by step guide
+## Bucket Name Requirements
 
-| Tag | Bucket or CSC project size | Next steps | Link to the user guide |
-|-----|----------------------------|------------|------------------------|
-| Urgent | Up to 1 TB | Download the SD Connect Conversion Tool application to your laptop | [SD Connect Conversion tool application](sd-connect-conversion-tool-ui.md) |
-|  | Up to 4 TB | Use the SD Connect Conversion CLI installed on Rhoihu | Link |
-|  | Up to 50 TB | Verify that your CSC project has enough quota to create a copy of your files during the conversion.  Use the SD Connect Conversion CLI installed on Rhoihu. Plan the process to convert only a few buckets at a time, rather than the entire CSC project.| Add link here |
-|  | More than  50 TB| Verify that your CSC project has enough quota to create a copy of your files during the conversion.  Use the SD Connect Conversion CLI installed on Rhoihu. Plan the process to convert only a few buckets at a time, rather than the entire CSC project. |Contact us to plan the conversion with our support
-| By end of 2026 | Up to 1 TB | Download the SD Connect Conversion Tool application to your laptop and schedule conversion before the end of 2026 | Add link here |
-|  | More than 1 TB | Plan and schedule the conversion well ahead of the deadline | Add link here |
+Bucket names must:
+
+- Start and end with a lowercase letter or a number.
+- Be between 3 and 63 characters long.
+- Contain only lowercase letters (`a-z`), numbers (`0-9`), and hyphens (`-`).
+
+Bucket names cannot contain:
+
+- Uppercase letters (`A-Z`)
+- Underscores (`_`)
+- Accented or special characters such as `å`, `ä`, `ö`, or `é`
