@@ -53,8 +53,42 @@ ___
 
 ## 2. Download and install SD Connect Conversion tool
 
-- Links 
-- Installation guide
+- Links
+  
+
+
+  ### 2.1 Install the SD Connect Conversion Tool on macOS
+
+1. Download the SD Connect Conversion Tool.
+
+2. Open your Downloads folder and drag the application into the Applications folder.
+
+3. On your desktop, find the icon named SD_Connect_s3_migrate_gui. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
+
+4. Press **Command (⌘) + Space** to open Spotlight Search.
+
+5. Type **Terminal** and press **Enter**.
+
+6. A Terminal window will open. Type the following exactly as shown and press **Enter**:
+
+   cd /Applications
+
+7. Type the following exactly as shown and press **Enter**:
+
+   xattr -cr sd_connect_s3_migrate_gui.app
+
+8. Type the following and press **Enter**:
+
+   logout
+
+9. Log back in to your Mac.
+
+10. Open the Applications folder and double-click **SD Connect Conversion Tool** to start the application.
+
+- ### 2.2 Installöation guide for Linux
+
+- ### 2.3 Installation guide for Widnows
+
 
 ___
 
