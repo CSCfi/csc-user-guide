@@ -55,7 +55,7 @@ If your project contains buckets with different tags, convert all **Urgent** buc
 
 | Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
-| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | [Link)](sd-connect-conversion-tool-ui.md)|
+| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | [Link](sd-connect-conversion-tool-ui.md)|
 | Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Rhoihu. | Link |
 | Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with comaptible name.  Use the CLI on Rhoihu and convert a few buckets at a time. | Link |
 | Urgent | More than 50 TB | Contant CSC support to plan the conversion. | Contact us |
