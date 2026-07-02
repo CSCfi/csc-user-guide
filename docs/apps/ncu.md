@@ -10,13 +10,16 @@ catalog:
   available_on:
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # ncu: GPU CUDA Kernel Profiler
 
 ## Available
-    Puhti: 2022.2.0.0
-    Mahti: 2021.3.0.0
+
+- Puhti: version depends on the CUDA environment
+- Mahti: version depends on the CUDA environment
+- Roihu-GPU: version depends on the CUDA environment
 
 ## License
 
@@ -24,13 +27,16 @@ Usage is possible for both academic and commercial purposes.
 
 ## Usage
 
-NVIDIA Nsight Compute is a CUDA kernel profiler that provides detailed performance data and offers guidance for optimizing your CUDA kernels.
+[NVIDIA Nsight Compute](https://developer.nvidia.com/nsight-compute) is a CUDA kernel profiler that provides detailed performance data and offers guidance for optimizing your CUDA kernels.
 The *ncu* profiling and debugging tool collects and views profiling data from the
 command-line. It is a low level CUDA kernel profiling tool. It enables the collection of a timeline of CUDA-related
 activities on both CPU and GPU, including kernel execution, memory transfers,
 memory set and CUDA API calls and events or metrics for CUDA kernels.
-Profiling results are displayed in the console after the profiling data is
-collected, and may also be saved for later viewing by *ncu-ui* tool.
+
+Profiling is done in two steps:
+
+1. Collect profiling data by running the application under `ncu` command line tool
+2. Analyze the results with `ncu-ui` GUI.
 
 To use `ncu`, one needs to first load the CUDA module:
 
@@ -38,14 +44,24 @@ To use `ncu`, one needs to first load the CUDA module:
 module load cuda
 ```
 
-To profile a CUDA code, one then adds the command `ncu` before the normal
-command to execute the code. Running is otherwise similar to that of any other
-CUDA job on [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu) or [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
+For collecting data, run your application normally via Slurm and prepend your executable with `ncu <profiling options>`:
 
-An example of usage of `ncu`:
-```
-ncu --set full -o myreport ./a.out
-```
-Next the resulted report is analysed with `ncu-ui` on the CSC supercomputers or on the user's local machine. The performance of the program can be compared to the theoretical peak  (`speed-of-light`) performance or to a custom baseline (for example a previous release to be compared to) can be used.
+```bash
+#SBATCH ...
+...
 
-`ncu` supports many useful running options, it is fully customizable. Use command line arguments `--list metrics`and `--query-metrics` to check the available metrics and enquire which metrics are available for the current platform. For more details please check the [nvidia documentation](https://docs.nvidia.com/nsight-compute/index.html).
+srun ncu -o profile ./my_executable
+```
+Depending on the performance metrics collected, each kernel launch may be *replayed* multiple times,
+adding significant overhead to the application run time. Thus, it is recommended to shorten the 
+duration of the application (e.g. run only limited number of time steps or iterations), and collect 
+metrics only for the most relevant GPU kernels. See [NVIDIA documentation](https://docs.nvidia.com/nsight-compute/NsightComputeCli) for more details.
+
+The profiling report (`.ncu-rep` is appended to filename given with the `-o` option) is analysed 
+with the `ncu-ui` GUI:
+```bash
+ncu-ui profile.ncu-rep`
+```
+
+The `ncu-ui` can be run directly on the CSC supercomputers (**Note: in Roihu GUI does not work at the moment), however, for smoother operation of the GUI it is recommended to copy the results files to your local workstation and view them using a local 
+installation of Nsight Compute.
