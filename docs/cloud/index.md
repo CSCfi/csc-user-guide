@@ -29,3 +29,9 @@ If you need an environment to run a containerised software application that does
 Noppe is a hosted platform for teaching and research. It provides a technical environment for hosting e.g. Jupyter Notebook, RStudio Server and Apache Spark environments combined with user management.
 
 If you need a turnkey solution for listed environments, choose [Noppe](noppe/index.md).
+
+### Satama
+
+Satama is a cloud-native container image registry for CSC. It provides a secure and centralized place for users to push and pull container images, just like Docker Hub, but with added features such as role-based access control, vulnerability scanning, and image signing. 
+
+If you need an environment to manage your images, choose [Satama](satama/index.md)
