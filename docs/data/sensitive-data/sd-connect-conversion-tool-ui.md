@@ -87,7 +87,7 @@ ___
 
 - ### 2.2 Installöation guide for Linux
 
-- ### 2.3 Installation guide for Widnows
+- ### 2.3 Installation guide for Windows
 
 
 ___
