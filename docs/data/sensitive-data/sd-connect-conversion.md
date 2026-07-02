@@ -11,7 +11,7 @@
 
 </div>
 
-# SD Connect Conversion Guide
+# SD Connect Conversion guide
 
 SD Connect has been upgraded to a new version. Existing buckets must be converted to maintain access and functionality.
 
@@ -45,13 +45,13 @@ The bucket content is still accessible, however bucket size is showed as zero an
 
 During the conversion, a new bucket is created and all files are copied to it. Make sure your CSC project has enough free quota to temporarily store both copies of the data.
 
-### 🔵 Multiple Tags
+### Multiple tags
 
 If your project contains buckets with different tags, convert all **Urgent** buckets first and then proceed with the remaining buckets.
 
 ---
 
-## Step 2: Choose the Appropriate Conversion Method
+## Step 2: Choose the appropriate conversion method
 
 | Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
@@ -65,7 +65,7 @@ If your project contains buckets with different tags, convert all **Urgent** buc
 
 ---
 
-## Bucket Name Requirements
+## Bucket name requirements
 
 Bucket names must:
 
