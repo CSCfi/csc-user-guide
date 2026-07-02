@@ -17,7 +17,7 @@ SD Connect has been upgraded to a new version. Existing buckets must be converte
 
 ## Step 1: Check bucket tag
 
-### 🔴 Urgent (fully incopatible name)
+### 🔴 Urgent (fully incopatible name, file can not be accessed)
 
 The bucket name is not compatible with the new SD Connect version, and the bucket content is no longer accessible.
 
@@ -26,7 +26,7 @@ The bucket name is not compatible with the new SD Connect version, and the bucke
 
 During the conversion, a new bucket is created and all files are copied to it. Make sure your CSC project has enough free quota to temporarily store both copies of the data.
 
-### 🟡 By End of 2026 (fully comapatible bucket name)
+### 🟡 By End of 2026 (fully comapatible bucket name, files can be accessed)
 
 The bucket content is still accessible, however bucket size is showed as zero and sharing prmissions are not visible. 
 
@@ -36,7 +36,7 @@ The bucket content is still accessible, however bucket size is showed as zero an
 During the conversion, no new bucket is created. The tool will represtinate the correct bucket size and repristinae sharing permssions. 
 
 
-### 🟡 By End of 2026 (includes incompatible capital letters and underscore). 
+### 🟡 By End of 2026 (includes incompatible capital letters and underscor, files can be accessed). 
 
 The bucket content is still accessible, however bucket size is showed as zero and sharing prmissions are not visible. 
 
@@ -59,9 +59,9 @@ If your project contains buckets with different tags, convert all **Urgent** buc
 | Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Rhoihu. | Link |
 | Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with comaptible name.  Use the CLI on Rhoihu and convert a few buckets at a time. | Link |
 | Urgent | More than 50 TB | Contant CSC support to plan the conversion. | Contact us |
-| By End of 2026 | Up to 1 TB | Use the SD Connect Conversion Tool user inetrface on your local computer. | Link |
+| By End of 2026  | Up to 1 TB | Use the SD Connect Conversion Tool user inetrface on your local computer. | Link |
 | By End of 2026  | More than 1 TB | Use the SD Connect Conversion CLI on Rhoihu.| Link |
-| By End of 2026 (name includes Capoital letters and underscores)| Any size |Contant CSC support to plan the conversion.| Link |
+| By End of 2026 (name includes capital letters and underscores)| Any size |Contant CSC support to plan the conversion.| Link |
 
 ---
 
