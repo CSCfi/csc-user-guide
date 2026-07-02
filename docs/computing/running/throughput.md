@@ -68,31 +68,27 @@ import os
 import subprocess
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-def task(arg: str):
-    # Run your task. Use subprocess to run external commands.
-    ret = subprocess.run(["/usr/bin/echo", "-n", arg], capture_output=True, text=True)
-    return ret
+def task(arg: str) -> str:
+    # Run one task. Use subprocess to call an external command,
+    # or replace this with your own Python code.
+    ret = subprocess.run(["echo", "-n", arg], capture_output=True, text=True)
+    return ret.stdout
 
 if __name__ == "__main__":
-    # Set the number of workers. Default is one worker per core.
+    # Use one worker per reserved core (SLURM_CPUS_PER_TASK).
     max_workers = int(os.getenv("SLURM_CPUS_PER_TASK", "1"))
 
+    # The arguments to run the task with, one task per argument.
+    args = [str(i) for i in range(100)]
+
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
-        futures = []
+        # Submit all tasks to the pool; they run as workers become free.
+        futures = [executor.submit(task, arg) for arg in args]
 
-        # Submit tasks with their arguments to the workers asynchronously
-        for arg in range(1, 100):
-            future = executor.submit(task, str(arg))
-            futures.append(future)
-
-        # Retrieve results as they are completed
+        # Collect the results as the tasks finish.
         results = []
         for future in as_completed(futures):
-            # Fetch the result
-            result = future.result()
-
-            # Process the result
-            results.append(result.stdout)
+            results.append(future.result())
 
         print(results)
 ```
