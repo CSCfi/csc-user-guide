@@ -114,7 +114,7 @@ We recommend reading the [multi-threading](https://docs.julialang.org/en/v1/manu
 
 
 ### Multi-processing and distributed computing
-#### Distributed and ClusterManagers.jl
+#### Distributed and SlurmClusterManager.jl
 For multiprocessing and distributed computing, Julia provides the `Distributed` standard library.
 We use it for multi-processing on the local node.
 We can extend `Distributed` by installing the `SlurmClusterManager.jl` package, which allows us to add workers' processes to multiple nodes via Slurm using `SlurmManager`.
