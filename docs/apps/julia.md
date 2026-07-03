@@ -226,16 +226,12 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-An example of a `script.jl` code.
-
-```julia
+```julia title="script.jl"
 println("Hello world!")
 ```
 
 === "Roihu"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -251,9 +247,7 @@ println("Hello world!")
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=interactive
@@ -269,9 +263,7 @@ println("Hello world!")
 
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -297,9 +289,7 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-An example of a `script.jl` code.
-
-```julia
+```julia title="script.jl"
 # Number of threads
 n = Threads.nthreads()
 println(n)
@@ -320,9 +310,7 @@ println(ids)
 ```
 
 === "Roihu"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -338,9 +326,7 @@ println(ids)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
@@ -355,9 +341,7 @@ println(ids)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -383,16 +367,12 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-An example of a `Project.toml` project file.
-
-```toml
+```toml title="Project.toml"
 [deps]
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
-An example of a `script.jl` code.
-
-```julia
+```julia title="script.jl"
 using Distributed
 
 # We set one worker process per core.
@@ -430,9 +410,7 @@ println.(outputs)
 ```
 
 === "Roihu"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -448,9 +426,7 @@ println.(outputs)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
@@ -465,9 +441,7 @@ println.(outputs)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
@@ -493,17 +467,13 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-An example of a `Project.toml` project file.
-
-```toml
+```toml title="Project.toml"
 [deps]
 SlurmClusterManager = "c82cd089-7bf7-41d7-976b-6b5d413cbe0a"
 Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 ```
 
-An example of a `script.jl` code.
-
-```julia
+```julia title="script.jl"
 using Distributed
 using SlurmClusterManager
 
@@ -541,9 +511,7 @@ println.(outputs)
 ```
 
 === "Roihu"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=large
@@ -559,9 +527,7 @@ println.(outputs)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
@@ -576,9 +542,7 @@ println.(outputs)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=standard
@@ -613,23 +577,17 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-An example of a `Project.toml` project file.
-
-```toml
+```toml title="Project.toml"
 [deps]
 MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
 ```
 
-An example of a `script.jl` code.
-
-```julia
+```julia title="script.jl"
 using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
 
-An example of a `prog.jl` Julia MPI code.
-
-```julia
+```julia title="prog.jl"
 using MPI
 
 MPI.Init()
@@ -641,9 +599,7 @@ MPI.Barrier(comm)
 ```
 
 === "Roihu"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
@@ -660,9 +616,7 @@ MPI.Barrier(comm)
     ```
 
 === "Mahti"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
@@ -678,9 +632,7 @@ MPI.Barrier(comm)
     ```
 
 === "LUMI"
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=standard
@@ -708,16 +660,12 @@ We use the following directory structure and assume it is our working directory.
 ```
 
 === "Roihu GPU"
-    An example of a `Project.toml` project file.
-
-    ```toml
+    ```toml title="Project.toml"
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     ```
 
-    An example of a `script.jl` code.
-
-    ```julia
+    ```julia title="script.jl"
     using CUDA
 
     A = rand(2^9, 2^9)
@@ -725,9 +673,7 @@ We use the following directory structure and assume it is our working directory.
     B_d = A_d * A_d
     ```
 
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
@@ -744,9 +690,7 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 === "Mahti"
-    An example of a `Project.toml` project file.
-
-    ```toml
+    ```toml title="Project.toml"
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 
@@ -754,9 +698,7 @@ We use the following directory structure and assume it is our working directory.
     CUDA = "< 5.9"
     ```
 
-    An example of a `script.jl` code.
-
-    ```julia
+    ```julia title="script.jl"
     using CUDA
 
     A = rand(2^9, 2^9)
@@ -764,9 +706,7 @@ We use the following directory structure and assume it is our working directory.
     B_d = A_d * A_d
     ```
 
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpusmall
@@ -782,16 +722,12 @@ We use the following directory structure and assume it is our working directory.
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
+    ```toml title="Project.toml"
     [deps]
     AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
     ```
 
-    An example of a `script.jl` code.
-
-    ```julia
+    ```julia title="script.jl"
     using AMDGPU
 
     A = rand(2^9, 2^9)
@@ -799,9 +735,7 @@ We use the following directory structure and assume it is our working directory.
     B_d = A_d * A_d
     ```
 
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small-g
@@ -821,6 +755,8 @@ We use the following directory structure and assume it is our working directory.
 
 ### GPU-aware MPI
 We use the following directory structure and assume it is our working directory.
+The `prog.jl` code is adapted from this [source](https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4).
+
 
 ```text
 .
@@ -830,25 +766,19 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-An example of a `script.jl` code.
-
-```julia
+```julia title="script.jl"
 using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
 
 === "Roihu GPU"
-    An example of a `Project.toml` project file.
-
-    ```toml
+    ```toml title="Project.toml"
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `prog.jl` code.
-
-    ```julia
+    ```julia title="prog.jl"
     using MPI
     using CUDA
 
@@ -880,9 +810,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     MPI.Finalize()
     ```
 
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=gpumedium
@@ -900,17 +828,13 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     ```
 
 === "LUMI"
-    An example of a `Project.toml` project file.
-
-    ```toml
+    ```toml title="Project.toml"
     [deps]
     AMDGPU = "21141c5a-9bdb-4563-92ae-f87d6854732e"
     MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
     ```
 
-    An example of a `prog.jl` code. ([source](https://gist.github.com/luraess/a47931d7fb668bd4348a2c730d5489f4))
-
-    ```julia
+    ```julia title="prog.jl"
     using MPI
     using AMDGPU
     MPI.Init()
@@ -936,9 +860,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     rank==0 && println("done.")
     ```
 
-    An example of a `batch.sh` batch script.
-
-    ```bash
+    ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small-g
