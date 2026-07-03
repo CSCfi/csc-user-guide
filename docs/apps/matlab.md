@@ -43,7 +43,8 @@ You can also use a network license.
 Available on Roihu, Mahti, and LUMI.
 
 2. **MATLAB command line interface** is good for basic interactive and batch work.
-Requires a network license.
+It lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
+You can also use a network license.
 Available on Roihu, Mahti, and LUMI.
 
 3. **MATLAB parallel server** is best for batch computing.
@@ -126,7 +127,16 @@ Then press Connect to MATLAB and the web application will open.
     module load matlab
     ```
 
-We can open the MATLAB command line interface as follows:
+We can use MATLAB command line interface with our own license.
+The prompt will ask you MathWorks username and password.
+
+```bash
+matlab -nodisplay -licmode online
+```
+
+```bash
+matlab -nodisplay -licmode onlinelicensing
+```
 
 ```bash
 matlab -nodisplay
