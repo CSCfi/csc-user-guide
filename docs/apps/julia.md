@@ -72,7 +72,7 @@ julia
 ```
 
 For available command line options, we can run `julia --help` or read the manual `man julia`.
-For questions about the features of Julia language, we refer we recommend the official [documentation](https://docs.julialang.org) and the [discourse](https://discourse.julialang.org/) channel.
+For questions about the features of Julia language, we recommend the official [documentation](https://docs.julialang.org) and the [discourse](https://discourse.julialang.org/) channel.
 
 
 ### Using the package manager
@@ -130,7 +130,7 @@ import Pkg
 Pkg.add("MPI")
 ```
 
-We can load the `julia-mpi` module which sets global preferences to the environment such that MPI.jl uses to use the system MPI installation and the correct command to start MPI processes.
+We can load the `julia-mpi` module which sets global preferences to the environment such that MPI.jl uses the system MPI installation and the correct command to start MPI processes.
 
 ```bash
 module load julia-mpi
@@ -155,7 +155,7 @@ We can load the `julia-cuda` module which sets global preferences to the environ
 module load julia-cuda
 ```
 
-For information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
+For more information, we recommend reading the [CUDA.jl documentation](https://cuda.juliagpu.org/stable/).
 
 
 #### AMDGPU.jl
@@ -167,13 +167,13 @@ import Pkg
 Pkg.add("AMDGPU")
 ```
 
-We can load the `julia-amdgpu` module which sets global preferences to the environment such that AMDGPU.jl to use the system ROCm installation.
+We can load the `julia-amdgpu` module which sets global preferences to the environment such that AMDGPU.jl uses the system ROCm installation.
 
 ```bash
 module load julia-amdgpu
 ```
 
-For information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
+For more information, we recommend reading the [AMDGPU.jl documentation](https://amdgpu.juliagpu.org/stable/).
 
 
 ### Further reading
@@ -516,7 +516,7 @@ proc_env = [
     "OPENBLAS_NUM_THREADS"=>"$n",
 ]
 
-# We add worker processes to the local node using SlurmManager
+# We add worker processes across the allocated nodes using SlurmManager
 manager = SlurmManager(; launch_timeout=300)
 addprocs(manager; env=proc_env, exeflags="--project=.")
 
@@ -775,7 +775,6 @@ We use the following directory structure and assume it is our working directory.
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=32
     #SBATCH --gres=gpu:a100:1
-    #
 
     module load julia
     module load julia-cuda
@@ -897,8 +896,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     module load julia
     module load julia-mpi
     module load julia-cuda
-    module list
-    julia --project=. runtests.jl
+    julia --project=. script.jl
     ```
 
 === "LUMI"
