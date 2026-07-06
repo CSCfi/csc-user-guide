@@ -295,18 +295,17 @@ to get larger capacity fast storage for your jobs.
 
 ### Requesting storage from slurm
 
-!!! warning "You must request resources in conjunction with `--exclusive`"
+!!! warning "Aggregated storage is only available on full node partitions"
     At the present you can only request this storage for jobs that are making use of full nodes,
-    i.e. that are submitted with the `--exclusive` flag. Presently if you do not specify this flag
+    i.e. that are submitted in the `medium` or `large` partitions. Presently if you try to launch in other partitions,
     your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
-    logs. This should be resolved once support for shared node jobs arrives in Q3 2026.
+    logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:
 
 ```bash
-#SBATCH --exclusive
-#BB_LUA SBF storagesize=20GB path=/run/sbb/<user>
+#BB_LUA SBF storagesize=20GB path=/run/sbb/$USER
 ```
 
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 
@@ -315,13 +314,13 @@ storage will be mounted.
 You can also request resources directly on the command line with the `--bb` flag:
 
 ```bash
-srun -p small --exclusive --nodes 1 --mem 20G --account <project> --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/<user>" --pty bash -i
+srun -p medium --nodes 1 --account <project> --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/$USER" --pty bash -i
 ```
 
 Alternatively you can pass the request in a file using the `--bbf` flag, for example:
 
 ```bash
-srun -p small --exclusive --nodes 1 --mem 20G --account project_2001659 --bbf bb.spec --pty bash -i
+srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
 ```
 
 !!! warning "Steps must use `srun`!"
