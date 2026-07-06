@@ -130,13 +130,19 @@ Then press Connect to MATLAB and the web application will open.
 We can use MATLAB command line interface with our own license.
 The prompt will ask you MathWorks username and password.
 
+TODO: Login Named User
+
 ```bash
 matlab -nodisplay -licmode online
 ```
 
+TODO: Online Licensing
+
 ```bash
 matlab -nodisplay -licmode onlinelicensing
 ```
+
+TODO: default license
 
 ```bash
 matlab -nodisplay
