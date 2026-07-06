@@ -10,9 +10,11 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
+        - Roihu
+        - Mahti
     - LUMI
-    - Puhti
+    - Roihu
+    - Mahti
 ---
 
 # MATLAB
@@ -43,7 +45,7 @@ It works like the desktop version and lets you use your own license (home, indiv
 You can also use a network license.
 Available on Roihu, Mahti, and LUMI.
 
-2. **MATLAB command line interface** is good for basic interactive and batch work.
+2. **MATLAB command-line interface** is good for basic interactive and batch work.
 It lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
 Available on Roihu, Mahti, and LUMI.
@@ -60,7 +62,7 @@ CSC provides the following licenses, shared between all users, for **academic** 
 
 === "Roihu and Mahti"
 
-    A network license `1766@license4.csc.fi` provides the following academic licenses for Puhti and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
+    A network license `1766@license4.csc.fi` provides the following academic licenses for Roihu and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
     The academic license allows use only for affiliates, that is, staff and students, of Finnish higher education institutions.
 
 === "LUMI"
@@ -113,7 +115,7 @@ Then press Connect to MATLAB and the web application will open.
 
 === "Roihu and Mahti"
 
-    On Roihu and Mahti, we can load the MATLAB module as follows:
+    On Roihu and Mahti, you can load the MATLAB module as follows:
 
     ```bash
     module load matlab
@@ -121,15 +123,15 @@ Then press Connect to MATLAB and the web application will open.
 
 === "LUMI"
 
-    On LUMI, we must add the module files under CSC's local directory to the module path before loading the module as follows:
+    On LUMI, you must add the module files under CSC's local directory to the module path before loading the module as follows:
 
     ```bash
     module use /appl/local/csc/modulefiles
     module load matlab
     ```
 
-You can use MATLAB command line interface with your own license (recommended) using Login Named User or Online Licensing modes.
-Both, will prompt for your MathWorks username and password.
+You can use the MATLAB command-line interface with your own license (recommended) using Login Named User or Online Licensing modes.
+Both will prompt for your MathWorks username and password.
 Use via Login Named User (LNU):
 
 ```bash
@@ -142,13 +144,13 @@ Use via Online Licensing (OLL):
 matlab -nodisplay -licmode onlinelicensing
 ```
 
-Alternatively, you can use the license pointed by `MLM_LICENSE_FILE` environment variable's value, which defaults to CSC provided academic license:
+Alternatively, you can use the license pointed to by the `MLM_LICENSE_FILE` environment variable's value, which defaults to the CSC-provided academic license:
 
 ```bash
 matlab -nodisplay
 ```
 
-We can also run MATLAB scripts using the batch mode as follows:
+You can also run MATLAB scripts using the batch mode as follows:
 
 ```bash
 matlab -batch <script>
@@ -183,7 +185,7 @@ C = A*A;
 t3 = toc(t2);
 
 % Compare times
-fprintf("One thread : %d\nTwo threads: %d\n", t1, t3);
+fprintf("One thread : %g\nTwo threads: %g\n", t1, t3);
 ```
 
 We can also parallelize code in MATLAB using the high-level constructs from the [Parallel Computing Toolbox](https://mathworks.com/help/parallel-computing/index.html).
@@ -243,7 +245,7 @@ end
 ```
 
 ```matlab
-t_threads = funcProcesses(2)
+t_threads = funcThreads(2)
 ```
 
 It is also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
@@ -314,20 +316,20 @@ addpath(confdir);
 savepath();
 ```
 
-Next, let's configure a cluster profile that allows your MATLAB to submit jobs to Puhti.
-Supply your Puhti username to the prompt.
+Next, let's configure a cluster profile that allows your MATLAB to submit jobs to Roihu.
+Supply your Roihu username to the prompt.
 
-```matlab title="MATLAB script"
+```matlab title="configCluster.m"
 configCluster();
 ```
 
-Finally, we can test the connection from MATLAB to Puhti.
+Finally, we can test the connection from MATLAB to Roihu.
 The first time you connect, MATLAB will prompt you to choose between password or SSH key authentication.
 You **must** select the SSH key authentication, provide the path to your private key and enter the password for the private key if one exists.
-Password authentication is no longer supported on Puhti.
+Password authentication is not supported on Roihu.
 MATLAB will store the path to your key and will not request it again in future sessions.
 
-```matlab title="MATLAB script"
+```matlab title="testConnection.m"
 c = parcluster();
 cscWorkspaces(c);
 ```
@@ -414,7 +416,7 @@ j = batch(c, @funcParallel, 1, {50}, 'Pool', 50, 'CurrentFolder', '.', 'AutoAddC
 
 Note that the parallel pool will always request one additional process to manage the pool of workers.
 This example reserves 51 MATLAB Parallel Server licenses on the cluster for the duration of the job.
-Puhti has 500 MATLAB Parallel Server licenses shared by all users.
+Roihu has 500 MATLAB Parallel Server licenses shared by all users.
 
 
 ### Querying jobs and output
@@ -460,7 +462,7 @@ Data that has been written to files on the cluster needs to be retrieved directl
 
 <!--
 ### Checking license status
-You can check the status of MPS licenses on Puhti after logging in with `scontrol` command.
+You can check the status of MPS licenses on Roihu after logging in with `scontrol` command.
 
 ```bash
 scontrol show lic=mdcs
