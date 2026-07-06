@@ -11,7 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
-    - Roihu-CPU
+    - Roihu
 ---
 
 # Nextflow
