@@ -311,6 +311,8 @@ request block of your script:
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 
 storage will be mounted.
 
+Use the path `/run/sbb/$USER` when mounting disaggregated storage.
+
 You can also request resources directly on the command line with the `--bb` flag:
 
 ```bash
@@ -323,11 +325,12 @@ Alternatively you can pass the request in a file using the `--bbf` flag, for exa
 srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
 ```
 
+Slurm creates an environment variable
+
 !!! warning "Steps must use `srun`!"
     When running a multinode job with sbatch, if each step is expected to run with the disaggregated
     disk, then the steps must be started with srun. Otherwise, only the compute node that runs the 
     sbatch script will be able to use the storage.
-
 
 !!! warning "Remember to move your data!"
     Move any data you need off the flash storage before your job completes, i.e. within
