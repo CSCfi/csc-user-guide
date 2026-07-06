@@ -325,8 +325,6 @@ Alternatively you can pass the request in a file using the `--bbf` flag, for exa
 srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
 ```
 
-Slurm creates an environment variable
-
 !!! warning "Steps must use `srun`!"
     When running a multinode job with sbatch, if each step is expected to run with the disaggregated
     disk, then the steps must be started with srun. Otherwise, only the compute node that runs the 
