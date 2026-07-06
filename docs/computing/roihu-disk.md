@@ -34,7 +34,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 |**home**    |15 GiB  |150 000 files  |                              |
 |**projappl**|15 GiB  |150 000 files  |                              |
 |**scratch** |250 GiB |500 000 files  |                              |
-|**dataset**|0 GiB   |0 files        |Must be applied for separately|
+|**dataset** |0 GiB   |0 files        |Must be applied for separately|
 
 !!! info "LUE"
     To easily check the amount of data and number of files within a given folder on

@@ -27,8 +27,8 @@ Before you start using Roihu, you need to enable it as a service for your projec
 
 If you already have a computational project, for example for Mahti or Puhti,
 you can add Roihu to that project as a service. Existing CPU, GPU, and storage billing
-units can be used on all CSC supercomputers, so **you do not need to apply for
-additional billing units (BUs)** for Roihu if you still have BUs available.
+units can be used also on Roihu, so **you do not need to apply for
+additional billing units (BUs)** for Roihu if you still have BUs available in your project.
 
 If you do not have a computing project yet, apply for one in MyCSC following the instructions
 for [creating a new project](../../accounts/how-to-create-new-project.md).
