@@ -191,6 +191,11 @@ module load ams/2026.104
         jobs requiring maximum I/O performance, consider the disaggregated NVMe
         option in the "Roihu-CPU, disaggregated NVMe" tab.
 
+        Maximum amount of local NVMe disk available in `$TMPDIR` depends on the Slurm partition and node type.
+        On shared nodes (e.g. on the `small` and `longrun` partitions), you have access to 20 GiB of tmp storage.
+        On full nodes (`medium` and `large` partitions), you have access to 600 GiB of local storage.
+        See [Roihu storage documentation](../computing/roihu-disk.md#automatic-local-temporary-storage) for more details.
+
 === "Roihu-CPU, disaggregated NVMe"
 
     !!! info "Disaggregated NVMe on Roihu"
