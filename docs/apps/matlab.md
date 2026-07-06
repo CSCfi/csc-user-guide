@@ -35,7 +35,8 @@ License options are covered in the following sections.
 
 ## Overview
 
-We offer three ways to use MATLAB on CSC supercomputers. The best choice depends on your needs.
+We offer three ways to use MATLAB on CSC supercomputers.
+The best choice depends on your needs.
 
 1. **MATLAB web application** is best for interactive use.
 It works like the desktop version and lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
@@ -127,22 +128,21 @@ Then press Connect to MATLAB and the web application will open.
     module load matlab
     ```
 
-We can use MATLAB command line interface with our own license.
-The prompt will ask you MathWorks username and password.
-
-TODO: Login Named User
+You can use MATLAB command line interface with your own license (recommended) using Login Named User or Online Licensing modes.
+Both, will prompt for your MathWorks username and password.
+Use via Login Named User (LNU):
 
 ```bash
 matlab -nodisplay -licmode online
 ```
 
-TODO: Online Licensing
+Use via Online Licensing (OLL):
 
 ```bash
 matlab -nodisplay -licmode onlinelicensing
 ```
 
-TODO: default license
+Alternatively, you can use the license pointed by `MLM_LICENSE_FILE` environment variable's value, which defaults to CSC provided academic license:
 
 ```bash
 matlab -nodisplay
