@@ -35,7 +35,7 @@ You must have a valid license for each specific toolbox you wish to use.
 License options are covered in the following sections.
 
 
-## Overview
+## Available
 
 We offer three ways to use MATLAB on CSC supercomputers.
 The best choice depends on your needs.
