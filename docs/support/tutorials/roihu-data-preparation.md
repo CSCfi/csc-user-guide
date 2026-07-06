@@ -3,7 +3,7 @@
 !!! warning "This tutorial is deprecated"
      This tutorial was in use before Roihu became generally available, for preparing
      for Roihu data migration, and for using Allas or LUMI-O during the transfer
-     if strictly needed
+     if strictly needed.
 
      Now that Roihu is available for use, please follow instead the
      [Roihu data migration guide for direct transfers](./roihu-data.md) from Mahti/Puhti to Roihu.
