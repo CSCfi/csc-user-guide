@@ -298,9 +298,19 @@ all looks fine, and we can proceed to installation
 spack install
 ```
 
+!!! Note
+    Command `spack concretize` automatically adds compilers to `spack.yaml`,
+    based on what it can find in the current environment. This goes correctly
+    if the currently loaded compiler module, here `gcc/15.2.0`, matches the
+    upstream environment.
 
 ## What to do when concretization is not using an upstream dependency
 
+!!! Warning
+    This section is very much under development. The `spack install` step
+    fails. Spack package build definition file needs a small update to
+    support gcc version 15.
+    
 Sometimes there are `-` entries in the concretization for the dependency
 packages that would be available in the upstream. The concretization of
 `eccodes` used packages installed in the upstream, so let's try to install something
@@ -394,9 +404,6 @@ spack add 'vasp+hdf5+openmp ^*/gafrwzb'
 ```
 
 Notice the syntax how to specify the dependency using it's hash.
-
-In this case fixing the first dependency also fixed all the others in the concretized spec, and
-we can proceed to `spack install`.
 
 
 ## Using the environment
