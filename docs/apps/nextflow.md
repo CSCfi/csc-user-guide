@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # Nextflow
@@ -31,6 +32,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available on CSC's servers
 
+* Roihu-CPU: 25.10.4.11173
+* Roihu-GPU: not available
 * Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3, 24.01.0-edge.5903, 24.10.0
 * Mahti: 22.05.0-edge, 24.04.4
 * LUMI: 22.10.4
@@ -339,9 +342,7 @@ sbatch nextflow_hyperqueue_batch_job.sh
 
 If you use Nextflow in your work, please cite:
 
-Di Tommaso, P., Chatzou, M., Floden, E. et al. Nextflow enables reproducible
-computational workflows. Nat. Biotechnol. 35, 316–319 (2017).
-<https://doi.org/10.1038/nbt.3820>
+> Di Tommaso, P., Chatzou, M., Floden, E. et al. Nextflow enables reproducible computational workflows. Nat. Biotechnol. 35, 316–319 (2017). <https://doi.org/10.1038/nbt.3820>
 
 ## More information
 

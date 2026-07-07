@@ -1,5 +1,13 @@
 # Preparing data for Roihu: Data management and temporary storage options
 
+!!! warning "This tutorial is deprecated"
+     This tutorial was in use before Roihu became generally available, for preparing
+     for Roihu data migration, and for using Allas or LUMI-O during the transfer
+     if strictly needed.
+
+     Now that Roihu is available for use, please follow instead the
+     [Roihu data migration guide for direct transfers](./roihu-data.md) from Mahti/Puhti to Roihu.
+
 !!! note "Mahti and Puhti schedule"
      **Roihu is now available for use**, and can be added as a service for computational projects in MyCSC.
 
@@ -14,20 +22,11 @@ The main recommendation is to plan the migration in advance, review what data yo
 and transfer actively used data
 directly from Mahti or Puhti to Roihu.
 
-!!! info "Direct transfer from Mahti/Puhti to Roihu"
-     Instructions for direct data transfer from Mahti or Puhti to Roihu are available in the
-     [Roihu data migration guide](./roihu-data.md).
-
-     Use the direct transfer guide as the primary migration instructions.
-
 If you cannot manage direct data transfers from Mahti and Puhti
 to Roihu,
 you might consider utilizing Allas or LUMI-O as a temporary storage service to host your data.
 
-Using Allas or LUMI-O might be applicable, for example, if key project members will be
-unavailable during the period between Roihu general availability and the shutdown of Mahti and Puhti storage servers.
-
-Another possible reason for utilizing Allas or LUMI-O temporarily is that Roihu's
+A possible reason for utilizing Allas or LUMI-O temporarily is that Roihu's
 default storage quotas are smaller than on Mahti and Puhti.
 If your data does not fit within the default quotas, first review and clean up your data, and then consider whether you need a
 quota increase on Roihu for your project.
