@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Snakemake
@@ -25,6 +26,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available at CSC:
 
+* Roihu-CPU: 9.11.6, 7.17.1
+* Roihu-GPU: not available
 * Puhti: 7.15.2, 7.17.1, 8.4.6
 
 ## License
