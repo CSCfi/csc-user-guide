@@ -9,8 +9,7 @@ catalog:
     - Mathematics and Statistics
   available_on:
     - LUMI
-    - Roihu-CPU
-    - Roihu-GPU
+    - Roihu
     - Mahti
 ---
 
