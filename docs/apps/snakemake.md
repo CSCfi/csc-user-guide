@@ -9,7 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
-    - Roihu-CPU
+    - Roihu
 ---
 
 # Snakemake

@@ -156,7 +156,6 @@ the available CPU cores in a single node:
     #SBATCH --partition=gpumedium
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=72
-    #SBATCH --mem=120G
     #SBATCH --gres=gpu:gh200:1
     #SBATCH --time=1:00:00
     
