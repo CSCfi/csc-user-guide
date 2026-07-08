@@ -140,7 +140,7 @@ install your own custom version as follows:
     #SBATCH --mem-per-cpu=1000M
 
     module purge
-    module load lammps/29Aug2024
+    module load lammps/20260211
 
     srun lmp -in in.script
     ```
@@ -159,7 +159,7 @@ install your own custom version as follows:
     export OMP_PLACES=cores
 
     module purge
-    module load lammps/29Aug2024
+    module load lammps/20260211
 
     srun lmp -in in.script -sf omp
     ```
