@@ -23,6 +23,11 @@ puhti.csc.fi is very similar. That said, VASP is a program the usage of
 which requires some experience. It is advised that new VASP users start
 out with a supervisor or an experienced colleague.
 
+!!! Roihu support needs your feedback
+    Initial build instructions are available in
+    [GitHub](https://github.com/jlento/vasp-env). Please test, and
+    give feedback through [CSC's ServiceDesk](../support/contact.md).
+
 ## Available
 
 See available VASP versions in with command
