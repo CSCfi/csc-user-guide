@@ -335,6 +335,7 @@ For common Slurm error messages, see our FAQ on [Why does my batch job fail?](..
 
 ## More information
 
+* [Frequently asked questions about Roihu](../faq/roihu.md)
 * [Roihu system overview](../../computing/systems-roihu.md)
 * [CSC Computing Environment self-learning materials](https://csc-training.github.io/csc-env-eff/)
 * [Contact our service desk](../contact.md)
