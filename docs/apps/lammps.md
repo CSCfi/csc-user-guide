@@ -131,7 +131,7 @@ install your own custom version as follows:
 
 === "Roihu (pure MPI, partial node)"
     ```bash
-    !/bin/bash
+    #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=small
     #SBATCH --time=01:00:00
