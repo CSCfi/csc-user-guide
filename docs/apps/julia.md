@@ -607,7 +607,7 @@ MPI.Barrier(comm)
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=384
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem=1000
+    #SBATCH --mem-per-cpu=1000
 
     module purge
     module load julia
