@@ -276,6 +276,10 @@ MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the 
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Roihu cluster, and a user-side configuration.
 Install the user-side configuration files by running the following MATLAB script:
 
+!!! Info "Integration scripts"
+    The integration scripts `mps_roihu.zip` for Roihu-CPU are not yet available.
+    They will be available soon!
+
 ```matlab title="mps_roihu.m"
 % Define local MATLAB configuration directory.
 if ispc()
