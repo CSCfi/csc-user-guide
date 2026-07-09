@@ -49,7 +49,7 @@ Julia language is available from the `julia` module.
 
 === "Roihu-CPU, Roihu-GPU and Mahti"
 
-    On Roihu-GPU, Roihu-GPU and Mahti, we can load the module as follows:
+    On Roihu-CPU, Roihu-GPU and Mahti, we can load the module as follows:
 
     ```bash
     module load julia
@@ -122,7 +122,7 @@ We recommend reading the [multi-processing and distributed computing](https://do
 
 
 #### MPI.jl
-We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu-GPU, Roihu-GPU, Mahti, and LUMI using the `MPI.jl` package.
+We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu-CPU, Roihu-GPU, Mahti, and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
 ```julia
@@ -183,7 +183,7 @@ Finally, the [Julia on HPC Clusters](https://juliahpc.github.io) lists general n
 
 
 ## Running Julia batch jobs on CSC clusters
-This section contains examples for running various Julia batch jobs on Roihu-GPU, Roihu-GPU, Mahti and LUMI clusters.
+This section contains examples for running various Julia batch jobs on Roihu-CPU, Roihu-GPU, Mahti and LUMI clusters.
 They demonstrate the usage of the Julia environment described [above](#usage) for various batch jobs.
 They are adapted from the general instructions of running jobs on [Roihu and Mahti](../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Note that we do not use `srun` to start processes in the batch script.
@@ -514,10 +514,10 @@ println.(outputs)
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=large
+    #SBATCH --partition=medium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=2
+    #SBATCH --ntasks-per-node=384
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
@@ -605,9 +605,9 @@ MPI.Barrier(comm)
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=2
+    #SBATCH --ntasks-per-node=384
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1000
+    #SBATCH --mem=1000
 
     module purge
     module load julia
