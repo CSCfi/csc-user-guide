@@ -1,6 +1,6 @@
 # Managing Labels
 
-Labels can be used to categorize and organize repositories an images. it can help in quickly understand the purpose or ownership. You can also filter images by labels. Satama has two types of labels:
+Labels can be used to categorize and organize repositories and images. They can help you quickly understand the purpose or ownership. You can also filter images by labels. Satama has two types of labels:
 
 ## 1. Global Level Labels
 

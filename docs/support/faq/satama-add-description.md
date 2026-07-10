@@ -4,7 +4,7 @@ After pushing an image, the project administrator can add information to describ
 
 ## Steps
 
-* Go into the repository and select the **Info** ta
+* Go into the repository and select the **Info** tab
 * Click the **Edit** button
 * Enter the description. For example, its base image, its intended use, or any relevant deployment notes.
 * Click **Save** to save the description.
