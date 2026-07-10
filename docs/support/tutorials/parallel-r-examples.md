@@ -118,7 +118,7 @@ arrays <- Sys.getenv("SLURM_ARRAY_TASK_ID")
 The array number `$SLURM_ARRAY_TASK_ID` could be used to specify for example which data set or parameter set should be analysed in each array.  
 
 Array jobs are best suited for cases where each subtask is longer
-than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [large scale array jobs with GNU parallel](#large-scale-array-jobs-with-gnu-parallel)
+than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [large scale array jobs with xargs or GNU parallel](#large-scale-array-jobs-with-xargs-or-gnu-parallel)
 
 
 ## Multi-core jobs
@@ -978,7 +978,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
-## Large-scale array jobs with GNU xargs and parallel
+## Large-scale array jobs with xargs or GNU parallel
 
 For larger-scale array jobs involving [many small independent runs](../tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
 
