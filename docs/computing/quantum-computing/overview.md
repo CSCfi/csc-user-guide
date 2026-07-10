@@ -18,9 +18,9 @@ quantum computing resources through CSC's service portals.
 
 ### Aalto Q20
 
-Q20, the Aalto quantum compiuter ........ QTODO write
+Q20 is a 20 qubit IQM superconducting quantum computer operated by Aalto University.
 
-Access to Q2+ is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Q20 through the LUMI job scheduler (SLURM). Refer to the [Open Call](https://fiqci.fi/resource-call) publication for detailed instructions on how to apply for a project with Q20 access.
+Access to Q20 is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Q20 through the LUMI job scheduler (SLURM). Refer to the [Open Call](https://fiqci.fi/resource-call) publication for detailed instructions on how to apply for a project with Q20 access.
 
 ### VTT Q50
 

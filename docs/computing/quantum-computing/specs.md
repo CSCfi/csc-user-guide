@@ -3,7 +3,7 @@
 ## Architecture and Topology
 
 ### Aalto Q20
-Aalto Q20 is a blablabla quantum computer #QTODO write
+Aalto Q20 is a superconducting IQM quantum computer operated by Aalto University. Q20 contains 20 qubits in a **aquare latttice** topology where qubits are connected to their nearest neighbours in a 2D grid. Q20 has two broken couplers. The coupler between qubits 16 and 17 and the coupler between qubuts 9 and 14.<>
 
 <center>!["Q20's node mapping"](../../img/QTODO)</center>
 
