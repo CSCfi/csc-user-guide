@@ -395,6 +395,38 @@ nav:
           - Technical details: computing/quantum-computing/specs.md
           - FiQCI partition: computing/quantum-computing/fiqci-partition.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
+      - Quantum computing new:
+          - computing/quantum-computing-new/overview.md
+          - Quantum computers:
+              - computing/quantum-computing-new/quantum-computers/overview.md
+              - Projects: computing/quantum-computing-new/quantum-computers/projects.md
+              - Devices:
+                  - computing/quantum-computing-new/quantum-computers/devices/overview.md
+                  - VTT Q50: computing/quantum-computing-new/quantum-computers/devices/q50.md
+                  - Aalto Q20: computing/quantum-computing-new/quantum-computers/devices/q20.md
+                  - EuroHPC VLQ: computing/quantum-computing-new/quantum-computers/devices/vlq.md
+              - Running quantum jobs:
+                  - computing/quantum-computing-new/quantum-computers/running-quantum-jobs/overview.md
+                  - Access models:
+                      - computing/quantum-computing-new/quantum-computers/running-quantum-jobs/access-models/overview.md
+                      - Batch script: computing/quantum-computing-new/quantum-computers/running-quantum-jobs/access-models/batch-script.md
+                      - Firecrest: computing/quantum-computing-new/quantum-computers/running-quantum-jobs/access-models/firecrest.md
+                      - Jupyter: computing/quantum-computing-new/quantum-computers/running-quantum-jobs/access-models/jupyter.md
+                  - Quantum job: computing/quantum-computing-new/quantum-computers/running-quantum-jobs/quantum-job.md
+          - Quantum simulators:
+              - computing/quantum-computing-new/quantum-simulators/overview.md
+              - Projects: computing/quantum-computing-new/quantum-simulators/projects.md
+              - Simulation methods:
+                  - computing/quantum-computing-new/quantum-simulators/simulation-methods/overview.md
+                  - LUMI:
+                      - computing/quantum-computing-new/quantum-simulators/simulation-methods/lumi/overview.md
+                      - State vector: computing/quantum-computing-new/quantum-simulators/simulation-methods/lumi/state-vector.md
+                      - Density matrix: computing/quantum-computing-new/quantum-simulators/simulation-methods/lumi/density-matrix.md
+                      - Tensor network: computing/quantum-computing-new/quantum-simulators/simulation-methods/lumi/tensor-network.md
+                      - Matrix product state: computing/quantum-computing-new/quantum-simulators/simulation-methods/lumi/matrix-product-state.md
+                      - Stabilizer: computing/quantum-computing-new/quantum-simulators/simulation-methods/lumi/stabilizer.md
+                  - Roihu:
+                      - computing/quantum-computing-new/quantum-simulators/simulation-methods/roihu/overview.md
       - FirecREST HPC API:
           - computing/firecrest/index.md
           - Connecting: computing/firecrest/connecting.md
