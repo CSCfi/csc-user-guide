@@ -596,7 +596,7 @@ library(aws.s3)
 bucketlist(region='')
 ```
 
-### Problems with pdf rendering of Markdown documents
+### Problems with pdf rendering
 
 If pdf rendering of R Markdown or Quarto documents doesn't work, please run the following command in R. When prompted about an existing LaTeX distribution, 
 choose y for yes to continue the installation anyway.
