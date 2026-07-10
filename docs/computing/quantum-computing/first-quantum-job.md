@@ -25,7 +25,7 @@ module load fiqci-vtt-qiskit
 
 or 
 
-module load fiqci-vtt-qiskit/17.8 #To use Helmi
+module load fiqci-vtt-qiskit/QTODO #To use Q20
 ```
 
 ## Creating your first quantum program
@@ -74,16 +74,16 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 ## Setting the backend
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `HELMI_CORTEX_URL` is the endpoint to reach Helmi(the 5 qubit machine) , while the `Q50_CORTEX_URL`is the endpoint to reach Q50(the 50 qubit machine). This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
+First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `Q20_CORTEX_URL` is the endpoint to reach Q20(the 20 qubit machine) , while the `Q50_CORTEX_URL`is the endpoint to reach Q50(the 50 qubit machine). This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
 
-=== "Helmi"
+=== "Q20"
 
     ```python
-    # Accessing Helmi
+    # Accessing Q20
 
-    HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-    provider_helmi = IQMProvider(HELMI_CORTEX_URL)
-    backend_helmi = provider_helmi.get_backend()
+    Q20_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
+    provider_q20 = IQMProvider(Q20_CORTEX_URL)
+    backend_q20 = provider_q20.get_backend()
     ```
 
 === "Q50"
@@ -98,7 +98,7 @@ First we need to set our provider and backend. The provider is the service which
 
 ### Transpiling the circuit
 
-This next step is where the quantum circuit you've just created is decomposed (transpiled) into its basis gates. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Helmi and Q50, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
+This next step is where the quantum circuit you've just created is decomposed (transpiled) into its basis gates. These basis gates are the actual quantum gates on the quantum computer. The process of decomposition involves turning the above Hadamard and controlled-x gates into something that can be physically run on the quantum computer. For Q20 and Q50, the basis gates are the entangling gate controlled-z and the one-qubit phased-rx gate. In Qiskit these are defined in the backend and can be printed with `backend.operation_names`. For more on the specs see [Topology Overview](specs.md)
 
 ```python
 circuit_decomposed = transpile(circuit, backend=backend)
@@ -116,12 +116,13 @@ qubit_mapping = {
             }
 ```
 
-As an example, here we are mapping the first qubit in the quantum register to the first of Helmi's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Helmi's topology. The same process can be applied to other quantum computers e.g. Q50.
+As an example, here we are mapping the first qubit in the quantum register to the first of Q20's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Q20's topology. The same process can be applied to other quantum computers e.g. Q50.
 
-<center>!["Helmi's node mapping"](../../img/helmi_mapping.png)</center>
+<center>!["Q20's node mapping"](../../img/QTODO)</center>
 
 
-The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Helmi's topology this needs to be mapped to QB3 on Helmi. The 1 qubit Hadamard gate can be mapped to any of the *outer* qubits, QB1, QB2, QB4, QB5, here we choose QB1. 
+The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Q20's topology this needs to be mapped to QB3 on Q20. The 1 qubit Hadamard gate can be mapped to any of the *outer* qubits, QB1, QB2, QB4, QB5, here we choose QB1. QTODO: needs to be reworked for Q20
+
 
 Note that this step is entirely optional. Using the `transpile` function automatically does the mapping based on the information stored in the backend. Inputting the qubit mapping manually simply gives more control to the user. 
 
@@ -166,16 +167,16 @@ Once you've made your first quantum program remember to save! CTRL+X then Y to s
 
 ## Running the job through LUMI
 
-To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing the quantum computers (Helmi, Q50) is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
+To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing the quantum computers (Q20, Q50) is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
 
-=== "Helmi"
+=== "Q20"
 
     ```bash
-    # Using Helmi
+    # Using Q20
 
     module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit/17.8"
-    export DEVICES=("Q5")
+    module --ignore_cache load "fiqci-vtt-qiskit/QTODO"
+    export DEVICES=("Q20")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
     ```
 
@@ -195,7 +196,7 @@ Remember to add your own project account!
 This submits the job *interactively* meaning that the output will be printed straight to the terminal screen. If you wish you can also submit it using `sbatch` using this skeleton batch script. Using `nano` as before create the script `batch_script.sh`. 
 
 
-=== "Helmi"
+=== "Q20"
 
     ```bash
     #!/bin/bash -l
@@ -211,9 +212,9 @@ This submits the job *interactively* meaning that the output will be printed str
     #SBATCH --account=project_xxx  # Project for billing
 
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit/17.8
+    module load fiqci-vtt-qiskit/QTODO
 
-    export DEVICES=("Q5")
+    export DEVICES=("Q20")
 
     source $RUN_SETUP
 
@@ -246,7 +247,7 @@ This submits the job *interactively* meaning that the output will be printed str
     ```
 
 This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `quantumjob.oxxxxx` file. This can be printed to the terminal with `cat`. 
-To run on Helmi or Q50, you will need to specify the devices that you require. Here `Q5` represents Helmi and `Q50` represents the 50 qubit machine.
+To run on Q20 or Q50, you will need to specify the devices that you require. Here `Q20` represents Q20 and `Q50` represents the 50 qubit machine. QTODO wording
 
 
 ## Congratulations!
@@ -255,7 +256,7 @@ Congratulations! You have just run your first job on a quantum computer.
 
 The full python script can be found below. 
 
-=== "Helmi"
+=== "Q20"
 
     ```python
     import os
@@ -275,17 +276,17 @@ The full python script can be found below.
     # Uncomment if you wish to print the circuit
     # print(circuit.draw())
 
-    HELMI_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    Q20_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
 
-    provider_helmi = IQMProvider(HELMI_CORTEX_URL)
-    backend_helmi = provider_helmi.get_backend()
+    provider_q20 = IQMProvider(Q20_CORTEX_URL)
+    backend_q20 = provider_q20.get_backend()
 
     # Retrieving backend information
-    # print(f'Native operations: {backend_helmi.operation_names}')
-    # print(f'Number of qubits: {backend_helmi.num_qubits}')
-    # print(f'Coupling map: {backend_helmi.coupling_map}')
+    # print(f'Native operations: {backend_q20.operation_names}')
+    # print(f'Number of qubits: {backend_q20.num_qubits}')
+    # print(f'Coupling map: {backend_q20.coupling_map}')
 
-    transpiled_circuit = transpile(circuit, backend_helmi)
+    transpiled_circuit = transpile(circuit, backend_q20)
 
     job = backend.run(transpiled_circuit, shots=shots)
     result = job.result()

@@ -24,7 +24,7 @@ Currently supported [cirq-on-iqm](https://docs.meetiqm.com/iqm-client/user_guide
 | Module                               | LUMI  | Notes           |
 |:-------------------------------------|:-----:|-----------------|
 | `fiqci-vtt-cirq/18.0`                | X     | Default version. Supports only Q50  |
-| `fiqci-vtt-cirq/16.2`                | X     | Supports only Helmi (Q5)            |
+| `fiqci-vtt-cirq/QTODO`                | X     | Supports only Q20            |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -68,7 +68,7 @@ module avail fiqci-vtt-cirq
 
 Example batch script for running a quantum job:
 
-=== "Helmi"
+=== "Q20"
 
     ```bash
     #!/bin/bash -l
@@ -84,8 +84,8 @@ Example batch script for running a quantum job:
     #SBATCH --account=project_xxx   # Project for billing
 
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-cirq/16.2
-    export DEVICES=("Q5")
+    module load fiqci-vtt-cirq/QTODO
+    export DEVICES=("Q20")
     source $RUN_SETUP
     python -u quantum_job.py
     ```

@@ -2,18 +2,15 @@
 
 ## Architecture and Topology
 
-### Helmi (VTT Q5)
-Helmi is a 5-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
-The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
-This means that any two-qubit gate will work between QB3 and any other qubit, 
-and one-qubit gates can be mapped to any of the qubits. 
+### Aalto Q20
+Aalto Q20 is a blablabla quantum computer #QTODO write
 
-<center>!["Helmi's node mapping"](../../img/Helmi_topology.png)</center>
+<center>!["Q20's node mapping"](../../img/QTODO)</center>
 
 
 #### Native Gates
 
-Helmi's native are are the two-qubit controlled-z gate and the one-qubit phased rx gate.
+Q20's native are are the two-qubit controlled-z gate and the one-qubit phased rx gate.
 
 ### VTT Q50
 VTT Q50 is a 53-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
