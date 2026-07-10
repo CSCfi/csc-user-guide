@@ -16,6 +16,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
 * [Rahti billing](../cloud/rahti/billing.md)
+* [Satama billing](../cloud/satama/billing_and_quota.md)
 * [SD Connect and SD Desktop billing](../data/sensitive-data/sd-billing-units.md)
 
 
