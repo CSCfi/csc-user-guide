@@ -261,7 +261,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
 
 ## Additional examples
 
-An additional [set of examples can be found here](https://github.com/FiQCI/helmi-examples). QTODO rename? Verify working?
+An additional [set of examples can be found here](https://github.com/FiQCI/fiqci-examples). QTODO rename? Verify working?
 The examples emphasize the difference between running on a simulator and a real physical quantum computer,
 and how to construct your circuits for optimum results on the quantum computers. The repository also contains some useful
 scripts for submitting jobs.
