@@ -34,7 +34,7 @@ flavor is given.
     * [nano](text-and-image-processing.md#nano)
     * [Emacs](text-and-image-processing.md#emacs)
     * [vi and Vim](text-and-image-processing.md#vim)
-    * [Image and PostScript viewers](text-and-image-processing.md#image-and-postscript-viewers)
+    * [Image and PostScript viewers](text-and-image-processing.md#viewing-images)
 * [**Working with bash shell**](working-with-bash-shell.md)
     * [Automatic tab completion](working-with-bash-shell.md#automatic-tab-completion)
     * [Stopping programs and running programs in background](working-with-bash-shell.md#stopping-programs-and-running-programs-in-background)
