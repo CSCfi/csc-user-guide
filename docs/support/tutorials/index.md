@@ -13,7 +13,7 @@
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
 * [How to run existing containers in Puhti](../../computing/containers/overview.md#running-containers)
 * [Getting disk usage using Lue](lue.md)
-* [Running Julia jobs on Puhti and Mahti clusters](julia.md)
+* [Running Julia batch jobs on CSC clusters](../../apps/julia.md#running-julia-batch-jobs-on-csc-clusters)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
 * [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
 

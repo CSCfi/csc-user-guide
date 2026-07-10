@@ -140,8 +140,8 @@ R:
 
 Julia:
 
-* [Julia multiprocessing on single node](../../support/tutorials/julia.md#multi-processing-on-single-node)
-* [Julia multiprocessing on multiple nodes](../../support/tutorials/julia.md#multi-processing-on-multiple-nodes)
+* [Julia multiprocessing on single node](../../apps/julia.md#multi-processing-on-single-node)
+* [Julia multiprocessing on multiple nodes](../../apps/julia.md#multi-processing-on-multiple-nodes)
 
 ### Built-in HTC options in your software
 
