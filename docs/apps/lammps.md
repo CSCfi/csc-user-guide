@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # LAMMPS
@@ -25,6 +26,13 @@ your needs. Please read the instructions below.
 [TOC]
 
 ## Available
+
+=== "Roihu-CPU"
+    | Release          | Available modules   | Notes |
+    |:----------------:|:--------------------|:-----:|
+    | 11 February 2026 | `lammps/20260211`   | Default, [Pre-release](https://github.com/lammps/lammps/releases#release-patch_11Feb2026) |
+    | 22 July 2025     | `lammps/20250722.3` | [Stable release, update 3](https://github.com/lammps/lammps/releases/tag/stable_22Jul2025_update3) |
+
 
 === "Puhti"
     | Release        | Available modules  | Notes |
@@ -58,15 +66,21 @@ Public License (GPL).
 
 ## Usage
 
-Load a module installed by CSC and check which packages are available. For
-example:
+Check which versions of LAMMPS are available:
 
 ```bash
-module load lammps/29Aug2024
+module spider lammps
+```
+
+Load a module installed by CSC and check which packages are available. For
+example on **Roihu**:
+
+```bash
+module load lammps/20260211
 lmp -help
 ```
 
-On LUMI, you need to first activate CSC's local software stack before you can
+On **LUMI**, you need to first activate CSC's local software stack before you can
 see and load the module. For example:
 
 ```bash
@@ -87,6 +101,11 @@ install your own custom version as follows:
     1. Example inputs are available in the
        [LAMMPS GitHub repository](https://github.com/lammps/lammps/tree/develop/bench).
     2. Example batch scripts are available [below](#batch-script-examples).
+
+!!! note "Custom versions on Roihu"
+    Roihu does not provide manual installation instructions for LAMMPS yet.
+    Please use the available modules before custom installation instructions
+    are finalized for the system.
 
 !!! info "Compile using the fast local disk"
     Please compile in `$TMPDIR` on Puhti/Mahti for faster performance and
@@ -109,6 +128,41 @@ install your own custom version as follows:
     [See the LAMMPS documentation for more details](https://docs.lammps.org/Speed_kokkos.html).
 
 ### Batch script examples
+
+=== "Roihu (pure MPI, partial node)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --mem-per-cpu=1000M
+
+    module purge
+    module load lammps/20260211
+
+    srun lmp -in in.script
+    ```
+
+=== "Roihu (hybrid MPI/OpenMP, full node)"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --cpus-per-task=6
+
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+    export OMP_PLACES=cores
+
+    module purge
+    module load lammps/20260211
+
+    srun lmp -in in.script -sf omp
+    ```
 
 === "Puhti (pure MPI)"
     ```bash
