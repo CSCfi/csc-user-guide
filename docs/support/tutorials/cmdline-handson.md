@@ -317,7 +317,7 @@ You should get the fit coefficients in separate files in the
 ### e) Collect the results and plot them.
 
 The most convenient way to display graphical results with R is to 
-use [RStudio](../../computing/webinterface/rstudio/) in the [web interface](../../computing/webinterface/index.md). 
+use [RStudio](../../computing/webinterface/rstudio.md) in the [web interface](../../computing/webinterface/index.md). 
 
 Set working directory with `setwd()` to the directory containing `analyse.R`, for example
 `setwd("/scratch/project_20001234/r-array")`. In the RStudio 
