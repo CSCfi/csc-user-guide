@@ -978,7 +978,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
-## Large-scale array jobs with GNU parallel
+## Large-scale array jobs with GNU xargs and parallel
 
 For larger-scale array jobs involving [many small independent runs](../tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
 
@@ -990,18 +990,22 @@ set3
 set1500
 ```
 
-To perform our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+To perform our analysis efficiently, we could take advantage of [xargs](https://www.gnu.org/software/findutils/) provided by the base operating system (or a module including [GNU Parallel](https://www.gnu.org/software/parallel/)) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
 
 - The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array. 
 
-- We use `-j $SLURM_CPUS_PER_TASK -k`  to tell GNU parallel to keep running 4 applications in parallel, while ensuring that the job output order matches the input order.  The number of simultaneous parallel applications is defined using `--cpus-per-task`.
+- We use `-n 1 -P $SLURM_CPUS_PER_TASK`  to tell `xargs` to read one line at a time from the input (specific section of `mylist.txt`) and run 4 applications in parallel. The number of simultaneous parallel applications is defined using `--cpus-per-task`. When using GNU Parallel, the equivalent command is `parallel -j $SLURM_CPUS_PER_TASK -k`.
+
+- The identifiers in the list can be accessed in the R script with `args = commandArgs(trailingOnly=TRUE)` followed by `args[1]` for the array number (`$SLURM_ARRAY_TASK_ID`) and `args[2]` for the identifiers analysed in this array.
 
 - For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
 
 === "Roihu-CPU"
+    # Using xargs:
+    
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=r_array_gnupara
+    #SBATCH --job-name=r_array_xargs
     #SBATCH --account=<project>
     #SBATCH --output=output_%j_%a.txt
     #SBATCH --error=errors_%j_%a.txt
@@ -1013,8 +1017,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
     #SBATCH --cpus-per-task=4
     #SBATCH --mem-per-cpu=2000M
     
-    # Load parallel and r-env
-    module load parallel
+    # Load r-env
     module load r-env
     
     # Split runs into arrays and run the R script
@@ -1022,12 +1025,14 @@ To perform our analysis efficiently, we could take advantage of a module includi
     (( to_run = SLURM_ARRAY_TASK_ID * 150 + 150 ))
     
     sed -n "${from_run},${to_run}p" mylist.txt | \
-        parallel -j $SLURM_CPUS_PER_TASK -k \
+        xargs -n 1 -P $SLURM_CPUS_PER_TASK \
             Rscript --no-save myscript.R \
                     $SLURM_ARRAY_TASK_ID
     ```
 
 === "Puhti"
+    # Using GNU parallel:
+    
     ```bash
     #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
@@ -1065,6 +1070,8 @@ To perform our analysis efficiently, we could take advantage of a module includi
     ```
 
 === "Mahti"    
+    # Using GNU parallel:
+    
     ```bash
     #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
