@@ -37,7 +37,7 @@ details.
 Access to a quantum computer requires a project with allocated QPU time.
 Resources are granted through open resource calls.
 
-!!! info "How to apply"
+??? info "How to apply"
     Find the latest available call and other information from the 
     [Projects](projects.md) page. Different quantum computers may 
     have separate calls and terms of use, so check the requirements 
@@ -48,7 +48,7 @@ Resources are granted through open resource calls.
 Once your project has been approved, add the members who will use the quantum
 computer to the project and make sure everyone has accepted the relevant terms of use.
 
-!!! info "Project setup details"
+??? info "Project setup details"
     The Principal Investigator (PI) can invite additional members via
     [How to add members to a project](../../../accounts/how-to-add-members-to-project.md).
     The PI is responsible for ensuring the device-specific terms of use are
@@ -60,7 +60,7 @@ computer to the project and make sure everyone has accepted the relevant terms o
 Each quantum computer is accessed through one of the CSC supercomputers ( LUMI or Roihu).
 Connect to the host system as you would for any HPC workload.
 
-!!! info "Connecting to the host system"
+??? info "Connecting to the host system"
     Follow the connection instructions for the relevant supercomputer:
 
     * [Connecting to LUMI](https://docs.lumi-supercomputer.eu/firststeps/)
@@ -74,7 +74,7 @@ Connect to the host system as you would for any HPC workload.
 You can interact with the HPC and QPU resources in several ways
 depending on your workflow.
 
-!!! info "Access models"
+??? info "Access models"
     Choose the interface that best fits your work:
 
     * [Batch script](running-quantum-jobs/access-models/batch-script.md) -
@@ -92,7 +92,7 @@ depending on your workflow.
 Load the quantum software environment on the host system and connect to the
 quantum computer's backend.
 
-!!! info "Quantum backends"
+??? info "Quantum backends"
     For accessing the backend of your chosen device from your job, see
     the relevant device page:
 
@@ -106,7 +106,7 @@ quantum computer's backend.
 Build your circuit and submit it to the quantum computer. Results are
 returned once the job has run on the QPU.
 
-!!! info "Running jobs"
+??? info "Running jobs"
     See [Running quantum jobs](running-quantum-jobs/overview.md) for an overview,
     and [Quantum job](running-quantum-jobs/quantum-job.md) for
     annotated Qiskit and Cirq examples.
