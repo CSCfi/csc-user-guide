@@ -8,7 +8,7 @@ Roihu has following datasets:
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
     -   NLS 2m DEM is updated in Roihu automatically every Monday.
     - Additions to NLS data:
-        + 2m and 10m DEMs have virtual rasters, see Roihu virtual rasters below.
+        + 2m, 10m and 25m DEMs have virtual rasters, see Roihu virtual rasters below.
         + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Roihu local files.
  
