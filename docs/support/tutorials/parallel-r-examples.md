@@ -118,7 +118,7 @@ arrays <- Sys.getenv("SLURM_ARRAY_TASK_ID")
 The array number `$SLURM_ARRAY_TASK_ID` could be used to specify for example which data set or parameter set should be analysed in each array.  
 
 Array jobs are best suited for cases where each subtask is longer
-than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [large scale array jobs with xargs or GNU parallel](#large-scale-array-jobs-with-xargs-or-gnu-parallel)
+than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [many small independent runs with xargs](#many-small-independent-runs-with-xargs).
 
 
 ## Multi-core jobs
@@ -978,9 +978,118 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
+## Many small independent runs with xargs
+
+When we want to run a large number of small, similar, independent tasks, it is better 
+to pack them into one or few Slurm jobs instead of submitting them as many individual jobs.
+A common case is running the same R script on a large number of files. If the 
+task for each file, or group of files, lasts 30 minutes or longer, array jobs introduced 
+above are a good choice. When the individual tasks are shorter, we could instead take 
+advantage of [xargs](https://www.gnu.org/software/findutils/).
+
+In the following example, `mylist.txt` contains the identifiers of N files to be processed. The list looks like this:
+
+```bash
+file1
+file2
+file3
+(...)
+fileN
+```
+
+We use `-n 1 -P $SLURM_CPUS_PER_TASK`  to tell `xargs` to read one line at a time from the input 
+`mylist.txt`. The number of simultaneous parallel applications is defined using `--cpus-per-task`, 
+and here we set 4 identifiers to be processed at once. 
+
+The identifier being processed can be accessed in the R script with `args = commandArgs(trailingOnly=TRUE)` 
+followed by `args[1]` that then points to the identifier.
+
+For a real-life analysis, we would likely need much more time and memory (determined by 
+what we do within our R script).
+
+
+=== "Roihu-CPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4
+    #SBATCH --mem-per-cpu=2000M
+    
+    # Load r-env
+    module load r-env
+  
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            Rscript --no-save myscript.R < mylist.txt
+    ```
+
+=== "Puhti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4
+    #SBATCH --mem-per-cpu=2000
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            apptainer_wrapper exec Rscript --no-save myscript.R < mylist.txt
+    ```
+
+=== "Mahti"    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4  # Each core gives 1.875 GB of memory
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            apptainer_wrapper exec Rscript --no-save myscript.R < mylist.txt 
+    ```
+
 ## Large-scale array jobs with xargs or GNU parallel
 
-For larger-scale array jobs involving [many small independent runs](../tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+For very large numbers of small independent runs, we could [combine xargs with arrays](../tutorials/many.md).
+Here we provide a smaller example to demonstrate the approach with an R script. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
 
 ```bash
 set1
@@ -1001,8 +1110,6 @@ To perform our analysis efficiently, we could take advantage of [xargs](https://
 - For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
 
 === "Roihu-CPU"
-    # Using xargs:
-    
     ```bash
     #!/bin/bash
     #SBATCH --job-name=r_array_xargs
@@ -1031,9 +1138,7 @@ To perform our analysis efficiently, we could take advantage of [xargs](https://
     ```
 
 === "Puhti"
-    # Using GNU parallel:
-    
-    ```bash
+     ```bash
     #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
     #SBATCH --account=<project>
