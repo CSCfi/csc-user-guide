@@ -6,14 +6,15 @@ Roihu has following datasets:
 *  In `/dataset/project_2019680` are **Paituli datasets**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland, Swedisish university of agriculture and University of Helsinki.. 
     -   [Full list of Paituli datasets](https://etsin.fairdata.fi/datasets?facet_keyword=Paituli)
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
-    -   NLS ortho images are not copied to Roihu. Access these via [Paituli STAC](https://paituli.csc.fi/stac).
     -   NLS 2m DEM is updated in Roihu automatically every Monday.
     - Additions to NLS data:
         + 2m and 10m DEMs have virtual rasters, see Roihu virtual rasters below.
         + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Roihu local files.
  
-*  In `/dataset/project_2019679` is **[NLS, automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008->. Includes index map in root folder. Updated in Roihu automatically every Monday.
+*  In `/dataset/project_2019679` is **[NLS, automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008->.
+    * Includes index map in root folder.
+    * Updated in Roihu automatically every Monday.
 
 *  In `/dataset/project_2019681` **Finnish Forest Centre**, CC BY 4.0 license
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a) Updated in Roihu automatically every Monday.
@@ -24,7 +25,8 @@ Roihu has following datasets:
 All datasets have a readme-file with dataset name in Finnish and English and links to full dataset description and license.
 
 Puhti had also:
-* SYKE, All open spatial datasets available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot). Future undecied, inform CSC servicedesk if you need.      
+* SYKE, All open spatial datasets available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot). Future undecied, inform CSC servicedesk if you need.
+* NLS ortho images are not copied to Roihu. Access these via [Paituli STAC](https://paituli.csc.fi/stac).   
 * [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995. These will not be added to Roihu. [Paituli STAC](https://paituli.csc.fi/stac) includes SYKE's yearly Landsat mosaics, get data via STAC.
  
 Accessing data in Roihu requires CSC user account with a project with Roihu service enabled. All Roihu users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy. Open spatial data in Roihu is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
@@ -40,11 +42,11 @@ CSC has added to some datasets virtual rasters to Roihu. There are two variants 
     *   NLS 2m DEM: `/dataset/project_2019680/mml/dem2m/dem2m_direct.vrt`
     *   NLS 10m DEM: `/dataset/project_2019680/mml/dem10m/dem10m_direct.vrt`
     *   NLS 25m DEM: `/dataset/project_2019680/mml/dem25m/tif_cog/2000/dem25m.vrt`
+    *   Several LUKE datasets also have .vrt files added.
 
 2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and it's subfolders. The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire DEM dataset for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels. You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
 
     *   NLS 2m DEM: `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
-    *   NLS 10m DEM: 
 
 ## Paituli STAC
 STAC is a great option to search and download raster data. [Paituli STAC](https://paituli.csc.fi/stac) currently includes around 175 Finnish raster datasets:
