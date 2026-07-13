@@ -18,7 +18,7 @@ Roihu has following datasets:
 
 *  In `/dataset/project_2019681` are **Finnish Forest Centre** datasets:
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a) Updated in Roihu automatically every Monday.
-    * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24) For now in Roihu unfortunatelly only some of the files. All files will be added during autumn 2026.
+    * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24) For now in Roihu unfortunately only some of the files. All files will be added during autumn 2026.
     * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545) Updated 7/2026. Comapred to Puhti, the files are unzipped in Roihu.
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a) 2022 version. Will be updated during autumn 2026.
 
