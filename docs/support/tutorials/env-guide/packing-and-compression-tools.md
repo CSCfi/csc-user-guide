@@ -198,7 +198,7 @@ gzip or zip. The table below shows results for one sample case,
 where a 13 GB text file (fastq-formatted sequence data) was compressed with
 these four methods in the Roihu supercomputer using default command settings.
 
-| Command | Size of the<br>compressed file<br>(original size 10GB) | Compression time | Decompression time |
+| Command | Size of the<br>compressed file<br>(original size 13GB) | Compression time | Decompression time |
 |------------|--------|---------|---------|
 | `zstd`     | 5.1 GB | 25.4 s  | 18.7 s  |
 | `gzip`     | 5.11 GB| 25.1 min| 1.9 min |
