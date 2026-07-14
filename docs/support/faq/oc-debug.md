@@ -7,7 +7,7 @@ In this article, we will see how to debug a container with two methods:
 - The first one using the Rahti web interface
 - The second one using the [oc](../../cloud/rahti/usage/cli.md) command line tool.
 
-## Deployment a failing pod
+## Deploying a failing pod
 
 Let's deploy a failing pod. For that, we will use the official NGINX image. This image will fail because it runs with super-privilege, which is not possible on Rahti (OpenShift). More information [here](../../cloud/rahti/security-guide.md)
 
