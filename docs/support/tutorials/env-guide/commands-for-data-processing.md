@@ -7,7 +7,7 @@ large data sets. However, plain Linux tools have their limitations. If
 you are going to do more complex data management, scripting languages
 like Python and Perl may be more efficient tools to use. In the case of
 numerical data, many application programs, for example R,
-provides tools for both complex analysis tasks and automating the
+provide tools for both complex analysis tasks and automating the
 analysis.
 
 ## `grep` selects rows that match a given string
@@ -39,7 +39,7 @@ In that case, the command:
 grep Pekka authors.txt
 ```
 
-Would print two rows:
+would print two rows:
 
 ```text
 Eeva Pekkanen. Oulu 50
@@ -48,7 +48,7 @@ Pekka Niemi. Tampere 26
 
 as also *Pekkanen* matches the search string *Pekka*. If we want to use
 full names as search strings, including the space character between the
-names, we need to embrace the search string within quotation marks. For
+names, we need to enclose the search string within quotation marks. For
 example,
 
 ```bash
@@ -92,7 +92,7 @@ prints again
 
 ```text
 Eeva Pekkanen. Oulu 50
-Pekka Niemi. Tampere 2
+Pekka Niemi. Tampere 26
 ```
 
 `grep` interprets the given search string as a *regular expression*, where
@@ -160,14 +160,14 @@ with `sed` too. The `sed` command is discussed in more detail in the chapter
 [Replacing characters and strings](#replacing-words-and-strings-with-sed).
 Here we only show how `sed` can be used to select a certain row from a file.
 For example the third row of the file `authors.txt` could be selected with
-command `sed -n "3"p authors.txt` In this case the result is
+command `sed -n '3p' authors.txt` In this case the result is
 `Pekka Niemi. Tampere 26`. This row-picking method is handy in loops. For
 example, the following loop would print out three rows from the example file:
 
 ```bash
 for i in 4 3 2
 do
-  row=$(sed -n "$i"p authors.txt)
+  row=$(sed -n "${i}p" authors.txt)
   echo "Row $i looks like: $row"
 done
 ```
