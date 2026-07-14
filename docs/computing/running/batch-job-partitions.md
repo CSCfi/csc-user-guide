@@ -146,7 +146,7 @@ The amount of local storage available to a single user depends on the [partition
 | Hugemem (XL) nodes | 1.6 TiB        | 6700 / 4000 MB/s    |
 | VIZ nodes          | 6.5 TiB        | 6700 / 4000 MB/s    |
 
-Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
+Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
 
 ## Puhti partitions
 
