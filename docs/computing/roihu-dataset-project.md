@@ -97,7 +97,7 @@ other disk areas:
 | Home             | `10 BU * TiB * storage-hours` |
 | Projappl         | `10 BU * TiB * storage-hours` |
 | Dataset — public | `6 BU * TiB * storage-hours`  |
-| Dataset — shared | `10 BU * TiB * storage-hours` |
+| Dataset — restricted | `10 BU * TiB * storage-hours` |
 
 See more details in the [HPC Billing documentation pages](hpc-billing.md).
 

@@ -141,4 +141,4 @@ read access can be granted to selected users, projects, or organisations, or alt
 
 A dataset project is a good way to host data that is read from often but not written often, to avoid duplicate copies of common input or reference data.
 
-Read more about [Roihu Dataset Projects](../../computing/roihu-dataset-project.md)).
+Read more about [Roihu Dataset Projects](../../computing/roihu-dataset-project.md).

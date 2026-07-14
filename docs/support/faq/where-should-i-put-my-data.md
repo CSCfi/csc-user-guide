@@ -36,7 +36,7 @@ To use it, apply for a separate
 When logging in to Roihu, you should change to your project's
 scratch directory because the home directory is not intended for storing data
 that is required for analysis or computing. Its purpose is to store
-configuration files and other **minor** user-specific data (default quota 10
+configuration files and other **minor** user-specific data (default quota 15
 GB). A directory exceeding its capacity causes various problems (see
 [Disk quota exceeded](disk-quota-exceeded.md)). The scratch disk is the main
 disk area to store your active research data (default quota 250 GB on Roihu), while

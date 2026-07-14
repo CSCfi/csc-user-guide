@@ -63,7 +63,7 @@ CSC has added to some datasets virtual rasters to Roihu. There are two variants 
 
 2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and it's subfolders. The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire DEM dataset for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels. You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
 
-    *   NLS 2m DEM: `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
+    *   NLS 2m DEM (in Puhti): `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
 
 ## Paituli STAC
 STAC is a great option to search and download raster data. [Paituli STAC](https://paituli.csc.fi/stac) currently includes around 175 Finnish raster datasets:
