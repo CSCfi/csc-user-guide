@@ -1,12 +1,29 @@
 # Spatial data in CSC computing environment
 ## Spatial data in Roihu
 
-Roihu has following datasets:
+The datasets listed below are provided through CSC-managed Roihu dataset
+projects. They are mounted under `/dataset/<dataset-project-id>` and are
+readable by all Roihu users. You do not need to create or join these dataset
+projects.
 
-*  In `/dataset/project_2019680` are **Paituli datasets**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland, Swedisish university of agriculture and University of Helsinki.. 
+Use the files directly from `/dataset`. If you need to modify a dataset,
+copy the required files to your computational project's
+`/scratch/<project-id>` directory first.
+
+Roihu has the following datasets:
+
+| Path | Dataset collection | Access and updates |
+|------|--------------------|--------------------|
+| `/dataset/project_2019680` | Paituli datasets | Read-only for Roihu users; selected NLS datasets updated weekly |
+| `/dataset/project_2019679` | NLS automatically classified lidar | Read-only; updated weekly |
+| `/dataset/project_2019681` | Finnish Forest Centre datasets | Read-only; update schedule varies by dataset |
+
+More detail on each dataset:
+
+*  In `/dataset/project_2019680` are **Paituli datasets**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural resource institute Finland, Statistics Finland, Swedish University of Agricultural Sciences and University of Helsinki.
     -   [Full list of Paituli datasets](https://etsin.fairdata.fi/datasets?facet_keyword=Paituli)
     -   If in trouble finding some file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
-    -   NLS 2m DEM is updated in Roihu automatically every Monday.
+    - NLS 2m DEM is updated in Roihu automatically every Monday.
     - Additions to NLS data:
         + 2m, 10m and 25m DEMs have virtual rasters, see Roihu virtual rasters below.
         + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
@@ -19,7 +36,7 @@ Roihu has following datasets:
 *  In `/dataset/project_2019681` are **Finnish Forest Centre** datasets:
     * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a) Updated in Roihu automatically every Monday.
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24) For now in Roihu unfortunately only some of the files. All files will be added during autumn 2026.
-    * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545) Updated 7/2026. Comapred to Puhti, the files are unzipped in Roihu.
+    * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545) Updated 7/2026. Compared to Puhti, the files are unzipped in Roihu.
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a) 2022 version. Will be updated during autumn 2026.
 
 All datasets have a readme-file with dataset name in Finnish and English and links to full dataset description and license.
