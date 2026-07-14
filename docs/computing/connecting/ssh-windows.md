@@ -17,7 +17,7 @@ In Windows, 2 different key types are widely used:
 
 --8<-- "ssh-ca.md"
 
-CSC provides two options for this:
+CSC provides two options for signing the SSH keys for Roihu:
 
 * Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-download-from-mycsc)
 * Option 2, the [certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
@@ -34,7 +34,7 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | Cyberduck        |    :ok: with OpenSSH key, difficult with Putty key    |       :ok:|
 
 
-For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md).
+For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it can not be used from transfering data from Puhti or Mahti to Roihu.
 
 ## Generating SSH keys
 
