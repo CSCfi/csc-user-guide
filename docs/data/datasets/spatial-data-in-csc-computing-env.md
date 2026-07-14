@@ -10,7 +10,7 @@ Use the files directly from `/dataset`. If you need to modify a dataset,
 copy the required files to your computational project's
 `/scratch/<project-id>` directory first.
 
-Roihu has the following datasets:
+Roihu has the following public spatial data datasets available:
 
 | Path | Dataset collection | Access and updates |
 |------|--------------------|--------------------|

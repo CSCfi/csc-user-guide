@@ -25,7 +25,7 @@ only have one home directory.
 |---|---|
 | Temporary input, output and intermediate data for one computational project | `/scratch/<project-id>` (Roihu) |
 | Software, scripts and small reference files shared within one computational project | `/projappl/<project-id>` (Roihu) |
-| One actively used dataset that several Roihu computational projects need to read | `/dataset/<dataset-project-id>` (Roihu) |
+| One or a few actively used dataset(s) that several Roihu computational projects need to read | `/dataset/<dataset-project-id>` (Roihu) |
 | Backups, inactive data or longer-term object storage | Allas or LUMI-O |
 | Published or preserved research data | An appropriate research data repository or preservation service |
 

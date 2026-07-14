@@ -338,7 +338,7 @@ nav:
       - Supercomputer storage:
           - computing/disk.md
           - Roihu disk areas: computing/roihu-disk.md
-          - Dataset project (Roihu): computing/roihu-dataset-project.md
+          - Roihu dataset projects: computing/roihu-dataset-project.md
           - Lustre filesystem: computing/lustre.md
       - Module environment: computing/modules.md
       - Running jobs:

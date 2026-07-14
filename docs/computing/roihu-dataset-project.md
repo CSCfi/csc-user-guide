@@ -13,8 +13,8 @@ resources. It does not include `scratch` or `projappl` directories and cannot
 be used to submit jobs.
 
 !!! note "Dataset project access begins in early August 2026"
-        Applications for dataset projects are already open in MyCSC. The first
-        approved dataset projects will be granted access in early August 2026.
+     Applications for dataset projects are already open in MyCSC. The first
+     approved dataset projects will be granted access in early August 2026.
 
 A dataset project is useful when several computational projects need direct
 access to the same actively used dataset.
