@@ -1,6 +1,6 @@
 # Where should I put my data?
 
-CSC supercomputers Puhti, Mahti and Roihu all use a parallel file system called
+The Roihu supercomputer uses a parallel file system called
 *Lustre*. Data on Lustre is accessible from all nodes of a system, and is thus
 the best place to store the data that you need for computations. Please note
 that you can not directly access data on Roihu from Mahti or vice versa, i.e.
@@ -9,7 +9,7 @@ Roihu and Mahti using tools such as [rsync](../../data/moving/rsync.md).
 
 See the [detailed data migration guide](../tutorials/roihu-data.md) from Mahti and Puhti to Roihu.
 
-More specifically, CSC supercomputers have three main disk areas: *home*,
+More specifically, Roihu has three main disk areas: *home*,
 *projappl* and *scratch*. The home directory (accessible using the `$HOME`
 environment variable) is the only user-specific directory. The other
 directories scratch and projappl are project-based and shared by all members of
@@ -21,14 +21,19 @@ This also means that if you are a member of several projects, you also have
 access to multiple scratch and projappl directories. You will, however,
 only have one home directory.
 
-In addition, Roihu provides a fourth storage area, *dataset*. Dataset is
-project-based shared storage for data that needs to be kept available on Roihu
-for longer than temporary scratch data, and can be shared between different computational
-projects. Dataset access and quota must be applied for
-separately and are managed in MyCSC. Dataset also has a separate billing model.
-See the [Dataset documentation](../../computing/roihu-disk.md#dataset-directory) for details.
+| What do you need? | Recommended location |
+|---|---|
+| Temporary input, output and intermediate data for one computational project | `/scratch/<project-id>` (Roihu) |
+| Software, scripts and small reference files shared within one computational project | `/projappl/<project-id>` (Roihu) |
+| One actively used dataset that several Roihu computational projects need to read | `/dataset/<dataset-project-id>` (Roihu) |
+| Backups, inactive data or longer-term object storage | Allas or LUMI-O |
+| Published or preserved research data | An appropriate research data repository or preservation service |
 
-When logging in to CSC supercomputers, you should change to your project's
+The `/dataset` directory is not included in a normal computational project in Roihu.
+To use it, apply for a separate
+[Roihu dataset project](../../computing/roihu-dataset-project.md).
+
+When logging in to Roihu, you should change to your project's
 scratch directory because the home directory is not intended for storing data
 that is required for analysis or computing. Its purpose is to store
 configuration files and other **minor** user-specific data (default quota 10
