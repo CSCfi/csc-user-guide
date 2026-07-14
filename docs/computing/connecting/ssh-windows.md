@@ -34,7 +34,7 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | Cyberduck        |    :ok: with OpenSSH key, difficult with Putty key    |       :ok:|
 
 
-For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it can not be used from transfering data from Puhti or Mahti to Roihu.
+For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it can not be used from transferring data from Puhti or Mahti to Roihu.
 
 ## Generating SSH keys
 
