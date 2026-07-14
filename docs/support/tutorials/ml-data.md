@@ -129,3 +129,16 @@ line so that it is performed on each node separately:
 srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
     tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 ```
+
+### Roihu dataset project
+
+If you are working with other projects that all need access to the same common data, you might
+consider applying for a dataset project in Roihu.
+
+A dataset project provides storage and access management but no computing
+resources. One designated project maintains the dataset, while
+read access can be granted to selected users, projects, or organisations, or alternatively to all Roihu users.
+
+A dataset project is a good way to host data that is read from often but not written often, to avoid duplicate copies of common input or reference data.
+
+Read more about [Roihu Dataset Projects](../../computing/roihu-dataset-project.md)).

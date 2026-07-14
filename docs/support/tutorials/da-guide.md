@@ -17,7 +17,9 @@ Below is a short glossary of CSC's services that are most relevant for data anal
 
 [**Roihu**](../../computing/systems-roihu.md) is CSC's supercomputer where most computing should be done.  [Roihu has a large set of pre-installed applications](../../apps/by_availability.md#roihu), and scales up to very computing heavy tasks, on both its CPU and GPU partitions.
 
-[**Allas**](../../data/Allas/index.md) is CSC's data storage service.  If you have big datasets or need to share data with people outside of your project, you should consider using Allas.
+[**Allas**](../../data/Allas/index.md) is CSC's object storage service.
+Consider using Allas for backups, for large data, for data that is not actively used on a
+supercomputer, or when you need to share data with people outside of your project.
 
 [**Pouta**](../../cloud/pouta/index.md) is CSC's cloud service where you can create your own virtual server.  This gives you more control over the computing environment, but may not be suitable for very heavy computing tasks.  Pouta is also more suitable for processing sensitive data, especially the ePouta variant.
 
