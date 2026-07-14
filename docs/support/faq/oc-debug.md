@@ -85,7 +85,7 @@ On Rahti, navigate to Workloads > Pods and select your pod in status `Error` or 
 
 ![debug container](img/ladybug_icon_rahti.png)
 
-It will automatically starts a debug container. You can now check the content of the file `/etc/nginx/nginx.conf` by running the command:
+It will automatically start a debug container. You can now check the content of the file `/etc/nginx/nginx.conf` by running the command:
 
 ```
 cat /etc/nginx/nginx.conf
