@@ -16,12 +16,16 @@ be used to submit jobs.
      Applications for dataset projects are already open in MyCSC. The first
      approved dataset projects will be granted access in early August 2026.
 
-A dataset project is useful when several computational projects need direct
+A dataset project is useful when several computational projects need
 access to the same actively used dataset.
+Multiple computational projects can be granted read access to the shared
+dataset directory, while a single owning project has write access.
 
-Using a dataset project avoids storing separate copies of the same dataset in
+Using a dataset project helps avoid storing separate copies of the same dataset in
 multiple Scratch directories. It also provides a clear owner for maintaining
-the dataset and a central place for managing read access across multiple projects on Roihu.
+the dataset and a central place for managing read access to this data across multiple projects on Roihu.
+
+Dataset projects are granted for one year at a time. Dataset projects are **not intended for long-term data storage**.
 
 ## Access model
 
@@ -33,15 +37,14 @@ Read access can be granted to:
 
 * Individual users
 * One or more computational projects
-* Users from selected organizations
-* All Roihu users
+* All users from one or more selected organizations
+* All Roihu users (public dataset)
 
 Public dataset projects are readable by all Roihu users.
 CSC publishes a list of public datasets.
 Restricted dataset projects are readable only by the users, projects or organisations selected in MyCSC.
 
-The dataset project ID used in the filesystem path identifies the dataset
-project:
+Each dataset project is has disk area under `dataset`, under a specific project ID.
 
 ```text
 /dataset/project_20XXXXX
@@ -120,7 +123,7 @@ should be:
 For detailed application instructions, see
 [Creating a new project: Dataset project](../accounts/how-to-create-new-project.md#dataset-project).
 
-Dataset projects are not intended for long-term storage and they are not automatically backed up by CSC.
+Dataset projects are **not intended for long-term storage** and they are not automatically backed up by CSC.
 Only use dataset projects for actively used data. Maintain a separate copy of any important
 or irreplaceable data.
 
