@@ -85,6 +85,7 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 ### Language research and other digital humanities and social sciences
 
+- [The National Library of Finland open material dataset](https://digi.kansalliskirjasto.fi/collections?id=861&set_language=en) is [available on Roihu](https://urn.fi/urn:nbn:fi:lb-202311261)
 - The latest versions of
   [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are
   available unpacked on Puhti in `/appl/data/kielipankki/`

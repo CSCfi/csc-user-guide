@@ -254,7 +254,7 @@ compress) so you will not find a separate manual page for that.
 
 #### gzip example
 
-Let's assume we are in some directory on Puhti where we
+Let's assume we are in some directory on Roihu where we
 have just one file called `my_data.dat`. Let's first check the size of
 that file with command `ls -lh`:
 
@@ -331,7 +331,7 @@ pbzip2 -p4 my_data.dat
 Similarly, to decompress the file with two cores you can use command:
 
 ```bash
-punbzip2 -p2 my_data.dat.bz2
+bunzip2 -p2 my_data.dat.bz2
 ```
 
 The `pbzip2` and `pbunzip2` commands scale well for small core numbers.
@@ -504,6 +504,9 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
 ### 7zip packing and compression tool 
 
+!!! note
+    7zip is not installed or supported on Roihu.
+
 **7zip** is a packing and compression tool that is frequently
 used especially on Windows platforms. It can be, however, used in macOS
 and Linux systems too. By default, the command uses its own *7z*
@@ -624,7 +627,7 @@ The output directory of the extracted files can be defined with option
 
 ### Zstandard compression tool
 
-**Zstandard** is a fairly new and very fast compression tool. In Puhti,
+**Zstandard** is a fast compression tool. In Roihu,
 Zstandard compression can be done with command `zstd`. For
 example, to compress file `data.txt`, give command:
 
@@ -635,7 +638,7 @@ zstd data.txt
 The above command produces a compressed file named as `data.txt.zst`.
 For larger data files you can speed up the compression by using multiple
 computing cores (threads). The number of threads is defined with option
-`-T`. In the login nodes of Puhti, it is recommended that you use just
+`-T`. In the login nodes of Roihu, it is recommended that you use just
 one thread that is the default setting, but, for example, in an interactive
 session you could use four threads:
 
@@ -648,3 +651,5 @@ Decompression is defined by adding option `-d` to the command:
 ```bash
 zstd -d data.txt.zst
 ```
+
+See also: [Interactive sessions on Roihu](../../../computing/running/interactive-usage.md).
