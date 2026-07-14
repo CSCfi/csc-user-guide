@@ -88,6 +88,19 @@ few terabytes in size. Contact
 [CSC Service Desk](../support/contact.md) if your dataset is substantially
 larger or your use case has unusual storage requirements.
 
+Datasets consume the following amount of storage billing units, when compared to
+other disk areas:
+
+| Storage area     | Billing                       |
+|:-----------------|:-----------------------------:|
+| Scratch          | `6 BU * TiB * storage-hours`  |
+| Home             | `10 BU * TiB * storage-hours` |
+| Projappl         | `10 BU * TiB * storage-hours` |
+| Dataset — public | `6 BU * TiB * storage-hours`  |
+| Dataset — shared | `10 BU * TiB * storage-hours` |
+
+See more details in the [HPC Billing documentation pages](hpc-billing.md).
+
 ## Applying for a dataset project
 
 You can apply for a dataset project in MyCSC.
