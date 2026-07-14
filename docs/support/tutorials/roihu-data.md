@@ -114,7 +114,7 @@
       your SSH agent** when connecting to the system where you launch the data
       transfer process.
         1. [SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
-        2. [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent). 
+        2. [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
 
 ## 2. Recommended data migration methods
 
@@ -146,10 +146,10 @@
     * It is recommended to use Option 2 for getting SSH certificate, then the SSH certificate is added automatially to the SSH agent.
     * If you use Option 1, add manually your SSH keys and certificate to the SSH agent.
     * In Windows, with PageAnt, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
-4. Log in to Puhti with SSH agent forwarding turned on.
+3. Log in to Puhti with SSH agent forwarding turned on.
     * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding).
     * [Instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
-5. On the login node, transfer directory `/scratch/project_2001234/my-data`
+4. On the login node, transfer directory `/scratch/project_2001234/my-data`
    from Puhti to directory `/scratch/project_2001234/` on Roihu.
 
     ```bash
@@ -161,7 +161,7 @@
     | `-a`   | Use archive mode: copy files and directories recursively, preserve access permissions, timestamps and symbolic links. |
     | `-P`   | Keep partially transferred files and show progress during transfer.                                                   |
 
-6. Alternatively, if you've connected to Roihu and are **pulling** data from
+5. Alternatively, if you've connected to Roihu and are **pulling** data from
    Puhti, use the command:
 
     ```bash
