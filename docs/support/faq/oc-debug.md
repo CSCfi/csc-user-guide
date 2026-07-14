@@ -97,6 +97,9 @@ And also the permission on `/var/cache/nginx/` by running the command:
 ls -l /var/cache/nginx
 ```
 
+!!! note "Terminal"
+    If you cannot see the commands in the Terminal, please Expand it by clicking "Expand" on the top right. You can Collapse and the commands will still be displayed
+
 Two things that needs to be done:
 
 1. The user directive isn't necessary because every pod in Rahti starts with a random UID and GID (check our [security guide](../../cloud/rahti/security-guide.md))
