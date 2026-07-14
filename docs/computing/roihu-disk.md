@@ -183,7 +183,8 @@ projects.
 Write access to a dataset directory is restricted to a single project, while multiple
 other projects can be granted read access to this disk area.
 
-See details for [how to apply for a dataset project](../accounts/how-to-create-new-project.md#dataset-project) in MyCSC.
+See details about [dataset projects](roihu-dataset-project.md) and
+[how to apply for a dataset project](../accounts/how-to-create-new-project.md#dataset-project) in MyCSC.
 
 !!! note
      Dataset projects are intended for data sharing and active use, not long-term storage.</br>
