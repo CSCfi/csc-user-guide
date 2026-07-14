@@ -345,6 +345,10 @@ Option 1 requires some extra steps for adding the SSH certificate to the SSH age
 	   successfully combined key and certificate will show up as `Ed25519
 	   cert` in Pageant/MobAgent.
 
+!!! warning "Data transfer trom Puhti/Mahti to Roihu"
+
+To transfer data from Puhti/Mahti to Roihu, add to Pageant or MobAgent two keys: the signed SSH key for Roihu and unsigned SSH key for Puhti and Mahti. This is needed even if the keys have the same public key in My.csc.fi. 
+
 === "Windows ssh-agent"
 
 	Users of Windows `ssh-agent` **must** make sure to store their manually
