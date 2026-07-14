@@ -129,6 +129,6 @@ A new debug container will start and you will arrive directly to the prompt.
 
 ## Troubleshooting
 
-If you debug container cannot start, it might be because a volume is attached. Rahti doesn't support ReadWriteMany (RWX) for the moment. You need to remove the volume to start your debug container by updating your deployment.
+If your debug container cannot start, it might be because a volume is attached. Rahti doesn't support ReadWriteMany (RWX) for the moment. You need to remove the volume to start your debug container by updating your deployment.
 
 You can check the tab **Events**
