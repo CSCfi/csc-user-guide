@@ -195,17 +195,15 @@ The compression time depends on the algorithm used and the type of data
 to be compressed. In most cases the newer Zstandard method is
 significantly faster than the older, but very widely used methods like
 gzip or zip. The table below shows results for one sample case,
-where a 10 GB text file (fastq-formatted sequence data) was compressed with
-these five methods in the Puhti supercomputer using default command settings.
+where a 13 GB text file (fastq-formatted sequence data) was compressed with
+these five methods in the Roihu supercomputer using default command settings.
 
 | Command | Size of the<br>compressed file<br>(original size 10GB) | Compression time | Decompression time |
 |------------|--------|---------|---------|
-| `zstd`     | 2.6 GB | 2 min   | 1.7 min |
-| `zstd -T4` | 2.6 GB | 0.8 min | 1.7 min |
-| `7z`       | 1.8 GB | 56 min  | 2.7 min |
-| `gzip`     | 2.5 GB | 29 min  | 2.5 min |
-| `bzip2`    | 2.0 GB | 17 min  | 9 min   |
-| `zip`      | 2.5 GB | 29 min  | 2.5 min |
+| `zstd`     | 5.1 GB | 25.4 s  | 18.7 s  |
+| `gzip`     | 5.11 GB| 25.1 min| 1.9 min |
+| `bzip2`    | 4.25 GB| 15 min  | 9.7 min |
+| `zip`      | 5.11 GB| 24.7 min| 1.9 min |
 
 ### gzip and gunzip
 
