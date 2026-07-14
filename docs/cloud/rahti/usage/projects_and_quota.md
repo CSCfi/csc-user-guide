@@ -122,7 +122,7 @@ catalog where you can pick an application template or import your
 own one.
 
 For more information about using the web interface, refer to the
-[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.21). You can find out which version of the documentation to look at in the web interface by
+[official OpenShift documentation](https://docs.okd.io/) (our current version is 4.22). You can find out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".
 
 ## CSC computing project quotas
