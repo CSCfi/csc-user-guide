@@ -196,7 +196,7 @@ to be compressed. In most cases the newer Zstandard method is
 significantly faster than the older, but very widely used methods like
 gzip or zip. The table below shows results for one sample case,
 where a 13 GB text file (fastq-formatted sequence data) was compressed with
-these five methods in the Roihu supercomputer using default command settings.
+these four methods in the Roihu supercomputer using default command settings.
 
 | Command | Size of the<br>compressed file<br>(original size 10GB) | Compression time | Decompression time |
 |------------|--------|---------|---------|
