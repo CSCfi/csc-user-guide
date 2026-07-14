@@ -131,14 +131,14 @@ Simple integer arithmetic examples:
 
 ```bash
 $ a=5
-$ c=3
+$ b=3
 $ ((c = a + b))
 $ echo  $a plus $b is equal to $c
 5 plus 3 is equal to 8
 $ ((d = a / b))
 $ ((e = a % b))
-$ echo "$a divided by $b results $d and reminder $e"
-5 divided by 3 results 1 and reminder 2
+$ echo "$a divided by $b results $d and remainder $e"
+5 divided by 3 results 1 and remainder 2
 ```
 
 Bash can also use one-dimensional array variables, i.e. variables that contain
@@ -191,12 +191,12 @@ prints out the value
 3
 ```
 
-A special case of array variables is `$` that holds command line
-arguments, i.e. items that you can provide as input parameters for your
-script. In the case of this argument, array `$0` refers to the name of the
-actual script, `$1` refers to the first arguments, `$2` to the second and so
-on. `$#` refers to the number of arguments and `$@` to the full argument
-list. Below is a sample script that illustrates using the `$` array
+Script command-line arguments are accessed through positional parameters.
+The parameter `$0` refers to the name of the script, `$1` refers to the first
+argument, `$2` to the second argument, and so on. `$#` refers to the number of
+arguments and `$@` to the full argument list.
+
+Below is a sample script that illustrates using the `$` array
 variable:
 
 ```bash
@@ -213,10 +213,10 @@ used to define a source directory for the copy command while the second
 argument is the target directory. For example, the command
 
 ```bash
-./my_script2.csh source_data map_files
+./my_script2.sh source_data map_files
 ```
 
-would copy all the file with extension `.map` from a directory called
+would copy all files with the extension `.map` from a directory called
 `source_data` to a new directory called `map_files`.
 
 ## Quotation marks
@@ -365,15 +365,13 @@ done
 ```
 
 The for loop above is still quite clumsy as we need to write all the
-file names to the element list. We can avoid this by substituting the
-element list with `$(ls project_3/)`. Now, command `ls project3` is
-used to produce a list of file names to be processed:
+file names to the element list. We can avoid this by using a wildcard pattern::
 
 ```bash
-for filename in $(ls project_3/)
+for filename in project_3/*.txt
 do
    echo "Moving file: $filename"
-   mv project_3/$filename project_3/"$filename".old
+   mv "$filename" "$filename.old"
 done
 ```
 
@@ -382,7 +380,7 @@ is increased automatically by a certain step size in each iteration.
 In this case, the syntax is:
 
 ```bash
-for ((variable=start; variable<=end; i++)) 
+for ((variable=start; variable<=end; variable++))
 ```
 
 Below is a for loop that performs the same renaming operation as above,
