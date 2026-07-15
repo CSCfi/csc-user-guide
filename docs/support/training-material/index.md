@@ -31,7 +31,6 @@ and platforms by CSC and partners!
 
 ## Data analytics and machine learning
 
-* [Parallel R](../tutorials/parallel-r.md)
 * [Practical machine learning](https://e-learn.csc.fi/course/view.php?id=14) MOOC
 
 ## Language bank
