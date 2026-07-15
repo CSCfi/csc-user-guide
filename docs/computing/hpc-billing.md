@@ -109,7 +109,7 @@ The pricing for different storage areas is:
 | Home             | `10 BU * TiB * storage-hours` |
 | Projappl         | `10 BU * TiB * storage-hours` |
 | Dataset — public | `6 BU * TiB * storage-hours`  |
-| Dataset — shared | `10 BU * TiB * storage-hours` |
+| Dataset — restricted | `10 BU * TiB * storage-hours` |
 
 Note that using local scratch on hugemem and visualization nodes **does not** consume storage BUs.
 Instead, it is included in compute BU billing.
