@@ -73,8 +73,8 @@
 
 ## Data analysis
 
-* [Data analysis guide](da-guide.md)
 * [Starting with parallel R](parallel-r.md)
+* [Parallel R batch job examples](parallel-r-examples.md)
 * [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
