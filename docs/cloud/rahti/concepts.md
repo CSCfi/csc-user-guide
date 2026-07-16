@@ -3,7 +3,7 @@
 The power of Kubernetes (and OpenShift) is in the relatively simple abstractions that they provide for complex tasks such as load balancing, software updates for a distributed system, or autoscaling. Here we give a very brief overview of some of the most important abstractions, but we highly recommend that you read the concept documentation for Kubernetes and OpenShift as well:
 
 * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/overview/index)
+* [OpenShift concepts](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/overview/index)
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
@@ -202,7 +202,7 @@ spec:
   initContainers:
   - name: perlhelper
     imagePullPolicy: IfNotPresent
-    image: quay.io/openshift/origin-cli:4.21
+    image: quay.io/openshift/origin-cli:4.22
     command:
     - sh
     - -c
@@ -531,7 +531,7 @@ DeploymentConfig objects may start new ReplicationControllers based on the state
 `spec.triggers`. In the example below, the DeploymentConfig performs
 an automatic rolling update when it gets triggered by an ImageStream named
 `serveimagestream:latest`. For other update strategies, see "[Deployment
-Strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/building_applications/deployments#deployment-strategies)"
+Strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/building_applications/deployments#deployment-strategies)"
 in the OpenShift documentation.
 
 DeploymentConfig objects function similarly to deployments described in the
@@ -585,7 +585,7 @@ In this case, the DeploymentConfig object listens to the *ImageStream* object
 
 ### ImageStream
 
-[ImageStreams](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/images/managing-image-streams) store images. They simplify
+[ImageStreams](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/images/managing-image-streams) store images. They simplify
 the management of container images and can be created by a BuildConfig or the user when a new images are uploaded to
 the registry.
 
@@ -607,7 +607,7 @@ spec:
 
 ### BuildConfig
 
-[BuildConfig](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html/builds_using_buildconfig/understanding-image-builds) objects 
+[BuildConfig](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/builds_using_buildconfig/understanding-image-builds) objects 
 create container images according to specific rules. In the following example, the _Docker_ strategy is used to build a trivial extension
 of the `httpd` image shipped with OpenShift.
 
