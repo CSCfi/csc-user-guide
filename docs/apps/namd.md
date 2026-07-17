@@ -77,7 +77,7 @@ The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on Mahti
 with ns/day as a function of allocated nodes and varying the number of
 `namd_threads` as set in the [Mahti script below](#batch-script-examples).
 
-![NAMD Scaling on Mahti](../img/namd-scaling.svg 'NAMD Scaling on Mahti')
+![NAMD Scaling on Mahti](../img/namd_scaling_with_roihu.svg 'NAMD Scaling on Mahti')
 
 The data also shows the following things:
 
@@ -85,10 +85,9 @@ The data also shows the following things:
   run parameters. For this system, as the amount of resources are increased,
   the optimum performance shifts from more threads per task (15) towards fewer
   threads per task (3).
-* 1 GPU (+ 10 CPU cores) on Puhti gives a performance that is faster than
-  running on four full Mahti nodes. This is achieved by using the GPU-resident
-  mode instead of regular GPU-offloading. See more details in the
-  [NAMD user guide](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node102.html).
+* 1 full Roihu node gives similar performance as three to four full Mahti
+  nodes. Each Roihu node has exactly three times the amount of cores as a
+  single Mahti node.
 * Remember that using more resources to get results faster is also more
   expensive in terms of consumed Billing Units. To avoid wasting resources,
   ensure that your job actually benefits from increasing the number of cores.
@@ -96,9 +95,6 @@ The data also shows the following things:
   resources.
 * To test your own system, run e.g. 10 000 steps of dynamics and search for the
   `Benchmark time:` line in the output.
-* While not seen in the data, a single Roihu-CPU node provides three times
-  the total core count to a Mahti node (384 vs. 128), and so the tested performance on
-  a single Roihu-CPU node is a little over the performance of three Mahti nodes.
 
 !!! info "NAMD 3.0"
     NAMD3 shows a 2-3 times improved GPU performance over NAMD2, e.g. 160
@@ -110,7 +106,7 @@ The data also shows the following things:
 #### Multi-GPU performance
 
 !!! warning-label
-    Given the scarcity of GPUs on Puhti and Mahti, we highly recommend running
+    Given the scarcity of GPUs on Puhti and Mahti, and the absence of NAMD on Roihu-GPU, we currently recommend running
     multi-GPU NAMD simulations on LUMI-G.
 
 
