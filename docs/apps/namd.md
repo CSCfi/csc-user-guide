@@ -69,7 +69,7 @@ This is also recommended by the
 [NAMD manual](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node96.html).
 Please test with your input.
 
-Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 384 (Roihu), 40 (Puhti)
+Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 384 (Roihu-CPU), 40 (Puhti)
 or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the
 optimal one.
 
