@@ -5,7 +5,7 @@ The `r-env` module can be used for parallel computing in several ways. These inc
 
 This page provides examples on how to run various kinds of parallel R batch jobs. To get started with parallel R and for further tips, please see the [introduction to parallel R jobs](../tutorials/parallel-r.md).  
 
-You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for further examples of parallel computing using the `raster` package.
+You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/02_parallel_future) for further examples of parallel computing using the `raster` package.
 
 
 !!! info "Considerations for reserving multiple cores"
@@ -237,7 +237,7 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/02_parallel_future). 
 
 One advantage of `future` is that global variables are automatically exported and available to the parallel processes. When using the packages `parallel` or `snow` to set up parallel processing, one may have to re-load
 packages in the script section that is run in parallel and use `clusterExport` to make objects in the global environment available to the parallel processes.
