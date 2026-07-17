@@ -113,8 +113,8 @@
     * To transfer data directly from Puhti/Mahti to Roihu, you must **forward
       your SSH agent** when connecting to the system where you launch the data
       transfer process.
-        1. **[SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).**
-        2. **[SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).**
+        1. [SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
+        2. [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
 
 ## 2. Recommended data migration methods
 
@@ -139,10 +139,13 @@
 
 ### 2.1 Basic `rsync`
 
-1. [Obtain an SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key).
-2. Add your SSH keys and certificate to your SSH agent.
+1. Make sure you have SSH agent running. 
       1. [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
       2. [Instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
+2.[Obtain an SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key) for Roihu and add the SSH certificate to the SSH agent.
+    * It is recommended to use Option 2 for getting SSH certificate, then the SSH certificate is added automatially to the SSH agent.
+    * If you use Option 1, add manually your SSH keys and certificate to the SSH agent.
+    * In Windows, with PageAnt, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
 3. Log in to Puhti with SSH agent forwarding turned on.
     * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding).
     * [Instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
