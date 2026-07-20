@@ -75,7 +75,7 @@
 
 * [Starting with parallel R](parallel-r.md)
 * [Parallel R batch job examples](parallel-r-examples.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+* [Using RStudio or Jupyter notebooks on Roihu](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
 

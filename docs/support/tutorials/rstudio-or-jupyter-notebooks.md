@@ -18,7 +18,7 @@ With Linux, macOS and MobaXterm the SSH tunnelling works by default. PuTTy requi
 
 **Using the Roihu Web Interface**
 
-* For instructions on this, [see the Roihu web interface documentation.](../../computing/webinterface/index.md)
+* For instructions on this, [see the web interface documentation.](../../computing/webinterface/index.md)
 
 **Using SSH tunneling**
 
