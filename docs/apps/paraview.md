@@ -38,7 +38,7 @@ ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-licen
 
 ## Available
 
-* Roihu: 6.1.1
+* Roihu-CPU: 6.1.1
 * Puhti: 5.10.1
 * Mahti: 5.10.1
 * LUMI: 5.8.0
