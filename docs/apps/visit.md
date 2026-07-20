@@ -42,10 +42,6 @@ VisIt is free also for commercial use and has been released under
 
 ## Available
 
-Puhti: 3.1.3, 3.3.3
-Mahti: 3.1.3, 3.3.1
-LUMI: 3.2.2
-
 * Roihu-CPU: 3.5.0
 * Puhti: 3.1.3, 3.3.3
 * Mahti: 3.1.3, 3.3.1
