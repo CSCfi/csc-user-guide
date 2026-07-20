@@ -1,26 +1,29 @@
-# Using RStudio or Jupyter Notebook in Puhti 
+# Using RStudio or Jupyter Notebook on Roihu 
 
 [RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
 The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser.
 
-There are two ways to use RStudio Server or Jupyter Notebook on Puhti.
+There are two ways to use RStudio Server or Jupyter Notebook.
 
-1. The first (and easiest) option is to use [the Puhti web interface](../../computing/webinterface/index.md).
+1. The first (and easiest) option is to use [the Roihu web interface](../../computing/webinterface/index.md).
 
 2. The second option is to create a SSH tunnel from a local PC to a compute node. As compute nodes are inaccessible via the Internet, 
 the tunnel needs to go through a login node. This is not possible with Windows PowerShell (it does not support jump servers), and therefore it is 
-not suitable for RStudio or Jupyter Notebook in Puhti. 
+not suitable for RStudio or Jupyter Notebook in Roihu. 
 SSH tunneling requires that you have [set up SSH keys](../../computing/connecting/ssh-keys.md). 
 
 With Linux, macOS and MobaXterm the SSH tunnelling works by default. PuTTy requires filling in the settings to PuTTy tabs, so it is slower and more complicated, but possible.
 
-## Workflow for using RStudio or Jupyter Notebook in Puhti
+## Workflow for using RStudio or Jupyter Notebook on Roihu
 
-**Using the Puhti Web Interface**
+**Using the Roihu Web Interface**
 
-* For instructions on this, [see the Puhti web interface documentation.](../../computing/webinterface/index.md)
+* For instructions on this, [see the Roihu web interface documentation.](../../computing/webinterface/index.md)
 
 **Using SSH tunneling**
+
+!!! note
+    SSH tunnelling is not yet enabled on Roihu. The instructions below refer to using it on Puhti.
 
 * Start interactive session
 * Load suitable modules and start RStudio or Jupyter Notebook server
