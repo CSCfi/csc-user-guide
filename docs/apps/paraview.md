@@ -131,7 +131,7 @@ The ParaView version available on Roihu's accelerated visualization partition is
    app of the web interface and specify the required resources.
 3. Click the *Launch* button. Your job is placed in the queue, and once it has
    been allocated resources, click *Launch Accelerated Visualization*.
-4. Launch ParaView from *Applications* > *Visualization* > *Blender* (or search
+4. Launch ParaView from *Applications* > *Visualization* > *ParaView (Accelerated)* (or search
    for it using the *Application Finder*). Launching the software may take a
    few seconds, so be patient.
 
