@@ -11,22 +11,26 @@ catalog:
     - web_interfaces:
         - LUMI
         - Puhti
+        - Roihu
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # ParaView
 
 ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses the VTK library, in Python wrapping. We recommend the [HPC web interface remote desktops](../computing/webinterface/desktop.md) for interactive use.
 
-!!! info "Running ParaView with GPU-accelerated graphics on Puhti and LUMI"
+!!! info "Running ParaView with GPU-accelerated graphics on Roihu and LUMI"
     You can now also enable [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md) for better
     performance. In this case, select _Accelerated visualization_ instead of _Desktop_
-    in the Puhti web interface. On LUMI, select the _Desktop_ app and `lumid`
+    in the Roihu web interface. On LUMI, select the _Desktop_ app and `lumid`
     partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 ParaView is designed to run parallel tasks and consists of one client and one or several servers (pvservers). There are many ways to run ParaView to suit different needs.
+
+[TOC]
 
 ## License
 
@@ -34,6 +38,7 @@ ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-licen
 
 ## Available
 
+* Roihu: 6.1.1
 * Puhti: 5.10.1
 * Mahti: 5.10.1
 * LUMI: 5.8.0
@@ -113,6 +118,24 @@ srun --nodes=1 --ntasks=$SERVER_NTASKS --cpus-per-task=$SLURM_CPUS_PER_TASK --me
 srun --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraview-5.10.1-mesa-client/bin/paraview --server-url=cs://$FIRSTNODE.bullx:$MYPORT &
 wait
 ```
+
+### Accelerated visualization
+
+On Roihu's web interface, you can optionally choose to use the accelerated visualization desktop session to run more computationally
+intensive visualization workloads.
+
+The ParaView version available on Roihu's accelerated visualization partition is ParaView 5.13.3.
+
+1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
+2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+   app of the web interface and specify the required resources.
+3. Click the *Launch* button. Your job is placed in the queue, and once it has
+   been allocated resources, click *Launch Accelerated Visualization*.
+4. Launch ParaView from *Applications* > *Visualization* > *Blender* (or search
+   for it using the *Application Finder*). Launching the software may take a
+   few seconds, so be patient.
+
+![Launching ParaView in Roihu web interface accelerated desktop](../img/paraview_interactive_roihu.png 'Launching ParaView in Roihu web interface accelerated desktop')
 
 ## More Information
 
