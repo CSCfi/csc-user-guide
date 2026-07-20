@@ -25,11 +25,11 @@ VisIt is available on Roihu, and we recommend
 [the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Puhti and LUMI"
+!!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
     You can now also enable
     [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
     for much better performance. In this case, select the
-    _Accelerated Visualization_ app instead of _Desktop_ in the Puhti web
+    _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
     interface. On LUMI, select the regular _Desktop_ app and `lumid`
     partition ([mode information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
