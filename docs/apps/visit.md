@@ -31,7 +31,7 @@ for running the GUI.
     for much better performance. In this case, select the
     _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
     interface. On LUMI, select the regular _Desktop_ app and `lumid`
-    partition ([mode information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 [TOC]
 
@@ -50,7 +50,7 @@ VisIt is free also for commercial use and has been released under
 ## Parallel use
 
 VisIt can be run interactively in parallel configuration using several
-processors. Login to Puhti and submit the following to launch VisIt on a
+processors. Log in to Puhti and submit the following to launch VisIt on a
 compute node
 
 ```bash
