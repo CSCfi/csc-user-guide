@@ -12,12 +12,6 @@ If you are a project admin, create repositories in a way that makes sense to you
 
 A clear structure helps others quickly locate and reuse images.
 
-### Assign Appropriate User Permissions
-
-Project administrators should assign permissions carefully.
-
-Only users who need to push images should receive **Developer** access. Users who only need to pull images should remain **Guests**. Limiting push permissions helps prevent accidental overwrites or unauthorized image modifications.
-
 ### Use Robot Accounts for Automation
 
 Try to use project-scoped robot accounts rather than using personal login. 
@@ -52,6 +46,7 @@ Using explicit version tags improves traceability and ensures reproducible deplo
 Periodically review vulnerability scan reports for images stored in Satama.
 
 If vulnerabilities are detected:
+
 * Update the base image
 * Update affected packages
 * Rebuild the container image
@@ -63,6 +58,7 @@ High-severity vulnerabilities should be addressed before deploying images to pro
 Over time, repositories may accumulate outdated images and unused tags. Removing these unused artifacts helps keep the registry organized.
 
 Cleaning up old images provides several benefits:
+
 * Reduces storage usage
 * Prevents confusion between image versions
 * Improves overall repository management
