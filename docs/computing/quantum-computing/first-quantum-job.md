@@ -247,7 +247,7 @@ This submits the job *interactively* meaning that the output will be printed str
     ```
 
 This can be submitted with `sbatch batch_script.sh` in the same directory as your python file. Jobs in the SLURM queue can be monitored through `squeue -u username` and after the job has completed your results can be found in the `quantumjob.oxxxxx` file. This can be printed to the terminal with `cat`. 
-To run on Q20 or Q50, you will need to specify the devices that you require. Here `Q20` represents Q20 and `Q50` represents the 50 qubit machine. QTODO wording
+To run on Q20 or Q50, you will need to specify the devices that you require. Here `radiance20` represents Aalto Q20 and `Q50` represents VTT Q50.
 
 
 ## Congratulations!
