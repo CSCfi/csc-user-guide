@@ -58,6 +58,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 |                        | [add-python-lib](./tutorials/sd-pythonlibs.md) - Help tool to add Python libraries.|
 |                        | [ARX](https://arx.deidentifier.org/) - Data anonymization tool|
 |                        | [Etherpad](https://etherpad.org/) - tool for collaborative editing (requires Podman compatible virtual machine) | 
+|                        | [Ollama](./tutorials/ollama.md) - tool for using LLMs.|
 |                        | [OpenRefine](https://openrefine.org/) - Data pre-prosessing and conversion tool for various data formats.|
 |                        | [VS Code 1.90.2](./tutorials/vscode.md) - Code editor. <br> *After installation, right-click the VS Code desktop icon and select: Allow launching.*|
 |                        | [WEKA 3-8-6](https://ml.cms.waikato.ac.nz/weka/index.html) - Data mining software.|
