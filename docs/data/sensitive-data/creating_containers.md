@@ -254,7 +254,7 @@ By default, Apptainer bind mounts **home directory** (`/home/$USER`), `/tmp`, an
 For example if we have input file `input_bam.bam` current working directory, it is automatically accessible for a command that is executed inside the container. But if we need also another input file `reference.bed` which locates in directory called `/data`, then we should add that directory to the list of bind-mounted directories. For example:
 
 ```text
-apptainer -B /data:/data exec sd_tools_1.sif samtools depth -a -b /data/refrence.bed input_bam.bam > result.depth
+apptainer -B /data:/data exec sd_tools_1.sif samtools depth -a -b /data/reference.bed input_bam.bam > result.depth
 ```
 
  
