@@ -80,7 +80,7 @@ Please refer to the [PyFirecREST Authorization reference](https://pyfirecrest.re
 
 PyFirecREST also ships with a handy command line utility `firecrest` for interacting with FirecREST APIs. It implements support for OIDC client credentials based authentication, which can be used with robot accounts, as well as support for getting or setting an access token with an arbitrary shell command starting from version `v3.8.0`.
 
-### Using CLI with personal acces token
+### Using CLI with personal access token
 
 We can use the `--token-command` (env `FIRECREST_TOKEN_COMMAND`) option of `firecrest` CLI to supply the personal access token to the utility:
 

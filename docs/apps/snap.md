@@ -169,7 +169,7 @@ for instructions.
 2. Open [Jupyter app](../computing/webinterface/jupyter.md). 
 3. Select **custom module** and write `snap` as module.
 
-In Jupyter remember to set the temporary direcotries. Follow the [SNAP set up Notebook](https://github.com/csc-training/geocomputing/blob/master/snap/SNAP_set_up.ipynb) to get started.
+In Jupyter remember to set the temporary directories. Follow the [SNAP set up Notebook](https://github.com/csc-training/geocomputing/blob/master/snap/SNAP_set_up.ipynb) to get started.
 
 ## Updating SNAP
 

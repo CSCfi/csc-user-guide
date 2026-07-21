@@ -49,7 +49,7 @@ For example, using the imported container to run Trimmomatic filtering for file 
 with command: 
  
 ```text
-podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
+podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:latest trimmomatic SE /media/volume/rawdata.fastq  /media/volume/filtered.fastq MINLEN:100
 ```
 
 In the command above the first part of the command is the actual `podman` command that defines the Podman operation (`run`), and mounting between local and container environments (`-v`).
@@ -61,5 +61,5 @@ podman --cgroup-manager cgroupfs run -v /media/volume:/media/volume trimmomatic:
 Rest of the command defines the actual `trimmomatic` analysis command:
 
 ```text
-trimmomatic SE /media/volume/rawdata.fastq  /media/volume/flitered.fastq MINLEN:100
+trimmomatic SE /media/volume/rawdata.fastq  /media/volume/filtered.fastq MINLEN:100
 ```

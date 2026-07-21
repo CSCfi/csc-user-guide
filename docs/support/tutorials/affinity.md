@@ -75,7 +75,7 @@ which can be done using tools such as numactl.
 The following job script provides an example for setting CPU binding manually.
 The job script creates the script `cpu_bind.<jobid>.sh` that
 uses numactl for binding tasks to CPU cores in the same way as done by default:
-each task is assined a contiguous block of CPU cores based on the task's local ID and
+each task is assigned a contiguous block of CPU cores based on the task's local ID and
 the number of CPUs per task:
 
 !!! warning "Script for full nodes"
