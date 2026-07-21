@@ -1,4 +1,4 @@
-# Adding missing Python libraries to Pythion in SD Desktop
+# Adding missing Python libraries to Python in SD Desktop
 
 By default, SD Desktop virtual machines based on Ubuntu 22.04 have Python 3.10.12 (`python3`) installed.
 

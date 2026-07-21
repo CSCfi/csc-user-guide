@@ -53,9 +53,9 @@ hide:
 
 ### 1.2 Publish and reuse research data
 
-#### 1.2.1 Publish with Fedarated EGA
+#### 1.2.1 Publish with Federated EGA
 
-* [Publish with Fedarated EGA](federatedega.md)
+* [Publish with Federated EGA](federatedega.md)
     * [Publish data](fega-submission.md)
 
 #### 1.2.2 Reuse with SD Apply

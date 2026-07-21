@@ -42,5 +42,5 @@ The project manager has either added you to a CSC project or sent you an invitat
   
 **SD Desktop:**
 
-- [SD Desktop overwvire and key features](./sd_desktop.md)
+- [SD Desktop overview and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
