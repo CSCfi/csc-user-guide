@@ -65,13 +65,12 @@ a-put –sdc ollama_models.tar -b 200xxxx-ollama
 
 ## Step 2. Using Ollama in SD Desktop
 
-Ollama can be installed to SD Desktop virtual machines 
-using the [SD Tool Installer](../sd-desktop-software.md#41-using-the-software-installer): 
+Ollama can be installed to SD Desktop virtual machines using the [SD Tool Installer](../sd-desktop-software.md#41-using-the-software-installer). 
 Open DataGateway connection to SD Connect, open the SD Tool Installer and press *Ollama* button. 
 
 In addition to the Ollama software, you need the LLM models that were uploaded to SD Connect 
-in the previous step. As the modell can require significant amout of storage space your 
-should install them to the volume disc. Open a terminal in yor SD Desktop machine and give commands:
+in the previous step. As the models can require significant amout of storage space your 
+should download them to the volume disc. Open a terminal in yor SD Desktop machine and give commands:
 
 ```txt
 cd /media/volume
@@ -97,14 +96,15 @@ ollama run llama3.1:8b  “Describe shortly the main features llama3.1 langue mo
 ```
 
 While the Ollama server is running in your SD Desktop machine, you can use it from any terminal session. 
-In addition you can use Ollad with Python scritpts.  Ollama library is not available in the default 
-Python of SD Desktop, but it is included for example in _python3-for-medimaging_ that can be installed with [auto-apptainer](./auto-apptainer.md):
+In addition you can use Ollama with Python scripts.  Ollama pythion library is not available in the default 
+Python of SD Desktop, but it is included for example in _python3-for-medimaging_ python environment that can be installed 
+with [auto-apptainer](./auto-apptainer.md):
 
 ```txt
 auto-apptainer python3-for-medimaging
 ```
 
-SamplePython script:
+Sample Python script:
 
 ```
 import ollama
@@ -113,7 +113,7 @@ import ollama
 file = open (“/media/volume/interview1.txt”, “r”)
 content=file.read()
 
-#define prompt for ollama
+#define prompt for Ollama
 myprompt = f”Replace names of persons with letter X in following text:\n\”\”\”\n{content}\n\”\”\””
 
 #execute the prompt with Ollama
