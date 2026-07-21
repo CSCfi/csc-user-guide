@@ -123,7 +123,7 @@ different things. The HOST entries define resources using Slurm partitions.
 
 ## How to speed up simulations?
 
-All other Maestro modules run serial jobs, except Jaguar and Quantum Espresso, which can run
+All other Maestro modules run serial jobs, except Jaguar and Quantum ESPRESSO, which can run
 "real" parallel jobs. Don't choose a "parallel" HOST for any other job type. Instead of
 MPI-parallel jobs, Maestro modules typically split the workload into multiple parts, each
 of which can be run independent of the others.

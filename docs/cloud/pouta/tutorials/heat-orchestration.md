@@ -111,8 +111,8 @@ Here is a detail of each sections:
 
 ### Advanced example: create a template to build one or more instances
 The plan here is:  
-- Create a parameter file for Openstack Heat.  
-- Create two Openstack Heat templates: one for the number of instance(s) (OS::Heat::ResourceGroup) and the other for the specification of the deployment.  
+- Create a parameter file for OpenStack Heat.  
+- Create two OpenStack Heat templates: one for the number of instance(s) (OS::Heat::ResourceGroup) and the other for the specification of the deployment.  
 - Create an ansible script to automate the deployment.  
 
 !!! info
@@ -133,7 +133,7 @@ parameter_defaults:
   count:
 ```
 
-Second, two Openstack Heat templates. For the first one, we'll take our previous examples with some modifications. We call it `heat_stack_vm.yaml`:  
+Second, two OpenStack Heat templates. For the first one, we'll take our previous examples with some modifications. We call it `heat_stack_vm.yaml`:  
 
 ```yaml
 heat_template_version: wallaby # As mentioned above, you can either use the date or the name

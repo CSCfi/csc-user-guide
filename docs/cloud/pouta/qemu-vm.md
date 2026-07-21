@@ -160,7 +160,7 @@ The downloaded backup or snapshot image from cPouta, which is typically in the `
     ```
 ## 5. Uploading a VM image to cPouta
 
-Uploading a VM image to cPouta can be done using either the Horizon web interface (WEB UI) or the OpenStack CLI. See more on [Adding Images](adding-images.md).
+Uploading a VM image to cPouta can be done using either the Horizon web interface (Web UI) or the OpenStack CLI. See more on [Adding Images](adding-images.md).
 
 - using OpenStack CLI, assuming you have sourced the OpenStack credentials as shown above.
 

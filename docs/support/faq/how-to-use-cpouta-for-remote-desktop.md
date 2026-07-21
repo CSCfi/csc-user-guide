@@ -36,7 +36,7 @@ We will utilize the following technologies to install the remote desktop:
 ssh -L2001:localhost:6081 almalinux@YOUR-FLOATING-IP
 ```
 
-This also works at least in the Windows Powershell. If you don't have
+This also works at least in the Windows PowerShell. If you don't have
 an ssh-agent running, you will need to specify also your ssh-key:
 
 ```
@@ -215,7 +215,7 @@ The steps are quite similar to `Almalinux-9` seen previously, few packages name 
 ssh -L2001:localhost:6081 ubuntu@YOUR-FLOATING-IP
 ```
 
-This also works at least in the Windows Powershell. If you don't have
+This also works at least in the Windows PowerShell. If you don't have
 an ssh-agent running, you will need to specify also your ssh-key:
 
 ```

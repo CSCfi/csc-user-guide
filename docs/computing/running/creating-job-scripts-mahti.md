@@ -78,7 +78,7 @@ The amount of space is given in GB (with a maximum of 3800 GB per node). For exa
 
 ## GPU batch jobs
 
-Mahti has 24 GPU nodes and each of them has four Nvidia Ampere A100 GPUs and a local 3.8 TB Nvme drive.
+Mahti has 24 GPU nodes and each of them has four Nvidia Ampere A100 GPUs and a local 3.8 TB NVMe drive.
 The GPUs are available on the `gputest`, `gpusmall` and `gpumedium` partitions using the option:
 
 ```bash

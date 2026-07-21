@@ -19,7 +19,7 @@ catalog:
 
 # SAGA GIS
 
-[Saga GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. 
+[SAGA GIS](http://www.saga-gis.org/) (System for Automated Geoscientific Analyses) is a GIS application for spatial data editing and GIS analyses. 
 
 ## Available
 

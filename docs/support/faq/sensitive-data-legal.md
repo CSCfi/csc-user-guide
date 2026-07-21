@@ -91,7 +91,7 @@ Contact information of Finnish universities data protection / legal offices
 | University of Vaasa  | tietosuojavastaava@uwasa.fi <br />[Data protection policy](https://www.uwasa.fi/en/data-protection) |
 
 ## What type of sensitive data can I process with CSC Sensitive Data Services?
-Any type of sensitive data consented for research. Processing register data under the Act on Secondary us of Health and Social data is possible only with a Findata permit or register permit and using a restricted version of the SD Desktop service (see: Sd Desktop for secondary use).
+Any type of sensitive data consented for research. Processing register data under the Act on Secondary us of Health and Social data is possible only with a Findata permit or register permit and using a restricted version of the SD Desktop service (see: SD Desktop for secondary use).
 
 ## What type of documentation do I need to provide to use CSC Sensitive Data Services?
 

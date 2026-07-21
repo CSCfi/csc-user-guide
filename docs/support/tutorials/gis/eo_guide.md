@@ -195,7 +195,7 @@ There is no single software perfect for every task and taste. The right software
 
 [**Matlab**](../../../apps/matlab.md) - you can run Matlab jobs on Roihu conveniently from your own computers Matlab installation.
 
-[**Orfeo Toolbox (OTB)**](../../../apps/otb.md) - offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more. Orfeo Toolbox is available as CLI, GUI and via Python interface.
+[**Orfeo ToolBox (OTB)**](../../../apps/otb.md) - offers a wide variety of applications from ortho-rectification or pansharpening, all the way to classification, SAR processing, and much more. Orfeo ToolBox is available as CLI, GUI and via Python interface.
 
 [**Python**](../../../apps/python.md)
 

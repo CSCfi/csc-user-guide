@@ -9,7 +9,7 @@
 
 1. Go to login page: **[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi){ target="_blank" }**.
 2. Log in with CSC credentials or Haka. Enter your username and password.
-3. You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator)
+3. You need to verify your identity with a second verification step (i.e. Multi-Factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator)
 4. Press *Continue*.
 
 [![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)

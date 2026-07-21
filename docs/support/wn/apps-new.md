@@ -861,7 +861,7 @@ for more details. CSC's module has the following improvements:
 
 Schrödinger Maestro 2021.3 has been installed on Puhti and set as the default module. The [extended
 Maestro instructions](../tutorials/power-maestro.md#quantum-espresso) have been appended with a
-section on how to speed up Quantum Espresso jobs. A bug in the script that generates the
+section on how to speed up Quantum ESPRESSO jobs. A bug in the script that generates the
 `schrodinger.hosts` file has also been fixed by setting the `parallel` HOST entry to use the
 `large` Slurm partition as intended.
 

@@ -22,7 +22,7 @@ primitives described in the [background](../concepts.md) chapter.
 
     > [MFA required] Since November 25th 2025
 
-    Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../../accounts/mfa.md)
+    Multi-Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../../accounts/mfa.md)
 
 1. After logging in you should see a page like this:
 

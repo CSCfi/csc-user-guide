@@ -19,7 +19,7 @@ catalog:
 There are different variants of OpenFOAM, of which at CSC - IT Center for Science computer platforms, are currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com).
 
 ## License
-OpenFOAM is freely available and open source, and is licensed under the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) (Gnu GPL or GPL), with GPL license typical [characteristics for exploitation](https://openfoam.org/licence/).
+OpenFOAM is freely available and open source, and is licensed under the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) (GNU GPL or GPL), with GPL license typical [characteristics for exploitation](https://openfoam.org/licence/).
 
 ## Available
 Different versions of OpenFOAM, provided by OpenFOAM Foundation and OpenCFD, are installed on [Roihu, Mahti and LUMI servers](../computing/available-systems.md).
