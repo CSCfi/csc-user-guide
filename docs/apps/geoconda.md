@@ -256,7 +256,7 @@ Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed fo
 -   [Automating GIS processes course materials](https://automating-gis-processes.github.io) by University of Helsinki
 -   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) by Henrikki Tenkanen / Aalto University
 -   [Introduction to GIS Programming](https://geog-312.gishub.org/index.html) by Dr. Qiusheng Wu / University of Tennessee
--   [Geographic Data Science with Python](https://geographicdata.science/book/intro.html) by Sergio Rey, Dani Arribas-Bel, Levi Wolf
+-   [Geographic Data Science with Python](https://geographicdata.science/book/) by Sergio Rey, Dani Arribas-Bel, Levi Wolf
 -   [Python Foundation for Spatial Analysis](https://courses.spatialthoughts.com/python-foundation.html) by Ujaval Gandhi
 
 ------------------------------------------------------------------------
