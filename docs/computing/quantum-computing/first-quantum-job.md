@@ -112,16 +112,16 @@ This is an optional step but may be useful to extracting the best out of the qua
 ```python
 qubit_mapping = {
                 qreg[0]: 0,
-                qreg[1]: 2,
+                qreg[1]: 3,
             }
 ```
 
-As an example, here we are mapping the first qubit in the quantum register to the first of Q20's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB3. This is where we have made use of Q20's topology. The same process can be applied to other quantum computers e.g. Q50.
+As an example, here we are mapping the first qubit in the quantum register to the first of Q20's qubits, QB1, located at the zeroth location due to Qiskit's use of zero-indexing. The second qubit is then mapped to QB4. The same process can be applied to other quantum computers e.g. Q50.
 
-<center>!["Q20's node mapping"]() QTODO</center>
+![Q20's node mapping](../../img/aalto-q20-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
 
-The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Q20's topology this needs to be mapped to QB3 on Q20. The 1 qubit Hadamard gate can be mapped to any of the *outer* qubits, QB1, QB2, QB4, QB5, here we choose QB1. QTODO: needs to be reworked for Q20
+The two qubit Controlled-X gate we implemented in our circuit is currently on the second of our two qubits in the Quantum register, `qreg[1]`. Due to Q20's topology this needs to be mapped to QB4 on Q20. The 1 qubit Hadamard gate can be mapped to any of the qubits connected to QB4. These are QB1, QB3, QB5, QB9, here we choose QB1.
 
 
 Note that this step is entirely optional. Using the `transpile` function automatically does the mapping based on the information stored in the backend. Inputting the qubit mapping manually simply gives more control to the user. 

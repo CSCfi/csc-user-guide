@@ -3,9 +3,9 @@
 ## Architecture and Topology
 
 ### Aalto Q20
-Aalto Q20 is a superconducting IQM quantum computer operated by Aalto University. Q20 contains 20 qubits in a **aquare latttice** topology where qubits are connected to their nearest neighbours in a 2D grid. Q20 has two broken couplers. The coupler between qubits 16 and 17 and the coupler between qubuts 9 and 14.<>
+Aalto Q20 is a superconducting IQM quantum computer operated by Aalto University. Q20 contains 20 qubits in a **aquare latttice** topology where qubits are connected to their nearest neighbours in a 2D grid. Q20 has two broken couplers. The coupler between qubits 16 and 17 and the coupler between qubuts 9 and 14.
 
-<center>!["Q20's node mapping"]() QTODO</center>
+![Q20's node mapping](../../img/aalto-q20-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
 
 #### Native Gates
@@ -17,8 +17,7 @@ VTT Q50 is a 53-qubit quantum computer co-developed by VTT and IQM using superco
 The qubits are arranged in a **Square lattice** topology, a 2D grid where each qubit interacts directly with its nearest neighbors. The device has one broken tunable coupler between qubits QB18 and QB10.
 
 
-<center>!["Q50's node mapping"](../../img/VTT_Q50_topology.png)</center>
-
+![Q50's node mapping](../../img/vtt-q50-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
 ### Native Gates
 Q50's native gates are the Phased x-rotation gate (prx) and controlled-z gate (cz)
