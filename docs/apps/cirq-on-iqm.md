@@ -85,7 +85,7 @@ Example batch script for running a quantum job:
 
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-cirq/QTODO
-    export DEVICES=("Q20")
+    export DEVICES=("radiance20")
     source $RUN_SETUP
     python -u quantum_job.py
     ```

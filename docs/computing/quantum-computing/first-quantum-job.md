@@ -176,7 +176,7 @@ To run your quantum programme on LUMI you will need to submit the job through th
 
     module use /appl/local/quantum/modulefiles
     module --ignore_cache load "fiqci-vtt-qiskit/QTODO"
-    export DEVICES=("Q20")
+    export DEVICES=("radiance20")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
     ```
 
@@ -214,7 +214,7 @@ This submits the job *interactively* meaning that the output will be printed str
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-qiskit/QTODO
 
-    export DEVICES=("Q20")
+    export DEVICES=("radiance20")
 
     source $RUN_SETUP
 
