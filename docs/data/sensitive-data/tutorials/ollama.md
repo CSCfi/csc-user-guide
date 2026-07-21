@@ -3,7 +3,7 @@
 
 [Ollama](https://ollama.com/) is a popular tool for using LLMs, as it supports several state-of-the-art models which can be accessed via an API. 
 Ollama can be used in  SD Desktop too.  Be default Ollama downloads the LLM modes from public repostories in internet.  
-This is however not possible in SD Donnect. Because of taht you must download the models somewhere and then import the modes 
+This is however not possible in SD Donnect. Because of that you must download the models somewhere and then import the modes 
 to SD Desktop via SD Connect.
 
 This tutorial provides example how a LLM model can be first downloaded to [Roihu supercomputer](../../../support/tutorials/roihu.md) 
