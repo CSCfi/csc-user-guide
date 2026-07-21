@@ -65,7 +65,7 @@ and make sure the script ends up in the same directory as your `mqpar.xml`
 file and other data files are located.
 
 Just to facilitate writing your batch scripting process, you may use the following  
-minimal example script (calles say, e.g., `maxquant.sh`), to start with: 
+minimal example script (called say, e.g., `maxquant.sh`), to start with: 
 
 ```bash
 #!/bin/bash
