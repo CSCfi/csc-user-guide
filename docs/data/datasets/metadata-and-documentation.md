@@ -84,7 +84,7 @@ Also, think about your file naming conventions, directory structure and **versio
     - [National checklist of Finnish species (Laji.fi)](https://laji.fi/en/taxon)
     - [Basic Register of Thesauri, Ontologies & Classifications (BARTOC)](https://bartoc.org/)
     - [CESSDA Vocabulary Service](https://vocabularies.cessda.eu/)
-    - [Linked Open Vocabularies (LOV)](https://lov.linkeddata.es/dataset/lov)
+    - [Linked Open Vocabularies (LOV) FIXME](https://lov.linkeddata.es/dataset/lov)
     - [The Open Biological and Biomedical Ontology (OBO) Foundry](https://obofoundry.org/)
     - [Repository of biomedical ontologies (BioPortal)](https://bioportal.bioontology.org/)
     - [NERC Vocabulary Server (NVS)](https://vocab.nerc.ac.uk/)
