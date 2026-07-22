@@ -109,18 +109,18 @@ Sample Python script:
 ```
 import ollama
 
-#read input file 
-file = open (“/media/volume/interview1.txt”, “r”)
-content=file.read()
+#read input file
+file = open("/media/volume/interview1.txt", "r")
+content = file.read()
 
-#define prompt for Ollama
-myprompt = f”Replace names of persons with letter X in following text:\n\”\”\”\n{content}\n\”\”\””
+#define prompt for ollama
+myprompt = f"Replace names of persons with letter X in following text:\n\"\"\"\n{content}\n\"\"\""
 
 #execute the prompt with Ollama
-result = ollama.generate(model=’llama3.1:8b’, prompt=myprompt)
+result = ollama.generate(model='llama3.1:8b', prompt=myprompt)
 
 #write the results into file
-anonymized = open(“/media/volume/interview1_anonymized.txt”, “w”)
-anonymized.write(result[‘response’])
+anonymized = open("/media/volume/interview1_anonymized.txt", "w")
+anonymized.write(result['response'])
 anonymized.close
 ```
