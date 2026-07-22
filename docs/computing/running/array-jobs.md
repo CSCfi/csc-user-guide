@@ -227,7 +227,7 @@ loop just to generate a list of `md5sum` commands, that can be processed with `s
 
 ```bash
 #!/bin/bash -l
-#SBATCH --job-name=workfow
+#SBATCH --job-name=workflow
 #SBATCH --output=workflow_out_%j.txt
 #SBATCH --error=workflow_err_%j.txt
 #SBATCH --account=<project>

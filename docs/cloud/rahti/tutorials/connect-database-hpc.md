@@ -31,7 +31,7 @@ First, you need to submit a request to the service desk (servicedesk@csc.fi). Th
     - Project Name: Provide the exact name of the Rahti project for which you want to enable LoadBalancer services.
     - CSC Project Number: The csc_project number that is used for Rahti Project.
     - Use Case: Clearly describe the use case, including:
-        - That you will be running MariaDB databases and that you weill be connecting from a CSC supercomuter.
+        - That you will be running MariaDB databases and that you will be connecting from a CSC supercomuter.
         - Any specific requirements or considerations. (e.g., how many ips)
 
 Once your request is approved by the Rahti admins, you will receive the **LoadBalancer** public **IP** address that can be used to access your service(s).
@@ -58,10 +58,10 @@ spec:
 and then run `oc` to create the Service:
 
 ```sh
-oc create -f sevice.yaml
+oc create -f service.yaml
 ```
 
-You now have your database exposed on the assigned **LoadBalancer IP** you recevied and on port **33306**.
+You now have your database exposed on the assigned **LoadBalancer IP** you received and on port **33306**.
 
 ## Step 3: Connect to MariaDB from CSC supercomputers
 

@@ -7,7 +7,7 @@ local installations needed. If you would like to have
 instructions on how to use a GPU instance for rendering look
 here: [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
 
-First, we will show you how to install the different softwares needed manually. At the end of this article, 
+First, we will show you how to install the different software needed manually. At the end of this article, 
 we will show you how to do it automatically when creating an instance (post install scripts). If you want to 
 go directly to the post install script, click [here](#post-install-scripts)
 
@@ -353,7 +353,7 @@ same as the one you used with the ssh-command.
 ## Post install scripts
 When you create an instance in cPouta, it is possible to add a `Post-Creation` step.
 
-It allows you to run automatic tasks to install softwares and/or run updates.
+It allows you to run automatic tasks to install software and/or run updates.
 
 ![machine post creation](img/post-creation-pouta.png)
 
