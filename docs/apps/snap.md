@@ -85,12 +85,12 @@ The Graph Processing Tool `gpt` is a command line tool used for bulk processing.
 GPT command looks often something like this:
 
 ```
-gpt -J-xmx10G <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
+gpt -J-Xmx10G <full_path_to_graph_xml_file> -Pfile=<inputfile> -t <outputfile>
 ```
 
 Some relevant __gpt__ options include:
 
-* __-J-xmx10G__    maximum memory used by Java.
+* __-J-Xmx10G__    maximum memory used by Java.
 * __-q__    Number of threads the gpt instance will use.
 * __-c__    Data cache size in bytes. Change this if storage space becomes an issue
 * __-x__    Clear internal tile cache after writing a complete row of tiles to output file. Add this if memory becomes an issue
