@@ -12,11 +12,12 @@ copy the required files to your computational project's
 
 Roihu has the following public spatial data datasets available:
 
-| Path | Dataset collection | Access and updates |
-|------|--------------------|--------------------|
-| `/dataset/project_2019680` | Paituli datasets | Read-only for Roihu users; selected NLS datasets updated weekly |
-| `/dataset/project_2019679` | NLS automatically classified lidar | Read-only; updated weekly |
-| `/dataset/project_2019681` | Finnish Forest Centre datasets | Read-only; update schedule varies by dataset |
+| Path | Dataset collection | 
+|------|--------------------|
+| `/dataset/project_2019680` | Paituli datasets | 
+| `/dataset/project_2019679` | NLS automatically classified lidar | 
+| `/dataset/project_2019681` | Finnish Forest Centre datasets | 
+
 
 More detail on each dataset:
 
@@ -28,7 +29,7 @@ More detail on each dataset:
         + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
     - The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Roihu local files.
  
-*  In `/dataset/project_2019679` is **[NLS, automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008->.
+*  In `/dataset/project_2019679` is **[NLS, automatically classified lidar, 0.5p / m2](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008->.
     * Includes index map in root folder.
 
 *  In `/dataset/project_2019681` are **Finnish Forest Centre** datasets:
@@ -43,6 +44,7 @@ Puhti had also:
 * SYKE, All open spatial datasets available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot). Future undecided, inform CSC servicedesk if you need.
 * NLS ortho images are not copied to Roihu. Access these via [Paituli STAC](https://paituli.csc.fi/stac).   
 * [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995. These will not be added to Roihu. [Paituli STAC](https://paituli.csc.fi/stac) includes SYKE's yearly Landsat mosaics, get data via STAC.
+* Automatic data updates for some datasets, the goal is to get these working in Roihu as well during autumn.
  
 Accessing data in Roihu requires a CSC user account with a project with Roihu service enabled. All Roihu users have **read** access to these datasets. You do not need to move the files: they can be used directly, unless you need to modify them, which requires you to make your own copy. Open spatial data in Roihu is maintained by CSC personnel. If you notice any problems with data or wish some new dataset, contact CSC Servicedesk.
 
