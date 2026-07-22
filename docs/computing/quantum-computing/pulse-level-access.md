@@ -98,7 +98,7 @@ HTML(inspect_playlist(job_definition.sweep_definition.playlist, [0]))
 
 ## Submit through Pulla
 
-```
+```python
 job = p.submit_playlist(job_definition, context=context)
 job.wait_for_completion()
 qiskit_result = sweep_job_to_qiskit(job, shots=shots)
