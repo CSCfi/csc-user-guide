@@ -25,20 +25,23 @@ The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing 
 
 The following versions of CloudCompare are available:
 
-- CloudCompare 2.14 for CPU partitions **In Roihu**. GPU version for Roihu is coming later.
-- CloudCompare 2.12.4 for GPU partitions. Plugins: qEDL, qPDALIO, qAnimation and qPCV. **In Puhti**.
-- CloudCompare 2.10.3 for CPU partitions with more plugins than the GPU version. **In Puhti**.
+
+- CloudCompare 2.14 for CPU. Plugins: Core I/O, LAS I/O **In Roihu**. 
+- CloudCompare 2.13.1 for GPU **In Roihu**. 
+- CloudCompare 2.12.4 for GPU. Plugins: qEDL, qPDALIO, qAnimation and qPCV. **In Puhti**.
+- CloudCompare 2.10.3 for CPU with more plugins than the GPU version. **In Puhti**.
 
 GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../computing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
 
 ## Usage
 CloudCompare is available in web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi).
 
-### GPU-accelerated CloudCompare
-GPU-accelerated CloudCompare is available with [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
-   
-### Basic CloudCompare
-Basic CloudCompare is available via [Desktop app](../computing/webinterface/desktop.md). After launching the remote desktop, double-click `CloudCompare`/`ccViewer` icon OR open `Terminal` (Desktop icon) and start CloudCompare:
+* **Basic CloudCompare is available** via [Desktop app](../computing/webinterface/desktop.md). 
+* **GPU-accelerated CloudCompare** via [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
+
+After launching the remote desktop, start CloudCompare or ccViewer from `Applications` (upper left corner) -> `Geosciences`.
+
+Alternatively, open terminal from `Applications` -> `Terminal emulator`:
 
 ```
 module load cloudcompare
@@ -49,13 +52,10 @@ CloudCompare
 
 CloudCompare is published under the [GNU General Public License](https://github.com/CloudCompare/CloudCompare/blob/master/license.txt).
 
-You are free to use CloudCompare for any purpose, including commercially or for education. 
-
 
 ## Citation
 
-
-`CloudCompare (version 2.10.3) [GPL software]. (2021). Retrieved from http://www.cloudcompare.org.`
+`CloudCompare (version 2.X.Y) [GPL software]. (2026). Retrieved from http://www.cloudcompare.org.`
 
 If you used a [CloudCompare plugin](http://www.cloudcompare.org/doc/wiki/index.php?title=Plugins), also cite the plugin authors.
 
@@ -65,7 +65,11 @@ Please acknowledge CSC and Geoportti in your publications, it is important for p
 
 ## Installation
 
-CloudCompare was installed to Puhti with Apptainer. The basic version was installed using this [CloudCompare Apptainer definition file](https://github.com/CSCfi/singularity-recipes/blob/main/cloudcompare/cloudcompare.def).
+CloudCompare was installed to Puhti with Apptainer. The CPU-versions were installed using [Apptainer](https://github.com/CSCfi/singularity-recipes/tree/main/cloudcompare) and wrapped with Tykky
+
+```
+wrap-container -w /usr/bin/CloudCompare,/usr/bin/ccViewer cc.sif --prefix 2.14
+```
 
 ## References
 
