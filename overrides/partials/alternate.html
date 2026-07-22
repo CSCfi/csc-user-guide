@@ -2,11 +2,11 @@
 {%- set original_language = "en" -%}
 {%- if page is none -%}
 {{- alt.link | url -}}
-{%- elif alt.lang == config.theme.language -%}
+{%- elif alt.lang == lang.t("meta.lang_code") -%}
 {{- page.url | url -}}
 {%- else -%}
-{%- set prefix = "/{}/".format(config.theme.language)
-    if config.theme.language != original_language
+{%- set prefix = "/{}/".format(lang.t("meta.lang_code"))
+    if lang.t("meta.lang_code") != original_language
     else "/" -%}
 {{- alt.link ~ page.abs_url.removeprefix(prefix) -}}
 {%- endif -%}
@@ -28,8 +28,14 @@
 </style>
 <div class="md-header__option">
   <div class="md-select">
-    {% set icon = config.theme.icon.alternate or "material/translate" %}
+    {% set icon = config.theme.icon.alternate %}
     <button class="md-header__button md-icon" aria-label="{{ lang.t('select.language') }}">
+      <span style="font-size: small; vertical-align: super;">
+        {{- (config.extra.alternate
+             | selectattr("lang", "equalto", lang.t("meta.lang_code"))
+             | list
+             | first).name -}}
+      </span>
       {% include ".icons/" ~ icon ~ ".svg" %}
     </button>
     <div class="md-select__inner">

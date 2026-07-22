@@ -1,0 +1,45 @@
+<!-- Import translations for language -->
+{% import "partials/languages/en.html" as language %}
+
+<!-- Define custom translations -->
+{% macro override(key) %}{{ {
+  "meta.lang_code": "en",
+
+  "contact_information": "Contact information",
+  "contact_form": "Contact form",
+  "customer_service": "Customer service",
+  "maintenance_breaks": "Maintenance breaks",
+  "switchboard": "switchboard",
+  "accessibility_statement": "Accessibility statement",
+  "user_communications_archives": "User communications archives",
+
+  "pre-header.research": "Services for research",
+  "pre-header.user_guides": "User guides",
+  "pre-header.user_portal": "User portal",
+  "pre-header.company_site": "Company site",
+
+  "apps.available_on": "Applications available on",
+  "apps.available_on_web": "Interactive web applications available on",
+  "apps.web_interface": "web interface",
+
+  "csc.full_name": "CSC &ndash; IT CENTER FOR SCIENCE LTD.",
+  "csc.mail_address": "P.O. Box 405, 02101 Espoo",
+  "csc.email": "servicedesk@csc.fi",
+  "csc.open_hours": "Open weekdays from 8:30 till 16:00",
+  "csc.info_at": "Detailed contact information at",
+  "csc.info_path":  "about-us/contact-information/",
+
+  "feedback.please": "Please let us know how we could improve this page by",
+  "feedback.contacting_us": "contacting us",
+
+  "404.not_found": "Page not found",
+  "404.error": "Error",
+  "404.sorry": "Sorry, we couldn't find what you're looking for",
+  "404.please": "Please retry looking for the content using the search function, or return to",
+  "404.link_text": "the Home page",
+}[key] }}{% endmacro %}
+
+<!-- Re-export translations -->
+{% macro t(key) %}{{
+  override(key) or language.t(key)
+}}{% endmacro %}
