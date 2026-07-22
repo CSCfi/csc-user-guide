@@ -173,6 +173,23 @@ This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and
 then connect to a node using `ssh`.
 
+!!! warning "Direct SSH connection into compute nodes on Roihu has not yet been configured"
+     A direct SSH connection into compute nodes on Roihu is not yet configured.
+     For connecting onto compute nodes where you have a job running, use Slurm's overlap feature:
+
+     ```text
+     srun --jobid=<jobid> --overlap --pty bash
+     ```
+
+     Or for targeting a specific node in a multi-node run:
+     ```text
+     srun --jobid=<jobid> --overlap --nodelist=rcXXXX --pty bash
+     ```
+
+     Replace `<jobid>` and `rcXXXX` in the above with your job ID in Slurm and the specific node
+     you want to connect into.
+
+
 ```bash
 # The nodes hosting the job are
 # displayed in the "NODELIST(REASON)" column.
@@ -188,4 +205,3 @@ r07c01.bullx
 If you try to connect to a node where you have no active jobs, you will
 receive the following error message: `Access denied by pam_slurm_adopt: you
 have no active jobs on this node`.
-
