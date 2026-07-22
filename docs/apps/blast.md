@@ -123,7 +123,7 @@ blast_clusterrun -jobid some-number
 The `pb` program also allows users to do BLAST searches against their own fasta formatted sequence sets. This is done by replacing the `-db` option with option `-dbnuc` (for nucleotides) or `-dbprot` (for proteins). Example:
 
 ```bash
-pb blastn -dbnuc my_seq_set.fasta -query querys.fasta -out results.out
+pb blastn -dbnuc my_seq_set.fasta -query queries.fasta -out results.out
 ```
 
 If your database is big, building the BLAST indexes may require more than 1 GB of memory (that is the job specific memory limit in Puhti login nodes). In those cases you can submit the job from an interactive batch job (with e.g. 8 GB of memory).

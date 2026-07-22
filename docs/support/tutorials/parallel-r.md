@@ -47,13 +47,13 @@ It is also possible to run jobs that combine multiprocessing and multithreading.
 
 ## Multiple concurrent jobs: array jobs
 
-Instead of submitting multiple jobs at the same time, in many cases it is recommended to use an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#array-jobs) and in the [Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/05_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
+Instead of submitting multiple jobs at the same time, in many cases it is recommended to use an [array job](../../computing/running/array-jobs.md). Example batch job files can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#array-jobs) and in the [Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/05_array). Array jobs are suitable for executing the same code using different parameters, or any other situation where the parallel tasks are independent (i.e. they do not need to communicate with one another).
 
 ## Multinode analyses
 
 Regardless of whether you are running a multiprocess or multithreaded R job, it is possible to distribute your analysis over multiple [nodes](https://a3s.fi/CSC_training/02_environment.html#/notes-on-vocabulary). To do so, your batch job file and R script will require some modifications, compared to an analysis running on a single node. You will also need to use R packages that are compatible with multinode jobs, such as `future` or `snow` .
 
-A number of practical examples can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#multi-node-r-jobs-with-mpi). Multinode R examples using raster data can also be found in the [Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
+A number of practical examples can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#multi-node-r-jobs-with-mpi). Multinode R examples using raster data can also be found in the [Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu).
 
 One topic of note is that setting up multiprocess and/or multithread jobs on multiple nodes (so-called hybrid jobs) is a special case of its own. Even if you have successfully set up a parallel R job on a single node, it will be necessary to rethink your setup when scaling up to several nodes. Tips on how to approach this can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#openmp-mpi-hybrid-jobs) and as part of [CSC's general documentation on hybrid batch jobs](../../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs).
 
