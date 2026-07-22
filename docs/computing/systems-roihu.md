@@ -125,11 +125,16 @@ disk areas are expected to have read and write bandwidths of 120 GB/s and
 100 GB/s, respectively.
 
 Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
-have not been accessed in the last 180 days to avoid inactive data accumulating
-on the system. For longer-term storage and sharing of datasets between multiple projects, we will
-introduce a new disk area called **Dataset**. Dataset access and quota will
-be applied for and managed in MyCSC, and the disk area will have its own
-billing model.
+have not been accessed in the last 180 days to prevent inactive data from accumulating
+on the system.
+
+Roihu also provides a separate Dataset disk area for actively used
+datasets that need to be shared between multiple computational projects.
+A dataset project provides a shared disk area for common datasets under
+`/dataset/<dataset-project-id>`, helping to avoid duplicate copies and
+simplifying access management between projects.
+
+See [Roihu dataset project](roihu-dataset-project.md) for details.
 
 ### Local storage capacity
 

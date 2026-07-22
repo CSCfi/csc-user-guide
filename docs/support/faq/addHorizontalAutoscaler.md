@@ -105,6 +105,9 @@ There is only need for a single Pod because only ~100MB is used out of 1Gi of to
 /app/app.py 5 100
 ```
 
+!!! note "Terminal"
+    If you cannot see the commands in the Terminal, please expand it by clicking "Expand" on the top right. You can collapse and the commands will still be displayed
+
 This will create a new process that will reserve 5 chunks of 100MB of RAM. As 100+500 MB is more than 50% of the total 1Gi of memory, a new Pod will be created by the auto scaler. 
 
 ![2 Pods](../../cloud/img/pods2Autoscaler.png)

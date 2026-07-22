@@ -5,7 +5,7 @@ The `r-env` module can be used for parallel computing in several ways. These inc
 
 This page provides examples on how to run various kinds of parallel R batch jobs. To get started with parallel R and for further tips, please see the [introduction to parallel R jobs](../tutorials/parallel-r.md).  
 
-You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for further examples of parallel computing using the `raster` package.
+You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/02_parallel_future) for further examples of parallel computing using the `raster` package.
 
 
 !!! info "Considerations for reserving multiple cores"
@@ -118,7 +118,7 @@ arrays <- Sys.getenv("SLURM_ARRAY_TASK_ID")
 The array number `$SLURM_ARRAY_TASK_ID` could be used to specify for example which data set or parameter set should be analysed in each array.  
 
 Array jobs are best suited for cases where each subtask is longer
-than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [large scale array jobs with GNU parallel](#large-scale-array-jobs-with-gnu-parallel)
+than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [many small independent runs with xargs](#many-small-independent-runs-with-xargs).
 
 
 ## Multi-core jobs
@@ -237,7 +237,7 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/02_parallel_future). 
 
 One advantage of `future` is that global variables are automatically exported and available to the parallel processes. When using the packages `parallel` or `snow` to set up parallel processing, one may have to re-load
 packages in the script section that is run in parallel and use `clusterExport` to make objects in the global environment available to the parallel processes.
@@ -978,9 +978,118 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
-## Large-scale array jobs with GNU parallel
+## Many small independent runs with xargs
 
-For larger-scale array jobs involving [many small independent runs](../tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+When we want to run a large number of small, similar, independent tasks, it is better 
+to pack them into one or few Slurm jobs instead of submitting them as many individual jobs.
+A common case is running the same R script on a large number of files. If the 
+task for each file, or group of files, lasts 30 minutes or longer, array jobs introduced 
+above are a good choice. When the individual tasks are shorter, we could instead take 
+advantage of [xargs](https://www.gnu.org/software/findutils/).
+
+In the following example, `mylist.txt` contains the identifiers of N files to be processed. The list looks like this:
+
+```bash
+file1
+file2
+file3
+(...)
+fileN
+```
+
+We use `-n 1 -P $SLURM_CPUS_PER_TASK`  to tell `xargs` to read one line at a time from the input 
+`mylist.txt`. The number of simultaneous parallel applications is defined using `--cpus-per-task`, 
+and here we set 4 identifiers to be processed at once. 
+
+The identifier being processed can be accessed in the R script with `args = commandArgs(trailingOnly=TRUE)` 
+followed by `args[1]` that then points to the identifier.
+
+For a real-life analysis, we would likely need much more time and memory (determined by 
+what we do within our R script).
+
+
+=== "Roihu-CPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4
+    #SBATCH --mem-per-cpu=2000M
+    
+    # Load r-env
+    module load r-env
+  
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            Rscript --no-save myscript.R < mylist.txt
+    ```
+
+=== "Puhti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4
+    #SBATCH --mem-per-cpu=2000
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            apptainer_wrapper exec Rscript --no-save myscript.R < mylist.txt
+    ```
+
+=== "Mahti"    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4  # Each core gives 1.875 GB of memory
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            apptainer_wrapper exec Rscript --no-save myscript.R < mylist.txt 
+    ```
+
+## Large-scale array jobs with xargs or GNU parallel
+
+For very large numbers of small independent runs, we could [combine xargs with arrays](../tutorials/many.md).
+Here we provide a smaller example to demonstrate the approach with an R script. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
 
 ```bash
 set1
@@ -990,18 +1099,20 @@ set3
 set1500
 ```
 
-To perform our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+To perform our analysis efficiently, we could take advantage of [xargs](https://www.gnu.org/software/findutils/) provided by the base operating system (or a module including [GNU Parallel](https://www.gnu.org/software/parallel/)) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
 
 - The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array. 
 
-- We use `-j $SLURM_CPUS_PER_TASK -k`  to tell GNU parallel to keep running 4 applications in parallel, while ensuring that the job output order matches the input order.  The number of simultaneous parallel applications is defined using `--cpus-per-task`.
+- We use `-n 1 -P $SLURM_CPUS_PER_TASK`  to tell `xargs` to read one line at a time from the input (specific section of `mylist.txt`) and run 4 applications in parallel. The number of simultaneous parallel applications is defined using `--cpus-per-task`. When using GNU Parallel, the equivalent command is `parallel -j $SLURM_CPUS_PER_TASK -k`.
+
+- The identifiers in the list can be accessed in the R script with `args = commandArgs(trailingOnly=TRUE)` followed by `args[1]` for the array number (`$SLURM_ARRAY_TASK_ID`) and `args[2]` for the identifiers analysed in this array.
 
 - For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
 
 === "Roihu-CPU"
     ```bash
     #!/bin/bash
-    #SBATCH --job-name=r_array_gnupara
+    #SBATCH --job-name=r_array_xargs
     #SBATCH --account=<project>
     #SBATCH --output=output_%j_%a.txt
     #SBATCH --error=errors_%j_%a.txt
@@ -1013,8 +1124,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
     #SBATCH --cpus-per-task=4
     #SBATCH --mem-per-cpu=2000M
     
-    # Load parallel and r-env
-    module load parallel
+    # Load r-env
     module load r-env
     
     # Split runs into arrays and run the R script
@@ -1022,13 +1132,13 @@ To perform our analysis efficiently, we could take advantage of a module includi
     (( to_run = SLURM_ARRAY_TASK_ID * 150 + 150 ))
     
     sed -n "${from_run},${to_run}p" mylist.txt | \
-        parallel -j $SLURM_CPUS_PER_TASK -k \
+        xargs -n 1 -P $SLURM_CPUS_PER_TASK \
             Rscript --no-save myscript.R \
                     $SLURM_ARRAY_TASK_ID
     ```
 
 === "Puhti"
-    ```bash
+     ```bash
     #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
     #SBATCH --account=<project>
@@ -1065,6 +1175,8 @@ To perform our analysis efficiently, we could take advantage of a module includi
     ```
 
 === "Mahti"    
+    # Using GNU parallel:
+    
     ```bash
     #!/bin/bash
     #SBATCH --job-name=r_array_gnupara

@@ -324,7 +324,7 @@ environment:
 module load allas
 ```
 
-From the output of the `module load allas` command you can check whether the a-commands use the right Allas, in ths case `project_2001659`. If needed you can take the project in use with allas-conf command:
+From the output of the `module load allas` command you can check whether the a-commands use the right Allas, in this case `project_2001659`. If needed you can take the project in use with allas-conf command:
 
 ```bash
 allas-conf project_2001659

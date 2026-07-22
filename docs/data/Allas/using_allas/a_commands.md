@@ -264,7 +264,7 @@ presentation.pdf OK
 
 Adding metadata for uploaded presentation.pdf
 presentation.pdf uploaded to kkayttaj-1234567-pub
-Publick link: https://a3s.fi/kkayttaj-1234567-pub/presentation.pdf
+Public link: https://a3s.fi/kkayttaj-1234567-pub/presentation.pdf
 
 Upload ready
 ```

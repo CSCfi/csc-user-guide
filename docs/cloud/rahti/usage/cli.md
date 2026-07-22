@@ -180,4 +180,4 @@ Object types have abbreviations that are recognized in the CLI:
 See the official documentation for more information about using the command line
 interface:
 
-* [OpenShift documentation: CLI reference](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.10/html-single/cli_tools/index)
+* [OpenShift documentation: CLI reference](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/cli_tools/index)
