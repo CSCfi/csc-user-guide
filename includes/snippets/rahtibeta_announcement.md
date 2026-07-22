@@ -1,3 +1,3 @@
-!!! warning-label
+!!! warning "This version of Rahti is deprecated"
 
-    *This version of Rahti is deprecated.* The projects need to be migrated from Rahti 1 platform to the new Rahti 2 production platform by June 2024.
+    The projects need to be migrated from Rahti 1 platform to the new Rahti 2 production platform by June 2024.
