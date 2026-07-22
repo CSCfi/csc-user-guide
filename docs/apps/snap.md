@@ -59,9 +59,9 @@ snap -J-Xmx10G
 
 #### SNAP userdir and Java temp dir configuration 
 
-SNAP uses significant amount of storage space for cache and temporary files. By default these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Roihu or want to change the used folders. The SNAP launcher under Applications sets the userdir to $TMPDIR automatically.
+SNAP uses a significant amount of storage space for cache and temporary files. By default, these are written to your HOME directory and may easily fill your HOME. For avoiding that configure your [snap user directory](https://senbox.atlassian.net/wiki/spaces/SNAP/pages/15269950/SNAP+Configuration) and Java temporary folder. You should run this script every time you start using SNAP in Roihu or want to change the used folders. The SNAP launcher under Applications sets the userdir to `$TMPDIR` automatically.
 
-Roihu has by default 20 Gb space in $TMPDIR. If that is not enough set userdir to your project's scratch. This can be done only if launching SNAP from terminal.
+Roihu has by default 20 Gb space in `$TMPDIR`. If that is not enough, set userdir to your project's scratch. This can be done only if launching SNAP from terminal.
 
 ```
 mkdir /scratch/project_200XXXX/snap-tmp
@@ -72,7 +72,7 @@ This scripts sets also Java temporary folder, it is set to be snap/temp subfolde
 `export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djava.io.tmpdir=<SOME-FOLDER>"` after setting the user directory.
 
 !!! note
-        The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
+     The graphical user interface does not follow snap.userdir setting, but it notices the Java setting. Using SNAP GUI will create a __.snap__ folder inside your HOME directory and fill it. Empty it if you run out of space in your HOME directory.
 
 #### Java memory settings
 
@@ -109,7 +109,7 @@ gpt <snap-operator> -h
 
 #### GPT examples for Roihu
 
-* [Full examples how to run GPT in Roihu](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and parallele batch job where the same graph is computed for several input images.
+* [Full examples how to run GPT in Roihu](https://github.com/csc-training/geocomputing/tree/master/snap). The examples include both a simple job with one GPT graph and parallel batch job where the same graph is computed for several input images.
 
 
 ### Using SNAP with the Python interfaces

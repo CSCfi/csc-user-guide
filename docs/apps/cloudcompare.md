@@ -39,9 +39,9 @@ CloudCompare is available in web interface: [Puhti](https://puhti.csc.fi) or [Ro
 * **Basic CloudCompare is available** via [Desktop app](../computing/webinterface/desktop.md). 
 * **GPU-accelerated CloudCompare** via [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
 
-After launching the remote desktop, start CloudCompare or ccViewer from `Applications` (upper left corner) -> `Geosciences`.
+After launching the remote desktop, start CloudCompare or ccViewer from `Applications` (upper-left corner) -> `Geosciences`.
 
-Alternatively, open terminal from `Applications` -> `Terminal emulator`:
+Alternatively, open a terminal from `Applications` -> `Terminal emulator`:
 
 ```
 module load cloudcompare
