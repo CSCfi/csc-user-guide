@@ -95,4 +95,4 @@ Now you can fetch the VLQ backend.
 
 ## Running quantum jobs
 
-Once you have succesfully obtained an access token and fetched the VLQ backend you are ready to run quantum jobs. For info on running quantum jobs see [Running quantum jobs](../running-quantum-jobs/overview.md).
+Once you have successfully obtained an access token and fetched the VLQ backend you are ready to run quantum jobs. For info on running quantum jobs see [Running quantum jobs](../running-quantum-jobs/overview.md).
