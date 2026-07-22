@@ -1,4 +1,4 @@
---8<-- "rahti_rwx_storage.md"
+--8<-- "rahti2_rwx_storage.md"
 
 # Persistent volumes
 
