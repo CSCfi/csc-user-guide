@@ -114,6 +114,7 @@
     * [How to share images between projects?](../../cloud/rahti/tutorials/allow-pull-from-other-projects.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
+* [How to debug a container?](oc-debug.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 * [How to package a Kubernetes application with Helm](helm.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
@@ -123,6 +124,11 @@
 * [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
+## Satama
+
+* [Satama Known issues](../../cloud/satama/known_issues.md) 
+* [How to manage labels](satama-manage-labels.md)
+* [How to add description to repositories](satama-add-description.md)
 
 ## Applications
 

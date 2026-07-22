@@ -19,7 +19,7 @@ The terms of use of this software allow it to be used only by affiliates (staff
 and students) of Finnish higher education institutions.
 
 ## Available
-Ansys Academic Reseach CFD licenses are available on CSC's [Roihu](../computing/available-systems.md) supercomputer for analysis runs only.
+Ansys Academic Research CFD licenses are available on CSC's [Roihu](../computing/available-systems.md) supercomputer for analysis runs only.
 
 ## Usage
 After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server. Locate the files in your project's scratch directory. Home directory is not intended for computing.

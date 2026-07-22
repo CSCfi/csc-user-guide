@@ -17,7 +17,7 @@ In Windows, 2 different key types are widely used:
 
 --8<-- "ssh-ca.md"
 
-CSC provides two options for this:
+CSC provides two options for signing the SSH keys for Roihu:
 
 * Option 1, [manual download of SSH certificate from MyCSC](ssh-keys.md#option-1-download-from-mycsc)
 * Option 2, the [certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
@@ -34,7 +34,7 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | Cyberduck        |    :ok: with OpenSSH key, difficult with Putty key    |       :ok:|
 
 
-For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md).
+For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it can not be used from transferring data from Puhti or Mahti to Roihu.
 
 ## Generating SSH keys
 
@@ -344,6 +344,10 @@ Option 1 requires some extra steps for adding the SSH certificate to the SSH age
 	   Pageant and/or MobAgent following the instructions above. A
 	   successfully combined key and certificate will show up as `Ed25519
 	   cert` in Pageant/MobAgent.
+
+!!! warning "Data transfer from Puhti/Mahti to Roihu"
+
+     To transfer data from Puhti/Mahti to Roihu, add to Pageant or MobAgent two keys: the signed SSH key for Roihu and unsigned SSH key for Puhti and Mahti. This is needed even if the keys have the same public key in My.csc.fi. 
 
 === "Windows ssh-agent"
 

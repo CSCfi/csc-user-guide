@@ -7,7 +7,7 @@
 * [Managing data on supercomputer scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
-* [Interactive and batch job hands-on in Puhti](cmdline-handson.md)
+* [Interactive and batch job hands-on in Roihu](cmdline-handson.md)
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
@@ -73,9 +73,9 @@
 
 ## Data analysis
 
-* [Data analysis guide](da-guide.md)
 * [Starting with parallel R](parallel-r.md)
-* [Using RStudio or Jupyter notebooks in Puhti](rstudio-or-jupyter-notebooks.md)
+* [Parallel R batch job examples](parallel-r-examples.md)
+* [Using RStudio or Jupyter notebooks on Roihu](rstudio-or-jupyter-notebooks.md)
 
 ## Geoinformatics
 
