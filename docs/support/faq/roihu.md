@@ -251,49 +251,12 @@ The small partition for partial or single nodes has a time limit of 72 hours.
 
 ### 22. NVMe, temporary storage and local scratch in Roihu
 
-All Roihu compute nodes provide fast, node-specific NVMe storage for temporary files.
-This storage is automatically available through the `$TMPDIR` environment variable and **does not need to be separately requested** in a Slurm job script.
+All Roihu compute and login nodes provide temporary local NVMe storage through `$TMPDIR`.
+Unlike on Puhti and Mahti, it does not need to be requested with `--gres=nvme`, and `$LOCAL_SCRATCH` should not be used as a direct replacement.
 
-The amount of `$TMPDIR` storage available depends on the allocation type:
+The available capacity depends on the node type, and additional temporary NVMe storage can be requested for some jobs.
 
-| Allocation type     | Partitions         | `$TMPDIR` quota per user |
-|---------------------|--------------------|--------------------------|
-| Shared CPU nodes    | `small`, `interactive`, `test` | 20 GiB       |
-| Full CPU nodes      | `medium`, `large`  | 600 GiB                  |
-| GPU nodes           | All GPU partitions | 150 GiB                  |
-| High-memory nodes   | `hugemem`, `hugemem_longrun` | 1.6 TiB        |
-| Visualization nodes | Visualization partitions | 6.5 TiB            |
-
-For example, files can be extracted to the local disk with:
-
-```bash
-tar xf my-large-dataset.tar.gz -C "$TMPDIR"
-```
-
-On Puhti and Mahti, local NVMe storage was requested through Slurm, and accessed through `$LOCAL_SCRATCH`, but on Roihu,
-the default node-specific local memory is located in `$TMPDIR`.
-Therefore, Puhti or Mahti job scripts using `--gres=nvme:<size>` and `$LOCAL_SCRATCH` should not be copied to Roihu unchanged.
-For ordinary local temporary storage on Roihu, use `$TMPDIR` instead. You do not need to apply for local `$TMPDIR` storage in a Slurm script, and it
-is automatically usable in all jobs.
-
-For jobs requiring more fast temporary storage than what `$TMPDIR` provides, and for storage that is accessible from multiple nodes in a job, Roihu also provides disaggregated NVMe storage from a centralized storage pool.
-It is currently available for full-node jobs and must be explicitly requested, for example:
-
-```bash
-#SBATCH --exclusive #SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
-```
-
-The requested storage is available during the job under:
-
-```bash
-/run/sbb/$USER
-```
-
-All the above storage areas are temporary and are cleared when the job finishes.
-Copy all required output to the project `scratch` directory or another persistent storage service before the job ends.
-
-See the documentation on [Roihu temporary local disk areas](../../computing/roihu-disk.md#temporary-local-disk-areas), [creating Roihu batch jobs](../../computing/running/creating-job-scripts-roihu.md#local-temporary-storage)
-and [Puhti and Mahti temporary local disk areas](../../computing/disk.md#temporary-local-disk-areas).
+See the [Roihu temporary local storage documentation](../../computing/roihu-disk.md#temporary-local-disk-areas) for capacities and usage instructions.
 
 ### 23. I did not find an answer to my question here. Who should I contact?
 
