@@ -8,14 +8,12 @@ from .apps import App, DocsApp, AppendixApp
 
 class _DisciplinesItem(base.Config):
     name = c.Type(str)
-    name_fi = c.Type(str)
     fallback = c.Optional(c.Type(bool))
 
 
 class _SystemsItem(base.Config):
     name = c.Type(str)
     description = c.Type(str)
-    description_fi = c.Type(str)
 
 
 class _ListingOrder(base.Config):
@@ -109,6 +107,3 @@ class CatalogConfig:
         config.load_dict(config_dict)
 
         return config
-
-
-

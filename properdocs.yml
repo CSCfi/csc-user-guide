@@ -69,7 +69,7 @@ extra:
     - name: In English
       link: /
       lang: en
-    - name: Suomeksi
+    - name: Suomeksi (tekoäly)
       link: /fi/
       lang: fi
 
@@ -82,8 +82,17 @@ hooks:
   - hooks/glossary.py
   - hooks/breadcrumbs.py
 
+watch:
+  - hooks
+  - includes
+
 plugins:
-  tags: {}
+  tags:
+    tags_allowed:
+      - "Academic"
+      - "Free"
+      - "Non-commercial"
+      - "Other"
   search:
     lang: en
   document-dates:
@@ -255,14 +264,15 @@ markdown_extensions:
 
 theme:
   name: materialx
-  language: en
+  language: en-CSC
   custom_dir: overrides
   logo: assets/images/logo.svg
   favicon: assets/images/logo.png
   icon:
     repo: material/git
     edit: material/pencil
-    alternate: material/web
+    view: material/eye
+    alternate: material/chevron-down
   admonition:
     note:
       icon: null

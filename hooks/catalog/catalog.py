@@ -15,7 +15,7 @@ class Catalog:
 
     def __init__(self, config: CatalogConfig):
         self.__ordered = {key: (values
-                                if all(type(value) is str for value in values)
+                                if all(isinstance(value, str) for value in values)
                                 else [value.get("name", "")
                                       for value
                                       in values

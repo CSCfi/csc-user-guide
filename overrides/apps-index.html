@@ -55,7 +55,7 @@
   }
 </style>
 {{ page.content }}
-{% from "partials/apps-list.html" import apps_list with context %}
+{% from "partials/catalog/apps-list.html" import apps_list with context %}
 {{ apps_list() }}
 {% include "partials/feedback.html" %}
 {% endblock content %}

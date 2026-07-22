@@ -70,32 +70,17 @@
 </style>
 <div id="pre-header">
   <ul>
-    {% if config.theme.language == "en" %}
     <li>
-      <a href="https://research.csc.fi/" target="_blank">Services for research</a>
+      <a href="https://research.csc.fi/" target="_blank">{{ lang.t("pre-header.research") }}</a>
     </li>
     <li class="current-site">
-      <a href="{{ config.site_url | url }}">Docs CSC <span class="hidden">- User guides</span></a>
+      <a href="{{ config.site_url | url }}">Docs CSC <span class="hidden">- {{ lang.t("pre-header.user_guides") }}</span></a>
     </li>
     <li>
-      <a href="https://my.csc.fi/" target="_blank">MyCSC <span class="hidden">- User portal</span></a>
+      <a href="https://my.csc.fi/" target="_blank">MyCSC <span class="hidden">- {{ lang.t("pre-header.user_portal") }}</span></a>
     </li>
     <li>
-      <a href="https://www.csc.fi/" target="_blank">csc.fi <span class="hidden">- Company site</span></a>
+      <a href="https://www.csc.fi/" target="_blank">csc.fi <span class="hidden">- {{ lang.t("pre-header.company_site") }}</span></a>
     </li>
-    {% elif config.theme.language == "fi" %}
-    <li>
-      <a href="https://research.csc.fi/" target="_blank">Palvelut tutkijalle <span class="hidden">(englanniksi)</span></a>
-    </li>
-    <li class="current-site">
-      <a href="{{ config.site_url | url }}">Docs CSC <span class="hidden">- Käyttöohjeet ja oppaat</span></a>
-    </li>
-    <li>
-      <a href="https://my.csc.fi/" target="_blank">MyCSC <span class="hidden">- Asiakasportaali (englanniksi)</span></a>
-    </li>
-    <li>
-      <a href="https://www.csc.fi/" target="_blank">csc.fi <span class="hidden">- Yrityssivusto</span></a>
-    </li>
-    {% endif %}
   </ul>
 </div>

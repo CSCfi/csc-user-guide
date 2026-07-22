@@ -6,20 +6,17 @@ from .export import JSONExport, DocsExport
 
 
 class CatalogHook(DocsHook):
-
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
         self.__catalog = \
             self.__context = \
-                self.__export = \
-                    self.__lang_code = None
+                self.__export = None
         self.__appendix_lookup = {}
         self.__template_filename = ""
 
-    def __init_catalog(self, config: CatalogConfig, lang_code="en") -> None:
+    def __init_catalog(self, config: CatalogConfig) -> None:
         self.__catalog = Catalog(config)
-        self.__lang_code = lang_code
-        self.__context = DocsExport(self.__catalog, config, lang_code=lang_code)
+        self.__context = DocsExport(self.__catalog, config)
         self.__export = JSONExport(self.__catalog, config)
 
         # Collect appendix apps that don't have a page in Docs
@@ -35,7 +32,7 @@ class CatalogHook(DocsHook):
                                   if item.doc.get("src") is not None}
 
     def __handle_app_page(self, page) -> None:
-        app = DocsApp(page, lang_code=self.__lang_code)
+        app = DocsApp(page)
 
         for message in app.warnings:
             self._logger.warning(message)
@@ -57,10 +54,9 @@ class CatalogHook(DocsHook):
 
     def __handle_config(self, mkdocs_config) -> None:
         catalog_config = CatalogConfig(mkdocs_config, self._config_dict)
-        language = mkdocs_config.theme.get("language", "en")
 
         self.__validate(catalog_config)
-        self.__init_catalog(catalog_config, lang_code=language)
+        self.__init_catalog(catalog_config)
         self.__template_filename = catalog_config.index_template
 
     def __report_statistics(self) -> None:
@@ -103,7 +99,7 @@ class CatalogHook(DocsHook):
             return None
 
     def on_post_build(self, config):
-        if config.theme.get("language") == "en":
+        if config.theme.get("language") == "en-CSC":
             self.__export.write()
 
         return None
