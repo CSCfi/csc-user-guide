@@ -19,7 +19,7 @@ extra:
             Kiitos! Arvostamme palautettasi.
   short_description: Käyttöoppaat ja tutoriaalit
   alternate:
-    - name: Suomeksi
+    - name: Suomeksi (tekoäly)
       link: /fi/
       lang: fi
     - name: In English
@@ -31,7 +31,12 @@ plugins:
     lang: fi
 
 theme:
-  language: fi
+  language: fi-CSC
+  features:
+  - content.code.copy
+  - content.tabs.link
+  - navigation.indexes
+  - navigation.path
 
 nav:
   - Etusivu: index.md

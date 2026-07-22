@@ -81,15 +81,14 @@
       <div class="docs-feedback-note docs-feedback-note--{{ rating.type|lower }}">
         <div style="text-align: center;">{{ rating.note }}</div>
         {% if rating.type == "Negative" %}
+          <div class="docs-feedback-instructions admonition note">
+            <p>{{ lang.t("feedback.please") }}
+            <a href="{{ contact_url }}">{{ lang.t("feedback.contacting_us") }}</a>
+            {% if lang.t("meta.lang_code") == "en" %}
+            or by
             <a href="{{ issue_url }}" target="_blank">creating an issue in GitHub</a>. You can also
             <a href="{{ page.edit_url }}" target="_blank">edit this page yourself</a> and contribute your improvements by creating a pull request{% endif %}.</p>
           </div>
-          {% elif config.theme.language == "fi" %}
-          <div class="csc-feedback-instructions admonition note">
-            <p>Kerro meille miten voisimme parantaa tätä sivua
-            <a href="{{ contact_url }}">ottamalla meihin yhteyttä</a>.</p>
-          </div>
-          {% endif %}
         {% endif %}
       </div>
       {% endfor %}
