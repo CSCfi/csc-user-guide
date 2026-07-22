@@ -23,7 +23,6 @@ More detail on each dataset:
 *  In `/dataset/project_2019680` are **Paituli datasets**. Paituli includes datasets from Finnish Digital and Population Data Services Agency, Finnish Food Agency, Finnish Meteorological Institute, Finnish Transport Infrastructure Agency, Institute for the languages of Finland, Karelia UAS, National Land Survey of Finland, Natural Resources Institute Finland, Statistics Finland, Swedish University of Agricultural Sciences and University of Helsinki.
     -   [Full list of Paituli datasets](https://etsin.fairdata.fi/datasets?facet_keyword=Paituli)
     -   If you have trouble finding a file, you can also use Paituli download page as help. You can see the dataset path under links (crop the beginning) or you can download the file list with "Download list of files" if the dataset has a lot of mapsheets.
-    - NLS 2m DEM is updated in Roihu automatically every Monday.
     - Additions to NLS data:
         + 2m, 10m and 25m DEMs have virtual rasters, see Roihu virtual rasters below.
         + Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
@@ -31,10 +30,9 @@ More detail on each dataset:
  
 *  In `/dataset/project_2019679` is **[NLS, automatically classified lidar](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/laserkeilausaineisto-05-p)**, 2008->.
     * Includes index map in root folder.
-    * Updated in Roihu automatically every Monday.
 
 *  In `/dataset/project_2019681` are **Finnish Forest Centre** datasets:
-    * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a) Updated in Roihu automatically every Monday.
+    * [Canopy height model](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a) 
     * [Gridcells](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/3fa1beeb-ea6b-42b1-8e76-eb2bc8ac6d24) For now, only some of the files are available on Roihu. All files will be added during autumn 2026.
     * [Forest mask](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/df99fbd3-44b3-4ffc-b84a-9459f318d545) Updated 7/2026. Compared to Puhti, the files are unzipped in Roihu.
     * [Forest resource plots](http://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/332e5abf-63c2-4723-9c2d-4a926bbe587a) 2022 version. Will be updated during autumn 2026.
@@ -63,7 +61,7 @@ CSC has added to some datasets virtual rasters to Roihu. There are two variants 
 
 2.  The **hierarchical** virtual raster is mainly for **viewing** purposes for example with QGIS. It has a hierarchical structure where a virtual raster for each folder contains all the data stored in that folder and its subfolders. The hierarchical file structure also contains statistics (min, max, mean, stddev) and overviews for each vrt file, which enables a fairly responsive viewing of the entire DEM dataset for example in QGIS. This way the whole dataset can be easily viewed at different zoom levels. You may use the lowest level virtual raster (for example M41 in the 2m DEM) also in scripts, higher level virtual rasters may cause computational errors.
 
-    *   NLS 2m DEM (in Puhti): `/appl/data/geo/mml/dem2m/dem2m_hierarchical.vrt`
+    *   NLS 2m DEM: `/dataset/project_2019680/mml/dem2m/dem2m_hierarchical.vrt`
 
 ## Paituli STAC
 STAC is a great option to search and download raster data. [Paituli STAC](https://paituli.csc.fi/stac) currently includes around 175 Finnish raster datasets:
