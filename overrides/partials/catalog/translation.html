@@ -1,0 +1,51 @@
+{% macro strings(key, lang_code) %}
+{{ ({
+  "Biosciences": {
+    "fi": "Biotieteet",
+  },
+  "Chemistry": {
+    "fi": "Kemia",
+  },
+  "Computational Engineering": {
+    "fi": "Laskennallinen tekniikka",
+  },
+  "Data Analytics and Machine Learning": {
+    "fi": "Data-analytiikka ja koneoppiminen",
+  },
+  "Geosciences": {
+    "fi": "Geotieteet",
+  },
+  "Language Research and Other Digital Humanities and Social Sciences": {
+    "fi": "Kielten tutkimus sekä muut digitaaliset ihmis- ja yhteiskuntatieteet",
+  },
+  "Mathematics and Statistics": {
+    "fi": "Matematiikka ja tilastotiede",
+  },
+  "Physics": {
+    "fi": "Fysiikka",
+  },
+  "Quantum": {
+    "fi": "Kvantti",
+  },
+  "Miscellaneous": {
+    "fi": "Sekalaiset",
+  },
+
+  "New national CSC supercomputer replacing Puhti and Mahti": {
+    "fi": "Uusi kansallinen CSC-supertietokone",
+  },
+  "CSC supercomputer for massively parallel jobs": {
+    "fi": "CSC-supertietokone massiiviseen rinnakkaislaskentaan",
+  },
+  "CSC supercomputer for small and medium jobs": {
+    "fi": "CSC-supertietokone pienille sekä keskisuurille laskentatöille"
+  },
+  "EuroHPC supercomputer for CPU and especially GPU jobs": {
+    "fi": "EuroHPC-supertietokone CPU- ja etenkin GPU-laskentaan",
+  },
+}[key] | default({lang_code: null}))[lang_code] | default(key) }}{% endmacro %}
+
+{% macro catalog_t(key) %}
+{% set lang_code = lang.t("meta.lang_code") %}
+{% if lang_code == "en" %}{{ key }}{% else %}{{ strings(key, lang_code) }}{% endif %}
+{% endmacro %}

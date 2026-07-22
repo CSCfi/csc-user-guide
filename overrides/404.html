@@ -1,19 +1,9 @@
 {% extends "main.html" %}
 {% block htmltitle %}
-{% if config.theme.language == 'fi' %}
-<title>Sivua ei löydy - Docs CSC</title>
-{% else %}
-<title>Page not found - Docs CSC</title>
-{% endif %}
+<title>{{ lang.t("404.not_found") ~ " - " ~ config.site_name }}</title>
 {% endblock htmltitle %}
 {% block content %}
-{% if config.theme.language == 'fi' %}
-<h1>Virhe 404: Sivua ei löydy</h1>
-<h2>Pahoittelumme, mutta etsimääsi sisältöä ei löytynyt</h2>
-<p>Kokeile etsiä sisältöä hakutoiminnon avulla tai palata takaisin <a href="{{ base_url }}">etusivulle</a>.</p>
-{% else %}
-<h1>Error 404: Page not found</h1>
-<h2>Sorry, we couldn't find what you're looking for</h2>
-<p>Please retry looking for the content using the search function, or return to <a href="{{ base_url }}">the Home page</a>.</p>
-{% endif %}
+<h1>{{ lang.t("404.error") ~ " 404: " ~ lang.t("404.not_found") }}</h1>
+<h2>{{ lang.t("404.sorry") }}</h2>
+<p>{{ lang.t("404.please") }} <a href="{{ base_url }}">{{ lang.t("404.link_text") }}</a>.</p>
 {% endblock content %}
