@@ -249,6 +249,16 @@ You can see the available partitions and the corresponding limits in the [Slurm 
 There is a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition is 10 days.
 The small partition for partial or single nodes has a time limit of 72 hours.
 
-### 22. I did not find an answer to my question here. Who should I contact?
+### 22. NVMe, temporary storage and local scratch in Roihu
+
+All Roihu compute and login nodes provide temporary local NVMe storage through `$TMPDIR`.
+Unlike on Puhti and Mahti, it does not need to be requested with `--gres=nvme`, and `$LOCAL_SCRATCH` should not be used as a direct replacement.
+Any existing job scripts using local NVMe storage on Puhti and Mahti will need to be updated for Roihu, to use Roihu's `$TMPDIR`, or other local storage options instead.
+
+The available capacity depends on the node type, and additional temporary NVMe storage can be requested for some jobs.
+
+See the [Roihu temporary local storage documentation](../../computing/roihu-disk.md#temporary-local-disk-areas) for capacities and usage instructions.
+
+### 23. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!
