@@ -21,31 +21,28 @@ you know the path to the private SSH key on you laptop and the passphrase of you
 2. Cleaned your Puhti data directory, so that only still relevant files are kept.
 2. Installed a tool for [SSH connections](../../computing/connecting/ssh-windows.md) and [SSH agent](../../computing/connecting/ssh-windows.md#authentication-agent). 
 Options described in CSC Docs:
-  * Windows Powershell with Windows SSH-agent, but this requires admin-rights to your laptop.
+  * Windows Powershell with Windows SSH-agent, note that this requires admin-rights to your laptop.
   * Putty with PageAnt
   * MobaXterm with PageAnt or MobAgent
 
 Connecting with SSH and SSH Agent to Puhti
 
-1. Start your SSH agent. 
-  * Find PageAnt from your Windows menu. After starting it, nothing visible happens. 
-This is normal, but you get PageAnt icon (computer with a hat) to your
-Windows notification area (system tray). You can double-check it with clicking the `^` sign in lower right corner of your screen.
-2. Add your private key to PageAnt for Puhti
-  * For PageAnt, find PageAnt icon in your Windows notification area and double-click it. Click `Add Key` and add your private key file. 
-It will ask your keys' passphrase.
-3. [Download SSH certificate for Roihu](../../computing/connecting/ssh-keys.md#option-1-download-from-mycsc) from from [my.csc.fi](https://my.csc.fi) -> Profile -> SSH public keys -> '...' -> Sign and download SSH certificate.
-4. Connect to Roihu, for example with Putty or MobXterm, in settings:
-	* Host: roihu-cpu.csc.fi
-    * Define your private key and SSH certificate
-    	* Putty: Connection -> SSH -> Auth -> Credentials
-    	* MobaXterm: Advanced SSH settings + Expert SSH settings
-	* Enable agent forwarding
-    	* Putty: Connection -> SSH -> Auth: Allow agent forwarding
-    	* MobaXterm: Advanced SSH settings > Expert SSH settings: Allow agent forwarding
+1. [Start SSH agent and add your private key for Puhti](computing/connecting/ssh-windows.md#authentication-agents-with-puhti-mahti-and-lumi)
+3. [Download SSH certificate for Roihu](../../computing/connecting/ssh-keys.md#option-1-download-from-mycsc) from from my.csc.fi.
+4. Connect to Roihu, in settings:
+	* PowerShell: `ssh -A <username>@roihu-cpu.csc.fi`
+ 	* Putty:
+	 	* Host: roihu-cpu.csc.fi
+		* Private key and SSH certificate: Connection -> SSH -> Auth -> Credentials
+  		* Connection -> SSH -> Auth: Allow agent forwarding 
+  	* MobaXterm: 
+ 		* Host: roihu-cpu.csc.fi
+    	* Private key and SSH certificate: Advanced SSH settings + Expert SSH settings
+		* Advanced SSH settings > Expert SSH settings: Allow agent forwarding
 5. From Roihu-CPU login-node, use `rsync` to pull data from Puhti. 
 ```
 rsync -aP $USER@puhti.csc.fi:/scratch/project_2001234/my-data /scratch/project_2001234/
 ```
   * See [Roihu data migration guide](../../support/tutorials/roihu-data/#3-recommended-data-migration-methods) for more detailed instructions about `rsync`.
+  * Note that Roihu data migration guide mainly recommends migrating data from Puhti to Roihu, that would require adding SSH key with SSH certificate to SSH agent, which was skipped above.
   * If you have more data, use [tmux](tmux.md) for keeping the transfer ongoing, even if you close your laptop.
