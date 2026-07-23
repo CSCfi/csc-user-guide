@@ -1,7 +1,11 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
+  name: {{ include "docs-csc.origName" . }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
   annotations:
+{{ include "docs-csc.annotations" . | indent 4 }}
     image.openshift.io/triggers: |-
       [
         {
@@ -12,11 +16,6 @@ metadata:
           "fieldPath": "spec.template.spec.containers[?(@.name==\"{{ include "docs-csc.origContainerName" . }}\")].image"
         }
       ]
-  name: {{ include "docs-csc.origName" . }}
-  labels:
-{{ include "docs-csc.labels" . | indent 4 }}
-  annotations:
-{{ include "docs-csc.annotations" . | indent 4 }}
 spec:
   selector:
     matchLabels:
