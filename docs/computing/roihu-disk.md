@@ -286,6 +286,16 @@ Reserve local storage by including the following flag in your Slurm script:
 --gres=nvme:<amount-in-GiB>
 ```
 
+For example, to reserve the maximum amount of 13 TiB, use:
+
+```text
+--gres=nvme:13000
+```
+
+!!! note "Local scratch support for visualization nodes will be added later"
+     The local scratch feature on visualization nodes is not yet
+     implemented. Use `$TMPDIR` for your local storage needs until this feature is added.
+
 Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
 local scratch usage consumes.
 
