@@ -40,7 +40,7 @@ translator:
 # Keys are case-sensitive:
   secretsFile: secrets.yaml
 site:
-# GitHub repo where Markdown files are fetched for the English site.
+# GitHub repo where version control data (.git/ directory) is fetched for the English site.
 # (defaults are defined in /Containerfile):
   # repo:
   #   org: CSCfi
