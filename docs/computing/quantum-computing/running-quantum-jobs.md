@@ -1,9 +1,5 @@
 # Running on Q20 and Q50
 
-!!! info "Give feedback!"
-    **All feedback is highly appreciated**, Please share your experience
-    by emailing us at [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
-
 ## Running Jobs
 
 To submit jobs to the quantum computers (Q20 and Q50), use the dedicated quantum node (q_fiqci) by adding --partition=q_fiqci in your batch script.
@@ -35,8 +31,7 @@ The current supported software versions are:
 
 | Software | LUMI_Module_name | Versions |
 |----------|-------------|----------|
-| IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 33.0.0, < 34.0.0 |
-| IQM client | fiqci-vtt-qiskit/17.8 or fiqci-vtt-cirq/16.2 | >= 22.3, <= 23.0 |
+| IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 34.0.0, < 35.0.0 |
 
 Here is an example batch script to submit a quantum job
 
@@ -194,7 +189,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
 
     DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
 
-    sampler = IQMSampler(DEVICE_CORTEX_URL)
+    sampler = IQMSampler(DEVICE_CORTEX_URL, quantum_computer="radiance20")
 
     shots = 1000
 
