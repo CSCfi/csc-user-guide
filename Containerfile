@@ -17,9 +17,10 @@ RUN \
 && \
   rmdir "$CLONE_PATH"
 
-ADD overrides/ overrides/
 ADD docs/ docs/
 ADD hooks/ hooks/
+ADD includes/ includes/
+ADD overrides/ overrides/
 ADD properdocs.yml ./
 
 RUN properdocs build --site-dir=/tmp/site/
