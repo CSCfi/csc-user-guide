@@ -18,7 +18,7 @@
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
     "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
   ],
-    /* All of the .html files under 'csc-overrides' are actually Jinja templates.
+    /* All of the .html files under 'overrides' are actually Jinja templates.
        For syntax highlighting or snippets and such, install e.g. the 'Better Jinja' extension
 
        * VS Code: https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml
@@ -27,8 +27,8 @@
 
     */
     "files.associations": {
-        "**/csc-overrides/**/*.html": "jinja-html",
-        "**/csc-overrides/**/*.jinja.css": "jinja-css",
+        "**/overrides/**/*.html": "jinja-html",
+        "**/overrides/**/*.jinja.css": "jinja-css",
     },
     // Set line endings for new files explicitly to LF ("\n") instead of CRLF ("\r\n").
     "files.eol": "\n",

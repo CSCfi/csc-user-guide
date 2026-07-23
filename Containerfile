@@ -17,7 +17,7 @@ RUN \
 && \
   rmdir "$CLONE_PATH"
 
-ADD csc-overrides/ csc-overrides/
+ADD overrides/ overrides/
 ADD docs/ docs/
 ADD hooks/ hooks/
 ADD properdocs.yml ./
