@@ -32,7 +32,7 @@ from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
 
     p = Pulla(Q20_CORTEX_URL, quantum_computer="radiance20")
     
-    q20_provider = IQMProvider(Q20_CORTEX_URL)
+    q20_provider = IQMProvider(Q20_CORTEX_URL, quantum_computer="radiance20")
     backend = provider.get_backend()
 
     ```
@@ -44,7 +44,7 @@ from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
 
     p = Pulla(Q50_CORTEX_URL, quantum_computer="q50")
 
-    q20_provider = IQMProvider(Q20_CORTEX_URL)
+    q50_provider = IQMProvider(Q50_CORTEX_URL, quantum_computer="q50")
     backend = provider.get_backend()
     ```
 

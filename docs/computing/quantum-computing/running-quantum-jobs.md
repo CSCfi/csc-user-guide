@@ -130,7 +130,7 @@ In Qiskit python scripts you will need to include the following:
 
     DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
 
-    provider = IQMProvider(DEVICE_CORTEX_URL)
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="radiance20")
     backend = provider.get_backend()
 
     shots = 1000  # Set the number of shots you wish to run with
@@ -279,7 +279,7 @@ Additional metadata about your job can be queried directly with Qiskit. For exam
     ```python
 
     DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
-    provider = IQMProvider(DEVICE_CORTEX_URL)
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="radiance20")
     backend = provider.get_backend()
 
     #Retrieving backend information
