@@ -232,7 +232,7 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.snippets:
-      base_path: csc-overrides/assets/snippets
+      base_path: includes/snippets
       auto_append:
         - glossaries/hpc.md
   - pymdownx.superfences:
@@ -252,7 +252,7 @@ markdown_extensions:
 theme:
   name: materialx
   language: en
-  custom_dir: csc-overrides
+  custom_dir: overrides
   logo: assets/images/logo.svg
   favicon: assets/images/logo.png
   icon:
@@ -267,7 +267,7 @@ theme:
     #
     # Error admonition type is not in MaterialX for MkDocs,
     # so the error icon is defined with the template in
-    # csc-overrides/assets/stylesheets/icons.jinja.css
+    # overrides/assets/stylesheets/icons.jinja.css
   palette:
     scheme: csc
     primary: custom

@@ -98,7 +98,7 @@ The front page can be fitted with a banner to promote a course for example. The 
 
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
-_csc-overrides/assets/snippets/glossaries/hpc.md_. More acronyms (case-sensitive) can be added there or into another
+_includes/snippets/glossaries/hpc.md_. More acronyms (case-sensitive) can be added there or into another
 markdown file, like so:
 
 === "another_glossary.md"
@@ -114,7 +114,7 @@ markdown file, like so:
     markdown_extensions:
     - ...
     - pymdownx.snippets:
-        base_path: csc-overrides/assets/snippets
+        base_path: includes/snippets
         auto_append:
         - glossaries/hpc.md
         - glossaries/another_glossary.md
@@ -1051,7 +1051,7 @@ Markdown links may have the classes `.md-button` and `.md-button--primary` added
 
 ## Snippets
 
-Files under _csc-overrides/assets/snippets/_ may be added as snippets on the current page.
+Files under _includes/snippets/_ may be added as snippets on the current page.
 
 Suppose we have two Markdown files, _a.md_ and _b.md_ with the content
 
