@@ -275,14 +275,16 @@ On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for la
 This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
 Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 
-!!! note "Local scratch support will be added later"
-     The local scratch feature on XL and Visualization nodes is not yet
-     implemented. Use `$TMPDIR` for your local storage needs until this feature is added.
-
 | Allocation type           | Path             | Maximum reservable local scratch |
 |:--------------------------|------------------|---------------------------------:|
-| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | TBA                              |
-| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GiB                              |
+| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                             |
+
+Reserve local storage by including the following flag in your Slurm script:
+
+```text
+--gres=nvme:<amount-in-GiB>
+```
 
 Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
 local scratch usage consumes.
