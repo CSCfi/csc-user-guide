@@ -1,6 +1,3 @@
-!!! warning "Using Multiple backends"
-    Currently, it is radiance20not possible to use Q50 and Q20 together because they run on different software versions.  QTODO verify
-
 # Running on Q20 and Q50
 
 !!! info "Give feedback!"
@@ -59,9 +56,9 @@ Here is an example batch script to submit a quantum job
     module use /appl/local/quantum/modulefiles
 
     # uncomment the correct line:
-    # module load fiqci-vtt-qiskit/QTODO
+    # module load fiqci-vtt-qiskit
     # or
-    # module load fiqci-vtt-cirq/QTODO
+    # module load fiqci-vtt-cirq
     export DEVICES=("radiance20")
     source $RUN_SETUP
     python your_python_script.py
@@ -97,7 +94,7 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit/QTODO"
+    module --ignore_cache load "fiqci-vtt-qiskit"
     export DEVICES=("radiance20")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
     ```
@@ -380,7 +377,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit/QTODO
+    module load fiqci-vtt-qiskit
     export DEVICES=("radiance20")
     source $RUN_SETUP
     ```
@@ -399,7 +396,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-cirq/QTODO
+    module load fiqci-vtt-cirq
     export DEVICES=("radiance20")
     source $RUN_SETUP
     ```

@@ -22,10 +22,6 @@ You can then see the list of available *modules* with `module avail`. The quantu
 
 ```bash
 module load fiqci-vtt-qiskit
-
-or 
-
-module load fiqci-vtt-qiskit/QTODO #To use Q20
 ```
 
 ## Creating your first quantum program
@@ -175,7 +171,7 @@ To run your quantum programme on LUMI you will need to submit the job through th
     # Using Q20
 
     module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit/QTODO"
+    module --ignore_cache load "fiqci-vtt-qiskit"
     export DEVICES=("radiance20")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python -u first_quantum_job.py"
     ```
@@ -212,7 +208,7 @@ This submits the job *interactively* meaning that the output will be printed str
     #SBATCH --account=project_xxx  # Project for billing
 
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit/QTODO
+    module load fiqci-vtt-qiskit
 
     export DEVICES=("radiance20")
 

@@ -25,8 +25,7 @@ versions:
 
 | Module                              | LUMI  | Notes           |
 :-------------------------------------|:-----:|-----------------|
-| `fiqci-vtt-qiskit/18.0`             | X     | Default version. Supports only Q50   |
-| `fiqci-vtt-qiskit/QTODO`             | X     | Supports only Q20             |
+| `fiqci-vtt-qiskit/18.0`             | X     | Default version. Supports Q50 and Q20   |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -85,7 +84,7 @@ Example batch script for running a quantum job:
     #SBATCH --account=project_xxx   # Project for billing
 
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit/QTODO
+    module load fiqci-vtt-qiskit
     export DEVICES=("radiance20")
     source $RUN_SETUP
     python -u quantum_job.py
