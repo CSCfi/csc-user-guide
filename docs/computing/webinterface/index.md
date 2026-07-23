@@ -100,15 +100,15 @@ nodes and provide a graphical user interface. These are apps such as Jupyter
 Notebook, RStudio and Visual Studio Code. For a full list of applications and
 specific instructions, see the [Interactive apps](apps.md) page.
 
-!!! info-label
+!!! info ""
     If an interactive app does not start, or does not work as expected, you can
     delete the session and try to launch the app again. See also
     [Troubleshooting](apps.md#troubleshooting).
 
 ### Partitions and resources
 
-!!! warning-label
-    Only a few partitions of the cluster are available for use in the web
+!!! warning ""
+    Only a few partitions of Puhti and Mahti are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
     than others.  
     The maximum length of jobs in the web interfaces is 16 hours to keep the

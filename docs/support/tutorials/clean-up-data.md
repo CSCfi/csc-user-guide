@@ -237,7 +237,7 @@ We encourage you to delete the files you do not need, instead of waiting for the
 to take place. If you are happy with purging all of the files that were listed in the
 `path_summary.txt` file, you can run the following command:
 
-!!! warning-label
+!!! warning ""
     **The commands in this section will delete your files!** Be sure that you have reviewed the
     list of files to remove carefully! Also make sure that you have backed up the files you
     wish to save (outside the cluster) prior to running the commands. This operation is

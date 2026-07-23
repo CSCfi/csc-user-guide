@@ -1,11 +1,15 @@
+<hgroup markdown>
+
 # Getting started with CSC services for students
 
-!!! warning-label
+- !!! warning status "Please read this page carefully!"
 
-    Please read this page carefully!
+</hgroup>
 
-<center>
+<center markdown>
+
 [![MyCSC - Getting started with CSC services for students](../../img/mycsc-getting-started-with-csc-services-for-students-video-poster.png){ width=400px }](https://video.csc.fi/id/0_oesbi3v1?width=608&height=402&playerId=14971191){ target="_blank" }
+
 </center>
 
 This tutorial gathers all the information you, as a student, need to get started with using CSC services.
@@ -32,7 +36,7 @@ The easiest way is to **create a student project**.
 
 ## Available Services
 
-!!! info-label
+!!! info ""
 
     If you need other services, ask someone at the university to create a different type of project and add you as a member.
 
@@ -42,7 +46,7 @@ The easiest way is to **create a student project**.
 - [Pukki](../../cloud/dbaas/index.md){:target="_blank"} database service
 - [Rahti](../../cloud/rahti/index.md){:target="_blank"} container service
 
-!!! success-label
+!!! success ""
 
     That's it! Now you know your rights and responsibilities in the student project.
 

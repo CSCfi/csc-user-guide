@@ -7,7 +7,7 @@ The _Login node shell_ launches a normal Linux shell on one of the login nodes.
 Any command that is running when the login node shell browser tab is closed
 will stop. Note that the same rules apply here as during a normal SSH session:
 
-!!! error-label 
+!!! error ""
     **Login nodes are only for light pre/postprocessing**
     (see [usage policy](../usage-policy.md)).
 

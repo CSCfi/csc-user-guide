@@ -1,6 +1,31 @@
 {% extends "main.html" %}
 {% block content %}
-  <div class="csc-landing-title">
+  <style scoped>
+    .docs-landing-title {
+      margin: 1rem auto 2rem 1rem;
+    }
+    .docs-landing-title > img {
+      float: left;
+      height: 62px;
+      width: auto;
+      margin-right: 10px;
+    }
+    .docs-landing-title > hgroup > h1 {
+      margin: 0;
+      line-height: 1;
+      font-size: 42px;
+      font-weight: 500;
+      color: var(--c-primary-600);
+    }
+    .docs-landing-title > hgroup > p {
+      margin: unset;
+      line-height: 1;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--c-text-system);
+    }
+  </style>
+  <div class="docs-landing-title">
     <img src="{{ config.theme.logo|url }}" alt="logo" title="{{ config.site_name }}" />
     <hgroup>
       <h1>{{ config.site_name }}</h1>
@@ -17,7 +42,32 @@
         and banner.description is string %}
       {% set image_src = banner.path ~ banner.image %}
       {% set a_target = "_blank" if banner.link.startswith('http') else none %}
-        <div class="csc-landing-banner">
+        <style scoped>
+          .docs-landing-banner {
+            max-width: calc(var(--docs-content-width) / 2);
+            margin: 1rem auto 2rem auto;
+          }
+          .docs-landing-banner a,
+          .docs-landing-banner a:hover,
+          .docs-landing-banner a:focus-within {
+            color: unset !important;
+            background-color: unset !important;
+            text-decoration: none !important;
+          }
+          .docs-landing-banner img {
+            transition: box-shadow .25s,
+                        border-radius .25s,
+                        filter .25s;
+            border-radius: 2px;
+          }
+          .docs-landing-banner img:hover,
+          .docs-landing-banner img:focus-within {
+            box-shadow: var(--md-shadow-z3);
+            border-radius: 4px;
+            filter: saturate(.75) brightness(1.125);
+          }
+        </style>
+        <div class="docs-landing-banner">
           <a{{ {'href': banner.link|url,
                 'target': a_target }|xmlattr }}>
             <img{{ {'src': image_src|url,

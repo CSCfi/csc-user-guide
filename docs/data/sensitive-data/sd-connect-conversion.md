@@ -3,7 +3,7 @@
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Page is under construction**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
     

@@ -28,7 +28,7 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
     Before detaching a volume, make sure all files and folders have read and write access for all project members. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way.

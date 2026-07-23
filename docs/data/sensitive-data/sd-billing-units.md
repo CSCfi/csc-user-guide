@@ -4,7 +4,7 @@
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **When your project runs out of Billing Units**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ___
 
@@ -61,7 +61,7 @@ You can monitor Billing Units usage in MyCSC portal.
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **When your project runs out of Billing Units**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ___
 
@@ -122,7 +122,7 @@ Estimate the Billing Units your project will consume over the next six months fo
 <div class="grid cards" markdown>
 
 - :material-information:{ .lg .middle } **Billing Unit Packages**
-  { .csc-grid-card-info }
+  { .info-card }
 
     ---
     - **Unused Billing Units expire every six months**, so request only what you need.
@@ -186,7 +186,7 @@ You can apply for more BUs for your CSC project via MyCSC portal.
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Restrictions about applying for Billing Units**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
 

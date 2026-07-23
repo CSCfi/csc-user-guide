@@ -115,9 +115,9 @@ const FormState = class extends EventTarget {
     super()
     this.#targetForm = form
   }
-  static #formContentClassName = "csc-feedback-content"
+  static #formContentClassName = "docs-feedback-content"
   static #submittedFormClassNames(rating) {
-    const base = "csc-rated"
+    const base = "docs-rated"
     return [base, `${base}--${rating.toLowerCase()}`]
   }
   #setFormState(rating) {

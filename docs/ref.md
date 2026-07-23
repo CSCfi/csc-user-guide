@@ -417,123 +417,56 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 
 ## Admonitions
 
-### The fallback style
-
-```markdown
-!!! note "Here we have an important announcement"
-
-    Make sure you read this note inside this very important-looking
-    box as this is the fallback for unknown type qualifiers.
-
-    Type qualifier can be anything, as long as it's not
-    `default`,
-    `default-label`,
-    `info`,
-    `info-label`,
-    `warning`,
-    `warning-label`,
-    `error`,
-    `error-label`,
-    `success`,
-    `success-label`,
-    `training` or
-    `training-label`.
-    Perhaps a suitable one would just simply be: `note`.
-
-!!! note ""
-
-    Title may be removed with `note ""`.
-```
-
-<div class="result" markdown>
-
-!!! note "Here we have an important announcement"
-
-    Make sure you read this note inside this very important-looking
-    box as this is the fallback for unknown type qualifiers.
-
-    Type qualifier can be anything, as long as it's not
-    `default`,
-    `default-label`,
-    `info`,
-    `info-label`,
-    `warning`,
-    `warning-label`,
-    `error`,
-    `error-label`,
-    `success`,
-    `success-label`,
-    `training` or
-    `training-label`.
-    Perhaps a suitable one would just simply be: `note`.
-
-!!! note ""
-
-    Title may be removed with `note ""`.
-
-</div>
-
-
-### Styles available with type qualifiers
-
-#### Alert style
+### Alert style
 
 ```markdown
 !!! default "Nothing special"
 
-    Type qualifier: `default`.
-
-    !!! default-label
-
-        This isn't the actual default (fallback) admonition for legacy reasons.
+    - Type qualifier: `default`.
 
 !!! info "Information available"
 
-    Type qualifier: `info`
+    - Type qualifier: `info`
 
 !!! success "You've got it!"
 
-    Type qualifier: `success`
+    - Type qualifier: `success`
 
 !!! warning "You're on thin ice!"
 
-    Type qualifier: `warning`
+    - Type qualifier: `warning`
 
 !!! error "Oopsie!"
 
-    Type qualifier: `error`
+    - Type qualifier: `error`
 ```
 
 <div class="result" markdown>
 
 !!! default "Nothing special"
 
-    Type qualifier: `default`.
-    
-    !!! default-label
-    
-        This isn't the actual default (fallback) admonition for legacy reasons.
+    - Type qualifier: `default`.
 
 !!! info "Information available"
 
-    Type qualifier: `info`
+    - Type qualifier: `info`
 
 !!! success "You've got it!"
 
-    Type qualifier: `success`
+    - Type qualifier: `success`
 
 !!! warning "You're on thin ice!"
 
-    Type qualifier: `warning`
+    - Type qualifier: `warning`
 
 !!! error "Oopsie!"
 
-    Type qualifier: `error`
+    - Type qualifier: `error`
 
 </div>
 
 
-#### Collapsible
+### Collapsible
 
 ```markdown
 ???+ default "Collapsible default"
@@ -590,138 +523,194 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 </div>
 
 
-#### With the title removed
+### Without title
 
 ```markdown
 !!! default ""
 
-    Type qualifier: `default ""`
+    - Type qualifier: `default`
+    - Blank title
 
 !!! info ""
 
-    Type qualifier: `info ""`
+    - Type qualifier: `info`
+    - Blank title
 
 !!! success ""
 
-    Type qualifier: `success ""`
+    - Type qualifier: `success`
+    - Blank title
 
 !!! warning ""
 
-    Type qualifier: `warning ""`
+    - Type qualifier: `warning`
+    - Blank title
 
 !!! error ""
 
-    Type qualifier: `error ""`
+    - Type qualifier: `error`
+    - Blank title
 ```
 
 <div class="result" markdown>
 
 !!! default ""
 
-    Type qualifier: `default ""`
+    - Type qualifier: `default`
+    - Blank title
 
 !!! info ""
 
-    Type qualifier: `info ""`
+    - Type qualifier: `info`
+    - Blank title
 
 !!! success ""
 
-    Type qualifier: `success ""`
+    - Type qualifier: `success`
+    - Blank title
 
 !!! warning ""
 
-    Type qualifier: `warning ""`
+    - Type qualifier: `warning`
+    - Blank title
 
 !!! error ""
 
-    Type qualifier: `error ""`
+    - Type qualifier: `error`
+    - Blank title
 
 </div>
 
 
-#### Label style
+### Status style
 
 ```markdown
-!!! default-label
+!!! default status "Unknown"
 
-    Label type available with type qualifier `default-label`.
+!!! info status "Cool"
 
-!!! info-label
+!!! success status "Fine"
 
-    Label type available with type qualifier `info-label`.
+!!! warning status "Orange"
 
-!!! success-label
-
-    Label type available with type qualifier `success-label`.
-
-!!! warning-label
-
-    Label type available with type qualifier `warning-label`.
-
-!!! error-label
-
-    Label type available with type qualifier `error-label`.
+!!! error status "Transcended"
 ```
 
 <div class="result" markdown>
 
-!!! default-label
+!!! default status "Unknown"
 
-    Label type available with type qualifier `default-label`.
+!!! info status "Cool"
 
-!!! info-label
+!!! success status "Fine"
 
-    Label type available with type qualifier `info-label`.
+!!! warning status "Orange"
 
-!!! success-label
-
-    Label type available with type qualifier `success-label`.
-
-!!! warning-label
-
-    Label type available with type qualifier `warning-label`.
-
-!!! error-label
-
-    Label type available with type qualifier `error-label`.
+!!! error status "Transcended"
 
 </div>
 
 
-### Special admonition to denote external training material
+### Variations
+
+#### Note style
 
 ```markdown
-!!! training "External training material available"
+!!! note "An admonition styled as a note"
 
-    Type qualifier: `training`
+    - Type qualifier: `note`
 ```
 
 <div class="result" markdown>
 
-!!! training "External training material available"
+!!! note "An admonition styled as a note"
 
-    Type qualifier: `training`
+    - Type qualifier: `note`
 
 </div>
 
+```markdown
+!!! note ""
 
-#### Variations
+    - Type qualifier: `note`
+    - Blank title
+```
+
+<div class="result" markdown>
+
+!!! note ""
+
+    - Type qualifier: `note`
+    - Blank title
+
+</div>
 
 ```markdown
-???+ training "Collapsible training"
+???+ note "Collapsible note"
+
+    Some content shown by default (click on title to hide).
+```
+
+<div class="result" markdown>
+
+???+ note "Collapsible note"
 
     Some content shown by default (click on title to hide).
 
-??? training "Collapsible training (click to reveal content)"
+</div>
+
+```markdown
+??? note "Collapsible note (click to reveal content)"
 
     Some content hidden by default.
 ```
 
 <div class="result" markdown>
 
+??? note "Collapsible note (click to reveal content)"
+
+    Some content hidden by default.
+
+</div>
+
+
+#### Special admonition to denote external training material
+
+```markdown
+!!! training "External training material available"
+
+    - Type qualifier: `training`
+```
+
+<div class="result" markdown>
+
+!!! training "External training material available"
+
+    - Type qualifier: `training`
+
+</div>
+
+```markdown
 ???+ training "Collapsible training"
 
     Some content shown by default (click on title to hide).
+```
+
+<div class="result" markdown>
+
+???+ training "Collapsible training"
+
+    Some content shown by default (click on title to hide).
+
+</div>
+
+```markdown
+??? training "Collapsible training (click to reveal content)"
+
+    Some content hidden by default.
+```
+
+<div class="result" markdown>
 
 ??? training "Collapsible training (click to reveal content)"
 
@@ -732,7 +721,8 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 ```markdown
 !!! training ""
 
-    Type qualifier: `training ""`
+    - Type qualifier: `training`
+    - Blank title
 
 ```
 
@@ -740,21 +730,18 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 
 !!! training ""
 
-    Type qualifier: `training ""`
+    - Type qualifier: `training`
+    - Blank title
 
 </div>
 
 ```markdown
-!!! training-label
-
-    Label type available with type qualifier `training-label`.
+!!! training status "Learning at an accelerated rate"
 ```
 
 <div class="result" markdown>
 
-!!! training-label
-
-    Label type available with type qualifier `training-label`.
+!!! training status "Learning at an accelerated rate"
 
 </div>
 
@@ -1204,35 +1191,35 @@ The [Grids feature from _MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-
 <div class="grid cards" markdown>
 
 - :material-dna:{ .lg .middle } **Accent**
-  { .csc-grid-card-accent }
+  { .accent-card }
 
     ---
 
     Science!
 
 - :material-information:{ .lg .middle } **Info**
-  { .csc-grid-card-info }
+  { .info-card }
 
     ---
 
     This.
 
 - :material-check-circle:{ .lg .middle } **Success**
-  { .csc-grid-card-success }
+  { .success-card }
 
     ---
 
     Do!
 
 - :material-alert:{ .lg .middle } **Warning**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
 
     Don't!
 
 - :material-close-circle:{ .lg .middle } **Error**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ---
 
@@ -1245,35 +1232,35 @@ The [Grids feature from _MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-
   <div class="grid cards" markdown>
 
   - :material-dna:{ .lg .middle } **Accent**
-    { .csc-grid-card-accent }
+    { .accent-card }
 
       ---
 
       Science!
 
   - :material-information:{ .lg .middle } **Info**
-    { .csc-grid-card-info }
+    { .info-card }
 
       ---
 
       This.
 
   - :material-check-circle:{ .lg .middle } **Success**
-    { .csc-grid-card-success }
+    { .success-card }
 
       ---
 
       Do!
 
   - :material-alert:{ .lg .middle } **Warning**
-    { .csc-grid-card-warning }
+    { .warning-card }
 
       ---
 
       Don't!
 
   - :material-close-circle:{ .lg .middle } **Error**
-    { .csc-grid-card-error }
+    { .error-card }
 
       ---
 

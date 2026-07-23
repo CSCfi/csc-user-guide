@@ -6,26 +6,83 @@
 {% set issue_parameters = ["labels=feedback", "title=" ~ issue_title|replace(" ", "+")|escape]|join("&") %}
 {% set issue_url = config.repo_url ~ "issues/new?" ~ issue_parameters %}
 {% if not page.is_homepage and source not in feedback.exclude %}
-<form name="feedback" class="csc-feedback"
+<style scoped>
+  [data-md-color-scheme="docs-ui"] {
+    .docs-feedback {
+      --button-positive--fg: var(--c-success-800);
+      --button-positive--bg: var(--c-success-200);
+      --button-positive--hover: var(--c-success-600);
+      --button-negative--fg: var(--c-error-800);
+      --button-negative--bg: var(--c-error-200);
+      --button-negative--hover: var(--c-error-600);
+    }
+    .docs-feedback fieldset {
+      border: unset;
+      max-width: fit-content;
+      margin: 0 auto 1rem auto;
+    }
+    .docs-feedback fieldset legend {
+      margin: 0 auto;
+    }
+    .docs-feedback .docs-feedback-content {
+      display: flex;
+      justify-content: center;
+    }
+    .docs-feedback .docs-feedback-button {
+      border: 0;
+      scale: 0.9;
+    }
+    .docs-feedback .docs-feedback-note {
+      font-weight: var(--docs-font-weight--bold);
+    }
+    .docs-feedback .docs-feedback-button--positive {
+      color: var(--button-positive--fg);
+      background-color: var(--button-positive--bg);
+    }
+    .docs-feedback .docs-feedback-button--positive:is(:hover, :focus) {
+      background-color: var(--button-positive--hover);
+    }
+    .docs-feedback .docs-feedback-button--negative {
+      color: var(--button-negative--fg);
+      background-color: var(--button-negative--bg);
+    }
+    .docs-feedback .docs-feedback-button--negative:is(:hover, :focus) {
+      background-color: var(--button-negative--hover);
+    }
+    .docs-feedback .docs-rated>.docs-feedback-button {
+      display: none;
+    }
+    .docs-feedback .docs-feedback-content:not(.docs-rated)>.docs-feedback-note {
+      display: none;
+    }
+    .docs-feedback .docs-rated--positive .docs-feedback-note--negative {
+      display: none;
+    }
+    .docs-feedback .docs-rated--negative .docs-feedback-note--positive {
+      display: none;
+    }
+    .docs-feedback .docs-feedback-instructions {
+      margin: 1rem auto;
+      max-width: 66%;
+    }
+  }
+</style>
+<form name="feedback" class="docs-feedback"
   data-source-edited="{{ edited[:-2]+':00' }}"
   data-source-path="{{ source }}">
   <fieldset>
     <legend>{{ feedback.title }}</legend>
-    <div class="csc-feedback-content">
+    <div class="docs-feedback-content">
       {% for rating in feedback.ratings %}
-      <button class="md-button md-button--primary csc-feedback-button csc-feedback-button--{{ rating.type|lower }}"
+      <button class="md-button md-button--primary docs-feedback-button docs-feedback-button--{{ rating.type|lower }}"
         type="submit" title="{{ rating.description }}" value="{{ rating.type }}">
         {{ rating.name }}
       </button>
-      <div class="csc-feedback-note csc-feedback-note--{{ rating.type|lower }}">
+      <div class="docs-feedback-note docs-feedback-note--{{ rating.type|lower }}">
         <div style="text-align: center;">{{ rating.note }}</div>
         {% if rating.type == "Negative" %}
-          {% if config.theme.language == "en" %}
-          <div class="csc-feedback-instructions admonition note">
-            <p>Please let us know how we could improve this page by
-            <a href="{{ contact_url }}">contacting us</a> or by
             <a href="{{ issue_url }}" target="_blank">creating an issue in GitHub</a>. You can also
-            <a href="{{ page.edit_url }}" target="_blank">edit this page yourself</a> and contribute your improvements by creating a pull request.</p>
+            <a href="{{ page.edit_url }}" target="_blank">edit this page yourself</a> and contribute your improvements by creating a pull request{% endif %}.</p>
           </div>
           {% elif config.theme.language == "fi" %}
           <div class="csc-feedback-instructions admonition note">

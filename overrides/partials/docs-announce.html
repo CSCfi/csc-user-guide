@@ -1,0 +1,64 @@
+<style scoped>
+  .docs-announce {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--docs-note-color);
+    background-color: hsl(from currentColor h 97.5% 92.5%);
+    font-size: 1.25em;
+  }
+  .docs-announce:has(.announcement-container) {
+    height: auto;
+  }
+  .docs-announce > .announcement-container {
+    max-width: calc(var(--docs-content-width) * 0.5);
+    padding: .5em;
+  }
+  .docs-announce > .announcement-container > p:first-child {
+    font-weight: 600;
+    margin: 0 0 .5em 0;
+  }
+  .docs-announce > .announcement-container > div:first-of-type > p:first-child,
+  .docs-announce > .announcement-container > div:first-of-type > p:last-child {
+    margin: 0;
+  }
+  .docs-announce a {
+    text-decoration: underline;
+    transition: background-color 125ms;
+    color: var(--md-typeset-a-color);
+  }
+  .docs-announce a:hover {
+    background-color: var(--md-accent-bg-color);
+  }
+  .docs-announce > .announcement-icon {
+    margin: 0 1.125em;
+    height: 1.75em;
+    aspect-ratio: 1/1;
+    fill: var(--docs-note-color);
+  }
+  .docs-announce > .announcement-icon-end {
+    transform: rotateY(180deg);
+  }
+</style>
+{% macro render_content(html_string) %}
+{{ html_string | default("<p></p>") | replace("{{ base_url }}", base_url) | trim }}
+{% endmacro %}
+{% if config.extra.announcement is defined %}
+<div class="docs-announce">
+{% import ".icons/" ~ config.extra.announcement.icon | default("material/information") ~ ".svg" as icon %}
+  <div class="announcement-icon">{{ icon }}</div>
+    {{ render_content(config.extra.announcement.content) }}
+  <div class="announcement-icon announcement-icon-end">{{ icon }}</div>
+</div>
+{% endif %}
+{% if config.extra.announcement_urgent is defined %}
+{% set color = config.extra.announcement_urgent.color_scheme | default("error") %}
+<div class="docs-announce announcement-urgent"
+     style="color: var(--c-{{ color }}-800);
+            background-color: var(--c-{{ color }}-200);">
+  <div class="announcement-container">
+    {{ render_content(config.extra.announcement_urgent.content) }}
+  </div>
+</div>
+{% endif %}

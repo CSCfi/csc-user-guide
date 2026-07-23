@@ -10,7 +10,10 @@ docs_dir: docs/
 
 extra:
   environment: !ENV [PROPERDOCS_ENV, "preview"]
-  announcement_visible: true # Show/hide announcement bar (does not affect urgent announcement below)
+  announcement: # An announcement shown below the header bar; comment/uncomment to toggle
+    icon: material/web # Choose one (emojis not supported) from here https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis.html#search
+    content: |-
+      <p>Docs CSC now features an automatic Finnish translation. <a href="{{ base_url }}/support/translation/">Click here for more information</a>.</p>
   announcement_urgent: # An urgent announcement shown below the regular one; comment/uncomment to toggle
     color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color
     content: |-
@@ -241,9 +244,10 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
       anchor_linenums: true
       line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -259,27 +263,40 @@ theme:
     repo: material/git
     edit: material/pencil
     alternate: material/web
-    admonition:
-      info: material/information
-      success: material/check-circle
-      warning: material/alert
-    # error: material/close-circle
-    #
-    # Error admonition type is not in MaterialX for MkDocs,
-    # so the error icon is defined with the template in
-    # overrides/assets/stylesheets/icons.jinja.css
+  admonition:
+    note:
+      icon: null
+      color: "var(--docs-note-color)"
+    default:
+      icon: null
+      color: "var(--c-primary-600)"
+    info:
+      icon: material/information
+      color: "var(--c-info-600)"
+    success:
+      icon: material/check-circle
+      color: "var(--c-success-600)"
+    warning:
+      icon: material/alert
+      color: "var(--c-warning-600)"
+    error:
+      icon: material/close-circle
+      color: "var(--c-error-600)"
+    training:
+      icon: fontawesome/solid/chalkboard-user
+      color: "var(--c-secondary-600)"
   palette:
-    scheme: csc
+    scheme: docs-ui
     primary: custom
     accent: custom
   font: false # No loading fonts from G****e
   features:
     - content.action.edit
+    - content.action.view
     - content.code.copy
     - content.tabs.link
     - navigation.indexes
-  static_templates:
-    - assets/stylesheets/icons.jinja.css
+    - navigation.path
 
 extra_css:
   - assets/stylesheets/extra.css
