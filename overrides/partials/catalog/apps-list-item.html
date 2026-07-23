@@ -1,7 +1,7 @@
 {%- macro link(app) -%}
 {% set external = app.page is none %}
 {% set internal = not external and not app.is_appendix_app %}
-{% set href = app.url %}
+{% set href = app.url if external else (app.page.url | url) %}
 {%- set props -%}
 href="{{ href }}"{% if external %} target="_blank"{% endif %}
 {%- endset -%}
