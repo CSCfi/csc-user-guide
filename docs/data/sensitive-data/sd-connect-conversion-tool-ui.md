@@ -3,7 +3,7 @@
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Page is under construction**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
     
@@ -18,7 +18,7 @@ SD Connect has been upgraded to a new version. This Conversion tool allows you t
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **If your project has more than 1 TB of data**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
     

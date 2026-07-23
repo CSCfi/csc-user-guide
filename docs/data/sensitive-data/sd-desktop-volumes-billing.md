@@ -18,7 +18,7 @@ Starting June 3, 2026, **SD Desktop external volumes will start consuming Cloud 
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **When your project runs out of Billing Units**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ___
 
@@ -74,7 +74,7 @@ Volumes consume 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing 
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ___
 

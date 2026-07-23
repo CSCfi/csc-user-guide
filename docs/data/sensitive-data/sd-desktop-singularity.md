@@ -1,7 +1,10 @@
+<hgroup markdown>
+
 # Utilizing Apptainer containers in SD Desktop
 
-!!! warning-label
-    Skill level - Advanced 
+- !!! warning status  "Skill level &ndash; Advanced"
+
+</hgroup>
 
 As the SD Desktop is not directly connected internet, you can't use tools like Git, Conda or Pip to install new software there.
 Instead, you can use  [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) software container tool to add new software to your SD Desktop environment. However, you have to first build or download an Apptainer container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
