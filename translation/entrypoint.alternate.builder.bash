@@ -16,7 +16,7 @@ declare -gra CONFIG_FILES=(
 )
 declare -gra SPARSE_PATTERNS=(
   "/${DOCS_DIR:?}/"
-  /csc-overrides/
+  /overrides/
   /hooks/
   "${CONFIG_FILES[@]/#//}"
 )
