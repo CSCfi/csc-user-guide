@@ -70,7 +70,7 @@ Now the circuit is created! If you wish you can see what your circuit looks like
 
 ## Setting the backend
 
-First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. The `Q20_CORTEX_URL` is the endpoint to reach Q20(the 20 qubit machine) , while the `Q50_CORTEX_URL`is the endpoint to reach Q50(the 50 qubit machine). This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
+First we need to set our provider and backend. The provider is the service which gives an interface to the quantum computer and the backend provides the tools necessary to submitting the quantum job. Note that he provider name for Aalto Q20 is `radiance20` and for VTT Q50 is it `q50`. The `Q20_CORTEX_URL` is the endpoint to reach Q20, while the `Q50_CORTEX_URL` is the endpoint to reach Q50. This environment variable is set automatically when loading any of the Quantum computing modules such as the `fiqci-vtt-qiskit` module. 
 
 === "Q20"
 
