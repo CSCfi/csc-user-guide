@@ -27,7 +27,7 @@ Options described in CSC Docs:
 
 Connecting with SSH and SSH Agent to Puhti
 
-1. [Start SSH agent and add your private key for Puhti](computing/connecting/ssh-windows.md#authentication-agents-with-puhti-mahti-and-lumi)
+1. [Start SSH agent and add your private key for Puhti](../../computing/connecting/ssh-windows.md#authentication-agents-with-puhti-mahti-and-lumi)
 3. [Download SSH certificate for Roihu](../../computing/connecting/ssh-keys.md#option-1-download-from-mycsc) from from my.csc.fi.
 4. Connect to Roihu:
 	* PowerShell: `ssh -A <username>@roihu-cpu.csc.fi`
@@ -43,6 +43,6 @@ Connecting with SSH and SSH Agent to Puhti
 ```
 rsync -aP $USER@puhti.csc.fi:/scratch/project_2001234/my-data /scratch/project_2001234/
 ```
-	* See [Roihu data migration guide](../../support/tutorials/roihu-data/#3-recommended-data-migration-methods) for more detailed instructions about `rsync`.
-	* Note that Roihu data migration guide mainly recommends migrating data from Puhti to Roihu, that would require adding SSH key with SSH certificate to SSH agent, which requires [a few more extra steps](../..computing/connecting/ssh-windows.md#authentication-agents-with-roihu) and was skipped above.
+	* See [Roihu data migration guide](roihu-data.md#3-recommended-data-migration-methods) for more detailed instructions about `rsync`.
+	* Note that Roihu data migration guide mainly recommends migrating data from Puhti to Roihu, that would require adding SSH key with SSH certificate to SSH agent, which requires [a few more extra steps](../../computing/connecting/ssh-windows.md#authentication-agents-with-roihu) and was skipped above.
 	* If you have more data, use [tmux](tmux.md) for keeping the transfer ongoing, even if you close your laptop.
