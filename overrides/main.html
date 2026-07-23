@@ -1,28 +1,19 @@
 {% extends "base.html" %}
+
 {% block header %}
   {% include "partials/pre-header.html" %}
   {{ super() }}
 {% endblock header %}
+
+{# Using the hero block to render announcement right under the header. #}
 {% block hero %}
-{% if config.extra.announcement_visible is true %}
-  <div class="announcement-banner">
-    {% include "partials/announcement.html" %}
-  </div>
+{% if config.extra.announcement is defined or
+      config.extra.announcement_urgent is defined %}
+{% include "partials/docs-announce.html" %}
 {% endif %}
-{% if config.extra.announcement_urgent is defined %}
-{% set color = config.extra.announcement_urgent.color_scheme %}
-  <div class="announcement-banner announcement-urgent"
-       style="color: var(--c-{{ color }}-900); background-color: var(--c-{{ color }}-200);">
-    {% include "partials/urgent.html" %}
-  </div>
-{% endif %}
+{{ super() }}
 {% endblock hero %}
-{% block content %}
-  {% block breadcrumbs %}
-    {% include "partials/breadcrumbs.html" %}
-  {% endblock breadcrumbs %}
-  {{ super() }}
-{% endblock content %}
+
 {% block footer %}
   {{ super() }}
   {% if config.extra.environment == "preview" or

@@ -1,4 +1,74 @@
-<div class="pre-header">
+{% from "partials/icons.css.jinja" import icon_prop %}
+<style scoped>
+  #pre-header {
+    {{ icon_prop("open-in-new", "material/open-in-new") }}
+    background-color: var(--c-primary-200);
+    color: var(--c-tertiary-700);
+    font-size: small;
+    z-index: 5;
+  }
+  .md-toggle:checked ~ #pre-header {
+    z-index: 1;
+  }
+  #pre-header > ul {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    max-width: var(--docs-content-width);
+    list-style: none;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+  }
+  #pre-header > ul > li {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  #pre-header > ul > li.current-site {
+    background-color: var(--c-white);
+  }
+  #pre-header > ul > li > a {
+    display: block;
+    padding: .5em;
+  }
+  #pre-header > ul > li > a .hidden {
+    display: none;
+  }
+  #pre-header > ul > li > a[target="_blank"]::after {
+    content: "";
+    mask-image: var(--open-in-new-icon);
+    mask-size: 1.5em;
+    mask-repeat: no-repeat;
+    background-color: var(--c-primary-600);
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: .125rem;
+    width: 1.5em;
+    height: 1.5em;
+  }
+  @media screen and (min-width: 76.25em) {
+    #pre-header > ul > li:last-child {
+      position: absolute;
+      right: 0;
+    }
+  }
+  @media screen and (min-width: 60em) {
+    #pre-header > ul > li > a > .hidden {
+      display: inline;
+    }
+  }
+  @media screen and (min-width: 40em) {
+    #pre-header > ul > li > a {
+      padding: .5em 1em;
+    }
+    #pre-header > ul > li > a[target="_blank"]::after {
+      margin-left: .5rem;
+    }
+  }
+</style>
+<div id="pre-header">
   <ul>
     {% if config.theme.language == "en" %}
     <li>
