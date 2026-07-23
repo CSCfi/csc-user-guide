@@ -13,8 +13,7 @@ More information about applying for quantum computing projects can be found from
 
 ## The FiQCI partition `q_fiqci`
 
-The `q_fiqci` partition on LUMI is dedicated to quantum computing workloads. It provides a direct connection between a [LUMI-C
-node](https://docs.lumi-supercomputer.eu/hardware/lumic/) and the FiQCI quantum computers.
+While submitting quantum jobs is possible from any LUMI partition, for smaller jobs with low classical resource needs the dedicated quantum `q_fiqci` partition on LUMI may offer shorter queue times on LUMI.
 
 * [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
 

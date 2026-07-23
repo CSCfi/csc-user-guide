@@ -163,7 +163,7 @@ Once you've made your first quantum program remember to save! CTRL+X then Y to s
 
 ## Running the job through LUMI
 
-To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing the quantum computers (Q20, Q50) is done through the `q_fiqci` partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
+To run your quantum programme on LUMI you will need to submit the job through the SLURM batch scheduler on LUMI. Accessing the quantum computers (Q20, Q50) is possible from any LUMI partition. In the same directory where you have saved your quantum program, you can submit the job to SLURM using:
 
 === "Q20"
 

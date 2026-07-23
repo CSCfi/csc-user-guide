@@ -268,7 +268,7 @@ scripts for submitting jobs.
 
 As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on the quantum computers in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
 
-A set of Qiskit and Cirq examples and scripts for guidance in using the `q_fiqci` partition are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
+A set of Qiskit and Cirq examples and scripts for guidance in using the quantum computers are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
 
 ## Job Metadata
 
