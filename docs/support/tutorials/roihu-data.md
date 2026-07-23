@@ -4,9 +4,10 @@
     This guide is divided into four parts:
 
     1. [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
-    2. [Recommended data migration methods](#2-recommended-data-migration-methods)
-    3. [Special cases](#3-special-cases)
-    4. [Discouraged methods](#4-discouraged-methods)
+    2. [SSH connection with SSH agent forwarding](#2-ssh-connection-with-ssh-agent-forwarding)
+    2. [Recommended data migration methods](#3-recommended-data-migration-methods)
+    3. [Special cases](#4-special-cases)
+    4. [Discouraged methods](#5-discouraged-methods)
 
     Please read the
     [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
@@ -107,11 +108,12 @@
   from Puhti/Mahti/LUMI to Roihu.**
       * If in trouble with SSH workflow described below, for small amounts of data, [tranfer via your local laptop](#42-using-the-web-interfaces-to-migrate-data) could be considered.
      
-## 2. Connect to Puhti via SSH with SSH agent forwarding enabled
+## 2. SSH connection with SSH agent forwarding
 
 For data transfer between Puhti/Mahti/LUMI and Roihu requires SSH connection with **SSH agent forwarding** enabled. 
 
 Before you start, make sure you have:
+
 1. Created a SSH key, uploaded the public key to my.csc.fi and you know the path to the private SSH key on you laptop. [Instructions](../../computing/connecting/ssh-keys.md)
 2. A tool for SSH connections. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md) and [Windows](../../computing/connecting/ssh-windows.md).
 3. SSH agent installed and running. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
@@ -127,7 +129,7 @@ For connecting:
     * If you used option 1 in previous step, add manually your SSH keys and certificate to the SSH agent. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agents-with-roihu).
     * In Windows, with PageAnt, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
 5. Log in to Puhti with SSH agent forwarding turned on. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and [Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
-   * Before continueing to data transfer, first test that your SSH forwarding is working with:
+   * Before continuing to data transfer, first test that your SSH forwarding is working with:
 
 ```bash
 ssh roihu-cpu.csc.fi
