@@ -292,6 +292,21 @@ For example, to reserve the maximum amount of 13 TiB, use:
 --gres=nvme:13000
 ```
 
+??? info "Example Slurm script using local scratch memory"
+     ```
+     #!/bin/bash
+     #SBATCH --job-name=example
+     #SBATCH --account=<project>
+     #SBATCH --partition=hugemem
+     #SBATCH --time=00:30:00
+     #SBATCH --nodes=1
+     #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
+     #SBATCH --gres=nvme:100 # Reserves 100 GiB local scratch memory
+
+     # Run the program
+     srun myprog <options>
+     ```
+
 !!! note "Local scratch support for visualization nodes will be added later"
      The local scratch feature on visualization nodes is not yet
      implemented. Use `$TMPDIR` for your local storage needs until this feature is added.
