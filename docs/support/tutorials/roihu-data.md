@@ -107,7 +107,7 @@
   [`rsync`](#3-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
       * If in trouble with SSH workflow described below:
-          * For small amounts of data, tranfer via your local laptop could be considered using [web interface](#52-using-the-web-interfaces-to-migrate-data) or [WinSCP](data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows).
+          * For small amounts of data, tranfer via your local laptop could be considered using [web interface](#52-using-the-web-interfaces-to-migrate-data) or [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows).
           * Windows users who mainly use Roihu web interface, see [the simplified data transfer tutorial](windows-roihu-data-migration.md).
      
 ## 2. SSH connection with SSH agent forwarding
