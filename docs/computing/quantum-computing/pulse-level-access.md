@@ -118,7 +118,7 @@ For instructions on running the job on LUMI you can use the example batch script
     module use /appl/local/quantum/modulefiles
     module load fiqci-vtt-qiskit
 
-    export DEVICES=("rediance20")
+    export DEVICES=("radiance20")
     source $RUN_SETUP
     python your_python_script.py
     ```
