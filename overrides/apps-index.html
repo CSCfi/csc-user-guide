@@ -1,12 +1,61 @@
 {% extends "main.html" %}
 {% block content %}
-{% block breadcrumbs %}
-{{ super() }}
-{% endblock breadcrumbs %}
-{% include "partials/tags.html" %}
+<style scoped>
+  [data-md-color-scheme="docs-ui"] {
+    .catalog-toc {
+      max-width: 80%;
+
+      ul {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+        margin-left: 0;
+        gap: .25em;
+
+        li {
+          list-style-type: none;
+          margin: 0;
+
+          a:hover { background-color: unset; }
+          a[href^="#roihu"] {
+            .md-tag {
+              color: var(--c-warning-800);
+              border-color: var(--c-warning-800);
+            }
+
+            .md-tag:is(:active, :hover) { background-color: var(--c-warning-100); }
+          }
+          a[href^="#mahti"] {
+            .md-tag {
+              color: var(--c-accent-800);
+              border-color: var(--c-accent-800);
+            }
+            .md-tag:is(:active, :hover) { background-color: var(--c-accent-100); }
+          }
+          a[href^="#puhti"] {
+            .md-tag {
+              color: var(--c-info-800);
+              border-color: var(--c-info-800);
+            }
+            .md-tag:is(:active, :hover) { background-color: var(--c-info-100); }
+          }
+          a[href^="#lumi"] {
+            .md-tag {
+              color: var(--c-black);
+              border-color: var(--c-black);
+            }
+            .md-tag:is(:active, :hover) {
+              background-color: var(--c-black);
+              color: var(--c-white);
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
 {{ page.content }}
 {% from "partials/apps-list.html" import apps_list with context %}
 {{ apps_list() }}
-{% include "partials/source-file.html" %}
 {% include "partials/feedback.html" %}
 {% endblock content %}

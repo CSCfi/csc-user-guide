@@ -23,12 +23,14 @@ You need to access SD Desktop. You have a permit from a single register.
 11. [Send approved application to CSC](#11-send-approved-application-to-csc)
 
 
+<hgroup markdown>
+
 ### 1. Create a CSC account
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+- !!! warning status "Team manager"
+- !!! info status "Team member"
+
+</hgroup>
 
 Only create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)    
 
@@ -41,10 +43,14 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 ---
 
+
+<hgroup markdown>
+
 ### 2. Create new CSC project
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 - Sign in to MyCSC with you Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
@@ -79,10 +85,14 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 ---
 
+
+<hgroup markdown>
+
 ### 3. Fill GDPR document
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
@@ -90,10 +100,14 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 ![Personal data handling document.](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Description.png)
 
+
+<hgroup markdown>
+
 ### 4. Contact CSC service desk
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
@@ -112,12 +126,14 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
     - You will receive an email notification, when everything is ready.
 
 
+<hgroup markdown>
+
 ### 7. Your CSC project is ready
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+- !!! warning status "Team manager"
+- !!! info status "Team member"
+
+</hgroup>
     
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC.
@@ -140,12 +156,15 @@ You can apply (for free) for billing units in the MyCSC portal:
 
 Small BU applications (s) are automatically approved.
 
+
+<hgroup markdown>
+
 ### 9. Apply for access to the dataset with SD Apply
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+- !!! warning status "Team manager"
+- !!! info status "Team member"
+
+</hgroup>
 
 After creating the project in MyCSC, you need to apply for access to the dataset in SD Apply. This is a technical security step and does not affect the permission granted in the data permit.
 

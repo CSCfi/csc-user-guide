@@ -12,12 +12,11 @@
     joining our weekly research support coffee sessions on Wednesdays at 2 p.m. where
     you can directly discuss with our specialists!
 
-    !!! info-label
-        [See here for more information and connection details](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/).
+    [See here for more information and connection details :material-open-in-new:](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/){ target=_blank style="padding: .2rem .8em; border: 1px solid var(--c-link-500); border-radius: 4px; background-color: var(--c-link-100);" }
 
 !!! info "LUMI User Support Team"
     If you have any questions or issues related to using LUMI, please
-    [contact the LUMI User Support Team](https://lumi-supercomputer.eu/user-support/need-help/).
+    [contact the LUMI User Support Team :material-open-in-new:](https://lumi-supercomputer.eu/user-support/need-help/){ target=_blank }.
 
 ## How to write good support requests
 

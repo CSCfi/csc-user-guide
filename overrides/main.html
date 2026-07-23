@@ -1,17 +1,15 @@
 {% extends "base.html" %}
+
 {% block header %}
   {% include "partials/pre-header.html" %}
   {{ super() }}
 {% endblock header %}
+
+{# Using the hero block to render announcement right under the header. #}
 {% block hero %}
 {% include "partials/docs-announce.html" %}
 {% endblock hero %}
-{% block content %}
-  {% block breadcrumbs %}
-    {% include "partials/breadcrumbs.html" %}
-  {% endblock breadcrumbs %}
-  {{ super() }}
-{% endblock content %}
+
 {% block footer %}
   {{ super() }}
   {% if config.extra.environment == "preview" or

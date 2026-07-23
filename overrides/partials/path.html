@@ -1,0 +1,15 @@
+{% import "partials/path-item.html" as mdx_item with context %}
+
+{% set ancestors = page.ancestors or adoptive_ancestors or [] %}
+{% if (ancestors | length) > 0 %}
+<nav class="md-path" aria-label="{{ lang.t('nav') }}" {{ hidden }}>
+  <ol class="md-path__list">
+    {{ mdx_item.render(nav.homepage) }}
+    {% for nav_item in ancestors | reverse %}
+      {{ mdx_item.render(nav_item) }}
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}
+{{ page.ancestors | pprint }}
+{{ adoptive_ancestors | pprint }}
