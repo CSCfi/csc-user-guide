@@ -13,7 +13,7 @@
     [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
     section before migrating any data to Roihu. If your data migration needs
     are small and simple, checking the
-    [Basic rsync](#21-basic-rsync) example may suffice. If you have **a lot**
+    [Basic rsync](#31-basic-rsync) example may suffice. If you have **a lot**
     of data or other special requirements, please also read the other sections
     carefully.
 
@@ -104,9 +104,9 @@
 
 * It is **not** recommended to transfer data to Roihu via Allas or your local
   workstation. Instead, CSC recommends using command-line tools such as
-  [`rsync`](#2-recommended-data-migration-methods) to **directly transfer data
+  [`rsync`](#3-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
-      * If in trouble with SSH workflow described below, for small amounts of data, [tranfer via your local laptop](#42-using-the-web-interfaces-to-migrate-data) could be considered.
+      * If in trouble with SSH workflow described below, for small amounts of data, [tranfer via your local laptop](#52-using-the-web-interfaces-to-migrate-data) could be considered.
      
 ## 2. SSH connection with SSH agent forwarding
 
@@ -181,8 +181,8 @@ ssh roihu-cpu.csc.fi
 1. The **number of files to transfer is small** (<1000) or the **files are
    large** enough (>1 MB on average).
     * If not, please
-      [archive](#23-migrating-data-with-large-amounts-of-small-files) and,
-      optionally, [compress the data](#31-data-compression) before transfer.
+      [archive](#33-migrating-data-with-large-amounts-of-small-files) and,
+      optionally, [compress the data](#41-data-compression) before transfer.
 2. You are transferring your own files **or** resulting file ownership on Roihu
    does **not** matter.
     * You will own all files that you transfer to Roihu irrespective of who the
@@ -203,8 +203,8 @@ ssh roihu-cpu.csc.fi
     | 1     | 1 GB   | 1 GB   | 6 s     |
     | 10    | 100 MB | 1 GB   | 6 s     |
     | 100   | 10 MB  | 1 GB   | 6 s     |
-    | 1000  | 1 MB   | 1 GB   | 11 s    | Small-file overhead increases, [please archive](#23-migrating-data-with-large-amounts-of-small-files)!
-    | 10000 | 100 kB | 1 GB   | 45 s    | Small-file overhead increases, [please archive](#23-migrating-data-with-large-amounts-of-small-files)!
+    | 1000  | 1 MB   | 1 GB   | 11 s    | Small-file overhead increases, [please archive](#33-migrating-data-with-large-amounts-of-small-files)!
+    | 10000 | 100 kB | 1 GB   | 45 s    | Small-file overhead increases, [please archive](#33-migrating-data-with-large-amounts-of-small-files)!
     | 1     | 10 GB  | 10 GB  | ~1 min  |
     | 10    | 1 GB   | 10 GB  | ~1 min  |
     | 100   | 100 MB | 10 GB  | ~1 min  |
@@ -214,7 +214,7 @@ ssh roihu-cpu.csc.fi
 
     Please note that the actual performance may vary based on the current
     system load. If you need to transfer thousands of small files (<1 MB),
-    [pack them into a single archive file for better performance](#23-migrating-data-with-large-amounts-of-small-files).
+    [pack them into a single archive file for better performance](#33-migrating-data-with-large-amounts-of-small-files).
     
 ### 3.2 Performing a dry run
 
@@ -269,7 +269,7 @@ than thousands of small ones.
     tar cf my-data.tar my-data
     ```
 
-2. Transfer the archived dataset `my-data.tar` to Roihu [using `rsync`](#21-basic-rsync).
+2. Transfer the archived dataset `my-data.tar` to Roihu [using `rsync`](#31-basic-rsync).
 3. Extract (`x`) the data on Roihu with:
 
     ```bash
@@ -282,7 +282,7 @@ than thousands of small ones.
     Archiving creates new data on the disk. If your dataset is large, you may
     end up running out of disk quota since the operation will essentially
     double your disk usage (unless the archive is also
-    [compressed](#31-data-compression)).
+    [compressed](#41-data-compression)).
 
     A trick to avoid creating new data on Puhti disk is to pipe the output of
     `tar` to Roihu directly over SSH. Use the command:
@@ -335,7 +335,7 @@ rsync -azP /scratch/project_2001234/my-data $USER@roihu-cpu.csc.fi:/scratch/proj
 
     In cases where compression is not beneficial, you can also use plain `tar`
     over `ssh`
-    [as explained previously](#23-migrating-data-with-large-amounts-of-small-files).
+    [as explained previously](#33-migrating-data-with-large-amounts-of-small-files).
     The performance can be better than `rsync`, especially if your dataset
     contains a huge number of tiny files.
 
@@ -348,7 +348,7 @@ One of the strengths of `rsync` is that interrupted transfers can be easily
 resumed – **just run the same `rsync` command again**. `rsync` will compare the
 source and destination, skip already transferred files (copies only what's
 missing) and resume partially transferred files (as long as option `-P` or
-`--partial` is used as [instructed above](#21-basic-rsync)).
+`--partial` is used as [instructed above](#31-basic-rsync)).
 
 However, to avoid failures caused by interrupted SSH sessions altogether, you
 may run your data migration process in a `screen` session.
@@ -415,7 +415,7 @@ If you're not using `rsync`, you may calculate a checksum for files using e.g.
     Note that calculating checksums for huge datasets can take some time,
     especially if the current disk load is high.
 
-2. [Transfer](#21-basic-rsync) the dataset and the `data.tar.md5` checksum file
+2. [Transfer](#31-basic-rsync) the dataset and the `data.tar.md5` checksum file
    to Roihu.
 3. With the `data.tar` and `data.tar.md5` files in the same directory, verify
    the checksum with:
