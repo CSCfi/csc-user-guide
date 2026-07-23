@@ -1,3 +1,6 @@
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
 # Pulse level access
 
 Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to both VTT Q50 and Aalto Q20 is enabled through the IQM Pulla python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html)

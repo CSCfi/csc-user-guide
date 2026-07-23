@@ -1,3 +1,6 @@
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
 # Setting up a LUMI project and accounts for accessing the Quantum computers
 
 This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50**  quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md).

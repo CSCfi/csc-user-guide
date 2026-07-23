@@ -1,3 +1,6 @@
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Aalto-Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
 # Specific instructions for the FiQCI partition on LUMI
 
 The FiQCI partition within LUMI provides access to quantum processing units (QPUs) for users belonging to projects with allocated QPU resources. In addition to executing quantum workloads via LUMI, users can leverage the full LUMI infrastructure, including its software stack and quantum simulators, for development, testing, and hybrid quantum-classical workflows.
