@@ -248,9 +248,13 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-!!! Note 
-    At the present you can only request this storage for jobs that are making use of full nodes, 
-    i.e. that are submitted with the `--exclusive` flag or in exclusive partitions (e.g. medium). 
-    Support for shared node jobs is coming at a later date.
+!!! note "Aggregated storage is only available on full node partitions"
+    At the present you can only request this storage for jobs that are making use of full nodes,
+    i.e. that are submitted in the `medium` or `large` partitions. Presently if you try to launch in other partitions,
+    your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
+    logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
+
+    GPU partitions are shared by default.
+    To use disaggregated storage in a GPU job, include the `#SBATCH --exclusive` option, to fully reserve the node.
 
 See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).

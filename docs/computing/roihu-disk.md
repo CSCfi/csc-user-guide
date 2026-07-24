@@ -343,6 +343,9 @@ to get larger capacity fast storage for your jobs.
     your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
     logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
 
+    GPU partitions are shared by default.
+    To use disaggregated storage in a GPU job, include the `#SBATCH --exclusive` option, to fully reserve the node.
+
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:
 
