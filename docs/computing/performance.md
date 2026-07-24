@@ -13,10 +13,13 @@ It is an easy way to get an overall picture of how efficiently the CPUs were
 used (CPU Efficiency) and how much of the allocated memory was actually used
 (Memory Efficiency).
 
-!!! note "Hint"
-    you may add the `seff` command to the end of your batch job script to
-    always get an efficiency report for your jobs: `seff $SLURM_JOBID`
+!!! note inline end "Hint"
+    You may add the `seff` command to the end of your batch job script to
+    always get an efficiency report for your jobs:
 
+    ```bash
+    seff $SLURM_JOBID
+    ```
 
 ```console title="Example output for a single node job"
 [kkayttaj@roihu-cpu-login2 perf]$ seff 307386
