@@ -256,16 +256,18 @@ to the following amount of local disk space:
 
 For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
 
-| Allocation type           | Path      | Quota per user |
-|:--------------------------|-----------|---------------:|
-| R (Shared nodes)          | `$TMPDIR` | 20 GiB         |
-| N (Full nodes)            | `$TMPDIR` | 600 GiB        |
-| G (GPU nodes)             | `$TMPDIR` | 150 GiB        |
-| XL (Hugemem nodes)        | `$TMPDIR` | 1.6 TiB        |
-| VIZ (Visualization nodes) | `$TMPDIR` | 6.5 TiB        |
+| Allocation type           | Path      | Available temporary storage |
+|:--------------------------|-----------|----------------------------:|
+| R (Shared nodes)          | `$TMPDIR` | 20 GiB                      |
+| N (Full nodes)            | `$TMPDIR` | 600 GiB                     |
+| G (GPU nodes)             | `$TMPDIR` | 150 GiB                     |
+| XL (Hugemem nodes)        | `$TMPDIR` | 578 GiB                     |
+| VIZ (Visualization nodes) | `$TMPDIR` | 14 TiB                      |
 
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
+
+The reported capacity may be shared with other jobs or users on the same node and may therefore not always be fully available to a single job.
 
 #### Reserved local scratch storage
 
