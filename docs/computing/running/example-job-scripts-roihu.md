@@ -254,7 +254,4 @@ srun myprog <options>
     your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
     logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
 
-    GPU partitions are shared by default.
-    To use disaggregated storage in a GPU job, include the `#SBATCH --exclusive` option, to fully reserve the node.
-
 See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).

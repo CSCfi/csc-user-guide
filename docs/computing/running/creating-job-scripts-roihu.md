@@ -406,9 +406,6 @@ appears as local scratch from within a Slurm job.
     your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
     logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
 
-    GPU partitions are shared by default.
-    To use disaggregated storage in a GPU job, include the `#SBATCH --exclusive` option, to fully reserve the node.
-
 Request this local storage using the following flag in the batch script:
 
 ```bash
