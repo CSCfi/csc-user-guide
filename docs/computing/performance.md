@@ -3,7 +3,7 @@
 ## Quick Start: Efficiency Report with seff
 
 Slurm job efficiency report (command: `seff`) gives a quick summary of
-requested and used resources for both running and finished batch jobs.
+requested and used resources for both running and finished batch jobs. 
 
 ```bash
 seff <JOBID>
@@ -13,30 +13,66 @@ It is an easy way to get an overall picture of how efficiently the CPUs were
 used (CPU Efficiency) and how much of the allocated memory was actually used
 (Memory Efficiency).
 
-!!! note "Hint"
-    you may add the `seff` command to the end of your batch job script to
-    always get an efficiency report for your jobs: `seff $SLURM_JOBID`
+!!! note inline end "Hint"
+    You may add the `seff` command to the end of your batch job script to
+    always get an efficiency report for your jobs:
 
-Example output for a single node job:
+    ```bash
+    seff $SLURM_JOBID
+    ```
 
-```bash
-[kkayttaj@puhti-login11 logs]$ seff 29221065
-Job ID: 29221065
-Cluster: puhti
+```console title="Example output for a single node job"
+[kkayttaj@roihu-cpu-login2 perf]$ seff 307386
+Job ID: 307386
+Cluster: roihu
+Partition: medium
 User/Group: kkayttaj/kkayttaj
 State: COMPLETED (exit code 0)
-Nodes: 2
-Cores per node: 40
-CPU Utilized: 16:01:21
-CPU Efficiency: 97.17% of 16:29:20 core-walltime
-Job Wall-clock time: 00:12:22
-Memory Utilized: 23.68 GB (estimated maximum)
-Memory Efficiency: 6.38% of 371.09 GB (185.55 GB/node)
-Job consumed 24.14 CSC billing units based on following used resources
+Nodes: 1
+Cores per node: 384
+CPU Utilized: 2-09:05:29
+CPU Efficiency: 92.44% of 2-13:45:36 core-walltime
+Job Wall-clock time: 00:09:39
+Memory Utilized: 76.45 GB (estimated maximum)
+Memory Efficiency: 10.27% of 744.72 GB (744.72 GB/node)
+Job consumed 46.32 CSC billing units, billed on CPU usage
 Billed project: project_2001659
-CPU usage: 16.49 CPU BU
-Mem usage: 7.65 CPU BU
+CPU usage: 46.32 CPU BU
+Mem usage: 0.00 CPU BU
 ```
+
+## Understanding the seff output
+
+- **Job ID, Cluster, Partition, User/Group and State** are identifying metadata.
+  `State: COMPLETED (exit code 0)` confirms the job ran to completion without
+  error. A nonzero exit code would be the first thing to check before looking
+  at efficiency values at all.
+
+- **Nodes / Cores per node** shows how many nodes and cores per node were
+  allocated. In this example, `1 node x 384` cores means the job got a full
+  Roihu CPU node.
+
+- **CPU Utilized** is the *total* CPU time consumed, summed across every core,
+  expressed as `d-hh:mm:ss`. This is not to be mistaken with wall-clock time,
+  which does not account for individual cores.
+
+- **CPU Efficiency** is `CPU Utilized` divided by core-walltime, where
+  core-walltime is cores allocated multiplied by wall-clock time. This metric
+  answers the question: of all the CPU-seconds allocated, how many were
+  actually doing work?
+
+- **Job Wall-clock time** is the actual elapsed time the job ran, independent
+  of core count. Compare this against your `--time` request and for applications
+  like GROMACS, against `-maxh`.
+
+- **Memory Utilized / Memory Efficiency** shows peak memory used versus what was
+  reserved. High memory efficiency values are especially important on core-based
+  partitions like `small`, where jobs share a node and unused reserved memory
+  can't be used by other jobs, increasing queue times.
+
+- **Billing Units** shows how the job was charged, and which resource determined
+  the price. Up to date information about billing units can be found on the
+  [Billing page](./hpc-billing.md).
 
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).
