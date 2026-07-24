@@ -1,17 +1,13 @@
-!!! warning "Using Multiple backends"
-    Currently, it is not possible to use Q50 and Helmi together because they run on different software versions. 
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
-# Running on Helmi and Q50
-
-!!! info "Give feedback!"
-    **All feedback is highly appreciated**, Please share your experience
-    by emailing us at [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi).
+# Running on Q20 and Q50
 
 ## Running Jobs
 
-To submit jobs to the quantum computers (Helmi and Q50), use the dedicated quantum node (q_fiqci) by adding --partition=q_fiqci in your batch script.
+To submit jobs to the quantum computers (Q20 and Q50), use the dedicated quantum node (q_fiqci) by adding --partition=q_fiqci in your batch script.
 
-Currently, Helmi and Q50 support job submissions using Qiskit or Cirq. These scripts must be submitted as standard Python files.
+Currently, Q20 and Q50 support job submissions using Qiskit or Cirq. These scripts must be submitted as standard Python files.
 
 To run jobs on the quantum computers, follow these steps to set up the correct environment on LUMI:
 
@@ -38,12 +34,11 @@ The current supported software versions are:
 
 | Software | LUMI_Module_name | Versions |
 |----------|-------------|----------|
-| IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 33.0.0, < 34.0.0 |
-| IQM client | fiqci-vtt-qiskit/17.8 or fiqci-vtt-cirq/16.2 | >= 22.3, <= 23.0 |
+| IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 34.0.0, < 35.0.0 |
 
 Here is an example batch script to submit a quantum job
 
-=== "Helmi"
+=== "Q20"
 
     ```bash
     #!/bin/bash
@@ -59,10 +54,10 @@ Here is an example batch script to submit a quantum job
     module use /appl/local/quantum/modulefiles
 
     # uncomment the correct line:
-    # module load fiqci-vtt-qiskit/17.8
+    # module load fiqci-vtt-qiskit
     # or
-    # module load fiqci-vtt-cirq/16.2
-    export DEVICES=("Q5")
+    # module load fiqci-vtt-cirq
+    export DEVICES=("radiance20")
     source $RUN_SETUP
     python your_python_script.py
     ```
@@ -93,12 +88,12 @@ Here is an example batch script to submit a quantum job
 
 The batch script can then be submitted with `sbatch`. You can also submit interactive jobs through `srun`.
 
-=== "Helmi"
+=== "Q20"
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit/17.8"
-    export DEVICES=("Q5")
+    module --ignore_cache load "fiqci-vtt-qiskit"
+    export DEVICES=("radiance20")
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
     ```
 
@@ -114,7 +109,7 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
 The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with the quantum computers.
 
 !!! info "Running on physical Quantum computers"
-    When submitting a job on Helmi or Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
+    When submitting a job on Q20 or Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
     To run on Q50, please specify the device using `export DEVICES=("Q50") `command
 
 ### Qiskit
@@ -123,7 +118,7 @@ To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
 In Qiskit python scripts you will need to include the following:
 
-=== "Helmi"
+=== "Q20"
 
     ```python
     import os
@@ -131,9 +126,9 @@ In Qiskit python scripts you will need to include the following:
     from qiskit import QuantumCircuit, transpile
     from iqm.qiskit_iqm import IQMProvider
 
-    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
 
-    provider = IQMProvider(DEVICE_CORTEX_URL)
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="radiance20")
     backend = provider.get_backend()
 
     shots = 1000  # Set the number of shots you wish to run with
@@ -187,7 +182,7 @@ In Qiskit python scripts you will need to include the following:
 
 To load the Cirq module use `module load fiqci-vtt-cirq`.
 
-=== "Helmi"
+=== "Q20"
 
     ```python
     import os
@@ -195,9 +190,9 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     import cirq
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
 
-    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
+    DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
 
-    sampler = IQMSampler(DEVICE_CORTEX_URL)
+    sampler = IQMSampler(DEVICE_CORTEX_URL, quantum_computer="radiance20")
 
     shots = 1000
 
@@ -261,7 +256,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
 
 ## Additional examples
 
-An additional [set of examples can be found here](https://github.com/FiQCI/helmi-examples).
+An additional [set of examples can be found here](https://github.com/FiQCI/fiqci-examples).
 The examples emphasize the difference between running on a simulator and a real physical quantum computer,
 and how to construct your circuits for optimum results on the quantum computers. The repository also contains some useful
 scripts for submitting jobs.
@@ -271,18 +266,18 @@ scripts for submitting jobs.
 
 As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on the quantum computers in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
 
-A set of Qiskit and Cirq examples and scripts for guidance in using the `q_fiqci` partition are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
+A set of Qiskit and Cirq examples and scripts for guidance in using the quantum computers are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
 
 ## Job Metadata
 
 Additional metadata about your job can be queried directly with Qiskit. For example:
 
-=== "Helmi"
+=== "Q20
 
     ```python
 
-    DEVICE_CORTEX_URL = os.getenv('HELMI_CORTEX_URL')
-    provider = IQMProvider(DEVICE_CORTEX_URL)
+    DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="radiance20")
     backend = provider.get_backend()
 
     #Retrieving backend information
@@ -340,7 +335,7 @@ Additional metadata about your job can be queried directly with Qiskit. For exam
 
 ## Calibration data
 
-Calibration data (or quality metrics set) may be necessary for publishing work produced on Helmi/Q50. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+Calibration data (or quality metrics set) may be necessary for publishing work produced on Q20/Q50. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
 
 Here is a brief description of the figures which are given when querying:
 
@@ -365,23 +360,23 @@ Here is a brief description of the figures which are given when querying:
 For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
-## Using Helmi/Q50 on Lumi-web interface
+## Using Q20/Q50 on Lumi-web interface
 
-The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on  Helmi and Q50 through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
+The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on  Q20 and Q50 through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
 
-### Accessing Helmi/Q50
+### Accessing Q20/Q50
 
 After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
 
 It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack.
 
 #### Qiskit
-=== "Helmi"
+=== "Q20"
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit/17.8
-    export DEVICES=("Q5")
+    module load fiqci-vtt-qiskit
+    export DEVICES=("radiance20")
     source $RUN_SETUP
     ```
 
@@ -395,12 +390,12 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     ```
 
 #### Cirq
-=== "Helmi"
+=== "Q20"
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-cirq/16.2
-    export DEVICES=("Q5")
+    module load fiqci-vtt-cirq
+    export DEVICES=("radiance20")
     source $RUN_SETUP
     ```
 
@@ -415,7 +410,7 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
 
 !["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
 
-Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Helmi/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
+Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Q20/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
 
 !["Qcs with LUMI web courses"](../../img/helmi_with_jupyter_for_courses_gui.png)
 

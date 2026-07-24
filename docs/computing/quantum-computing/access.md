@@ -1,12 +1,15 @@
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
 # Setting up a LUMI project and accounts for accessing the Quantum computers
 
-This page outlines the steps to set up a LUMI account and project for accessing the **Helmi(VTT Q5)** and **VTT Q50**  quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md).
+This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50**  quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md).
 
-To access Helmi or Q50, you must first create a LUMI project with quantum computing resources: [Quantum Projects on LUMI](projects.md).
+To access Q20 or Q50, you must first create a LUMI project with quantum computing resources: [Quantum Projects on LUMI](projects.md).
 
 Once the project is created, the **Principal Investigator (PI)** can invite other users: [How to add members to project](../../accounts/how-to-add-members-to-project.md)
 
-The project PI is responsible for ensuring that the [Helmi Terms of Use](https://a3s.fi/FiQCI/Helmi-Terms-of-Use-2022.pdf) or [Q50 Terms of Use](https://a3s.fi/FiQCI/VTT_Quantum_Academic_Use_EULA.pdf) are followed.
+The project PI is responsible for ensuring that the [Q50 Terms of Use](https://a3s.fi/FiQCI/VTT_Quantum_Academic_Use_EULA.pdf) are followed. Aalto Q20 has no such terms.
 
 ## Connect to LUMI
 
