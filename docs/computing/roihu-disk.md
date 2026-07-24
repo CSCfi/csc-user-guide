@@ -25,7 +25,7 @@ See [a more technical description of the Lustre filesystem on CSC supercomputers
 |**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
 |**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
 |**scratch**  |Project |Not defined         |`/scratch/<project>`  |180 days             |No              |
-|**dataset** |Project |Not defined         |`/dataset/<project>` |No                   |No              |
+|**dataset**  |Project |Not defined         |`/dataset/<project>`  |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
@@ -277,22 +277,25 @@ Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 
 | Allocation type           | Path             | Maximum reservable local scratch |
 |:--------------------------|------------------|---------------------------------:|
-| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GiB                              |
-| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                             |
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GB                         |
+| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
 
 Reserve local storage by including the following flag in your Slurm script:
 
 ```text
---gres=nvme:<amount-in-GiB>
+--gres=nvme:<amount-in-GB>
 ```
 
-For example, to reserve the maximum amount of 13 TiB, use:
+For example, to reserve the maximum amount of 13 TB, use:
 
 ```text
 --gres=nvme:13000
 ```
 
-??? info "Example Slurm script using local scratch memory"
+Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
+you can use in `/local_scrach/${USER}/${SLURM_JOB_ID}/`.
+
+??? info "Example Slurm script for using local scratch memory in hugemem nodes"
      ```
      #!/bin/bash
      #SBATCH --job-name=example
@@ -300,16 +303,25 @@ For example, to reserve the maximum amount of 13 TiB, use:
      #SBATCH --partition=hugemem
      #SBATCH --time=00:30:00
      #SBATCH --nodes=1
-     #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
-     #SBATCH --gres=nvme:100 # Reserves 100 GiB local scratch memory
+     #SBATCH --ntasks-per-node=1
+     #SBATCH --cpus-per-task=1
+     #SBATCH --gres=nvme:100 # Reserves 100 GB local scratch memory
 
+     # Go to the local scratch directory
+     cd "$LOCAL_SCRATCH"
+     
      # Run the program
      srun myprog <options>
+
+     # Copy any required data back to persistent storage before job finishes
+     cp "$LOCAL_SCRATCH"/output.dat /scratch/project_200XXXX/$USER/
      ```
+
+     Modify the commands and file paths according to your workflow.
 
 !!! note "Local scratch support for visualization nodes will be added later"
      The local scratch feature on visualization nodes is not yet
-     implemented. Use `$TMPDIR` for your local storage needs until this feature is added.
+     implemented. Use `$TMPDIR` on visualization nodes for your local storage needs until this feature is added.
 
 Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
 local scratch usage consumes.
