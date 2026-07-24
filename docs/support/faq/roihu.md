@@ -149,7 +149,7 @@ That data does not need to be migrated, as Allas will remain available during an
 
 It is not recommended to transfer data from Mahti/Puhti to Roihu via Allas or your local workstation.
 Instead, CSC recommends using command-line based tools such as
-[`rsync`](../../support/tutorials/roihu-data.md#2-recommended-data-migration-methods)
+[`rsync`](../../support/tutorials/roihu-data.md#3-recommended-data-migration-methods)
 to directly transfer data from Puhti/Mahti/LUMI to Roihu.
 
 ### 11. When copying data, is it fine to run the rsync on login nodes, or should we use the computation nodes to do the transfer?
@@ -162,7 +162,7 @@ Utilize `tmux` for long transfers. See the guide above for details, or our [tmux
 
 ### 12. How should I migrate larger datasets without the connection cutting out during the transfer? How long do transfers take between Mahti/Puhti to Roihu?
 
-You can use `screen` or `tmux` in Mahti/Puhti to transfer larger files without worrying about the connection dropping out. See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#32-running-long-transfer-processes-safely).
+You can use `screen` or `tmux` in Mahti/Puhti to transfer larger files without worrying about the connection dropping out. See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#42-running-long-transfer-processes-safely).
 Transfer times depend on the amount and size of the files. Large numbers of small files take longer, consider archiving them into a single file for transfers.
 As a ballpark number, a single file of about 100 GB would take ~10 minutes to transfer directly between the systems.
 

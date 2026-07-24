@@ -4,15 +4,16 @@
     This guide is divided into four parts:
 
     1. [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
-    2. [Recommended data migration methods](#2-recommended-data-migration-methods)
-    3. [Special cases](#3-special-cases)
-    4. [Discouraged methods](#4-discouraged-methods)
+    2. [SSH connection with SSH agent forwarding](#2-ssh-connection-with-ssh-agent-forwarding)
+    2. [Recommended data migration methods](#3-recommended-data-migration-methods)
+    3. [Special cases](#4-special-cases)
+    4. [Discouraged methods](#5-discouraged-methods)
 
     Please read the
     [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
     section before migrating any data to Roihu. If your data migration needs
     are small and simple, checking the
-    [Basic rsync](#21-basic-rsync) example may suffice. If you have **a lot**
+    [Basic rsync](#31-basic-rsync) example may suffice. If you have **a lot**
     of data or other special requirements, please also read the other sections
     carefully.
 
@@ -27,6 +28,8 @@
      are not covered by service contracts after end of August.
      Due to this, aim to complete your data transfers from Mahti and/or Puhti
      by the **end of August 2026**, or by October 15th at the very latest.
+
+
 
 ## 1. General guidelines and prerequisites
 
@@ -58,7 +61,16 @@
       architecture).
       [More about installing software on Roihu](roihu.md#installing-software).
 
-### 1.2 Ensure that you have enough disk space on Roihu
+### 1.2. Add Roihu service access to your CSC project
+
+* Like any other CSC service, access to Roihu must be enabled for your project
+  via [MyCSC](https://my.csc.fi).
+* Note also that users must have at least a **medium** level of identity
+  assurance (LoA) to be able to access Roihu. You can check your LoA on your
+  [profile page in MyCSC](https://my.csc.fi/profile), and
+  [elevate it if needed following these instructions](../../accounts/strong-identification.md).
+
+### 1.3 Ensure that you have enough disk space on Roihu
 
 * Once you have identified the data you need to transfer, check that it
   fits within the default disk quotas on Roihu:
@@ -87,46 +99,43 @@
     Dataset projects and Dataset quotas are applied for and managed via
     [MyCSC](https://my.csc.fi). Dataset quota consumes Storage BUs.
 
-### 1.3. Add Roihu service access to your CSC project
-
-* Like any other CSC service, access to Roihu must be enabled for your project
-  via [MyCSC](https://my.csc.fi).
-* Note also that users must have at least a **medium** level of identity
-  assurance (LoA) to be able to access Roihu. You can check your LoA on your
-  [profile page in MyCSC](https://my.csc.fi/profile), and
-  [elevate it if needed following these instructions](../../accounts/strong-identification.md).
 
 ### 1.4 Transfer your data directly from Puhti/Mahti to Roihu
 
 * It is **not** recommended to transfer data to Roihu via Allas or your local
   workstation. Instead, CSC recommends using command-line tools such as
-  [`rsync`](#2-recommended-data-migration-methods) to **directly transfer data
+  [`rsync`](#3-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
+      * If in trouble with SSH workflow described below:
+          * For small amounts of data, tranfer via your local laptop could be considered using [web interface](#52-using-the-web-interfaces-to-migrate-data) or [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows).
+          * Windows users who mainly use Roihu web interface, see [the simplified data transfer tutorial](windows-roihu-data-migration.md).
+     
+## 2. SSH connection with SSH agent forwarding
 
-!!! warning "Extremely important"
+For data transfer between Puhti/Mahti/LUMI and Roihu requires SSH connection with **SSH agent forwarding** enabled. 
 
-    ### 1.5 Connecting to Roihu requires SSH certificates
+Before you start, make sure you have:
 
-    * In addition to SSH keys, a signed **SSH certificate** is required to
-      connect to Roihu over SSH.
-      [Read the instructions for getting and using SSH certificates here](../../computing/connecting/ssh-keys.md#signing-public-key).
-    * To transfer data directly from Puhti/Mahti to Roihu, you must **forward
-      your SSH agent** when connecting to the system where you launch the data
-      transfer process.
-        1. [SSH agent instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
-        2. [SSH agent instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
+1. Created a SSH key, uploaded the public key to my.csc.fi and you know the path to the private SSH key on you laptop. [Instructions](../../computing/connecting/ssh-keys.md)
+2. A tool for SSH connections. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md) and [Windows](../../computing/connecting/ssh-windows.md).
+3. SSH agent installed and running. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
 
-## 2. Recommended data migration methods
+For connecting:
 
-* **`rsync`** is the preferred tool for transferring data from Puhti or Mahti
-  to Roihu. [Read more about `rsync` here](../../data/moving/rsync.md).
-* **We will use Puhti as an example**, but the exact same steps apply to Mahti and LUMI
-  as well. Simply replace all occurrences of `puhti` in host names etc. with
-  `mahti`.
-* All examples require that you've **forwarded your SSH agent** including your
-  **SSH keys** and a **valid SSH certificate** to Puhti when connecting.
-* Before starting the data transfer, **ensure that the target directory on
-  Roihu exists and is writable**.
+2. Get signed **[SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key)** for Roihu.
+    * If you plan to use SSH connection to Roihu also later, it is recommended to use Option 2 for getting SSH certificate. The provided script adds the SSH certificate automatially to the SSH agent. It requires more steps first time, but is easier later.
+    * If you mainly plan to use Roihu web interface, use Option 1.
+    * The certificate is valid for 24 hours, so make sure to repeat this process as needed.
+4. Add the SSH key and certificate to SSH agent. 
+    * If you used option 2 in previous step, then the script did this for you.
+    * If you used option 1 in previous step, add manually your SSH keys and certificate to the SSH agent. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agents-with-roihu).
+    * In Windows, with PageAnt, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
+5. Log in to Puhti with SSH agent forwarding turned on. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and [Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
+   * Before continuing to data transfer, first test that your SSH forwarding is working with:
+
+```bash
+ssh roihu-cpu.csc.fi
+```
 
 ??? info "Help! What to do if I struggle to add my SSH certificate to the SSH agent?"
     Alternatively, you may log in to Roihu and **pull** data from Puhti.
@@ -137,18 +146,19 @@
     Roihu in the first place, **but it does not have to be added to your SSH
     agent**.
 
-### 2.1 Basic `rsync`
+## 3. Recommended data migration methods
 
-1. Make sure you have SSH agent running. 
-      1. [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent).
-      2. [Instructions for Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
-2.[Obtain an SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key) for Roihu and add the SSH certificate to the SSH agent.
-    * It is recommended to use Option 2 for getting SSH certificate, then the SSH certificate is added automatially to the SSH agent.
-    * If you use Option 1, add manually your SSH keys and certificate to the SSH agent.
-    * In Windows, with PageAnt, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
-3. Log in to Puhti with SSH agent forwarding turned on.
-    * [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding).
-    * [Instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
+* **`rsync`** is the preferred tool for transferring data from Puhti or Mahti
+  to Roihu. [Read more about `rsync` here](../../data/moving/rsync.md).
+* Before starting the data transfer, **ensure that the target directory on
+  Roihu exists and is writable**.
+* **We will use Puhti as an example**, but the exact same steps apply to Mahti and LUMI
+  as well. Simply replace all occurrences of `puhti` in host names etc. with
+  `mahti`.
+
+### 3.1 Basic `rsync`
+
+1. Write down what folder you want to move from Puhti and to which folder in Roihu.
 4. On the login node, transfer directory `/scratch/project_2001234/my-data`
    from Puhti to directory `/scratch/project_2001234/` on Roihu.
 
@@ -173,8 +183,8 @@
 1. The **number of files to transfer is small** (<1000) or the **files are
    large** enough (>1 MB on average).
     * If not, please
-      [archive](#23-migrating-data-with-large-amounts-of-small-files) and,
-      optionally, [compress the data](#31-data-compression) before transfer.
+      [archive](#33-migrating-data-with-large-amounts-of-small-files) and,
+      optionally, [compress the data](#41-data-compression) before transfer.
 2. You are transferring your own files **or** resulting file ownership on Roihu
    does **not** matter.
     * You will own all files that you transfer to Roihu irrespective of who the
@@ -195,8 +205,8 @@
     | 1     | 1 GB   | 1 GB   | 6 s     |
     | 10    | 100 MB | 1 GB   | 6 s     |
     | 100   | 10 MB  | 1 GB   | 6 s     |
-    | 1000  | 1 MB   | 1 GB   | 11 s    | Small-file overhead increases, [please archive](#23-migrating-data-with-large-amounts-of-small-files)!
-    | 10000 | 100 kB | 1 GB   | 45 s    | Small-file overhead increases, [please archive](#23-migrating-data-with-large-amounts-of-small-files)!
+    | 1000  | 1 MB   | 1 GB   | 11 s    | Small-file overhead increases, [please archive](#33-migrating-data-with-large-amounts-of-small-files)!
+    | 10000 | 100 kB | 1 GB   | 45 s    | Small-file overhead increases, [please archive](#33-migrating-data-with-large-amounts-of-small-files)!
     | 1     | 10 GB  | 10 GB  | ~1 min  |
     | 10    | 1 GB   | 10 GB  | ~1 min  |
     | 100   | 100 MB | 10 GB  | ~1 min  |
@@ -206,9 +216,9 @@
 
     Please note that the actual performance may vary based on the current
     system load. If you need to transfer thousands of small files (<1 MB),
-    [pack them into a single archive file for better performance](#23-migrating-data-with-large-amounts-of-small-files).
+    [pack them into a single archive file for better performance](#33-migrating-data-with-large-amounts-of-small-files).
     
-### 2.2 Performing a dry run
+### 3.2 Performing a dry run
 
 It may be useful to perform a dry run before starting the actual `rsync`
 process. Add the option `-n` to your `rsync` command:
@@ -245,7 +255,7 @@ you were to run `rsync` without the `-n` option.
     destination does not exist, you will get a `No such file or directory`
     error.
 
-### 2.3 Migrating data with large amounts of small files
+### 3.3 Migrating data with large amounts of small files
 
 If the data you need to migrate contains thousands of small files, it is
 recommended to **archive** the data before transferring it, i.e. pack all files
@@ -261,7 +271,7 @@ than thousands of small ones.
     tar cf my-data.tar my-data
     ```
 
-2. Transfer the archived dataset `my-data.tar` to Roihu [using `rsync`](#21-basic-rsync).
+2. Transfer the archived dataset `my-data.tar` to Roihu [using `rsync`](#31-basic-rsync).
 3. Extract (`x`) the data on Roihu with:
 
     ```bash
@@ -274,7 +284,7 @@ than thousands of small ones.
     Archiving creates new data on the disk. If your dataset is large, you may
     end up running out of disk quota since the operation will essentially
     double your disk usage (unless the archive is also
-    [compressed](#31-data-compression)).
+    [compressed](#41-data-compression)).
 
     A trick to avoid creating new data on Puhti disk is to pipe the output of
     `tar` to Roihu directly over SSH. Use the command:
@@ -285,9 +295,9 @@ than thousands of small ones.
 
     [Read more about using `tar` over SSH](../../data/moving/tar_ssh.md).
 
-## 3. Special cases
+## 4. Special cases
 
-### 3.1 Data compression
+### 4.1 Data compression
 
 Data compression can be useful to save storage space and make data transfer
 faster, **but it may take a lot of time**. Data compression is CPU intensive
@@ -327,20 +337,20 @@ rsync -azP /scratch/project_2001234/my-data $USER@roihu-cpu.csc.fi:/scratch/proj
 
     In cases where compression is not beneficial, you can also use plain `tar`
     over `ssh`
-    [as explained previously](#23-migrating-data-with-large-amounts-of-small-files).
+    [as explained previously](#33-migrating-data-with-large-amounts-of-small-files).
     The performance can be better than `rsync`, especially if your dataset
     contains a huge number of tiny files.
 
     * [Read more about using `tar` over `ssh` for data transfer here](../../data/moving/tar_ssh.md).
     * [Read more about packing and compression tools here](env-guide/packing-and-compression-tools.md).
 
-### 3.2 Running long transfer processes safely
+### 4.2 Running long transfer processes safely
 
 One of the strengths of `rsync` is that interrupted transfers can be easily
 resumed – **just run the same `rsync` command again**. `rsync` will compare the
 source and destination, skip already transferred files (copies only what's
 missing) and resume partially transferred files (as long as option `-P` or
-`--partial` is used as [instructed above](#21-basic-rsync)).
+`--partial` is used as [instructed above](#31-basic-rsync)).
 
 However, to avoid failures caused by interrupted SSH sessions altogether, you
 may run your data migration process in a `screen` session.
@@ -389,7 +399,7 @@ overnight.
 
      See instructions for `tmux` in the [Roihu tmux tutorial](tmux.md).
 
-### 3.3 Using checksums to verify data integrity
+### 4.3 Using checksums to verify data integrity
 
 `rsync` ensures data integrity using internal checksum mechanisms by default.
 **It is therefore not necessary to verify data integrity separately**.
@@ -407,7 +417,7 @@ If you're not using `rsync`, you may calculate a checksum for files using e.g.
     Note that calculating checksums for huge datasets can take some time,
     especially if the current disk load is high.
 
-2. [Transfer](#21-basic-rsync) the dataset and the `data.tar.md5` checksum file
+2. [Transfer](#31-basic-rsync) the dataset and the `data.tar.md5` checksum file
    to Roihu.
 3. With the `data.tar` and `data.tar.md5` files in the same directory, verify
    the checksum with:
@@ -419,7 +429,7 @@ If you're not using `rsync`, you may calculate a checksum for files using e.g.
     If any byte changed during transfer, the file will not match, and you will
     see `data.tar: FAILED`. Otherwise you should get `data.tar: OK`.
 
-### 3.4 If file ownership matters
+### 4.4 If file ownership matters
 
 **You will be set as the owner of all files that you transfer from Puhti to
 Roihu**. This is important to realize when migrating data from shared project
@@ -434,9 +444,9 @@ may fix them for you. Please [contact CSC Service Desk](../contact.md) with the
 details on which files and/or directories are affected and who should be set as
 the owner.
 
-## 4. Discouraged methods
+## 5. Discouraged methods
 
-### 4.1 `scp`
+### 5.1 `scp`
 
 `scp` has many drawbacks compared to `rsync`. It cannot resume interrupted
 transfers, has limited metadata preservation capabilities, no built-in
@@ -446,7 +456,7 @@ GB, <100 files).
 
 [Read more about `scp` here](../../data/moving/scp.md).
 
-### 4.2 Using the web interfaces to migrate data
+### 5.2 Using the web interfaces to migrate data
 
 Unfortunately, there is no good way for using the Puhti or Mahti web interfaces
 to move data directly to Roihu. There are some indirect ways, but none
