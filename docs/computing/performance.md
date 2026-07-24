@@ -43,36 +43,36 @@ Mem usage: 0.00 CPU BU
 
 ## Understanding the seff output
 
-**Job ID, Cluster, Partition, User/Group and State** are identifying metadata.
-`State: COMPLETED (exit code 0)` confirms the job ran to completion without
-error. A nonzero exit code would be the first thing to check before looking
-at efficiency values at all.
+- **Job ID, Cluster, Partition, User/Group and State** are identifying metadata.
+  `State: COMPLETED (exit code 0)` confirms the job ran to completion without
+  error. A nonzero exit code would be the first thing to check before looking
+  at efficiency values at all.
 
-**Nodes / Cores per node** shows how many nodes and cores per node were
-allocated. In this example, `1 node x 384` cores means the job got a full
-Roihu CPU node.
+- **Nodes / Cores per node** shows how many nodes and cores per node were
+  allocated. In this example, `1 node x 384` cores means the job got a full
+  Roihu CPU node.
 
-**CPU Utilized** is the *total* CPU time consumed, summed across every core,
-expressed as `d-hh:mm:ss`. This is not to be mistaken with wall-clock time,
-which does not account for individual cores.
+- **CPU Utilized** is the *total* CPU time consumed, summed across every core,
+  expressed as `d-hh:mm:ss`. This is not to be mistaken with wall-clock time,
+  which does not account for individual cores.
 
-**CPU Efficiency** is `CPU Utilized` divided by core-walltime, where
-core-walltime is cores allocated multiplied by wall-clock time. This metric
-answers the question: of all the CPU-seconds allocated, how many were
-actually doing work?
+- **CPU Efficiency** is `CPU Utilized` divided by core-walltime, where
+  core-walltime is cores allocated multiplied by wall-clock time. This metric
+  answers the question: of all the CPU-seconds allocated, how many were
+  actually doing work?
 
-**Job Wall-clock time** is the actual elapsed time the job ran, independent
-of core count. Compare this against your `--time` request and for applications
-like GROMACS, against `-maxh`.
+- **Job Wall-clock time** is the actual elapsed time the job ran, independent
+  of core count. Compare this against your `--time` request and for applications
+  like GROMACS, against `-maxh`.
 
-**Memory Utilized / Memory Efficiency** shows peak memory used versus what was
-reserved. High memory efficiency values are especially important on core-based
-partitions like `small`, where jobs share a node and unused reserved memory
-can't be used by other jobs, increasing queue times.
+- **Memory Utilized / Memory Efficiency** shows peak memory used versus what was
+  reserved. High memory efficiency values are especially important on core-based
+  partitions like `small`, where jobs share a node and unused reserved memory
+  can't be used by other jobs, increasing queue times.
 
-**Billing Units** shows how the job was charged, and which resource determined
-the price. Up to date information about billing units can be found on the
-[Billing page](./hpc-billing.md).
+- **Billing Units** shows how the job was charged, and which resource determined
+  the price. Up to date information about billing units can be found on the
+  [Billing page](./hpc-billing.md).
 
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).
