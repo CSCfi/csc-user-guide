@@ -3,8 +3,8 @@ search:
   boost: 4
 ---
 
-!!! info "NOTE: QPU time tracking"
-    You can now view QPU usage from the [MyCSC dashboard](https://my.csc.fi/dashboard).
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
 # Overview
@@ -16,26 +16,25 @@ quantum computing resources through CSC's service portals.
 
 ## Quantum Computers
 
-### Helmi (VTT Q5)
+### Aalto Q20
 
-Helmi, the first Finnish quantum computer, is co-developed by VTT and IQM Quantum Computers. It offers a 5-qubit system, enabling users to execute quantum programs and algorithms on a physical quantum device.
+Q20 is a 20 qubit IQM superconducting quantum computer operated by Aalto University.
 
-Access to Helmi is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Helmi through the LUMI job scheduler (SLURM). Applying for a project is done through [MyCSC](../../accounts/how-to-create-new-project.md).
-
+Access to Q20 is provided through the LUMI supecomputer environment. Users will need to apply for a quantum computing project on LUMI, which gives access to Q20 through the LUMI job scheduler (SLURM). Refer to the [Open Call](https://fiqci.fi/resource-call) publication for detailed instructions on how to apply for a project with Q20 access.
 
 ### VTT Q50
 
 Q50 is a 53-qubit quantum computer, also co-developed by VTT and IQM Quantum Computers.
 
-Similar to Helmi, Q50 is accessible through the LUMI supercomputer environment. Users will need to apply for a quantum computing project on LUMI. Upon approval, Q50 can be accessed using the LUMI job scheduler (SLURM).
-Refer to the [Open Call](https://fiqci.fi/publications/2025-03-04-Q50-Call-1_2025) publication for detailed instructions on how to apply for a project with Q50 access.
+Similar to Q20, Q50 is accessible through the LUMI supercomputer environment. Users will need to apply for a quantum computing project on LUMI. Upon approval, Q50 can be accessed using the LUMI job scheduler (SLURM).
+Refer to the [Open Call](https://fiqci.fi/resource-call) publication for detailed instructions on how to apply for a project with Q50 access.
 
 
 For further reading:
 
 * [A more technical description about the quantum computers](./specs.md).
 * [Specific instructions for the fiqci partition](./fiqci-partition.md)
-* [Getting started with Helmi/Q50](./access.md)
+* [Getting started with Q20/Q50](./access.md)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 
 

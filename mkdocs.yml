@@ -396,6 +396,7 @@ nav:
           - Technical details: computing/quantum-computing/specs.md
           - FiQCI partition: computing/quantum-computing/fiqci-partition.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
+          - Pulse level access: computing/quantum-computing/pulse-level-access.md
       - FirecREST HPC API:
           - computing/firecrest/index.md
           - Connecting: computing/firecrest/connecting.md
