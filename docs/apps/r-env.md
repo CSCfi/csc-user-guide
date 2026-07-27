@@ -316,7 +316,7 @@ The command `module load r-env` loads the latest `r-env` version [available](#av
         This storage is accessed with the environment variable `$TMPDIR`.
         
         If your R jobs produce very many or very large temporary files exceeding 20 GiB, 
-        please direct temporary files to the `/scratch` directory of your project as below, or to the [fast local scratch storage](../computing/running/creating-job-scripts-roihu.md#fast-local-scratch-storage) (only available on Roihu for jobs using full nodes at the moment). Note that full node jobs on the 
+        please direct temporary files to the `/scratch` directory of your project as below, or to the [fast local scratch storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently unavailable on Roihu). Note that full node jobs on the 
         `medium` partition provide 600 GiB of temporary storage by default.
         
         ```bash
@@ -430,7 +430,7 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 
 === "Roihu-CPU"
     On Roihu CPU partitions `small`, `interactive`, and `test`, **each user has 20 GiB of temporary local storage by default**. This storage is suitable for I/O-intensive tasks and accessed with
-    the environment variable `$TMPDIR`. For larger amounts of storage for I/O intensive tasks, see the [instructions on fast local scratch storage on Roihu](../computing/running/creating-job-scripts-roihu.md#fast-local-scratch-storage).
+    the environment variable `$TMPDIR`. For larger amounts of storage for I/O intensive tasks, see the [instructions on fast local scratch storage on Roihu](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage).
 
 === "Puhti"
     ``` bash
