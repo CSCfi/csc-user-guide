@@ -215,10 +215,12 @@ srun myprog <options>
     This section is work in progress.
     GPU slices have not yet been configured on the system.
 
-## Fast disk (NVMe over Fabric)
+## Disaggregated storage / Fast disk (NVMe over Fabric)
 
 !!! info "Work in progress"
     This section is a work in progress.
+
+!!! warning "Disaggregated storage is currently unavailable"
 
 On Roihu, it is possible to request local disk mounts from a centralised pool of fast storage resources. 
 This fast storage capacity is provided over the network and will appear as local scratch from 
@@ -248,10 +250,14 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-
-!!! warning "Disaggregated storage is not yet available"
-    Disaggregated scratch storage is still being configured and is not currently available for use on Roihu.
+<!---
+!!! warning "Disaggregated storage is currently only available on full node jobs"
     
-    This includes jobs that reserve complete nodes in the `medium` and `large` partitions. Requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, without producing standard output or error logs. Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
+    if you are submitting to the `medium` and `large` partitions on the cpu side. 
+    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
+    without producing standard output or error logs. 
+    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+--->
 
 See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).

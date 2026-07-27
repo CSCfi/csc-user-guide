@@ -394,16 +394,23 @@ tar xf my-large-dataset.tar.gz -C $TMPDIR
     mv $TMPDIR/my-important-output.log $SLURM_SUBMIT_DIR
     ```
 
-### Fast local scratch storage
+### Disaggregated storage
+
+!!! warning "Disaggregated storage is currently unavailable"
 
 As a new feature on Roihu, it is possible to request local disk mounts from a centralized pool of fast storage resources.
 This fast storage capacity is provided over the network and
 appears as local scratch from within a Slurm job.
 
-!!! warning "Disaggregated storage is not yet available"
-    Disaggregated scratch storage is still being configured and is not currently available for use on Roihu.
+<!---
+!!! warning "Disaggregated storage is currently only available on full node jobs"
     
-    This includes jobs that reserve complete nodes in the `medium` and `large` partitions. Requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, without producing standard output or error logs. Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
+    if you are submitting to the `medium` and `large` partitions on the cpu side. 
+    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
+    without producing standard output or error logs. 
+    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+--->
 
 Request this local storage using the following flag in the batch script:
 
