@@ -248,10 +248,10 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-!!! note "Aggregated storage is only available on full node partitions"
-    At the present you can only request this storage for jobs that are making use of full nodes,
-    i.e. that are submitted in the `medium` or `large` partitions. Presently if you try to launch in other partitions,
-    your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
-    logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
+
+!!! warning "Disaggregated storage is not yet available"
+    Disaggregated scratch storage is still being configured and is not currently available for use on Roihu.
+    
+    This includes jobs that reserve complete nodes in the `medium` and `large` partitions. Requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, without producing standard output or error logs. Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
 
 See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).
