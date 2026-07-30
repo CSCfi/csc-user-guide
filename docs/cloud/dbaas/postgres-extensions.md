@@ -80,6 +80,7 @@ SELECT '| ' || name  AS name, comment || ' |' as comment FROM pg_available_exten
  | tsm_system_time                | TABLESAMPLE method which accepts time in milliseconds as a limit |
  | unaccent                       | text search dictionary that removes accents |
  | uuid-ossp                      | generate universally unique identifiers (UUIDs) |
+ | vector                         | vector data type and ivfflat and hnsw access methods |
  | xml2                           | XPath querying and XSLT |
 
 
