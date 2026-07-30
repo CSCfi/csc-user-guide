@@ -1,6 +1,6 @@
 # Cloud services
 
-## MariaDB 12.3.2 available in Pukki, 28.7.2026
+## MariaDB 12.3.2 available in Pukki, 30.7.2026
 
 A new LTS major version of MariaDB is now available in Pukki DBaaS, 12.3.2. See [MariaDB's documentation](https://mariadb.com/docs/release-notes/community-server) for release notes.
 
