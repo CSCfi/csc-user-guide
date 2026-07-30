@@ -80,10 +80,10 @@ your database instance.
 2. Using the ID from above command you can get the database log;
 
     ```
-    openstack database log list -f value -c Status $ID | sort
+    openstack database log list -f value --sort-column Published -c Status $ID
     ```
 
     In Unix-like systems you can use `tail` command to output only last n lines;
     ```
-    openstack database log list -f value -c Status $ID | sort | tail -10
+    openstack database log list -f value --sort-column Published -c Status $ID | tail -10
     ```
