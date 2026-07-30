@@ -168,9 +168,10 @@ free version is available only for academic use at academic institutions.
     page.
 
     !!! note
-        Local NVMe disk is not yet available for standard M-node jobs on Roihu.
-        Scratch I/O goes to Lustre. NVMe support will be enabled in a future
-        update.
+        Local NVMe disks on the compute nodes can be accessed through $TMPDIR.
+        Jobs in the "small" partition have 20 GiB quota available, while "medium"
+        nodes have 600 GiB available.
+        $TMPDIR quota does not need to be separately reserved in Slurm.
 
     ```bash
     #!/bin/bash
