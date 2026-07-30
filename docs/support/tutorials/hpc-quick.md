@@ -27,43 +27,26 @@ online course.
 
 ## Which system should I use?
 
-### Puhti
+### Roihu
 
 New users are recommended to start working on the
-[Puhti supercomputer](../../computing/available-systems.md#puhti).
-Compared to Mahti, it has much more
-[pre-installed software](../../apps/by_availability.md#puhti), more GPU nodes, and
-typically more available memory per CPU core. Additionally, GPU nodes and some
-CPU nodes on Puhti have
-[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
+[Roihu supercomputer](../../computing/available-systems.md#roihu), as
+Puhti and Mahti are being decommissioned in 2026.
 
-### Mahti
+* Puhti computing services will be shut down by 31 July 2026
+* Mahti computing services will be shut down by 31 August 2026
+* Puhti and Mahti storage and login nodes are planned to remain accessible
+until 15 October 2026
 
-If you know that your computations are highly parallelizable, you should
-consider running them on the
-[Mahti supercomputer](../../computing/available-systems.md#mahti).
-Compared to Puhti, Mahti has many more CPU nodes and cores per node. Mahti is
-mainly intended for computations that are able to effectively utilize at least
-an entire CPU node, but there are also partitions available offering core-based
-allocations for smaller jobs. Like Puhti, GPU nodes and some CPU nodes on Mahti
-have
-[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
-
-Additionally, while Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
-are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
-also suitable for demanding [machine learning](ml-guide.md) applications.
-
-### Roihu (coming in spring 2026)
-
-Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
+Roihu is CSC's
 next-generation supercomputer offering enhanced performance and capabilities.
 
-- Puhti computing services will be shut down one month after Roihu general
-  availability in spring 2026.
-- Puhti storage will remain accessible until August 2026.
-- Mahti will be shut down in August 2026.
+Roihu has two distinct partitions, **Roihu-CPU** and **Roihu-GPU**, for
+CPU-only and GPU workloads. The two partitions have separate login nodes and
+software stacks.
 
-[Learn more about Roihu here!](../../computing/systems-roihu.md)
+* [Learn more about Roihu here!](../../computing/systems-roihu.md)
+* [Getting started with Roihu](./roihu.md)
 
 ### LUMI
 
@@ -95,11 +78,45 @@ GPU applications are able to run on AMD GPUs. LUMI has
     pre-installed software and licenses are other factors which may make using
     CSC supercomputers attractive for you.
 
+### Puhti
+
+!!! warning "Do not start new work on Puhti"
+     Puhti will be decommissioned over the summer 2026, and its storage will be
+     fully inaccessible after mid October 2026.
+
+     If you are a new user, we advise you to start using Roihu for your supercomputing needs.
+
+The Puhti supercomputer has been in use since 2019.
+Compared to Mahti, it has much more
+[pre-installed software](../../apps/by_availability.md#puhti), more GPU nodes, and
+typically more available memory per CPU core. Additionally, GPU nodes and some
+CPU nodes on Puhti have
+[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
+
+### Mahti
+
+!!! warning "Do not start new work on Mahti"
+     Mahti will be decommissioned over the summer 2026, and it will be
+     fully inaccessible after mid October 2026.
+
+     If you are a new user, we advise you to start using Roihu for your supercomputing needs.
+
+Mahti has been CSC’s CPU-focused supercomputer for highly parallel workloads.
+It has many more CPU nodes and cores per node than Puhti, and has mainly been
+intended for computations that can efficiently utilize at least an entire CPU node.
+However, Mahti will be decommissioned in August 2026, so new work should be started on Roihu instead.
+Roihu will provide even more support for highly parallel workloads.
+
+While Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
+are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
+also suitable for demanding [machine learning](ml-guide.md) applications. Roihu,
+however, with its H100 GPUs provides even more performance than Mahti for these workloads.
+
 ## How to access CSC supercomputers?
 
 ### Web interface
 
-Puhti, Mahti and LUMI each have
+Roihu, Puhti, Mahti and LUMI each have
 [their own web interface](../../computing/webinterface/index.md), which allows
 interacting with the supercomputer through a web browser. The web interface is a
 good choice for interactive computing, such as analyzing, exploring and
@@ -116,9 +133,10 @@ like running full-scale simulations or training neural networks, you should use
 the command-line interface, since it allows you to access more resources and
 schedule your jobs.
 
-- [Puhti web interface](https://www.puhti.csc.fi)
-- [Mahti web interface](https://www.mahti.csc.fi)
+- [Roihu web interface](https://www.roihu.csc.fi)
 - [LUMI web interface](https://www.lumi.csc.fi)
+- [Puhti web interface](https://www.puhti.csc.fi) - retiring in 2026
+- [Mahti web interface](https://www.mahti.csc.fi) - retiring in 2026
 
 ### Command-line interface
 
@@ -136,7 +154,7 @@ The CLI allows you to
 [submit your computations as batch jobs](../../computing/running/getting-started.md)
 to the Slurm job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
-on the *compute nodes* opposed to the *login nodes*,
+on the *compute nodes* as opposed to the *login nodes*,
 which are [**not** intended for heavy computing](../../computing/usage-policy.md).
 Another benefit of batch jobs is that running computations does not necessitate
 being tied to your workstation. While setting up this automation can require
@@ -163,11 +181,9 @@ featured in the web interfaces or by
 ### Software
 
 A variety of useful [scientific computing software](../../apps/index.md) is
-available on CSC supercomputers. Puhti is especially distinguished in this
-regard, having over a hundred pre-installed programs. Our application pages
-include batch job script examples and guidelines for running the software
-efficiently on CSC supercomputers. We highly recommend using them as a
-starting point!
+available on CSC supercomputers. Software availability varies between systems
+and between the Roihu-CPU and Roihu-GPU partitions, so check the application
+pages and module availability on the system you plan to use.
 
 CSC supercomputers use [environment modules](../../computing/modules.md) for
 managing software environments. These modules cover everything from
@@ -202,7 +218,7 @@ using specific resources like GPUs.
 !!! note "Checking availability"
 
     If you have a piece of scientific software in mind, it is quite probable
-    that we have it installed on Puhti. Besides browsing Docs CSC, you can search
+    that we have it installed on Roihu. Besides browsing Docs CSC, you can search
     for software on the command-line using the command
     `module spider <search-pattern>`. Most often the name of the software module
     is simply the name of the software itself, and even if your search pattern
@@ -214,23 +230,30 @@ using specific resources like GPUs.
 CSC supercomputers provide distinct [disk areas](../../computing/disk.md) for
 different data storage purposes. The *project-based* shared storage can be found
 under `/scratch/<project>`. This folder is shared by *all users* in a project
-and has a default quota of 1 TB.
+and has a default quota of 250 GB on Roihu.
 
 Please note that the **scratch disk is not meant for long-term data storage**
-and, on Puhti, files that have not been used for 180 days (scratch quota less than 5 TiB)
-or 90 days (scratch quota 5 TiB or more) will be automatically removed. We recommend the
-[Allas object storage service](../../data/Allas/introduction.md) for storing
-research data that is not actively used on the supercomputers. See
-[guidelines for managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+and, on Roihu, files that have not been used for 180 days will be automatically removed.
+We recommend the [Allas object storage service](../../data/Allas/introduction.md)
+for storing research data that is not actively used on the supercomputers. See
+[guidelines for managing data on supercomputer scratch disks](clean-up-data.md)
 for more information. Also note that sensitive data must not be processed or
 stored on CSC supercomputers. For this purpose we have separate
 [sensitive data services](../../data/sensitive-data/index.md).
 
 CSC supercomputers also have a persistent project-based storage with a default
-quota of 50 GB. It is located under  
+quota of 15 GB on Roihu. It is located under  
 `/projappl/<project>` and recommended, for example, for custom software
-installations. Additionally, each user can store up to 10 GB of data in their
+installations. Additionally, each user can store up to 15 GB of data in their
 personal home directory (`$HOME`).
+
+If you need to host datasets that are shared by multiple projects, you can
+apply for a separate *dataset project* on Roihu. This gives you access to a
+`dataset` directory under `/dataset/<project>`, which is a project-specific
+storage area intended for sharing data between multiple computational projects
+on the system.
+
+See details about [dataset projects and the dataset disk area](../../computing/roihu-disk.md#dataset-directory).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is easy using the
@@ -278,7 +301,7 @@ at CSC.
     - [Linux basics tutorial](../tutorials/env-guide/index.md)
     - [Machine learning guide](ml-guide.md)
     - [Using Python on CSC supercomputers](python-usage-guide.md)
-    - [Managing data on Puhti and Mahti scratch disks](clean-up-data.md)
+    - [Managing data on scratch disks](clean-up-data.md)
     - Other [tutorials](index.md) and
       [training materials](../training-material/index.md)
 

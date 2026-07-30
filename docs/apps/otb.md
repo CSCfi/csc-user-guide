@@ -2,16 +2,17 @@
 tags:
   - Free
 catalog:
-  name: Orfeo ToolBox (Open Source processing of remote sensing images) 
+  name: Orfeo ToolBox
   description: for remote sensing applications
   license_type: Free
   disciplines:
     - Geosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
-# Orfeo ToolBox (Open Source processing of remote sensing images) 
+# Orfeo ToolBox
 
 [Orfeo ToolBox](https://www.orfeo-toolbox.org/) or OTB is an open source application for processing high resolution optical, multispectral and radar images at the terabyte scale.
 
@@ -19,6 +20,7 @@ catalog:
 
 Orfeo ToolBox is available in the following versions:
 
+* Roihu: 9.1.1
 * Puhti: 8.0.1
 
 ## Usage
@@ -57,13 +59,15 @@ app.SetParameterString("out", out)
 app.ExecuteAndWriteOutput()
 ```
 
-### Using the graphical tools
+### Using the graphical tools, only in Puhti
 
 Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook-8.0/Monteverdi.html):
 ```
 monteverdi
 ```
 Also other graphical tools available, see 'ls /appl/soft/geo/orfeotoolbox/8.0.1/bin/otbgui*' for full list. 
+
+OrfeoToolBox 9 does not include graphical tools any more.
 
 ### Running OTB applications in parallel 
 
@@ -109,7 +113,13 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 Orfeo Toolbox was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Orfeo Toolbox Docker image from Dockerhub provided by OTB community](https://hub.docker.com/r/orfeotoolbox/otb). 
 
-`wrap-container -w /opt/otb/bin,/usr/bin/python3 docker://orfeotoolbox/otb:8.0.1 --prefix install_dir`
+```
+#OrfeoToolBox 9.1.1
+wrap-container -w /app/otb/bin,/usr/bin/python3 docker://orfeotoolbox/otb:9.1.1_ubuntu24 --prefix 9.1.1
+
+#OrfeoToolBox 8.0.1
+wrap-container -w /opt/otb/bin,/usr/bin/python3 docker://orfeotoolbox/otb:8.0.1 --prefix install_dir
+```
 
 
 ## References

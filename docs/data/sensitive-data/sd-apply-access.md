@@ -75,7 +75,7 @@ If you have invited members in the application, they will receive an invitation 
 To access the data all members should:
 
 1. Click the link in the email and sign in to SD Apply. They will land on the application page.
-3. Scroll down to Term of use section.
+3. Scroll down to Terms of use section.
 4. Read terms of use and then click **Accept terms of use**.
 
 ![SD Apply terms of use](https://a3s.fi/docs-files/sensitive-data/SD_Apply/SD-Apply_Termsofuse.png)
@@ -103,7 +103,7 @@ When you login to SD Desktop, remember to use same login method you used to log 
 
 Once your analysis is completed, you can export the results from the computing environment. After that, the data access will be discontinued. To get access to the same dataset, you need to start a new application process. Follow these steps:
 
-* [Export data from virtual deskotop](./sd-desktop-export.md)
+* [Export data from virtual desktop](./sd-desktop-export.md)
 
 ## Support
 

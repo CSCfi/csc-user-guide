@@ -40,7 +40,7 @@ find $HOME/ -name "*.tmp"
 
 In the last find command examples we use `-mtime` search condition,
 which picks files based on their modification date. With the following
-command you can check what files have not been accessed in directory
+command you can check what files have not been modified in directory
 `/scratch/project_2001234` during the last 28 days:
 
 ```bash
@@ -79,14 +79,14 @@ directory are listed.
 
 ```bash
 $ file ./*
-./a.out:                   ELF 64-bit MSB MIPS-IV executable, MIPS, version 1
+./a.out:                   ELF 64-bit executable
 ./common.py:               a python script text executable .
-/data_old.gz:              gzip compressed data, from Unix
+./data_old.gz:              gzip compressed data, from Unix
 ./data.txt:                ASCII text
-./instrction.html:         HTML document text
+./instruction.html:         HTML document text
 ./molecule.msv:            data
 ./output4.jpg:             JPEG image data, JFIF standard 1.01
-./outout4.png:             PNG image data, 640 x 480, 4-bit colormap
+./output4.png:             PNG image data, 640 x 480, 4-bit colormap
 ./output4.xml:             XML document text
 ./poster1.pdf:             PDF document, version 1.4
 ./report.doc:              Microsoft Office Document
@@ -216,8 +216,10 @@ gpg -c file_name
 The command asks the user to define a password for the file. This
 password is not, and should not be, in any sense related to your CSC
 password. After confirming the password, the command makes an encrypted
-copy of the given file. By default, the encryption is done with CAST5
-algorithm, but several other algorithms can be used too.
+copy of the given file. By default, GPG chooses the symmetric encryption algorithm from
+its configuration and version defaults. In current GnuPG versions, the default
+for symmetric encryption is AES-128, but other algorithms can also be selected
+with command-line options.
 
 To open a GPG-encrypted file, give command:
 
@@ -273,9 +275,11 @@ gpg my_file.txt.gpg
 
 The program now asks for the password you used in encryption (in this
 case: `y8kIeg%a`). After this, you again have two files: the encrypted file
-`my_file.txt.gpg` and the original, readable file `my_file.txt`. Note
-that if you forget the password of your encrypted file, there is no one
-who can open the file!
+`my_file.txt.gpg` and the original, readable file `my_file.txt`.
+
+!!! warning "Save your password for important data!"
+        If you forget the password of your encrypted file, there is no one
+        who can open the file!
 
 ## Managing access permissions of files and directories
 
@@ -293,10 +297,12 @@ this setting is good as it keeps your data private. However, if you wish
 to share some data or execute self-written programs, the access
 permissions need to be modified.
 
-Note that the project specific-disk areas in Puhti and Mahti supercomputers 
-are an exception to this rule.̣ There by default also other project members, 
-belonging to the same UNIX group, have full rights to files created by other 
-users.
+Note that the project specific-disk areas in the Roihu supercomputer
+are an exception to this rule. In `scratch` and `projappl`, new files and directories are by default
+owned by the project group and accessible to other members of the same project.
+Files are normally group-readable and group-writable, while directories are
+group-readable, group-writable and group-executable so that project members can
+enter them.
 
 You can check the access permissions with the command `ls -l`. Let's take
 a look at the sample file listing that was previously used in the

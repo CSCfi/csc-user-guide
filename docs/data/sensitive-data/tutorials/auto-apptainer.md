@@ -24,7 +24,7 @@ auto-apptainer bam
 
 asks the user to choose from two containers: _bamtools_ and _bedtools_. Bedtools is included as it provides commands `bamToBed` and `bamToFasta` that match the search criteria in this case.
 
-Once a container is selected, one or more Apptainer wrapper-based commands are created to drectory: `/shared-directory/sd-tools/bin`.
+Once a container is selected, one or more Apptainer wrapper-based commands are created to directory: `/shared-directory/sd-tools/bin`.
 These commands can mostly be used like natively installed commands. For example after installing the Bamtools container, 
 Bamtools can be started with command:
 

@@ -30,7 +30,7 @@ includes following python packages:
 -   [contextily](https://contextily.readthedocs.io/en/latest/) -  to retrieve tile maps from the internet. NEW 2025
 -   [copc-lib](https://github.com/RockRobotic/copc-lib) - reader and writer interface for [Cloud Optimized Point Clouds (COPC)](https://copc.io/) Only in geoconda 3.10.9. and 3.14.3.
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
-    -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
+    -   [Dask parallelization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [dask-image](https://dask-image.readthedocs.io/) - image processing with Dask Arrays. NEW 2025
 -   [datashader](https://datashader.org/) - for big data rendering. NEW 2026
@@ -138,6 +138,7 @@ If you think that some important GIS package for Python is missing from here, yo
 
 The `geoconda` module is available:
 
+* 3.14.4 (Python 3.14.4, PDAL 2.10.0, GDAL 3.12.2, created May 2026), in LUMI
 * 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created March 2026), in Puhti and Mahti
 * 3.12.10 (Python 3.12.10, PDAL 2.8.4, GDAL 3.10.2, created April 2025), in Puhti.
 * 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
@@ -146,6 +147,8 @@ The `geoconda` module is available:
 * 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
 
 Version number is the same as the Python version.
+
+In Roihu geoconda is renamed to [python-geo](python-geo.md)
 
 ## Usage
 

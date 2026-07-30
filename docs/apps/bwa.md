@@ -70,7 +70,7 @@ Note that for small less than 2 GB reference genomes you could use a faster "is"
 
 ### Single-end alignment
 
-Once the indexing is ready you can carry out the alignment for singe-end reads with the command:
+Once the indexing is ready you can carry out the alignment for single-end reads with the command:
 
 ```bash
 bwa mem Homo_sapiens.GRCh38.dna.toplevel.fa reads.fastq > aln.sam
@@ -133,7 +133,7 @@ module load biokit
 # Index the reference genome
 bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
 
-# Run the alignnments
+# Run the alignments
 bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq reads2.fq > aln.sam
 ```
 

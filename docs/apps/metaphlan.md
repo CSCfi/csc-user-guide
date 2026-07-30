@@ -35,7 +35,7 @@ To activate MetaPhlAn Puhti, run command:
 module load metaphlan
 ```
 
-You can check vasic usage with command;
+You can check basic usage with command;
 
 ```text
 metaphlan --help

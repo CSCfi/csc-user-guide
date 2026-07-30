@@ -14,6 +14,7 @@ catalog:
         - Mahti
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # Maestro
@@ -44,6 +45,7 @@ self-learning materials.
 
 ## Available
 
+* Roihu-CPU: 2025.1, 2025.2, 2025.3, 2025.4, 2026.1
 * Puhti: 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3, 2025.4, 2026.1
 * Mahti: 2024.2, 2024.3, 2024.4, 2025.1, 2025.2, 2025.3, 2025.4, 2026.1
 
@@ -51,6 +53,14 @@ A two-year cleaning cycle is applied on the Maestro modules on CSC supercomputer
 Specifically, this means that module versions older than two years will be removed.
 This policy is enforced to free up disk space and encourage use of the latest versions
 which tend to be more performant and have less bugs.
+
+!!! warning "Desmond MD simulations cannot be run on Roihu!"
+    Schrödinger only ships x86 builds of their software suite. This means that
+    **any Schrödinger modules that require GPUs, most notably Desmond, cannot
+    be run on Roihu**.
+
+    CSC provides Maestro modules only on Roihu-CPU for purely CPU-based
+    workloads such as virtual screening (Glide).
 
 !!! info "Maestro versions older than 2023.1 will not work after 13.3.2025!"
     Schrödinger has taken into use a

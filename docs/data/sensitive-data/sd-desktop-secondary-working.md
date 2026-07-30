@@ -67,7 +67,7 @@ The copy-paste function from your computer/laptop to your virtual desktop is lim
 3. Now you can copy text normally from your computer (Ctrl+C or mouse right click).
 4. Paste the text inside your virtual desktop (Ctrl+V).
 
-    Note: Don't close Clipboard panel with **Cntrl+Alt+Shift**, this might disable the copy-paste function. Please note you have to activate the copy-paste function again every time you use your virtual desktop.
+    Note: Don't close Clipboard panel with **Ctrl+Alt+Shift**, this might disable the copy-paste function. Please note you have to activate the copy-paste function again every time you use your virtual desktop.
 
     ![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)  
     *Appearance of the Clipboard (Guacamole tools) may vary a bit depending on browser and local operating system.*
@@ -82,7 +82,6 @@ Below we list some of the most commonly used tools that are by default installed
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Office Tools**          | [LibreOffice](https://en.wikipedia.org/wiki/LibreOffice)                                                                                                                         |
 | **Programming**           | [Go](https://go.dev/) <br> [Python 3](./tutorials/sd-pythonlibs.md) including packages: tensorflow, nltk, spacy, scikit-learn, seaborn, plotly, bokeh, pydot, xgboost, lightgbm, catboost, eli5, torch, keras, dist-keras, elephas, gensim, scrapy, beautifulsoup4, numpy, scipy, pandas, statsmodels, matplotlib, pyfuse3, crypt4gh, trio, httpx, qrcode |
-| **R & RStudio**           | [R / RStudio Server](sd-desktop-working.md#accessing-rstudio-from-virtual-desktop) <br> - Matching the r-env-singularity/4.0.5 module on Puhti (R 4.0.5 + RStudio Server 1.4.1106, Bioconductor 3.12) <br> - 1000+ pre-installed R packages (versions available on Apr 20, 2021) <br> - Intel® oneAPI Math Kernel Library (oneMKL) <br> - GIS software (PROJ, GDAL, SAGA) <br> - CUDA drivers <br> - TensorFlow (used with R TensorFlow back-end) <br> - R + RStudio Server versions matched with Puhti r-env-singularity module (R 4.0.5 + RStudio Server 1.4.1106, MRAN, Bioconductor 3.12)                 |
 | **Workflow Engines**      | - [Nextflow](https://www.nextflow.io/) <br> - [Snakemake](https://snakemake.readthedocs.io/en/stable/)                                                                                                                                                |
 | **Software Containers**    | - [Apptainer](https://apptainer.org/) <br> - [Podman](https://podman.io/) (Only in Ubuntu machines)                                                                                                                             |
 | **Scientific Software**    | - [Plink 1.9](https://www.cog-genomics.org/plink/) <br> - [Samtools 1.8](http://www.htslib.org/) <br> - [Minimap2 2.26](https://github.com/lh3/minimap2)                                                                                                                          |
@@ -122,7 +121,7 @@ Below you can find a list of tools available in our software package.
 
 ## Accessing RStudio from virtual desktop
 
-After contacting [CSC Service Desk](../../support/contact.md) and receiving specific guidance, you can access R Studio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](r-in-sd-desktop.md)
+After contacting [CSC Service Desk](../../support/contact.md) and receiving specific guidance, you can access RStudio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](r-in-sd-desktop.md)
 
 
 Read next:

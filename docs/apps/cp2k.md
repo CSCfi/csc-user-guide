@@ -11,6 +11,7 @@ catalog:
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # CP2K
@@ -21,6 +22,28 @@ parallel quantum chemistry calculations, in particular for AIMD.
 [TOC]
 
 ## Available
+
+=== "Roihu-CPU"
+    | Version | Available modules | Notes       |
+    |:-------:|:------------------|:-----------:|
+    |2025.1   |`cp2k/2025.1`      | CPU version |
+    |2025.2   |`cp2k/2025.2`      | CPU version |
+    |2026.1   |`cp2k/2026.1`      | CPU version |
+
+=== "Roihu-GPU"
+    | Version | Available modules | Notes       |
+    |:-------:|:------------------|:-----------:|
+    |2025.1   |`cp2k/2025.1`      | GPU version |
+    |2025.2   |`cp2k/2025.2`      | GPU version |
+    |2026.1   |`cp2k/2026.1`      | GPU version |
+
+=== "LUMI"
+    | Version | Available modules                | Notes                 |
+    |:-------:|:---------------------------------|:---------------------:|
+    |2024.3   |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`| GPU version available |
+    |2025.1   |`cp2k/2025.1`<br>`cp2k/2025.1-gpu`| GPU version available |
+    |2025.2   |`cp2k/2025.2`<br>`cp2k/2025.2-gpu`| GPU version available |
+    |2026.1   |`cp2k/2026.1`<br>`cp2k/2026.1-gpu`| GPU version available |
 
 === "Puhti"
     | Version | Available modules | Notes |
@@ -44,14 +67,6 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |2024.1   |`cp2k/2024.1`      |       |
     |2024.2   |`cp2k/2024.2`      |       |
     |2025.1   |`cp2k/2025.1`      |       |
-
-=== "LUMI"
-    | Version | Available modules                | Notes                 |
-    |:-------:|:---------------------------------|:---------------------:|
-    |2024.3   |`cp2k/2024.3`<br>`cp2k/2024.3-gpu`| GPU version available |
-    |2025.1   |`cp2k/2025.1`<br>`cp2k/2025.1-gpu`| GPU version available |
-    |2025.2   |`cp2k/2025.2`<br>`cp2k/2025.2-gpu`| GPU version available |
-    |2026.1   |`cp2k/2026.1`<br>`cp2k/2026.1-gpu`| GPU version available |
 
 ## License
 
@@ -91,43 +106,50 @@ double the number of cores the calculation should be at least 1.5 times faster.
 
 ### Example batch scripts
 
-=== "Puhti (MPI only)"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --time=00:10:00
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --nodes=2
-    #SBATCH --mem-per-cpu=2GB
-    #SBATCH --partition=large
-    #SBATCH --account=<project>
-
-    module purge
-    module load gcc/14.2.0 openmpi/5.0.6
-    module load cp2k/2025.1
-
-    srun cp2k.psmp H2O-64.inp > H2O-64.out
-    ```
-
-=== "Mahti (mixed MPI/OpenMP)"
+=== "Roihu-CPU (hybrid MPI/OpenMP)"
 
     ```bash
     #!/bin/bash
     #SBATCH --time=00:05:00
-    #SBATCH --ntasks-per-node=32  # 2 - 128
-    #SBATCH --cpus-per-task=4     # 128 / ntasks-per-node
-    #SBATCH --nodes=2
-    #SBATCH --partition=test
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=96  # maximum 384
+    #SBATCH --cpus-per-task=4     # 384 / ntasks-per-node
+    #SBATCH --partition=medium
     #SBATCH --account=<project>
+    #SBATCH --hint=nomultithread
 
     module purge
-    module load gcc/14.2.0 openmpi/5.0.6
-    module load cp2k/2025.1
+    module load gcc/15.2.0 openmpi/5.0.10
+    module load cp2k/2026.1
 
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-    export OMP_PLACES=cores
+    srun cp2k.psmp H2O-512.inp > H2O-512.out
+    ```
 
-    srun cp2k.psmp H2O-64.inp > H2O-64.out
+=== "Roihu-GPU (full GPU node)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --time=00:10:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=64
+    #SBATCH --cpus-per-task=4
+    #SBATCH --gres=gpu:gh200:4
+    #SBATCH --partition=gpumedium
+    #SBATCH --account=<project>
+    #SBATCH --hint=nomultithread
+
+    module purge
+    module load gcc/13.4.0 openmpi/5.0.10
+    module load cp2k/2026.1
+
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+    # Nvidia multi-process service (MPS) required to run multiple tasks per GPU
+    nvidia-cuda-mps-control -d
+
+    srun cp2k.psmp H2O-dft-ls.inp > H2O-dft-ls.out
+
+    echo quit | nvidia-cuda-mps-control
     ```
 
 === "LUMI-G (full GPU node)"
@@ -170,6 +192,45 @@ double the number of cores the calculation should be at least 1.5 times faster.
         Since there are four GPUs per node and Slurm interprets each GCD as a
         separate GPU, you can reserve up to 8 "GPUs" per node. See more details
         in [LUMI Docs](https://docs.lumi-supercomputer.eu/hardware/lumig/).
+
+=== "Puhti (MPI only)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --time=00:10:00
+    #SBATCH --ntasks-per-node=40
+    #SBATCH --nodes=2
+    #SBATCH --mem-per-cpu=2GB
+    #SBATCH --partition=large
+    #SBATCH --account=<project>
+
+    module purge
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
+
+    srun cp2k.psmp H2O-64.inp > H2O-64.out
+    ```
+
+=== "Mahti (hybrid MPI/OpenMP)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks-per-node=32  # 2 - 128
+    #SBATCH --cpus-per-task=4     # 128 / ntasks-per-node
+    #SBATCH --nodes=2
+    #SBATCH --partition=test
+    #SBATCH --account=<project>
+
+    module purge
+    module load gcc/14.2.0 openmpi/5.0.6
+    module load cp2k/2025.1
+
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export OMP_PLACES=cores
+
+    srun cp2k.psmp H2O-64.inp > H2O-64.out
+    ```
 
 ### Performance notes
 

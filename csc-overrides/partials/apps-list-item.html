@@ -17,8 +17,9 @@ href="{{ href }}"{% if external %} target="_blank"{% endif %}
 {%- endmacro -%}
 
 {%- macro description(app) -%}
-{%- if app.description -%}
-&nbsp;&mdash;&nbsp;{{ app.description }}
+{%- set app_desc = app["description_" ~ config.theme.language] or app.description %}
+{%- if app_desc -%}
+&nbsp;&mdash;&nbsp;{{ app_desc }}
 {%- elif app.unchecked -%}
 *
 {%- endif -%}

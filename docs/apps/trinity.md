@@ -45,7 +45,7 @@ The biokit module sets up a set of commonly used bioinformatics tools including
 Trinity 2.8.5. If you want to use a newer version, e.g. 2.13.2, run the command:
 
 ```bash
-module load trinty/2.13.2
+module load trinity/2.13.2
 ```
 
 Trinity should be used [interactively in a compute node](../computing/running/interactive-usage.md) 

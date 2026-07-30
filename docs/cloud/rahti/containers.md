@@ -73,7 +73,7 @@ The application comprises a frontend that is the part of the application
 visible to users and a backend that handles various tasks in the background such as
 storing user data in a database. The application runs a server process that
 clients access to interact with the application. It also accesses a database
-such as PostgeSQL or MongoDB in the background to store user data.
+such as PostgreSQL or MongoDB in the background to store user data.
 
 The architects of this application must design it to keep the application
 running reliably, quickly and safely:

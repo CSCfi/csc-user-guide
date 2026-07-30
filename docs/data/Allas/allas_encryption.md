@@ -17,7 +17,7 @@ If you for some reason don't want to use SD Connect, below you can find some alt
    
 ## 1. Encrypting a single file or directory with `a-put`
   
-If you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use `a-put` with option _--encrypt_ to encrypt the file or directory you want to upload to Allas. You can use either symmetric (i.e. password) encryption with [**gpg**](https://gnupg.org/) or asymmetric key based encryption with [**crypt4gh**](https://crypt4gh.readthedocs.io/en/latest/). Gpg is available in most linux systems while crypt4gh is not so widely used so you may need to install it to your local system if you wish to use asymmetric encryption.
+If you install [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils/) to the machine you are using, you can use `a-put` with option _--encrypt_ to encrypt the file or directory you want to upload to Allas. You can use either symmetric (i.e. password) encryption with [**gpg**](https://gnupg.org/) or asymmetric key based encryption with [**crypt4gh**](https://crypt4gh.readthedocs.io/latest/). Gpg is available in most linux systems while crypt4gh is not so widely used so you may need to install it to your local system if you wish to use asymmetric encryption.
 
 Note, that by default `a-put` creates an additional metadata object that contains information about the uploaded files. When _--encrypt_ option is used, the actual data content will be encrypted, but the metadata objects (the _\_ameta_ files) will not be encrypted. In cases where the file names should not be stored in readable format, you should turn off the metadata object creation by using `a-put` with option _--no-ameta_.
 
@@ -233,7 +233,7 @@ irrecoverably lost.
 
 The initialization process asks for an encryption password for the repository. 
 
-Now, you can backup a file or directory to the Restic repository in Allas. In the example below a directory _my_data_ is backuped.
+Now, you can backup a file or directory to the Restic repository in Allas. In the example below a directory _my_data_ is backed up.
 
 <pre> <b>restic backup --repo swift:123_restic:/backup my_data/</b>
 enter password for repository: <b>************</b>
@@ -261,7 +261,7 @@ processed 258 files, 2.027 MiB in 0:00
 snapshot e3b46fe2 saved
 </pre>
 
-With command `restic sanpshots` we can see that we have two versions of my_data in the backup repository:
+With command `restic snapshots` we can see that we have two versions of my_data in the backup repository:
 
 <pre><b>restic snapshots --repo swift:123_restic:/backup</b> 
 enter password for repository: <b>************</b>
@@ -284,7 +284,7 @@ restoring <Snapshot a706c054 of [/run/nvme/job_4891841/data/my_data] at 2021-02-
 </pre>
 
 The actual data is stored as encrypted hash objects that are usable for other Allas tools. For example, the data that was stored by `restic` to bucket
-_123_restic_ in the example above loos like below, when listed with `rclone`:
+_123_restic_ in the example above looks like below, when listed with `rclone`:
 ```
 rclone ls allas:123_restic
       155 backup/config

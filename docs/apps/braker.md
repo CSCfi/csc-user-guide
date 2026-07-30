@@ -36,7 +36,7 @@ Puhti: 2.1.6, 3.0.7, 3.0.8
 
 BRAKER needs some additional setting up steps before using it for the first time.
 
-CSC BRAKER installations do not contain GeneMark or ProtHint softaware packages. While they are free
+CSC BRAKER installations do not contain GeneMark or ProtHint software packages. While they are free
 for individual use, their licensing terms do not allow CSC to make a public installation of them.
 Each user needs to license and install them for their own use.
 
@@ -139,7 +139,7 @@ braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa --AUGUSTUS_ab_
 
 ### Batch jobs
 
-Sample batch job scrip for BRAKER:
+Sample batch job script for BRAKER:
 
 ```bash
 #!/bin/bash
@@ -167,7 +167,7 @@ In the batch job example above one task (--ntasks 1) is executed. The BRAKER job
 The maximum duration of the job is ten hours (--time 10:00:00 ).
 All the cores are assigned from one computing node (--nodes=1 ).
 In the example the project that will be used is _project_2012345_.
-This value shuold be replaced by the name of your computing project.
+This value should be replaced by the name of your computing project.
 
 You can submit the batch job file to the batch job system with command:
 

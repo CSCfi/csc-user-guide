@@ -11,8 +11,10 @@ catalog:
     - web_interfaces:
         - LUMI
         - Puhti
+        - Roihu
     - LUMI
     - Puhti
+    - Roihu
 ---
 
 # GRASS GIS
@@ -23,6 +25,7 @@ catalog:
 
 __GRASS__ is available with following versions:
 
+* 8.5 with grassgis module in Roihu
 * 8.3 with grassgis module in Puhti
 * 7.8.7 with [qgis/3.31 module](qgis.md) in Puhti and LUMI
 * 7.8.5 with [qgis/3.22 module](qgis.md) in Puhti
@@ -38,13 +41,13 @@ GRASS GIS command line tools can be used in an [interactive session](../computin
 
 #### GRASS in Puhti
 
-The easiest option for using GRASS GIS is to open it in Puhti web interface.
+The easiest option for using GRASS GIS is to open it in web interface.
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi). 
+1. Log in to [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi). 
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. After launching the Desktop, double-click GRASS-GIS icon for the newest version.
  
-If you want to use older version, open `Terminal` (Desktop icon) and start GRASS GIS:
+If you want to use older version in Puhti, open `Terminal` (Desktop icon) and start GRASS GIS:
 
 ```
 module load qgis/3.22
@@ -75,7 +78,7 @@ Geographic Resources Analysis Support System (GRASS) is Copyright, 1999-2020 GRA
 
 ## Citation
 
-This software can be cited by chosing the appropriate citation from the [GRASS citation repository](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository). 
+This software can be cited by choosing the appropriate citation from the [GRASS citation repository](https://grasswiki.osgeo.org/wiki/GRASS_Citation_Repository). 
 
 
 ## Acknowledgement
@@ -86,7 +89,13 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-* GRASS 8.3 was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis): `wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui --prefix 8.3`
+* GRASS 8.5 and 8.3 were installed with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis):
+  
+```
+wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_5-ubuntu_wxgui --prefix 8.5
+wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui --prefix 8.3
+```
+
 * GRASS 7.x was installed to Puhti and LUMI as part of [QGIS installation](qgis.md#installation).
 
 
@@ -94,7 +103,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 * [GRASS GIS homepage](https://grass.osgeo.org/)
 * [GRASS GIS manuals](https://grass.osgeo.org/learn/manuals/)
-  * [Parellel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
+  * [Parallel GRASS jobs](https://grasswiki.osgeo.org/wiki/Parallel_GRASS_jobs)
 * [GRASS GIS tutorials](https://grass.osgeo.org/learn/tutorials/)
 * [GRASS database, location, mapset and region](https://grass.osgeo.org/grass79/manuals/grass_database.html), the basic concepts always needed with GRASS GIS. 
 In case of using parallel computation, be extra careful with `region`.

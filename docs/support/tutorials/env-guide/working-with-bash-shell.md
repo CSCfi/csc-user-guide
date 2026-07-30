@@ -46,34 +46,18 @@ For example, let's say we are in a directory where we have two files:
 !!! info "Tip"
     This will save you a lot of typing and typos!
 
-To open the latter of the files with Evince program, we would need to
-type the command:
+For example, to check the type of the latter file, we could type the command:
 
 ```bash
-evince final_research_report_new.pdf
+file final_research_report_new.pdf
 ```
 
-This command would require you to type 36 characters. However, by using
-*Tab completion* you need to type only 5 characters. First type
+Typing long file names is slow and prone to mistakes. With Tab completion,
+you only need to type enough characters to identify the file. First type the
+command and the first letter of the file name:
 
 ```bash
-evi
-```
-
-and then press the *Tab* key. Normally at CSC, Evince is the only
-available program or command that starts with letters *evi*, so when the
-Tab completion is executed, it knows to complete the rest of the
-command:
-
-```bash
-evince
-```
-
-Then, to define the file name, you can type just the first letter of the
-file name
-
-```bash
-evince f
+file f
 ```
 
 When you now press *Tab*, the completion process checks which files
@@ -82,14 +66,14 @@ as the beginning of the two file names is the same string, the command
 can now be completed to:
 
 ```bash
-evince final_research_report_
+file final_research_report_
 ```
 
 Now you just need to type one *n* to the end of file name to distinguish
 the file from the *old* version,
 
 ```bash
-evince final_research_report_n
+file final_research_report_n
 ```
 
 When the *Tab* key is now pressed again there is only one option that
@@ -97,7 +81,7 @@ matches the beginning of the argument that has been typed, and thus the
 command is completed and ready to be executed:
 
 ```bash
-evince final_research_report_new.pdf
+file final_research_report_new.pdf
 ```
 
 ## Stopping programs and running programs in background
@@ -116,12 +100,12 @@ the background by adding `&` character to the end of the command. For
 example, the command
 
 ```bash
-eog image1.jpg &
+feh image1.jpg &
 ```
 
-would open the *Eye of GNOME* image viewing program (requires X-term
+would open the *feh* image viewing program (requires X-term
 connection) to the background so that the command shell could
-still be used even though the `eog` command is still running. A background
+still be used even though the `feh` command is still running. A background
 process can be changed to normal, foreground process with command 
 `fg`. When a command and program is running interactively, i.e. the
 command shell is waiting that the execution finishes, you can terminate
@@ -139,8 +123,8 @@ currently executing, with command `ps`. For example:
 ```bash
 $ ps
 PID TTY          TIME CMD
-385 pts/12   00:00:00 tcsh
-2001 pts/12   00:00:00 eog
+385 pts/12    00:00:00 bash
+2001 pts/12   00:00:00 feh
 2003 pts/12   00:00:00 gconfd-2
 2203 pts/12   00:00:00 ps
 ```
@@ -150,7 +134,7 @@ launched from the command shell you are currently using. To see all your
 processes in the server you have logged in to, give command:
 
 ```bash
-ps -f username
+ps -fu $USER
 ```
 
 Once you have identified the correct process number, you can kill the
@@ -166,7 +150,7 @@ For example, the command
 kill 2001
 ```
 
-would kill the `eog` process, listed in the output of the previous `ps`
+would kill the `feh` process, listed in the output of the previous `ps`
 example. You can only kill processes that are owned by your account.
 Sometimes when you want to kill a process that is malfunctioning, the
 normal kill command may not able to terminate the process. In those

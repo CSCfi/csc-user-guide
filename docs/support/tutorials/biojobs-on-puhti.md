@@ -231,13 +231,13 @@ module load biokit
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-All the lines staring with **#SBATCH** are passed on to the batch job
+All the lines starting with **#SBATCH** are passed on to the batch job
 system. We use them to request the necessary resources.
 
 Job name (--job-name) is mainly used to identify your job *e.g.* when
 listing jobs with **squeue** or checking past jobs with **sacct**.
 
-It is necessary to to inform the system which project should be
+It is necessary to inform the system which project should be
 billed. This is done with **--account**. You can check the projects that
 you belong to in [MyCSC](https://my.csc.fi/myProjects) or with `csc-projects`
 in the command line.

@@ -1,5 +1,20 @@
 # Data management
 
+## Sensitive Data (SD) Desktop service: billing changes and export process update, 05.2026
+
+### Billing Units for external volumes: applies to all CSC project types (Academic & Secondary Use) with SD desktop service enabled
+
+Starting June 3, 2026, SD Desktop external volumes will begin consuming Cloud Billing Units from your CSC project. Please ensure you have sufficient Billing Units for the next 5–6 months by following the [step-by-step guidance](../../data/sensitive-data/sd-desktop-volumes-billing.md).
+
+### Changes to data export: apply only to Secondary Use CSC projects type with SD Desktop service enabled 
+
+The process for exporting results from SD Desktop within Secondary Use projects has changed as of May 1, 2026. Amendments to the Secondary Use Act that took effect on May 1, 2026, have changed Findata Authority’s approach to ensuring the anonymity of exported results. Findata has adopted a risk-based assessment model, and the [SD Desktop export process has been updated accordingly](../../data/sensitive-data/sd-desktop-secondary-export.md).
+
+**What this means in practice**: CSC no longer submits results to Findata for scrutiny on behalf of researchers
+
+**Researchers must**: Complete a risk-based assessment on Findata’s website before exporting results. Notify Findata of all results to be exported. Findata may request results for scrutiny if there is a high risk of identifying individuals.
+
+
 ## The Kaivos database service has been decommissioned, 2.1.2026
 
 The Kaivos database service has been decommissioned. The service is replaced by
@@ -117,9 +132,9 @@ We are excited to announce that, starting February 2025, new command line tools 
 
 Important: files uploaded programmratically before February 2025 were manually encrypted with your encryption key and will require manual decryption after download.
 
-Contiure reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
+Continue reading: [user guide](../../data/sensitive-data/sd-connect-command-line-interface.md)
 
-For questions, support or traning, don't hesitate to conact us at servicedesk@csc.fi (subject: SD Connect)
+For questions, support or training, don't hesitate to contact us at servicedesk@csc.fi (subject: SD Connect)
 
 
 ## SD Desktop, upgrade Heavy Computation option, 15.01.2025

@@ -1,5 +1,30 @@
 # Computing environment
 
+## Roihu FAQ and data migration instructions updated, 11.6.2026
+
+The [Roihu FAQ](../faq/roihu.md) and [data migration instructions](../tutorials/roihu-data-preparation.md) have
+been updated with the latest information for the transition from Puhti
+and Mahti to Roihu. Roihu is scheduled to become generally available during end of June 2026.
+
+Puhti and Mahti will be fully decommissioned by mid October, after Roihu becomes available, so users
+should start preparing their data for migration. We recommend reviewing what data
+needs to be moved, deleting unnecessary files and ensuring that important data is
+moved, or saved, before Mahti and Puhti are decommissioned.
+
+Puhti and Mahti storage services will be fully inaccessible after October 15th 2026.
+
+See the updated instructions:
+
+* [Roihu FAQ](../faq/roihu.md)
+* [Roihu data preparation instructions](../tutorials/roihu-data-preparation.md)
+
+## Puhti and Mahti web interface updated to release 33 and 17, 11.6.2026
+
+* The MATLAB version can now be selected.
+* Jupyter for Courses now has an option to reset the course material.
+* VSCode now has an option to re-open the last opened workspace.
+* Open OnDemand updated to 4.1.5.
+
 ## Puhti and Mahti web interface updated to release 32 and 16, 25.2.2026
 
 * [Jupyter with an R kernel](../../computing/webinterface/r-jupyter.md) is now available on Mahti.
@@ -341,7 +366,7 @@ remains before access is removed.
 * All terminals in the desktop now open outside the container -> should work exactly as a normal login shell
   * Host terminal has been renamed Terminal on the desktop
 * Graphical Emacs now available in the desktop
-* Jupyter app now accepts full path to Python interpeter, enabling direct usage of Tykky installations.
+* Jupyter app now accepts full path to Python interpreter, enabling direct usage of Tykky installations.
 * Time left for job is now correctly calculated and displayed at the bottom of the terminal when reconnecting to a compute node shell. 
 
 ## Puhti disk cleaning policy changed, 17.1.2023

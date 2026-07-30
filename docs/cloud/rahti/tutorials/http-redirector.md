@@ -84,6 +84,9 @@ This tutorial does not handle `oc` command in detail but you can get started wit
 
 If you need to redirect more than one host domain, you can use the same nginx, you just need to (1) add a new Route with the new host, and (2) add a new server block to the existing ConfigMap. In order for nginx to pick up the new configuration, you can delete the Pod or enter in the pod's terminal and run `nginx -s reload`.
 
+!!! note "Terminal"
+    If you cannot see the commands in the Terminal, please expand it by clicking "Expand" on the top right. You can collapse and the commands will still be displayed
+
 ## Conclusion and more
 
 Nginx is a powerful web server. You can use it also as a HTTP proxy and load balancer. For more information, please check the documentation at <https://nginx.org/en/docs/>.

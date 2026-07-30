@@ -6,13 +6,17 @@ from mkdocs.exceptions import PluginError
 
 
 class App:
-    def __init__(self, meta):
+    def __init__(self, meta, lang_code="en"):
         self.unchecked = meta.get("unchecked", False)
         self.name = meta.get("name")
         self.description = meta.get("description", "")
         self.license_type = meta.get("license_type", "")
         self.disciplines = meta.get("disciplines", [])
         self.available_on = meta.get("available_on", [])
+
+        if lang_code != "en":
+            description = meta.get(f"description_{lang_code}", "")
+            setattr(self, f"description_{lang_code}", description)
 
     def __attr_name(self, attr):
         pattern = re.compile(r"^_([A-Z][a-zA-Z]+)__(\w+)$")

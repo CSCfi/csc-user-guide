@@ -1,6 +1,6 @@
 # Using Tar over SSH to move many files
 
---8<-- "auth-update-ssh.md"
+--8<-- "ssh-ca.md"
 
 Linux tools such as `scp` and `rsync` are commonly used to transfer files
 between a remote server and a local machine. However, these tools are not
@@ -37,16 +37,18 @@ tar c myfiles | ssh <username>@puhti.csc.fi 'cat > /scratch/project_2001234/myfi
 ```
 
 !!! info "Note"
-    If you have stored your SSH key file with a non-default name or in a
-    non-default location (somewhere else than `~/.ssh/id_<algorithm>`), you must
-    specify where `ssh` should look for the key using the `-i` option, e.g:
+    If you have stored your SSH key or certificate file with a non-default name
+    or in a non-default location (somewhere else than `~/.ssh/id_<algorithm>`
+    and `~/.ssh/id_<algorithm>-cert.pub`), you must specify where `ssh` should
+    look for the files using the `-i` option, e.g:
 
     ```bash
-    tar c myfiles | ssh -i <path_to_private_key> <username>@puhti.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
+    tar c myfiles | ssh -i <path_to_private_key> -i <path_to_certificate> <username>@<host> 'cat > /scratch/project_2001234/myfiles.tar'
     ```
 
-    The rest of this page assumes the key is stored in a default location using
-    a standard name, so the `-i` flag is omitted.
+    The rest of this page assumes the key and certificate are stored in a
+    default location using standard naming, so the `-i` flag is omitted. Note
+    that SSH certificates are required for connecting to Roihu only.
 
 To extract the tar archive at the same time, replace the `cat` command as:
 
@@ -90,8 +92,9 @@ ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' | tar x
 
 To transfer data directly between CSC supercomputers, you must be able to access
 the SSH keys you've set up on your local workstation for authenticating to CSC
-supercomputers. This is accomplished by forwarding your SSH agent to the
-supercomputer you're first connecting to.
+supercomputers. For Roihu, a valid SSH certificate is also needed. This is
+accomplished by forwarding your SSH agent including your SSH keys (and
+certificate) to the supercomputer you're first connecting to.
 
 - [SSH agent forwarding instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding)
 - [SSH agent forwarding instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding)

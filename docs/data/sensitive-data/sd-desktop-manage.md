@@ -64,7 +64,7 @@ Detaching a volume can be compared to disconnecting a USB stick from your laptop
             
         ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
 
-    * Next select **Change Permissions for Enclosed Files** button to adjust file permisssions inside the folder.
+    * Next select **Change Permissions for Enclosed Files** button to adjust file permissions inside the folder.
     * Set permissions to **Create and Delete files**:
 
         * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.

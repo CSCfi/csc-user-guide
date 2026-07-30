@@ -9,15 +9,31 @@ In the app launch form you can define the Python environment,
 Jupyter interface type (Jupyter Notebook or JupyterLab),
 working directory as well as some more advanced settings.
 
-For more information about working with different Python environments on Puhti
-and Mahti, see our [Python application page](../../apps/python.md)
+For more information about working with different Python environments on Roihu,
+Puhti, and Mahti, see our [Python application page](../../apps/python.md)
 and [Python usage guide](../../support/tutorials/python-usage-guide.md).
 Note that all the modules listed on the Python app page are not guaranteed to
 work with the Jupyter interactive app. Additionally, installation of
 Python packages works differently from the general instructions in
 the usage guide.
 
-### Currently supported Python environments
+### Supported Python environments on Roihu
+
+CPU partitions:
+
+ - python-data
+ - python-geo
+
+GPU partitions:
+
+- python-data
+- python-pytorch
+
+Note that the Python module dropdown will only show the modules available on the currently selected
+partition.
+
+
+### Supported Python environments on Puhti and Mahti
 
  - geoconda
  - python-data
@@ -33,7 +49,8 @@ this, you must enable either the *User packages* or the *Virtual environment* op
 options are shown after enabling the *Enable advanced settings* option at the end of the form.
 
 If you do not define an installation path, the packages will be installed under
-`$HOME/.local/lib`. However, **this is not recommended** as the home directory
+`$HOME/.local/lib` on Puhti and Mahti, and `$HOME/.local/x86_64/lib` or `$HOME/.local/aarch64/lib/`
+on Roihu. However, **this is not recommended** as the home directory
 storage quota is limited.
 
 ![Jupyter additional packages settings](../../img/ood_jupyter_additional_packages.png)
@@ -65,7 +82,7 @@ requires using virtual environments.
 
 
 To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky
-installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then, open the Puhti
+installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then, open the Roihu, Puhti,
 or Mahti web interface and navigate to the Jupyter app page. In the form, select the `Custom path`
 option from the Python dropdown. Then, enter the full path to the Python interpreter of your Tykky
 installation. So, if you created an installation with the command `conda-containerize new

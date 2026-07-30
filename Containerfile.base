@@ -1,0 +1,25 @@
+ARG base_image=ubi8
+FROM ${base_image} as base
+
+LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
+
+RUN \
+  dnf --refresh --assumeyes install \
+                              python3.11 \
+                              python3.11-pip \
+                              git \
+&& \
+  dnf clean all
+
+ADD --chown=0:0 \
+    --chmod=774 \
+  scripts/sparse-clone.bash /sparse-clone.bash
+
+RUN \
+  mkdir --mode 775 /work \
+&& \
+  git config --system \
+             --add safe.directory \
+    /work
+
+WORKDIR /work

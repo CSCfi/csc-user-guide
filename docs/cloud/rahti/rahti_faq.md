@@ -72,7 +72,7 @@ The recommended way to discover the suitable values for your application is tria
 
 In order to increase or decrease the resource limits, one can use the web UI or the command line.
 
-From the web UI, go to `Workloads` -> `Deployment`, chhose the deployment and press **Actions > Edit resource limits**. You will be presented with a dialog with the CPU request and limit and Memory request and limit. The limit cannot be more than 5 times higher than the request. The request is the minimum CPU (or memory) necessary for the deploy to work, and will be used to schedule the Pod. The limit is the maximum allowed usage of CPU (or memory). If a Pod tries to use more memory than the limit, the Pod will be killed (OOMKilled). On the other hand, if a Pod tries to use more CPU then the limit, it will be simply limited, but it will not be killed.
+From the web UI, go to `Workloads` -> `Deployment`, choose the deployment and press **Actions > Edit resource limits**. You will be presented with a dialog with the CPU request and limit and Memory request and limit. The limit cannot be more than 5 times higher than the request. The request is the minimum CPU (or memory) necessary for the deploy to work, and will be used to schedule the Pod. The limit is the maximum allowed usage of CPU (or memory). If a Pod tries to use more memory than the limit, the Pod will be killed (OOMKilled). On the other hand, if a Pod tries to use more CPU then the limit, it will be simply limited, but it will not be killed.
 
 ![Edit ResourceLimits](../img/editResourceLimitsDialog.png)
 
@@ -171,7 +171,7 @@ So, if the deployment have a mounted volume and you want to update the deploymen
 
 ![Action](../img/action.png)
 
-![Edit deployment stategy](../img/edit_update_strategy.png)
+![Edit deployment strategy](../img/edit_update_strategy.png)
 
 ### How to use Integrated Registry
 

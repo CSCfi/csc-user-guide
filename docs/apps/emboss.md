@@ -20,7 +20,7 @@ Examples of application areas of EMBOSS tools are given below.
 
 * Sequence alignment
 * Phylogeny
-* Hidden Markow models
+* Hidden Markov models
 * Rapid database searching with sequence patterns
 * Protein motif identification, including domain analysis
 * EST analysis

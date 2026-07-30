@@ -12,6 +12,9 @@ In order to open a terminal to a **Running** Pod there are two options:
 
 ![Terminal Pod](img/terminal.png)
 
+!!! note "Terminal"
+    If you cannot see the commands in the Terminal, please expand it by clicking "Expand" on the top right. You can collapse and the commands will still be displayed
+
 ## Using the command line with `oc`
 
 1. First, get the name of the Pod you want to open an interactive terminal session to:

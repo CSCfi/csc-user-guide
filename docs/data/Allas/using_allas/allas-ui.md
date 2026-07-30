@@ -60,6 +60,7 @@ After creating buckets and uploading objects, you can view and manage them easil
 1. The main dashboard lists all your buckets.
 2. Click on a bucket name to view its contents.
 3. Use the **[Download](#downloading-objects-and-buckets)**, **[Share](#sharing-a-bucket)**, **[Copy](#copying-a-bucket)** or **Options** (*Edit tags*, *[Delete](#removing-objects-and-buckets)*) buttons for actions on objects and buckets.
+4. Use the **Filter** button to filter specific buckets
 
 ![Dashboard](img/Allas-UI-dashboard.png){ width=80% }
 <br>Managing buckets in Allas
@@ -128,15 +129,15 @@ To share a bucket, follow these steps:
     - **Collaborate**: Allows uploading and deleting.
     - **View**: Read-only access.
 4. Click **Share** to finalize the process.
-5. You can see the buckets you have shared under the **Buckets you have shared** tab.
-6. You can see buckets shared with you under the **Buckets shared with you** tab.
+5. You can see the buckets you have shared by using the **Filter** button and choosing **Shared by you**.
+6. You can see buckets shared with you by using the **Filter** button and choosing **Shared with you**.
 
 **Note:** You can always remove a share of a bucket by clicking **Share** and pressing **Delete**.
 
 === "Sharing Permissions"
     ![Sharing Permissions](img/Allas-UI-share.png){ width=80% }
 
-=== "Buckets You Have Shared"
+=== "Shared by you"
     ![Buckets You Have Shared](img/Allas-UI-shared.png){ width=80% }
 
 

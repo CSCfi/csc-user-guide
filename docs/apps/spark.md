@@ -51,7 +51,7 @@ Listed below are some of the variables that can be changed.
 - **Worker CPU**: Number of cores for each worker of the cluster (Default: 2)
 - **Worker Memory**: Memory of each worker of the cluster (Default: 4G)
 
-- **Executor Default Cores**: Default value for Spark Executor Cores (See official [Spark documention](https://spark.apache.org/docs/latest/) for more) (Default: 2)
+- **Executor Default Cores**: Default value for Spark Executor Cores (See official [Spark documentation](https://spark.apache.org/docs/latest/) for more) (Default: 2)
 - **Executor Default Memory**: Default value for Spark Executor Memory (**Should always be less than the Worker memory!**) (Default: 3G)
 
 - **Driver CPU**: Number of cores for the driver (Jupyter Notebook)

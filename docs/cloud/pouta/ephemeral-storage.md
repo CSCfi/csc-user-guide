@@ -15,7 +15,7 @@ more safety, avoiding the loss of files.
 
 The ephemeral storage is visible as an additional disk to the virtual
 machine (usually /dev/vdb). Depending on the image and metadata chosen
-when creating the virtual machine, the disk might be already formated
+when creating the virtual machine, the disk might be already formatted
 as `vfat` and mounted in `/mnt`. If this is case and this fits your use
 case, you can just start to use the disk.
 

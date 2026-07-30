@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: Diamond
-  description: Sequence similarity search tool for proteins and nucloeotides
+  description: Sequence similarity search tool for proteins and nucleotides
   license_type: Free
   disciplines:
     - Biosciences

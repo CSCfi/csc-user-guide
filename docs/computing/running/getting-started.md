@@ -47,12 +47,14 @@ the **Slurm** batch job system at CSC.
 To get started with running your application on CSC supercomputers:
 
 1. [Available batch job partitions](batch-job-partitions.md)
-2. [Creating a batch job script for Puhti](creating-job-scripts-puhti.md)
-3. [Creating a batch job script for Mahti](creating-job-scripts-mahti.md)
-4. [Submit a batch job](submitting-jobs.md)
-5. [Performance checklist](performance-checklist.md)
+1. [Creating a batch job script for Roihu](creating-job-scripts-roihu.md)
+1. [Creating a batch job script for Puhti](creating-job-scripts-puhti.md)
+1. [Creating a batch job script for Mahti](creating-job-scripts-mahti.md)
+1. [Submit a batch job](submitting-jobs.md)
+1. [Performance checklist](performance-checklist.md)
 
 If you are already familiar with Slurm, check out our
+[example batch job scripts for Roihu](example-job-scripts-roihu.md),
 [example batch job scripts for Puhti](example-job-scripts-puhti.md) or
 [example batch job scripts for Mahti](example-job-scripts-mahti.md).
 

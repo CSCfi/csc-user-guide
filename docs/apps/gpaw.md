@@ -10,15 +10,14 @@ catalog:
   available_on:
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # GPAW
 
-GPAW is an efficient program package for electronic structure
-calculations. It is based on the density-functional theory (DFT)
-implemented within the projector augmented wave (PAW), and it can utilize
-various basis sets (uniform real-space grids, plane waves, localized
-atomic orbital basis).
+GPAW is a density-functional theory (DFT) and beyond code based on the projector-augmented wave (PAW) method and
+the atomic simulation environment (ASE). The wave functions can be described with
+plane waves, uniform real-space grids, and atom-centered basis functions.
 
 Some features of the software include:
 
@@ -26,24 +25,31 @@ Some features of the software include:
 - structural optimizations
 - different boundary conditions (finite, wire, slab, bulk)
 - efficient parallelization
-- excited state properties within time-dependent density-functional
-    theory
-
-[TOC]
+- excited state properties within time-dependent density-functional theory
 
 ## Available
 
-- Puhti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0
-- Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0, 23.9.1, 24.1.0
+### Roihu
+
+- Roihu-CPU: 25.7.0
+- Check all available versions (and default version) with `module avail gpaw`
+- The installation includes the following libraries: MPI, OpenMP, ScaLAPACK, ELPA, FFTW, libxc, libvdwxc, DFT-D3, DFT-D4
+- See [GPAW documentation on parallel runs](https://gpaw.readthedocs.io/documentation/parallel_runs/parallel_runs.html#parallelization-options)
+  for instructions on how to enable high-performance libraries in the input script
+- The PAW setups are installed through `gpaw_data` package
+- Use `gpaw info` for detailed version information
+
+
+### Puhti and Mahti
+
+- Puhti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0, 24.6.0
+- Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0, 23.9.1, 24.1.0, 24.6.0, 25.1.0, 25.7.0
 - Check all available versions (and default version) with
     `module avail gpaw`
 - Modules ending with `-omp` have the optional OpenMP parallelization enabled,
     see [GPAW documentation about parallel runs](https://wiki.fysik.dtu.dk/gpaw/documentation/parallel_runs/parallel_runs.html?highlight=openmp#manual-openmp)
     for more details.
-
-### PAW Setups
-
-All installations (except 24.1.0) use version **0.9.20000** of GPAW's PAW Setups.
+- All installations before 24.1.0 use version **0.9.20000** of GPAW's PAW Setups.
 
 ## License
 
@@ -60,15 +66,62 @@ module load gpaw/version
 ```
 
 !!! warning "Note"
-    In CSC environment, GPAW calculations are run with the `gpaw-python` command.
-
-### Enabling ELPA
-
-On Mahti, GPAW can use the ELPA library to speed up the diagonalization step. Especially with LCAO calculations, ELPA can improve
-the performance. In order to use ELPA, the `'use_elpa' : True` setting needs to be included in the parallelization options in GPAW input
-(see [GPAW documentation](https://wiki.fysik.dtu.dk/gpaw/documentation/lcao/lcao.html#notes-on-performance) for more information).
+    GPAW calculations are run with the `gpaw-python` command on Puhti and Mahti and with the `gpaw python` command on Roihu.
 
 ### Batch script examples
+
+=== "Roihu-CPU (partial node)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=gpaw
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --time=00:30:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=2
+    #SBATCH --cpus-per-task=1
+    #SBATCH --mem-per-cpu=1000M
+
+    # Set the number of threads based on cpus-per-task
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+    # Place and bind threads to single cores
+    # Comment the following lines if binding is not desired
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
+
+    # Run GPAW
+    srun gpaw python input.py
+    ```
+
+=== "Roihu-CPU (full nodes)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=gpaw
+    #SBATCH --account=<project>
+    #SBATCH --partition=medium
+    ##SBATCH --partition=large  # uncomment if using 6 or more nodes
+    #SBATCH --time=00:30:00
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
+
+    # Test different values of
+    # --ntasks-per-node and --cpus-per-task above
+    # for your use case and use the values that give the best performance
+
+    # Set the number of threads based on cpus-per-task
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+    # Place and bind threads to single cores
+    # Comment the following lines if binding is not desired
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
+
+    # Run GPAW
+    srun gpaw python input.py
+    ```
 
 === "Puhti"
 
@@ -141,4 +194,4 @@ the performance. In order to use ELPA, the `'use_elpa' : True` setting needs to 
 
 ## More information
 
-- [GPAW home page](https://wiki.fysik.dtu.dk/gpaw/)
+- [GPAW home page](https://gpaw.readthedocs.io/)

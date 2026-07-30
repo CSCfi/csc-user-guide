@@ -180,6 +180,9 @@ fine-tuning guide from Hugging
 Face](https://huggingface.co/blog/mlabonne/sft-llama3), which also
 covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
+### A fine-tuning example with climate data
+
+A practical fine-tuning example is provided in our [repository](https://github.com/CSCfi/climate-llm-finetuning). The example focuses on utilizing climate-related scientific articles from [Copernicus](https://publications.copernicus.org/open-access_journals/open_access_journals_a_z.html) to fine-tune smaller sized LLMs (in this case, Llama-3.1-8B-Instruct model).
 
 ## Quantization
 
@@ -323,9 +326,9 @@ First, you can install Ollama into your project folder like this:
 cd /projappl/project_2001234  # replace with the appropriate path for you
 mkdir ollama
 cd ollama
-wget https://ollama.com/download/ollama-linux-amd64.tgz
-tar xzf ollama-linux-amd64.tgz
-rm ollama-linux-amd64.tgz
+wget https://ollama.com/download/ollama-linux-amd64.tar.zst
+tar -xf ollama-linux-amd64.tar.zst
+rm ollama-linux-amd64.tar.zst
 ```
 
 On LUMI you have to do this additionally (in the same directory as
@@ -333,9 +336,9 @@ above). Note that with the additional ROCm files, the installation
 takes 14 GB of disk space!
 
 ```bash
-wget https://ollama.com/download/ollama-linux-amd64-rocm.tgz
-tar xzf ollama-linux-amd64-rocm.tgz
-rm ollama-linux-amd64-rocm.tgz
+wget https://ollama.com/download/ollama-linux-amd64-rocm.tar.zst
+tar xf ollama-linux-amd64-rocm.tar.zst
+rm ollama-linux-amd64-rocm.tar.zst
 ```
 
 In your batch job you then just need to start the service with `ollama

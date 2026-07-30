@@ -1,8 +1,8 @@
 # Images
 
-A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. An Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
+A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. A Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
 
-Docker containers are the running instances of Docker images. To avoid confusions, lets have a quick walkthrough over Docker image & containers using cooking example:
+Docker containers are the running instances of Docker images. To avoid confusions, let's have a quick walkthrough over Docker image & containers using cooking example:
 
 * Dockerfile could be regarded as the ingredients list.
 * Docker Images are ingredients mixed together.
@@ -67,7 +67,7 @@ The name in this example is `nginx`, but as we can see, it is expanded first to 
 * Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `nginx` are: `stable`, `perl`, `1.25.3-perl`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
 
 
-Official page of [nginx](https://hub.docker.com/_/nginx) on Docker hub provide us more details how different tagged versions of official nginx image is build.
+Official page of [nginx](https://hub.docker.com/_/nginx) on Docker hub provides us more details how different tagged versions of official nginx image is build.
 
 ## Advanced image internals
 

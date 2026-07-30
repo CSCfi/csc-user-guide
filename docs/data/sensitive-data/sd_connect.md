@@ -35,7 +35,7 @@ Known temporary issues:
 General considerations:
 
 - SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted.
-- The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
+- The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, according to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
 - CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 - SD Connect service only supports processing of encrypted files, whether sensitive or non-sensitive (e.g., scripts).
 

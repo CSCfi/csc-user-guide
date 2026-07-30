@@ -35,6 +35,17 @@ For example, use the following settings for connecting to Puhti:
 Click _Connect_. If it is the first time you're connecting, FileZilla will ask
 if you trust the host, and then prompt you for your SSH key passphrase.
 
+!!! warning "Important: Connecting to Roihu"
+    There is no way to manually provide FileZilla an SSH certificate for
+    connecting to Roihu. Instead, to form a connection to Roihu using
+    FileZilla, please ensure that you've got Pageant SSH agent running and that
+    it holds a valid SSH certificate. FileZilla will then fetch it from the
+    agent automatically.
+
+    [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    For streamlining the process down the line, we recommend using the
+    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
+
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
 site the remote file system (e.g. files on Puhti). You can change your location
@@ -75,6 +86,23 @@ Start WinSCP and enter your login information, for example:
 Click the _Advanced_ button and open the _SSH_ > _Authentication_ tab. Enter
 the path to your SSH private key in the _Private key file_ field and click
 _OK_.
+
+!!! warning "Important: Connecting to Roihu"
+    If you're connecting to Roihu, please specify a `.ppk` file that includes a
+    valid SSH certificate in the _Private key file_ field (e.g.
+    `C:\Users\<username>\.ssh\id_ed25519-cert.ppk`).
+    
+    Alternatively, if you've added this key to Pageant, you can simply leave
+    the _Private key file_ field empty – WinSCP will fetch it from the agent
+    automatically if you've toggled the _Attempt authentication using Pageant_
+    option in the _SSH_ > _Authentication_ tab (on by default). Please note
+    that if you specify a key that does **not** include a valid certificate,
+    WinSCP will try to use this instead of Pageant. It is thus important that
+    you leave the field empty.
+
+    [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    For streamlining the process down the line, we recommend using the
+    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
 
 ![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 

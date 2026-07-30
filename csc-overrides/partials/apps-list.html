@@ -1,4 +1,5 @@
 {% from "partials/apps-list-item.html" import app_item with context %}
+{% from "partials/apps-list-phrases.html" import phrase with context %}
 
 {% macro as_heading(item, alpha=false) %}
 {% set level = 2 if not alpha else 3 %}
@@ -59,16 +60,16 @@
 {% elif "by_discipline" in catalog %}
 {{ as_groups(catalog.by_discipline) }}
 {% elif "by_availability" in catalog %}
-<p>Applications available on</p>
+<p>{{ phrase("Applications available on") }}</p>
 {{ as_toc(catalog.by_availability.on_systems) }}
-<p>Interactive web applications available on</p>
-{{ as_toc(catalog.by_availability.on_web, suffix="web interface") }}
+<p>{{ phrase("Interactive web applications available on") }}</p>
+{{ as_toc(catalog.by_availability.on_web, suffix=phrase("web interface")) }}
 {%- for system in catalog.by_availability.on_systems %}
 {{ as_heading(system) }}
 {{ as_list(system.apps) }}
 {% endfor -%}
 {%- for system in catalog.by_availability.on_web %}
-{% set web_system = {"name": system.name ~ " " ~ "web interface", "id": system.id} %}
+{% set web_system = {"name": system.name ~ " " ~ phrase("web interface"), "id": system.id} %}
 {{ as_heading(web_system) }}
 {{ as_list(system.apps) }}
 {% endfor -%}

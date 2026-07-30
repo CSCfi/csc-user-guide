@@ -73,7 +73,7 @@ After copying files to volume, adjust permissions for folders and files to enabl
 
 ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
 
-2. Next select **Change Permissions for Enclosed Files** to adjust file permisssions inside the folder.
+2. Next select **Change Permissions for Enclosed Files** to adjust file permissions inside the folder.
     * Set permissions to:
         1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
         2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.

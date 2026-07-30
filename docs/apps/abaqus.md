@@ -2,55 +2,47 @@
 tags:
   - Academic
 catalog:
-  name: ABAQUS
+  name: Abaqus
   description: Dassault Systemes' SIMULIA academic research suite
   license_type: Academic
   disciplines:
     - Computational Engineering
   available_on:
-    - Puhti
+    - Roihu
 ---
 
-# ABAQUS
+# Abaqus
+Abaqus is a finite element analysis (FEA) solution used by engineers to simulate the real-world behavior of products, materials, and assemblies under complex conditions. It is widely recognized for accurately modeling nonlinear phenomena such as large deformations, complex contact interactions, and advanced material behavior.
 
-Dassault Systemes' SIMULIA academic software portfolio offers software tools for for realistic simulation, optimization, durability studies, multibody simulation, computational fluid dynamics and electromagnetic simulation. [SIMULIA Academic Research Suite](https://www.3ds.com/products-services/simulia/academia/) licenses are available on CSC's server computers. 
+Abaqus enables analysts to predict how structures respond to realistic loading conditions such as impact, vibration, thermal effects, and material failure. Its implicit and explicit solvers support simulations ranging from detailed component analyses to large system-level models
 
 ## License
-
-SIMULIA Academic Research Suite products are proprietary software. The licenses are only for academic use. See about use limitations from the web page [SIMULIA Academic Program](https://edu.3ds.com/en/software/simulia-academic), section **Eligibility for Academic Licensing of SIMULIA Products**.
+The terms of use of this software allow it to be used only by affiliates (staff
+and students) of Finnish higher education institutions. 
 
 ## Available
-
-Licenses are available on CSC's computing platform [Puhti](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+Licenses are available on CSC's computing platform [Roihu](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 ## Usage
+After login on the Roihu server, make sure that you have transferred all your input files for the analysis run from your local computer to the server. Locate the files in your project's scratch directory. Home directory is not intended for computing.
 
-After login on the server, make sure that you have transferred all your input files for the analysis run from your local computer to the server. Locate the files in your project's scratch directory. Home directory is not intended for computing.
-
-To find out which versions of Abaqus are installed on the server, give command
-
+To find out which versions of Abaqus are installed on the server, give a command
 ```bash
 module available
 ```
-
-and check lines `abaqus/<version number>`. For example, to load Abaqus version 2024, give command
-
+and check lines `abaqus/<version number>`. For example, to load Abaqus version 2026, give a command
 ```bash
-module load abaqus/2024
+module load abaqus/2026
 ```
 
-There is an example **batch job file** available on Puhti server:
-
+There is an example **batch job file** available on Roihu server in a directory
 ```bash
-/appl/soft/eng/simulia/example_batch_job_files/parjob_puhti_abaqus
+/appl/soft/manual/eng/x86_64/simulia/example_batch_job_scripts
 ```
-
-Copy the file and modify it for your own use. Further instructions are given in the file.
+Copy the file and modify it for your own use.
 
 ## Support
-
 In case of issues, please [contact CSC Service Desk](../support/contact.md).
 
 ## More information
-
 * [SIMULIA Academic Research Suite](https://www.3ds.com/products-services/simulia/academia/)

@@ -89,7 +89,7 @@ to access your data more efficiently.
 [HDF5]: https://docs.h5py.org/en/stable/
 [LMDB]: https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database
 [zipfile]: https://docs.python.org/3/library/zipfile.html
-[LUMI-AI-data]: https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/3-file-formats#readme
+[LUMI-AI-data]: https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/03-file-formats#readme
 [tfrecord-example]: https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb
 
 ### Fast local drive (Puhti and Mahti only)
@@ -129,3 +129,16 @@ line so that it is performed on each node separately:
 srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
     tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
 ```
+
+### Roihu dataset project
+
+If you are working with other projects that all need access to the same common data, you might
+consider applying for a dataset project in Roihu.
+
+A dataset project provides storage and access management but no computing
+resources. One designated project maintains the dataset, while
+read access can be granted to selected users, projects, or organisations, or alternatively to all Roihu users.
+
+A dataset project is a good way to host data that is read from often but not written often, to avoid duplicate copies of common input or reference data.
+
+Read more about [Roihu Dataset Projects](../../computing/roihu-dataset-project.md).

@@ -77,7 +77,7 @@ In the web interface, use the **Create volume** button on the
 size for the volume (1 GB is the minimum). The only mandatory argument
 is the size of the volume.
 
-![Create persistent Volmume](../../img/create-volume-horizon.png)
+![Create persistent Volume](../../img/create-volume-horizon.png)
 
 Once the volume has been created, it can be attached to a running
 virtual machine. One volume can be attached to only one virtual
@@ -192,13 +192,22 @@ openstack server remove volume <server> <volume>
 - When an instance with an attached volume is [shelved](vm-lifecycle.md#shelved), the volume status changes to **Reserved**. Unshelving the instance changes it back to **In-use**, and deleting the instance sets it to **Available**.
 - For **multiattach volumes**, the status becomes **Reserved** when all attached instances are shelved, preventing the volume from being attached to another instance. It returns to **In-use** as soon as at least one of the attached instances is **unshelved**.
 
+## Volume deletion
+
 If you want to delete a volume and the data contained on it, you can execute:
 
 ```
 openstack volume delete <volume> # Name or ID of volume
 ```
-
 **The data will be deleted forever, it cannot be recovered**.
+
+If volume deletion fails in the Pouta web interface or with the command line, check the following:
+
+- The volume status is **Available**
+- The volume has **no snapshots**
+- The volume is **not part of a volume group**
+
+If the volume appears to be detached and shown as **Available** but still cannot be deleted, contact `servicedesk@csc.fi` and include the volume name and ID.
 
 ## Transferring volumes between two Pouta projects using web interface
 

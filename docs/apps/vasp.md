@@ -23,6 +23,11 @@ puhti.csc.fi is very similar. That said, VASP is a program the usage of
 which requires some experience. It is advised that new VASP users start
 out with a supervisor or an experienced colleague.
 
+!!! Roihu support needs your feedback
+    Initial build instructions are available in
+    [GitHub](https://github.com/jlento/vasp-env). Please test, and
+    give feedback through [CSC's ServiceDesk](../support/contact.md).
+
 ## Available
 
 See available VASP versions in with command
@@ -36,7 +41,7 @@ module avail vasp
 The usage of VASP requires a license, which must be acquired directly
 from the developers of the software.
 
-VASP versions prior to 6.5.1 use unix goups 'vasp' and 'vasp6' to control access to
+VASP versions prior to 6.5.1 use unix groups 'vasp' and 'vasp6' to control access to
 pre-installed executables. After acquiring the license, or after your email address has been
 added to an existing license, please send an email to [CSC Service Desk](../support/contact.md),
 including your _username_ at CSC, and the _email address_ you have registered for the VASP

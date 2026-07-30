@@ -5,10 +5,15 @@ search:
 
 # Technical details about Mahti
 
-!!! warning "Mahti retirement in August 2026"
-    Mahti will be decommissioned in August 2026 and replaced by Roihu, CSC's
+!!! warning "Mahti retirement in Fall 2026"
+    Mahti will be decommissioned in stages and replaced by Roihu, CSC's
     next-generation supercomputer offering enhanced performance and
     capabilities.
+
+    Mahti computing services will be shut down on 31 August 2026 at 12:00 EEST. Storage and
+    login nodes are planned to remain accessible until midday 15 October 2026, but
+    users are strongly encouraged to move any required data from the system by
+    the end of August 2026.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
@@ -86,7 +91,7 @@ dragonfly+ topology. The topology consists of multiple groups of nodes, each of
 which is internally connected with a fat tree topology, these fat trees are
 then connected to each other using all to all links.
 
-!["Simplified dragonfly+ toppology"](../img/mahti_df_ex.png)
+!["Simplified dragonfly+ topology"](../img/mahti_df_ex.png)
 
 In Mahti there are 234 nodes in each dragonfly group and the internal fat tree
 has a blocking factor of 1.7:1, with 20 or 18 nodes connected per leaf switch
@@ -95,7 +100,7 @@ links are 200 Gbps links. There are in total 6 groups, and between the groups
 there is fully non-blocking all-to-all connectivity, with 5 200 Gbps links
 going from each spine switch to one spine switch in every other group.
 
-!["Mahti dragonfly+ toppology"](../img/mahti_df.png)
+!["Mahti dragonfly+ topology"](../img/mahti_df.png)
 
 ## Storage
 

@@ -58,7 +58,7 @@ application. You can find some examples for
 
 ## Hybrid batch jobs with simultaneous multithreading (SMT)
 
-Mahti is configured so that it doesn't place any theads to the logical cores
+Mahti is configured so that it doesn't place any threads to the logical cores
 by default. SMT support can be enabled with `--hint=multithread` option.
 When this option is used, it is important to use the `--ntasks-per-node=X` and
 `--cpus-per-task=Y` so that `X * Y = 256`. Failing to do so will leave some of the

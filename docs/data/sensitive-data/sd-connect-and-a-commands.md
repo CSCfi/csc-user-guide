@@ -18,7 +18,7 @@ in buckets and folders that don't contain other types of data.
 
 ## Opening connection to SD Connect
 
-To open SD Connect compatible Allas connection you must add option *--sdc* the configurtion command. In CSC supercomputers the connecton is opened with commands:
+To open SD Connect compatible Allas connection you must add option *--sdc* the configuration command. In CSC supercomputers the connection is opened with commands:
 
 ```bash
 module load allas
