@@ -171,7 +171,7 @@ free version is available only for academic use at academic institutions.
         Local NVMe disks on the compute nodes can be accessed through $TMPDIR.
         Jobs in the "small" partition have 20 GiB quota available, while "medium"
         nodes have 600 GiB available.
-        $TMPDIR quota does not need to be separately reserved in Slurm.
+        $TMPDIR storage does not need to be separately reserved in Slurm to be accessible.
 
     ```bash
     #!/bin/bash
