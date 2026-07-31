@@ -290,7 +290,7 @@ Tykky installations can also be moved:
 * Between Roihu and Mahti use `rsync`. For copying to Roihu, log in to Mahti and change to the folder where you want to move the Tykky installation, then use:
 
 ```
-rsync -al <username>@roihu.csc.fi:<install_dir> .
+rsync -al <username>@roihu-cpu.csc.fi:<install_dir> .
 ```
 
 ## More complicated example
