@@ -138,21 +138,22 @@ See [Roihu dataset project](roihu-dataset-project.md) for details.
 
 ### Local storage capacity
 
-Each Roihu CPU and GPU node have a small 960 GB local disk suitable for
-storing temporary files during jobs. High-performance local storage is
-available on the high-memory (XL) and visualization (VIZ) nodes, where each
-node includes a total of 13 TiB of fast NVMe disks.
+Each Roihu CPU and GPU node provides 960 GB of local NVMe storage
+for temporary files created during jobs.
+
+High-memory (XL) and visualization (VIZ) nodes provide additional capacity and
+faster performance in their local storage, with a total of 13 TiB of local NVMe storage per node.
 
 The available storage quota that a single user can access in their jobs depends
 on the system [partition](running/batch-job-partitions.md) they use:
 
-| Allocation type         | Quota per user |
-|:------------------------|---------------:|
-| R (shared nodes)        | 20 GiB         |
-| N (full nodes)          | 600 GiB        |
-| G (GPU nodes)           | 150 GiB        |
-| Hugemem (XL) nodes      | 1.6 TiB        |
-| V (visualization nodes) | 6.5 TiB        |
+| Allocation type         | Quota per user | Read / Write speeds |
+|:------------------------|---------------:|---------------------|
+| R (shared nodes)        | 20 GiB         | 5000 / 1400 MB/s    |
+| N (full nodes)          | 600 GiB        | 5000 / 1400 MB/s    |
+| G (GPU nodes)           | 150 GiB        | 5000 / 1400 MB/s    |
+| Hugemem (XL) nodes      | 13 TiB         | 6700 / 4000 MB/s    |
+| V (visualization nodes) | 6.5 TiB        | 6700 / 4000 MB/s    |
 
 As a new feature, users can also request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity is
