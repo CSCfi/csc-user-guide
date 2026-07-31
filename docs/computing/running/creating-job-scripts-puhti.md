@@ -172,12 +172,6 @@ Set the number of MPI tasks with:
 ``` bash
 #SBATCH --ntasks=<number_of_mpi_tasks>
 ```
- 
-If more fine-tuned control is required, the exact number of nodes and number of
-tasks per node can be specified with `--nodes` and `--ntasks-per-node`,
-respectively. This is typically recommended in order to avoid tasks spreading
-over unnecessary many nodes,
-[see Performance checklist](./performance-checklist.md#limit-unnecessary-spreading-of-parallel-tasks-in-puhti).
 
 It is recommended to request memory using the `--mem-per-cpu` option.
 
