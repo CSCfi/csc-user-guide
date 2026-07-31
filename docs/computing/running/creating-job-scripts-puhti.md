@@ -3,6 +3,8 @@
 A batch job script contains the definitions of the resources to be reserved for
 a job and the commands the user wants to run.
 
+--8<-- "puhti-retirement-running-notice.md"
+
 [TOC]
 
 ## A basic batch job script

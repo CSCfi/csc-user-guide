@@ -187,6 +187,8 @@ we now also use `${name}` in the output definition, the output file name will be
     command list, i.e. a file in which each line corresponds to an individual subtask to be
     executed. [See the HyperQueue page for more details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
 
+--8<-- "ssh-ca.md"
+
 In Puhti, you can use the command `sbatch_commandlist` to execute a list of commands as an
 array job. This command takes as an input a text file. The command list is split into several
 pieces that are executed as an independent sub-task of a array batch job, automatically

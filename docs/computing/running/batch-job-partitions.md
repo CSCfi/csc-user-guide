@@ -167,44 +167,6 @@ The following guidelines apply to the Slurm partitions on Puhti:
    only for jobs that *really* require a very long runtime (e.g. if there is no
    way to checkpoint and restart a computation).
 
-### Puhti CPU partitions
-
-Puhti features the following partitions for submitting jobs to CPU nodes:
-
-| Partition         | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|-------------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `test`            | 15 minutes    | 80               | 2            | M                                 | 185 GiB                | n/a                                    |
-| `small`           | 3 days        | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `large`           | 3 days        | 1040             | 26           | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `longrun`         | 14 days       | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
-| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
-| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
-
-### Puhti GPU partitions
-
-Puhti features the following partitions for submitting jobs to GPU nodes:
-
-| Partition | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|-----------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `gputest` | 15 minutes    | 8           | 80               | 2            | GPU                               | 373 GiB                | 3600 GiB                               |
-| `gpu`     | 3 days        | 80          | 800              | 20           | GPU                               | 373 GiB                | 3600 GiB                               |
-
-!!! info "Fair use of GPU nodes on Puhti" 
-    You should reserve **no more than 10 CPU cores per GPU**.
-
-### Puhti `interactive` partition
-
-The `interactive` partition on Puhti allows running
-[interactive jobs](./interactive-usage.md) on CPU nodes. To run an
-interactive job on a GPU node, use `sinteractive` command
-[with the `-g` option](./interactive-usage.md#sinteractive-on-puhti),
-which submits the job to the `gpu` partition instead. Note that you can only
-run two simultaneous jobs on the Puhti `interactive` partition.
-
-| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `interactive` | 7 days        | 8                | 1            | IO                                | 76 GiB                 | 720 GiB                                |
-
 ## Mahti partitions
 
 ### Mahti CPU partitions with node-based allocation
@@ -295,6 +257,45 @@ To reserve a GPU slice, use `sinteractive` with the `-g` option, or include the
 partition in your batch script. For more information, see the instructions on
 [creating GPU batch jobs on Mahti](creating-job-scripts-mahti.md#gpu-batch-jobs).
 
+### Puhti CPU partitions
+
+--8<-- "ssh-ca.md"
+
+Puhti features the following partitions for submitting jobs to CPU nodes:
+
+| Partition         | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
+|-------------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
+| `test`            | 15 minutes    | 80               | 2            | M                                 | 185 GiB                | n/a                                    |
+| `small`           | 3 days        | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
+| `large`           | 3 days        | 1040             | 26           | M, L, IO                          | 373 GiB                | 3600 GiB                               |
+| `longrun`         | 14 days       | 40               | 1            | M, L, IO                          | 373 GiB                | 3600 GiB                               |
+| `hugemem`         | 3 days        | 160              | 4            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
+| `hugemem_longrun` | 14 days       | 40               | 1            | XL, BM                            | 1496 GiB               | 1490 GiB (XL), 5960 GiB (BM)           |
+
+### Puhti GPU partitions
+
+Puhti features the following partitions for submitting jobs to GPU nodes:
+
+| Partition | Time<br>limit | Max<br>GPUs | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
+|-----------|---------------|-------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
+| `gputest` | 15 minutes    | 8           | 80               | 2            | GPU                               | 373 GiB                | 3600 GiB                               |
+| `gpu`     | 3 days        | 80          | 800              | 20           | GPU                               | 373 GiB                | 3600 GiB                               |
+
+!!! info "Fair use of GPU nodes on Puhti" 
+    You should reserve **no more than 10 CPU cores per GPU**.
+
+### Puhti `interactive` partition
+
+The `interactive` partition on Puhti allows running
+[interactive jobs](./interactive-usage.md) on CPU nodes. To run an
+interactive job on a GPU node, use `sinteractive` command
+[with the `-g` option](./interactive-usage.md#sinteractive-on-puhti),
+which submits the job to the `gpu` partition instead. Note that you can only
+run two simultaneous jobs on the Puhti `interactive` partition.
+
+| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
+|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
+| `interactive` | 7 days        | 8                | 1            | IO                                | 76 GiB                 | 720 GiB                                |
 
 <!-- Links -->
 [Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals
