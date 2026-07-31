@@ -19,6 +19,8 @@ SD Connect has been upgraded to a new version. Existing buckets must be converte
 
 ### 🔴 Urgent (fully incopatible name, file can not be accessed)
 
+![Urgent buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
+
 The bucket name is not compatible with the new SD Connect version, and the bucket content is no longer accessible.
 
 - Files cannot be accessed and sharing permissions are not visible.
@@ -52,6 +54,8 @@ If your project contains buckets with different tags, convert all **Urgent** buc
 ---
 
 ## Step 2: Choose the appropriate conversion method
+
+Choose the method based on bucket's tag and size.
 
 | Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
