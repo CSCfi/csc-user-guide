@@ -8,6 +8,8 @@ PostgreSQL server log gives important information from the database's current he
 
 [Via Web UI](web-interface.md#how-to-access-database-logs)
 
+If you think there are missing log lines, please [contact CSC Service Desk](../support/contact.md) for assistance.
+
 ## What to look for
 
 PostgreSQL server log is more chatty than for example MariaDB. 
@@ -44,9 +46,6 @@ By default only `WARNING` and higher level messages appear in the server log.
 
 These are common messages, but not an exhaustive list.
 
-!!! info "Note"
-    This is as stub and will be appended later...
-
 #### Checkpoints are happening continuously on background
 
 Checkpoints are targeted to happen every five minutes by default;
@@ -65,7 +64,9 @@ If there is too much write load, then checkpoints will happen more requently and
 ```
 
 !!! info "Note"
-    In Pukki `max_wal_size` is tied to instance's flavor size. On idling database the checkpoints can happen less frequently than every five minutes.
+    In Pukki `max_wal_size` is tied to instance's flavor size. 
+
+    On idling database the checkpoints can happen less frequently than every five minutes.
 
 #### Database shutdown messages
 
@@ -77,23 +78,22 @@ If there is too much write load, then checkpoints will happen more requently and
 2026-01-30 14:51:39.566 UTC [1] LOG:  database system is shut down
 ```
 
-Database shutdown also generates `FATAL` level message if database connection exists, also `STATEMENT` level message if some query was running during the shutdown;
+Database shutdown also generates `FATAL` level message if database connection exists, additionally `STATEMENT` level message is shown if some query was running during the shutdown;
 
 ```
 2026-02-13 16:06:34.942 UTC [27] FATAL:  terminating connection due to administrator command
 2026-02-13 16:06:34.942 UTC [27] STATEMENT:  select pg_sleep(60);
 ```
 
-Also checkpoint message is possible during shutdown;
+!!! info "Note"
+    Only query running will be logged not the whole transaction.
+
+Checkpoint message is also possible during shutdown;
 
 ```
 2026-01-30 14:51:39.401 UTC [43] LOG:  checkpoint starting: shutdown immediate
 2026-01-30 14:51:39.558 UTC [43] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.163 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=14745 kB; lsn=0/E7000168, redo lsn=0/E7000168
 ```
-
-!!! info "Note"
-    Only query running will be logged not the whole transaction.
-
 
 #### Database startup messages
 
@@ -119,15 +119,11 @@ Above `FATAL` error could be also caused by Pukki trying to ping the database.
 
 #### Volume & instance resize, instance rebuild and upgrade
 
-These are from Pukki's database logging point of view just a shutdown and startup.
-
-Upgrade does other actions on background but logs of these are not shown to the user.
+These are from Pukki's database logging point of view just a shutdown and startup. Upgrade does other actions on background but logs of these are not shown to the user.
 
 #### Database creation and database restore
 
-Database restore is essentially just database creation from the database's logging stand point.
-
-Creating a database generates one-off log lines and it will end to same `database system is ready to accept connections` message like startup does;
+Database restore is essentially just database creation from the database's logging stand point. Creating a database generates one-off log lines and it will end to same `database system is ready to accept connections` message like startup does;
 ```
 The files belonging to this database system will be owned by user "postgres".
 This user must also own the server process.
