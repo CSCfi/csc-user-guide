@@ -1,6 +1,6 @@
 # Compiling applications in Puhti
 
---8<-- "ssh-ca.md"
+--8<-- "puhti-retirement-running-notice.md"
 
 ## General instructions
 

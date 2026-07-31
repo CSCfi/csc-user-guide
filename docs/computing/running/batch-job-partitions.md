@@ -259,7 +259,7 @@ partition in your batch script. For more information, see the instructions on
 
 ### Puhti CPU partitions
 
---8<-- "ssh-ca.md"
+--8<-- "puhti-retirement-running-notice.md"
 
 Puhti features the following partitions for submitting jobs to CPU nodes:
 
