@@ -330,8 +330,6 @@ local scratch usage consumes.
 
 ## Disaggregated storage
 
-!!! warning "Disaggregated storage is currently unavailable"
-
 It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
 This fast storage capacity is provided over the network and will appear as local scratch from 
 within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
@@ -339,15 +337,15 @@ to get larger capacity fast storage for your jobs.
 
 ### Requesting storage from slurm
 
-<!---
 !!! warning "Disaggregated storage is currently only available on full node jobs"
     
     At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
-    if you are submitting to the `medium` and `large` partitions on the cpu side. 
+    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
+    nodes with the `--exclusive` flag on the GPU partitions.
+
     Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
-    without producing standard output or error logs. 
+    without producing standard output or error logs.
     Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
---->
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:
@@ -371,6 +369,13 @@ Alternatively you can pass the request in a file using the `--bbf` flag, for exa
 
 ```bash
 srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
+```
+
+For reserving disaggregated storage on the GPU partitions, include the `--exclusive` flag. Note that you will be
+billed for the full node regardless of how many GPUs you reserve.
+
+```bash
+srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --exclusive --bbf bb.spec --pty bash -i
 ```
 
 !!! warning "Steps must use `srun`!"
