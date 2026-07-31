@@ -148,25 +148,6 @@ The amount of local storage available to a single user depends on the [partition
 
 Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
 
-## Puhti partitions
-
-The following guidelines apply to the Slurm partitions on Puhti:
-
-1. **Only request the memory you need.** Memory can easily end up being a
-   bottleneck in resource allocation. Even if the desired amount of GPUs
-   and/or CPU cores is continuously available, your job will sit in the queue
-   for as long as it takes for the requested amount of memory to become
-   free. It is thus recommended to only request the amount of memory that is
-   necessary for running your job. Additionally, the amount of CPU/GPU Billing Units
-   consumed by your job is affected by the amount of memory requested, not
-   the amount which was actually used. See
-   [how to estimate your memory requirements](../../support/faq/how-much-memory-my-job-needs.md).
-2. **Only use the `longrun` partitions if necessary.** The `longrun` and
-   `hugemem_longrun` partitions provide access to fewer resources and have a
-   lower priority than the other partitions, so it is recommended to use them
-   only for jobs that *really* require a very long runtime (e.g. if there is no
-   way to checkpoint and restart a computation).
-
 ## Mahti partitions
 
 ### Mahti CPU partitions with node-based allocation
@@ -256,6 +237,25 @@ To reserve a GPU slice, use `sinteractive` with the `-g` option, or include the
 `--gres=gpu:a100_1g.5gb:1` option together with specifying the `gpusmall`
 partition in your batch script. For more information, see the instructions on
 [creating GPU batch jobs on Mahti](creating-job-scripts-mahti.md#gpu-batch-jobs).
+
+## Puhti partitions
+
+The following guidelines apply to the Slurm partitions on Puhti:
+
+1. **Only request the memory you need.** Memory can easily end up being a
+   bottleneck in resource allocation. Even if the desired amount of GPUs
+   and/or CPU cores is continuously available, your job will sit in the queue
+   for as long as it takes for the requested amount of memory to become
+   free. It is thus recommended to only request the amount of memory that is
+   necessary for running your job. Additionally, the amount of CPU/GPU Billing Units
+   consumed by your job is affected by the amount of memory requested, not
+   the amount which was actually used. See
+   [how to estimate your memory requirements](../../support/faq/how-much-memory-my-job-needs.md).
+2. **Only use the `longrun` partitions if necessary.** The `longrun` and
+   `hugemem_longrun` partitions provide access to fewer resources and have a
+   lower priority than the other partitions, so it is recommended to use them
+   only for jobs that *really* require a very long runtime (e.g. if there is no
+   way to checkpoint and restart a computation).
 
 ### Puhti CPU partitions
 
