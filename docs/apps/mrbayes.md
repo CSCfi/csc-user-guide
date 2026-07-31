@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # MrBayes
@@ -26,8 +27,14 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 
 - Puhti: 3.2.7a
+- Roihu-CPU
+
+Check the installed versions on Roihu with `module avail mrbayes` after
+loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 To check the available versions, use:
 
@@ -54,6 +61,38 @@ mb-mpi
 ```
 
 When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
+
+### Roihu
+
+On Roihu, MrBayes is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load mrbayes
+```
+
+MrBayes is used the same way as on Puhti: the serial version starts with `mb`,
+the parallel version with `mb-mpi`. An example batch job script running the
+parallel version with 8 chains:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=mrbayes
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load mrbayes
+
+srun mb-mpi mb_com.nex > log.txt
+```
+
+Submit the job with `sbatch mrbayes_roihu_job.sh`.
 
 ## Batch jobs
 

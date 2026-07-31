@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Diamond
@@ -30,8 +31,13 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 ## Available
 
 * Puhti: 2.0.15, 2.1.6, 2.1.10
+* Roihu
+
+Check the installed version on Roihu with `module avail diamond` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 To use Diamond, run first the command:
 
@@ -74,6 +80,44 @@ The command above creates a Diamond index file (`my_ref.dmnd`) that can be used 
 ```bash
 diamond blastx --query nuc.fasta -d my_ref --out diamond_results2.txt -p 4 --max-target-seqs 500
 ```
+
+### Roihu
+
+On Roihu, Diamond is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load diamond
+```
+
+The basic syntax is:
+
+```bash
+diamond blastx --query nuc.fasta -d my_ref --out diamond_results.txt \
+    -p $SLURM_CPUS_PER_TASK --max-target-seqs 500
+```
+
+Heavier jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=diamond
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load diamond
+
+srun diamond blastx --query nuc.fasta -d my_ref --out diamond_results.txt \
+    -p $SLURM_CPUS_PER_TASK --max-target-seqs 500
+```
+
+Submit the job with `sbatch diamond_job.sh`.
 
 ## More information
 

@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Picard Tools
@@ -29,8 +30,14 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 
 
 - Puhti:  2.27.4, 2.27.5, 3.0.1,  3.1.1
+- Roihu-CPU
+
+Check the installed versions on Roihu with `module avail picard` after
+loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 To load Picard, load module:
 ```bash
@@ -70,6 +77,41 @@ Example:
 java -Xmx128g -jar $PICARD  SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
+### Roihu
+
+On Roihu, Picard is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load picard
+```
+
+Picard is used the same way as on Puhti, for example:
+
+```bash
+picard SamToFASTQ I=input.bam FASTQ=output.fastq
+```
+
+Heavier jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=picard
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=8G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load picard
+
+srun picard SamToFASTQ I=input.bam FASTQ=output.fastq
+```
+
+Submit the job with `sbatch picard_roihu_job.sh`.
 
 ## More information
 

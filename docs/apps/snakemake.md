@@ -27,6 +27,7 @@ If you are still wondering about workflows at more general level or which workfl
 Versions available at CSC:
 
 * Roihu-CPU: 9.11.6, 7.17.1
+* Roihu-CPU (via the `bio-apps` collection): 9.14.0
 * Roihu-GPU: not available
 * Puhti: 7.15.2, 7.17.1, 8.4.6
 
@@ -42,6 +43,8 @@ Snakemake is available as a module in Puhti supercomputer. This options suits we
 ### Snakemake module
 
 Snakemake module is the easiest option. The available version are listed [above](#available).
+On Roihu, loading `module load bio-apps` before `module load snakemake` gives version
+9.14.0 from the `bio-apps` collection.
 
 ```bash
 module load snakemake

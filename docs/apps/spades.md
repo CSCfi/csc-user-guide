@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # SPAdes
@@ -44,8 +45,12 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 ## Available
 
 - Puhti: 3.15.5, 4.0.0
+- Roihu-CPU: 4.2.0. Check the installed versions with `module avail spades` after loading
+  `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 On Puhti, SPAdes is activated by loading the `spades` module.
 
@@ -95,6 +100,44 @@ sbatch spades_job.sh
 ```
 
 More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+
+### Roihu
+
+On Roihu, SPAdes is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load spades
+```
+
+For usage help, use command:
+
+```bash
+spades.py -h
+```
+
+Assembly tasks can be very resource demanding, so SPAdes jobs should always be run as batch
+jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=spades
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=12:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load spades
+
+srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz \
+    -t $SLURM_CPUS_PER_TASK -o SpadesResult
+```
+
+Submit the job with `sbatch spades_job.sh`.
 
 ## More information
 

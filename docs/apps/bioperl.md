@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # BioPerl
@@ -34,8 +35,14 @@ BioPerl is licensed under the same terms as Perl itself which is dually-licensed
 ## Available
 
 - Puhti: Perl 5.36.0 with BioPerl 1.7.8
+- Roihu
+
+Check the installed versions on Roihu with `module avail perl-bioperl` after loading
+`bio-apps`.
 
 ## Usage
+
+### Puhti
 
 On Puhti, BioPerl can be taken in use with the command:
 
@@ -60,7 +67,43 @@ and execute the Perl program:
 ```bash
 ./my_bioperl_code.pm
 ```
- 
+
+### Roihu
+
+On Roihu, BioPerl is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load perl-bioperl
+```
+
+After this, you can launch a BioPerl program with the command:
+
+```bash
+perl my_bioperl_code.pm
+```
+
+Heavier scripts should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=bioperl
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load perl-bioperl
+
+srun perl my_bioperl_code.pm
+```
+
+Submit the job with `sbatch bioperl_job.sh`.
+
 ## Support
 
 [CSC Service Desk](../support/contact.md)

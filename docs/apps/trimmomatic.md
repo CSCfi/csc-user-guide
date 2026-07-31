@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Trimmomatic
@@ -26,9 +27,13 @@ THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina a
 ## Available
 
 - Puhti: 0.39
+- Roihu-CPU: 0.39. Check the installed versions with `module avail trimmomatic` after
+  loading `bio-apps`.
 - [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
+
+### Puhti
 
 Trimmomatic is included in the `biokit` module:
 
@@ -89,6 +94,49 @@ The batch job could be launched with command:
 ```bash
 sbatch trimmomatic_script
 ```
+
+### Roihu
+
+On Roihu, Trimmomatic is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load trimmomatic
+```
+
+Trimmomatic can be launched the same way as on Puhti, with the `trimmomatic` command:
+
+```bash
+trimmomatic
+```
+
+Example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=trimmomatic
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:15:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load trimmomatic
+
+srun trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred64 \
+forward.fq.gz reverse.fq.gz \
+out_fw_paired.fq.gz out_fw_unpaired.fq.gz out_rev_paired.fq.gz out_rev_unpaired.fq.gz \
+ILLUMINACLIP:$ADAPTERS/TruSeq3-PE.fa:2:30:10 \
+LEADING:3 \
+TRAILING:3 \
+SLIDINGWINDOW:4:15 \
+MINLEN:36
+```
+
+Submit the job with `sbatch trimmomatic_script`.
 
 ## More information
 

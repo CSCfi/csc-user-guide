@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # STAR
@@ -28,7 +29,11 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 Puhti: 2.7.10a, 2.7.11a
 
+Roihu-CPU: check the installed versions with `module avail star` after loading `bio-apps`.
+
 ## Usage
+
+### Puhti
 
 The `STAR` commands listed below are activated by loading `biokit` module.
 
@@ -94,6 +99,40 @@ The batch job script is launced with command sbatch. For example:
 sbatch starjob1.sh
 ```
 
+### Roihu
+
+On Roihu, STAR is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load star
+```
+
+The indexing and mapping commands are the same as on Puhti. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=star
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=3G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load star
+
+mkdir -p star-genome
+srun STAR --runMode genomeGenerate --genomeDir star-genome \
+    --genomeFastaFiles /path/to/genome/genome.fasta --runThreadN $SLURM_CPUS_PER_TASK
+
+srun STAR --genomeDir star-genome --readFilesIn my_reads.fastq \
+    --runThreadN $SLURM_CPUS_PER_TASK
+```
+
+Submit the job with `sbatch star_job.sh`.
 
 ## More information
 

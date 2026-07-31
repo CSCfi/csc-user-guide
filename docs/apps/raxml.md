@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # RAxML
@@ -24,8 +25,14 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 
 - Puhti: 8.2.12
+- Roihu-CPU
+
+Check the installed versions on Roihu with `module avail raxml` after
+loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 To see the installed RAxML versions, use the command:
 
@@ -104,6 +111,37 @@ For details, please refer to the chapter "When to use which Version?" in the [RA
     module load raxml/8.2.12
     srun raxmlHPC-MPI -N 100 -s cox1.phy -m GTRGAMMAI -p 12345 -n test2
     ```
+
+### Roihu
+
+On Roihu, RAxML is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load raxml
+```
+
+RAxML is used the same way as on Puhti. An example batch job script using the
+PThreads version:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=raxml
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=10:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=1G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load raxml
+
+srun raxmlHPC-PTHREADS -T $SLURM_CPUS_PER_TASK -s alg -m GTRGAMMA -p 12345 -n test1
+```
+
+Submit the job with `sbatch raxml_roihu_job.sh`.
 
 ## More information
 

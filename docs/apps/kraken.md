@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Kraken
@@ -27,8 +28,14 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 ## Available
 
 - Puhti: 2.1.2 
+- Roihu: 2.17.1 (Kraken 2)
+
+The package installed on Roihu is Kraken 2, loaded as the `kraken2` module. Check the
+installed version with `module avail kraken2` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 Kraken in included in the `biokit` module. To set it up, run the command:
 
@@ -85,6 +92,45 @@ sbatch batch_job_file.bash
 ```
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
+### Roihu
+
+On Roihu, the `bio-apps` collection provides Kraken 2 as the `kraken2` module (this is Kraken 2,
+not Kraken 1). Load it with:
+
+```bash
+module load bio-apps
+module load kraken2
+```
+
+The basic syntax is:
+
+```bash
+kraken2 --db path/to/database --threads $SLURM_CPUS_PER_TASK input.fasta --output results.txt
+```
+
+Kraken 2 needs a sizable amount of memory for its reference database, so jobs should be run
+as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=kraken2
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=06:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=10G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load kraken2
+
+srun kraken2 --db path/to/database --threads $SLURM_CPUS_PER_TASK input.fasta \
+    --output results.txt
+```
+
+Submit the job with `sbatch kraken2_job.sh`.
 
 ## More information
 

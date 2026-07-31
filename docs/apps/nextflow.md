@@ -33,6 +33,7 @@ If you are still wondering about workflows at more general level or which workfl
 Versions available on CSC's servers
 
 * Roihu-CPU: 25.10.4.11173
+* Roihu-CPU (via the `bio-apps` collection): 25.10.2-standalone
 * Roihu-GPU: not available
 * Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3, 24.01.0-edge.5903, 24.10.0
 * Mahti: 22.05.0-edge, 24.04.4
@@ -120,6 +121,15 @@ export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
     Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.
 
 ## Usage
+
+On Roihu, a separate build of Nextflow is also available in the `bio-apps`
+collection. Loading `bio-apps` first gives version 25.10.2-standalone instead of
+the standalone Roihu module described above:
+
+```bash
+module load bio-apps
+module load nextflow
+```
 
 Nextflow pipelines can be run in different ways in the supercomputer environment:
 

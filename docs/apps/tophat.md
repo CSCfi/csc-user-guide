@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # TopHat
@@ -24,9 +25,13 @@ Free to use and open source under [Boost Software License 1.0](https://github.co
 ## Available
 
 -   Puhti: 2.1.1
+-   Roihu-CPU: check the installed versions with `module avail tophat` after loading
+    `bio-apps`.
 -   [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
+
+### Puhti
 
 On Puhti, TopHat is initialized with the command:
 
@@ -59,6 +64,36 @@ In the batch job example above, one task (`--ntasks=1`) is executed. The job use
 Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat, this is done with the `-p` command-line argument. We can use system variable `$SLURM_CPUS_PER_TASK` to automatically match the reservation made with `--cpus-per-task`. This way we don't need to change the command-line if we change the reservation.
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
+### Roihu
+
+On Roihu, TopHat is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load tophat
+```
+
+TopHat jobs should be run as batch jobs. Below is a sample batch job file:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=tophat
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=24:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load tophat
+
+srun tophat -p $SLURM_CPUS_PER_TASK -o tophat_results Homo.sapiens_bwt2_index reads1.fq reads2.fq
+```
+
+Submit the job with `sbatch tophat_job.sh`.
 
 ## Support
 

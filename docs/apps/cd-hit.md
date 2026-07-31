@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # CD-HIT
@@ -25,9 +26,14 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-Puhti: 4.8.1 
+Puhti: 4.8.1
+Roihu
+
+Check the installed versions on Roihu with `module avail cdhit` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 The setup command for CD-HIT on Puhti is:
 
@@ -70,6 +76,42 @@ The sample command above produces two result files:
 
 * `reduced_set.fasta` contains a pruned sequence set. In this case, if two sequences are more than 95% identical, only the longer one is included in the results.
 * `reduced_set.fasta.clstr` contains information about the clustering of the sequences that share higher similarity than the given threshold value (in this case 95%).
+
+### Roihu
+
+On Roihu, CD-HIT is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load cdhit
+```
+
+The commands work the same way as on Puhti, for example:
+
+```bash
+cd-hit -i my_proteins.fasta -o reduced_set.fasta -c 0.95
+```
+
+Heavier jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=cd-hit
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load cdhit
+
+srun cd-hit -i my_proteins.fasta -o reduced_set.fasta -c 0.95 -T $SLURM_CPUS_PER_TASK
+```
+
+Submit the job with `sbatch cdhit_job.sh`.
 
 ## Support
 

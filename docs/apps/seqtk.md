@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Seqtk
@@ -24,8 +25,11 @@ Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blo
 ## Available
 
 * Puhti: 1.3-r106, 1.4
+* Roihu-CPU: check the installed versions with `module avail seqtk` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 Seqtk is included in the biokit module:
 
@@ -86,6 +90,42 @@ Extract sequences in regions contained in file `reg.bed`:
 ```bash
 seqtk subseq in.fa reg.bed > out.fa
 ```
+
+### Roihu
+
+On Roihu, Seqtk is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load seqtk
+```
+
+The command syntax is the same as on Puhti:
+
+```bash
+seqtk <command> <arguments>
+```
+
+Heavier jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=seqtk
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load seqtk
+
+srun seqtk seq -a in.fq.gz > out.fa
+```
+
+Submit the job with `sbatch seqtk_job.sh`.
 
 ## More information
 

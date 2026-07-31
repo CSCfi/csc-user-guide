@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # BWA
@@ -27,6 +28,9 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 - Puhti: 0.7.17
 - [Chipster](https://chipster.csc.fi) graphical user interface
+- Roihu
+
+Check the installed versions on Roihu with `module avail bwa` after loading `bio-apps`.
 
 ## Usage
 
@@ -146,6 +150,44 @@ sbatch batch_job_file.bash
 ```
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
+### Roihu
+
+On Roihu, BWA is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load bwa
+```
+
+The commands work the same way as on Puhti:
+
+```bash
+bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
+bwa mem Homo_sapiens.GRCh38.dna.toplevel.fa reads.fastq > aln.sam
+```
+
+An example batch job script for Roihu:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=bwa
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load bwa
+
+srun bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
+srun bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq reads2.fq > aln.sam
+```
+
+Submit the job with `sbatch bwa_job.sh`.
 
 ## More information
 

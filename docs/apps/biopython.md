@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Biopython
@@ -31,6 +32,14 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 
 - Puhti: Python 3.10.6 with Biopython 1.79
 - Puhti: Python 3.12.3 with Biopython 1.83
+- Roihu
+
+Check the installed versions on Roihu with `module avail py-biopython` after loading
+`bio-apps`.
+
+## Usage
+
+### Puhti
 
 On Puhti, Biopython libraries, as well as many other bioinformatics-related Python libraries are available.
 
@@ -65,6 +74,42 @@ pip install --user OBITools3
 
 Further instructions on how to set the installation location etc. can be found in the
 [CSC Python usage guide](../support/tutorials/python-usage-guide.md).
+
+### Roihu
+
+On Roihu, Biopython is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load py-biopython
+```
+
+When the module is loaded, you can launch a Biopython program with the command:
+
+```bash
+python my_biopython_code.py
+```
+
+Heavier scripts should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=biopython
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load py-biopython
+
+srun python my_biopython_code.py
+```
+
+Submit the job with `sbatch biopython_job.sh`.
 
 ## More information
 

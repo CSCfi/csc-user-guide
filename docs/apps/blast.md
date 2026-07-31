@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # BLAST
@@ -46,15 +47,57 @@ Free to use and open source under [GNU LGPLv2.1](https://www.gnu.org/licenses/ol
 
 * Puhti: 2.15.0
 * Chipster graphical user interface
+* Roihu
+
+Check the installed versions on Roihu with `module avail blast-plus` after loading
+`bio-apps`.
 
 
 ## Usage
+
+### Puhti
 
 At CSC, BLAST searches can be executed in several ways:
 
 * using the Chipster platform
 * with normal BLAST commands in interactive batch jobs (`sinteractive -i`)
 * as batch jobs with `pb` command in Puhti
+
+### Roihu
+
+On Roihu, BLAST+ is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load blast-plus
+```
+
+The BLAST commands work the same way as on Puhti, for example:
+
+```bash
+blastp -query proteinseq.fasta -db uniprot -out result.txt
+```
+
+Heavier searches should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=blast
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load blast-plus
+
+srun blastp -query proteinseq.fasta -db uniprot -num_threads $SLURM_CPUS_PER_TASK -out result.txt
+```
+
+Submit the job with `sbatch blast_job.sh`.
 
 ## Interactive usage in Puhti
 

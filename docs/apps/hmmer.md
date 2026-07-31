@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # HMMER
@@ -30,8 +31,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 
 * Puhti: 3.2.1, 3.3.2, 3.4
+* Roihu
+
+Check the installed version on Roihu with `module avail hmmer` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 To use default version of HMMER on Puhti, load the biokit module:
 
@@ -98,6 +104,45 @@ sbatch batch_job_file
 ```
 
 For more information on running batch jobs, see the [Computing User Guide](../computing/running/getting-started.md).
+
+### Roihu
+
+On Roihu, HMMER is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load hmmer
+```
+
+After this, the command line options of each `hmmer` command can be checked with option `-h`.
+For example:
+
+```bash
+hmmsearch -h
+```
+
+With HMMER, you can speed up the `hmmscan` and `hmmsearch` commands by using several
+processors, passed with `$SLURM_CPUS_PER_TASK` so it stays in sync with the batch script
+request. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=hmmer
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load hmmer
+
+srun hmmscan --cpu $SLURM_CPUS_PER_TASK my_database.hmm protein.fasta > result.txt
+```
+
+Submit the job with `sbatch hmmer_job.sh`.
 
 ## More information
 

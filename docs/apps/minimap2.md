@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Minimap2
@@ -30,9 +31,15 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 ## Available
 
 * Puhti: 2.24, 2.28
+* Roihu-CPU
 * Chipster graphical user interface
 
+Check the installed versions on Roihu with `module avail minimap2` after
+loading `bio-apps`.
+
 ## Usage
+
+### Puhti
 
 On Puhti, Minimap2 can be used as part of the `biokit` module collection:
 
@@ -141,6 +148,37 @@ minimap2 -ax sr ref.fa reads-interleaved.fq > aln.sam
 ```bash
 minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 ```
+
+### Roihu
+
+On Roihu, Minimap2 is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load minimap2
+```
+
+Minimap2 is used the same way as on Puhti. Heavier jobs should be run as
+batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=minimap2
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load minimap2
+
+srun minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
+```
+
+Submit the job with `sbatch minimap2_roihu_job.sh`.
 
 ## Example batch script for Puhti
 

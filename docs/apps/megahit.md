@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Megahit
@@ -24,8 +25,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 
 * Puhti: 1.2.9
+* Roihu
+
+Check the installed version on Roihu with `module avail megahit` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 On Puhti, Megahit is activated by loading the `biokit` environment:
 
@@ -74,6 +80,42 @@ sbatch megahit_job.sh
 ```
 
 More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+
+### Roihu
+
+On Roihu, Megahit is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load megahit
+```
+
+For usage help, use command:
+
+```bash
+megahit -h
+```
+
+Assembling metagenomic data can be resource-demanding. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=megahit
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=12:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load megahit
+
+srun megahit -1 reads_1.fastq -2 reads_2.fastq -t $SLURM_CPUS_PER_TASK -o result_directory
+```
+
+Submit the job with `sbatch megahit_job.sh`.
 
 ## More information
 

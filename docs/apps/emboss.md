@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # EMBOSS
@@ -38,9 +39,14 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 ## Available
 
 - Puhti: 6.5.7
+- Roihu: 6.6.0
 - [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSS tools.
 
+Check the installed version on Roihu with `module avail emboss` after loading `bio-apps`.
+
 ## Usage
+
+### Puhti
 
 EMBOSS programs are available on Puhti as part of the collection in biokit module. To use it, load the biokit module by running the command:
 
@@ -58,6 +64,43 @@ wossname
 ```
 
 The `wossname` command is a help tool that you can use to see what EMBOSS commands are available. You can also use it to search EMBOSS tools using keywords.
+
+### Roihu
+
+On Roihu, EMBOSS is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load emboss
+```
+
+After loading, you can start any of the EMBOSS programs by typing its name. For example:
+
+```bash
+wossname
+```
+
+Most EMBOSS programs run on a single core. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=emboss
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=00:30:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load emboss
+
+srun water -asequence seq1.fasta -bsequence seq2.fasta -gapopen 10 -gapextend 0.5 \
+    -outfile result.water
+```
+
+Submit the job with `sbatch emboss_job.sh`.
 
 ## More information
 

@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # SAMtools
@@ -30,8 +31,13 @@ Free to use and open source under [MIT/Expat License](https://github.com/samtool
 
 Puhti: 1.9, 1.16, 1.18
 
+Roihu-CPU: 1.21. Check the installed versions with `module avail samtools` after loading
+`bio-apps`.
+
 
 ## Usage
+
+### Puhti
 
 To use SAMtools in Puhti you can use initialization command:
 ```text
@@ -91,6 +97,42 @@ sbatch batch_job_file.bash
 ```
 Check the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
+### Roihu
+
+On Roihu, SAMtools is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load samtools
+```
+
+After loading the modules, launch samtools the same way as on Puhti:
+
+```bash
+samtools
+```
+
+Heavier SAMtools jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=samtools
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load samtools
+
+srun samtools sort -@ $SLURM_CPUS_PER_TASK -o aln-sorted.bam aln.bam
+srun samtools index -@ $SLURM_CPUS_PER_TASK aln-sorted.bam
+```
+
+Submit the job with `sbatch samtools_job.sh`.
 
 ## More information
 

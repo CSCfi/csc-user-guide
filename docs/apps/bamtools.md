@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # BamTools
@@ -26,8 +27,13 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 -   Puhti: 2.5.2
 -   Chipster graphical user interface
+-   Roihu
+
+Check the installed versions on Roihu with `module avail bamtools` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 On Puhti, BamTools can be taken in use as a part of biokit module collection:
 
@@ -65,6 +71,42 @@ For more information on a specific command, run command:
 ```
 bamtools help COMMAND
 ```
+
+### Roihu
+
+On Roihu, BamTools is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load bamtools
+```
+
+The syntax is the same as on Puhti:
+
+```bash
+bamtools COMMAND ARGUMENTS
+```
+
+Heavier jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=bamtools
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load bamtools
+
+srun bamtools stats -in input.bam
+```
+
+Submit the job with `sbatch bamtools_job.sh`.
 
 ## Support
 

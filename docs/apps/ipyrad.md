@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # iPyrad
@@ -24,8 +25,13 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 
 - Puhti: 0.9.84, 0.9.85, 0.9.92
+- Roihu: 0.9.102
+
+Check the installed version on Roihu with `module avail py-ipyrad` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 On Puhti, iPyrad can be used by loading the `ipyrad` module:
 
@@ -69,6 +75,42 @@ definition `-c 1` to the `ipyrad` command:
 ```bash
 ipyrad -p params-run1.txt -s 1234567 -c 1
 ```
+
+### Roihu
+
+On Roihu, iPyrad is part of the `bio-apps` collection, loaded as the `py-ipyrad` module:
+
+```bash
+module load bio-apps
+module load py-ipyrad
+```
+
+The basic syntax is:
+
+```bash
+ipyrad -p params-run1.txt -s 1234567 -c $SLURM_CPUS_PER_TASK
+```
+
+Heavier jobs should be run as batch jobs. An example batch job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=ipyrad
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=24:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load py-ipyrad
+
+srun ipyrad -p params-run1.txt -s 1234567 -c $SLURM_CPUS_PER_TASK
+```
+
+Submit the job with `sbatch ipyrad_job.sh`.
 
 ## Running heavy iPyrad jobs in Puhti
 

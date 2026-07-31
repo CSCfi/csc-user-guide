@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Bowtie2
@@ -31,6 +32,9 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 -   Puhti: 2.3.5.1, 2.4.1, 2.4.4, 2.5.3
 -   Chipster graphical user interface
+-   Roihu
+
+Check the installed versions on Roihu with `module avail bowtie2` after loading `bio-apps`.
 
 ## Usage
 
@@ -109,6 +113,44 @@ sbatch batch_job_file.bash
 ```
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
+### Roihu
+
+On Roihu, Bowtie2 is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load bowtie2
+```
+
+The commands work the same way as on Puhti:
+
+```bash
+bowtie2-build genome.fa genome
+bowtie2 -x genome -1 first_read_set.fq -2 second_read_set.fq -S output.sam
+```
+
+An example batch job script for Roihu:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=bowtie2
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=2G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load bowtie2
+
+srun bowtie2-build genome.fasta genome
+srun bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq -S output.sam
+```
+
+Submit the job with `sbatch bowtie2_job.sh`.
 
 ## References
 

@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Freebayes
@@ -28,8 +29,13 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 ## Available
 
 * Puhti: 1.3.6, 1.3.7
+* Roihu
+
+Check the installed version on Roihu with `module avail freebayes` after loading `bio-apps`.
 
 ## Usage
+
+### Puhti
 
 First load the FreeBayes module.
 
@@ -83,6 +89,43 @@ freebayes-puhti-recover freebayes_jobnum_tmp
 ```
 
 Where `freebayes_jobnum_tmp` is the temporary FreeBayes directory that was created by the `freebayes-puhti` command in the same directory where the command was launched.
+
+### Roihu
+
+On Roihu, FreeBayes is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load freebayes
+```
+
+The basic syntax is:
+
+```bash
+freebayes -f reference.fa input.bam > results.vcf
+```
+
+FreeBayes is single-threaded and can take a long time on large BAM files. An example batch
+job script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=freebayes
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=24:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=8G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load freebayes
+
+srun freebayes -f reference.fa input.bam > results.vcf
+```
+
+Submit the job with `sbatch freebayes_job.sh`.
 
 ## More information
 

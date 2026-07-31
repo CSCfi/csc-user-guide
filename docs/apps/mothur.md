@@ -9,6 +9,7 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
+    - Roihu
 ---
 
 # Mothur
@@ -24,9 +25,15 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 ## Available
 
 - Puhti: 1.39.5, 1.44.0, 1.48.0, 1.48.2
+- Roihu-CPU
 - [Chipster](https://chipster.csc.fi) graphical user interface
 
+Check the installed versions on Roihu with `module avail mothur` after
+loading `bio-apps`.
+
 ## Usage
+
+### Puhti
 
 To initialize the default version of Mothur on Puhti, use:
 
@@ -91,6 +98,37 @@ sbatch mothur_batch_job.sh
 ```
 
 See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
+### Roihu
+
+On Roihu, Mothur is part of the `bio-apps` collection, which has to be loaded first:
+
+```bash
+module load bio-apps
+module load mothur
+```
+
+Mothur is used the same way as on Puhti. Collect your commands into a command
+file and submit it as a batch job:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=mothur
+#SBATCH --account=<project>
+#SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=4G
+#SBATCH --output=slurm-%j.out
+
+module load bio-apps
+module load mothur
+
+srun mothur my_mothur_task.txt
+```
+
+Submit the job with `sbatch mothur_roihu_job.sh`.
 
 ## Support
 
