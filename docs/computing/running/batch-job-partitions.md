@@ -284,19 +284,6 @@ Puhti features the following partitions for submitting jobs to GPU nodes:
 !!! info "Fair use of GPU nodes on Puhti" 
     You should reserve **no more than 10 CPU cores per GPU**.
 
-### Puhti `interactive` partition
-
-The `interactive` partition on Puhti allows running
-[interactive jobs](./interactive-usage.md) on CPU nodes. To run an
-interactive job on a GPU node, use `sinteractive` command
-[with the `-g` option](./interactive-usage.md#sinteractive-on-puhti),
-which submits the job to the `gpu` partition instead. Note that you can only
-run two simultaneous jobs on the Puhti `interactive` partition.
-
-| Partition     | Time<br>limit | Max CPU<br>cores | Max<br>nodes | [Node types](../systems-puhti.md) | Max memory<br>per node | Max local storage<br>([NVMe]) per node |
-|---------------|---------------|------------------|--------------|-----------------------------------|------------------------|----------------------------------------|
-| `interactive` | 7 days        | 8                | 1            | IO                                | 76 GiB                 | 720 GiB                                |
-
 <!-- Links -->
 [Grand Challenge project]: https://research.csc.fi/grand-challenge-proposals
 [LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/
