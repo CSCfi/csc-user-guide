@@ -8,7 +8,7 @@ PostgreSQL server log gives important information from the database's current he
 
 [Via Web UI](web-interface.md#how-to-access-database-logs)
 
-If you think there are missing log lines, please [contact CSC Service Desk](../support/contact.md) for assistance.
+If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
 ## What to look for
 
