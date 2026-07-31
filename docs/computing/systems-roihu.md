@@ -33,7 +33,7 @@ graph LR;
     G{{"<b>Mid October 2026</b>
         Mahti <i>storage services</i>
         shut down"}}
-    style C fill:#dceeceff;
+    style D fill:#dceeceff;
 ```
 
 **Roihu** is installed in the same datacenter as LUMI, meaning that the
