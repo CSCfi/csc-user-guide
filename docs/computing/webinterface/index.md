@@ -34,7 +34,7 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
 
 ## Available features
 
-- **Features available in the Roihu, Puhti and Mahti web interfaces:**
+- **Features available in the Roihu and Mahti web interfaces:**
     - View, download, upload and move files between Allas, the supercomputer
       and your local computer
     - Open a shell on the login node
@@ -55,6 +55,9 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
         - RStudio
         - TensorBoard
         - Visual Studio Code
+- **Features available in the Puhti web interface:**
+    - Puhti compute services have been decommissioned. Use the Puhti web interface only for login node
+      connections, or for inspecting or moving data from the file system.
 
 ### Shell
 
@@ -131,4 +134,4 @@ A100. For more details about the split GPUs on Mahti, see the
 
 Puhti computing services have been retired as of 31 July 2026, so in the
 **Puhti web interface**, you can only access login node resources and inspect the
-storage in the system, until full retirement in 15 October 2026.
+storage in the system, until full retirement on 15 October 2026.

@@ -240,6 +240,11 @@ partition in your batch script. For more information, see the instructions on
 
 ## Puhti partitions
 
+!!! note
+    This section is deprecated
+
+--8<-- "puhti-retirement-running-notice.md"
+
 The following guidelines apply to the Slurm partitions on Puhti:
 
 1. **Only request the memory you need.** Memory can easily end up being a
@@ -258,8 +263,6 @@ The following guidelines apply to the Slurm partitions on Puhti:
    way to checkpoint and restart a computation).
 
 ### Puhti CPU partitions
-
---8<-- "puhti-retirement-running-notice.md"
 
 Puhti features the following partitions for submitting jobs to CPU nodes:
 

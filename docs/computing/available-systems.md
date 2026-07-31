@@ -43,18 +43,18 @@ tasks, and will provide enhanced support for processing sensitive and confidenti
 ## Puhti
 
 The Puhti supercomputer, Atos BullSequana X400 cluster based on Intel
-CPUs, was launched on September 2, 2019. It has a powerful CPU
+CPUs, was launched on September 2, 2019. It had a powerful CPU
 partition with almost 700 nodes with a range of memory sizes and local
-storage options, all connected with a fast interconnect. Puhti allows
+storage options, all connected with a fast interconnect. Puhti allowed
 the user to reserve compute and memory resources flexibly, and the
-user can run anything from interactive single core data processing to
+user could run anything from interactive single core data processing to
 medium scale simulations spanning multiple nodes.
 
-There are also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This
-partition is suitable for all kinds workloads capable of utilizing GPUs, even
+There were also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This
+partition was suitable for all kinds workloads capable of utilizing GPUs, even
 heavy AI models that span multiple nodes.
 
-Puhti has a wide selection of [scientific software](../apps/by_availability.md#puhti)
+Puhti provided a wide selection of [scientific software](../apps/by_availability.md#puhti)
 installed.
 
 - [A more technical description of Puhti](systems-puhti.md)
