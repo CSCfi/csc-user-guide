@@ -266,9 +266,11 @@ installation needs to be done on a compute node, for example using an
 [interactive session](../../computing/running/interactive-usage.md#sinteractive-on-roihu):
 
 ```bash
-# Start interactive session, here with 15 GB local disk (increase if needed)
+# Start interactive session, here with 15 GB local disk on Mahti and 20 GB default amount on Roihu (increase if needed)
 # In Mahti:
 sinteractive --account <project> --time 1:00:00 --cores 8 --tmp 15
+# In Roihu:
+sinteractive --account <project> --time 1:00:00 --cores 8 
 
 # Load Tykky
 module purge
