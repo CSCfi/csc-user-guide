@@ -207,7 +207,7 @@ For example for `work_mem` the correct value would be `8MB` not `8M`;
 2026-06-12 14:03:18.924 UTC [1] LOG:  invalid value for parameter "work_mem": "8M"
 ```
 
-Note worthy here is that if database has incorrect configurations during any startup then it will end in to restart loop without never successully starting to serve connections;
+Note worthy here is that if database has incorrect configurations during any startup then it will end in to restart loop without never successfully starting to serve connections;
 ```
 
 PostgreSQL Database directory appears to contain a database; Skipping initialization
