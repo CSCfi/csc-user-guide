@@ -143,7 +143,7 @@ The amount of local storage available to a single user depends on the [partition
 | R (shared nodes)   | 20 GiB         | 5000 / 1400 MB/s    |
 | N (full nodes)     | 600 GiB        | 5000 / 1400 MB/s    |
 | G (GPU nodes)      | 150 GiB        | 5000 / 1400 MB/s    |
-| Hugemem (XL) nodes | 1.6 TiB        | 6700 / 4000 MB/s    |
+| Hugemem (XL) nodes | 13 TiB         | 6700 / 4000 MB/s    |
 | VIZ nodes          | 6.5 TiB        | 6700 / 4000 MB/s    |
 
 Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
