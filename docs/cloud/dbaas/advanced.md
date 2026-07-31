@@ -87,3 +87,6 @@ your database instance.
     ```
     openstack database log list -f value --sort-column Published -c Status $ID | tail -10
     ```
+
+!!! info "Note"
+    If log lines are with same `Published` then log lines may be displayed in bit of a mixed order.
