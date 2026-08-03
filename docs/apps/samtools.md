@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # SAMtools
@@ -28,18 +28,17 @@ Free to use and open source under [MIT/Expat License](https://github.com/samtool
 
 
 
-Puhti: 1.9, 1.16, 1.18
+Roihu: 1.21
 
 
 ## Usage
 
-To use SAMtools in Puhti you can use initialization command:
-```text
-module load biokit
-```
+To use SAMtools in Rohu you can use initialization commands:
 
-The biokit module sets up a set of commonly used bioinformatics tools, including SAMtools and Picard 
-(Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.)
+```bash
+module load bio-apps
+module load samtools
+```
 
 After this you can launch samtools
 ```
@@ -54,16 +53,14 @@ module spider samtools
 
 And the activate the version you want to use. For example:
 ```
-module load samtools/0.1.19
+module load samtools/1.21
 ```
 
-Loading SAMtools 1.x also loads BCFtools and HTSlib.
-
-Heavier SAMtool jobs should be executed as batch jobs. Below is a sample batch job file, 
-for running a SAMtools job in Puhti:
+SAMtools jobs should be executed as batch jobs. Below is a sample batch job file, 
+for running a SAMtools job in Roihu:
 
 ```text
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=samtools
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
@@ -71,6 +68,8 @@ for running a SAMtools job in Puhti:
 #SBATCH --mem=4000
 #SBATCH --account=project_1234567
 #SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=small
 
 #Convert SAM file to BAM
 samtools view -bS aln.sam > aln.bam
@@ -81,15 +80,14 @@ samtools sort aln.bam aln-sorted
 #Index the bam file
 samtools index aln-sorted.bam
 ```
-In the batch job example above one task (-n 1) is executed. The maximum duration of the job is four hours 
-(-t 04:00:00 ) and the reserved memory size is about 4 GB (--mem=4000). You must change the --account 
-setting, so that it defines the project from which the computing will be billed.
+In the batch job example above one task (--ntasks 1) is executed using using one core (--cpus-per-task=1). 
+The maximum duration of the job is four hours (-t 04:00:00 ) and the reserved memory size is 4 GB (--mem=4000). You must change the --account setting to use your account.
 
 You can submit the batch job file to the batch job system with command:
 ```text
 sbatch batch_job_file.bash
 ```
-Check the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+Check the [Roihu user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 
 ## More information

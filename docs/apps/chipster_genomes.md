@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Chipster_genomes
@@ -33,14 +33,14 @@ Free to use and open source.
  
 ## Available
 
-Available in Puhti.
+Available in Roihu.
 
 ## Usage
 
-The `chipster_genomes` tool is included in the `biokit` module, so to make it available, you must first run the set-up command:
+Tho use the `chipster_genomes` tool you must first run the set-up command:
 
 ```bash
-module load biokit
+module load chipster_genomes
 ```
 
 After that, you can use `chipster_genomes` command. This command needs two parameters:

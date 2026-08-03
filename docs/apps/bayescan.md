@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # BayeScan
@@ -24,14 +24,14 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Puhti: 2.1 
+* Roihu: 2.1 
 
 ## Usage
 
 To use BayeScan, first run command
 
 ```bash
-module load biokit
+module load bayescan
 ```
 
 After that you can launch BayeScan with a command like:
@@ -44,7 +44,7 @@ With bayescan_2.1, it is important to define the number of threads
 always explicitly. This is because, by default, BayeScan tries
 to use all available cores.
 
-On Puhti, BayeScan tasks should be executed as batch jobs.
+On Roihu, BayeScan tasks should be executed as batch jobs.
 Below is a sample batch job file for BayeScan:
 
 ```bash
@@ -58,19 +58,28 @@ Below is a sample batch job file for BayeScan:
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bayescan
 
 bayescan_2.1 -threads ${SLURM_CPUS_PER_TASK} test_binary_AFLP.txt > bayescan_omp.out
 ```
 
-The script above reserves 8 hours of computing time, 6 GB of memory and 4 computing cores. The `XXXXXX` in the `--account` definition
-should be replaced with the ID number of your computing project. The job can be submitted to the batch job system with command:
+The script above reserves 8 hours of computing time, 6 GB of memory and 4 computing cores. The `project_XXXXXX` in the `--account` definition should be replaced with the project name of your computing project. 
+
+The job can be submitted to the batch job system with command:
 
 ```bash
 sbatch script
 ```
 
-Don't use BayeScan with more than 8 cores (except if you have verified that your task really benefits from larger core numbers).
+In many cases BayeScan will not benefit from using more than 8 cores, so check performance if using more.
 
 More instructions for running batch jobs can be found form [CSC batch job instructions](../computing/running/getting-started.md)
 

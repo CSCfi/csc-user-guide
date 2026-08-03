@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # SPAdes
@@ -43,14 +43,15 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-- Puhti: 3.15.5, 4.0.0
+- Roihu: 4.2.0
 
 ## Usage
 
-On Puhti, SPAdes is activated by loading the `spades` module.
+SPAdes can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load spades/<version>
+module load bio-apps
+module load spades
 ```
 
 For usage help, use command:
@@ -59,7 +60,7 @@ For usage help, use command:
 spades.py -h
 ```
 
-Assembly tasks can be very resource demanding and, therefore, you should never run real SPAdes jobs on the login nodes of Puhti.
+Assembly tasks can be very resource demanding and, therefore, you should never run real SPAdes jobs on the login nodes of Roihu.
 For any real analysis task, we recommend running SPAdes as a batch job.
 
 Sample SPAdes batch job file:
@@ -68,24 +69,33 @@ Sample SPAdes batch job file:
 #!/bin/bash
 #SBATCH --job-name=SPAdes
 #SBATCH --account=<project>
+#SBATCH --output==spades_out
+#SBATCH --error=sprdes_err
 #SBATCH --time=12:00:00
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --output==spades_out
-#SBATCH --error=sprdes_err
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --partition=small
 
-module load biokit
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK 
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps/v202603
+module load spades/4.2.0 
+
 srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPUS_PER_TASK -o SpadesResult
 ```
 
 In the example above `<project>` should be replaced with your project name. You can use `csc-projects` to check your CSC projects.
 Maximum running time is 
-set to 12 hours (`--time=12:00:00`). As SPAdes uses thread-based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory (`--mem=32G`). Note that the number of cores to be used needs to be defined with both `$OMP_NUM_THREADS` environment variable and in the actual `spades.py` command (option `-t`). In this case, we use `$SLURM_CPUS_PER_TASK` variable that contains the `--cpus-per-task`
-value. We could as well use `export OMP_NUM_THREADS=8` and `-t 8`, but then we have to remember to change the values if the number of the reserved CPUs is changed.
+set to 12 hours (`--time=12:00:00`). As SPAdes uses thread-based parallelization, the process is considered as one job that should be executed within one node (`--ntasks=1`, `--nodes=1`). The job reserves eight cores `--cpus-per-task=8` that can use in total up to 32 GB of memory (`--mem=32G`). Note that the number of cores to be used needs to be defined in the actual `spades.py` command (option `-t`). In this case, we use `$SLURM_CPUS_PER_TASK` variable that contains the `--cpus-per-task`
+value. We could as well use `-t 8`, but then we have to remember to change the values if the number of the reserved CPUs is changed.
 
 The job is submitted to the batch job system with `sbatch` command. For example, if the batch job
 file is named `spades_job.sh`, then the submission command is: 
@@ -94,7 +104,7 @@ file is named `spades_job.sh`, then the submission command is:
 sbatch spades_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
 
 ## More information
 
