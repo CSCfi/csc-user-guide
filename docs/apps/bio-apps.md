@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: Bio-apps
-  description: Collection of Python libraries for data analytics and machine learning
+  description: Access module to a collection of applications and software often used in biosciences
   license_type: Free
   disciplines:
     - Biosciences
