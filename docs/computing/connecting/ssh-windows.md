@@ -135,7 +135,7 @@ supercomputer.
     where `<algorithm>` is either `ed25519` or `rsa`.
 
     Alternatively, you may
-    [connect using the GUI following this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html#connecting-from-windows).
+    [connect using the GUI following this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-roihu.html#connecting-from-windows).
 
 === "PuTTY"
 
