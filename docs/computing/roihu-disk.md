@@ -25,7 +25,7 @@ See [a more technical description of the Lustre filesystem on CSC supercomputers
 |**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
 |**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
 |**scratch**  |Project |Not defined         |`/scratch/<project>`  |180 days             |No              |
-|**dataset** |Project |Not defined         |`/dataset/<project>` |No                   |No              |
+|**dataset**  |Project |Not defined         |`/dataset/<project>`  |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
@@ -256,16 +256,18 @@ to the following amount of local disk space:
 
 For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
 
-| Allocation type           | Path      | Quota per user |
-|:--------------------------|-----------|---------------:|
-| R (Shared nodes)          | `$TMPDIR` | 20 GiB         |
-| N (Full nodes)            | `$TMPDIR` | 600 GiB        |
-| G (GPU nodes)             | `$TMPDIR` | 150 GiB        |
-| XL (Hugemem nodes)        | `$TMPDIR` | 1.6 TiB        |
-| VIZ (Visualization nodes) | `$TMPDIR` | 6.5 TiB        |
+| Allocation type           | Path      | Available temporary storage |
+|:--------------------------|-----------|----------------------------:|
+| R (Shared nodes)          | `$TMPDIR` | 20 GiB                      |
+| N (Full nodes)            | `$TMPDIR` | 600 GiB                     |
+| G (GPU nodes)             | `$TMPDIR` | 150 GiB                     |
+| XL (Hugemem nodes)        | `$TMPDIR` | 578 GiB                     |
+| VIZ (Visualization nodes) | `$TMPDIR` | 14 TiB                      |
 
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
+
+The reported capacity may be shared with other jobs or users on the same node and may therefore not always be fully available to a single job.
 
 #### Reserved local scratch storage
 
@@ -275,19 +277,60 @@ On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for la
 This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
 Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 
-!!! note "Local scratch support will be added later"
-     The local scratch feature on XL and Visualization nodes is not yet
-     implemented. Use `$TMPDIR` for your local storage needs until this feature is added.
-
 | Allocation type           | Path             | Maximum reservable local scratch |
 |:--------------------------|------------------|---------------------------------:|
-| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | TBA                              |
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GB                         |
 | VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
+
+Reserve local storage by including the following flag in your Slurm script:
+
+```text
+--gres=nvme:<amount-in-GB>
+```
+
+For example, to reserve the maximum amount of 13 TB, use:
+
+```text
+--gres=nvme:13000
+```
+
+Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
+you can use in `/local_scrach/${USER}/${SLURM_JOB_ID}/`.
+
+??? info "Example Slurm script for using local scratch memory in hugemem nodes"
+     ```
+     #!/bin/bash
+     #SBATCH --job-name=example
+     #SBATCH --account=<project>
+     #SBATCH --partition=hugemem
+     #SBATCH --time=00:30:00
+     #SBATCH --nodes=1
+     #SBATCH --ntasks-per-node=1
+     #SBATCH --cpus-per-task=1
+     #SBATCH --gres=nvme:100 # Reserves 100 GB local scratch memory
+
+     # Go to the local scratch directory
+     cd "$LOCAL_SCRATCH"
+     
+     # Run the program
+     srun myprog <options>
+
+     # Copy any required data back to persistent storage before job finishes
+     cp "$LOCAL_SCRATCH"/output.dat /scratch/project_200XXXX/$USER/
+     ```
+
+     Modify the commands and file paths according to your workflow.
+
+!!! note "Local scratch support for visualization nodes will be added later"
+     The local scratch feature on visualization nodes is not yet
+     implemented. Use `$TMPDIR` on visualization nodes for your local storage needs until this feature is added.
 
 Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
 local scratch usage consumes.
 
 ## Disaggregated storage
+
+!!! warning "Disaggregated storage is currently unavailable"
 
 It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
 This fast storage capacity is provided over the network and will appear as local scratch from 
@@ -296,11 +339,15 @@ to get larger capacity fast storage for your jobs.
 
 ### Requesting storage from slurm
 
-!!! warning "Aggregated storage is only available on full node partitions"
-    At the present you can only request this storage for jobs that are making use of full nodes,
-    i.e. that are submitted in the `medium` or `large` partitions. Presently if you try to launch in other partitions,
-    your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
-    logs. This should be resolved once **support for shared node jobs arrives in Q3 2026**.
+<!---
+!!! warning "Disaggregated storage is currently only available on full node jobs"
+    
+    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
+    if you are submitting to the `medium` and `large` partitions on the cpu side. 
+    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
+    without producing standard output or error logs. 
+    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+--->
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:

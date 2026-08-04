@@ -394,22 +394,27 @@ tar xf my-large-dataset.tar.gz -C $TMPDIR
     mv $TMPDIR/my-important-output.log $SLURM_SUBMIT_DIR
     ```
 
-### Fast local scratch storage
+### Disaggregated storage
+
+!!! warning "Disaggregated storage is currently unavailable"
 
 As a new feature on Roihu, it is possible to request local disk mounts from a centralized pool of fast storage resources.
 This fast storage capacity is provided over the network and
 appears as local scratch from within a Slurm job.
 
-!!! warning "You must request these resources in conjunction with `--exclusive`"
-    At the present you can only request this storage for jobs that are making use of full nodes,
-    i.e. that are submitted with the `--exclusive` flag. Presently if you do not specify this flag
-    your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
-    logs. This should be resolved once support for shared node jobs arrives in Q3 2026.
+<!---
+!!! warning "Disaggregated storage is currently only available on full node jobs"
+    
+    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
+    if you are submitting to the `medium` and `large` partitions on the cpu side. 
+    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
+    without producing standard output or error logs. 
+    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+--->
 
 Request this local storage using the following flag in the batch script:
 
 ```bash
-#SBATCH --exclusive
 #SBATCH --bb="#BB_LUA SBF storagesize=<local_storage_space> path=/run/sbb/<username>"
 ```
 
@@ -417,7 +422,6 @@ For example, requesting 100 GiB storage
 (remember to update `<username>` to your username in the sbatch header):
 
 ```bash
-#SBATCH --exclusive
 #SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
 ```
 

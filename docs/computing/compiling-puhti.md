@@ -1,5 +1,7 @@
 # Compiling applications in Puhti
 
+--8<-- "puhti-retirement-running-notice.md"
+
 ## General instructions
 
 - Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
