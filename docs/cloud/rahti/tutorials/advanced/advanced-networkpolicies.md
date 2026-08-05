@@ -1,6 +1,6 @@
 !!! error "Advanced level"
     You need to familiarize yourself with the kubernetes [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/) API.  
-    In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
+    In this tutorial, we will use the OKD CLI tool [oc](../../get-started/cli.md)
 
 # Advanced NetworkPolicies
 
@@ -51,4 +51,4 @@ Spec:
   Policy Types: Ingress
 ```
 
-For more information check our [Network](../networking.md) information page
+For more information check our [Network](../../configurations/networking.md) information page

@@ -1,16 +1,16 @@
 !!! error "Advanced level"
-    This tutorial uses OpenShift CLI tool [oc](../usage/cli.md) and [Helm](https://helm.sh)
-    You must understand that OpenShift [Routes](../concepts.md#route) only exposes HTTP/HTTPS port to the internet
+    This tutorial uses OKD CLI tool [oc](../../get-started/cli.md) and [Helm](https://helm.sh)
+    You must understand that [Routes](../../usage/kubernetes-concepts.md#route) only exposes HTTP/HTTPS port to the internet
 
 # Accessing databases on Rahti from CSC supercomputers
 
-Many HPC workflows require a database, for most cases [Pukki](../../dbaas/index.md) is probably the preferred solution. However, it is possible to use Rahti as well to deploy and expose your databases (e.g., if your database is not available in Pukki). 
+Many HPC workflows require a database, for most cases [Pukki](../../../dbaas/index.md) is probably the preferred solution. However, it is possible to use Rahti as well to deploy and expose your databases (e.g., if your database is not available in Pukki). 
 This tutorial explains how to access your Rahti database from CSC super computers.
 
 ## Prerequisites
 
-- Logged in to Rahti with [oc CLI](../usage/cli.md#how-to-login-with-oc).
-- Install [Helm CLI](../../../support/faq/helm.md).
+- Logged in to Rahti with [oc CLI](../../get-started/cli.md#how-to-login-with-oc).
+- Install [Helm CLI](../../../../support/faq/helm.md).
 
 ## Step 1: Setting up MariaDB on Rahti
 
@@ -24,7 +24,7 @@ helm install my-mariadb-release oci://registry-1.docker.io/bitnamicharts/mariadb
 
 ## Step 2: Setup a LoadBalancer Service Type on Rahti
 
-We will setup a [LoadBalancer](../networking.md#using-loadbalancer-service-type-with-dedicated-ips) in Rahti. Unlike [Routes](../networking.md#routes), the LoadBalancer service allows you to expose services to the Internet without being limited to HTTP/HTTPS. Have a look at the documentation linked above to learn more.
+We will setup a [LoadBalancer](../../configurations/loadbalancer-service.md) in Rahti. Unlike [Routes](../../usage/kubernetes-concepts.md#route), the LoadBalancer service allows you to expose services to the Internet without being limited to HTTP/HTTPS protocols. Have a look at the documentation linked above to learn more.
 
 First, you need to submit a request to the service desk (servicedesk@csc.fi). The request must include the following details:
 

@@ -1,6 +1,6 @@
 !!! error "Advanced level"
-    You need to familiarize yourself with OpenShift [ImageStreams](../concepts.md#imagestream) and [BuildConfig](../concepts.md#buildconfig) API  
-    In this tutorial, we will use the OpenShift CLI tool [oc](../usage/cli.md)
+    You need to familiarize yourself with [ImageStreams](../../usage/kubernetes-concepts.md#imagestream) and [BuildConfig](../../usage/kubernetes-concepts.md#buildconfig) API  
+    In this tutorial, we will use the OKD CLI tool [oc](../../get-started/cli.md)
     
 # Introduction
 
@@ -13,7 +13,7 @@ and accelerate the speed at which they can deploy new code and become more agile
 
 In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes concepts
 such as _ImageStream_, _BuildConfig_, and _Deployment``_. Please refer to these Kubernetes
-concepts in [Kubernetes and OpenShift concepts](../concepts.md).
+concepts in [Kubernetes and OKD concepts](../../usage/kubernetes-concepts.md).
 
 !!! info
 
@@ -25,7 +25,7 @@ concepts in [Kubernetes and OpenShift concepts](../concepts.md).
 ## Preparation
 
 Make sure you have the `oc` command line installed, and that you are logged in. Please
-check the [command line tool installation](../usage/cli.md) if you need help on that.
+check the [command line tool installation](../../get-started/cli.md) if you need help on that.
 
 ## Quick Start
 
@@ -49,7 +49,7 @@ Make sure you are in the right project with `oc project` and if not you can crea
 with `oc new-project <your-new-project-name>`.
 
 We have all the necessary object definitions in the `rahti-bc-example` project under the `k8s-api-objs.yaml`.
-Please refer to [Kubernetes and OpenShift concepts](../concepts.md) to understand the objects
+Please refer to [Kubernetes and OKD concepts](../../usage/kubernetes-concepts.md) to understand the objects
 defined under `k8s-api-objs.yaml`. You can easily create these objects necessary for our CI/CD pipeline using
 the `oc create` command as follows:
 
@@ -73,7 +73,7 @@ oc start-build dockerfile-example --from-dir=./ -F
 Once the pipeline finishes running you can visit your application deployment
 by following the route which should look like `http://dockerfile-example-<your_project_name>.2.rahtiapp.fi/`.
 This pipeline can be triggered again after any update to your application (e.g. update on `index.html`) and
-the changes would reflect almost immediately. [Webhooks](webhooks.md) can also be setup
+the changes would reflect almost immediately. [Webhooks](../basic/webhooks.md) can also be setup
 to trigger the pipeline.
 
 ## Cleaning up
@@ -92,4 +92,4 @@ This will delete all objects with the label `app: dockerfile-example`.
 In this tutorial, a simple CI/CD pipeline to build and deploy a static web page was created mainly
 using the Kubernetes objects _ImageStream_, _BuildConfig_, and _Deployment_. The pipeline
 can be further extended using dedicated tools and resources as [Jenkins](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/builds_using_buildconfig/understanding-image-builds),
-[Tekton](https://www.openshift.com/learn/topics/pipelines#tekton), and [Webhooks](webhooks.md).
+[Tekton](https://www.openshift.com/learn/topics/pipelines#tekton), and [Webhooks](../basic/webhooks.md).

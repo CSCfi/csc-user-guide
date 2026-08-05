@@ -1,7 +1,7 @@
 !!! error "Advanced level"
-    You need a good knowledge of Kubernetes/OpenShift environment as well as the tool used. Here, [oc](../usage/cli.md)
+    You need a good knowledge of Kubernetes and OKD environment as well as the tool used. Here, [oc](../../get-started/cli.md)
 
-    [Network](../networking.md) knowledge is a plus for this tutorial
+    [Network](../../configurations/networking.md) knowledge is a plus for this tutorial
 
 # Reverse proxy authentication using a sidecar container
 
@@ -9,7 +9,7 @@ A container is called a sidecar when: it is located in the same Pod than other "
 
 One of the uses for this design pattern is to have a reverse proxy that will handle authentication. The idea is that we will have a Flask application running in a container in a Pod. In the same Pod, we will create a nginx container. This nginx server will connect to the Flask application using the internal Pod network and will implement authentication. In this case it will be a default username and password.
 
-![Sidecar](../../img/sidecar.drawio.svg)
+![Sidecar](../../../img/sidecar.drawio.svg)
 
 ## Deployment
 
@@ -47,7 +47,7 @@ oc create route edge sidecar --service=python-and-sidecar --insecure-policy='Red
 oc get route sidecar
 ```
 
-The first command will create the route, and the second will give you the DNS name chosen by OpenShift for it.
+The first command will create the route, and the second will give you the DNS name chosen by OKD for it.
 
 ## Test
 
