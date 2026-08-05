@@ -44,7 +44,7 @@ see poor I/O performance even if the total volume is not that big. Please
 consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some
-  nodes have [fast local disk](creating-job-scripts-puhti.md#local-storage),
+  nodes have [fast local disk](creating-job-scripts-roihu.md#local-temporary-storage),
   but we've seen 10-fold performance improvement by switching to use it. Check
   your performance: don't use the resource if it doesn't help.
   [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive-puhti-and-mahti-only)
@@ -66,54 +66,5 @@ improved by proper Lustre settings:
 * Use collective parallel I/O if possible.
 * See also more extensive
   [I/O optimization hints](../../support/tutorials/lustre_performance.md).
-
-
-## Limit unnecessary spreading of parallel tasks in Puhti
-
-One of the limiting factors for strong scaling is the communication
-between tasks. Communication within a node is faster than between
-nodes. It is optimal to use as few nodes as possible.
-
-If resources are requested simply by:
-```
-#SBATCH --ntasks=200
-```
-the queuing system may spread them on tens of nodes (just a few cores each).
-This will be very bad for the performance of the job, and will cause a lot of
-(unnecessary) communication in the system interconnect. If the performance of
-your parallel jobs has decreased, this could be the reason.
-Overall, this should be avoided. This also
-fragments the system increasing queuing times for large jobs.
-
-The best performance (fastest communication) can be achieved by requesting
-full nodes:
-```
-#SBATCH --nodes=5
-#SBATCH --ntasks-per-node=40
-```
-Since Puhti is currently fragmented, requesting full nodes may mean longer queuing
-time, but it may be regained by faster execution. If queuing times this way seem
-unacceptable, you can still limit the maximum number of nodes the job can spread on.
-For example, limiting the 200 task job (which optimally fits on 5 nodes) to a maximum
-of 10 nodes, you could use:
-
-```
-#SBATCH --ntasks=200
-#SBATCH --nodes=5-10
-```
-Slurm will then allocate 200 cores from 5 to 10 nodes for your job.
-
-### How many nodes to allow?
-If full nodes or the minimum is not suitable, it is probably best to try
-and monitor job performance. Choosing too many nodes will deteriorate
-performance more than is gained by less queuing. Note also that overall this is lost
-computer capacity.
-
-Perhaps, a rule of thumb could be
-to set the upper limit to 2 or 3 times the number which would accommodate
-all tasks. With very large parallel jobs, even smaller is recommended as
-communication and the likelihood of one slow node in the allocation gets
-higher and poor load balancing gets more likely. Anyway, large parallel jobs
-should be run in Mahti.
 
 

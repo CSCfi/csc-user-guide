@@ -4,6 +4,13 @@
      This page contains storage information on Puhti and Mahti.
      For information on Roihu's storage, see: [Roihu storage](roihu-disk.md)
 
+!!! warning "Puhti and Mahti retirement in 2026"
+    Puhti and Mahti are being retired in 2026, and their storage systems will
+    be fully unavailable 15 October 2026 at 12:00 EEST.
+     
+    Migrate any data that you wish to keep into Roihu.
+    See the [Roihu data migration tutorial](../support/tutorials/pukki_data_migration.md) for details.
+
 CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**.
 In addition to these disk areas visible to all compute and login nodes, each node has a
 **local temporary disk area** that is visible to the particular compute node during a batch
