@@ -1,35 +1,47 @@
-# Images
+# Container Images
 
-A Docker image is a file which is built up normally by an instructional file named **Dockerfile**. A Docker image is immutable, i.e. existing image file cannot be modified, but one can create a new layer to it & thus have a modified version of image suitable to him.
+A container image is a packaged version of an application that includes everything it needs to run as a container: the application code,
+its dependencies, libraries, and basic runtime environment. Images are built once and can be run consistently on 
+any container platform like Rahti or even on local machines, ensuring that the application behaves the same across 
+different environments.
 
-Docker containers are the running instances of Docker images. To avoid confusions, let's have a quick walkthrough over Docker image & containers using cooking example:
+Container images are built using a layered filesystem, where each layer represents a change to the image, such as 
+adding files, installing packages, or modifying configuration. When these layers are stacked together, they form the 
+complete container image. An image is immutable, because different layers of the filesystem are read-only. However, you can add more layers 
+to the image, therefore, create modified version suitable for your use.
 
-* Dockerfile could be regarded as the ingredients list.
-* Docker Images are ingredients mixed together.
-* Docker Container is cooked delicious meal: The final end product!
+A container is a running instance of that image. When Kubernetes starts a Pod, it takes the image, adds a writable
+layer on top of it, and runs the application inside an isolated environment. Multiple containers can be created from the same image.
+Containers are the running instances of Docker images. 
 
-To better explain these analogies, let's follow some examples.
 
-First, in order to run a docker image one can use the docker client on the host machine (provided that it is installed):
+
+
+## Instantiate an image
+
+To better explain these concepts, let's follow some examples. First, in order to run images you will need to install a 
+container engine like [Docker](https://docs.docker.com/engine/install/) or [Podman](https://podman.io/docs/installation),
+in this bellow example we consider docker but the same commands works with podman. In a local terminal, run the
+following command
+
 
 ```sh
 docker run -p 80:80 nginx
 ```
 
-This will, if the image is not cached locally, first pull (or download) the latest nginx image, then look for the predefined entry point, and finally a container is run. You can access and see the nginx welcome page through the address http://localhost:80  
-The output will be something like:
+You should see a similar output:
 
 ```sh
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
-31ce7ceb6d44: Pull complete
-f1359798dfe4: Pull complete
-4de1e0313830: Pull complete
-7745719004b6: Pull complete
-0f17732d34d5: Pull complete
-0eb0ed12e64c: Pull complete
-5836f8c1cebc: Pull complete
-Digest: sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
+88770be1d442: Pull complete 
+b89cf3ec7a3e: Pull complete 
+bb8ecb62799c: Pull complete 
+2254fb813b11: Pull complete 
+40b6fc5618c6: Pull complete 
+cf9a807fe41d: Pull complete 
+cc57e8335c98: Pull complete 
+Digest: sha256:553f64aecdc31b5bf944521731cd70e35da4faed96b2b7548a3d8e2598c52a42
 Status: Downloaded newer image for nginx:latest
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
@@ -40,165 +52,108 @@ Status: Downloaded newer image for nginx:latest
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
 /docker-entrypoint.sh: Configuration complete; ready for start up
-2023/11/08 10:27:14 [notice] 1#1: using the "epoll" event method
-2023/11/08 10:27:14 [notice] 1#1: nginx/1.25.3
-2023/11/08 10:27:14 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14)
-2023/11/08 10:27:14 [notice] 1#1: OS: Linux 6.4.16-linuxkit
-2023/11/08 10:27:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2023/11/08 10:27:14 [notice] 1#1: start worker processes
-2023/11/08 10:27:14 [notice] 1#1: start worker process 29
-2023/11/08 10:27:14 [notice] 1#1: start worker process 30
-2023/11/08 10:27:14 [notice] 1#1: start worker process 31
-2023/11/08 10:27:14 [notice] 1#1: start worker process 32
-2023/11/08 10:27:14 [notice] 1#1: start worker process 33
-2023/11/08 10:27:14 [notice] 1#1: start worker process 34
-2023/11/08 10:27:14 [notice] 1#1: start worker process 35
-2023/11/08 10:27:14 [notice] 1#1: start worker process 36
+2025/11/28 13:04:36 [notice] 1#1: using the "epoll" event method
+2025/11/28 13:04:36 [notice] 1#1: nginx/1.29.3
+2025/11/28 13:04:36 [notice] 1#1: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2025/11/28 13:04:36 [notice] 1#1: OS: Linux 6.12.54-linuxkit
+2025/11/28 13:04:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/11/28 13:04:36 [notice] 1#1: start worker processes
+2025/11/28 13:04:36 [notice] 1#1: start worker process 29
+2025/11/28 13:04:36 [notice] 1#1: start worker process 30
+2025/11/28 13:04:36 [notice] 1#1: start worker process 31
+2025/11/28 13:04:36 [notice] 1#1: start worker process 32
+2025/11/28 13:04:36 [notice] 1#1: start worker process 33
+2025/11/28 13:04:36 [notice] 1#1: start worker process 34
+2025/11/28 13:04:36 [notice] 1#1: start worker process 35
+2025/11/28 13:04:36 [notice] 1#1: start worker process 36
+2025/11/28 13:04:36 [notice] 1#1: start worker process 37
+2025/11/28 13:04:36 [notice] 1#1: start worker process 38
 ```
 
-The name in this example is `nginx`, but as we can see, it is expanded first to `nginx:latest` and then to `library/nginx`, the different parts are:
-
-* If the domain name is not included, docker assumes it is default public docker registry, `docker.io`. But there are other registries, for example  `image-registry.apps.2.rahti.csc.fi` is Rahti's private docker registry.
-
-* Then it is the path for the image, in this case it is `/library`. Again docker is assuming it, this path is reserved to "official base images", or in other words common Linux distributions, from where other images are based on.
-
-* Next, you have the image name itself, `nginx`. There are a lot of other "base images" in `docker.io/library`, such as `ubuntu` or `alpine`.
-
-* Finally, it is the tag, `latest`. This is the default tag for an image, but an image can have any given name for a tag. This is used to differentiate between version of the same image. Examples for `nginx` are: `stable`, `perl`, `1.25.3-perl`, and lots more. The contents of a given tag can change with time, `latest` will be always the most updated version. But other tags are left unchanged after they are released.
+In this example, the name of the image to instantiate as a container is `nginx`. First, Docker checks if the image is 
+cached locally, if not, Docker tries to pulls it from its default remote registry called Docker Hub. The logs show the 
+process of pulling the different layers. Docker, then, creates a new container from the pulled image, by setting up 
+the container filesystem (image layers + writable layer), and preparing isolated namespaces (process, network, etc.). 
+Once done, Docker starts the container's main process (NGINX web server in the case of this image). It is possible to 
+inspect the running containers using the following command:
 
 
-Official page of [nginx](https://hub.docker.com/_/nginx) on Docker hub provides us more details how different tagged versions of official nginx image is build.
-
-## Advanced image internals
-
-Many times author of Docker images don't necessarily provide details of Dockerfile which were used to build Docker images. It is therefore good idea to inspect images from unknown sources. You can see the detailed information of image internal using `docker inspect`. The output is a JSON object, that can be processed using standard tools like `jq`, see an example at the bottom of this page.
-
-This allows to see interesting data about the image, like the environment, the entry point, initial command, the layers, and many more.
-
-```bash
-$ docker inspect nginx
-[
-    {
-        "Id": "sha256:81be38025439476d1b7303cb575df80e419fd1b3be4a639f3b3e51cf95720c7b",
-        "RepoTags": [
-            "nginx:latest",
-            "image-registry.apps.2.rahti.csc.fi/tristan-tests/nginx-is:latest"
-        ],
-        "RepoDigests": [
-            "nginx@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6",
-        ],
-        "Parent": "",
-        "Comment": "",
-        "Created": "2023-11-01T13:52:55.281520995Z",
-        "Container": "3082c1b3b5eb0938cb1973e01eee5a137819918bdf18672e4c831f63d7910708",
-        "ContainerConfig": {
-            "Hostname": "3082c1b3b5eb",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.3",
-                "NJS_VERSION=0.8.2",
-                "PKG_RELEASE=1~bookworm"
-            ],
-            "Cmd": [
-                "/bin/sh",
-                "-c",
-                "#(nop) ",
-                "CMD [\"nginx\" \"-g\" \"daemon off;\"]"
-            ],
-            "Image": "sha256:f5bb00b8bc235e00779e82f457d2675944d51e7fe463e94e74090f5ce323477a",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "DockerVersion": "20.10.23",
-        "Author": "",
-        "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "ExposedPorts": {
-                "80/tcp": {}
-            },
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-                "NGINX_VERSION=1.25.3",
-                "NJS_VERSION=0.8.2",
-                "PKG_RELEASE=1~bookworm"
-            ],
-            "Cmd": [
-                "nginx",
-                "-g",
-                "daemon off;"
-            ],
-            "Image": "sha256:f5bb00b8bc235e00779e82f457d2675944d51e7fe463e94e74090f5ce323477a",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": [
-                "/docker-entrypoint.sh"
-            ],
-            "OnBuild": null,
-            "Labels": {
-                "maintainer": "NGINX Docker Maintainers <docker-maint@nginx.com>"
-            },
-            "StopSignal": "SIGQUIT"
-        },
-        "Architecture": "arm64",
-        "Variant": "v8",
-        "Os": "linux",
-        "Size": 192076209,
-        "VirtualSize": 192076209,
-        "GraphDriver": {
-            "Data": {
-                "LowerDir": "/var/lib/docker/overlay2/d4179e5ee53b696e6f9cad24f86eafcff31020e77b6d568f7df510d50dfc50fb/diff:/var/lib/docker/overlay2/505c36a08045e6f9aa6c507058e58e5cc6045ce6bbdeffbf2c80f99b2b179240/diff:/var/lib/docker/overlay2/345a53e995f55fd568056ca8b9a68c9831194d436dd4a24f5fa61724f600014c/diff:/var/lib/docker/overlay2/9a9baa23d9833dff9a5ae3c7aed5ae470983a7fdb19a26592c6d467f0c087e1d/diff:/var/lib/docker/overlay2/a7797fde3caf5df84f82791b0b3eec9cf9e8c5984eb24270477e298777219219/diff:/var/lib/docker/overlay2/8cfb696f133bd10e47254fbaecac86df1f3dd50045dea71e71eb70619458068f/diff",
-                "MergedDir": "/var/lib/docker/overlay2/a72028575ab69e9c465e706d55c40fd0bc147fa903b9f39bf6f2e4e2f45d1952/merged",
-                "UpperDir": "/var/lib/docker/overlay2/a72028575ab69e9c465e706d55c40fd0bc147fa903b9f39bf6f2e4e2f45d1952/diff",
-                "WorkDir": "/var/lib/docker/overlay2/a72028575ab69e9c465e706d55c40fd0bc147fa903b9f39bf6f2e4e2f45d1952/work"
-            },
-            "Name": "overlay2"
-        },
-        "RootFS": {
-            "Type": "layers",
-            "Layers": [
-                "sha256:70e628269d9fa63e3ddaa5e293bbc8aba5079d63f473f75c310b0c3cf2496f8e",
-                "sha256:8be85be307c0f740da57a80fcb58eabeb7e4dd875848dbd64836e2cb9e8a8ecb",
-                "sha256:40bbe6b6e9a4f15a6cd7dfc3f9939bf6b2a518748ba6850ef987a76b5410db84",
-                "sha256:f2465222d91784d91e1b0db1682d8db6c67204da4f5ba28a24bcc896d7fbe22c",
-                "sha256:c418f07b4eb5e7776894512117782cbfca9d2a3f705e3f7e316e2081bbb0d9b2",
-                "sha256:8656e99db5c4d86e22eca336869cfa9e4a84b10c62bcf72bb88426d646c29825",
-                "sha256:4cb2cea6f808928f49692da26cac2edd879a8eb721af66726a16ad053dd7f96e"
-            ]
-        },
-        "Metadata": {
-            "LastTagTime": "2023-11-08T10:42:14.544035377Z"
-        }
-    }
-]
+```sh
+docker ps
 ```
 
-## Troubleshooting
+The output should be similar to:
 
-Check out our [Rahti FAQ](../../../support/faq/index.md#rahti) and [Rahti tutorials](../tutorials/index.md) for more information
+```sh
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                 NAMES
+4e6598415a0c   nginx     "/docker-entrypoint.…"   5 seconds ago   Up 5 seconds   0.0.0.0:80->80/tcp, [::]:80->80/tcp   cranky_carver
+```
+
+You can see information about the running containers including the image used for creating them.
+
+
+## Image tags
+
+
+Image tags are labels used to identify different versions of a container image. A tag is added after the image name, 
+separated by a colon. For example, in `nginx:1.25`, the tag is `1.25`. Tags allow you to specify exactly which version 
+of an image you want to run. Common patterns include version numbers, release names, or special tags like `latest`.
+If you do not specify a tag, the system assumes `:latest` as in our previous example.  In order to instantiate 
+version 1.25 of NGINX server, simply run:
+
+```sh
+docker run -p 80:80 nginx:1.25
+```
+
+## Image architecture
+
+Container images are built for a specific CPU architecture, such as amd64 (x86_64) or arm64. The architecture 
+defines the type of machine the image can run on. An image built for one architecture cannot run on a different one, 
+because the machine instructions inside the image are not compatible.
+
+When building or pulling container images, the runtime chooses the correct architecture automatically if a 
+multi-architecture image is available. Otherwise, you must ensure that the image’s architecture matches the machine 
+running it.
+
+You can inspect the architecture of an image using the following command:
+
+```sh
+docker image inspect nginx:latest --format='{{.Architecture}}'
+```
+
+
+!!! warning "Note"
+    Images built on machines with architecture other than **amd64** are not runnable on Rahti. Either re-build them on 
+    an **amd64** machine or convert them. You can also rebuild them directly in Rahti as described in the [next section](./creating.md).
+
+
+## Image registries
+
+An image registry is a service where container images are stored, managed, and distributed. Registries act as central 
+repositories that engines like Docker, Podman, and Kubernetes use to pull the images needed to run containers. Registries
+are organized into repositories, and each repository can contain multiple tagged versions of an image. 
+For example, `nginx:1.25` and `nginx:latest` are two tags within the same repository called `nginx`.
+
+Public registries, such as [Docker Hub](https://hub.docker.com/) or [Quay.io](https://quay.io/), host images that 
+anyone can pull. Private registries require authentication and are commonly used to store internal or sensitive images. 
+Kubernetes clusters like Rahti can pull from both public and private registries as long as the required credentials 
+are provided. Moreover, Rahti provide its own [integrated registry](./integrated-registry.md) that allows 
+you to store, pull, and publish your images.
+
+## The Open Container Initiative (OCI) standard
+
+The Open Container Initiative defines open standards for container technology. Its two main specifications are:
+
+* OCI Image Format — how container images are structured.
+
+* OCI Runtime Format — how containers are started and run.
+
+Because Docker, Podman, Kubernetes, and most registries follow OCI standards, images built with one tool can be stored
+and ran on any OCI-compliant platform. This ensures portability and compatibility across different container 
+environments and technologies.
+
+## Next steps
+
+- [Creating an image](./creating.md) — build your own images, locally or directly in Rahti.
+- [Rahti integrated registry](./integrated-registry.md) — store, pull, and publish images in your Rahti project.
+- [Best practices](./best-practices.md) — recommendations to keep your images small, secure, and maintainable.
