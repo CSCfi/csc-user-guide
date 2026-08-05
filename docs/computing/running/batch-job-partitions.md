@@ -112,8 +112,9 @@ and automatically provides a GPU slice when run from a Roihu-GPU login node.
 | `gpuinteractive`  | G               | 12 hours   | 1      | TBA       | TBA            | GPU (slice)                             |
 
 !!! info "What is a GPU slice?"
-    The Roihu `gpuinteractive` partition uses GH200 superchips divided into 48 smaller slices.
-    Each slice has one-seventh of the compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
+    The Roihu gpuinteractive partition consists of two nodes, each containing four GH200 GPUs.
+    Each GPU can be divided into up to seven 1g.12gb MIG slices, providing up to 56 GPU slices across the partition.
+    Each slice provides one-seventh of the GPU compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 GPU.
 
 !!! note "GPU slices not yet fully configured"
     GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
