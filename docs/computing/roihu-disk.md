@@ -295,7 +295,7 @@ For example, to reserve the maximum amount of 13 TB, use:
 ```
 
 Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
-you can use in `/local_scrach/${USER}/${SLURM_JOB_ID}/`.
+you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
 
 ??? info "Example Slurm script for using local scratch memory in hugemem nodes"
      ```

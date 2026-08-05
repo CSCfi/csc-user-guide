@@ -161,7 +161,7 @@ srun myprog <options>
 
 ## Roihu-GPU
 
-### Partial GPU nodes: 1-16 GPUs
+### Partial GPU nodes: 1-4 GPUs
 
 ```bash
 #!/bin/bash
@@ -185,7 +185,7 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-### Full GPU nodes: 16 or more GPUs
+### Full GPU nodes: 4 or more GPUs
 
 ```bash
 #!/bin/bash

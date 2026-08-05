@@ -332,9 +332,12 @@ Note that the `--gres` reservation is on a per-node basis. There are 4 GPUs per 
     The MIGs are not configured yet.
 
 In `gpuinteractive` partition, the GH200 GPUs are sliced into smaller Multi-Instance GPUs (MIG).
-Each MIG here has one XXXth of the compute and memory capacity of a full GH200 GPU.
-For each GPU slice you can reserve at most XXX CPU cores and for each GPU slice the job is allocated XXX GiB of CPU memory.
-Also note that you can reserve at most one GPU slice per job. The GPU slices are available using the options:
+Each MIG has one-seventh of the compute capacity and one-eighth of the GPU memory capacity of a full GH200 GPU, providing 12 GiB of GPU memory.
+
+The maximum number of CPU cores and the amount of CPU memory available to a job is less than on a partition with full GPUs.
+These limits will be documented once the MIG configuration has been finalized.
+
+You can reserve at most one GPU slice per job. GPU slices are requested using the following options::
 
 ```bash
 #SBATCH --partition=gpuinteractive
