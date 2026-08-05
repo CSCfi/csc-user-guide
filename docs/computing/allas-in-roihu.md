@@ -43,7 +43,7 @@ The project specific access key pair is stored to the configuration files of *aw
 
 In case of **aws** and **s3cmd**, only one connection is defined and running allas-conf overwrites the old default connections.  
 
-In case of **rclone**, two endpoints are defined **s3allas:** and **s3allas-project-_proj-number_**. Both endpoints refer to the same Allas project. When a new project is defined with allas-conf, a3allas: endpoint is changed to refer to the new project, but the older project specific endpoint is preserved in addition to the new project specific endpoint that gets generated. 
+In case of **rclone**, two endpoints are defined **s3allas:** and **s3allas-project-_proj-number_**. Both endpoints refer to the same Allas project. When a new project is defined with allas-conf, s3allas: endpoint is changed to refer to the new project, but the older project specific endpoint is preserved in addition to the new project specific endpoint that gets generated. 
 
 For example after commands:
 
@@ -58,15 +58,15 @@ Following connections are in use:
 |--------------------------------|----------------|
 | a-commands, aws and s3cmd	     | project_200222 |
 | rclone s3allas:                | project_200222 |
-| rclone a3allas-project_200111: | project_200111 |
-| rclone a3allas-project_200222: | project_200222 |
+| rclone s3allas-project_200111: | project_200111 |
+| rclone s3allas-project_200222: | project_200222 |
 
 And with these settings all the commands below list the Allas buckets of project 200222.
 
 ```txt
 a-list
 rclone lsd s3allas:
-rclone lsd a3allas-project_200222:
+rclone lsd s3allas-project_200222:
 s3cmd ls s3://
 aws s3 ls
 ```
