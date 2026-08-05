@@ -147,20 +147,25 @@ The amount of local storage available to a single user depends on the [partition
 
 === "Automatic (`$TMPDIR`)"
 
-    | Allocation type    | Available per user | Read / Write speeds |
-    |:-------------------|-------------------:|---------------------|
-    | R (shared nodes)   | 20 GiB             | 5000 / 1400 MB/s    |
-    | N (full nodes)     | 600 GiB            | 5000 / 1400 MB/s    |
-    | G (GPU nodes)      | 150 GiB            | 5000 / 1400 MB/s    |
-    | Hugemem (XL) nodes | 578 GiB            | 6700 / 4000 MB/s    |
-    | VIZ nodes          | 14 TiB             | 6700 / 4000 MB/s    |
+    | Allocation type         | Available per user | Read / Write speeds |
+    |:------------------------|-------------------:|---------------------|
+    | R (shared nodes)        | 20 GiB             | 5000 / 1400 MB/s    |
+    | N (full nodes)          | 600 GiB            | 5000 / 1400 MB/s    |
+    | G (GPU nodes)           | 150 GiB            | 5000 / 1400 MB/s    |
+    | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
+
+    Reservable local scratch has not yet been implemented on visualization nodes (V).
+    Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
+
+    Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
 
 === "Reservable (`$LOCAL_SCRATCH`)"
 
-    | Node type          | Maximum reservable | Read / Write speeds |
-    |:-------------------|-------------------:|---------------------|
-    | Hugemem (XL) nodes | 13 TiB             | 6700 / 4000 MB/s    |
-    | VIZ nodes          | 6.5 TiB per user   | 6700 / 4000 MB/s    |
+    | Node type               | Maximum reservable | Read / Write speeds |
+    |:------------------------|-------------------:|---------------------|
+    | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
 
     Reserving local scratch on the visualization nodes is not yet
     implemented; use `$TMPDIR` on these nodes until this feature is added.

@@ -162,6 +162,11 @@ they use:
     | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
     | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
 
+    Reservable local scratch has not yet been implemented on visualization nodes (V).
+    Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
+
+    Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
+
 === "Reservable (`$LOCAL_SCRATCH`)"
 
     | Node type               | Maximum reservable | Read / Write speeds |
