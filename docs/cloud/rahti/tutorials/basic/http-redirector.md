@@ -7,15 +7,15 @@
 
 1. Deploy an NGINX Image. Start by clicking the '+ Add' button on top right and select `Container images` option.
 
-    ![Quick create](../../img/quick-create.png)
+    ![Quick create](../../../img/quick-create.png)
 
 1. For this exercise it is recommended to use `bitnami/nginx`
 
-    ![bitnami/nginx](../../img/bitnami-nginx-deploy.png)
+    ![bitnami/nginx](../../../img/bitnami-nginx-deploy.png)
 
 1. Add a Route by going to Networking -> Routes and clicking Create Route. Use the URL that you want to redirect. If you visit the URL, you should see the "nginx welcome page"
 
-    ![route](../../img/create-route-nginx.png)
+    ![route](../../../img/create-route-nginx.png)
 
 1. Add a ConfigMap with a server redirection block. Go to **Workloads > ConfigMaps**, click in **Create ConfigMap**. The **Name** will be later used when mounting the ConfigMap. The **Key** will be the name of the file (e.g. `nginx.conf`), and the **Value** the content of the file. 
 
@@ -78,7 +78,7 @@ oc set volume deployment/<deployment-name> --add \
   --containers=nginx
 ```
 
-This tutorial does not handle `oc` command in detail but you can get started with another tutorial: [Command line tool usage](../usage/cli.md).
+This tutorial does not handle `oc` command in detail but you can get started with another tutorial: [Command line tool usage](../../get-started/cli.md).
 
 ## Add more host domains
 

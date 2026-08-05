@@ -1,5 +1,5 @@
 !!! success "Basic level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and kubernetes [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
+    You need a knowledge of OKD CLI tool [oc](../../get-started/cli.md) and kubernetes [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
 
 # Annotations
 
@@ -13,6 +13,6 @@ oc annotate <object_type> <object_name> <key>=<value>
 
 Here are some examples that use annotations:
 
-* [Protecting Against DDoS Attacks](../../../support/faq/DDos.md)
-* [Route annotations](../concepts.md#route)
-* [Custom domain names and secure transport](custom-domain.md)
+* [Protecting Against DDoS Attacks](../../../../support/faq/DDos.md)
+* [Route annotations](../../usage/kubernetes-concepts.md#route)
+* [Custom domain names and secure transport](../intermediate/custom-domain.md)
