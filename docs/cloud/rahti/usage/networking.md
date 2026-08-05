@@ -1,362 +1,202 @@
-# Networking
+# Networking in Rahti
 
-## Ipv4
+Rahti provides an integrated IPv4 software-defined network (SDN) layer that allows Pods to communicate inside the cluster and with the outside world. In this network, every Pod gets its own IP address, allowing it to communicate with other Pods directly. By default, a Pod can communicate only with Pods running in the same namespace (i.e. Rahti project) unless the default [NetworkPolicies](../configurations/netpol.md) are changed. When a Pod is restarted or moved, its IP address changes. Therefore, in order to provide stable IPs to applications, `Services` are used to dynamically map the IPs of one or more Pods to fixed IPs and DNS records, which can then be used to reach the Pods. The IPs of Pods and Services are reachable within the cluster only. If a Service is to be exposed to the internet, you will need to create `Routes`. Hereafter, we explain these concepts in detail.
 
-All networking in Rahti uses [IPv4](https://en.wikipedia.org/wiki/IPv4). All IPs in this document and Rahti's system itself are ipv4 only, no ipv6 IP is used.
+## Pod IPs
 
-## Namespaces
+Each Pod receives an IP address from the Rahti network (CIDR: 10.128.0.0/14). By default, Pods can communicate with other Pods in the same Rahti project (i.e. namespace), and cross-node Pod communication is ensured dynamically by the Rahti network. However, it is not advisable to use the Pod IPs directly to reach Pods, as the IPs are ephemeral and can change when Pods are recreated. You can check the IP addresses assigned to your Pods using the following command:
 
-Rahti is divided in **Namespaces**. Depending on the context, namespaces can be referred as **Projects**. Every object in Rahti must belong to and run inside a namespace.
+```bash
+oc get pods -o wide -n <rahti-project-name>
+```
 
-## NetworkPolicy
+## Pod ports
 
-From a networking point of view, namespaces are configured by default to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod) and [Services](concepts.md#service). Traffic to any `Pod` or `Service` coming from outside the namespace (even from other namespaces in Rahti) will be blocked. The only traffic that will be able to pass from outside the namespace will be the one going through the `Route`. This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti.
+A Pod can run one or more containers, and each container may expose one or more ports. Ports define which network endpoints inside the container are intended to receive traffic. While ports inside a Pod are not required to be explicitly declared when creating a Pod, doing so improves clarity, enables tools to introspect the application, and helps define how **Services** or other Pods should connect to it. Two different containers within the same Pod cannot listen to traffic on the same port. You can declare the ports exposed by your containers as in the following example:
 
-![Rahti Networking](../img/rahti-network.drawio.svg)
-
-!!! info "Advanced networking"
-    In the Rahti console menu, under `Networking > NetworkPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
-
-## Pods
-
-**Pods** are the basic unit in Kubernetes. They accommodate one or more containers that contain the software and the environment needed to run an application. Each Pod has a [**private** IP](https://en.wikipedia.org/wiki/Private_network), which is only reachable from inside the namespace/VLAN. It is not advisable to use these Pod IPs directly in applications, they are meant to be used by **Services**. This is because not only other Pods in other namespaces may share this private IP, but more importantly, when a Pod is recreated it will get a new IP.
-
-For example, if we deploy the `nginx` image in a Pod. This Pod will get a random private IP like `10.1.1.200`. Any unprivileged port (`>=1024`) that the image exports, like for example `8081`, will be reachable in that IP. A Pod will fail to start if it tries to export a privileged port (`[0-1023]`). If the Pod is killed, normally due to a change in its configuration, but also possibly due to unexpected reasons like hardware failure, a new Pod with a different IP will be created, like for example `10.1.1.140`. These IPs will respond to traffic from within the namespace only. If we set up a Pod that will query the first IP (`10.1.1.200`), it will obviously stop working at the moment of the recreation of the Pod associated with it. This is why we use **services**.
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: my-app
+  name: web-app
+  namespace: my-rahti-project
+spec:
+  securityContext:
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: httpd
+      image: 'image-registry.openshift-image-registry.svc:5000/openshift/httpd:latest'
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+```
 
 ## Services
 
-**Services** (also abbreviated `svc`) provide a _stable_ [private IP](https://en.wikipedia.org/wiki/Private_network) to one or more Pods. This IP will act as a load balancer, distributing the traffic load between the Pods behind it. For this, the service will make sure to keep an updated list of IPs so requests are only sent to valid ones.
+A Service is an abstraction that provides a stable way to access a group of Pods. Because Pods are temporary and can be replaced at any time, their IP addresses are temporary as well. A Service solves this by assigning the group of Pods a consistent virtual IP and DNS name. The Service automatically keeps track of which Pods should receive traffic, based on labels, and forwards traffic to them, acting as **load balancers**. This allows applications to communicate with each other reliably even as individual Pods are replaced, restarted, or scaled.
 
-Services are built to export one or more ports, and they also provide an internal DNS name. Any of these names are valid and will resolve to the same service IP:
+The following YAML definition creates a Service object that points to all Pods with the label **app: my-app**, using the `.spec.selector` field:
 
-* `<service_name>`, e.g., nginx.
-* `<service_name>.<namespace>`, e.g., ngin.fenic
-* and `<service_name>.<namespace>.svc.cluster.local`, e.g., nginx.fenic.svc.cluster.local.
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-svc
+  name: my-service
+  namespace: my-rahti-project
+spec:
+  ports:
+  - name: my-http-port
+    port: 80
+    targetPort: 8080
+  selector:
+    app: my-app
+  sessionAffinity: None
+  type: ClusterIP
+```
 
-In the same manner as Pods, Rahti Services can only be reached from inside the namespace they run, any request from another namespace will be able to resolve the DNS into an IP, but it will never connect. Another feature of services is that they can forward requests from one port to another target port (ex: 80 to 8080). This is useful in Rahti as Pods cannot listen on privileged ports (`<1024`).
+The Service definition above targets port `8080` in the matching Pods and exposes it as port `80`. This means that all traffic sent to `<service-ip-or-dns>:80` is forwarded to a matching Pod at `<matched-pod-ip>:8080`.
 
-Services can be used for internal connections. For example, if we have one or more MongoDB database replicas running in the `fenic` namespace, each in a different pod, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL `<mongo:27017` to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
+Every Service in Rahti receives a DNS name following this hierarchy:
 
-![nginx and Mongo](../img/mongo-nginx-app.drawio.svg)
+`<service-name>.<Rahti-project>.svc.cluster.local`
+
+For example, a Service named `backend` in the Rahti project `my-project` will have the following DNS name:
+
+`backend.my-project.svc.cluster.local`
+
+This is the fully qualified domain name (FQDN) inside the cluster. Kubernetes also provides shorter aliases, like `backend`, which can be used to refer to the Service named `backend` from any application running inside the same Rahti project where the Service is created. Similarly, `backend.my-project` can be used to refer to the Service from other Rahti projects.
 
 ## Routes
 
-**Routes** are the OpenShift equivalent of _Ingress_ in vanilla Kubernetes, they expose a single port of a single Service object to traffic from outside the namespace and the Internet, via HTTP/HTTPS only. If the route is configured to provide no encrypted HTTP traffic, the pods associated should talk in HTTP non encrypted traffic. If the route is configured to provide TLS/HTTPS secure traffic, several options are available regarding the Route encryption:
+All the IP addresses assigned to Pods and Services are private and non-routable. If you want to expose your **HTTP** application to the internet, you will need to create a [Route](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/ingress_and_load_balancing/routes). A Route allows you to map a public and routable hostname to a Service object created inside your Rahti project. In the following example, all `HTTP` traffic sent to the hostname `myapp.rahtiapp.fi` is redirected to the Service named `my-service`, which in turn forwards it to the appropriate Pods:
 
-* **Edge**, this is the default and the simplest to configure. The Route provides the certificate, which is stored in the Route object itself. The traffic is decrypted and the Pod is contacted using plain text un-encrypted HTTPD traffic.
-* **Passthrough** is when the encryption is delegated to the pod, which must listen for TLS/HTTPS traffic and provide the certificate the client will receive.
-* **Re-encrypt**, this is a mixture of two previous options, the Route will provide a certificate, but it will connect to the Pod using TLS/HTTPS and expect a valid certificate for the domain name of the service. The client will still get the certificate stored by the Route. This is for example used when the internal network between nodes in the cluster is not considered secure enough and we still want the Route to control the certificates that the client will get. Also in some rare applications is not possible to disable TLS in the Pods.
+```yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: my-route
+spec:
+  host: myapp.rahtiapp.fi
+  to:
+    kind: Service
+    name: my-service
+  port:
+    targetPort: 80  # This can also refer to the name of the port on the service: my-http-port
+```
 
-![Route Options](../img/route-modes.drawio.svg)
+The `.spec.host` field can be set to any value. However, the Route works out of the box only if you use a `*.rahtiapp.fi` suffix for your hostname. Otherwise, more configuration is needed for setting [custom domain names](../configurations/custom-domain.md).
+
+You can also configure the TLS termination for your Route. Three options are available:
+
+* **Edge:** this is the simplest TLS termination to configure, and the one used in most Rahti applications. The TLS connectivity is terminated at the Rahti router, which means that the router decrypts the incoming connection and forwards plain HTTP to the backend Service/Pod. Use this termination if your application does not need to manage TLS certificates and does not require end-to-end encryption. A Route that has no `tls` section, like the example above, is served over plain HTTP only, so edge termination has to be requested explicitly:
+
+    ```yaml
+    spec:
+      # ...
+      tls:
+        termination: edge
+        insecureEdgeTerminationPolicy: Redirect
+    ```
+
+    The optional `insecureEdgeTerminationPolicy: Redirect` setting makes the router redirect plain HTTP requests to HTTPS.
+
+* **Passthrough:** the Rahti router does not terminate TLS at all. It simply forwards encrypted traffic directly to the Service/Pod. The Pod is responsible for TLS decryption. Use this if your application needs to manage its own TLS certificates and requires end-to-end encrypted traffic. Add the following configuration to your Route to use _passthrough_:
+
+    ```yaml
+    spec:
+      # ...
+      tls:
+        termination: passthrough
+    ```
+
+* **Re-encrypt:** this is a hybrid mode. The router terminates TLS from the client, then initiates a new TLS connection to the Pod. Pods mapped to the Service are expected to have a valid certificate for the DNS name of the Service. This is used, for example, when you want the default Rahti router certificate to be used for client TLS sessions, while a private certificate is used to encrypt the traffic inside the Rahti cluster. Add the following configuration to your Route to use _re-encrypt_:
+
+    ```yaml
+    spec:
+      # ...
+      tls:
+        termination: reencrypt
+        destinationCACertificate: |
+          <CA for backend certificate>
+    ```
+
+    The `destinationCACertificate` CA certificate is used to validate the private Pod/Service certificate.
+
+Routes support several configurations and features like rate limiting, IP allow-listing (firewall), HTTP-to-HTTPS redirection, and other options that can be explored in the [external documentation](https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/ingress_and_load_balancing/routes). However, note that the TLS termination in use can limit the available features.
 
 !!! warning "Re-encrypt"
-    For Re-encrypt to work, it is necessary to provide your own certificate. There are 3 steps: (1) You must have a certificate/key pair in PEM-encoded files, where the certificate is valid for the route host. (2) You may have a separate CA certificate in a PEM-encoded file that completes the certificate chain. (3) You must have a separate destination CA certificate in a PEM-encoded file. If one of these steps is not followed correctly, the route will not work.
 
-A Route can also be configured to (1) provide a HTTP/302 redirection from port `80` to `443`. It is also possible to (2) serve the same content in both ports, or to (3) not serve anything at all in the un secure `80` port.
+    For _re-encrypt_ to work, it is necessary to provide your own certificate. Three things are required: (1) a certificate/key pair in PEM-encoded files, where the certificate is valid for the Route host, (2) optionally, a separate CA certificate in a PEM-encoded file that completes the certificate chain, and (3) a separate destination CA certificate in a PEM-encoded file. If one of these is not provided correctly, the Route will not work.
 
-An important limitation for Rahti is that **only the HTTP/80 and HTTPS/443 ports are exposed for incoming traffic**, and they only can serve **HTTPD protocol requests**. Internally to a namespace, any port and protocol is supported, this means we can connect an application to a database with no issues, but we will never be able to expose that database to outside traffic. This is due to the fact that the same incoming virtual IP is shared with all the incoming traffic in Rahti's HAProxy load balancers. [Name-based virtual hosts](https://en.wikipedia.org/wiki/Virtual_hosting#Name-based) are used to redirect the traffic to the correct Route. Other protocols that are not HTTPD, do not have this feature and will need a dedicated IP/port pair to work.
+### IP allow-listing
 
-Rahti provides a range of pre-created domain names, `XXXX.2.rahtiapp.fi` where `XXXX` can be any combination of letters, numbers and dashes. These pre-created domain names also come with a valid TLS certificate.
+An important feature of Routes is the IP allowlist, i.e. allowing only a single IP or a range of IPs to access the `Route`. This can be achieved by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_allowlist`, and by setting the value to a space-separated list of IPs and/or network ranges. See the examples below.
 
-Every single pre-created domain name is configured to point to the HAProxy load balancers.
+!!! info "Note"
 
-### Custom domains
-
-Any existing possible domain name could potentially be used in Rahti, but the DNS configuration and the certificates must be managed by the customer:
-
-* For the DNS configuration, you need to configure a `CNAME` pointing to `router-default.apps.2.rahti.csc.fi` or in cases that this is not possible, another possibility is to configure an `A` record containing the IP of `router-default.apps.2.rahti.csc.fi` has to be configured. The way this needs to be configured depends on the register of the DNS record.
-
-    ```console
-    $ host ?????.??
-    ?????.?? is an alias for router-default.apps.2.rahti.csc.fi.
-    router-default.apps.2.rahti.csc.fi has address 195.148.21.61
-    ```
-
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
-
-Another aspect of routes is the IP allowlisting feature, i.e: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_allowlist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
-
-* This first example will allow a range of IPs (`193.166.[0-255].[1-254]`):
-
-    ```bash
-    oc annotate route $route_name haproxy.router.openshift.io/ip_allowlist='193.166.0.0/16'
-    ```
-
-* This other example will allow only a specific IP:
-
-    ```bash
-    oc annotate route $route_name haproxy.router.openshift.io/ip_allowlist='188.184.9.236'
-    ```
-
-* And this example will combine both:
-
-    ```bash
-    oc annotate route $route_name haproxy.router.openshift.io/ip_allowlist='193.166.0.0/15 193.167.189.25'
-    ```
+    The list of the IPs is in the format of **space-separated** values.
+    For example: `"192.168.1.0/24 10.0.0.1"`
 
 !!! warning
-    The old `haproxy.router.openshift.io/ip_whitelist` annotation is deprecated but still supported for compatibility.
-    It will be removed in a future version.
 
+    If the allowlist entry is malformed, Rahti will discard the allowlist and allow all traffic.
+    Example of malformed `"192.168.0"` or `'192.168.1.0/24 '` -> Note the extra whitespace!
 
-## Egress IPs
+* This first example will allowlist a network IP range (`193.166.0.0/16`):
 
-The IP for all outgoing customer traffic is `86.50.229.150`. Any pod that runs in Rahti will use by default this IP to reach anything located outside Rahti or a Route. It is possible, for selected namespaces that need it, to configure a dedicated IP. Each request is reviewed individually due to the fact that there is a limited pool of virtual IPs available.
-
-!!! warning "Egress IP may change"
-
-    The egress IP of Rahti might change in the future. For example, if several versions of Rahti are run in parallel each will have a different IP. Or if a major change in the underlining network infrastructure happens.
-
-
-## Using LoadBalancer Service Type with Dedicated IPs
-
-Unlike routes, the `LoadBalancer` service type makes it possible to expose services to the internet without being limited to HTTP/HTTPS. This feature allows you to expose services to receive external inbound traffic on a dedicated public IP address, ensuring that external users or services can interact with your applications. To enable and use LoadBalancer services within your Rahti project, you must submit a request to the service desk (`servicedesk@csc.fi`). The request must include the following details:
-
-- **Project Name**: Provide the exact name of the Rahti project for which you want to enable LoadBalancer services.
-
-- **CSC Project Number**: The `csc_project` number that is used for Rahti Project.
-
-- **Use Case**: Clearly describe the use case, including:
-    - The type of services you plan to expose (e.g., web applications, APIs).
-    - Any specific requirements or considerations. (e.g., how many ips)
-
-When your request is approved by the admins, you will receive the public IP address that can be used to access your services, and you can then proceed with the creation of the ```LoadBalancer``` service.
-Alternatively, you can use the following command to check the IP addresses that are assigned to your project. The information will be visible under `annotations.ip_pairs` field.
-
-```bash
-oc get ipaddresspools.metallb.io -n metallb-system <project_name> -o yaml
-```
-
-```bash
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
-metadata:
-  annotations:
-    ip_pairs: |
-      192.168.191.X - 86.50.228.M
-      192.168.192.Y - 195.148.30.N
-  creationTimestamp: "XXXX-XX-XXTXX:XX:XXZ"
-  generation: 1
-  name: <project_name>
-  namespace: metallb-system
-  resourceVersion: "XXXXXX"
-  uid: XXXXXXX
-spec:
-  addresses:
-  - 192.168.191.X/32
-  - 192.168.192.Y/32
-  autoAssign: true
-  avoidBuggyIPs: false
-  serviceAllocation:
-    namespaces:
-    - <project_name>
-    priority: 1
-
-```
-
-For example, the following service definition exposes a MySQL service on the assigned public IP at port 33306.
-
-
-```yaml
-kind: Service
-apiVersion: v1
-metadata:
-  name: mysqllb
-  namespace: my-namespace
-spec:
-  ports:
-    - protocol: TCP
-      port: 33306
-      targetPort: 3306
-  allocateLoadBalancerNodePorts: false
-  type: LoadBalancer
-  selector:
-    app: mysql
-```
-
-**You can find detailed explanation about `Service` [here](./concepts.md#service)**
-
-Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
-
-Additionally, the port field in the service definition (e.g., `33306` in the previous example) must be within the range of `30000-35000`.
-
-#### How to retrieve the selector
-
-##### **Using CLI**
-
- on your CLI run `oc describe pod <pod-name> -n <namespace>`. After running the oc command, you will see an output that includes a section labeled `Labels`, Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**. For example under the `Labels` we are using the first one:
-
-```bash
-Name:           mysql-pod
-Namespace:      my-namespace
-Priority:       0
-Node:           worker-node-1/10.0.0.1
-Start Time:     Mon, 23 Oct 2024 10:00:00 +0000
-Labels:         app=mysql
-                environment=production
-                app.kubernetes.io/name=postgresql
-(...)
-```
-
-##### **Using the Web Interface**
-
-On the web interface under `Workloads`, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
-
-![rahti](../img/rahti_label.png)
-
-
-#### How to make sure your service is pointing to the right pod
-
-##### **Using CLI**
-
- On your CLI run `oc get endpoints <service-name> -n <namespace>`. You should see the name of the Service and the IP addresses and ports of the Pods that are currently targeted by the Service. For example:
-
-```bash
-NAME       ENDPOINTS           AGE
-mysqllb   10.0.0.1:3306        10m
-```
-
-##### **Using the Web Interface**
-
-On the web interface under `Networking`, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
-
-![rahti](../img/rahti_pods.png)
-
-
-### Share the same LoadBalancer IP among Services
-
-It is also possible to expose multiple `LoadBalancer` services on the same public IP but on different ports, you can enable IP sharing by adding the `metallb.universe.tf/allow-shared-ip` annotation to services. The value of the annotation is a label of your choice. The services annotated with the same label will share the same IP. Here is an example configuration of two services that share the same IP address:
-
-```yaml
-kind: Service
-apiVersion: v1
-metadata:
-  name: mysqllb
-  namespace: my-namespace
-  annotations:
-     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
-spec:
-  ports:
-    - protocol: TCP
-      port: 33306
-      targetPort: 3306
-  allocateLoadBalancerNodePorts: false
-  type: LoadBalancer
-  selector:
-    app: mysql
-```
-
-
-```yaml
-kind: Service
-apiVersion: v1
-metadata:
-  name: httplb
-  namespace: my-namespace
-  annotations:
-     metallb.universe.tf/allow-shared-ip: "label-to-share-1.2.3.4"
-spec:
-  ports:
-    - protocol: TCP
-      port: 30080
-      targetPort: 80
-  allocateLoadBalancerNodePorts: false
-  type: LoadBalancer
-  selector:
-    app: httpd
-```
-
-### Add firewall IP blocking to a LoadBalancer Service using NetworkPolicy
-
-It is possible to add firewall IP blocking to a LoadBalancer Service. This allows you to configure an allowlist of specific IP addresses (for example, 188.184.77.250) and/or IP ranges (for example, 188.184.0.0/16). Only traffic from these permitted addresses will be able to access the service.
-
-
-!!! info "Tip"
-    IP firewalling alone is not sufficient to secure an application running behind a LoadBalancer Service. Always follow security best practices and use IP filtering as part of a layered security approach. **Combine** it with secure communication protocols such as TLS and strong authentication mechanisms, including safe password practices, to properly protect your applications.
-
-
-The procedure to achieve this is the following:
-
-1. Activate the `Local` external traffic policy in the service. To do so add `externalTrafficPolicy: Local` under `spec` like this:
-
-    ```yaml
-    kind: Service                                       kind: Service
-    apiVersion: v1                                      apiVersion: v1
-    metadata:                                           metadata:
-      name: mysqllb                                       name: mysqllb
-    spec:                                               spec:
-      ports:                                              ports:
-        - protocol: TCP                                     - protocol: TCP
-          port: 33306                                         port: 33306
-          targetPort: 3306                                    targetPort: 3306
-          name: http                                          name: http
-      allocateLoadBalancerNodePorts: false                allocateLoadBalancerNodePorts: false
-                                                     >    externalTrafficPolicy: Local
-      type: LoadBalancer                                  type: LoadBalancer
-      selector:                                           selector:
-        app: mysql                                          app: mysql
-
+    ```bash
+    oc annotate route <route_name> haproxy.router.openshift.io/ip_allowlist='193.166.0.0/16'
     ```
 
-    !!! Warning "Local Traffic Policy Limitations"
-        Rahti uses `L2Advertisement` mode in metallb. Fore more information please refer to ['Layer 2'](https://metallb.universe.tf/usage/#traffic-policies).
-   
-        Also note that, when `externalTrafficPolicy` is set to `Local`, only one service can be exposed using the external IP; i.e., the load balancer IP can not be shared among multiple services.
+* It is possible to allowlist only a specific IP:
 
-        For more information refer to the official article: [Understanding Openshift `externalTrafficPolicy: local` and Source IP Preservation](https://access.redhat.com/solutions/7028639)
-
-2. Add a `NetworkPolicy` to open access to selected IPs:
-
-    ```yaml
-    apiVersion: networking.k8s.io/v1
-    kind: NetworkPolicy
-    metadata:
-      name: firewall
-    spec:
-      ingress:
-      - from:
-        - ipBlock:
-            cidr: 188.184.0.0/16
-        - ipBlock:
-            cidr: 137.138.6.31/32
-      - from:
-        - namespaceSelector:
-            matchLabels:
-              policy-group.network.openshift.io/ingress: ""
-      podSelector:
-        matchLabels:
-          app: mysql
-      policyTypes:
-      - Ingress
+    ```bash
+    oc annotate route <route_name> haproxy.router.openshift.io/ip_allowlist='188.184.9.236'
     ```
 
-    The above example of `NetworkPolicy` allows ingress traffic from the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) `188.184.0.0/16` which translates to the range [`188.184.0.0` - `188.184.255.255`], and from the single IP `137.138.6.31`. The destination of the traffic is limited by the `matchLabels` section. The label must be the same as the one used in the `LoadBalancer` service.
+* It is also possible to allowlist multiple IPs and networks at the same time:
 
-3. When using `externalTrafficPolicy: Local` in your service, your Pods need to be hosted on nodes that can forward traffic directly to them (ie., locally). 
-To achieve this, you need to add the [nodes selector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) `rahti.csc.fi/local-load-balancer: ''`
-to your Pods (or Deployment, or Statefulset if applicable):
-
-    ```yaml
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: nginx
-      labels:
-        env: test
-    spec:
-      nodeSelector:
-        rahti.csc.fi/local-load-balancer: ''
-      .....
-      .....
+    ```bash
+    oc annotate route <route_name> haproxy.router.openshift.io/ip_allowlist='193.166.0.0/15 193.167.189.25'
     ```
-   
-### Differences between a Route and a LoadBalancer service during deployment roll outs
 
-In Rahti, the way `Route`s and `LoadBalancer` services manage traffic during deployment rollouts work differently.
+Alternatively, you can set the annotation directly in the `Route` resource when creating it for the first time.
 
-`Routes`, managed by OpenShift's HAProxy integraged load blanacer, are designed to quickly adjust and direct traffic as soon as a new pod starts and simultaneously cease routing to the old or terminating pods, ensuring rapid response to changes and minimizing service disruption.
+```yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: my-route
+  namespace: my-rahti-project
+  annotations:
+     haproxy.router.openshift.io/ip_allowlist: '192.168.1.0/24 10.0.0.1'
+spec:
+  host: my-app-name.rahtiapp.fi
+  to:
+    kind: Service
+    weight: 100
+    name: my-service
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+status:
+  ingress: []
+```
 
-In contrast, `LoadBalancer` services distribute traffic not only to new pods but also continue to send requests to old or terminating pods. This behavior occurs because these services rely on periodic updates from [EndpointSlices](https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/), which can delay the exclusion of terminating pods from traffic distribution. This difference in handling traffic can be useful to understand, as it affects how deployment strategies should be handled for application updates.
+## More information on networking
 
-For more information refer to the OpenShift documentation regarding [route based deployment strategies](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/building_applications/deployments#route-based-deployment-strategies).
-To avoid disruptions when using external load balancer services, you can adopt the principle of a [blue-green deployment](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)
+  * [Custom domains](../configurations/custom-domain.md)
+  * [Egress IPs](../configurations/egress-ip.md)
+  * [LoadBalancer Service (Ingress IPs)](../configurations/loadbalancer-service.md)
+  * [Network Policy](../configurations/netpol.md)
