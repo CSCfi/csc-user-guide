@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="396px" height="241px" viewBox="0 0 396 241" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+<svg width="410px" height="241px" viewBox="0 0 410 241" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
     <g>
         <rect x="145.5" y="110.5" width="80" height="30" style="fill:none;"/>
         <g transform="matrix(1,0,0,1,177,129)">
             <g>
-                <text x="-23.183px" y="0px" style="font-family:'Helvetica';font-size:12px;">1.5 x 2 +</text>
+                <text x="-23.183px" y="0px" style="font-family:'Helvetica';font-size:12px;">1 x 1.6 +</text>
             </g>
         </g>
         <rect x="5.5" y="70.5" width="40" height="30" style="fill:none;"/>
@@ -41,7 +41,7 @@
         </g>
         <g transform="matrix(1,0,0,1,131,129)">
             <g>
-                <text x="-18.179px" y="0px" style="font-family:'Helvetica';font-size:12px;">1 x 1 +</text>
+                <text x="-35px" y="0px" style="font-family:'Helvetica';font-size:12px;">1 x 1.05 +</text>
             </g>
         </g>
         <rect x="0.5" y="180.5" width="110" height="30" style="fill:none;"/>
@@ -65,7 +65,7 @@
         <rect x="245.5" y="110.5" width="150" height="30" style="fill:none;"/>
         <g transform="matrix(1,0,0,1,316,129)">
             <g>
-                <text x="-63.536px" y="0px" style="font-family:'Helvetica';font-size:12px;">x 3 = 4.03 *Cloud BUs per hour</text>
+                <text x="-63.536px" y="0px" style="font-family:'Helvetica';font-size:12px;">x 3.6 = 2.686 *Cloud BUs/h</text>
             </g>
         </g>
         <rect x="195.5" y="105.5" width="60" height="20" style="fill:none;"/>
