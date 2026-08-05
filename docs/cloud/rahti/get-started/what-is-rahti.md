@@ -1,34 +1,38 @@
 # What is Rahti?
 
 !!! warning "Recommendations"
-    Before using Rahti, we recommend that you familiarise yourself with containers.
-    You can find more information by following this [link](ext_docs.md)
+    Before you use Rahti, it is good to learn the basics of containers first. See the [external documentation](../reference/external-docs.md) to get started.
 
-Rahti is the container orchestration service at CSC. Rahti runs on [okd](https://www.okd.io/), the community distribution of Kubernetes that powers Red Hat OpenShift. Built around a core of [OCI](https://opencontainers.org/) container packaging and [Kubernetes](https://kubernetes.io/) container cluster management.
+Rahti is the container cloud service at CSC. It runs [OKD](https://www.okd.io/), the open source distribution of OpenShift on CSC's cPouta service. It uses [OCI](https://opencontainers.org/) to package containers and [Kubernetes](https://kubernetes.io/) to manage them.
 
-With the Rahti service you can easily deploy scalable and fault tolerant applications and make them accessible over the web. Rahti provides features like load balancing, high availability and rolling updates for your application. It also provides multiple ways to deploy applications, such as Helm Charts and container images, depending on your use case. Under the hood, Rahti is built on open source and based on a distribution of Kubernetes called OKD.
+With Rahti you can run your own applications and share them on the web. Rahti can scale an application up and down. It also keeps the application running if a part of it fails. You get features like load balancing, high availability, and rolling updates. You can deploy in more than one way, for example with Helm Charts or with container images.
 
-Like cPouta, Rahti is a generic platform that can run many different kinds of applications from web servers and databases to complex scientific software stacks and data analysis pipelines. However, the approach Rahti takes and the way you use it is quite different from cPouta. In contrast to cPouta where you manage infrastructure like virtual machines and networks, in Rahti you manage applications directly. You can think of it as a big computer where you launch applications whereas cPouta is like a data center where you add your own computers. As you will be sharing this big computer with other users, extra security limitations are in place, the most important being that the applications will be run using a non privileged user.
+Rahti can run many kinds of applications. This includes web servers, databases, scientific software, and data analysis pipelines. cPouta can run these too, but you use it in a different way. With cPouta you manage the infrastructure, such as virtual machines and networks. With Rahti you manage only the application. Think of Rahti as one big computer where you start applications. cPouta is more like a data center where you add your own computers. You share this big computer with other users. Because of this, some security limits are in place. The main limit is that your application does not run as the root user.
 
 ## When should I choose Rahti?
 
-Here are some example use cases that Rahti is good for:
+Rahti is a good fit when you want to:
 
-* Host an interactive web application or just a regular web site.
-* Pre-package a complex application like Apache Spark and make it easy for others to run their own instance of that application.
-* Deploy a web application written in common languages like Python, Javascript or Java to the web with just one command.
-* If you want to run a web application or host a web site, Rahti will likely be the platform for you. It comes with a lot of the most common features needed for web based applications.
+* Run an interactive web application or a normal web site.
+* Package a complex application, like Apache Spark, so others can run their own copy.
+* Deploy a web application written in a common language, such as Python, JavaScript, or Java, with a single command.
+* Build a microservice-based application, connecting independent services into an end-to-end pipeline for building and deploying.
 
-## OpenShift OKD v Kubernetes
+If you want to run a web application or host a web site, Rahti is likely the right choice. It comes with most of the features that web applications need.
 
-OpenShift [OKD](https://www.okd.io/) is optimized for multi-tenant deployment. This means that different tenants will be sharing the same hardware. For this reason, **privileged mode** is not allowed, and containers **cannot be run as root**.
+## OKD vs Kubernetes
 
-OpenShift provides these extra services over a standard Kubernetes offering:
+[OKD](https://www.okd.io/) is made for multi-tenant use. This means different users share the same hardware. For safety, **privileged mode** is not allowed, and containers **cannot run as the root user**.
 
-* Web UI: <https://rahti.csc.fi/>
+OKD adds a few extra services on top of standard Kubernetes:
 
-![Rahti WEB UI](../img/Rahti-landing.png)
+* **A Web Console**: <https://console.rahti.csc.fi/>
 
-* HTTP(s) load balancer (HAProxy). Using [Routes](networking.md#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
+![Rahti web user interface](../../img/Rahti-landing.png)
 
-* Central file [storage volumes](storage/index.md)
+* **Routes**: Expose applications externally without managing Ingress resources.
+* **BuildConfigs**: Declarative build automation integrated into the platform.
+* **ImageStreams**: Track and automatically update application images.
+* **Templates**: Deploy reusable application stacks with parameters.
+* **Project Self-Service**: Easily create and manage isolated workspaces (projects).
+* **Logs & Metrics UI**: View application logs and metrics from the web console.
