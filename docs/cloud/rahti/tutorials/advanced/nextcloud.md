@@ -7,7 +7,7 @@ In this tutorial, we will show how to deploy Nextcloud on Rahti.
 
 ## Prerequisites
 
-You need the [oc](../usage/cli.md) installed on your computer as well as [helm](https://helm.sh).
+You need the [oc](../../get-started/cli.md) installed on your computer as well as [helm](https://helm.sh).
 
 Create a new folder named `nextcloud`
 
@@ -44,7 +44,7 @@ The `kustomize` and the `post-render` folders will be created later in this tuto
 
 We'll need to bring some modifications to the `Dockerfile` to be able to run Nextcloud on Rahti.
 
-Rahti runs OKD which includes some [default security policies](../security-guide.md#cluster-policy). Also, it is not possible to bind the ports 80 or 443 without elevated privileges.
+Rahti runs OKD which includes some [default security policies](../../security-guide.md#cluster-policy). Also, it is not possible to bind the ports 80 or 443 without elevated privileges.
 
 Our modifications will:
 
@@ -106,7 +106,7 @@ docker build . --platform linux/amd64 --tag image-registry.apps.2.rahti.csc.fi/<
 
 _Replace YOUR_PROJECT by your Rahti project_
 
-Once built, [push](../images/Using_Rahti_integrated_registry.md) the image on the Rahti registry:
+Once built, [push](../../usage/images/integrated-registry.md) the image on the Rahti registry:
 
 ```sh
 docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
@@ -212,13 +212,13 @@ We will install Nextcloud via Helm. We will use this Helm Chart: [https://github
 
 * `nextcloud.password` - Password for your Nextcloud admin
 
-* `nextcloud.objectStore.s3.accessKey` - Access Key to Allas. See our [FAQ](../../../support/faq/how-to-get-Allas-s3-credentials.md) on how to get Allas S3 credentials
+* `nextcloud.objectStore.s3.accessKey` - Access Key to Allas. See our [FAQ](../../../../support/faq/how-to-get-Allas-s3-credentials.md) on how to get Allas S3 credentials
 
-* `nextcloud.objectStore.s3.secretKey` - Secret Key to Allas. See our [FAQ](../../../support/faq/how-to-get-Allas-s3-credentials.md) on how to get Allas S3 credentials
+* `nextcloud.objectStore.s3.secretKey` - Secret Key to Allas. See our [FAQ](../../../../support/faq/how-to-get-Allas-s3-credentials.md) on how to get Allas S3 credentials
 
-* `nextcloud.objectStore.s3.bucket` - Name of your bucket on Allas (Must be unique across all Allas. [Read more here](../../../data/Allas/introduction.md#naming-buckets-and-objects)
+* `nextcloud.objectStore.s3.bucket` - Name of your bucket on Allas (Must be unique across all Allas. [Read more here](../../../../data/Allas/introduction.md#naming-buckets-and-objects)
 
-* `externalDatabase.host` - Public IP of your Pukki Database (Get started with Pukki [here](../../dbaas/getting-started.md))
+* `externalDatabase.host` - Public IP of your Pukki Database (Get started with Pukki [here](../../../dbaas/getting-started.md))
 
 * `externalDatabase.user` - Username of your Pukki Database
 
@@ -229,7 +229,7 @@ We will install Nextcloud via Helm. We will use this Helm Chart: [https://github
 !!! info Documentations  
     For more information about Kustomize, check our [documentation](kustomize.md)
     
-    For more information about Helm, check our [FAQ](../../../support/faq/helm.md)
+    For more information about Helm, check our [FAQ](../../../../support/faq/helm.md)
 
 Since Helm 4, post renderers are [implemented as plugins](https://helm.sh/docs/overview#post-renderers-implemented-as-plugins), which means that we need to create our Helm plugin.
 

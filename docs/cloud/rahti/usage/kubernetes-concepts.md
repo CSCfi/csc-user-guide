@@ -7,7 +7,7 @@ The power of Kubernetes (and OpenShift) is in the relatively simple abstractions
 
 These abstractions are objects, persistent entities in the Kubernetes system. These entities are used to represent the desired state of the project (also called namespace in Kubernetes). Most of the objects are common to both plain Kubernetes and OpenShift, but OpenShift also introduces some of its own extra objects.
 
-![Kubernetes full picture](../img/Kubernetes.drawio.svg)
+![Kubernetes full picture](../../img/Kubernetes.drawio.svg)
 
 ## Kubernetes concepts
 
@@ -16,7 +16,7 @@ These abstractions are objects, persistent entities in the Kubernetes system. Th
 Every Kubernetes object is created inside a **Namespace**. It is just a sandbox where all the other objects are 
 contained and separated from objects belonging to other namespaces. In Openshift they are referred as **Projects**. 
 The two names (project and namespace) are very common words in computing so referring to them can sometimes be confusing. 
-In order to create a project, please go to the [Creating a project](usage/projects_and_quota.md#creating-a-project) documentation.
+In order to create a project, please go to the [Creating a project](../get-started/projects.md#creating-a-project) documentation.
 
 ### Pod
 
@@ -31,7 +31,7 @@ Pods are intended to be _expendable_, i.e. they may be killed at any time and a 
 able to continue working and show no sign of interruption to the user. It must recover automatically. Any data that 
 needs to persist after a pod is killed should be stored on a [persistent volume](storage/persistent.md) attached to the pod.
 
-![Pod](../img/pods.png)
+![Pod](../../img/pods.png)
 
 The abstractions in Kubernetes/OpenShift are described using YAML or JSON. YAML
 and JSON are so-called data serialization languages that provide a way to
@@ -77,7 +77,7 @@ A **service** provides a stable virtual IP, a port and a DNS name for one or
 more pods. They act as **load balancers**, directing traffic to a group of pods
 that all serve the same application.
 
-![Service](../img/service.png)
+![Service](../../img/service.png)
 
 *`service.yaml`*:
 
@@ -134,7 +134,7 @@ pods dies, the ReplicaSet ensures that a new one is created in its place. They
 are typically not used on their own but rather as part of a **Deployment**
 (explained next).
 
-![ReplicaSet](../img/replicaset.png)
+![ReplicaSet](../../img/replicaset.png)
 
 ### Deployment
 
@@ -146,7 +146,7 @@ will perform a rolling update to kill all pods one by one and replace them with
 newer ones while making sure that end user traffic is directed towards working
 pods at all times.
 
-![Deployment](../img/deployment.png)
+![Deployment](../../img/deployment.png)
 
 ### InitContainer
 
@@ -525,7 +525,7 @@ OpenShift includes all Kubernetes objects, plus some extensions:
 
 
 DeploymentConfigs are objects that create
-[ReplicationControllers](tutorials/deploy_static_webserver_cli.md#replicationcontroller) according to
+[ReplicationControllers](../tutorials/intermediate/deploy-static-webserver-cli.md#replicationcontroller) according to
 `spec.template`. They differ from ReplicationControllers in the sense that
 DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig performs
@@ -539,7 +539,7 @@ chapter [deployment](#deployment) except that deployments
 trigger updates only when `spec.template` is changed. Furthermore, deployment
 is a pure Kubernetes concept, and DeploymentConfig is an OpenShift extension.
 
-Recall that [ReplicationControllers](tutorials/deploy_static_webserver_cli.md#replicationcontroller)
+Recall that [ReplicationControllers](../tutorials/intermediate/deploy-static-webserver-cli.md#replicationcontroller)
 are objects that make sure that a requested number of replicas of the pod defined in the
 `spec.template` is running.
 
@@ -669,7 +669,7 @@ This will redirect any traffics coming to `<host.name.dom>` to the service `name
 * `insecureEdgeTerminationPolicy` is set to `Redirect`. This means that any traffic coming to port 80 (HTTP) will be redirected to port 443 (HTTPS).
 * `termination` is set to `edge`, This means that the route will manage the TLS certificate and decrypt the traffic sending it to the service in clear text. Other options for `termination` include `passthrough` or `reencrypt`.
 
-Every host with the pattern `*.2.rahtiapp.fi` or `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `router.2.rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](tutorials/custom-domain.md) article for more information.
+Every host with the pattern `*.2.rahtiapp.fi` or `*.rahtiapp.fi` will automatically have a **DNS record** and a valid **TLS certificate**. It is possible to configure a Route with any given hostname, but a `CNAME` pointing to `router.2.rahtiapp.fi` must be configured, and a **TLS certificate** must be provided. See the [Custom domain names and secure transport](../tutorials/intermediate/custom-domain.md) article for more information.
 
 !!! info "Default hostname"
     By default, the hostname of the Route is `metadata.name` + `-` + `project name` + `.2.rahtiapp.fi` unless otherwise specified in `spec.host`.

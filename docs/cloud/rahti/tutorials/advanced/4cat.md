@@ -1,6 +1,6 @@
 !!! error "Advanced level"
     You need to have Linux, Docker, Docker Compose and Kompose knowledge. Python knowledge is a plus.  
-    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../usage/cli.md)
+    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../../get-started/cli.md)
 
 # How to deploy 4cat in Rahti
 
@@ -13,7 +13,7 @@ This tutorial is a long format one, it explains all the different steps that wer
 1. We can use the docker compose deployment as a base and adapt it to Kubernetes deployment using [kompose](https://kompose.io). This tool is specifically designed to make these conversions. From their website: "Our conversions are not always 1:1 from Docker Compose to Kubernetes, but we will help get you 99% of the way there!". And it indeed will save us a lot of tedious conversion time, but it will not be the end of it.
 
 !!! warning "Linux 🐧 is used for all the examples"
-    We have prepared this tutorial using a Linux machine. In principle, with a bit of adapting all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](../../pouta/launch-vm-from-web-gui.md) and use it for following the tutorial instead. This is useful even for Linux users, as you will be able to install, uninstall or change software without risking corrupting your local installation.
+    We have prepared this tutorial using a Linux machine. In principle, with a bit of adapting all these commands run also in Windows and Mac, but if confused I recommend you to [install a tiny VM in Pouta](../../../pouta/launch-vm-from-web-gui.md) and use it for following the tutorial instead. This is useful even for Linux users, as you will be able to install, uninstall or change software without risking corrupting your local installation.
 
 
 ## Docker compose
@@ -42,11 +42,11 @@ This tutorial is a long format one, it explains all the different steps that wer
 
     This will start the process for deploying the application in the machine. It can take some time to pull the images and configure the application. If you `Ctrl+C` the application will exit. If you want to run it on the background, you just need to add `-d` or  `--detach` to the docker-compose command.
 
-    ![docker-compose output](../../img/4cat-docker-compose.png)
+    ![docker-compose output](../../../img/4cat-docker-compose.png)
 
     After a while the application will be available on port `80` (The `PUBLIC_PORT`):
 
-    ![4cat first run](../../img/4cat.png)
+    ![4cat first run](../../../img/4cat.png)
 
 ### Analysis
 
@@ -292,7 +292,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
         io.kompose.service: frontend
     ```
 
-    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](../networking.md#services).
+    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](../../usage/networking.md#services).
 
 - `deployment` is the most complex configuration generated. We can try to map the con figuration of `docker-compose.yaml` into these files. For example using the shortest one generated:
 
@@ -356,7 +356,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
 
 ## Deployment to Rahti
 
-We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../usage/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../usage/projects_and_quota.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../../get-started/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../../get-started/projects.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 ### Volumes, ConfigMaps and Services
 
@@ -506,7 +506,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
 
     In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti/Openshift provides a PostgreSQL template that is available in the Software Catalog.
 
-    ![Developer Catalog](../../img/db-developer-catalog.png)
+    ![Developer Catalog](../../../img/db-developer-catalog.png)
 
     In the description of the template we can see a link to a Github page <https://github.com/sclorg/postgresql-container/>. On the page we can see the list of all the available images. We will choose [quay.io/sclorg/postgresql-15-c9s](https://quay.io/repository/sclorg/postgresql-15-c9s) as it is the newest available version and uses Centos 9 as a base.
 
@@ -651,7 +651,7 @@ This deployment also needs few changes. Let's go through them in hopefully a mor
     PermissionError: [Errno 13] Permission denied: '/nltk_data'
     ```
 
-    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. As containers are stateless, this means that any data written on the folder, will not survive the restart of the container. The easiest way to accomplish this is to mount an [ephemeral storage](../storage/ephemeral.md) folder (or `emptyDir`). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
+    We need to make the folder `/nltk_data` writable to the user running the application. If we come back to check the docker compose, this folder was not mentioned. As containers are stateless, this means that any data written on the folder, will not survive the restart of the container. The easiest way to accomplish this is to mount an [ephemeral storage](../../usage/storage/ephemeral.md) folder (or `emptyDir`). This is a fast temporal storage that will be deleted when the Pod is terminated, the same behaviour as with the docker compose. The change is the following:
 
     ```diff
                    protocol: TCP
@@ -1163,7 +1163,7 @@ This is our last piece to fix.
       --> Success
     ```
 
-    We used the [inline Dockerfile method](../images/creating.md#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.
+    We used the [inline Dockerfile method](../../usage/images/creating.md#using-the-inline-dockerfile-method) because the `Dockerfile` is only 3 lines. After no so much time we have a new image called 4cat in our internal Rahti registry. The internal URL is `image-registry.openshift-image-registry.svc:5000/4cat-2/4cat:latest`. Where `4cat-2` is the name of the project I am using to write this documentation.
 
     ```diff
                        key: workers
@@ -1187,10 +1187,10 @@ This is our last piece to fix.
 
 If we visit the URL <http://frontend-4cat-2.2.rahtiapp.fi> we can finally see the application.
 
-![4cat in Rahti](../../img/4cat-rahti.png)
+![4cat in Rahti](../../../img/4cat-rahti.png)
 
 ## Conclusion
 
 As you can see deploying this application into Rahti was a long process. We used every trick in the book, but we managed to make it run on Rahti. I hope all the techniques and rationalizations are clear to you at this moment. We made some leaps of faith, based on intuition and experience, but leaps of faith and experience are hard to write down on paper. If you follow this tutorial with your own application and have any question, do not hesitate to contact us at <servicedesk@csc.fi>. Also reach out to us if you use some other technique that we are not covering here, we will add it to this tutorial.
 
-At the end of the tutorial you should have the deployment YAML files with all the necessary changes. One way to continue the learning experience and to consolidate these YAML files is to package them in a Helm chart following our [Helm chart tutorial](../../../support/faq/helm.md). This way you will be able to deploy the application multiple times in multiple projects (production, test, development, ...) with a single command and consistently.
+At the end of the tutorial you should have the deployment YAML files with all the necessary changes. One way to continue the learning experience and to consolidate these YAML files is to package them in a Helm chart following our [Helm chart tutorial](../../../../support/faq/helm.md). This way you will be able to deploy the application multiple times in multiple projects (production, test, development, ...) with a single command and consistently.

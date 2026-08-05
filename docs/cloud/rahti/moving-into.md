@@ -12,7 +12,7 @@ their container-based platforms in shared Kubernetes cluster that was hardened t
 The primary difference between IaaS and PaaS services is that with IaaS the user is responsible
 for managing the operating system and potentially multiple applications whereas with PaaS, the
 user is only responsible for managing the application and the data. You can read more about cloud
-computing concepts [here](concepts.md).
+computing concepts [here](usage/kubernetes-concepts.md).
 
 Containers have certain advantages over traditional Virtual machines. Container images are typically
 smaller and lighter in memory and CPU usage than Virtual machine images. Launching new containers is
@@ -46,7 +46,7 @@ of available resources.
 
 ### Additional information
 
-[What is Rahti?](rahti-what-is.md)
+[What is Rahti?](get-started/what-is-rahti.md)
 
 [Container clouds fundamentals](https://rahti-course.a3s.fi/index.html#1)
 

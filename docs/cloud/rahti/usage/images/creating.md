@@ -1,6 +1,6 @@
 There are several reasons to make your own docker image, but mostly there are two. The application you want to run does not have a docker image available, or there is an image available, but it is not working on OpenShift. Due to the fact that OpenShift is designed to be a shared cluster, where users from different teams will run applications in the same hardware, OpenShift has to add limitations and runs things differently than in a standard Kubernetes cluster.
 
-Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](keeping_docker_images_small.md)
+Rahti's registry has an image size limit of 5GB. The bigger is an image, the worse the experience is to work with it. It takes more time to pull, and it fills up the image's cache of the node faster. An image more than 1GB is already considered a very big image. See the article about [keeping docker images small](best-practices.md)
 
 ## Building images locally
 
@@ -71,7 +71,7 @@ This method allows to build an image using a local folder containing a Dockerfil
 
 This assumes that you have authorized a Rahti command line session and created
 a project in Rahti. Instructions for that are shown in Chapter [Command line
-tool usage](../usage/cli.md#cli-cheat-sheet).
+tool usage](../../get-started/cli.md#cli-cheat-sheet).
 
 **Steps:**
 
@@ -157,7 +157,7 @@ A new build can be triggered in the command line:
 oc start-build nodejs-16-rahti-example
 ```
 
-Or using [webhooks](../tutorials/webhooks.md)
+Or using [webhooks](../../tutorials/basic/webhooks.md)
 
 ### Using the inline Dockerfile method
 
@@ -182,7 +182,7 @@ Go to Builds -> BuildConfigs -> Create BuildConfig
 Deploying a private Git repository to Rahti involves setting up the necessary authentication to access your private repository. Without proper authentication, you will see the error "URL is valid but cannot be reached" (seen in the pictures below). Here's how to resolve this using two authentication methods:
 
 
-![create_from_private_repo](../../img/create_rahti_from_private_repo.png)
+![create_from_private_repo](../../../img/create_rahti_from_private_repo.png)
 
 
 #### Option 1: Using a Token for Git Authentication
@@ -207,7 +207,7 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
     - Name the secret, under "Authentication type" choose "Basic Authentication"
     - Paste the token and create
 
-![create_rahti_source_secret](../../img/create_rahti_source_secret.png)
+![create_rahti_source_secret](../../../img/create_rahti_source_secret.png)
 
 
 #### Option 2: Using a Private SSH Key for Git Authentication
@@ -237,7 +237,7 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
     - Name the secret, under "Authentication type" choose "SSH Key"
     - Paste the contents of your private SSH key (`id_rsa`) and create
     - 
-![create_rahti_from_private_repo_validated](../../img/create_rahti_from_private_repo_validated.png)
+![create_rahti_from_private_repo_validated](../../../img/create_rahti_from_private_repo_validated.png)
 
 
 ### Import from Git (Private Repositories) using the CLI
@@ -245,13 +245,13 @@ Deploying a private Git repository to Rahti involves setting up the necessary au
 This assumes that the users has generated SSH keys and registered their public key with GitHub.
 
 
-**[Log into OpenShift CLI (`oc`)](../usage/cli.md#how-to-login-with-oc)**:
+**[Log into OpenShift CLI (`oc`)](../../get-started/cli.md#how-to-login-with-oc)**:
 
 ```bash
 oc login <cluster-url>
 ```
 
-**[Create a New Project](../usage/projects_and_quota.md#creating-a-project)**:
+**[Create a New Project](../../get-started/projects.md#creating-a-project)**:
 
 ```bash
 oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-id>"
@@ -325,6 +325,6 @@ resources:
     memory: 1600Mi
 ```
 
-Note that they cannot be more than 5x apart (default ratio, more information [here](../usage/projects_and_quota.md#default-pod-resource-limits)).
+Note that they cannot be more than 5x apart (default ratio, more information [here](../../get-started/projects.md#default-pod-resource-limits)).
 
 Save and run the build again, and if it succeeds, check the metrics and see how much memory was used. You can adjust the memory limit to 10-20% more than what it was used.

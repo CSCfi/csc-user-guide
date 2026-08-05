@@ -13,7 +13,7 @@ There is one storage class available in Rahti:
 
 More storage classes are on the work.
 
-![PersistentVolumeClaim](../../img/pods-and-storage-pvc.drawio.svg)
+![PersistentVolumeClaim](../../../img/pods-and-storage-pvc.drawio.svg)
 
 Persistent storage is requested in the cluster using `PersistentVolumeClaim` objects:
 
@@ -69,4 +69,4 @@ spec:
 ```
 
 !!! warning
-    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](../../../data/Allas/using_allas/a_backup.md).
+    When a Persistent Volume is deleted, the corresponding data is deleted **permanently**. It is highly recommended to make regular and versioned copies of the data to an independent storage system like [Allas](../../../../data/Allas/using_allas/a_backup.md).

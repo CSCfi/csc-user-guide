@@ -7,7 +7,7 @@ an external dependency or improve performance.
 
 The process is simple:
 
-1. [Install](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login with OC](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui).
+1. [Install](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login with OC](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui).
 
 1. With a terminal, connect to the Rahti registry:
     ```sh
@@ -37,7 +37,7 @@ The process is simple:
    ```
 
 You should be able to see your images in your project:
-![Image Streams](../../img/image_streams_rahti4.png)
+![Image Streams](../../../img/image_streams_rahti4.png)
 
 Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
 
@@ -57,7 +57,7 @@ Alternatively you can query images in remote registry with `docker image ls [OPT
     oc create imagestream {YOUR_IMAGE_NAME}
     ```
 
-[oc](../usage/cli.md) must be installed locally on your machine.
+[oc](../../get-started/cli.md) must be installed locally on your machine.
 
 ## Pulling Images from Rahti
 
@@ -92,12 +92,12 @@ You can pull any image stored in the Rahti integrated registry to your local mac
 
 Go to your project's deployment, and edit it.
 
-![Edit deployment](../../img/edit_deployment.png)
+![Edit deployment](../../../img/edit_deployment.png)
 
 Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked.
 Finally select the new image.
 
-![Use cached image](../../img/use_cached_image.png)
+![Use cached image](../../../img/use_cached_image.png)
 
 ## Access Control for the Rahti Integrated Registry
 
@@ -111,7 +111,7 @@ This method allows **all images** within a Rahti project to be pulled by **anyon
 
 !!! info "Expose selected images only"
 
-    If you need to only make one or more specific images see [Use case 3](../images/Using_Rahti_integrated_registry.md#use-case-3-granular-control-over-publicly-exposing-specific-image-recommended)
+    If you need to only make one or more specific images see [Use case 3](integrated-registry.md#use-case-3-granular-control-over-publicly-exposing-specific-image-recommended)
 
 
 - **How to enable**: Use one of the following commands to allow anyone pulling images from your Rahti project:

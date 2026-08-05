@@ -1,6 +1,6 @@
 !!! warning "Middle level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and OpenShift [Routes](../concepts.md#route) API as well as a 
-    knowledge of Kubernetes [Pods](../concepts.md#pod) and [Services](../concepts.md#service)
+    You need a knowledge of OpenShift CLI tool [oc](../../get-started/cli.md) and OpenShift [Routes](../../usage/kubernetes-concepts.md#route) API as well as a 
+    knowledge of Kubernetes [Pods](../../usage/kubernetes-concepts.md#pod) and [Services](../../usage/kubernetes-concepts.md#service)
 
 # Introduction
 
@@ -23,11 +23,11 @@ server running:
     tutorial. Instead, it is meant for learning the core concepts of
     Kubernetes.
 
-![Network](../../img/routeServicePod.drawio.svg)
+![Network](../../../img/routeServicePod.drawio.svg)
 
 ## Preparation
 
-Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../usage/cli.md) if you need help on that.
+Make sure you have the `oc` command line installed, and that you are logged in. Please check the [command line tool installation](../../get-started/cli.md) if you need help on that.
 
 ## Projects
 
@@ -65,7 +65,7 @@ name.
 If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
-[Projects and quota](../usage/projects_and_quota.md)).
+[Projects and quota](../../get-started/projects.md)).
 The description can be included in the `new-project` command:
 
 ```bash
@@ -117,7 +117,7 @@ The field `metadata.labels.pool` is an arbitrary key-value pair that enables
 the pods to be grouped and referred by e.g. _services_.
 
 The Kubernetes API objects are represented in the YAML format.
-[Short introduction to YAML](yaml_introduction.md).
+[Short introduction to YAML](../basic/yaml-introduction.md).
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
 command line utility:
@@ -265,7 +265,7 @@ internet.
 
 You can now go to your browser and type the address you set: `<myservice>.2.rahtiapp.fi`. It should return you the Apache test page:
 
-![Apache test page](../../img/Apache-test-page.png)
+![Apache test page](../../../img/Apache-test-page.png)
 
 !!! warning
 
@@ -319,7 +319,7 @@ spec:
 ```
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
-in the chapter "[Kubernetes and OpenShiftconcepts](../concepts.md)".
+in the chapter "[Kubernetes and OpenShiftconcepts](../../usage/kubernetes-concepts.md)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`.

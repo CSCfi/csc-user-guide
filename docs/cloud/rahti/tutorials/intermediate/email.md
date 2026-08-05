@@ -1,11 +1,11 @@
 !!! warning "Medium level"
     A knowledge of Python is a plus.
    
-    This tutorial implies that you have a running [Pod](../concepts.md#pod) and you want to add a SMTP configuration.
+    This tutorial implies that you have a running [Pod](../../usage/kubernetes-concepts.md#pod) and you want to add a SMTP configuration.
 
 # Sending e-mail from Rahti
 
-The procedure is the same as for [sending an e-mail from cPouta](../../pouta/additional-services.md).
+The procedure is the same as for [sending an e-mail from cPouta](../../../pouta/additional-services.md).
 
 you need to configure your mail transfer agent (MTA) to use the following SMTP relay server (a.k.a. smarthost):
 

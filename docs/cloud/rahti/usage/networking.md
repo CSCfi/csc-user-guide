@@ -10,9 +10,9 @@ Rahti is divided in **Namespaces**. Depending on the context, namespaces can be 
 
 ## NetworkPolicy
 
-From a networking point of view, namespaces are configured by default to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](concepts.md#pod) and [Services](concepts.md#service). Traffic to any `Pod` or `Service` coming from outside the namespace (even from other namespaces in Rahti) will be blocked. The only traffic that will be able to pass from outside the namespace will be the one going through the `Route`. This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti.
+From a networking point of view, namespaces are configured by default to provide an isolated **VLAN** to everything that runs inside it, notably to [Pods](kubernetes-concepts.md#pod) and [Services](kubernetes-concepts.md#service). Traffic to any `Pod` or `Service` coming from outside the namespace (even from other namespaces in Rahti) will be blocked. The only traffic that will be able to pass from outside the namespace will be the one going through the `Route`. This isolation is obtained via [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/). It is possible to change this by editing the two `NetworkPolicy` objects that are created by default in Rahti.
 
-![Rahti Networking](../img/rahti-network.drawio.svg)
+![Rahti Networking](../../img/rahti-network.drawio.svg)
 
 !!! info "Advanced networking"
     In the Rahti console menu, under `Networking > NetworkPolicies` it is possible to browse and edit the default network policies, but only in YAML format. Only change the [NetworkPolicies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) if you are really sure of what you are doing.
@@ -37,7 +37,7 @@ In the same manner as Pods, Rahti Services can only be reached from inside the n
 
 Services can be used for internal connections. For example, if we have one or more MongoDB database replicas running in the `fenic` namespace, each in a different pod, and they export port `27017`. We can create a service called `mongo` associated with the pods under the same name. Then we can launch `nginx` Pods that run a Python application which will use the URL `<mongo:27017` to connect to the database. When connections to the service are attempted, one of the mongo pods will be selected to serve the data request.
 
-![nginx and Mongo](../img/mongo-nginx-app.drawio.svg)
+![nginx and Mongo](../../img/mongo-nginx-app.drawio.svg)
 
 ## Routes
 
@@ -47,7 +47,7 @@ Services can be used for internal connections. For example, if we have one or mo
 * **Passthrough** is when the encryption is delegated to the pod, which must listen for TLS/HTTPS traffic and provide the certificate the client will receive.
 * **Re-encrypt**, this is a mixture of two previous options, the Route will provide a certificate, but it will connect to the Pod using TLS/HTTPS and expect a valid certificate for the domain name of the service. The client will still get the certificate stored by the Route. This is for example used when the internal network between nodes in the cluster is not considered secure enough and we still want the Route to control the certificates that the client will get. Also in some rare applications is not possible to disable TLS in the Pods.
 
-![Route Options](../img/route-modes.drawio.svg)
+![Route Options](../../img/route-modes.drawio.svg)
 
 !!! warning "Re-encrypt"
     For Re-encrypt to work, it is necessary to provide your own certificate. There are 3 steps: (1) You must have a certificate/key pair in PEM-encoded files, where the certificate is valid for the route host. (2) You may have a separate CA certificate in a PEM-encoded file that completes the certificate chain. (3) You must have a separate destination CA certificate in a PEM-encoded file. If one of these steps is not followed correctly, the route will not work.
@@ -72,7 +72,7 @@ Any existing possible domain name could potentially be used in Rahti, but the DN
     router-default.apps.2.rahti.csc.fi has address 195.148.21.61
     ```
 
-* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](./tutorials/custom-domain.md#acme-protocol-automatic-certificates).
+* Any certificate provider can be used, like for example use the free certificates provided by the [Let's Encrypt controller](../tutorials/intermediate/custom-domain.md#acme-protocol-automatic-certificates).
 
 Another aspect of routes is the IP allowlisting feature, i.e: only allowing a range of IPs to access the route. This is controlled by creating an annotation in the Route object with the key `haproxy.router.openshift.io/ip_allowlist`, and by setting the value to a space separated list of IPs and or IP ranges. Assuming variable `route_name` holds the name of the route
 
@@ -174,7 +174,7 @@ spec:
     app: mysql
 ```
 
-**You can find detailed explanation about `Service` [here](./concepts.md#service)**
+**You can find detailed explanation about `Service` [here](./kubernetes-concepts.md#service)**
 
 Ensure that the service type is set to `LoadBalancer`, and that the `allocateLoadBalancerNodePorts` field is set to false (the default is true) because NodePorts are not enabled in Rahti. If this field is not set correctly, the allocated node port will be unusable, and service creation may fail if the entire default node port range (`30000-32767`) is already allocated.
 
@@ -202,7 +202,7 @@ Labels:         app=mysql
 
 On the web interface under `Workloads`, press on `pods` and then choose the pod you want. You can see all the labels under `Labels`. Copy any of labels and paste in the `yaml` file under `selector`. **Make sure to follow the `yaml` syntax and change `=` to `:`**.
 
-![rahti](../img/rahti_label.png)
+![rahti](../../img/rahti_label.png)
 
 
 #### How to make sure your service is pointing to the right pod
@@ -220,7 +220,7 @@ mysqllb   10.0.0.1:3306        10m
 
 On the web interface under `Networking`, press on `Services` and choose the LoadBalancer service you just created. Under the `Pods` tab you should see the targeted pod. 
 
-![rahti](../img/rahti_pods.png)
+![rahti](../../img/rahti_pods.png)
 
 
 ### Share the same LoadBalancer IP among Services

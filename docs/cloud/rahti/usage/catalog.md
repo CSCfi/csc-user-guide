@@ -33,10 +33,10 @@ You will find the instructions on how to import the images into your namespace/R
     
     However, the Bitnami project continues to make its source code available at [bitnami/containers](https://github.com/bitnami/containers) under the Apache 2 licence. You can build the image and then push it to your CSC project.
     
-    You can find more information on how to push images [here](./images/Using_Rahti_integrated_registry.md)
+    You can find more information on how to push images [here](images/integrated-registry.md)
 
 You can browse the catalog from the webinterface after (1) logging in Rahti and then (2) Clicking on `Ecosystem` -> `Software Catalog`.
 
-![+Add](../img/rahti-catalog.png)
+![+Add](../../img/rahti-catalog.png)
 
 Items labeled **Templates** or **Builder Images** are legacy. **Helm Charts** are recommended for new deployments.

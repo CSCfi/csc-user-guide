@@ -2,7 +2,7 @@
 
 !!! warning "Recommendations"
     Before using Rahti, we recommend that you familiarise yourself with containers.
-    You can find more information by following this [link](ext_docs.md)
+    You can find more information by following this [link](../reference/external-docs.md)
 
 Rahti is the container orchestration service at CSC. Rahti runs on [okd](https://www.okd.io/), the community distribution of Kubernetes that powers Red Hat OpenShift. Built around a core of [OCI](https://opencontainers.org/) container packaging and [Kubernetes](https://kubernetes.io/) container cluster management.
 
@@ -27,8 +27,8 @@ OpenShift provides these extra services over a standard Kubernetes offering:
 
 * Web UI: <https://rahti.csc.fi/>
 
-![Rahti WEB UI](../img/Rahti-landing.png)
+![Rahti WEB UI](../../img/Rahti-landing.png)
 
-* HTTP(s) load balancer (HAProxy). Using [Routes](networking.md#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
+* HTTP(s) load balancer (HAProxy). Using [Routes](../usage/networking.md#routes) instead of **Ingresses**, and only supporting HTTP (80) and HTTPS (443).
 
-* Central file [storage volumes](storage/index.md)
+* Central file [storage volumes](../usage/storage/index.md)

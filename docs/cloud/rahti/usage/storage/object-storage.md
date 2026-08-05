@@ -1,6 +1,6 @@
 # Allas storage in Rahti
 
-More information about [Allas](../../../data/Allas/index.md)
+More information about [Allas](../../../../data/Allas/index.md)
 
 ## Backup to Allas
 
@@ -33,7 +33,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 EXPOSE 8080
 ```
 
-If you build your image locally, don't forget to [push](../../rahti/images/Using_Rahti_integrated_registry.md) it to your project.
+If you build your image locally, don't forget to [push](../images/integrated-registry.md) it to your project.
 You can deploy this `nginx` server with this Deployment:
 
 ```yaml
@@ -162,7 +162,7 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod 755 /.rclone.conf
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
-If you create your image locally, don't forget to [push](../../rahti/images/Using_Rahti_integrated_registry.md) it to your project.
+If you create your image locally, don't forget to [push](../images/integrated-registry.md) it to your project.
 
 Once all this done, you can deploy your `rclone` pod.
 You can use this example:
@@ -211,7 +211,7 @@ Cons:
 
 ### Second example: using bash script
 
-For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../data/Allas/using_allas/rclone.md). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
+For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../../data/Allas/using_allas/rclone.md). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
 
 
 ```bash

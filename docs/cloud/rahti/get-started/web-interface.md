@@ -8,13 +8,13 @@ containers, volumes and other resources created by users are always created
 within a project. You might need to wait a few hours after your access application is accepted, before you can 
 authenticate to Rahti.
 
-You can either select applications to run from `Ecosystem` -> `Software Catalog` after [creating a project](projects_and_quota.md) or launch any applications using the
-primitives described in the [background](../concepts.md) chapter.
+You can either select applications to run from `Ecosystem` -> `Software Catalog` after [creating a project](projects.md) or launch any applications using the
+primitives described in the [background](../usage/kubernetes-concepts.md) chapter.
 
 1. Log in at <https://rahti.csc.fi/>.
 
     !!! Warning "User not found"
-        If you get an error message similar to this please read through the article [Getting access](../access.md).
+        If you get an error message similar to this please read through the article [Getting access](access.md).
         ![Error_no_user](../../img/openshift_error_no_user.png)  
 
 
@@ -28,4 +28,4 @@ primitives described in the [background](../concepts.md) chapter.
 
     ![OpenShift main page](../../img/openshift_main_page_4.png)
 
-1. Proceed to [create a project](projects_and_quota.md) for running your applications.
+1. Proceed to [create a project](projects.md) for running your applications.

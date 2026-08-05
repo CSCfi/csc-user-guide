@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and [Helm](../../../support/faq/helm.md)
+    You need a knowledge of OpenShift CLI tool [oc](../../get-started/cli.md) and [Helm](../../../../support/faq/helm.md)
 
 # How to deploy a High Available application in Rahti
 
@@ -7,7 +7,7 @@ This is a simple High Available web application deployment in Rahti.
 
 ## Schema
 
-![Rahti HA](../../img/Rahti-HA.drawio.svg)
+![Rahti HA](../../../img/Rahti-HA.drawio.svg)
 
 In the schema above you can see the end result that you will achieve at the end of this tutorial. We will deploy two URLs, one for the application itself (`app.rahtiapp.fi`), and the other for the monitoring dashboard(s) (`grafana-app.rahtiapp.fi`). The application run on the Frontend section and will have two replicas. The frontend is connected to a postgres database. The monitoring is provided by Grafana and Prometheus, two very commonly used software solutions for monitoring. Prometheus gathers the metrics exposed by the frontend and the database and grafana show the data in nice graphs.
 
@@ -21,7 +21,7 @@ We will start by deploying the application stored on:
 
 - <https://github.com/CSCfi/rahti-ha-tutorial/>
 
-We will use the command `oc new-app`, if you do not have `oc` installed, please follow the instructions on the [Command line tool usage](../usage/cli.md) page . Across all this tutorial, we will use the namespace `tutorial`, please replace it with your own namespace when running the commands. The command and its output is the following:
+We will use the command `oc new-app`, if you do not have `oc` installed, please follow the instructions on the [Command line tool usage](../../get-started/cli.md) page . Across all this tutorial, we will use the namespace `tutorial`, please replace it with your own namespace when running the commands. The command and its output is the following:
 
 ```sh
 $ oc new-app https://github.com/CSCfi/rahti-ha-tutorial/ -n tutorial
@@ -153,7 +153,7 @@ Warning: apps.openshift.io/v1 DeploymentConfig is deprecated in v4.14+, unavaila
     Run 'oc status' to view your app.
 ```
 
-The template "PostgreSQL Ephemeral" uses memory to store the data, and it is used only for testing as when the Pod of the database is restarted the data is lost. If you want to have a proper production database, we recommend that you use [Pukki DBaaS](../../dbaas/index.md).
+The template "PostgreSQL Ephemeral" uses memory to store the data, and it is used only for testing as when the Pod of the database is restarted the data is lost. If you want to have a proper production database, we recommend that you use [Pukki DBaaS](../../../dbaas/index.md).
 
 After a few minutes, the `rahti-ha-tutorial` Pod should restart by itself and the error will be fixed:
 
@@ -230,7 +230,7 @@ The URL was auto-generated based on the service name and the namespace name, but
 
 At this moment we have a working application, but we lack monitoring.
 
-![Postgres HTML Exporter](../../img/Postgres-HTML-Exporter.png)
+![Postgres HTML Exporter](../../../img/Postgres-HTML-Exporter.png)
 
 ## Monitoring
 
@@ -357,11 +357,11 @@ The last thing to do is to test grafana graphs by:
 
 1. Select code, instead of build, so you can input the query: `rate(flask_app_request_count_total[5m])`.
 
-    ![Grafana explore](../../img/grafana-explore.png)
+    ![Grafana explore](../../../img/grafana-explore.png)
 
 1. Click in the blue icons with the arrows, and the graph will appear:
 
-    ![Grafana request count rate](../../img/grafana-request-count.png)
+    ![Grafana request count rate](../../../img/grafana-request-count.png)
 
 ## Conclusion
 
@@ -371,9 +371,9 @@ The application we deployed is a toy, you can play with it to really understand 
 
 There are few ways this deployment can be expanded:
 
-- Make PostgreSQL high available, or migrate the database to the [Pukki](../../dbaas/index.md) service.
+- Make PostgreSQL high available, or migrate the database to the [Pukki](../../../dbaas/index.md) service.
 - Create tables on the PostgreSQL database and add some data to it.
 - Replace this app by other that you have developed and see how the replicas behave.
-- Play with [autoscaling](../../../support/faq/addHorizontalAutoscaler.md).
+- Play with [autoscaling](../../../../support/faq/addHorizontalAutoscaler.md).
 
-See here our basic kubernetes concepts documentation, on the [kubernetes basic concepts](../concepts.md) page.
+See here our basic kubernetes concepts documentation, on the [kubernetes basic concepts](../../usage/kubernetes-concepts.md) page.
