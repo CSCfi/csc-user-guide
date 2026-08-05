@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication works. This tutorial uses OpenShift CLI tool [oc](../usage/cli.md)
+    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication works. This tutorial uses OKD CLI tool [oc](../../get-started/cli.md)
 
 # How to deploy OAuth2 Proxy in Rahti
 
@@ -20,9 +20,9 @@ Don't create the Route, it won't be necessary because we will use `NGINX` as a r
 
 ## Deploy NGINX
 
-You can use our [NGINX image](https://github.com/CSCfi/nginx-okd) to run NGINX on Rahti (OpenShift 4)
+You can use our [NGINX image](https://github.com/CSCfi/nginx-okd) to run NGINX on Rahti.
 
-With Rahti, you can directly build the image. More information [here](../images/creating.md#using-the-source-to-image-mechanism)
+With Rahti, you can directly build the image. More information [here](../../usage/images/creating.md#using-the-source-to-image-mechanism)
 
 Run this command:
 
@@ -42,7 +42,7 @@ oc create route edge flask-demo --service=nginx-okd --hostname=demo-oauth2.2.rah
     You can also use your own domain but in this case, you will need to create an `Ingress`.
     More information [here](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
-We need to create a specific configuration to make NGINX run as reverse-proxy. For that, we will use a [ConfigMap](../concepts.md#configmap)
+We need to create a specific configuration to make NGINX run as reverse-proxy. For that, we will use a [ConfigMap](../../usage/kubernetes-concepts.md#configmap)
 
 Create a new `configmap.yaml` file:
 
@@ -148,7 +148,7 @@ You need to go to [GitHub](https://github.com/settings/developers) > OAuth Apps
 
 Click on New OAuth App
 
-![New GitHub OAuth App](../../img/GitHub-new-oauth-app.png)
+![New GitHub OAuth App](../../../img/GitHub-new-oauth-app.png)
 
 Fill in the different fields:
 
@@ -246,7 +246,7 @@ We need to tell NGINX to communicate with our OAuth2 Proxy that will reach GitHu
 
 Here is schema:
 
-![OAuth2 schema](../../img/oauth2.png)
+![OAuth2 schema](../../../img/oauth2.png)
 
 Do you remember that we created a ConfigMap earlier? What's the purpose of it? Well, it is going to be the new NGINX default configuration file.
 
@@ -285,13 +285,13 @@ so https://demo-oauth2.2.rahtiapp.fi for this example).
 
 You should see the OAuth2 Proxy Homepage and a **Sign in with GitHub** button.
 
-![oauth2 proxy homepage](../../img/oauth2-proxy-homepage.png)
+![oauth2 proxy homepage](../../../img/oauth2-proxy-homepage.png)
 
 Proceed
 
 Once you have validated your credentials and let GitHub access your data, you should be redirected to the web application:
 
-![Flask homepage](../../img/flask-demo-homepage.png)
+![Flask homepage](../../../img/flask-demo-homepage.png)
 
 # Few comments
 

@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    You need a knowledge of OpenShift CLI tool [oc](../usage/cli.md) and OpenShift [Routes](../concepts.md#route) API  
+    You need a knowledge of OKD CLI tool [oc](../../get-started/cli.md) and OpenShift [Routes](../../usage/kubernetes-concepts.md#route) API  
     A knowledge on how internet certificates work is a plus.
 
 # Custom domain names and secure transport
@@ -73,7 +73,7 @@ route object, in the sense that traffic coming to and from he service `serve` is
   pod and forward the encrypted traffic.
 * `reencrypt`: Terminate the TLS connection in the router and open another secure connection that must be terminated at the pod.
 
-See the explanation in the [Networking routes](../networking.md#routes) page.
+See the explanation in the [routes](../../usage/kubernetes-concepts.md#route) section.
 
 !!! warning
 
@@ -89,9 +89,9 @@ The Automatic Certificate Management Environment (ACME) protocol is a communicat
 
 This is the recommended option to obtain and renew Let's Encrypt certificates. The process to get a certificate involves creating 3 API objects: `Issuer`, `Certificate` and `Ingress`. We can do this using the Web interface, or the Command Line Interface. As in this case the web interface is not much easier than the CLI, we will use the Command Line Interface.
 
-![Cert manager](../../img/cert-manager.png)
+![Cert manager](../../../img/cert-manager.png)
 
-1. First, as usual, you need to [install oc](../usage/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../usage/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../usage/projects_and_quota.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+1. First, as usual, you need to [install oc](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../../get-started/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../../get-started/projects.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 1. Double check that the domain name exists. Let's Encrypt needs to verify that you indeed control said domain name, and it does that by issuing a HTTP request to the actual Domain Name and it expects it to respond accordingly. To test it, enter the Domain name in your browser and see that Rahti answers accordingly.
 
