@@ -241,26 +241,9 @@ and to a specific section by appending their heading's anchor (e.g. `#some-headi
 </div>
 
 
-### Paths
-
-Links from pages nested inside the directory (aka "Folder") tree need to "climb" up their branch, using a number of `../`
-references, in order to reach their target page. For example, a link on the page _docs/data/sensitive-data/tutorials/vscode.md_
-pointing to the page _docs/computing/webinterface/vscode.md_ would need to
-
-1. Climb up to _docs/_ with
-    - `../` = _docs/data/sensitive-data/_
-    - `../../` = _docs/data/_
-    - `../../../` = _docs/_
-
-2. Descend down to the target page
-    - `../../../computing/webinterface/vscode.md`
-
-Note that attempts to climb above _docs/_ will just result in _docs/_. That is, in the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
-
 ### Anchors
 
-Every heading automatically gets an anchor derived from its text, so `## Tables` can be linked to as `#tables`.
-You can also define a custom anchor with the `{ #your-anchor }` attribute (from the `attr_list` extension) and
+Every heading automatically gets an anchor derived from its text, so `## Tables` can be linked to as `#tables`. You can also define a custom anchor with the `{ #your-anchor }` attribute (from the `attr_list` extension) and
 attach it to a heading or a block of text:
 
 ```markdown
@@ -276,6 +259,83 @@ This paragraph has a custom anchor, so it can be linked to
 { #a-custom-anchor }
 
 </div>
+
+If there are multiple headings with the same text (even with different heading levels), their anchors will have a `_n` suffixed to them.
+
+For example, the headings
+
+```markdown
+#### This here heading
+
+### This here heading
+
+## This here heading
+```
+
+would have the anchors
+
+- `#this-here-heading`
+- `#this-here-heading_1`
+- `#this-here-heading_2`
+
+respectively.
+
+
+### Paths
+
+!!! note inline end ""
+    <small markdown>
+
+    - `./` &ndash; the current directory
+    - `.` &ndash; same as above, but without explicitly specifying "directory"
+    - `./page.md` &ndash; a file in the current directory
+    - `page.md` &ndash; same as above, but without explicitly specifying "in the current directory"
+    - `.page.md` &ndash; a file named _.page.md_ (in the current directory)
+    - `../` &ndash; the parent of the current directory
+    - `../page.md` &ndash; a file in the parent directory
+    - `../../` &ndash; the parent directory of the parent of the current directory
+    - `../../../` &ndash; and so on...
+    - `/` &ndash; the root directory of a filesystem, in this case the _docs/_ directory
+    - `/page.md` &ndash; a file in the root directory (**do not use** links with paths that start with `/`)
+    </small>
+
+Links from pages nested inside the directory (aka "Folder") tree need to "climb" up their branch, using a number of `../`
+references, in order to reach their target page.
+
+For example, a link on the page _docs/data/sensitive-data/tutorials/vscode.md_
+pointing to the page _docs/computing/webinterface/vscode.md_ would need to first climb three steps up to reach _docs/_, and then descend down to _computing/webinterface/vscode.md_ from there:
+
+1. Climb up to _docs/_ from _docs/data/sensitive-data/tutorials/_ with
+    - `../` = _docs/data/sensitive-data/_
+    - `../../` = _docs/data/_
+    - `../../../` = _docs/_
+1. Descend down to the target page
+    - `../../../computing/webinterface/vscode.md`
+
+```markdown title="docs/data/sensitive-data/tutorials/vscode.md"
+[VSCode in interactive web apps](../../../computing/webinterface/vscode.md)
+```
+
+For pages where the common ancestor directory is not as far up the tree as in the example above, there is no need to climb all the way up to _docs/_ (although it's perfectly fine to do so).
+
+To get from _docs/data/sensitive-data/tutorials/vscode.md_ to _docs/data/moving/web-interface.md_, climb two steps to _docs/data/_ and descend from there:
+
+1. Climb up to _docs/data/_ from _docs/data/sensitive-data/tutorials/_ with
+    - `../` = _docs/data/sensitive-data/_
+    - `../../` = _docs/data/_
+1. Descend down to the target page
+    - `../../moving/web-interface.md`
+
+```markdown title="docs/data/sensitive-data/tutorials/vscode.md"
+[Moving files using the HPC web interfaces](../../moving/web-interface.md)
+```
+
+!!! warning ""
+    Note that attempts to climb above _docs/_ will just result in _docs/_.
+
+    That is, for the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
+
+    Paths starting with `/`, i.e. _absolute paths_ are **not to be used** in links.
 
 
 ### Buttons
