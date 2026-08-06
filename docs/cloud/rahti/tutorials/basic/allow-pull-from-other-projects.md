@@ -1,5 +1,5 @@
 !!! success "Basic level"
-    You need a knowledge of OpenShift CLI tool [oc](../../get-started/cli.md) or the Rahti [web interface](../../get-started/web-interface.md)
+    You need a knowledge of OKD CLI tool [oc](../../get-started/cli.md) or the Rahti [web interface](../../get-started/web-interface.md)
 
 # Allow pulls of images from one Rahti project to another
 
@@ -30,4 +30,3 @@ The objective of this tutorial is to explain how to achieve an extra use case, p
         The **Name** of the new rolebinding can be any name, it is recommended to keep it informative of its purpose. The **Namespace** has to be the destination project, ie: the project that hosts the images. The **Role name** has to be `system:image-puller`. Finally the **Group** has to be `system:serviceaccounts:bajor-test`, the group corresponding to the project that needs to pull the images.
 
 1. In order to test it, one just need to deploy a Pod in `bajor-test` that uses an image from `bajor-prod` (similar to `image-registry.apps.2.rahti.csc.fi/bajor-prod/image-name`).
-

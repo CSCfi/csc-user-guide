@@ -1,5 +1,5 @@
 !!! success "Basic level"
-    You need a knowledge of OpenShift CLI tool [oc](../../get-started/cli.md) and kubernetes [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
+    You need a knowledge of OKD CLI tool [oc](../../get-started/cli.md) and kubernetes [annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
 
 # Annotations
 
