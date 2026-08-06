@@ -25,11 +25,11 @@ spec:
     image: almalinux:10
     command: ['sh', '-c', 'while true; do sleep 50; done']
     volumeMounts:
-    - mountPath: /interm
+    - mountPath: /interim
       name: volume-a
 ```
 
-Here both containers mount the same volume, so `container-a` sees the shared data under `/outputdata` and `container-b` sees it under `/interm`.
+Here both containers mount the same volume, so `container-a` sees the shared data under `/outputdata` and `container-b` sees it under `/interim`.
 
 ![emptyDir](../../../img/pods-and-storage-emptydir.drawio.svg)
 
