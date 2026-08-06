@@ -159,7 +159,7 @@ We recommend trying the MyCSC workflow first, since it should work out-of-the-bo
 
 === "Windows"
 
-	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
+	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla.
 	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 
 ---

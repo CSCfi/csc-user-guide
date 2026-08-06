@@ -135,7 +135,7 @@ That data does not need to be migrated, as Allas will remain available during an
 
 It is not recommended to transfer data from Mahti/Puhti to Roihu via Allas or your local workstation.
 Instead, CSC recommends using command-line based tools such as
-[`rsync`](../../support/tutorials/roihu-data.md#2-recommended-data-migration-methods)
+[`rsync`](../../support/tutorials/roihu-data.md#3-recommended-data-migration-methods)
 to directly transfer data from Puhti/Mahti/LUMI to Roihu.
 
 ### 10. How should I run large or long-running data transfers, and how long do they take?

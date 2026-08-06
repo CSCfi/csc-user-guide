@@ -88,17 +88,13 @@ the path to your SSH private key in the _Private key file_ field and click
 _OK_.
 
 !!! warning "Important: Connecting to Roihu"
-    If you're connecting to Roihu, please specify a `.ppk` file that includes a
-    valid SSH certificate in the _Private key file_ field (e.g.
-    `C:\Users\<username>\.ssh\id_ed25519-cert.ppk`).
+    If you're connecting to Roihu, please use one of the options below:
     
-    Alternatively, if you've added this key to Pageant, you can simply leave
-    the _Private key file_ field empty – WinSCP will fetch it from the agent
-    automatically if you've toggled the _Attempt authentication using Pageant_
-    option in the _SSH_ > _Authentication_ tab (on by default). Please note
-    that if you specify a key that does **not** include a valid certificate,
-    WinSCP will try to use this instead of Pageant. It is thus important that
-    you leave the field empty.
+    1) Specify your private key file `.ppk` and SSH certificate file `.pub`. 
+    2) Specify your private key file `.ppk` that includes a
+    valid SSH certificate, either created with `csc_cert.py`-script or manually with PuttyGen.
+    3) If using Pageant, leave private key and certificate file fields empty (important) and toggle the _Attempt authentication using Pageant_
+    option in the _SSH_ > _Authentication_ tab (on by default). 
 
     [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
     For streamlining the process down the line, we recommend using the
