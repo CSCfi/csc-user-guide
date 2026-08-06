@@ -298,7 +298,11 @@ respectively.
     - `../../` &ndash; the parent directory of the parent of the current directory
     - `../../../` &ndash; and so on...
     - `/` &ndash; the root directory of a filesystem, in this case the _docs/_ directory
-    - `/page.md` &ndash; a file in the root directory (**do not use** links with paths that start with `/`)
+    - `/page.md` &ndash; a file in the root directory
+
+    !!! error ""
+        Paths starting with `/`, i.e. _absolute paths_ are **not to be used** in links.
+
     </small>
 
 Links from pages nested inside the directory (aka "Folder") tree need to "climb" up their branch, using a number of `../`
@@ -318,6 +322,9 @@ pointing to the page _docs/computing/webinterface/vscode.md_ would need to first
 [VSCode in interactive web apps](../../../computing/webinterface/vscode.md)
 ```
 
+!!! warning "Attempts to climb above _docs/_ will just result in _docs/_"
+    That is, for the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
+
 For pages where the common ancestor directory is not as far up the tree as in the example above, there is no need to climb all the way up to _docs/_ (although it's perfectly fine to do so).
 
 To get from _docs/data/sensitive-data/tutorials/vscode.md_ to _docs/data/moving/web-interface.md_, climb two steps to _docs/data/_ and descend from there:
@@ -331,13 +338,6 @@ To get from _docs/data/sensitive-data/tutorials/vscode.md_ to _docs/data/moving/
 ```markdown title="docs/data/sensitive-data/tutorials/vscode.md"
 [Moving files using the HPC web interfaces](../../moving/web-interface.md)
 ```
-
-!!! warning ""
-    Note that attempts to climb above _docs/_ will just result in _docs/_.
-
-    That is, for the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
-
-    Paths starting with `/`, i.e. _absolute paths_ are **not to be used** in links.
 
 
 ### Buttons
