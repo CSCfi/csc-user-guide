@@ -1008,29 +1008,29 @@ This paragraph has a custom anchor, so it can be linked to
 
 </div>
 
-## Buttons
+### Buttons
 
 Markdown links may have the classes `.md-button` and `.md-button--primary` added to them to produce links that look like buttons. In the following example, the buttons have their corresponding headings/anchors (`#button` for `### Button` and `#primary-button` for `### Primary button`) as the link target.
 
 ```markdown
-### Button
+#### Button
 
 [Button](#button){ .md-button }
 
 
-### Primary button
+#### Primary button
 
 [Primary](#primary-button){ .md-button .md-button--primary }
 ```
 
 <div class="result" markdown>
 
-### Button
+#### Button
 
 [Button](#button){ .md-button }
 
 
-### Primary button
+#### Primary button
 
 [Primary](#primary-button){ .md-button .md-button--primary }
 
