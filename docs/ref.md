@@ -129,6 +129,8 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossa
 The heading for Headings is a heading of a heading level 2. Remember to only use one heading level
 1 heading on your page and to keep the heading hierarchy intact. So no skipping levels.
 
+Headings can also be directly linked to (see [Anchors](#anchors) below).
+
 ```markdown
 ### This is a heading level 3 heading
 
