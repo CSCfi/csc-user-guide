@@ -107,6 +107,6 @@ RUN apt-get update && apt-get install -y python3 \
 
 Images should only contain the application's runtime. This means that the data needed to run the application should not 
 be added to the image. In this way, not only the image is smaller, but we avoid a rebuild when the data changes. 
-The data can be stored in an [external volume](../storage/storage_overview.md) that will be attached to the Pod upon startup, 
-or it can be stored in a remote object storage like [LUMI-O](../../../../storage/lumio/index.md) and downloaded during
+The data can be stored in an [external volume](../storage/index.md) that will be attached to the Pod upon startup, 
+or it can be stored in a remote object storage like [Allas](../../../../data/Allas/index.md) and downloaded during
 the startup or on demand when needed.

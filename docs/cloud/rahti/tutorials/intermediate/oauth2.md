@@ -22,7 +22,7 @@ Don't create the Route, it won't be necessary because we will use `NGINX` as a r
 
 You can use our [NGINX image](https://github.com/CSCfi/nginx-okd) to run NGINX on Rahti.
 
-With Rahti, you can directly build the image. More information [here](../../usage/images/creating.md#using-the-source-to-image-mechanism)
+With Rahti, you can directly build the image. More information [here](../../usage/images/creating.md#using-the-source-to-image-s2i-mechanism)
 
 Run this command:
 

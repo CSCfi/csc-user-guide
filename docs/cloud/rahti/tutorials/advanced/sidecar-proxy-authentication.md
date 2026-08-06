@@ -1,7 +1,7 @@
 !!! error "Advanced level"
     You need a good knowledge of Kubernetes and OKD environment as well as the tool used. Here, [oc](../../get-started/cli.md)
 
-    [Network](../../configurations/networking.md) knowledge is a plus for this tutorial
+    [Network](../../usage/networking.md) knowledge is a plus for this tutorial
 
 # Reverse proxy authentication using a sidecar container
 

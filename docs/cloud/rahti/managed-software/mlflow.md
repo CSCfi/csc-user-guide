@@ -27,7 +27,7 @@ MLflow in Rahti can be deployed using [Helm](https://helm.sh/) either from the R
 ### Using the Helm CLI
 
 1. Install the Helm CLI tool on your local workstation following the [Helm installation instructions](https://helm.sh/docs/intro/install).
-2. Log in to Rahti using the `oc` CLI tool as explained in [Logging in with `oc`](../get-started/cli.md#logging-in-with-oc).
+2. Log in to Rahti using the `oc` CLI tool as explained in [Logging in with `oc`](../get-started/cli.md#how-to-login-with-oc).
 3. Create a project in Rahti:
 
     ```bash

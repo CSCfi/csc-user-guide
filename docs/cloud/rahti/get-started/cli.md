@@ -31,7 +31,7 @@ oc --help
 
 It should print the list of all available commands.
 
-## Logging in with `oc`
+## How to login with `oc`
 
 The `oc login` command is available from the dropdown menu next to your name in the web console. Click your username and select **Copy Login Command**, then paste the command into a terminal to start using Rahti from the command line. The command looks like:
 

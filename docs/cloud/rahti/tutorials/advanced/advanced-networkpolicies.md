@@ -51,4 +51,4 @@ Spec:
   Policy Types: Ingress
 ```
 
-For more information check our [Network](../../configurations/networking.md) information page
+For more information check our [Network](../../usage/networking.md) information page

@@ -7,7 +7,7 @@ images locally and want to deploy them on the cluster without using an external 
 
 The process is simple:
 
-1. Make sure to [login via the CLI](../../get-started/cli.md#logging-in-with-oc)
+1. Make sure to [login via the CLI](../../get-started/cli.md#how-to-login-with-oc)
 
 
 2. Log in to the registry
@@ -72,9 +72,9 @@ Alternatively, you can query images in remote registry with `docker image ls [OP
 
 [oc](../../get-started/cli.md) must be installed locally on your machine.
 
-## Download images from Rahti registry
+## Pulling images from Rahti registry
 
-1. Make sure to [login via the CLI](../../get-started/cli.md#logging-in-with-oc)
+1. Make sure to [login via the CLI](../../get-started/cli.md#how-to-login-with-oc)
 
 2. Log in to the registry
 

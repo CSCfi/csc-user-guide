@@ -356,7 +356,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
 
 ## Deployment to Rahti
 
-We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../../get-started/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../../get-started/projects.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../../get-started/cli.md#downloading-the-oc-tool) and [login into Rahti](../../get-started/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../../get-started/projects.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 ### Volumes, ConfigMaps and Services
 

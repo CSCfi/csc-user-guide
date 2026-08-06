@@ -234,7 +234,7 @@ see the warning "**URL is valid but cannot be reached**"
 
 #### Using the CLI
 
-1. Log into Rahti with [(`oc`) CLI](../../get-started/cli.md#logging-in-with-oc):
+1. Log into Rahti with [(`oc`) CLI](../../get-started/cli.md#how-to-login-with-oc):
 
     ```bash
     oc login <cluster-url>
