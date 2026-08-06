@@ -21,7 +21,7 @@ supercomputer, and receive measurement results back.
 |--------|-------------|
 | [VTT Q50](devices/q50.md) | 50+ qubit superconducting quantum computer co-developed by VTT and IQM. |
 | [Aalto Q20](devices/q20.md) | 20 qubit superconducting quantum computer operated by Aalto University. |
-| [EuroHPC VLQ](devices/vlq.md) | EuroHPC quantum computer accessible to European research communities. |
+| [LUMI-Q VLQ](devices/vlq.md) | LUMI-Q quantum computer accessible to European research communities. |
 
 See the [Devices section](devices/overview.md) for technical details, qubit
 topologies, native gate sets, and access details of each quantum computer.
@@ -98,7 +98,7 @@ quantum computer's backend.
 
     * [VTT Q50](devices/q50.md)
     * [Aalto Q20](devices/q20.md)
-    * [EuroHPC VLQ](devices/vlq.md)
+    * [LUMI-Q VLQ](devices/vlq.md)
 
 
 ### 6. Run a quantum job
