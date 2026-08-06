@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="-510 -540 800 800">
+    <line x1="-10" y1="160" x2="90" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="160" x2="-110" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="160" x2="-110" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="160" x2="-310" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-110" y1="60" x2="-10" y2="-40" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-40" x2="90" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-40" x2="90" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-40" x2="-110" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="190" y1="-240" x2="90" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="190" y1="-240" x2="90" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-40" x2="-110" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-40" x2="-310" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-40" x2="-110" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-40" x2="-310" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-240" x2="90" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-240" x2="-110" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-240" x2="90" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-240" x2="-110" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-410" y1="-40" x2="-310" y2="60" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-410" y1="-40" x2="-310" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-240" x2="-110" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-240" x2="-310" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-240" x2="-110" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-240" x2="-310" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-440" x2="90" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-10" y1="-440" x2="-110" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-410" y1="-240" x2="-310" y2="-140" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-410" y1="-240" x2="-310" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-440" x2="-110" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <line x1="-210" y1="-440" x2="-310" y2="-340" stroke="#aaa" stroke-width="60" stroke-linecap="round"
+        class="cursor-pointer"></line>
+    <g transform="translate(-210 -440)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB20</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-310 -340)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB19</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-410 -240)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB18</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-10 -440)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB17</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-110 -340)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB16</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-210 -240)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB15</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-310 -140)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB14</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-410 -40)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB13</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(90 -340)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB12</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-10 -240)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB11</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-110 -140)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB10</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-210 -40)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB9</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-310 60)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB8</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(190 -240)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB7</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(90 -140)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB6</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-10 -40)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB5</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-110 60)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB4</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-210 160)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB3</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(90 60)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB2</text>
+            </g>
+        </g>
+    </g>
+    <g transform="translate(-10 160)">
+        <g class="cursor-pointer"
+            style="transform: scale(1.1); transform-origin: 50% 50% 0px; transform-box: fill-box;">
+            <g transform="rotate(45)">
+                <rect x="-45" y="-45" width="90" height="90" rx="10" fill="#004E84"></rect><text x="0" y="0" fill="#fff"
+                    font-family="monospace" font-size="32" font-weight="bold" text-anchor="middle"
+                    dominant-baseline="central" transform="rotate(-45)">QB1</text>
+            </g>
+        </g>
+    </g>
+</svg>

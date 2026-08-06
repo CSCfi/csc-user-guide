@@ -332,9 +332,12 @@ Note that the `--gres` reservation is on a per-node basis. There are 4 GPUs per 
     The MIGs are not configured yet.
 
 In `gpuinteractive` partition, the GH200 GPUs are sliced into smaller Multi-Instance GPUs (MIG).
-Each MIG here has one XXXth of the compute and memory capacity of a full GH200 GPU.
-For each GPU slice you can reserve at most XXX CPU cores and for each GPU slice the job is allocated XXX GiB of CPU memory.
-Also note that you can reserve at most one GPU slice per job. The GPU slices are available using the options:
+Each MIG has one-seventh of the compute capacity and one-eighth of the GPU memory capacity of a full GH200 GPU, providing 12 GiB of GPU memory.
+
+The maximum number of CPU cores and the amount of CPU memory available to a job is less than on a partition with full GPUs.
+These limits will be documented once the MIG configuration has been finalized.
+
+You can reserve at most one GPU slice per job. GPU slices are requested using the following options::
 
 ```bash
 #SBATCH --partition=gpuinteractive
@@ -394,27 +397,37 @@ tar xf my-large-dataset.tar.gz -C $TMPDIR
     mv $TMPDIR/my-important-output.log $SLURM_SUBMIT_DIR
     ```
 
-### Fast local scratch storage
+### Disaggregated storage
 
 As a new feature on Roihu, it is possible to request local disk mounts from a centralized pool of fast storage resources.
 This fast storage capacity is provided over the network and
 appears as local scratch from within a Slurm job.
 
-!!! warning "You must request these resources in conjunction with `--exclusive`"
-    At the present you can only request this storage for jobs that are making use of full nodes,
-    i.e. that are submitted with the `--exclusive` flag. Presently if you do not specify this flag
-    your job will fail, but will be marked "CANCELLED by 350" and you will lack any stdout or stderr
-    logs. This should be resolved once support for shared node jobs arrives in Q3 2026.
+!!! warning "Disaggregated storage is currently only available on full node jobs"
+    
+    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
+    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
+    nodes with the `--exclusive` flag on the GPU partitions.
+
+    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
+    without producing standard output or error logs.
+    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
 
 Request this local storage using the following flag in the batch script:
 
 ```bash
-#SBATCH --exclusive
 #SBATCH --bb="#BB_LUA SBF storagesize=<local_storage_space> path=/run/sbb/<username>"
 ```
 
 For example, requesting 100 GiB storage
 (remember to update `<username>` to your username in the sbatch header):
+
+```bash
+#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
+```
+
+For reserving disaggregated storage on the GPU partitions, include the `--exclusive` flag. Note that you will be
+billed for the full node regardless of how many GPUs you reserve.
 
 ```bash
 #SBATCH --exclusive
