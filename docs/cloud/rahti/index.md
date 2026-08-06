@@ -9,21 +9,21 @@ already installed and always valid. If you are not yet familiar with container t
 Kubernetes or OpenShift, you could start by reading a generic introduction to
 the topic:
 
-  * [What is Rahti?](rahti-what-is.md)
+  * [What is Rahti?](get-started/what-is-rahti.md)
   * [Containers and their Orchestration](containers.md)
-  * [Kubernetes and OpenShift concepts](concepts.md)
+  * [Kubernetes and OpenShift concepts](usage/kubernetes-concepts.md)
   * [Security guide](security-guide.md)
   * [Rahti Tutorials](tutorials/index.md)
-  * [External documentation ](ext_docs.md)
+  * [External documentation ](reference/external-docs.md)
 
 If you are already familiar with container technology and Kubernetes/OpenShift concepts,
 you could move directly to the instructions for getting started with Rahti & its usage :
 
-  * [Getting access](access.md)
-  * [Storage](storage/index.md)
-  * [Images](images/overview.md)
-  * [Rahti Templates](catalog-docs.md)
-  * [Project and Quota](usage/projects_and_quota.md)
-  * [Billing](billing.md)
+  * [Getting access](get-started/access.md)
+  * [Storage](usage/storage/index.md)
+  * [Images](usage/images/index.md)
+  * [Rahti Templates](usage/catalog.md)
+  * [Project and Quota](get-started/projects.md)
+  * [Billing](get-started/billing.md)
 
 Still have queries? Checkout our [Rahti FAQs](../../support/faq/index.md#rahti) page or contact <servicedesk@csc.fi> for more info.

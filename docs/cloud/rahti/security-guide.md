@@ -30,7 +30,7 @@ By default, our cluster applies default security policies:
     - V2 requires you to either leave *SeccompProfile* empty or set it to *runtime/default*
         - Empty is compatible with v1 and works on OCP versions < 4.11
 
-- **[Default Pod resource limits](../rahti/usage/projects_and_quota.md#default-pod-resource-limits)**
+- **[Default Pod resource limits](get-started/projects.md#default-pod-resource-limits)**
 
 ## Securing routes
 
@@ -41,7 +41,7 @@ you need to add your certificate data in the route object.
 
 Access to the services should be limited to selected networks with
 **whitelists** whenever applicable (See the chapter
-[Routes](concepts.md#route)). This is relevant whenever
+[Routes](usage/kubernetes-concepts.md#route)). This is relevant whenever
 access can be restricted in terms of IP addresses.
 
 Secure routes thwart eavesdropping attacks that target e.g. service passwords
