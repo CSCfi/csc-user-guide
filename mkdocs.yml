@@ -450,6 +450,7 @@ nav:
       - Rahti:
           - cloud/rahti/index.md
           - Get started:
+              - cloud/rahti/get-started/index.md
               - What is Rahti: cloud/rahti/get-started/what-is-rahti.md
               - Getting access: cloud/rahti/get-started/access.md
               - Web UI: cloud/rahti/get-started/web-interface.md
@@ -457,6 +458,7 @@ nav:
               - Create projects: cloud/rahti/get-started/projects.md
               - Billing: cloud/rahti/get-started/billing.md
           - Usage:
+              - cloud/rahti/usage/index.md
               - Kubernetes concepts: cloud/rahti/usage/kubernetes-concepts.md
               - Rahti catalog: cloud/rahti/usage/catalog.md
               - Images:
@@ -471,6 +473,18 @@ nav:
                   - Object storage: cloud/rahti/usage/storage/object-storage.md
                   - Volume snapshot: cloud/rahti/usage/storage/volume-snapshot.md
               - Networking: cloud/rahti/usage/networking.md
+          - Configuration:
+              - cloud/rahti/configurations/index.md
+              - Resource quotas: cloud/rahti/configurations/resource-quota.md
+              - Custom domains: cloud/rahti/configurations/custom-domain.md
+              - Egress IPs: cloud/rahti/configurations/egress-ip.md
+              - LoadBalancer service type (Ingress IPs): cloud/rahti/configurations/loadbalancer-service.md
+              - Network policies: cloud/rahti/configurations/netpol.md
+          - Managed software:
+              - cloud/rahti/managed-software/index.md
+              - Cert Manager: cloud/rahti/managed-software/cert-manager.md
+              - MLflow: cloud/rahti/managed-software/mlflow.md
+              - FluxCD: cloud/rahti/managed-software/fluxcd.md
           - Security guide: cloud/rahti/security-guide.md
           - Tutorials:
               - cloud/rahti/tutorials/index.md
