@@ -243,7 +243,7 @@ see the warning "**URL is valid but cannot be reached**"
 2. Create a [New Project](../../get-started/projects.md#creating-a-project):
 
     ```bash
-    oc new-project <project-name> --display-name=<display-name> --description="lumi_project:<project-number>"
+    oc new-project <project-name> --display-name=<display-name> --description="csc_project:<project-number>"
     ```
 
 3. Create SSH Key Secret:
