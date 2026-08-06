@@ -241,6 +241,22 @@ and to a specific section by appending their heading's anchor (e.g. `#some-headi
 </div>
 
 
+### Paths
+
+Links from pages nested inside the directory (aka "Folder") tree need to "climb" up their branch, using a number of `../`
+references, in order to reach their target page. For example, a link on the page _docs/data/sensitive-data/tutorials/vscode.md_
+pointing to the page _docs/computing/webinterface/vscode.md_ would need to
+
+1. Climb up to _docs/_ with
+    - `../` = _docs/data/sensitive-data/_
+    - `../../` = _docs/data/_
+    - `../../../` = _docs/_
+
+2. Descend down to the target page
+    - `../../../computing/webinterface/vscode.md`
+
+Note that attempts to climb above _docs/_ will just result in _docs/_. That is, in the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
+
 ### Anchors
 
 Every heading automatically gets an anchor derived from its text, so `## Tables` can be linked to as `#tables`.
