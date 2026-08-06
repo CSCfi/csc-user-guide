@@ -2,7 +2,7 @@
 
 
 [Ollama](https://ollama.com/) is a popular tool for using LLMs, as it supports several state-of-the-art models which can be accessed via an API.
-Ollama can be used in SD Desktop too. The default Ollama downloads the LLM models from public repostories in the internet.
+Ollama can be used in SD Desktop too. The default Ollama downloads the LLM models from public repositories in the internet.
 This is however not possible in SD Connect. Because of that, you must first download the models somewhere and then import them
 to SD Desktop via SD Connect.
 
@@ -12,7 +12,7 @@ at CSC and then imported to SD Desktop.
 ## Step 1. Downloading models to Roihu
 
 First log in to [Roihu web interface](https://www.roihu.csc.fi/public/) and open a Login node shell in Roihu CPU. In the shell session
-move to the scratch directry of your project.
+move to the scratch directory of your project.
 
 ```bash
 cd /scratch/project_200xxxx/
@@ -58,7 +58,7 @@ tar cvf ollama_models.tar ollama_models
 ```
 
 After that, you need to activate the connection to SD Connect service and upload the tar package to SD Connect.
-(repace 200xxxx with your project number)
+(replace 200xxxx with your project number)
 
 ```bash
 module load allas
@@ -74,8 +74,8 @@ using the [SD Tool Installer](../sd-desktop-software.md#41-using-the-software-in
 Open DataGateway connection to SD Connect, open the SD Tool Installer and press *Ollama* button.
 
 In addition to the Ollama software, you need the LLM models that were uploaded to SD Connect
-in the previous step. As the models can require significant amout of storage space, you
-should install them to the volume disc. Open a terminal in yor SD Desktop machine and give commands:
+in the previous step. As the models can require significant amount of storage space, you
+should install them to the volume disc. Open a terminal in your SD Desktop machine and give commands:
 
 ```bash
 cd /media/volume

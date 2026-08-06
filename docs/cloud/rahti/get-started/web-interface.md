@@ -20,10 +20,11 @@ You can run applications in two ways:
 
 2. Click the **Login page** button.
 
-    !!! info "MFA required (since 25 November 2025)"
-        Multi-factor authentication (MFA) is required when you log in. For more details, see the [Multi-Factor Authentication (MFA) guide](../../../accounts/mfa.md).
+    > [MFA required] Since November 25th 2025
 
-3. After you log in, you should see a page like this:
+    Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../../accounts/mfa.md)
+
+1. After logging in you should see a page like this:
 
     ![Rahti main page](../../img/openshift_main_page_4.png)
 

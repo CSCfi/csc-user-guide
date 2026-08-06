@@ -3,6 +3,8 @@
 Example batch job scripts for running different types of applications/programs
 on Puhti.
 
+--8<-- "puhti-retirement-running-notice.md"
+
 [TOC]
 
 !!! info "Edit placeholders as needed"
