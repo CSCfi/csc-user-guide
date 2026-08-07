@@ -239,8 +239,8 @@ IPv4
 `86.50.172.(4-5)` Roihu NAT GWs  
 
 IPv6  
-`2001:708:10:6822::1:0/112 (:1:0000-:1:ffff)` reserved for login nodes
-`2001:708:10:6822::2:0/112 (:2:0000-:2:ffff)` reserved for web interface nodes and services  
+`2001:708:10:6822::1:0/112 (:1:0000-:1:ffff)` reserved for login nodes    
+`2001:708:10:6822::2:0/112 (:2:0000-:2:ffff)` reserved for web interface nodes and services    
 
 ### 21. I did not find an answer to my question here. Who should I contact?
 
