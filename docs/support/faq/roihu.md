@@ -231,6 +231,17 @@ The available capacity depends on the node type, and additional temporary NVMe s
 
 See the [Roihu temporary local storage documentation](../../computing/roihu-disk.md#temporary-local-disk-areas) for capacities and usage instructions.
 
-### 20. I did not find an answer to my question here. Who should I contact?
+### 20. My application or institution needs an IP address to enable access to Roihu. What should I use?
+
+IPv4
+86.50.172.16/29 (.16-.23; 8 addresses) reserved for login nodes
+86.50.172.24/29 (.24-30; 7 addresses) reserved for web interface nodes
+86.50.172.(4-5) Roihu NAT GWs
+
+IPv6
+2001:708:10:6822::1:0/112 (:1:0000-:1:ffff) reserved for login nodes
+2001:708:10:6822::2:0/112 (:2:0000-:2:ffff) reserved for web interface nodes and services
+
+### 21. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!
