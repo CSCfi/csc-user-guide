@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # iPyrad
@@ -23,14 +23,15 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Puhti: 0.9.84, 0.9.85, 0.9.92
+- Roihu: 0.9.102
 
 ## Usage
 
-On Puhti, iPyrad can be used by loading the `ipyrad` module:
+On Roihu iPyrad can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load ipyrad
+module load bio-apps
+module load py-ipyrad
 ```
 
 !!! info "Note"
@@ -43,7 +44,7 @@ a good environment without queuing in between tasks.
 You can open an interactive batch job session with the command:
 
 ```bash
-sinteractive -m 16G
+sinteractive --core 8
 ```
 
 iPyrad processing can now be started with the command:
@@ -62,15 +63,14 @@ module load nano
 nano params-run1.txt
 ```
 
-Once the parameter file is ready, you can start the actual iPyrad analysis. In interactive batch
-jobs you can run small tasks that use just one computing core. Thus, you should add
-definition `-c 1` to the `ipyrad` command:
+Once the parameter file is ready, you can start the actual iPyrad analysis. You can set the number of cores
+with the `-c` option:
 
 ```bash
-ipyrad -p params-run1.txt -s 1234567 -c 1
+ipyrad -p params-run1.txt -s 1234567 -c 8
 ```
 
-## Running heavy iPyrad jobs in Puhti
+## Running heavy iPyrad jobs in Roihu
 
 If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing, you could run these analysis steps as normal batch jobs.
 
@@ -100,7 +100,7 @@ This number of cores (`--ntasks` * `--cpus-per-task`) is then given to the iPyra
 In the sample case here, we will use 20 cores in one node. If the run time is expected to be more than 3 days, the job should be submitted to longrun partition (`#SBATCH --partition=longrun`). In this case, we reserve 72 hours (3 days). Further, in step 3, the clustering commands are executed using 20 cores (`-c 20`), each running one thread (`-t 1`).
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=ipyrad_s3
 #SBATCH --error=ipyrad_err_%j
 #SBATCH --output=put=ipyrad_output_%j
@@ -112,7 +112,16 @@ In the sample case here, we will use 20 cores in one node. If the run time is ex
 #SBATCH --cpus-per-task=20
 #SBATCH --partition=small
 
-module load ipyrad
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load py-ipyrad
 ipyrad -p params-run1.txt -s 3 -c 20 -t 1 
 ```
 
@@ -127,7 +136,7 @@ Once the job has finished, you could run the next step by replacing `-s 3` with 
 For the setups 4-7, a maximum of 8 cores is recommended. Thread assigning option should always be set, as the default settings of iPyrad are not suitable for batch jobs.
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=ipyrad_s4567
 #SBATCH --error=ipyrad_err_%j
 #SBATCH --output=put=ipyrad_output_%j
@@ -139,15 +148,24 @@ For the setups 4-7, a maximum of 8 cores is recommended. Thread assigning option
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=small
 
-module load ipyrad
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load py-ipyrad
 ipyrad -p ipyrad-run1.txt -s 4567 -c 8 -t 1 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
 
 ## Using cPouta for very long iPyrad jobs
 
-The maximum run time on Puhti is 14 days. In some cases, running the iPyrad analysis step 3 may take even longer time. In those cases, you can use the
+The maximum run time on Roihu is 10 days. In some cases, running the iPyrad analysis step 3 may take even longer time. In those cases, you can use the
 [cPouta cloud service](../cloud/pouta/index.md) to set up your own virtual machine.
 
 ## More information

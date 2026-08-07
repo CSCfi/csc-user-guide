@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Kraken
@@ -26,14 +26,15 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-- Puhti: 2.1.2 
+- Roihu: 2.17.2 
 
 ## Usage
 
-Kraken in included in the `biokit` module. To set it up, run the command:
+Kraken can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load kraken2
 ```
 
 This loads the Kraken2 package which can be started with the command `kraken2`. For example:
@@ -41,6 +42,11 @@ This loads the Kraken2 package which can be started with the command `kraken2`. 
 ```bash
 kraken2 --help
 ```
+
+!!! note "Kraken2 dabases are not yet on Roihu"
+    Kraken2 databases are not yet available on Roihu. They will be added as soon as possible.
+    The database selection will be similar to Puhti selection described below
+
 
 There are several Kraken2 reference databases available on Puhti. By default, Kraken2 uses the
 `standard` database that is based on taxonomic information and complete genomes in RefSeq 
@@ -74,7 +80,16 @@ Using Kraken2 with a large reference database will require plenty on memory. For
 #SBATCH --account=project_123456
 #SBATCH --mem=40000
 
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load kraken2
 kraken2 -db standard --threads $SLURM_CPUS_PER_TASK input.fasta --output results.txt
 ```
 
@@ -84,7 +99,7 @@ You can submit the batch job file to the batch job system with the command:
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Roihu user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 ## More information
 
