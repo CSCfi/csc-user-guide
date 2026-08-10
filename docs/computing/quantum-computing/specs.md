@@ -27,6 +27,9 @@ Q50's native gates are the Phased x-rotation gate (prx) and controlled-z gate (c
 
 ### LUMI-Q VLQ
 
+LUMI-Q VLQ is a 24-qubit IQM superconducting quantum computer operated by IT4Innovations. VLQ's qubits are arranged in a star topology where all qubits are coupled to a single computational resonator giving the device eefectively a "one-to-all" connectivity. For more info on VLQ see [IT4I documentation](https://docs.it4i.cz/en/docs/clusters/vlq/introduction).
+
+![VLQ's node mapping](../../img/quantum-computing/lumi-q-vlq-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
 
 ### Defining topology and gates in Qiskit and Cirq
@@ -35,26 +38,23 @@ The topology, supported instructions and backend specific metadata can be querie
 
 ```python
 # Qiskit
-from iqm.qiskit_iqm import IQMProvider
-provider = IQMProvider(iqm_server_url, quantum_computer="q50")
-backend = provider.get_backend()
 print(f'Native operations of the backend: {backend.operation_names}')
 print(f'Coupling map of the backend: {backend.coupling_map}')
 ```
 
 ```python
 # Cirq
-from iqm.cirq_iqm import Adonis
-adonis = Adonis()
-print(adonis.metadata.qubit_set)
-print(adonis.metadata.gateset)
-print(adonis.metadata.nx_graph)
+print(backend.metadata.qubit_set)
+print(backend.metadata.gateset)
+print(backend.metadata.nx_graph)
 ```
+
+For instruction on accessing the quantum computer backends see the [Running quantum jobs page](running-quantum-jobs.md).
 
 
 ## Further Reading
 
-* [Specific instructions for the fiqci partition](fiqci-partition.md)
+* [Running quantum jobs](running-quantum-jobs.md)
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit)
 * [Cirq adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_cirq)
 
