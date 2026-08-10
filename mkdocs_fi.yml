@@ -239,7 +239,7 @@ nav:
               - Projektien luonti: cloud/rahti/get-started/projects.md
               - Laskutus: cloud/rahti/get-started/billing.md
           - Käyttäminen:
-              - Kubertenes-käsitteet: cloud/rahti/usage/kubernetes-concepts.md
+              - Kubernetes-käsitteet: cloud/rahti/usage/kubernetes-concepts.md
               - Rahti-katalogi: cloud/rahti/usage/catalog.md
               - Levykuvat:
                   - cloud/rahti/usage/images/index.md
