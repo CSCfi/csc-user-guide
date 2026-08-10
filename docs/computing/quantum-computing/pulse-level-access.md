@@ -51,6 +51,22 @@ from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
     backend = provider.get_backend()
     ```
 
+=== "VLQ"
+
+    ```
+    # Read token
+    token = (Path.home() / "vlq-token").read_text().strip()
+
+
+    # Define your project details
+    PROJECT = "YOUR PROJECT NAME"
+    RESOURCE = "YOUR RESOURCE NAME"
+
+    # Initialise backend
+    provider = QProvider(token, PROJECT)
+    backend = provider.get_pulla(RESOURCE)
+    ```
+
 ## Define a quantum circuit
 
 ```python
@@ -103,66 +119,4 @@ print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 
 ## Running through LUMI
 
-For instructions on running the job on LUMI you can use the example batch script below.
-
-=== "Q20"
-
-    ```bash
-    #!/bin/bash
-
-    #SBATCH --job-name=pulsejob   # Job name
-    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-    #SBATCH --partition=small   # Partition (queue) name
-    #SBATCH --ntasks=1              # One task (process)
-    #SBATCH --mem-per-cpu=2G       # memory allocation
-    #SBATCH --cpus-per-task=1     # Number of cores (threads)
-    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
-
-    module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit
-
-    export DEVICES=("radiance20")
-    source $RUN_SETUP
-    python your_python_script.py
-    ```
-
-=== "Q50"
-
-    ```bash
-    #!/bin/bash
-
-    #SBATCH --job-name=pulsejob   # Job name
-    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-    #SBATCH --partition=small   # Partition (queue) name
-    #SBATCH --ntasks=1              # One task (process)
-    #SBATCH --mem-per-cpu=2G       # memory allocation
-    #SBATCH --cpus-per-task=1     # Number of cores (threads)
-    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
-
-    module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit
-
-    export DEVICES=("q50")
-    source $RUN_SETUP
-    python your_python_script.py
-    ```
-
-Alternatively you can submit interactive jobs using `srun`
-
-=== "Q20"
-
-    ```bash
-    module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit/"
-    export DEVICES=("radiance20")
-    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
-    ```
-
-=== "Q50"
-
-    ```bash
-    module use /appl/local/quantum/modulefiles
-    module --ignore_cache load "fiqci-vtt-qiskit/"
-    export DEVICES=("q50")
-    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
-    ```
+For instructions on running the job on LUMI you can follow the Qiskit instruction under [Running quantum jobs](running-quantum-jobs.md).
