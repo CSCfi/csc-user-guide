@@ -49,6 +49,6 @@ For further reading:
 
 The LUMI supercomputer now supports the simulation of quantum algorithms with up to 44 qubits using Qiskit, IBM’s open-source quantum computing framework. This capability enables researchers to explore and test large-scale quantum algorithms in preparation for quantum advantage.
 
-For more details, refer to this [blog](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer) and the documentation [here](https://docs.csc.fi/apps/qiskit/#lumi)
+For more details, refer to this [blog](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer) and the documentation [here](../../apps/qiskit.md)
 
 
