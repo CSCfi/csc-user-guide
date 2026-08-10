@@ -22,8 +22,11 @@ The qubits are arranged in a **Square lattice** topology, a 2D grid where each q
 
 ![Q50's node mapping](../../img/vtt-q50-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
-### Native Gates
+#### Native Gates
 Q50's native gates are the Phased x-rotation gate (prx) and controlled-z gate (cz)
+
+### LUMI-Q VLQ
+
 
 
 ### Defining topology and gates in Qiskit and Cirq
