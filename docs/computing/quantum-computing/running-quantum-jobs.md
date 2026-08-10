@@ -5,7 +5,7 @@
 
 ## Running Jobs
 
-To submit jobs to the quantum computers (Q20, Q50, and VLQ) you can use any LUMI node. For small quantum only jobs we also provide a dedicated quantum node which can be used by adding the `--partition=q_fiqci` argument to your job script.
+To submit jobs to the quantum computers (Q20, Q50, and VLQ) you can use any LUMI partition. For small quantum only jobs we also provide a dedicated quantum node which can be used by adding the `--partition=q_fiqci` argument to your job script. For more info on [LUMI partitions](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
 Currently, Q20 and Q50 support job submissions using Qiskit, Cirq, and IQM Pulla. VLQ only supports Qiskit and IQM Pulla. These scripts must be submitted as standard Python files.
 
@@ -480,7 +480,7 @@ The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allo
 
 ### Accessing Q20/Q50/VLQ
 
-After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
+After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the preferred partition. If you have an active reservation, you can use it by selecting it under reservation.
 
 It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack.
 
