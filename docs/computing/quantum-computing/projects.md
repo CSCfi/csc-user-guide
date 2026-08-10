@@ -4,19 +4,16 @@
 # Quantum Projects on LUMI 
 
 !!! info "Getting Started"
-	To get started with using Aalto Q50/VTT Q50 see
+	To get started with using Aalto Q50/VTT Q50/LUMI-Q VLQ see
 	[Access Q20/Q50 through LUMI](access.md).
 
-Access to **Q2+** and **Q50** requires a LUMI project with allocated quantum computing resources. 
-To apply for an academic project with quantum computing time See the resources below.
+Access to **Q20** and **Q50** requires a LUMI project with allocated quantum computing resources. VLQ allocations
+are not tied to a LUMI project but are applied for in the same way as for Q20 and Q50. To apply for an academic project with quantum computing time See the resources below.
 
-## Aalto Q20
+## Aalto Q20 / VTT Q50 / LUMI-Q VLQ
 
-[Open call for Q20 academic projects](https://fiqci.fi/resource-call)
+[Open call for Quantum Computing academic projects](https://fiqci.fi/resource-call)
 
-## VTT Q50
-
-[Open call for Q50 academic projects](https://fiqci.fi/resource-call)
 
 ## Further reading:
 
