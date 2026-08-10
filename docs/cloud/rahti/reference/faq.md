@@ -1,5 +1,26 @@
 # Rahti FAQ
 
+* [Rahti FAQ – common tasks and UI usage](#how-do-i-log-in-to-rahti)
+* [Do you offer SSL certificates in Rahti?](../../../support/faq/do-you-offer-ssl-certificates.md)
+* [Does Rahti support UDP connections?](../../../support/faq/rahti-udp.md)
+* Export data and images
+    * [How to back up volume data to Allas?](../usage/storage/object-storage.md#backup-to-allas)
+    * [How to backup a Postgres DB into Allas](../../../support/faq/backup-postgres-allas.md)
+    * [How to export container images?](../usage/images/integrated-registry.md#pulling-images-from-rahti-registry)
+    * [How to share images between projects?](../tutorials/basic/allow-pull-from-other-projects.md)
+* [How to add docker hub credentials to a project](../../../support/faq/docker_hub_login.md)
+* [How to automatically scale up and down replicas](../../../support/faq/addHorizontalAutoscaler.md)
+* [How to debug a container?](../../../support/faq/oc-debug.md)
+* [How to open a terminal to a Pod?](../../../support/faq/terminal-rahti-pod.md)
+* [How to package a Kubernetes application with Helm](../../../support/faq/helm.md)
+* [How to run an ad-hoc interactive container](../../../support/faq/oc-run.md)
+* [How to transfer data to Rahti?](../../../support/faq/transfer_data_rahti.md)
+* [Protecting against DDoS Attacks](../../../support/faq/DDos.md)
+* [Why my SSH key does not work in Rahti?](../../../support/faq/ssh-clone.md)
+* [Why Rahti cannot find this docker image?](../../../support/faq/get-image-format.md)
+* [Why this container report permission denied errors?](../../../support/faq/why-this-container-does-not-work.md)
+
+
 This page collects frequently asked questions and practical guidance for using Rahti,
 including project management, resource limits, networking, storage, and application deployment.
 
