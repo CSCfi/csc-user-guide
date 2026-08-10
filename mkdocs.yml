@@ -405,7 +405,7 @@ nav:
                   - computing/quantum-computing-new/quantum-computers/devices/overview.md
                   - VTT Q50: computing/quantum-computing-new/quantum-computers/devices/q50.md
                   - Aalto Q20: computing/quantum-computing-new/quantum-computers/devices/q20.md
-                  - EuroHPC VLQ: computing/quantum-computing-new/quantum-computers/devices/vlq.md
+                  - LUMI-Q VLQ: computing/quantum-computing-new/quantum-computers/devices/vlq.md
               - Running quantum jobs:
                   - computing/quantum-computing-new/quantum-computers/running-quantum-jobs/overview.md
                   - Access models:
