@@ -1,13 +1,13 @@
 !!! warning "Q20 Service in MyCSC"
     There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
-# Running on Q20 and Q50
+# Running on Q20, Q50, and VLQ
 
 ## Running Jobs
 
-To submit jobs to the quantum computers (Q20 and Q50), use the dedicated quantum node (q_fiqci) by adding --partition=q_fiqci in your batch script.
+To submit jobs to the quantum computers (Q20, Q50, and VLQ) you can use any LUMI node. For small quantum only jobs we also provide a dedicated quantum node which can be used by adding the `--partition=q_fiqci` argument to your job script.
 
-Currently, Q20 and Q50 support job submissions using Qiskit or Cirq. These scripts must be submitted as standard Python files.
+Currently, Q20 and Q50 support job submissions using Qiskit, Cirq, and IQM Pulla. VLQ only supports Qiskit and IQM Pulla. These scripts must be submitted as standard Python files.
 
 To run jobs on the quantum computers, follow these steps to set up the correct environment on LUMI:
 
@@ -15,16 +15,19 @@ To run jobs on the quantum computers, follow these steps to set up the correct e
 
 * Add the module path so the system can locate the available modules: `module use /appl/local/quantum/modulefiles` or `module load Local-quantum`
 
-* Load the appropriate environment module depending on your framework:
-    * For Qiskit: `module load fiqci-vtt-qiskit` 
-    * For Cirq `module load fiqci-vtt-cirq`
+* Load the appropriate environment module depending on your framework and quantum computer:
 
+    * Q20 and Q50
+        * For Qiskit and IQM Pulla: `module load fiqci-vtt-qiskit` 
+        * For Cirq `module load fiqci-vtt-cirq`
 
-The `fiqci-vtt-qiskit` and `fiqci-vtt-cirq` modules provide pre-configured Python environments for running jobs on the quantum computers.
+    * VLQ
+        * For Qiskit and IQM Pulla: `module load lumi-q-vlq-qiskit`  
+
+These modules provide pre-configured Python environments for running jobs on the quantum computers.
 If you need to install additional Python packages, you can do so using: 
 
 `python -m pip install --user package`.
-
 
 !!! info "Creating your own python environment"
     If you prefer to use a custom Python environment,
@@ -35,8 +38,9 @@ The current supported software versions are:
 | Software | LUMI_Module_name | Versions |
 |----------|-------------|----------|
 | IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 34.0.0, < 35.0.0 |
+| IQM client | lumi-q-vlq-qiskit | ≥ 34.0.0, < 35.0.0 |
 
-Here is an example batch script to submit a quantum job
+Here are instruction for submitting quantum jobs for each device.
 
 === "Q20"
 
@@ -83,6 +87,25 @@ Here is an example batch script to submit a quantum job
     # module load fiqci-vtt-cirq
     export DEVICES=("Q50")
     source $RUN_SETUP
+    python your_python_script.py
+    ```
+
+=== "VLQ"
+
+    ```bash
+    #!/bin/bash
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=q_fiqci   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+
+    module use /appl/local/quantum/modulefiles
+
+    module load lumi-q-vlq-qiskit
     python your_python_script.py
     ```
 
@@ -106,15 +129,19 @@ The batch script can then be submitted with `sbatch`. You can also submit intera
     srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "source $RUN_SETUP && python your_python_script.py"
     ```
 
-The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or Cirq in conjunction with the quantum computers.
+=== "VLQ"
+
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module --ignore_cache load "lumi-q-vlq-qiskit"
+    srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition q_fiqci bash -c "python your_python_script.py"
+    ```
 
 !!! info "Running on physical Quantum computers"
-    When submitting a job on Q20 or Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
-    To run on Q50, please specify the device using `export DEVICES=("Q50") `command
+    When submitting a job on VTT Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
+    To run on Q50, please specify the device using `export DEVICES=("Q50") `command.
 
 ### Qiskit
-
-To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
 In Qiskit python scripts you will need to include the following:
 
@@ -177,6 +204,62 @@ In Qiskit python scripts you will need to include the following:
     counts = job.result().get_counts()
     print(counts)
     ```
+
+=== "VLQ"
+
+    The access model for LUMI-Q VLQ differs somewhat from Q20 and Q50. For accessing VLQ you need to
+    get a personal token using MyAccessID. A token can be obtained with the following python script:
+
+    ```python
+    from py4lexis.session import LexisSession
+
+    lexis_session = LexisSession()
+    token = lexis_session.get_access_token()
+    ```
+
+    Running `lexis_session.get_access_token()` will attempt to open a browser window for logging in. If one
+    does not automatically open it also prints an url you can copy to your browser manyally. Once on the login page
+    click on `MyAccessID`. You will be redirected to a login page on which you can choose your organisation after which
+    you can login with the credentials corresponding to your organisation.
+
+    When submitting to VLQ using a batch script it is recommended to generate the token before hand and save it to a file
+    in your LUMI home directory that only you can read. You can then read the token from this file in your python job script To interactively run the above script use either the `srun` or `python3` commands. The script below will use this method. For interactive quantum jobs (through e.g jupyter notebooks on the LUMI web interface) one can obtain the token during the job execution with the same commands as above.
+
+    ```python
+    from qaas.client import QProvider, QBackend, QJob
+    from qiskit import QuantumCircuit, transpile
+
+    from pathlib import Path
+    
+    # Read token
+    token = (Path.home() / "vlq-token").read_text().strip()
+
+
+    # Define your project details
+    PROJECT = "YOUR PROJECT NAME"
+    RESOURCE = "YOUR RESOURCE NAME"
+
+    # Initialise backend
+    provider = QProvider(token, PROJECT)
+    backend = provider.get_backend(RESOURCE)
+
+    shots = 1000  # Set the number of shots you wish to run with
+
+    # Create your quantum circuit.
+    # Here is an example
+    circuit = QuantumCircuit(2, 2)
+    circuit.h(0)
+    circuit.cx(0, 1)
+    circuit.measure_all()
+
+    print(circuit.draw(output='text'))
+
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    counts = job.result().get_counts()
+    print(counts)
+    ```
+
 
 ### Cirq
 
@@ -266,13 +349,11 @@ scripts for submitting jobs.
 
 As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on the quantum computers in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
 
-A set of Qiskit and Cirq examples and scripts for guidance in using the quantum computers are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
-
 ## Job Metadata
 
 Additional metadata about your job can be queried directly with Qiskit. For example:
 
-=== "Q20
+=== "Q20"
 
     ```python
 
@@ -328,16 +409,49 @@ Additional metadata about your job can be queried directly with Qiskit. For exam
     #old_job = backend.retrieve_job(job_id)
     ```
 
+=== "VLQ"
+
+    ```python
+    # Read token
+    token = (Path.home() / "vlq-token").read_text().strip()
+
+    # Define your project details
+    PROJECT = "YOUR PROJECT NAME"
+    RESOURCE = "YOUR RESOURCE NAME"
+
+    # Initialise backend
+    provider = QProvider(token, PROJECT)
+    backend = provider.get_backend(RESOURCE)
+
+    #Retrieving backend information
+    print(f'Native operations: {backend.operation_names}')
+    print(f'Number of qubits: {backend.num_qubits}')
+    print(f'Coupling map: {backend.coupling_map}')
+
+    transpiled_circuit = transpile(circuit, backend)
+    job = backend.run(transpiled_circuit, shots=shots)
+    result = job.result()
+    exp_result = result._get_experiment(circuit)
+
+    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
+    print(result.request.circuits)  # Retrieving the circuit request sent
+    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
+    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
+    print(result.request.shots)  # Retrieving the number of requested shots.
+
+    #retrieve a job using the job_id from a previous session
+    #old_job = backend.retrieve_job(job_id)
+    ```
+
 !!! info "Save your Job ID!"
-    Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
-    The same applies for the calibration set id.
+    Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere! The same applies for the calibration set id.
 
 
 ## Calibration data
 
-Calibration data (or quality metrics set) may be necessary for publishing work produced on Q20/Q50. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+Calibration data (or quality metrics set) may be necessary for publishing work produced on Q20/Q50/VQL. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
 
-Here is a brief description of the figures which are given when querying:
+Here is a brief description of the main figures which are given when querying:
 
 | Figure | Key | Description |  |  |
 |---|---|---|---|---|
@@ -360,11 +474,11 @@ Here is a brief description of the figures which are given when querying:
 For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
-## Using Q20/Q50 on Lumi-web interface
+## Using Q20/Q50/VLQ on Lumi-web interface
 
-The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on  Q20 and Q50 through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
+The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/) allows users to run quantum jobs on  Q20, Q50, and VLQ through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/).
 
-### Accessing Q20/Q50
+### Accessing Q20/Q50/VLQ
 
 After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition as q_fiqci. If you have an active reservation, you can use it by selecting it under reservation.
 
@@ -389,6 +503,13 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     source $RUN_SETUP
     ```
 
+=== "VLQ"
+    
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load lumi-q-vlq-qiskit
+    ```
+
 #### Cirq
 === "Q20"
 
@@ -410,15 +531,15 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
 
 !["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
 
-Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Q20/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
+Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Q20/Q50/VLQ during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
 
 !["Qcs with LUMI web courses"](../../img/helmi_with_jupyter_for_courses_gui.png)
 
 ## Viewing QPU Usage On LUMI and MyCSC
 
-You can now view QPU usage from the [MyCSC dashboard](https://my.csc.fi/dashboard). For viewing QPU usage from the terminal on LUMI use the method below. The `lumi-allocations` command does not properly display QPU usage.
+You can now view QPU usage for Q20 and Q50 from the [MyCSC dashboard](https://my.csc.fi/dashboard) or from the terminal on LUMI using the method below. The `lumi-allocations` command does not properly display QPU usage. For VLQ this data is not currently available.
 
-To view QPU usage, on your terminal, first load the fiqci-vtt-qiskit module, and then run the `project-qpu-allocations` command. This command will display your current QPU allocation and usage details for all your projects.
+To view Q20 and Q50 QPU usage, on your terminal, first load the fiqci-vtt-qiskit module, and then run the `project-qpu-allocations` command. This command will display your current QPU allocation and usage details for all your projects.
 
 ```bash
 module use /appl/local/quantum/modulefiles
