@@ -48,7 +48,7 @@ module load fiqci-vtt-qiskit
     from qiskit.compiler import transpile
     from qaas.client import QProvider
     from iqm.pulla.utils_qiskit import sweep_job_to_qiskit
-    from qaas.client.qpulla import qiskit_to_pulla
+    from qaas.client.qpulla import qiskit_to_pulla, QPullaBackendIQM
     ```
 
 ## Define Pulla client and backend
@@ -89,7 +89,11 @@ module load fiqci-vtt-qiskit
 
     # Initialise backend
     provider = QProvider(token, PROJECT)
+
+    client = provider.get_client(lexis_resource_name)
     backend = provider.get_pulla(RESOURCE)
+    dqa = client.get_dynamic_architecture()
+    pulla_backend: QPullaBackendIQM = QPullaBackendIQM(dqa,p,compiler)
     ```
 
 ## Define a quantum circuit
