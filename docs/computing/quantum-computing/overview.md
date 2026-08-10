@@ -29,11 +29,16 @@ Q50 is a 53-qubit quantum computer, also co-developed by VTT and IQM Quantum Com
 Similar to Q20, Q50 is accessible through the LUMI supercomputer environment. Users will need to apply for a quantum computing project on LUMI. Upon approval, Q50 can be accessed using the LUMI job scheduler (SLURM).
 Refer to the [Open Call](https://fiqci.fi/resource-call) publication for detailed instructions on how to apply for a project with Q50 access.
 
+### LUMI-Q VLQ
+
+VLQ is a star layout 24 qubit IQM quantum computer hosted by IT4Innovations.
+
+VLQ can be accessed from LUMI or a personal device and VLQ resource allocations are not tied to a LUMI project. For access through LUMI a LUMI project with LUMI resources is needed. Refer to the [Open Call](https://fiqci.fi/resource-call) publication for detailed instructions on how to apply for a VLQ resources.
 
 For further reading:
 
 * [A more technical description about the quantum computers](./specs.md).
-* [Specific instructions for the fiqci partition](./fiqci-partition.md)
+* [Running quantum jobs](running-quantum-jobs.md)
 * [Getting started with Q20/Q50](./access.md)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/)
 
@@ -44,6 +49,6 @@ For further reading:
 
 The LUMI supercomputer now supports the simulation of quantum algorithms with up to 44 qubits using Qiskit, IBM’s open-source quantum computing framework. This capability enables researchers to explore and test large-scale quantum algorithms in preparation for quantum advantage.
 
-For more details, refer to this [blog](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer)
+For more details, refer to this [blog](https://fiqci.fi/publications/2025-04-01-LUMI-quantum-simulations-qiskit-aer) and the documentation [here](https://docs.csc.fi/apps/qiskit/#lumi)
 
 
