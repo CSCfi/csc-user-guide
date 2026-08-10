@@ -1,6 +1,9 @@
 !!! warning "Q20 Service in MyCSC"
     There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
+!!! info "Status and calibration data"
+    Current calibration and status of the quantum computers is available at the [FiQCI website](https://fiqci.fi/status)
+
 # Technical details
 
 ## Architecture and Topology
