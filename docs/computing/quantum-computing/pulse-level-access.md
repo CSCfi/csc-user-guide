@@ -15,16 +15,41 @@ module load fiqci-vtt-qiskit
 
 ## Import packages
 
-```python
-import os
+=== "Q20"
 
-from qiskit import QuantumCircuit
-from qiskit.compiler import transpile
-from iqm.iqm_client.util import print_env_vars
-from iqm.qiskit_iqm import IQMProvider
-from iqm.pulla.pulla import Pulla
-from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
-```
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit
+    from qiskit.compiler import transpile
+    from iqm.qiskit_iqm import IQMProvider
+    from iqm.pulla.pulla import Pulla
+    from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
+    ```
+
+=== "Q50"
+
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit
+    from qiskit.compiler import transpile
+    from iqm.qiskit_iqm import IQMProvider
+    from iqm.pulla.pulla import Pulla
+    from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
+    ```
+
+=== "VLQ"
+
+    ```python
+    import os
+
+    from qiskit import QuantumCircuit
+    from qiskit.compiler import transpile
+    from qaas.client import QProvider
+    from iqm.pulla.utils_qiskit import sweep_job_to_qiskit
+    from qaas.client.qpulla import qiskit_to_pulla
+    ```
 
 ## Define Pulla client and backend
 
