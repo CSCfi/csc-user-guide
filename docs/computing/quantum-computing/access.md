@@ -3,11 +3,11 @@
 
 # Setting up a LUMI project and accounts for accessing the Quantum computers
 
-This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50**  quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md).
+This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20**, **VTT Q50**, and **LUMI-Q VLQ**  quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md).
 
-To access Q20 or Q50, you must first create a LUMI project with quantum computing resources: [Quantum Projects on LUMI](projects.md).
+To access Q20 or Q50, you must first create a LUMI project with quantum computing resources: [Quantum Projects on LUMI](projects.md). For VLQ the quantum computing resources are not tied to a LUMI project. However to use VLQ through LUMI you need a project with LUMI resources.
 
-Once the project is created, the **Principal Investigator (PI)** can invite other users: [How to add members to project](../../accounts/how-to-add-members-to-project.md)
+Once the project is created, the **Principal Investigator (PI)** can invite other users: [How to add members to project](../../accounts/how-to-add-members-to-project.md). For VLQ the PI also needs to forward the project and resource names to other users for them to access VLQ.
 
 The project PI is responsible for ensuring that the [Q50 Terms of Use](https://a3s.fi/FiQCI/VTT_Quantum_Academic_Use_EULA.pdf) are followed. Aalto Q20 has no such terms.
 
