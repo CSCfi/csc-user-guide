@@ -25,14 +25,7 @@ To run jobs on the quantum computers, follow these steps to set up the correct e
         * For Qiskit and IQM Pulla: `module load lumi-q-vlq-qiskit`  
 
 These modules provide pre-configured Python environments for running jobs on the quantum computers.
-If you need to install additional Python packages, you can do so using: 
-
-`python -m pip install --user package`.
-
-!!! info "Creating your own python environment"
-    If you prefer to use a custom Python environment,
-    we recommend using the [container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) to create and manage your environment.
-
+If you need to install additional Python packages we recommend using the [container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/) to create and manage your environment. However, small packages with few/small dependencies can be installed with `python -m pip install --user package` as well.
 The current supported software versions are:
 
 | Software | LUMI_Module_name | Versions |
