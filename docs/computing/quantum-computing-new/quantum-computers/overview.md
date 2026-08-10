@@ -128,8 +128,8 @@ For help with accessing or using the quantum computers, contact the
 
 ## Further reading
 
-* [Devices](devices/overview.md) - brief technical specifications and access details of each quantum computer
+* [Devices](devices/overview.md) - access details and brief technical specifications for each quantum computer
 * [Projects](projects.md) - applying for resources and terms of use
 * [Running quantum jobs](running-quantum-jobs/overview.md) - access models and job examples
 * [Quantum simulators](../quantum-simulators/overview.md) - test your circuits before running on hardware
-* [FiQCI](https://fiqci.fi) - The Finnish Quantum-Computing Infrastructure. Live calibration status of FiQCI the quantum computers, blogs, events, and technical details
+* [FiQCI](https://fiqci.fi) - The Finnish Quantum-Computing Infrastructure. Live calibration status of the FiQCI quantum computers, blogs, events, and technical details
