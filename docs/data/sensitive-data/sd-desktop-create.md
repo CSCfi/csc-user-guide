@@ -8,6 +8,7 @@
 
 With the SD Desktop service, you can create virtual computers for analysing sensitive data via web browser. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to six virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
 
+## Overview: 
 
 1. [Log in to SD Desktop](#1-log-in-to-sd-desktop)
 
@@ -20,6 +21,7 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 5. [Make sure your CSC project has sufficient Billing Units](#5-make-sure-your-csc-project-has-sufficient-billing-units-bu)
 
 6. [Important considerations](#6-important-considerations)
+
 
 ## Step by step
 
