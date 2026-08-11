@@ -50,7 +50,7 @@ nav:
       - Projektisi hallinta: accounts/how-to-manage-your-project.md
       - Laskentayksiköiden hakeminen: accounts/how-to-apply-for-billing-units.md
       - Levykiintiöiden kasvattaminen: accounts/how-to-increase-disk-quotas.md
-      - Mahti-supertietokoneen suuren osion käyttö: accounts/how-to-access-mahti-large-partition.md
+      - Roihu-supertietokoneen suuren osion käyttö: accounts/how-to-access-roihu-large-partition.md
       - Laskentayksiköiden käytön tarkastelu: accounts/how-to-view-billing-unit-usage.md
       - Laskutus: accounts/billing.md
       - Monivaiheinen tunnistautuminen: accounts/mfa.md
@@ -73,14 +73,18 @@ nav:
           - SSH-asiakas Windowsilla: computing/connecting/ssh-windows.md
       - Supertietokoneen tallennustila:
           - computing/disk.md
+          - Roihun levyalueet: computing/roihu-disk.md
+          - Roihun data-aineistoprojektit: computing/roihu-dataset-project.md
           - Lustre-tiedostojärjestelmä: computing/lustre.md
       - Moduuliympäristö: computing/modules.md
       - Töiden ajaminen:
           - computing/running/getting-started.md
           - Saatavilla olevat erätyöjonot: computing/running/batch-job-partitions.md
-          - Puhti-erätyöskriptin luominen: computing/running/creating-job-scripts-puhti.md
+          - Erätyöskriptin luominen Roihussa: computing/running/creating-job-scripts-roihu.md
+          - Roihu-esimerkkiskriptit: computing/running/example-job-scripts-roihu.md
+          - Erätyöskriptin luominen Puhdissa: computing/running/creating-job-scripts-puhti.md
           - Puhti-esimerkkiskriptit: computing/running/example-job-scripts-puhti.md
-          - Mahti-erätyöskriptin luominen: computing/running/creating-job-scripts-mahti.md
+          - Erätyöskriptin luominen Mahdissa: computing/running/creating-job-scripts-mahti.md
           - Mahti-esimerkkiskriptit: computing/running/example-job-scripts-mahti.md
           - Työn lähettäminen: computing/running/submitting-jobs.md
           - Suuri läpäisykyky: computing/running/throughput.md
@@ -88,8 +92,9 @@ nav:
           - Suorituskyvyn tarkistuslista: computing/running/performance-checklist.md
       - Ohjelmistojen asentaminen:
           - computing/installing.md
-          - Kääntäminen Puhtissa: computing/compiling-puhti.md
-          - Kääntäminen Mahtissa: computing/compiling-mahti.md
+          - Kääntäminen Roihussa: computing/compiling-roihu.md
+          - Kääntäminen Puhdissa: computing/compiling-puhti.md
+          - Kääntäminen Mahdissa: computing/compiling-mahti.md
           - Kääntäminen LUMIssa: computing/compiling-lumi.md
           - Korkean suorituskyvyn kirjastot: computing/hpc-libraries.md
       - Virheenkorjaus: computing/debugging.md
@@ -112,6 +117,7 @@ nav:
               - Jupyter: computing/webinterface/jupyter.md
               - Julia Jupyterissä: computing/webinterface/julia-on-jupyter.md
               - Jupyter kursseille: computing/webinterface/jupyter-for-courses.md
+              - marimo: computing/webinterface/marimo.md
               - MATLAB: computing/webinterface/matlab.md
               - MLflow: computing/webinterface/mlflow.md
               - R-Jupyter: computing/webinterface/r-jupyter.md
@@ -126,6 +132,12 @@ nav:
           - Tekniset tiedot: computing/quantum-computing/specs.md
           - FiQCI-osio: computing/quantum-computing/fiqci-partition.md
           - Kvanttitöiden ajaminen: computing/quantum-computing/running-quantum-jobs.md
+          - Pulssitason käyttöoikeus: computing/quantum-computing/pulse-level-access.md
+      - FirecREST HPC API:
+          - computing/firecrest/index.md
+          - Yhteyden muodostaminen: computing/firecrest/connecting.md
+          - Tiedonsiirto S3:n yli: computing/firecrest/data-transfer-s3.md
+          - Python SDK: computing/firecrest/pyfirecrest.md
   - Pilvipalvelut:
       - cloud/index.md
       - Noppe:
@@ -160,6 +172,7 @@ nav:
                   - cloud/pouta/storage.md
                   - Tilapäistallennustila: cloud/pouta/ephemeral-storage.md
                   - Pysyvät levyt: cloud/pouta/persistent-volumes.md
+                  - Salatut pysyvät levyt: cloud/pouta/encrypted-volumes.md
                   - Tilannekuvat: cloud/pouta/snapshots.md
                   - Tilannekuva QEMUn avulla: cloud/pouta/qemu-vm.md
                   - Moni-liitettävä Cinder-tallennustila: cloud/pouta/multiattach.md
@@ -218,61 +231,85 @@ nav:
           - Tietokantainstanssien uudelleenkoonti: cloud/dbaas/rebuild-database.md
       - Rahti:
           - cloud/rahti/index.md
-          - Mikä on Rahti:
-              - cloud/rahti/rahti-what-is.md
-              - Kontit ja niiden orkestrointi: cloud/rahti/containers.md
-              - Kubernetes- ja OpenShift-käsitteet: cloud/rahti/concepts.md
-              - Ulkoinen dokumentaatio: cloud/rahti/ext_docs.md
           - Aloittaminen:
-              - Käyttöoikeuden hankkiminen: cloud/rahti/access.md
-              - Verkkokäyttöliittymä: cloud/rahti/usage/getting_started.md
-              - Komentorivityökalu: cloud/rahti/usage/cli.md
-              - Siirtyminen Rahtiin: cloud/rahti/moving-into.md
-              - Rahti UKK: cloud/rahti/rahti_faq.md
-          - Konfigurointi:
-              - Laskutus: cloud/rahti/billing.md
-              - Projektit ja kiintiöt: cloud/rahti/usage/projects_and_quota.md
-              - Rahti-katalogi: cloud/rahti/catalog-docs.md
+              - Mikä on Rahti: cloud/rahti/get-started/what-is-rahti.md
+              - Käyttöoikeuden hankkiminen: cloud/rahti/get-started/access.md
+              - Verkkokäyttöliittymä: cloud/rahti/get-started/web-interface.md
+              - Komentorivityökalu: cloud/rahti/get-started/cli.md
+              - Projektien luonti: cloud/rahti/get-started/projects.md
+              - Laskutus: cloud/rahti/get-started/billing.md
+          - Käyttäminen:
+              - Kubernetes-käsitteet: cloud/rahti/usage/kubernetes-concepts.md
+              - Rahti-katalogi: cloud/rahti/usage/catalog.md
               - Levykuvat:
-                  - cloud/rahti/images/overview.md
-                  - Levykuvan luominen: cloud/rahti/images/creating.md
-                  - Docker-levykuvien pitäminen pieninä: cloud/rahti/images/keeping_docker_images_small.md
-                  - Rahtin integroidun rekisterin käyttö: cloud/rahti/images/Using_Rahti_integrated_registry.md
-              - Tallennustila Rahtissa:
-                  - cloud/rahti/storage/index.md
-                  - Tilapäistallennustila: cloud/rahti/storage/ephemeral.md
-                  - Pysyvät levyt: cloud/rahti/storage/persistent.md
-                  - Objektitallennustila: cloud/rahti/storage/objectstorage.md
-                  - Levyn laajentaminen: cloud/rahti/storage/expand-volumes.md
-                  - Levyn tilannevedos: cloud/rahti/storage/volume-snapshot.md
-          - Edistynyt käyttö:
-              - cloud/rahti/advanced.md
-              - Verkko: cloud/rahti/networking.md
-              - Tietoturvaohje: cloud/rahti/security-guide.md
+                  - cloud/rahti/usage/images/index.md
+                  - Levykuvan luominen: cloud/rahti/usage/images/creating.md
+                  - Rahdin integroitu rekisteri: cloud/rahti/usage/images/integrated-registry.md
+                  - Parhaat käytannöt: cloud/rahti/usage/images/best-practices.md
+              - Tallennustila:
+                  - cloud/rahti/usage/storage/index.md
+                  - Tilapäistallennustila: cloud/rahti/usage/storage/ephemeral.md
+                  - Pysyvät levyt: cloud/rahti/usage/storage/persistent.md
+                  - Objektitallennustila: cloud/rahti/usage/storage/object-storage.md
+                  - Levyn tilannevedos: cloud/rahti/usage/storage/volume-snapshot.md
+              - Verkkoyhteydet: cloud/rahti/usage/networking.md
+          - Turvallisuusopas: cloud/rahti/security-guide.md
           - Tutoriaalit:
               - cloud/rahti/tutorials/index.md
-              - 4cat: cloud/rahti/tutorials/4cat.md
-              - Edistyneet NetworkPolicy-käytännöt: cloud/rahti/tutorials/advanced-NetworkPolicies-networking.md
-              - Rahtin tietokantoihin pääsy CSC-supertietokoneista: cloud/rahti/tutorials/connect-database-hpc.md
-              - Levykuvien latausoikeuden antaminen toisesta Rahti-projektista: cloud/rahti/tutorials/allow-pull-from-other-projects.md
-              - Huomautukset: cloud/rahti/tutorials/annotations.md
-              - CI/CD Rahtissa: cloud/rahti/tutorials/ci_cd_introduction.md
-              - Mukautetut verkkotunnukset ja suojattu tiedonsiirto: cloud/rahti/tutorials/custom-domain.md
-              - Staattisen verkkopalvelimen käyttöönotto komentoriviltä: cloud/rahti/tutorials/deploy_static_webserver_cli.md
-              - Verkkopalvelimen käyttöönotto Gitistä: cloud/rahti/tutorials/deploy_from_git.md
-              - Staattisen verkkopalvelimen käyttöönotto verkkokäyttöliittymällä: cloud/rahti/tutorials/deploy_static_webserver_webconsole.md
-              - Kuinka ottaa käyttöön korkean saatavuuden sovellus Rahdissa: cloud/rahti/tutorials/highavailability.md
-              - Kustomize: cloud/rahti/tutorials/kustomize.md
-              - Opettele pilvilaskentaa kehittämällä ja julkaisemalla verkkosovellus: cloud/rahti/tutorials/web-app-dev-cloud.md
-              - Monivaiheinen kääntäminen: cloud/rahti/tutorials/multi-stage-builds.md
-              - Nextcloud: cloud/rahti/tutorials/nextcloud.md
-              - OAuth2-välityspalvelin: cloud/rahti/tutorials/oauth2.md
-              - Pod (anti) yhteensopivuus: cloud/rahti/tutorials/pod-affinity.md
-              - Käänteisen välityspalvelimen tunnistautuminen sivukontin avulla: cloud/rahti/tutorials/sidecar_proxy_authentication.md
-              - Sähköpostin lähettäminen Rahtista: cloud/rahti/tutorials/email.md
-              - HTTP-uudelleenohjauksen asennus Rahtiin: cloud/rahti/tutorials/http-redirector.md
-              - Lyhyt johdatus YAML-formaattiin: cloud/rahti/tutorials/yaml_introduction.md
-              - Webhookit: cloud/rahti/tutorials/webhooks.md
+              - Perustaso:
+                  - Staattisen verkkopalvelimen käyttöönotto verkkokäyttöliittymästä: cloud/rahti/tutorials/basic/deploy-static-webserver-webconsole.md
+                  - Käyttöönotto Gitistä: cloud/rahti/tutorials/basic/deploy-from-git.md
+                  - HTTP-uudelleenohjauksen määritys: cloud/rahti/tutorials/basic/http-redirector.md
+                  - Lyhyt johdatus YAMLiin: cloud/rahti/tutorials/basic/yaml-introduction.md
+                  - Webhookit: cloud/rahti/tutorials/basic/webhooks.md
+                  - Imagen veto toisesta projektista: cloud/rahti/tutorials/basic/allow-pull-from-other-projects.md
+                  - Annotaatiot: cloud/rahti/tutorials/basic/annotations.md
+              - Keskitaso:
+                  - Mukautetut verkkotunnukset ja suojattu tiedonsiirto: cloud/rahti/tutorials/intermediate/custom-domain.md
+                  - Staattisen verkkopalvelimen käyttöönotto komentoriviltä: cloud/rahti/tutorials/intermediate/deploy-static-webserver-cli.md
+                  - Monivaiheiset koonnit: cloud/rahti/tutorials/intermediate/multi-stage-builds.md
+                  - OAuth2-välityspalvelin: cloud/rahti/tutorials/intermediate/oauth2.md
+                  - Podien (anti)affiniteetti: cloud/rahti/tutorials/intermediate/pod-affinity.md
+                  - Sähköpostin lähetys Rahdista: cloud/rahti/tutorials/intermediate/email.md
+                  - Korkean saatavuuden sovellus Rahdissa: cloud/rahti/tutorials/intermediate/high-availability.md
+              - Edistynyt taso:
+                  - 4cat: cloud/rahti/tutorials/advanced/4cat.md
+                  - Supertietokoneiden tietokantojen käyttö Rahdissa: cloud/rahti/tutorials/advanced/connect-database-hpc.md
+                  - Edistyneet NetworkPolicyt: cloud/rahti/tutorials/advanced/advanced-networkpolicies.md
+                  - CI/CD Rahdissa: cloud/rahti/tutorials/advanced/ci-cd-introduction.md
+                  - Kustomize: cloud/rahti/tutorials/advanced/kustomize.md
+                  - Opi pilvilaskentaa kehittämällä ja ottamalla käyttöön selainkäyttöliittymäsovellus: cloud/rahti/tutorials/advanced/web-app-dev-cloud.md
+                  - Nextcloud: cloud/rahti/tutorials/advanced/nextcloud.md
+                  - Käänteisen välityspalvelimen todennus sidecar-kontin avulla: cloud/rahti/tutorials/advanced/sidecar-proxy-authentication.md
+          - Apua & viitteitä:
+              - UKK: cloud/rahti/reference/faq.md
+              - Ulkoinen dokumentaatio: cloud/rahti/reference/external-docs.md
+      - Satama:
+          - cloud/satama/index.md
+          - Mikä on Satama:
+              - cloud/satama/what_is_satama.md
+          - Aloittaminen:
+              - Käyttöoikeuden hankkiminen: cloud/satama/getting_access.md
+              - Verkkokäyttöliittymä: cloud/satama/ui.md
+              - Komentorivityökalu: cloud/satama/cli.md
+              - Laskutus ja kiintiöt: cloud/satama/billing_and_quota.md
+          - Projektin konfigurointi:
+              - cloud/satama/project_configuration.md
+              - Projektin julkisuus: cloud/satama/project_visibility.md
+              - Käyttöönoton turvallisuus: cloud/satama/deployment_security.md
+              - Haavoittuvuusskannaus: cloud/satama/vulnerability_scanning.md
+              - SBOM:n luonti: cloud/satama/sbom_generation.md
+              - CVE-sallintalista: cloud/satama/cve_allowlist.md
+              - Audit-lokit: cloud/satama/audit_logs.md
+              - Tagien säilytyskäytäntö: cloud/satama/tag_retention.md
+              - Tagien muuttumattomuus: cloud/satama/tag_immutability.md
+              - Robottitili: cloud/satama/robot_account.md
+          - Tunnetut ongelmat: cloud/satama/known_issues.md
+          - Parhaat käytännöt: cloud/satama/best_practices.md
+          - Oppaat:
+              - cloud/satama/tutorials/index.md
+              - Vanhojen tagien siivoaminen: cloud/satama/tutorials/cleanup.md
+              - Puske ensimmäinen levykuvasi: cloud/satama/tutorials/push_image.md
   - Data:
       - data/index.md
       #    - Aineistot: data/datasets.md
