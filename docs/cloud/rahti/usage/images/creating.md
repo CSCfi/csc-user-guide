@@ -173,7 +173,7 @@ deployment in Rahti using the web console or the CLI.
 
 * Click the plus button on the top right of the web console and choose **import from Git**.
 
-![Import git project](../../../img/rahti-import-git.png)
+![Import git project](../../../../img/click_git.png)
 
 * Enter the URL to your git repository in the **Git Repo URL** field. If your repository is private you will 
 see the warning "**URL is valid but cannot be reached**" 
