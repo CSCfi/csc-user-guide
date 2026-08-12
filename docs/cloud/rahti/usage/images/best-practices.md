@@ -36,17 +36,6 @@ COPY --from=builder /app/app /usr/local/bin/app
 CMD ["app"]
 ```
 
-## Clean up package manager caches and temporary files
-
-Package managers leave behind metadata, caches, and temporary files. Cleaning these in the same layer where they're 
-created prevents them from being stored permanently in the image. Make sure to delete the temporray files in the same 
-layer (i.e., the same `RUN` instruction). As cleaning them in another RUN command will add a new layer which still 
-bloats the image. Example:
-
-```Dockerfile
-...
-RUN apk add --no-cache build-base
-```
 
 ## Use a **.dockerignore** file
 
@@ -83,7 +72,8 @@ RUN apt-get update && apt-get install -y curl
 ## Combine related commands into fewer layers.
 
 Every **RUN** instruction creates a new layer. If you install packages in one layer and clean them in another, 
-the unwanted content remains in earlier layers. Combining commands prevents this. Example:
+the unwanted content remains in earlier layers. Package managers leave behind metadata, caches, and temporary files. Cleaning these in the same layer where they're 
+created prevents them from being stored permanently in the image. Combining commands prevents this. Example:
 
 
 **Bad (bloated image)**:
