@@ -81,6 +81,10 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 !!! note
     It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Roihu
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License 
 
 Orfeo ToolBox is licensed under the Apache License, Version 2.0. [The full Orfeo ToolBox licence](https://github.com/orfeotoolbox/OTB/tree/develop/Copyright)
