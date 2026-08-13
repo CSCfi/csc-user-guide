@@ -4,6 +4,8 @@ While containers are designed to be ephemeral, many workloads need persistent st
 
 ![Storage options](../../../img/storage-options.drawio.svg)
 
+Checkout the [billing](../../get-started/billing.md) page for the pricing of the storage.
+
 ## Ephemeral storage
 
 Ephemeral storage exists only for the lifetime of a Pod. When the Pod stops, restarts, or is rescheduled to another node, the data is lost. Rahti provides ephemeral storage via `emptyDir` volumes. An `emptyDir` volume gives the applications running inside the containers fast read and write access to data that can be recreated or does not need to survive, for example:
