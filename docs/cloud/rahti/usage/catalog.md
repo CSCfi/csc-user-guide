@@ -22,9 +22,9 @@ You can also take a look at the [Red Hat Ecosystem Catalog](https://catalog.redh
 
 !!! warning "Rahti Helm Charts"
 
-    Starting on 29 September 2025, Bitnami will be changing its policy regarding its catalog. Read more [here](https://github.com/bitnami/containers/issues/83267)  
-    - Current images will be moved to the [Bitnami Legacy Repository](https://hub.docker.com/u/bitnamilegacy) and will no longer be updated.  
-    - Some images will still be available in the [Bitnami Secure Images](https://hub.docker.com/u/bitnamisecure) but only with the `latest` tag.  
+    Since 29 September 2025, Bitnami has changed its policy regarding its catalog. Read more [here](https://github.com/bitnami/containers/issues/83267)  
+    - Current images have been moved to the [Bitnami Legacy Repository](https://hub.docker.com/u/bitnamilegacy) and is no longer updated.  
+    - Some images are available in the [Bitnami Secure Images](https://hub.docker.com/u/bitnamisecure) but only with the `latest` tag.  
     - To continue receiving images with the latest updates and access to different tags, you need to subscribe to the full version of [Bitnami Secure Images](https://www.arrow.com/globalecs/uk/products/bitnami-secure-images/).
     
     Some of our Helm Charts used `Bitnami` images. Our Helm Charts are now intended for testing/development purposes because they use the `bitnamilegacy` and/or `bitnamisecure` Docker repositories.
