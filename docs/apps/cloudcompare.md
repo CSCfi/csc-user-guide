@@ -9,9 +9,7 @@ catalog:
     - Geosciences
   available_on:
     - web_interfaces:
-        - Puhti
         - Roihu
-    - Puhti
     - Roihu
 ---
 
@@ -23,18 +21,16 @@ The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing 
 
 ## Available
 
-The following versions of CloudCompare are available:
+The following versions of CloudCompare are available in Roihu:
 
 
-- CloudCompare 2.14 for CPU. Plugins: Core I/O, LAS I/O **In Roihu**. 
-- CloudCompare 2.13.1 for GPU **In Roihu**. 
-- CloudCompare 2.12.4 for GPU. Plugins: qEDL, qPDALIO, qAnimation and qPCV. **In Puhti**.
-- CloudCompare 2.10.3 for CPU with more plugins than the GPU version. **In Puhti**.
+- CloudCompare 2.14 for CPU. Plugins: Core I/O, LAS I/O. 
+- CloudCompare 2.13.1 for GPU. Plugins: Core I/O, Animation, EDL Shader, PCV / ShadeVis, PDAL.
 
 GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../computing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
 
 ## Usage
-CloudCompare is available in web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi).
+CloudCompare is available in web interface: [Roihu](https://roihu.csc.fi).
 
 * **Basic CloudCompare is available** via [Desktop app](../computing/webinterface/desktop.md). 
 * **GPU-accelerated CloudCompare** via [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
@@ -65,7 +61,7 @@ Please acknowledge CSC and Geoportti in your publications, it is important for p
 
 ## Installation
 
-CloudCompare was installed to Puhti with Apptainer. The CPU-versions were installed using [Apptainer](https://github.com/CSCfi/singularity-recipes/tree/main/cloudcompare) and wrapped with Tykky
+CloudCompare was installed with Apptainer. The CPU-versions were installed using [Apptainer](https://github.com/CSCfi/singularity-recipes/tree/main/cloudcompare) and wrapped with Tykky
 
 ```
 wrap-container -w /usr/bin/CloudCompare,/usr/bin/ccViewer cc.sif --prefix 2.14

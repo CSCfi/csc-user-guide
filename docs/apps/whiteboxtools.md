@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
     - LUMI
     - Roihu
 ---
@@ -22,11 +21,9 @@ catalog:
 Only WhiteboxTools Open Core tools are available. WhiteboxTools is available with following versions:
 
 * 2.4.0 in 3.14.5 **python-geo** module, includes also Whitebox Workflows for Python, in Roihu
-* 2.4.0 in 3.14.3 **geoconda** module, includes also Whitebox Workflows for Python, in Puhti and LUMI.
-* 2.4.0 in 3.11.10 **geoconda** module, in Puhti and LUMI.
-* 2.3.5 in 3.11.9 **geoconda** module, in Puhti.
-* 2.2.0 in 3.10.x **geoconda** modules, in Puhti.
-* 2.1.0 in the **WhiteboxTools** module, in Puhti.
+* 2.4.0 in 3.14.3 **geoconda** module, includes also Whitebox Workflows for Python, in LUMI.
+* 2.4.0 in 3.11.10 **geoconda** module, in LUMI.
+
 
 ## Usage
 
@@ -36,7 +33,7 @@ Load a module, select module based on version:
 # Roihu
 module load python-geo
 
-# Puhti/LUMI
+# LUMI
 module load geoconda
 ```
 

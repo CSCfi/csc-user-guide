@@ -9,7 +9,6 @@ catalog:
     - Geosciences
   available_on:
     - LUMI
-    - Puhti
     - Mahti
 ---
 
@@ -30,7 +29,7 @@ includes following python packages:
 -   [contextily](https://contextily.readthedocs.io/en/latest/) -  to retrieve tile maps from the internet. NEW 2025
 -   [copc-lib](https://github.com/RockRobotic/copc-lib) - reader and writer interface for [Cloud Optimized Point Clouds (COPC)](https://copc.io/) Only in geoconda 3.10.9. and 3.14.3.
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
-    -   [Dask parallelization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
+    -   [Dask parallelization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/roihu/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [dask-image](https://dask-image.readthedocs.io/) - image processing with Dask Arrays. NEW 2025
 -   [datashader](https://datashader.org/) - for big data rendering. NEW 2026
@@ -47,7 +46,7 @@ includes following python packages:
 -   [geopy](https://geopy.readthedocs.io/) - client for several popular geocoding web services.
 -   [geoviews](https://geoviews.org/) - geographic visualizations for HoloViews. NEW 2026
 -   [geo2ml](https://github.com/mayrajeo/geo2ml) - for preparing spatial data for machine learning. Not in 3.14.3.
--   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) - see how to [set up GEE authentication in Puhti](#google-earth-engine-authentication-set-up-in-puhti). 
+-   [Google Earth Engine API](https://developers.google.com/earth-engine/guides/python_install) 
 -   [holoviews](https://holoviews.org/) - plot big datasets. NEW 2026
 -   [h3pandas](https://h3-pandas.readthedocs.io/en/latest/) - for hexagonal geospatial indexing system, with Pandas and GeoPandas. 
 -   [h3-py](https://uber.github.io/h3-py/intro.html) - Python bindings for H3, a hierarchical hexagonal geospatial indexing system. NEW 2025
@@ -119,7 +118,7 @@ includes following python packages:
     
 Additionally geoconda includes:
 
--   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [Puhti web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
+-   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [Mahti web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). Not in 3.14.3.
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
@@ -129,7 +128,7 @@ Additionally geoconda includes:
 -   [psy-view](https://psyplot.github.io/psy-view/) for visualizing netcdf files. Not in 3.14.3.
    
 Python has multiple packages for parallel computing, for example
-**multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
+**multiprocessing**, **joblib** and **dask**. In our [Roihu Python examples](https://github.com/csc-training/geocomputing/tree/master/python/roihu) there are examples how to utilize these different parallelisation libraries.
 
 If you think that some important GIS package for Python is missing from here, you can ask for installation from [CSC Service Desk](../support/contact.md).
 
@@ -139,12 +138,10 @@ If you think that some important GIS package for Python is missing from here, yo
 The `geoconda` module is available:
 
 * 3.14.4 (Python 3.14.4, PDAL 2.10.0, GDAL 3.12.2, created May 2026), in LUMI
-* 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created March 2026), in Puhti and Mahti
-* 3.12.10 (Python 3.12.10, PDAL 2.8.4, GDAL 3.10.2, created April 2025), in Puhti.
-* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in Puhti and LUMI.
-* 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Puhti and Mahti.
-* 3.10.9 (Python 3.10.9, PDAL 2.5.2, GDAL 3.6.2, created March 2023), in Puhti.
-* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Puhti and Mahti.
+* 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created March 2026), in Mahti
+* 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in LUMI.
+* 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Mahti.
+* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Mahti.
 
 Version number is the same as the Python version.
 
@@ -181,16 +178,16 @@ You can add more Python packages to `geoconda` by following the instructions in 
 
 You can edit your Python code with:
 
-* [Visual Studio Code in Puhti or LUMI web interface](../computing/webinterface/vscode.md)
-* Jupyter Notebook or Lab in [Puhti](../computing/webinterface/jupyter.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
-* Spyder in [Puhti](../computing/webinterface/desktop.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
+* [Visual Studio Code in Mahti or LUMI web interface](../computing/webinterface/vscode.md)
+* Jupyter Notebook or Lab in [Mahti](../computing/webinterface/jupyter.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
+* Spyder in [Mahti](../computing/webinterface/desktop.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
 
-To open Spyder in Puhti, Mahti or LUMI web interface with remote desktop:
+To open Spyder in Mahti or LUMI web interface with remote desktop:
 
-1. Log in to [Puhti](https://puhti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
+1. Log in to [Mahti](https://mahti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
 2. Open Remote desktop: Apps -> Desktop.
 3. After launching the remote desktop:
-    * on Puhti/Mahti, open `Terminal` (Desktop icon)
+    * on Mahti, open `Terminal` (Desktop icon)
     * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
 4. Start spyder:
     * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
@@ -206,16 +203,6 @@ spyder
 * `export _JAVA_OPTIONS="-Xmx4g"` from command-line before starting Python OR
 * `os.environ["_JAVA_OPTIONS"] = "-Xmx4g"` in the beginning of your Python code.
 
-### Google Earth Engine authentication set up in Puhti
-For using Google Earth Engine (GEE) API with `earthengine-api` package, one needs to have an account and project in GEE. Before first usage, also set up GEE authentication in Puhti:
-
-```
-module load geoconda
-export PATH=/appl/opt/csc-cli-utils/google-cloud-sdk/bin:$PATH
-earthengine authenticate
-```
-
-This prints out a long link and asks for a code. Copy the link to the web browser of your local laptop. Follow the instructions on the web page and finally copy the created code back to Terminal.
 
 ## Using Allas or LUMI-O from Python
 
@@ -240,18 +227,18 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Geoconda was installed to Puhti and Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+Geoconda was installed to Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
 conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools geoconda_3.11.10.yml
 ```
 
-Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Puhti and Mahti using `list-packages` command after loading the `geoconda` module.
+Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Mahti using `list-packages` command after loading the `geoconda` module.
 
 
 ## References
 
--   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+-   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/roihu)
 -   [Multiprocessing Basics](https://pymotw.com/2/multiprocessing/basics.html)
 -   [Automating GIS processes course materials](https://automating-gis-processes.github.io) by University of Helsinki
 -   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) by Henrikki Tenkanen / Aalto University

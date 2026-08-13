@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -23,26 +22,20 @@ catalog:
 LAStools is included in following modules:
 
 * lastools: 2026 (more exactly 260326) in Roihu
-* lastools: 2026 (more exactly 260326), 2025 (250304), 2023 (230914) and 2022 (220613) in Puhti
-* geoconda: 3.11.9, 3.10.9 and 3.10.6 (all with older 20171231) in Puhti
 
-Load one of these modules, for example the newest version (default):
+Load the newest version (default):
 
 `module load lastools` 
 
-The 2023-2026 versions of LAStools are based on the new [native Linux version of LAStools](https://rapidlasso.de/lastools-linux/) and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
+The 2026 versions of LAStools are based on the new [native Linux version of LAStools](https://rapidlasso.de/lastools-linux/) and requires `64` at the end of all tools. You can test that the LAStools module is loaded successfully with
 
 `lasinfo64 -h`
-
-For all older versions, for example in the **geoconda** module, you will need to omit the 64 at the end of the tool name, for example:
-
-`lasinfo -h`
 
 For using licensed tools for testing, use `-demo` in the command, see [Lastools documentation](https://rapidlasso.de/lastools-test-and-validate-in-demo-mode/) for more information.  
 
 ### LAStools commands
 
-All lastool installations in Puhti include the open source tools of LAStools.
+All lastool installations include the open source tools of LAStools.
 
 * las2las - extracts last returns, clips, subsamples, translates, etc ...
 * las2txt - turns LAS into human-readable and easy-to-parse ASCII
@@ -54,11 +47,11 @@ All lastool installations in Puhti include the open source tools of LAStools.
 * laszip - compresses the LAS files in a completely lossless manner
 * txt2las - converts LIDAR data from ASCII text to binary LAS format
 
-The 2023-2026 versions include also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. 2025 version has additionally: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. See the License for terms of use for these tools. 
+The 2026 version include also: `lasoptimize64, las2dem64, las2iso64, las2shp64, las2tin64, las3dpoly64, lasboundary64, lascanopy64, lasclassify64, lasclip64, lascolor64, lascontrol64, lascopy64, lasdatum64, lasdistance64, lasduplicate64, lasgrid64, lasground64, lasground_new64, lasheight64, lasintensity64, laslayers64, lasnoise64, lasoverage64, lasoverlap64, lasreturn64, lassort64, lassplit64, lasthin64, lastile64, lastrack64, lasvdatum64, lasvoxel64`. 2025 version has additionally: `blast2dem64, demdiff64, demzip64, e572las64, lascopcindex64, laslicman64, lasplanes64, lasprobe64 and shp2las64`. See the License for terms of use for these tools. 
 
-2023 version does not support multi-core processing, but 2025 and 2026 versions do.
+2026 version supports multi-core processing.
 
-In Puhti and Roihu, only the command line tools are available, without the graphical user interface.
+In Roihu, only the command line tools are available, without the graphical user interface.
 
 ### Using a licensed version
 
@@ -70,16 +63,16 @@ For using the native Linux version, copy the license file to your projects `proj
 export LAStoolsLicenseFile=/projappl/project_200xxxx/yyy/lastoolslicense.txt
 ```
 
-### Finnish National Land Survey's lidar data in Puhti
+### Finnish National Land Survey's lidar data in Roihu
 
-The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Puhti. You can find it from filepath: __/appl/data/geo/mml/laserkeilaus__. [More info](https://research.csc.fi/gis_data_in_csc_computing_env).
+The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Roihu, both the older stereo-classified version (`/dataset/project_2019680/mml/laserkeilaus/`) and the new automatically classified data (`/dataset/project_2019679/`). More info about [locally stored spatial datasets](https://research.csc.fi/gis_data_in_csc_computing_env).
 
 ### LAStools with many files
 
-If you are processing large number of lidar files with LAStools, it is possible in Puhti to process the files in parallel. 
+If you are processing large number of lidar files with LAStools, it is possible in Roihu to process the files in parallel. 
 
-* For using up to 40 cores (=1 node in Puhti), the best option would be using GNU parallel - see [CSC GDAL parallel example](https://github.com/csc-training/geocomputing/tree/master/gdal) for details.
-* For multi-node usage, see [Tutorial: GNU Parallel workflow for many small, independent runs](../support/tutorials/many.md).
+* For using up to 386 cores (=1 node in Roihu), the best option would be using xargs - see [CSC GDAL parallel example](https://github.com/csc-training/geocomputing/tree/master/gdal) for details.
+* For multi-node usage, see [Tutorial: xargs workflow for many small, independent runs](../support/tutorials/many.md).
 
 ## License 
 
@@ -87,7 +80,7 @@ For information on the legal use and licensing of LAStools, please read the [LAS
 
 ## Acknowledgement
 
-If you use this software on Puhti, please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
+If you use this software on Roihu, please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
 
 
@@ -100,19 +93,12 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
-**2023-2026 versions** were installed to Puhti using Singularity container based on [CSC's LasTools Apptrainer recipes](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+**2026 version** was installed using Singularity container based on [CSC's LasTools Apptrainer recipes](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
 ```
 #2025 and 2026
 wrap-container -w /opt/LAStools/bin lastools_2025.sif --prefix 2025
-
-#2023
-wrap-container -w /opt/LAStools lastools.sif --prefix 2023
 ```
-
-**2022 version** was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [LAStools Docker image from Dockerhub](https://hub.docker.com/r/pydo/lastools). 
-
-`wrap-container -w /opt/LAStools docker//:pydo/lastools:latest --prefix 2022`
 
 
 ## References

@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
 ---
 # ArcGIS Python API
 
@@ -29,10 +28,7 @@ Some parts of ArcGIS Python API require logging in to your home organization's A
 
 ## Available
 
-ArcGIS Python API is available in Puhti:
-
-* 2.4.0.1 in `geoconda/3.12.10` module, see [geoconda page](geoconda.md)
-* 2.1.0.3 in `arcgis-python-api` module
+ArcGIS Python API is currently not available in Roihu.
 
 ## Usage
 
