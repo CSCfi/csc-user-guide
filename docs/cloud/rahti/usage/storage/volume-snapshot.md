@@ -100,12 +100,161 @@ In `spec.dataSource.name`, give the name of the snapshot to use as the source. T
 
 In this example, we take a snapshot of the content of an `nginx` deployment and restore that content into a new deployment. Follow these steps:
 
-1. Create an `nginx` deployment in a file named `nginx-deployment.yaml`.
-2. Create a PVC in a file named `nginx-pvc.yaml`.
-3. Attach this PVC to the `nginx` deployment.
-4. Open a shell in the Pod created for this deployment, create a file named `test.txt`, and add some static content to it. This content is stored on the PVC created earlier.
-5. Save the snapshot definition in a file named `nginx-snapshot.yaml`. This file should reference the PVC used by `nginx` (as specified in `nginx-pvc.yaml`).
-6. Delete the PVC.
-7. Create a new PVC from the snapshot by saving the new PVC configuration in `nginx-restore-pvc.yaml`. This file should specify that the data source is the snapshot created in the previous step.
-8. Deploy a new instance of `nginx` using the restored PVC with a modified deployment configuration saved in `nginx-restored-deployment.yaml`. This new deployment uses the PVC created from the snapshot, which allows it to serve the previously added static content.
-9. You can see that the data is restored.
+1. Create an `nginx` deployment in a file named `nginx-deployment.yaml`. The deployment mounts the PVC from the next step at the directory `nginx` serves its content from:
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - name: nginx
+            # Runs as an arbitrary user ID, as Rahti requires.
+            image: nginxinc/nginx-unprivileged:latest
+            ports:
+            - containerPort: 8080
+            volumeMounts:
+            - name: content
+              mountPath: /usr/share/nginx/html
+          volumes:
+          - name: content
+            persistentVolumeClaim:
+              claimName: nginx-pvc
+    ```
+
+2. Create a PVC in a file named `nginx-pvc.yaml`:
+
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: nginx-pvc
+    spec:
+      storageClassName: standard-csi
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+    ```
+
+    Apply both files:
+
+    ```bash
+    oc apply -f nginx-pvc.yaml -f nginx-deployment.yaml
+    ```
+
+3. Open a shell in the Pod created for this deployment, create a file named `test.txt`, and add some static content to it. This content is stored on the PVC created earlier.
+
+    ```bash
+    oc rsh deployment/nginx sh -c 'echo "Hello from the snapshot" > /usr/share/nginx/html/test.txt'
+    ```
+
+4. Save the snapshot definition in a file named `nginx-snapshot.yaml`. This file should reference the PVC used by `nginx` (as specified in `nginx-pvc.yaml`). A snapshot can only be taken when no Pod is using the PVC, so scale the deployment down first:
+
+    ```bash
+    oc scale deployment/nginx --replicas=0
+    ```
+
+    ```yaml
+    apiVersion: snapshot.storage.k8s.io/v1
+    kind: VolumeSnapshot
+    metadata:
+      name: nginx-snapshot
+    spec:
+      source:
+        persistentVolumeClaimName: nginx-pvc
+      volumeSnapshotClassName: standard-csi
+    ```
+
+    ```bash
+    oc apply -f nginx-snapshot.yaml
+    ```
+
+    Wait until the snapshot reports `READYTOUSE: true` before you continue:
+
+    ```bash
+    oc get volumesnapshot nginx-snapshot
+    ```
+
+5. Delete the PVC.
+
+    ```bash
+    oc delete pvc nginx-pvc
+    ```
+
+6. Create a new PVC from the snapshot by saving the new PVC configuration in `nginx-restore-pvc.yaml`. This file should specify that the data source is the snapshot created in the previous step.
+
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: nginx-restore-pvc
+    spec:
+      storageClassName: standard-csi
+      dataSource:
+        name: nginx-snapshot
+        kind: VolumeSnapshot
+        apiGroup: snapshot.storage.k8s.io
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+    ```
+
+    ```bash
+    oc apply -f nginx-restore-pvc.yaml
+    ```
+
+7. Deploy a new instance of `nginx` using the restored PVC with a modified deployment configuration saved in `nginx-restored-deployment.yaml`. This new deployment uses the PVC created from the snapshot, which allows it to serve the previously added static content.
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx-restored
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: nginx-restored
+      template:
+        metadata:
+          labels:
+            app: nginx-restored
+        spec:
+          containers:
+          - name: nginx
+            image: nginxinc/nginx-unprivileged:latest
+            ports:
+            - containerPort: 8080
+            volumeMounts:
+            - name: content
+              mountPath: /usr/share/nginx/html
+          volumes:
+          - name: content
+            # The only change: the PVC restored from the snapshot.
+            persistentVolumeClaim:
+              claimName: nginx-restore-pvc
+    ```
+
+    ```bash
+    oc apply -f nginx-restored-deployment.yaml
+    ```
+
+8. You can see that the data is restored.
+
+  ```bash
+  oc rsh deployment/nginx-restored sh -c 'cat /usr/share/nginx/html/test.txt' 
+  ```
