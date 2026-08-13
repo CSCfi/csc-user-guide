@@ -201,8 +201,6 @@ Save the file and use this command: `oc apply -f {name_of_yaml_file}`.
     oc scale --replicas=0 deploy/nginx
     ```
 
-    If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment. You can check the access mode with `oc get pvc`, which shows either `RWO` or `RWX`.
-
 The Pod will run and back up the content of your PVC to Allas. Don't forget to scale your original deployment back up (`oc scale --replicas=1 deploy/nginx`) after the copy has finished.
 
 This solution has pros and cons:
