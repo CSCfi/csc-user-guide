@@ -9,7 +9,7 @@ configurations inside it are not suitable for your needs.
 ensure the application runs without root, which is a best practice enforced in Rahti.
 
   
-Rahti's registry has an image size limit of 10 GB, this is because smaller images download faster, which reduces startup 
+Rahti's registry has an image size limit of 5`Gi`, this is because smaller images download faster, which reduces startup 
 time for Pods in Kubernetes and improves the responsiveness of scaling operations. They also use less storage in 
 registries and on cluster nodes, which matters in multi-tenant environments like Rahti. Moreover, a smaller image 
 contains fewer packages and files, which reduces the potential attack surface and lowers the chance of including 
@@ -46,6 +46,7 @@ should have:
     ```
 
     this `Dockerfile` is:
+
     * Uses the `nginx:alpine` image hosted in Docker hub registry as base image.
     * Gives write permissions to the `root` group (not the `root` user) to several folders that nginx needs to write to
     (/var/cache/nginx, /var/run, /var/log/nginx, and /etc/nginx/html/). Rahti runs application using a random user and the 
