@@ -233,93 +233,93 @@ The default way of doing this is with a GPG key pair. Generate one without a pas
 
 1. Generate the GPG key pair
 
-```bash
-export KEY_NAME="my-project.rahti.csc.fi"
-export KEY_COMMENT="flux secrets"
+  ```bash
+  export KEY_NAME="my-project.rahti.csc.fi"
+  export KEY_COMMENT="flux secrets"
 
-gpg --batch --full-generate-key <<EOF
-%no-protection
-Key-Type: 1
-Key-Length: 4096
-Subkey-Type: 1
-Subkey-Length: 4096
-Expire-Date: 0
-Name-Comment: ${KEY_COMMENT}
-Name-Real: ${KEY_NAME}
-EOF
-```
+  gpg --batch --full-generate-key <<EOF
+  %no-protection
+  Key-Type: 1
+  Key-Length: 4096
+  Subkey-Type: 1
+  Subkey-Length: 4096
+  Expire-Date: 0
+  Name-Comment: ${KEY_COMMENT}
+  Name-Real: ${KEY_NAME}
+  EOF
+  ```
 
 2. Take note of the key fingerprint, which identifies the key in the commands that follow:
 
-```bash
-gpg --list-secret-keys "${KEY_NAME}"
-```
+    ```bash
+    gpg --list-secret-keys "${KEY_NAME}"
+    ```
 
-```sh
-sec   rsa4096 2026-08-04 [SC]
-      1F3D1CED2F865F5E59CA564553241F147E7C5FA4
-```
+    ```bash
+    sec   rsa4096 2026-08-04 [SC]
+          1F3D1CED2F865F5E59CA564553241F147E7C5FA4
+    ```
 
-```bash
-export KEY_FP=1F3D1CED2F865F5E59CA564553241F147E7C5FA4
-```
+    ```bash
+    export KEY_FP=1F3D1CED2F865F5E59CA564553241F147E7C5FA4
+    ```
 
 3. Store the private key in your Rahti project so that Flux can decrypt with it. The entry in the `Secret` has to end in `.asc`:
 
-```bash
-gpg --export-secret-keys --armor "${KEY_FP}" |
-  oc create secret generic sops-gpg --from-file=sops.asc=/dev/stdin
-```
+    ```bash
+    gpg --export-secret-keys --armor "${KEY_FP}" |
+      oc create secret generic sops-gpg --from-file=sops.asc=/dev/stdin
+    ```
 
 4. Back up the private key somewhere safe, and then remove it from your own machine, so that the only copy that can decrypt is the one in the cluster:
 
-```bash
-gpg --delete-secret-keys "${KEY_FP}"
-```
+    ```bash
+    gpg --delete-secret-keys "${KEY_FP}"
+    ```
 
 5. The **public** key is what you and your colleagues use to encrypt, so it can be committed to the repository. The following command will generate the public key file named `.sops.pub.asc`.
 
-```bash
-gpg --export --armor "${KEY_FP}" > .sops.pub.asc
-```
+    ```bash
+    gpg --export --armor "${KEY_FP}" > .sops.pub.asc
+    ```
 
-Anyone who needs to add an encrypted file imports it once with `gpg --import .sops.pub.asc`.
+    Anyone who needs to add an encrypted file imports it once with `gpg --import .sops.pub.asc`.
 
 6. Next, tell SOPS which key to use and which fields to encrypt by adding a `.sops.yaml` file to the root of the repository. Encrypting only `data` and `stringData` keeps the rest of the manifest readable, so changes to it can still be reviewed in a diff:
 
-```yaml
-creation_rules:
-  - path_regex: .*.yaml
-    encrypted_regex: ^(data|stringData)$
-    pgp: 1F3D1CED2F865F5E59CA564553241F147E7C5FA4
-```
+    ```yaml
+    creation_rules:
+      - path_regex: .*.yaml
+        encrypted_regex: ^(data|stringData)$
+        pgp: 1F3D1CED2F865F5E59CA564553241F147E7C5FA4
+    ```
 
 7. With that file in place, encrypting a manifest needs no further arguments. You can encrypt the files using the following command. Note that it will encrypt the `data` or `stringData` field of the file.
 
-```bash
-sops --encrypt --in-place my-secret.yaml
-```
+    ```bash
+    sops --encrypt --in-place my-secret.yaml
+    ```
 
 8. Commit the encrypted file, and tell the `Kustomization` to decrypt:
 
-```yaml
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
-metadata:
-  name: my-app
-spec:
-  interval: 1h
-  serviceAccountName: flux
-  sourceRef:
-    kind: GitRepository
-    name: my-app
-  path: ./deploy
-  prune: true
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-gpg
-```
+    ```yaml
+    apiVersion: kustomize.toolkit.fluxcd.io/v1
+    kind: Kustomization
+    metadata:
+      name: my-app
+    spec:
+      interval: 1h
+      serviceAccountName: flux
+      sourceRef:
+        kind: GitRepository
+        name: my-app
+      path: ./deploy
+      prune: true
+      decryption:
+        provider: sops
+        secretRef:
+          name: sops-gpg  # -> Secret name for GPG private key
+    ```
 
 !!! warning
 
