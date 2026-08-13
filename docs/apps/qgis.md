@@ -82,6 +82,10 @@ QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Befor
 
 With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License 
 
 QGIS is licensed under the GNU General Public License.

@@ -67,6 +67,10 @@ module load python-geo
 whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
 ```
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License 
 
 The WhiteboxTools open-core platform is distributed under the MIT OR Apache-2.0 license. [The full WhiteboxTools license](https://github.com/jblindsay/whitebox_next_gen/blob/main/docs/legal/PRO_LICENSING_NOTICE.md)

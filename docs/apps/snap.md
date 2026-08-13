@@ -168,6 +168,10 @@ In Jupyter remember to set the temporary directories. Follow the [SNAP set up No
 
 SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can do this in SNAP Desktop by following the instructions in the pop-up at start up.
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License
 
 All SNAP software is published under the [GPL-3](https://www.gnu.org/licenses/gpl.html) license.

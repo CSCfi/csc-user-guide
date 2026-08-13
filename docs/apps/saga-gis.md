@@ -91,6 +91,10 @@ saga_gui
 saga_cmd
 ```
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License
 
 SAGA GIS is published under the [GPL](http://www.gnu.org/licenses/gpl.html) license. 

@@ -77,6 +77,10 @@ It is also possible to __read__ and __write__ files from and to Allas or other c
 
 With large quantities of data in Allas, consider using [virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License and acknowledgement
 
 All packages are licensed under various free and open source licenses (FOSS), see the linked pages above for exact details.

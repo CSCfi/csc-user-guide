@@ -44,6 +44,10 @@ To check the exact packages and versions included in the loaded module:
 list-packages
 ```
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License
 
 ArcGIS Python API is available under [Apache license 2.0](https://github.com/Esri/arcgis-python-api/blob/master/LICENSE). The module includes also several other libraries, which have their own licences. 

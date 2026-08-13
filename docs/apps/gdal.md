@@ -57,6 +57,10 @@ GDAL supports virtual [network based file systems](https://gdal.org/user/virtual
 
 With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](https://docs.csc.fi/data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License 
 
 [GDAL is licensed under an MIT/X style license](https://gdal.org/license.html)
