@@ -1,6 +1,6 @@
 # FluxCD
 
-[FluxCD](https://fluxcd.io/flux/) is a set of controllers that keep your applications in Rahti in sync with a source of truth that you maintain outside the cluster, typically a Git repository. In Rahti, FluxCD is provided as a managed component, so you do not need to install or maintain the controllers yourself: you _describe_ what should be running in your Rahti project, and Flux applies it for you.
+[FluxCD](https://fluxcd.io/flux/) is a Continuous Deployment solution that keeps your applications in Rahti in sync with a source of truth that you maintain outside the cluster, typically a Git repository. In Rahti, FluxCD is provided as a managed component, so you do not need to install or maintain the controllers yourself: you _describe_ what should be running in your Rahti project, and Flux applies it for you.
 
 ## What is GitOps
 
@@ -20,7 +20,7 @@ Flux splits the work into two kinds of objects, and you normally create one of e
 * A **source** object describes where your manifests come from and how often to look for changes: a [`GitRepository`](#deploying-from-a-git-repository), an [`OCIRepository`](#deploying-from-an-oci-registry), or a [`HelmRepository`](#deploying-a-helm-chart). The source controller fetches the content and stores it inside the cluster as an artifact.
 * An **applier** object describes what to do with that content: a `Kustomization` applies plain YAML or [Kustomize](../tutorials/advanced/kustomize.md) overlays, and a `HelmRelease` installs or upgrades a Helm chart.
 
-Both kinds of object have an `interval` field, which is how often Flux checks and re-applies. This is the reconciliation loop: on every interval, Flux compares the desired state with what is in your project and corrects any difference. The interval is not a deployment delay you have to wait for in normal use, because you can always trigger a reconciliation immediately when you want one:
+Both kinds of object have an `interval` field, which is how often Flux checks and re-applies. This is the reconciliation loop: on every interval, Flux compares the desired state with what is in your project and corrects any difference. You can also trigger a reconciliation immediately, without waiting for the next interval:
 
 ```bash
 oc annotate --overwrite gitrepository/podinfo reconcile.fluxcd.io/requestedAt="$(date +%s)"
@@ -210,7 +210,9 @@ Instead of `semver`, the `ref` can name a `tag` or pin a `digest` for a fully im
 
 A GitOps repository holds your whole deployment, which means it would also hold your `Secret` objects. Committing them in plain text is not acceptable, even in a private repository. Flux solves this with [SOPS](https://github.com/getsops/sops), which encrypts only the values inside a YAML file and leaves the structure readable. The encrypted file is safe to commit, and the `kustomize-controller` decrypts it inside the cluster when it applies the manifest, so the plaintext exists only in your project.
 
-The default way of doing this is with a GPG key pair. Generate one without a passphrase, since Flux has to use it unattended:
+The default way of doing this is with a GPG key pair. Generate one without a passphrase, since Flux has to use it unattended.
+
+1. Generate the GPG key pair
 
 ```bash
 export KEY_NAME="my-project.rahti.csc.fi"
@@ -228,7 +230,7 @@ Name-Real: ${KEY_NAME}
 EOF
 ```
 
-Take note of the key fingerprint, which identifies the key in the commands that follow:
+2. Take note of the key fingerprint, which identifies the key in the commands that follow:
 
 ```bash
 gpg --list-secret-keys "${KEY_NAME}"
@@ -243,20 +245,20 @@ sec   rsa4096 2026-08-04 [SC]
 export KEY_FP=1F3D1CED2F865F5E59CA564553241F147E7C5FA4
 ```
 
-Store the private key in your Rahti project so that Flux can decrypt with it. The entry in the `Secret` has to end in `.asc`:
+3. Store the private key in your Rahti project so that Flux can decrypt with it. The entry in the `Secret` has to end in `.asc`:
 
 ```bash
 gpg --export-secret-keys --armor "${KEY_FP}" |
   oc create secret generic sops-gpg --from-file=sops.asc=/dev/stdin
 ```
 
-Back up the private key somewhere safe, and then remove it from your own machine, so that the only copy that can decrypt is the one in the cluster:
+4. Back up the private key somewhere safe, and then remove it from your own machine, so that the only copy that can decrypt is the one in the cluster:
 
 ```bash
 gpg --delete-secret-keys "${KEY_FP}"
 ```
 
-The **public** key is what you and your colleagues use to encrypt, so it can be committed to the repository:
+5. The **public** key is what you and your colleagues use to encrypt, so it can be committed to the repository. The following command will generate the public key file named `.sops.pub.asc`.
 
 ```bash
 gpg --export --armor "${KEY_FP}" > .sops.pub.asc
@@ -264,7 +266,7 @@ gpg --export --armor "${KEY_FP}" > .sops.pub.asc
 
 Anyone who needs to add an encrypted file imports it once with `gpg --import .sops.pub.asc`.
 
-Next, tell SOPS which key to use and which fields to encrypt by adding a `.sops.yaml` file to the root of the repository. Encrypting only `data` and `stringData` keeps the rest of the manifest readable, so changes to it can still be reviewed in a diff:
+6. Next, tell SOPS which key to use and which fields to encrypt by adding a `.sops.yaml` file to the root of the repository. Encrypting only `data` and `stringData` keeps the rest of the manifest readable, so changes to it can still be reviewed in a diff:
 
 ```yaml
 creation_rules:
@@ -273,13 +275,13 @@ creation_rules:
     pgp: 1F3D1CED2F865F5E59CA564553241F147E7C5FA4
 ```
 
-With that file in place, encrypting a manifest needs no further arguments:
+7. With that file in place, encrypting a manifest needs no further arguments. You can encrypt the files using the following command. Note that it will encrypt the `data` or `stringData` field of the file.
 
 ```bash
 sops --encrypt --in-place my-secret.yaml
 ```
 
-Commit the encrypted file, and tell the `Kustomization` to decrypt:
+8. Commit the encrypted file, and tell the `Kustomization` to decrypt:
 
 ```yaml
 apiVersion: kustomize.toolkit.fluxcd.io/v1
