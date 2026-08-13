@@ -13,12 +13,12 @@ Rahti can run many kinds of applications. This includes web servers, databases, 
 
 Rahti is a good fit when you want to:
 
-* Run an interactive web application or a normal web site.
+* Run an interactive web application or a web site.
 * Package a complex application, like Apache Spark, so others can run their own copy.
 * Deploy a web application written in a common language, such as Python, JavaScript, or Java, with a single command.
 * Build a microservice-based application, connecting independent services into an end-to-end pipeline for building and deploying.
 
-If you want to run a web application or host a web site, Rahti is likely the right choice. It comes with most of the features that web applications need.
+If you want to run a web, host a web site, build APIs for managing other systems, or run an agentic workflow, Rahti is likely the right choice. It comes with most of the features that web applications need.
 
 ## OKD vs Kubernetes
 
@@ -36,3 +36,5 @@ OKD adds a few extra services on top of standard Kubernetes:
 * **Templates**: Deploy reusable application stacks with parameters.
 * **Project Self-Service**: Easily create and manage isolated workspaces (projects).
 * **Logs & Metrics UI**: View application logs and metrics from the web console.
+
+To learn more about the functionalities, checkout the [concepts](../usage/kubernetes-concepts.md) page.
