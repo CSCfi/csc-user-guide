@@ -43,7 +43,9 @@ The [FirecREST HPC API](../firecrest/index.md) provides a standardized RESTful i
 
 ## Using an SSH client
 
-!!! note "** WARNING: connection is not using a post-quantum key exchange algorithm."
+!!! note ""
+    `** WARNING: connection is not using a post-quantum key exchange algorithm.`
+
     Recent SSH clients issue the above warning when connecting to older SSH servers. This
     is a non-urgent known issue, and will be fixed in the servers. For now, you can ignore
     the warning.
