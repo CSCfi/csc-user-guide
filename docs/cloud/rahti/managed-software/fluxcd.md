@@ -233,21 +233,21 @@ The default way of doing this is with a GPG key pair. Generate one without a pas
 
 1. Generate the GPG key pair
 
-  ```bash
-  export KEY_NAME="my-project.rahti.csc.fi"
-  export KEY_COMMENT="flux secrets"
+    ```bash
+    export KEY_NAME="my-project.rahti.csc.fi"
+    export KEY_COMMENT="flux secrets"
 
-  gpg --batch --full-generate-key <<EOF
-  %no-protection
-  Key-Type: 1
-  Key-Length: 4096
-  Subkey-Type: 1
-  Subkey-Length: 4096
-  Expire-Date: 0
-  Name-Comment: ${KEY_COMMENT}
-  Name-Real: ${KEY_NAME}
-  EOF
-  ```
+    gpg --batch --full-generate-key <<EOF
+    %no-protection
+    Key-Type: 1
+    Key-Length: 4096
+    Subkey-Type: 1
+    Subkey-Length: 4096
+    Expire-Date: 0
+    Name-Comment: ${KEY_COMMENT}
+    Name-Real: ${KEY_NAME}
+    EOF
+    ```
 
 2. Take note of the key fingerprint, which identifies the key in the commands that follow:
 
