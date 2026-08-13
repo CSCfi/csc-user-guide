@@ -138,7 +138,7 @@ The script is at `./iris_slurm_script.sh`, and is as follows:
 #SBATCH --job-name=firecrest_test_job
 #SBATCH --partition=test
 #SBATCH --account=project_2001659
-#SBATCH -c 1
+#SBATCH --cpus-per-task=1
 #SBATCH --mem=2G
 #SBATCH --time=00:02:00
 #SBATCH --output=bb_test_cpu_%j.out
