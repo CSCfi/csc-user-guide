@@ -72,6 +72,38 @@ Every applier object in the examples below refers to this service account with `
 
 This is the most common setup. The `GitRepository` object below tracks the `master` branch of the public [podinfo](https://github.com/stefanprodan/podinfo) repository, which Flux uses in its own documentation and which is convenient for testing, and the `Kustomization` applies the manifests found under `./kustomize`:
 
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: podinfo
+spec:
+  interval: 1h
+  url: https://github.com/stefanprodan/podinfo
+  ref:
+    branch: master
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: podinfo
+spec:
+  interval: 1h
+  targetNamespace: <NAMESPACE>
+  serviceAccountName: flux
+  sourceRef:
+    kind: GitRepository
+    name: podinfo
+  path: ./kustomize
+  prune: true
+  timeout: 3m
+  patches:
+    - patch: |
+        - path: /spec/template/spec/containers/0/resources
+          op: remove
+      target:
+        kind: Deployment
+```
 
 ```bash
 oc apply -f podinfo-git.yaml
@@ -179,6 +211,12 @@ spec:
   path: ./
   prune: true
   timeout: 3m
+  patches:
+    - patch: |
+        - path: /spec/template/spec/containers/0/resources
+          op: remove
+      target:
+        kind: Deployment
 ```
 
 ```bash
