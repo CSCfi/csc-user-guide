@@ -3,7 +3,7 @@
 !!! warning "Recommendations"
     Before you use Rahti, it is good to learn the basics of containers first. See the [external documentation](../reference/external-docs.md) to get started.
 
-Rahti is the container cloud service at CSC. It runs [OKD](https://www.okd.io/), the open source distribution of OpenShift on CSC's cPouta service. It uses [OCI](https://opencontainers.org/) to package containers and [Kubernetes](https://kubernetes.io/) to manage them.
+Rahti is the container cloud service at CSC. It runs [OKD](https://www.okd.io/), the open source distribution of OpenShift. It uses [OCI](https://opencontainers.org/) to package containers and [Kubernetes](https://kubernetes.io/) to manage them.
 
 With Rahti you can run your own applications and share them on the web. Rahti can scale an application up and down. It also keeps the application running if a part of it fails. You get features like load balancing, high availability, and rolling updates. You can deploy in more than one way, for example with Helm Charts or with container images.
 

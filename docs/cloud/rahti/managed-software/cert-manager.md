@@ -29,7 +29,7 @@ The example below uses [Let's Encrypt](https://letsencrypt.org/), a non-profit c
 ### Prerequisites
 
 * The [`oc` command line tool](../get-started/cli.md) installed, and you are logged in to the right Rahti project (`oc project <project_name>`).
-* A domain name whose public DNS record points to the Rahti router, as described on the [Custom domains](../configurations/custom-domain.md) page. An ACME certificate authority verifies that you control the domain, and the HTTP-01 challenge used below is answered through the Rahti router, so the DNS record must be live before you start.
+* A domain name whose public DNS record points to Rahti, as described on the [Custom domains](../configurations/custom-domain.md) page. An ACME certificate authority needs to verify that you control the domain, and in our example below ACME uses HTTP-01 which verifies that you control a website by placing a specific file at a specific address on that website. 
 
 ### 1. Create an Issuer
 
@@ -333,7 +333,7 @@ oc delete -f cert-manager-test.yaml
 oc delete secret cert-manager-test-tls
 ```
 
-The same commands work for real certificates. If a `Certificate` stays `False`, these show how far the process got and why it stopped:
+The same commands work for real certificates. If a `Certificate` READY status remains `False`, these show how far the process got and why it stopped:
 
 ```bash
 oc describe certificate my-app
