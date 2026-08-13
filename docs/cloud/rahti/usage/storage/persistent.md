@@ -68,7 +68,7 @@ spec:
 
 ## Expanding volume
 
-Rahti supports dynamic volume expansion, this means that you can increase the size of your PVCs (and implicitly their bound PVs) when you need more storage. This can be done by simply increasing the `.resources.requests.storage` attribute in the YAML defention of your PVC or by using the web user interface at Storage -> PersistentVolumeClaims -> <volume-name> -> Actions -> Expand PVC:
+Rahti supports dynamic volume expansion, this means that you can increase the size of your PVCs (and implicitly their bound PVs) when you need more storage. This can be done by simply increasing the `.resources.requests.storage` attribute in the YAML defention of your PVC or by using the web user interface at Storage -> PersistentVolumeClaims -> `<volume-name>` -> Actions -> Expand PVC:
 
 ![Expand PVC](../../../img/rahti_expand_pvc.png)
 
