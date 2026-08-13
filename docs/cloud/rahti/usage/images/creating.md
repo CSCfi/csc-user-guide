@@ -138,7 +138,7 @@ with build source set to binary. Be sure to not be in a directory under git vers
     OKD creates a **BuildConfig** with name `my-hello` object in your active project, it also creates a placeholder
     **ImageStream** object with name `my-hello-image` to host the resulting image.
 
-2. Trigger the build process by providing the build artifacts (i.e., Dockerfile amd other dependencies if any) to 
+2. Trigger the build process by providing the build artifacts (i.e., Dockerfile and other dependencies if any) to 
 Rahti. 
 
     ```bash
