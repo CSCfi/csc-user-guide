@@ -77,7 +77,14 @@ Many commercial certificate authorities additionally require External Account Bi
 oc create secret generic acme-eab-hmac --from-literal=secret='<EAB_HMAC_KEY>'
 ```
 
+The Issuer should look like the following when you add your ACME account credentials.
+
 ```yaml
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: own-acme-issuer
+spec:
 spec:
   acme:
     email: <EMAIL>
@@ -85,7 +92,7 @@ spec:
     externalAccountBinding:
       keyID: <EAB_KEY_ID>
       keySecretRef:
-        name: acme-eab-hmac
+        name: acme-eab-hmac  # -> The secret name from the above command
         key: secret
     privateKeySecretRef:
       name: acme-account-key
@@ -241,7 +248,7 @@ spec:
 
 ### Using your own certificate authority
 
-If several applications need certificates that they can also validate, sign them with one certificate authority of your own instead of making each certificate independently self-signed. This takes three objects: a self-signed CA certificate, an `Issuer` that signs with it, and then the application certificates.
+If several applications need certificates that they can also validate, sign them with one certificate authority of your own instead of making each certificate independently self-signed. Setting up the certificate authority takes two objects: a self-signed CA certificate, issued by the `selfsigned` `Issuer` from the previous section, and a second `Issuer` that signs with that CA certificate.
 
 ```yaml
 apiVersion: cert-manager.io/v1
