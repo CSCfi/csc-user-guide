@@ -21,7 +21,7 @@ MLflow in Rahti can be deployed using [Helm](https://helm.sh/) either from the R
 4. Give a custom name to your MLflow Helm release in the "Release name" dialogue box.
 5. Under the "Configuration via Form view / YAML view" section, you can add your custom values to override the default Helm chart values.
 6. Click on the create button to install a Helm release.
-7. Navigate to `Releases` under the `Helm` section on the left-side menu. There you can see the status of your MLflow release. Make sure you are in the correct Rahti project. If everything went well, the status column should show "Deployed".
+7. Navigate to `Helm Releases` under the `Ecosystem` -> `Helm` section on the left-side menu. There you can see the status of your MLflow release. Make sure you are in the correct Rahti project. If everything went well, the status column should show "Deployed".
 8. If the MLflow tracking server was exposed via a `Route` object, navigate to the `Routes` section under `Networking` from the left-side menu. Here you can see your route endpoint under the Location column. Use this endpoint to access the MLflow tracking server.
 
 ### Using the Helm CLI
