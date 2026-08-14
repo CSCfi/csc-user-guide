@@ -236,7 +236,7 @@ See the [Roihu temporary local storage documentation](../../computing/roihu-disk
 IPv4  
 `86.50.172.16/29` (.16-.23; 8 addresses) reserved for login nodes  
 `86.50.172.24/29` (.24-30; 7 addresses) reserved for web interface nodes  
-`86.50.172.(4-5)` Roihu NAT GWs  
+`86.50.172.4` and `86.50.172.5` Roihu NAT gateways (compute nodes)
 
 IPv6  
 `2001:708:10:6822::1:0/112 (:1:0000-:1:ffff)` reserved for login nodes    
