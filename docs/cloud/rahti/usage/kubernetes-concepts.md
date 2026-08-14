@@ -387,7 +387,7 @@ DATA_PROP_A=hello
 
 ### Secret
 
-**Secrets** behave much like ConfigMaps, with the difference that once created they are stored in *base64* encoded form, and their contents are not displayed by default in the command line or in the web interface.
+**Secrets** behave much like ConfigMaps, with the difference that once created they are stored in *base64* encoded form, and their contents are not displayed by default in the command line or in the web interface. When a Secret is mounted as a volume, its contents are kept in memory (a `tmpfs` filesystem) instead of being written to the host's local disk.
 
 
 ```yaml
