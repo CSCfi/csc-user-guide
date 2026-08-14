@@ -118,7 +118,7 @@ filename_on_roihu = "training_data.csv"
 firecrest.upload(system_name="cpu", local_file=upload_file, directory=ROIHU_PROJ_DIR, filename=filename_on_roihu)
 ```
 
-??? info "Note!"
+!!! note
     The environment variable CSC_ENV_INIT_NON_INTERACTIVE=yes must be passed to the slurm job,
     else the environment won't be set up properly, and among other things the modules will not work properly.
     
