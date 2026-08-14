@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication works. This tutorial uses OpenShift CLI tool [oc](../../get-started/cli.md)
+    A knowledge of Kubernetes environment and how webservers work is required. It is also useful to know how authentication works. This tutorial uses OKD CLI tool [oc](../../get-started/cli.md)
 
 # How to deploy OAuth2 Proxy in Rahti
 
@@ -20,9 +20,9 @@ Don't create the Route, it won't be necessary because we will use `NGINX` as a r
 
 ## Deploy NGINX
 
-You can use our [NGINX image](https://github.com/CSCfi/nginx-okd) to run NGINX on Rahti (OpenShift 4)
+You can use our [NGINX image](https://github.com/CSCfi/nginx-okd) to run NGINX on Rahti.
 
-With Rahti, you can directly build the image. More information [here](../../usage/images/creating.md#using-the-source-to-image-mechanism)
+With Rahti, you can directly build the image. More information [here](../../usage/images/creating.md#using-the-source-to-image-s2i-mechanism)
 
 Run this command:
 

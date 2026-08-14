@@ -127,7 +127,7 @@ Some Finnish EO datasets are available locally at CSC. [Paituli STAC](https://pa
 
 **[Microsoft planetary computer](https://planetarycomputer.microsoft.com)** provides a STAC of all available data, which includes Sentinel, Landsat, MODIS. 
 
-[**Google Cloud Storage open EO data**](https://cloud.google.com/storage/docs/public-datasets), including Sentinel-2 L1C and Landsat Collection 1 data. Data can be downloaded for example with [FORCE](../../../apps/force.md).
+[**Google Cloud Storage open EO data**](https://cloud.google.com/storage/docs/public-datasets), including Sentinel-2 L1C and Landsat Collection 1 data.
     
 [**Terramonitor**](https://www.terramonitor.com) provides pre-prosessed analysis ready Sentinel-2 data, also from Finland. It is a commercial service.
 
@@ -187,8 +187,6 @@ There is no single software perfect for every task and taste. The right software
 
 ### What applications are available on Roihu?
 
-[**FORCE**](../../../apps/force.md) - Framework for Operational Radiometric Correction for Environmental monitoring. All-in-one processing engine with CLI for EO image archives. [FORCE example for Roihu](https://github.com/csc-training/geocomputing/tree/master/force)
-
 [**GDAL (OGR)**](../../../apps/gdal.md) - Geospatial Data Abstraction Library. Collection of command-line tools for accessing and transforming geospatial data. It is relatively fast and requires little computational resources. GDAL supports reading data directly from the Internet or object storage. GDAL is included in many other tools for data reading and writing. [GDAL example for Roihu](https://github.com/csc-training/geocomputing/tree/master/gdal)
 
 [**Julia**](../../../apps/julia.md) - Roihus Julia installation does not include any geospatial packages, but they can be installed by the user. [JuliaGeo](https://github.com/JuliaGeo) provides an overview of packages for geospatial data.
@@ -205,10 +203,6 @@ There is no single software perfect for every task and taste. The right software
 [**QGIS**](../../../apps/qgis.md) - open source tool with GUI for working with spatial data including limited multispectral image processing capabilities.  GUI with batch processing possibility and Python interface. Used for example for visualization, map algebra and other raster processing. Many plug-ins available, for EO data processing, check out the [QGIS Semi-automatic classification plugin](https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html).
 
 [**R**](../../../apps/r-env-for-gis.md) - Roihu R installation includes a lot of geospatial packages, including several useful for EO data processing, such as `terra`, `CAST`, `raster`, `rstac` and `spacetime`.
-
-[**Sen2Cor**](../../../apps/sen2cor.md) - a command-line tool for Sentinel-2 Level 2A product generation and formatting.
-
-[**Sen2mosaic**](../../../apps/sen2cor.md) - a command-line tool to download, preprocess and mosaic Sentinel-2 data.
 
 [**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Roihu](https://github.com/csc-training/geocomputing/tree/master/snap).
 
