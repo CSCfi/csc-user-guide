@@ -144,7 +144,7 @@ supercomputer.
 
     | Option | Value |
     |-|-|
-    | **Host Name** | `puhti.csc.fi`, `mahti.csc.fi`, `roihu-cpu` or `roihu-gpu` |
+    | **Host Name** | `puhti.csc.fi`, `mahti.csc.fi`, `roihu-cpu.csc.fi` or `roihu-gpu.csc.fi` |
     | **Port** | `22` |
     | **Connection type** | `SSH` |
 	| Connection -> Data -> Auto-login username | `csc_username` |
