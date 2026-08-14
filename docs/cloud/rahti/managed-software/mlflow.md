@@ -13,13 +13,14 @@ MLflow in Rahti can be deployed using [Helm](https://helm.sh/) either from the R
 1. Create a project in Rahti as explained in [Creating a project](../get-started/projects.md#creating-a-project).
 
 2. Navigate to the MLflow Helm chart in the [Rahti Software Catalog](../usage/catalog.md):
+
     - On the menu on the left, click on `Software Catalog` under the `Ecosystem` section.
     - Search for MLflow in the search box.
     - Click on the MLflow Helm chart.
 
 3. Click on the create button. This will open the "Create Helm Release" form.
 4. Give a custom name to your MLflow Helm release in the "Release name" dialogue box.
-5. Under the "Configuration via Form view / YAML view" section, you can add your custom values to override the default Helm chart values.
+5. Under the "Configuration via Form view / YAML view" section, you can add your custom values to override the default Helm chart values. The `user` and `password` fields are mandatory to fill in. Otherwise the build will fail.
 6. Click on the create button to install a Helm release.
 7. Navigate to `Helm Releases` under the `Ecosystem` -> `Helm` section on the left-side menu. There you can see the status of your MLflow release. Make sure you are in the correct Rahti project. If everything went well, the status column should show "Deployed".
 8. If the MLflow tracking server was exposed via a `Route` object, navigate to the `Routes` section under `Networking` from the left-side menu. Here you can see your route endpoint under the Location column. Use this endpoint to access the MLflow tracking server.
@@ -52,7 +53,7 @@ MLflow in Rahti can be deployed using [Helm](https://helm.sh/) either from the R
     helm install <your release name> -n <your project name> cscfi/mlflow
     ```
 
-    You can add your custom values to override the default chart values using the `--set` option in the above command. If there are multiple custom values, you can put all of them in a single `values.yaml` file and refer to it in the above command using the `-f values.yaml` option.
+    You can add your custom values to override the default chart values using the `--set` option in the above command. If there are multiple custom values, you can put all of them in a single `values.yaml` file and refer to it in the above command using the `-f values.yaml` option. The `user` and `password` fields are mandatory to fill in. Otherwise the build will fail.
 
 6. To check the status of the Helm deployment:
 
