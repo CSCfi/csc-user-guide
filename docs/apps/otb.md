@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -18,10 +17,9 @@ catalog:
 
 ## Available
 
-Orfeo ToolBox is available in the following versions:
+Orfeo ToolBox is available in Roihu with the following versions:
 
-* Roihu: 9.1.1
-* Puhti: 8.0.1
+* 9.1.1
 
 ## Usage
 
@@ -59,16 +57,6 @@ app.SetParameterString("out", out)
 app.ExecuteAndWriteOutput()
 ```
 
-### Using the graphical tools, only in Puhti
-
-Start [Monteverdi](https://www.orfeo-toolbox.org/CookBook-8.0/Monteverdi.html):
-```
-monteverdi
-```
-Also other graphical tools available, see 'ls /appl/soft/geo/orfeotoolbox/8.0.1/bin/otbgui*' for full list. 
-
-OrfeoToolBox 9 does not include graphical tools any more.
-
 ### Running OTB applications in parallel 
 
 OTB applications seem to scale the number of processing threads automatically which means that the applications generally run faster when given more CPU cores. 
@@ -91,7 +79,11 @@ otbcli_RadiometricIndices -in test_vrt.vrt -channels.nir 1 -channels.red 2 -list
 ```
 
 !!! note
-    It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Puhti
+    It is also possible to run OTB in parallel in several computing nodes [using MPI](https://www.orfeo-toolbox.org/CookBook/CliInterface.html#parallel-execution-with-mpi) but it has not been tested yet on Roihu
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License 
 
@@ -111,7 +103,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Orfeo Toolbox was installed to Puhti with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Orfeo Toolbox Docker image from Dockerhub provided by OTB community](https://hub.docker.com/r/orfeotoolbox/otb). 
+Orfeo Toolbox was installed with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Orfeo Toolbox Docker image from Dockerhub provided by OTB community](https://hub.docker.com/r/orfeotoolbox/otb). 
 
 ```
 #OrfeoToolBox 9.1.1
