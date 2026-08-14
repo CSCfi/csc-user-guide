@@ -125,10 +125,11 @@ spec:
 - The `ports` field in a Kubernetes Service defines the network ports that the Service will expose to clients and how it maps those to the corresponding ports on the pods.
 
 - It typically consists of several components:
-  - **Name**: A label for the port, which can help identify it.
-  - **Port**: The port number that clients will use to access the Service.
-  - **Protocol**: The communication protocol used (usually TCP).
-  - **TargetPort**: The port (the name or the number) on the pod where the Service directs traffic.
+
+    - **Name**: A label for the port, which can help identify it.
+    - **Port**: The port number that clients will use to access the Service.
+    - **Protocol**: The communication protocol used (usually TCP).
+    - **TargetPort**: The port (the name or the number) on the pod where the Service directs traffic.
 
 #### Selector
 - The `selector` field in a Kubernetes Service is crucial for determining which pods the Service should route traffic to.
@@ -210,12 +211,9 @@ spec:
           storage: 1Gi
 ```
 
-### Jobs and CronJobs
-
+### Job
 
 A **Job** uses pods to execute a specific task one or several times, and will continue to retry execution of the Pods until a specified number of them successfully terminate or a backoff limit is reached. As pods successfully complete, the Job tracks the successful completions. When a specified number of successful completions is reached, the task (i.e. the Job) is complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job is resumed again.
-
-A **CronJob** builds on the Job concept by running Jobs on a repeating schedule. Instead of executing once, a CronJob creates a new Job at the times you specify with a cron expression (for example, every night or once an hour), which is convenient for recurring work such as backups, report generation, or periodic clean-up. Each scheduled run produces a Job like the one shown below, which in turn creates the Pods that carry out the task.
 
 
 ```yaml
@@ -274,6 +272,35 @@ this hello is from the initcontainer
 ```
 
 There may only be one object with a given name in the project namespace; thus, the job cannot be run twice unless its first instance is removed. The pod, however, does not need to be cleaned up; it will be removed automatically in cascade after the Job is removed.
+
+### CronJob
+
+A **CronJob** builds on the Job concept by running Jobs on a repeating schedule. Instead of executing once, a CronJob creates a new Job at the times you specify with a cron expression (for example, every night or once an hour), which is convenient for recurring work such as backups, report generation, or periodic clean-up. Each scheduled run produces a Job like the one shown below, which in turn creates the Pods that carry out the task.
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "30 14 * * *"  # At 14:30 everyday.
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Rahti!
+          restartPolicy: OnFailure
+```
+
+
+The example CronJob above will create a pod every day at 14:30 and run it to completion.
 
 ### ConfigMap
 
