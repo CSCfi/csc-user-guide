@@ -192,6 +192,7 @@ markdown_extensions:
       base_path: csc-overrides/assets/snippets
       auto_append:
         - glossaries/hpc.md
+        - glossaries/cloud.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
