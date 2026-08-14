@@ -85,7 +85,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-* GRASS 8.5 were installed with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis):
+* GRASS 8.5 was installed with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis):
   
 ```
 wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_5-ubuntu_wxgui --prefix 8.5
