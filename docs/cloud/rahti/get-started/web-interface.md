@@ -1,24 +1,24 @@
 # Using the web interface
 
-All applications launched in OpenShift run within **projects** that can be
-created by any authenticated user. Each project has its own private virtual
-network and it is isolated from other projects. Users can only see projects
-they have created themselves or that have been shared with them. Any
-containers, volumes and other resources created by users are always created
-within a project. You might need to wait a few hours after your access application is accepted, before you can 
-authenticate to Rahti.
+In Rahti, you run all applications inside **projects**. Any logged-in user can create a project. Each project has its own private network and is separate from other projects. You can only see the projects you created or that someone shared with you. All your containers, volumes, and other resources live inside a project.
 
-You can either select applications to run from `Ecosystem` -> `Software Catalog` after [creating a project](projects.md) or launch any applications using the
-primitives described in the [background](../usage/kubernetes-concepts.md) chapter.
+After your access is approved, it may take a while before you can log in.
 
-1. Log in at <https://rahti.csc.fi/>.
+You can run applications in two ways:
 
-    !!! Warning "User not found"
-        If you get an error message similar to this please read through the article [Getting access](access.md).
-        ![Error_no_user](../../img/openshift_error_no_user.png)  
+- Pick a ready-made application from `Ecosystem` -> `Software Catalog` after you [create a project](./projects.md).
+- Build your own from the core objects described in the [Kubernetes and OKD concepts](../usage/kubernetes-concepts.md) page.
+
+## Log in
+
+1. Go to <https://console.rahti.csc.fi/>.
+
+    !!! warning "User not found"
+        If you see an error like this, read the [Getting access](access.md) page.
+        ![User not found error](../../img/openshift_error_no_user.png)
 
 
-1. Click the 'Login page' button.
+2. Click the **Login page** button.
 
     > [MFA required] Since November 25th 2025
 
@@ -26,6 +26,6 @@ primitives described in the [background](../usage/kubernetes-concepts.md) chapte
 
 1. After logging in you should see a page like this:
 
-    ![OpenShift main page](../../img/openshift_main_page_4.png)
+    ![Rahti main page](../../img/openshift_main_page_4.png)
 
-1. Proceed to [create a project](projects.md) for running your applications.
+4. Next, [create a project](./projects.md) to run your applications.
