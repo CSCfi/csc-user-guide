@@ -54,10 +54,10 @@ except SMTPException:
 
 Here is some recommendations to follow before deploying your email server on Rahti:
 
-- [ ] Check that the sender address exists, not like a generic `noreply@`
-- [ ] Check the recipient address(es) are real and correct, not a value copied from a template/tutorial
-- [ ] You have received the test email you sent
-- [ ] You are monitoring your application logs for SMTP errors after deployment
+- Check that the sender address exists, not like a generic `noreply@`
+- Check the recipient address(es) are real and correct, not a value copied from a template/tutorial
+- You have received the test email you sent
+- You are monitoring your application logs for SMTP errors after deployment
 
 ### Why is it important?
 
