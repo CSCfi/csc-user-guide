@@ -451,7 +451,7 @@ nav:
           - cloud/rahti/index.md
           - Get started:
               - cloud/rahti/get-started/index.md
-              - What is Rahti: cloud/rahti/get-started/what-is-rahti.md
+              - What is Rahti?: cloud/rahti/get-started/what-is-rahti.md
               - Getting access: cloud/rahti/get-started/access.md
               - Web UI: cloud/rahti/get-started/web-interface.md
               - CLI tool: cloud/rahti/get-started/cli.md
