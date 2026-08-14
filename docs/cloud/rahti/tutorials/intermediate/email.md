@@ -49,3 +49,20 @@ except SMTPException:
 * You should replace `sender@domain.com` with your email, or the email you want to receive replies to.
 * You should replace as well `destination@domain.com` with the destination email.
 * The relay SMTP server will only allow to send emails from clients from certain IPs, like from Rahti nodes. In other words, the script above will not work from your desktop/laptop.
+
+## Before deploying in production ⚠️
+
+Here is some recommendations to follow before deploying your email server on Rahti:
+
+- [ ] Check that the sender address exists, not like a generic `noreply@`
+- [ ] Check the recipient address(es) are real and correct, not a value copied from a template/tutorial
+- [ ] You have received the test email you sent
+- [ ] You are monitoring your application logs for SMTP errors after deployment
+
+### Why is it important?
+
+If your sender address doesn't accept replied, and your recipient address is wrong, the bounce has nowhere to go and the failure will never surface on its own. Our admins will eventually flag persistent delivery failures from your workload.
+
+If you got a message from CSC about failed email delivery, search for hardcoded/default email adresses in env vars, app settings, and re-verify
+
+We recommend that you set up a minimal delivery monitoring on your side or use a sender address that actually forwards bounces to someone who'll look at them.
