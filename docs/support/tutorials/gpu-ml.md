@@ -328,8 +328,7 @@ separate tutorial](ml-data.md).
 ### Profilers
 
 [TensorFlow Profiler](https://www.tensorflow.org/guide/profiler) and
-[PyTorch
-Profiler FIXME](https://pytorch.org/tutorials/intermediate/tensorboard_profiler_tutorial.html)
+[PyTorch Profiler](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
 are available as TensorBoard plugins. The profilers can be found at
 the *PROFILE* and *PYTORCH_PROFILER* tabs in TensorBoard,
 respectively. Note that the tabs may not be visible by default but can
