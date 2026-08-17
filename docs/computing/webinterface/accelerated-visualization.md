@@ -1,5 +1,5 @@
 # Accelerated visualization
-The Accelerated visualization app enables using visualization applications with GPU acceleration on a compute node, and is available on Roihu and Puhti.
+The Accelerated visualization app enables using visualization applications with GPU acceleration on a compute node, and is available on Roihu.
 
 ## Available applications
 
@@ -9,17 +9,6 @@ The Accelerated visualization app enables using visualization applications with 
 * [CloudCompare](../../apps/cloudcompare.md)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
-* [VisIt](../../apps/visit.md)
-
-### Puhti
-
-* [Abaqus CAE](../../apps/abaqus.md)
-* [Ansys Workbench](../../apps/ansys.md)
-* [Blender](../../apps/blender.md)
-* [COMSOL](../../apps/comsol.md)
-* [CloudCompare](../../apps/cloudcompare.md)
-* [ParaView](../../apps/paraview.md)
-* [VMD](../../apps/vmd.md)
 * [VisIt](../../apps/visit.md)
 
 

@@ -42,7 +42,7 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
     - View running batch jobs
     - View disk quotas and project status
     - Launch interactive apps and connect to them directly from the browser:
-        - Accelerated Visualization with applications such as Blender and ParaView (Roihu and Puhti only)
+        - Accelerated Visualization with applications such as Blender and ParaView (Roihu only)
         - Desktop with applications such as Maestro and VMD
         - Julia-Jupyter
         - Jupyter
