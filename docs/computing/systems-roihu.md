@@ -144,16 +144,38 @@ for temporary files created during jobs.
 High-memory (XL) and visualization (VIZ) nodes provide additional capacity and
 faster performance in their local storage, with a total of 13 TiB of local NVMe storage per node.
 
-The available storage quota that a single user can access in their jobs depends
-on the system [partition](running/batch-job-partitions.md) they use:
+There are two kinds of node-local storage. **Automatic temporary storage**
+(`$TMPDIR`) is available in every job without a reservation and free of
+charge. **Reservable local scratch** (`$LOCAL_SCRATCH`) is only available on
+the XL and V nodes, is reserved through Slurm with the `--gres=nvme` option,
+and consumes billing units. The amounts that a single user can access in
+their jobs depend on the system [partition](running/batch-job-partitions.md)
+they use:
 
-| Allocation type         | Quota per user | Read / Write speeds |
-|:------------------------|---------------:|---------------------|
-| R (shared nodes)        | 20 GiB         | 5000 / 1400 MB/s    |
-| N (full nodes)          | 600 GiB        | 5000 / 1400 MB/s    |
-| G (GPU nodes)           | 150 GiB        | 5000 / 1400 MB/s    |
-| Hugemem (XL) nodes      | 13 TiB         | 6700 / 4000 MB/s    |
-| V (visualization nodes) | 6.5 TiB        | 6700 / 4000 MB/s    |
+=== "Automatic (`$TMPDIR`)"
+
+    | Allocation type         | Available per user | Read / Write speeds |
+    |:------------------------|-------------------:|---------------------|
+    | R (shared nodes)        | 20 GiB             | 5000 / 1400 MB/s    |
+    | N (full nodes)          | 600 GiB            | 5000 / 1400 MB/s    |
+    | G (GPU nodes)           | 150 GiB            | 5000 / 1400 MB/s    |
+    | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
+
+    Reservable local scratch has not yet been implemented on visualization nodes (V).
+    Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
+
+    Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
+
+=== "Reservable (`$LOCAL_SCRATCH`)"
+
+    | Node type               | Maximum reservable | Read / Write speeds |
+    |:------------------------|-------------------:|---------------------|
+    | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
+
+    Reserving local scratch on the visualization nodes is not yet
+    implemented; use `$TMPDIR` on these nodes until this feature is added.
 
 As a new feature, users can also request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity is

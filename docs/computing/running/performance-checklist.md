@@ -44,7 +44,7 @@ see poor I/O performance even if the total volume is not that big. Please
 consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some
-  nodes have [fast local disk](creating-job-scripts-puhti.md#local-storage),
+  nodes have [fast local disk](creating-job-scripts-roihu.md#local-temporary-storage),
   but we've seen 10-fold performance improvement by switching to use it. Check
   your performance: don't use the resource if it doesn't help.
   [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive-puhti-and-mahti-only)
