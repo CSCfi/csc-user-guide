@@ -86,6 +86,8 @@ data analytics and machine learning, for example:
 
     <div class="pkg-table" markdown="1">
 
+    <div class="pkg-head"><span>Package</span><span>Version</span></div>
+
     - `aiohappyeyeballs` <span class="v">2.6.1</span>
     - `aiohttp` <span class="v">3.12.15</span>
     - `aiohttp-cors` <span class="v">0.8.1</span>
@@ -478,20 +480,41 @@ data analytics and machine learning, for example:
     </div>
 
 <style>
+.pkg-table {
+  font-size: 0.78rem;
+}
 .pkg-table ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
-  font-size: 0.78rem;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 16px;
 }
 .pkg-table li {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  display: contents;
+}
+.pkg-table li code {
   padding: 2px 8px;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 .pkg-table li .v {
+  padding: 2px 8px;
+  text-align: right;
   color: var(--md-default-fg-color--light);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.pkg-table .pkg-head {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 16px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--md-default-fg-color--light);
+  padding: 0 8px 4px;
+  margin-bottom: 2px;
+}
+.pkg-table .pkg-head span:last-child {
+  text-align: right;
 }
 </style>
 
