@@ -90,12 +90,10 @@ class DocsTests:
            Failed test cases are logged with level WARNING.
         """
         for name, case in cls.test_runs.items():
-            test_passed = not len(case["results"]) > 0
             summary = f"{name}: [Passed: {case['passed']}, Failed: {case['failed']}]"
-            report = [] if test_passed else case["results"] + [case["description"]]
 
-            logger_method = (logger.info if test_passed else logger.warning)
-
-            logger_method(summary)
-            for line in report:
-                logger_method(line)
+            logger.info(summary)
+            for line in case["results"]:
+                logger.warning(line)
+            if len(case["results"]) > 0:
+                logger.info(case["description"])
