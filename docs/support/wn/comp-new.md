@@ -1,5 +1,13 @@
 # Computing environment
 
+## Roihu web interface updated to release 2, 18.8.2026
+
+* The gpuinteractive partition is now available.
+* /dataset is now supported.
+* Roihu usage metrics graphs have been added.
+* Plugins in CloudCompare in Accelerated Visualization now work.
+* Open OnDemand updated to 4.2.3.
+
 ## Puhti compute services decommissioned, 31.7.2026
 
 Compute services in Puhti have been decommissioned as of 31 July 2026 at 12:00 EEST.
