@@ -232,6 +232,7 @@ nav:
       - Rahti:
           - cloud/rahti/index.md
           - Aloittaminen:
+              - cloud/rahti/get-started/index.md
               - Mikä on Rahti: cloud/rahti/get-started/what-is-rahti.md
               - Käyttöoikeuden hankkiminen: cloud/rahti/get-started/access.md
               - Verkkokäyttöliittymä: cloud/rahti/get-started/web-interface.md
@@ -239,6 +240,7 @@ nav:
               - Projektien luonti: cloud/rahti/get-started/projects.md
               - Laskutus: cloud/rahti/get-started/billing.md
           - Käyttäminen:
+              - cloud/rahti/usage/index.md
               - Kubernetes-käsitteet: cloud/rahti/usage/kubernetes-concepts.md
               - Rahti-katalogi: cloud/rahti/usage/catalog.md
               - Levykuvat:
@@ -253,6 +255,18 @@ nav:
                   - Objektitallennustila: cloud/rahti/usage/storage/object-storage.md
                   - Levyn tilannevedos: cloud/rahti/usage/storage/volume-snapshot.md
               - Verkkoyhteydet: cloud/rahti/usage/networking.md
+          - Konfiguraatio:
+              - cloud/rahti/configurations/index.md
+              - Resurssikiintiöt: cloud/rahti/configurations/resource-quota.md
+              - Omat verkkotunnukset: cloud/rahti/configurations/custom-domain.md
+              - Ulosmenevät IP-osoitteet: cloud/rahti/configurations/egress-ip.md
+              - LoadBalancer-palvelu (sisääntulevat IP-osoitteet): cloud/rahti/configurations/loadbalancer-service.md
+              - Verkkokäytännöt: cloud/rahti/configurations/netpol.md
+          - Hallinnoidut ohjelmistot:
+              - cloud/rahti/managed-software/index.md
+              - Cert Manager: cloud/rahti/managed-software/cert-manager.md
+              - MLflow: cloud/rahti/managed-software/mlflow.md
+              - FluxCD: cloud/rahti/managed-software/fluxcd.md
           - Turvallisuusopas: cloud/rahti/security-guide.md
           - Tutoriaalit:
               - cloud/rahti/tutorials/index.md
