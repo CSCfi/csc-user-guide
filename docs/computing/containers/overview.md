@@ -47,19 +47,19 @@ apptainer exec container.sif mycommand
 ```
 
 We can make directories from the host available inside the container by using bind mounts.
-On Roihu and Mahti, we can bind mount the different [Disk Areas](../disk.md) to the container as follows:
+On Roihu, we can bind mount the different [Disk Areas](../disk.md) to the container manually as follows:
 
 ```bash
 apptainer exec --bind="/users,/projappl,/scratch,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
 ```
 
-On Roihu, we can use `csc-common-bind` command to bind mounts the common disk areas:
+Alternatively, we can use `csc-common-bind` command to bind mounts the common disk areas:
 
 ```bash
 apptainer exec --bind="$(csc-common-bind)" container.sif mycommand
 ```
 
-We can add Nvidia GPU support with the `--nv` flag as follows:
+On Roihu-GPU, we can add Nvidia GPU support with the `--nv` flag as follows:
 
 ```bash
 apptainer exec --nv container.sif mycommand
@@ -67,30 +67,10 @@ apptainer exec --nv container.sif mycommand
 
 We can use the same flags with `apptainer run` and `apptainer shell` commands.
 
-### Using Apptainer wrapper (deprecated)
-
-!!! warning "Apptainer wrapper is deprecated"
-    Apptainer wrapper is deprecated
-    It is not available on Roihu.
-    Use Apptainer directly instead.
-
-Many CSC provided software environments that use containers provide access via the `apptainer_wrapper` script.
-The wrapper uses environment variables to find the path to the container image (`SING_IMAGE`) and to provide flags (`SING_FLAGS`) such as `--nv`.
-The wrapper script automatically appends flags for common binds mounts.
-We can execute commands from the container as follows:
-
-```bash
-export SING_IMAGE=/path-to/container.sif
-export SING_FLAGS=""
-apptainer_wrapper exec mycommand
-```
-
-Also `apptainer_wrapper run` and `apptainer_wrapper shell` subcommand are available.
-
 ## Building container images
 
 This section explain how to use Apptainer to convert existing Docker and OCI images to SIF images, how to build new SIF images from definition files or how to develop containers interactively as modifiable (ch)root directory using a sandbox.
-Also, we cover how to set the appropriate build environment and resources like memory for building on Roihu and Mahti.
+Also, we cover how to set the appropriate build environment and resources like memory for building on Roihu.
 
 ### Choosing a Linux distribution as a base image
 
@@ -113,11 +93,11 @@ cat /etc/os-release
 ```
 
 ```text title="stdout"
-NAME="Rocky Linux"
-VERSION="8.10 (Green Obsidian)"
-ID="rocky"
-ID_LIKE="rhel centos fedora"
-VERSION_ID="8.10"
+NAME="Red Hat Enterprise Linux"
+VERSION="9.8 (Plow)"
+ID="rhel"
+ID_LIKE="fedora"
+VERSION_ID="9.8"
 ...
 ```
 
@@ -136,26 +116,25 @@ The typical pattern of installing software into a container is to start by using
 
 ### Build location
 
-We can build containers on any node that has [local disk available](../disk.md#temporary-local-disk-areas).
-Login nodes have local disk by default.
-To build on a compute node, we can reserve a Slurm job with a local disk.
-For example, we can reserve an interactive job with local disk (`--tmp`) as follows:
+On Roihu, we can build containers on login nodes and compute nodes.
+Local disk is available automatically.
+To build on a compute node, we can reserve an interactive Slurm job as follows:
 
 ```bash
-sinteractive --cores 4 --mem 4000 --tmp 10 --time 0:15:00
+sinteractive --cores 4 --mem 4000 --time 0:15:00
 ```
 
 ### Temporary directory
 
 The `TMPDIR` environment variable must point to the local disk.
 Apptainer will use it to identify the directory as its temporary directory when building a container.
-Mahti cluster set the `TMPDIR` environment variable automatically on login nodes which have local disk by default and compute nodes when local disk is reserved.
+Roihu cluster sets the `TMPDIR` environment variable automatically on login nodes which have local disk by default and compute nodes when local disk is reserved.
 Lustre parallel file system cannot (and should not) be used as the temporary directory.
 
 ### Cache directory
 
 Apptainer caches layers and blobs such as base images to the cache directory.
-The default location is in the home directory (`$HOME/.apptainer`) which on Mahti has a limited quota.
+The default location is in the home directory (`$HOME/.apptainer`) which on Roihu has a limited quota.
 Thus, we may want to change the cache location to scratch to avoid filling our home directory (modify the `project_id` to your project ID).
 
 ```bash
@@ -168,23 +147,10 @@ We can also clean the cache directory if necessary:
 apptainer cache clean
 ```
 
-### Virtual memory limit
-
-The virtual memory limit on Mahti login nodes is quite small (10 GiB) and this can be increased up to the hard limit (24 GiB).
-Exceeding the virtual memory limit causes memory errors during build.
-You can query the current virtual memory limit using `ulimit -v` and the hard limit using `ulimit -Hv`.
-We can set the virtual memory limit to the hard limit as follows:
-
-```bash
-ulimit -v $(ulimit -Hv)
-```
-
-If your build runs out of virtual memory during the build on the login node, you should use an interactive job where virtual memory is limited to the amount of memory reserved for the job.
-
 ### Bind mounting temporary directory
 
 By default Apptainer bind mounts the host's `/tmp` to `/tmp` in the build environment.
-However, the size of `/tmp` is limited on Roihu and Mahti, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of disk space as follows: `--bind="$TMPDIR:/tmp"`.
+However, the size of `/tmp` is limited on Roihu, thus, we bind mount the local disk (`$TMPDIR`) to `/tmp` to avoid running out of disk space as follows: `--bind="$TMPDIR:/tmp"`.
 
 ### Building SIF image from existing Docker or OCI image
 
@@ -192,7 +158,7 @@ We can obtain existing container images from a container registry by pulling the
 Apptainer will convert them from Docker or OCI format into the Singularity Image Format (SIF).
 
 ```bash
-apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:8.10
+apptainer build rockylinux.sif docker://docker.io/rockylinux/rockylinux:9.8
 ```
 
 ### Building SIF image from definition file
@@ -202,7 +168,7 @@ Here is a simple example of container definition:
 
 ```sh title="container.def"
 Bootstrap: docker
-From: docker.io/rockylinux/rockylinux:8.10
+From: docker.io/rockylinux/rockylinux:9.8
 
 %post
     # Replace the failing commands with always succeeding dummies.
@@ -230,7 +196,7 @@ The sandbox must be created on the local disk (`$TMPDIR`), not on the Lustre par
 We can initialize a sandbox from a base image as follows:
 
 ```bash
-apptainer build --fakeroot --sandbox "$TMPDIR/rockylinux" docker://docker.io/rockylinux/rockylinux:8.10
+apptainer build --fakeroot --sandbox "$TMPDIR/rockylinux" docker://docker.io/rockylinux/rockylinux:9.8
 ```
 
 Then we can run a shell in the sandbox to install software into it:

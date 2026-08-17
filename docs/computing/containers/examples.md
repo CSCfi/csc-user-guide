@@ -1,6 +1,6 @@
 # Examples
 
-This section contains examples of building and running containers on Roihu and Mahti.
+This section contains examples of building and running containers on Roihu.
 
 ## Example: Python virtual environment
 
@@ -9,7 +9,7 @@ We can define the build definition as follows:
 
 ```sh title="python-pip.def"
 Bootstrap: docker
-From: docker.io/rockylinux/rockylinux:8.10
+From: docker.io/rockylinux/rockylinux:9.8
 
 %post
     # Replace the failing commands with always succeeding dummies.
@@ -218,7 +218,7 @@ Here is an example of using a Makefile to build a container from a definition fi
 
 ```sh title="container.def"
 Bootstrap: docker
-From: docker.io/rockylinux/rockylinux:8.10
+From: docker.io/rockylinux/rockylinux:9.8
 ```
 
 ```Makefile title="Makefile"
@@ -260,7 +260,7 @@ Application should be executed with the `vglrun_wrapper` script installed in the
 ## Other application containers
 
 CSC has container build recipes for various applications in the [singularity-recipes](https://github.com/CSCfi/singularity-recipes) repository.
-Here are the recipes that can be built with Apptainer using fakeroot on Roihu and Mahti:
+Here are the recipes that can be built with Apptainer using fakeroot on Roihu:
 
 - [Miniforge](https://github.com/CSCfi/singularity-recipes/tree/main/miniforge)
 - [Python with uv package manager](https://github.com/CSCfi/singularity-recipes/tree/main/python-uv)
