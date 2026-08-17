@@ -58,7 +58,7 @@ Current modules and versions supported on CSC's supercomputers:
 
 Other software and libraries:
 
-- Open MPI (with Mellanox OFED™ software) 4.1.9 (from r-env/452 on Roihu-CPU), 4.1.7 (r-env/452 on Mahti, r-env/451), 4.1.2 (r-env 442)
+- Open MPI (with Mellanox OFED™ software) 4.1.9 (Roihu-CPU), 4.1.7 (r-env/452 on Mahti, r-env/451), 4.1.2 (r-env 442)
 - TensorFlow 2.20.0 (r-env/452), 2.19.0 (r-env/451), 2.18.0 (r-env/442)
 - cget 0.2.0
 
@@ -314,13 +314,13 @@ installed_packages <- library()$results[,1]
     
     To install a package **yourself for your project:**  
     
-    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. Note that the folder should be specific to the R version you are using. 
-    A different `r-env` and R version require a new installation.
-    On the command prompt:
+    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. The folder can be named as you wish, but note that the folder should be specific to the R version you are using. 
+    A different `r-env` and R version require a new installation. To create the folder in R:
     
-    ```r
-    cd /projappl/<project>
-    mkdir project_rpackages_<rversion>
+    ``` r
+    # Replace <project> with your project number (project_xxxxxxx) and <rversion> with the R version you are working with, for example `project_rpackages_461` for r-env/461.
+    
+    dir.create("/projappl/<project>/project_rpackages_<rversion>")
     ```
     
     You can then add the folder to your library trees in R by running this in R:
