@@ -1,10 +1,10 @@
 # Using PyFireCREST in a Python script or Jupyter notebook
 
-This page gives an example of how you could use FireCREST to access Roihu from a Python script or a Jupyter notebook. Basic knowledge of Python and its usage in a HPC environment are assumed. If you're unsure about these topics, see the page on [Using Python on CSC supercomputers](./python-usage-guide.md).
+This page gives an example of how you could use FireCREST to access Roihu and Lumi from a Python script or a Jupyter notebook. We will train a Classifier model on the Iris dataset, and output the confusion matrix. Basic knowledge of Python and its usage in a HPC environment are assumed. If you're unsure about these topics, see the page on [Using Python on CSC supercomputers](./python-usage-guide.md). See also [CSC FirecREST documentation](../../computing/firecrest/index.md) and [PyFirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_v2_index.html).
 
 This workflow enables easy modification of your unprocessed data within a notebook or Python script, while still using HPC resources for the heavy computations. This way you use BU:s only on the heavy computation, not on the parts you can do locally.
 
-## Example:
+## Setup
 Install PyFireCREST in your environment. You can do this with `pip install pyfirecrest`. Then you can import firecrest
 
 
@@ -20,10 +20,11 @@ import time
 
 # Set constants:
 RAW_DATA_PATH = "~/Downloads/iris.csv"
-ROIHU_PROJ_DIR = "/scratch/project_2001659/ansoneli/jupyter-dir/"
-OUTPUT_FILE = "/Users/ansoneli/firecrest-examples/Jupyter-ML/confusion_matrix.png"
+ROIHU_PROJ_DIR = "/scratch/project_1234567/username/jupyter-dir/"
+OUTPUT_FILE = "/Users/username/Jupyter-ML/confusion_matrix.png"
 OUTPUT_ON_ROIHU = "confusion_matrix.png"
 FIRECREST_URL = "https://api.roihu.csc.fi/v1"
+ACCOUNT = "project_1234567"
 ```
 
 Retrieve your personal access token. Instructions for this and the exact API endpoint are found in the [Connecting to Roihu FirecREST HPC API](../../computing/firecrest/connecting.md).
@@ -37,29 +38,6 @@ In this example we will save it to a .env file in the workspace and load it with
 ```python
 from dotenv import load_dotenv
 load_dotenv(override=True)
-```
-
-Load your data. Here we will use the Iris dataset.
-
-
-```python
-df = pd.read_csv(RAW_DATA_PATH)
-print(df.head())
-```
-
-Do your preprocessing and/or feature engineering.
-
-
-```python
-df = df.dropna()
-q_low = df["sepal_length"].quantile(0.01)
-q_high = df["sepal_length"].quantile(0.99)
-
-df_filtered = df[(df["sepal_length"] < q_high) & (df["sepal_length"] > q_low)]
-df_filtered = df_filtered.drop(columns="sepal_width")
-print(df_filtered.head())
-print(f"Original row count: {len(df)}, filtered row count: {len(df_filtered)}")
-
 ```
 
 Before we can call FireCREST, we have to implement a class that has a get_access_token() method. If you are using a robot account, you can use the built-in authorization class `ClientCredentialsAuth`.
@@ -91,6 +69,35 @@ class TokenAuth:
     return token
 ```
 
+Before we can upload the file, we must initialize the Firecrest connection with the API url, and the authorization class TokenAuth().
+You can view the full documentation for the library here: [PyfirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_sync_v2.html#the-firecrest-class).
+
+
+```python
+firecrest = fc.v2.Firecrest(firecrest_url=FIRECREST_URL, authorization=TokenAuth())
+```
+## Data preprocessing
+
+Load your data and do whatever you need to do. Here we will use the Iris dataset, and do some filtering of outliers.
+
+```python
+df = pd.read_csv(RAW_DATA_PATH)
+print(df.head())
+```
+
+Do your preprocessing and/or feature engineering.
+
+```python
+df = df.dropna()
+q_low = df["sepal_length"].quantile(0.01)
+q_high = df["sepal_length"].quantile(0.99)
+
+df_filtered = df[(df["sepal_length"] < q_high) & (df["sepal_length"] > q_low)]
+df_filtered = df_filtered.drop(columns="sepal_width")
+print(df_filtered.head())
+print(f"Original row count: {len(df)}, filtered row count: {len(df_filtered)}")
+
+```
 
 Now we are ready to train our model. We save the data we have processed to a csv file.
 
@@ -100,23 +107,32 @@ upload_file = "/tmp/processed_data.csv"
 df_filtered.to_csv(upload_file)
 ```
 
-Before we can upload the file, we must initialize the Firecrest connection with the API url, and the authorization class TokenAuth().
-You can view the full documentation for the library here: [PyfirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_sync_v2.html#the-firecrest-class).
 
+## Upload files to Roihu
 
-```python
-firecrest = fc.v2.Firecrest(firecrest_url=FIRECREST_URL, authorization=TokenAuth())
-```
-
-Now we upload the file using firecrest.upload(). We'll make sure the directory exists with firecrest.mkdir()
+Now we upload the file using firecrest.upload(), but first we'll make sure the directory exists with firecrest.mkdir()
 When using the firecrest methods, all of them require system_name as an input. This distinguishes the different node types, "cpu" and "gpu". As Roihu uses a shared filesystem, the only command this has an effect on is the firecrest.submit().
-
 
 ```python
 firecrest.mkdir(system_name="cpu", path=ROIHU_PROJ_DIR, create_parents=True)
+``` 
+
+If the file you want to upload is larger than ~1MB, it will be uploaded as a batch job. Add the project you are part of in the 'account' parameter, NOT your user account on Roihu. Without the account the upload will fail.
+Local_file should be an absolute path.
+
+```python
 filename_on_roihu = "training_data.csv"
-firecrest.upload(system_name="cpu", local_file=upload_file, directory=ROIHU_PROJ_DIR, filename=filename_on_roihu)
+upload = firecrest.upload(system_name="cpu", local_file=upload_file, directory=ROIHU_PROJ_DIR, filename=filename_on_roihu, account=ACCOUNT)
+
+# Check if upload is done as a batch job or not:
+if upload != None:
+  print("Upload as a batch job, may take a while.")
+  # Wait for job to finish
+  upload.wait_for_transfer_job()
+
+print(f"Upload complete for file {upload_file}.")
 ```
+## Submit the job
 
 !!! note
     The environment variable CSC_ENV_INIT_NON_INTERACTIVE=yes must be passed to the slurm job,
@@ -202,16 +218,27 @@ job = firecrest.submit(system_name="cpu", working_dir=ROIHU_PROJ_DIR, script_loc
 jobid = job["jobId"]
 ```
 
-Wait for the job to finish using firecrest.wait_for_job(). When it is, we can download the results, which in this case is a png image of the confusion matrix. Parameters to note for wait_for_job are:
+## Download results
+
+Wait for the job to finish using firecrest.wait_for_job(). When it is, we can download the results, which could be any file. In this case is a png image of the confusion matrix. Parameters to note for wait_for_job are:
 
 - timeout: Amount of seconds before job is cancelled.
 - not_found_timeout: Amount of seconds before wait_for_job raises error, but doesn't cancel the job itself.
+- for files > ~1MB, account must be project name.
 
 
 ```python
 firecrest.wait_for_job(system_name="cpu", job_id=jobid, timeout=None, not_found_timeout=80)
+```
 
-firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_ON_ROIHU), target_path=OUTPUT_FILE)
+When downloading, use an absolute path as the target_path.
+
+```python
+download = firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_ON_ROIHU), target_path=OUTPUT_FILE, account=ACCOUNT)
+if download != None:
+    print("Download is done as a batch job, waiting for it to finish.")
+    download.wait_for_transfer_job()
+print(f"Results downloaded successfully to {OUTPUT_FILE}.")
 ```
 
 Now you can analyse the results locally with whatever tools you have.
