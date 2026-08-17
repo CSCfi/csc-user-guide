@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
+    - puhti
 ---
 # ArcGIS Python API
 
@@ -29,10 +29,7 @@ Some parts of ArcGIS Python API require logging in to your home organization's A
 
 ## Available
 
-ArcGIS Python API is available in Puhti:
-
-* 2.4.0.1 in `geoconda/3.12.10` module, see [geoconda page](geoconda.md)
-* 2.1.0.3 in `arcgis-python-api` module
+ArcGIS Python API is currently not available in Roihu.
 
 ## Usage
 
@@ -47,6 +44,10 @@ To check the exact packages and versions included in the loaded module:
 ```bash
 list-packages
 ```
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License
 
