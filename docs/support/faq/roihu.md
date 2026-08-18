@@ -159,9 +159,17 @@ Data transfer can be done on a project-by-project basis, so the answer really de
 If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk.md#dataset-directory),
 where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
 
+### 12. I uploaded data from Puhti/Mahti to Allas. Now I'm downloading it to Roihu and get an error saying `corrupted on transfer: md5 hashes differ`.
+
+Uploads from Puhti/Mahti to Allas use by default the Swift protocol, while on Roihu the S3 protocol is the default. If your data in Allas is in Swift format,
+for objects larger than 5 GB, S3-based access in Roihu fails because of different ways these protocols use checksums. Solutions:
+
+- Use `a-get` or `rclone` with the option `--ignore-checksum`
+- Alternatively, use Swift protocol on Roihu by initializing with `allas-conf --swift`
+
 ## Roihu hardware and software
 
-### 12. What kind of hardware does Roihu have?
+### 13. What kind of hardware does Roihu have?
 
 See the [Roihu system description](../../computing/systems-roihu.md) for details.
 
@@ -178,21 +186,21 @@ while software built on the ARM login nodes will only run on the GPU nodes.
 Similarly, CPU and GPU Slurm jobs can only be submitted from the x86 and ARM
 login nodes, respectively.
 
-### 13. What operating system does Roihu have?
+### 14. What operating system does Roihu have?
 
 The operating system of Roihu is Red Hat Enterprise Linux (RHEL) 9.
 
-### 14. Is Tykky available on Roihu?
+### 15. Is Tykky available on Roihu?
 
 Yes, [Tykky](../../computing/containers/tykky.md) (tool for creating
 containerized Conda etc. environments with wrapper scripts) is also
 available on Roihu.
 
-### 15. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
+### 16. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
 
 Roihu will eventually support a secure workflow for sensitive data processing. The technical implementation will include the capability to submit jobs from the SD Desktop to Roihu. However, setting up the workflow specific for secure sensitive data processing service for Roihu will take several months. As a result, this functionality is expected to become available only towards the end of 2026 or the beginning of 2027.
 
-### 16. Is there a list of pre-installed software/modules available?
+### 17. Is there a list of pre-installed software/modules available?
 
 Yes, a list of installed software is available in the [application section](../../apps/by_availability.md#roihu).
 The goal is to provide the same software as on Puhti and Mahti as far as possible, with some necessary
@@ -210,18 +218,18 @@ everything that users might want.
 
 ## Installing and running software on Roihu
 
-### 17. Do Roihu's Slurm partitions have the same memory/time limits as on Mahti and Puhti?
+### 18. Do Roihu's Slurm partitions have the same memory/time limits as on Mahti and Puhti?
 
 There are some differences in the available partition names and the corresponding hardware, when compared to Mahti and Puhti.
 
 You can see the available partitions and the corresponding limits in the [Slurm partition documentation for Roihu](../../computing/running/batch-job-partitions.md#roihu-partitions).
 
-### 18. Does Roihu have a longrun partition? What is the maximum runtime?
+### 19. Does Roihu have a longrun partition? What is the maximum runtime?
 
 There is a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition is 10 days.
 The small partition for partial or single nodes has a time limit of 72 hours.
 
-### 19. NVMe, temporary storage and local scratch in Roihu
+### 20. NVMe, temporary storage and local scratch in Roihu
 
 All Roihu compute and login nodes provide temporary local NVMe storage through `$TMPDIR`.
 Unlike on Puhti and Mahti, it does not need to be requested with `--gres=nvme`, and `$LOCAL_SCRATCH` should not be used as a direct replacement.
@@ -231,7 +239,7 @@ The available capacity depends on the node type, and additional temporary NVMe s
 
 See the [Roihu temporary local storage documentation](../../computing/roihu-disk.md#temporary-local-disk-areas) for capacities and usage instructions.
 
-### 20. My application or institution needs an IP address to enable access to Roihu. What should I use?
+### 21. My application or institution needs an IP address to enable access to Roihu. What should I use?
 
 IPv4  
 `86.50.172.16/29` (.16-.23; 8 addresses) reserved for login nodes  
@@ -242,6 +250,6 @@ IPv6
 `2001:708:10:6822::1:0/112 (:1:0000-:1:ffff)` reserved for login nodes    
 `2001:708:10:6822::2:0/112 (:2:0000-:2:ffff)` reserved for web interface nodes and services    
 
-### 21. I did not find an answer to my question here. Who should I contact?
+### 22. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!
