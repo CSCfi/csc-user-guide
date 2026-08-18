@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Entrez Direct
@@ -37,14 +37,14 @@ Free to use for all users. [Public Domain notice](https://www.ncbi.nlm.nih.gov/b
 
 ## Available
 
-Puhti: 13.4
+Roihu: 26.0
 
 ## Usage
 
-The `edirect` commands listed above are activated by loading the `biokit` module.
+The `edirect` commands listed above are activated by loading the `edirect` module.
 
 ```bash
-module load biokit
+module load edirect
 ```
 
 After that you can, e.g., use `esearch` and `efetch` to retrieve protein or nucleotide sequence entries, whose annotation matches the given search terms. In search terms, you can also use wildcard character `*` to match any string. The search is case-insensitive: "Mus" and "mus" will produce the same matches. You can also focus your search to certain fields of the search database (Keywords, Author, Organism, Accession, Gene name, Protein name, Sequence length etc.). In the case of sequence length, a range should be defined with syntax `from:to`. For example: `120:125`.

@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # BWA
@@ -25,18 +25,17 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Puhti: 0.7.17
+- Roihu: 0.7.19
 - [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
-On Puhti, BWA can be taken in use as part of the `biokit` module collection:
+On Roihu, BWA can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load bwa
 ```
-
-The biokit modules set up a set of commonly used bioinformatics tools, including BWA. Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
 
 The basic syntax of BWA commands is:
 
@@ -46,15 +45,15 @@ bwa <command> [options]
 
 ### BWA indexes
 
-CSC does not maintain pre-compiled BWA indexes for reference genomes on Puhti, but you can check if genomes used in Chipster can provide you a ready-made index for a genome you want use. This can be done with the command:
+CSC does not maintain pre-compiled BWA indexes for reference genomes on Roihu, but you can check if genomes used in Chipster can provide you a ready-made index for a genome you want use. This can be done with the command:
 
 ```
 chipster_genomes bwa
 ``` 
 
-If a suitable genome index is not found, the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your `$HOME` directory is often too small for working with complete genomes. Instead, you should do the analysis in the scratch directory of your Puhti project.
+If a suitable genome index is not found, the fist step in creating alignment with BWA is downloading the reference genome and indexing it. Please note that your `$HOME` directory is often too small for working with complete genomes. Instead, you should do the analysis in the scratch directory of your Roihu project.
 
-You can use for example command `ensemblfetch` or `wget` to download a reference genome to Puhti. For example:
+You can use for example command `ensemblfetch` or `wget` to download a reference genome to Roihu. For example:
 
 ```bash
 ensemblfetch homo_sapiens
@@ -111,9 +110,9 @@ The two `.sai` alignment files are combined with command `bwa sampe`:
 bwa sampe Homo_sapiens.GRCh38.dna.toplevel.fa aln1.sai aln2.sai reads1.fq reads2.fq > aln.sam
 ```
 
-### Running BWA batch jobs on Puhti
+### Running BWA batch jobs on Roihu
 
-In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file for running a BWA job on Puhti:
+In Roihu, BWA jobs should be run as batch jobs. Below is a sample batch job file for running a BWA job on Roihu:
 
 ```bash
 #!/bin/bash
@@ -127,8 +126,17 @@ In Puhti, BWA jobs should be run as batch jobs. Below is a sample batch job file
 #SBATCH --mem=32000
 #SBATCH --account=your_project_name
 
-#load the bio tools
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+# Load the modules
+module load bio-apps
+module load bwa/0.7.19
 
 # Index the reference genome
 bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
@@ -137,7 +145,7 @@ bwa index -a bwtsw Homo_sapiens.GRCh38.dna.toplevel.fa
 bwa mem -t $SLURM_CPUS_PER_TASK Homo_sapiens.GRCh38.dna.toplevel.fa reads1.fq reads2.fq > aln.sam
 ```
 
-In the batch job example above, one BWA task (`--ntasks=1`) is executed. The BWA job uses 8 cores (`--cpus-per-task=8`) with a total of 32 GB of memory (`--mem=32000`). The maximum duration of the job is twelve hours (`--time 12:00:00`). All the cores are assigned from one computing node (`--nodes=1`). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing `your_project_name` with the name of your project. You can use command `csc-projects` to see what projects you have on Puhti.
+In the batch job example above, one BWA task (`--ntasks=1`) is executed. The BWA job uses 8 cores (`--cpus-per-task=8`) with a total of 32 GB of memory (`--mem=32000`). The maximum duration of the job is twelve hours (`--time 12:00:00`). All the cores are assigned from one computing node (`--nodes=1`). In addition to the resource reservations, you have to define the billing project for your batch job. This is done by replacing `your_project_name` with the name of your project. You can use command `csc-projects` to see what projects you have on Roihu.
 
 You can submit the batch job file to the batch job system with the command:
 
@@ -145,7 +153,7 @@ You can submit the batch job file to the batch job system with the command:
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Roihu user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 ## More information
 

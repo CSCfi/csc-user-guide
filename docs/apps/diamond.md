@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Diamond
@@ -29,26 +29,21 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 
 ## Available
 
-* Puhti: 2.0.15, 2.1.6, 2.1.10
+* Roihu: 2.1.10
 
 ## Usage
 
 To use Diamond, run first the command:
 
 ```bash
-module load biokit
-```
-
-or:
-
-```bash
+module load bio-apps
 module load diamond
 ```
 
 To load a specific version, e.g:
 
 ```bash
-module load diamond/2.0.15
+module load diamond/2.1.10
 ```
 
 After that, you can check the Diamond help with the command:

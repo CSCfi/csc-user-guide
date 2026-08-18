@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # QIIME
@@ -30,27 +30,26 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
-- QIIME1: Puhti: 1.9.1
-- QIIME2: Puhti: 2022.8, 2023.2, 2023.5, 2023.9-amplicon, 2023.9-shotgun, 2024.2-amplicon, 2024.2-shotgun, 2024.10-amplicon, 2024.10-metagenome, 2024.10-pathogenome
+- Roihu: 2026.4, 2026.7
 
 ## Usage
 
-To load QIIME1 module on Puhti:
+Latest installed version of QIIME2 can be taken into use with:
 
 ```bash
-module load qiime1
+module load qiime2
 ```
 
-To use QIIME2, check available versions with:
+You can check available versions with:
 
 ```bash
 module spider qiime2
 ```
 
-Load desired version with e.g.:
+You can load desired version with e.g.:
 
 ```bash
-module load qiime2/2023.9-amplicon
+module load qiime2/2026.4
 ```
 
 After that you can start QIIME2 with command:
@@ -59,27 +58,18 @@ After that you can start QIIME2 with command:
 qiime
 ```
 
-## Distributions
-
-Latest versions of QIIME2 come in different distributions: amplicon/metagenome/pathogenome/tiny.
-These distributions vary on which plugins come with them. You can compare the
-[distributions](https://docs.qiime2.org/2024.10/install/#distributions) on QIIME2
-home pages.
-
-CSC provides installations for the amplicon, metagenome and pathogenome distributions.
-
 ## Additional plugins
 
 CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../computing/containers/tykky.md).
 
 First select the distribution (amplicon/metagenome/pathogenome/tiny) that best meets your needs.
 
-Download the corresponding [environment file](https://docs.qiime2.org/2024.10/install/native/).
+Check the Linux instructions in the [QIME2 installation instructions](https://library.qiime2.org/quickstart/qiime2).
 
-For example for 2024.10 amplicon distribution:
+Instead of following the Conda instructions, just download the YAML file. For example for 2026.7:
 
 ```bash
-wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2024.10-py310-linux-conda.yml
+wget https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2026.7/qiime2/released/rachis-qiime2-linux-64-conda.yml
 ```
 
 Check the installation instructions for the plugins you want to use.
@@ -95,8 +85,8 @@ Installation:
 ```bash
 module purge
 module load tykky
-mkdir qiime
-conda-containerize new --mamba --prefix qiime qiime2-amplicon-2024.10-py310-linux-conda.yml
+mkdir qiime2
+conda-containerize new --prefix qiime2 qiime2-amplicon-2024.10-py310-linux-conda.yml
 ```
 
 If necessary, run:
@@ -107,21 +97,13 @@ conda-containerize update qiime --post-install plugins.txt
 
 ## Running
 
-Note that many QIIME tasks involve heavy computing. Thus, these tasks should be executed as
+Note that many QIIME2 tasks involve heavy computing. Thus, these tasks should be executed as
 batch jobs.
 
-QIIME jobs can be very disk intensive, especially its handling of temporary files, so it is best to
+QIIME2 jobs can be very disk intensive, especially its handling of temporary files, so it is best to
 reserve fast local disk for them.
 
 For interactive batch jobs, see [sinteractive](../computing/running/interactive-usage.md) documentation.
-
-In case of normal batch jobs, you must reserve NVMe disk area that will be used as $TMPDIR area.
-
-For example, to reserve 100 GB of local disk space:
-
-```text
-#SBATCH --gres=nvme:100
-```
 
 For example, the batch job script below runs the denoising step of the
 [QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
@@ -137,12 +119,19 @@ as a batch job using eight cores.
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --partition=small
-#SBATCH --gres=nvme:100
+
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
 
 #set up qiime
-module load qiime2/2023.9-amplicon
+module load qiime2/2026.7
 
-# run task. Don't use srun in submission as it resets TMPDIR
+# run task
 qiime dada2 denoise-single \
   --i-demultiplexed-seqs demux.qza \
   --p-trim-left 0 \
@@ -167,10 +156,10 @@ The job is submitted to the batch job system with `sbatch` command. For example,
 ```bash
 sbatch qiime_job.sh
 ```
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
 
 !!! warning "Note"
-    The use of `tab-qiime` to enable command completion for QIIME is known to cause problems on Puhti, and should be avoided.
+    The use of `tab-qiime` to enable command completion for QIIME is known to cause problems on Roihu, and should be avoided.
 
 ## More information
 

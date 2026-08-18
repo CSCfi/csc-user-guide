@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # HMMER
@@ -29,20 +29,15 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Puhti: 3.2.1, 3.3.2, 3.4
+* Roihu: 3.4
 
 ## Usage
 
-To use default version of HMMER on Puhti, load the biokit module:
+HMMER can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
-```
-
-If you want to use some other version, load the particular version of the HMMER module. For example:
-
-```bash
-module load hmmer/3.2.1
+module load bio-apps
+module load hmmer
 ```
 
 After this, the command line options of each `hmmer` command can be checked with option `-h`. For example:
@@ -53,14 +48,15 @@ hmmsearch -h
 
 ### Pfam database
 
-On Puhti, you can use Pfam-A database with HMMER commands. You can also create your own HMM databases.
+On Roihu, you can use Pfam-A database with HMMER commands. You can also create your own HMM databases.
 For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with the following commands.
 
-First, open an interactive batch job session and load biokit:
+First, open an interactive batch job session and load HMMER module:
 
 ```bash
-sinteractive -m 4G -c 4
-module load biokit
+sinteractive --cores 4
+module load bio-apps
+module load hmmer
 ```
 
 With native HMMER, you can speed up the `hmmpfam` and `hmmserach` commands by using several
@@ -72,7 +68,7 @@ but the number is better replaced with an environment variable which already has
 hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
-In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
+In Roihu, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
 
 ```bash
 #!/bin/bash 
@@ -87,7 +83,16 @@ In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch job
 #SBATCH --account=project_123456
 #SBATCH --mem=8000
 
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load hmmer
 hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
 ```
 
