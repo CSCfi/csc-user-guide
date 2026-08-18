@@ -42,7 +42,7 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
     - View running batch jobs
     - View disk quotas and project status
     - Launch interactive apps and connect to them directly from the browser:
-        - Accelerated Visualization with applications such as Blender and ParaView (Roihu and Puhti only)
+        - Accelerated Visualization with applications such as Blender and ParaView (Roihu only)
         - Desktop with applications such as Maestro and VMD
         - Julia-Jupyter
         - Jupyter
@@ -119,10 +119,10 @@ specific instructions, see the [Interactive apps](apps.md) page.
     requires longer jobs than that, we recommend that you run your software as
     [batch jobs](../running/getting-started.md).
 
-In the **Roihu web interface**, the `interactive`, `small`, `test`, and `gputest` partitions are
-available. In the [Accelerated Visualization app](accelerated-visualization.md), the
-`vizinteractive` partition is used, and will reserve one Nvidia L40 GPU. On the `gputest` partition,
-one Nvidia GH200 GPU will be allocated. See the [Roihu partitions
+In the **Roihu web interface**, the `interactive`, `small`, `test`, `gpuinteractive`, and `gputest`
+partitions are available. In the [Accelerated Visualization app](accelerated-visualization.md), the
+`vizinteractive` partition is used, and will reserve one Nvidia L40 GPU. On the `gpuinteractive` and
+`gputest` partitions, one Nvidia GH200 GPU will be allocated. See the [Roihu partitions
 page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues on
 Roihu.
 
