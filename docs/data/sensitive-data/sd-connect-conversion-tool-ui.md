@@ -13,95 +13,77 @@
 
 
 
-SD Connect has been upgraded to a new version. This Conversion tool allows you to easily convert buckets created with previous versions of the service.
-
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **If your project has more than 1 TB of data**
-  { .csc-grid-card-warning }
-
-    ---
-    
-    If your project has more than 1 TB of data, contact **servicedesk@csc.fi** with topic "Sensitive Data". We plan conversion process together with you. 
-
-</div>
-
-
-## 1. Review buckets in SD Connect
-
-Review your project's buckets together with your (possible) team. We recommend [deleting](sd-connect-delete.md) unneeded files and buckets from SD Connect before starting conversion as this shortens conversion time. It also saves resources for other research projects. Team should agree together on the schedule of the conversion. 
-
-### Buckets with incompatible names (Label: Urgent)
-
-In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incombatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
-
-After conversion these buckets will have new compatible names with a suffix "-conv" at the end of the bucket name. 
-
-![Urgent buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
-
-
-### Buckets with files uploaded with previous versions of SD Connect (Label: By the end of 2026)
-
-Buckets marked with label **By the end of 2026** contain files uploaded with a previous version of SD Connect. SD Connect v3 shows size of those files as zero. Please convert these buckets or create a new bucket before uploading new files. 
-
-Bucket names stay the same after the conversion.
-
-![By the end of 2026 buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png)
-
-___
-
-
-## 2. Download and install SD Connect Conversion tool
-
-- Links
-  
-
-
-  ### 2.1 Install the SD Connect Conversion Tool on macOS
-
-1. Download the SD Connect Conversion Tool.
-
-2. Open your Downloads folder and drag the application into the Applications folder.
-
-3. On your desktop, find the icon named SD_Connect_s3_migrate_gui. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
-
-4. Press **Command (⌘) + Space** to open Spotlight Search.
-
-5. Type **Terminal** and press **Enter**.
-
-6. A Terminal window will open. Type the following exactly as shown and press **Enter**:
-
-   cd /Applications
-
-7. Type the following exactly as shown and press **Enter**:
-
-   xattr -cr sd_connect_s3_migrate_gui.app
-
-8. Type the following and press **Enter**:
-
-   logout
-
-9. Log back in to your Mac.
-
-10. Open the Applications folder and double-click **SD Connect Conversion Tool** to start the application.
-
-- ### 2.2 Installöation guide for Linux
-
-- ### 2.3 Installation guide for Windows
+This guide helps you to install and use SD Connect Conversion tool.
 
 
 ___
 
-## 3. Using SD Connect Converter tool
 
-### 3.1 Login to Converter tool
+## 1. Download and install SD Connect Conversion tool
+
+
+??? info "Installation guide for macOS"
+
+    1. Download the SD Connect Conversion Tool.
+
+    2. Open your Downloads folder and drag the application into the Applications folder.
+
+    3. On your desktop, find the icon named SD_Connect_s3_migrate_gui. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
+
+    4. Press **Command (⌘) + Space** to open Spotlight Search.
+
+    5. Type **Terminal** and press **Enter**.
+
+    6. A Terminal window will open. Type the following exactly as shown and press **Enter**:
+
+    `cd /Applications´
+
+    7. Type the following exactly as shown and press **Enter**:
+
+    xattr -cr sd_connect_s3_migrate_gui.app
+
+    8. Type the following and press **Enter**:
+
+    logout
+
+    9. Log back in to your Mac.
+
+    10. Open the Applications folder and double-click **SD Connect Conversion Tool** to start the application.
+
+
+??? info "IInstallation guide for Linux"
+
+
+
+??? info "Installation guide for Windows"
+
+    1. Download the SD Connect Conversion Tool.
+
+    2. Open your Downloads folder and extract the folder you just downloaded.
+
+    3. Drag the extracted folder to your Desktop.
+
+    4. Open the folder and locate file:
+
+
+    sd_connect_s3_migrate_gui
+
+    5. Launch the file. A new window appears **Windows protected your PC**. In this window, click **More info**, then **Run anyway** button.
+
+    6. Conversion tool should start after a while.
+
+___
+
+## 2. Using SD Connect Converter tool
+
+### 2.1 Login to Converter tool
 
 - Launch SD Connect Conversion tool and login with your CSC credentials.
 
 ![Login to Conversion tool](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_login.png)
 
 
-### 3.2 Select project
+### 2.2 Select project
 
 - Conversion tool allows you to convert buckets from one project at a time. 
 - Select first project you will convert and click **Continue**.
@@ -109,7 +91,7 @@ ___
 ![Select project](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_Select.png)
 
 
-### 3.3 Add project's temporary API key
+### 2.3 Add project's temporary API key
 
 - Next Converter tool will ask to add project's temporary API key. Follow instructions below.
 
@@ -131,10 +113,10 @@ ___
 ![Add API key](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_API_key.png)
 
 
-### 3.4 Select buckets to convert
+### 2.4 Select buckets to convert
 
 - Next select buckets you want to convert by clicking checkboxes on the left side of bucket names. 
-- If the estimated conversion time is very long we recommend using Pouta VM and CLI version of the conversion tool. Link to instructions
+- If the estimated conversion time is very long we recommend using command-line version of the conversion tool. 
 - Converter tool tells you the amount of quota that is needed to complete the conversion. Please check the amount you have available from MyCSC and apply for more if needed. Follow instructions below.
 
 ??? info "How to check quota from my.csc.fi"
@@ -151,7 +133,7 @@ ___
 ![Select buckets](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_buckets.png)
 
 
-### 3.5 During conversion
+### 2.5 During conversion
 
 - After selecting buckets you can start process by clicking **Start conversion**. 
 - We recommend that you don't upload files to buckets being converted during conversion. 
@@ -160,7 +142,7 @@ ___
 ![Conversion in process](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_in_process.png)
 
 
-### 3.6 If conversion is interrupted
+### 2.6 If conversion is interrupted
 
 Conversion pauses if your laptop runs out of power or loses internet connection. You can continue conversion easily.
 
@@ -171,7 +153,7 @@ Conversion pauses if your laptop runs out of power or loses internet connection.
 
 ![Conversion paused](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_pause.png)
 
-### 3.7 Finish conversion
+### 2.7 Finish conversion
 
 After conversion is complete Conversion tool will ask you if you want delete original incompatible buckets. 
 
