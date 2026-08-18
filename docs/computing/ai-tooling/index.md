@@ -1,25 +1,22 @@
-# AI Agent infrastructure
+# AI Tooling
 
 some preamble
 
 ## Agent environment
 
-A containerized coding agent is provided on Roihu. Containerization gives more control over what the agent can access. which makes its use more secure. Currently the environment includes the open-source teminal-based [OpenCode agent](https://opencode.ai/).
+A containerized coding agent is provided on Roihu. Containerization gives more control over what the agent can access. which makes its use more secure. Currently the environment includes the open-source terminal-based [OpenCode agent](https://opencode.ai/).
 
 !!! warning "Responsibility"
     The user is **always** responsible for the actions of the agent, and every command run by your agent is executed under your personal account.
 
+!!! warning "Data privacy"
+    By default, OpenCode is configured with the model provider OpenCode Zen, which is hosted by [Anomaly Innovations](https://anoma.ly/), who maintain OpenCode. They provide a certain amount of use for free, but all of the data you enter or is read by the agent will be sent to Anomaly Innovations.
 
-### Must read
-
-- **Data privacy**: By default, OpenCode is configured with the model provider OpenCode Zen, which is hosted by [Anomaly Innovations](https://anoma.ly/), who maintain OpenCode. They provide a certain amount of use for free, but all of the data you enter or is read by the agent will be sent to Anomaly Innovations. We recommend you use models hosted on [Aitta, a CSC service](https://aitta.csc.fi). Currently users with a Lumi project are able to use Aitta, but we are working on getting access for everyone with a Roihu project. See [Configuring the Agent](#configuring-the-agent) on how to use Aitta. You can also use whatever other endpoint you have access to.
 - **Security**: The agent has access to the directory you launch it from, all of its subdirectories, and certain subdirectories in your $HOME. $HOME itself is not accessible by default.
 - **Tool use**: By default, the agent has permission to use many read-only tools without permission, but asks for permission for any write-operations.
 - **Experimental status**: The agent environment is still experimental and rapid changes are possible.
 
 ### How to use
-
-Make sure you understand the Must read section before using OpenCode.
 
 To use OpenCode in your project directory, navigate to the directory and run the following commands:
 
@@ -37,13 +34,15 @@ export AGENT_BIND_PATHS=/path/to/dir1,/path/to/dir2
 
 ### Configuring the Agent
 
-If you want to change tool permissions, add MCP servers, or add a model provider, you can add your configuration to `~/.config/opencode/opencode.json`, or the `opencode.json` to your project directory. You can find instructions for custom configurations in the [OpenCode documentation](https://opencode.ai/docs/config/).
+We recommend you use models hosted on [Aitta, a CSC service](https://aitta.csc.fi). Currently users with a Lumi project are able to use Aitta, but we are working on getting access for everyone with a Roihu project.
 
-Aitta is included in the default configuration. You need to get your API key from [here](https://aitta-auth.csc.fi/myToken), and save it to the $AITTA_KEY env variable before you start the agent.
+Aitta is included in the default configuration. You just need to get your API key from [Aitta](https://aitta.csc.fi) from the 'Generate token' button, and save it to the $AITTA_KEY env variable before you start the agent.
 ```bash
 export AITTA_KEY=<YOUR_KEY_HERE>
 ```
 It is easiest to add this line to your `~/.bashrc ` to avoid setting it every login.
+
+If you want to use a different model provider, change tool permissions, or add MCP servers, you can add your configuration to `~/.config/opencode/opencode.json`, or add a `opencode.json` with the configuration to your project directory. You can find instructions for custom configurations in the [OpenCode documentation](https://opencode.ai/docs/config/).
 
 ## MCP servers
 
@@ -68,9 +67,7 @@ The default configuration allows the agent to call all except launchJobs and can
 
 ### CSC-docs
 
-The MCP gives the agent ability to search the CSC User Guide semantically, which allows the agent to effectively find information even with non-exact search terms. The AGENTS.MD included in the environment instructs the agent to use this MCP as an authoritative source. 
-
-The MCP also keeps the documentation up-to-date automatically.
+The agents come preconfigured with the CSC-docs MCP server. Read more about the MCP in the [Docs MCP](docs-mcp.md) page.
 
 ## Skills
 
