@@ -98,6 +98,22 @@ Mahti or LUMI, but first check with the rule-of-thumb calculation
 mentioned above if there's even a chance of that! If not, read on for
 PEFT and FSDP approaches.
 
+## Reinforcement learning with LLMs
+
+Example scripts for reinforcement learning with LLMs are available in
+the [reinforcement learning fine-tuning repository][RL-EXAMPLES]. The
+examples use [`verl`][VERL], an open-source framework for reinforcement
+learning post-training of LLMs. `verl` supports many existing LLM
+frameworks and the examples use [FSDP2][FSDP2] or [Megatron][MEGATRON]
+for model training and [vLLM][12] for generating responses.
+
+The examples demonstrate reinforcement learning with verifiable rewards
+(RLVR) using the GRPO algorithm. They fine-tune [Qwen3-0.6B][QWEN3-0P6B]
+and [Qwen3-8B][QWEN3-8B] models on the [GSM8K mathematics dataset][GSM8K].
+The repository includes environment setup and Slurm scripts for running
+the examples on LUMI-G nodes.
+
+
 ### Using PEFT and LoRA
 
 If your model would fit into the GPU memory, it is still possible that
@@ -384,3 +400,10 @@ running on multiple nodes on LUMI (`run-vllm-lumi16.sh`).
 [14]: https://github.com/CSCfi/ai-inference-examples
 [RAG]: https://en.wikipedia.org/wiki/Retrieval-augmented_generation
 [RAG-60K]: https://github.com/CSCfi/RAG-60K/tree/main
+[RL-EXAMPLES]: https://github.com/CSCfi/llm-rl-fine-tuning-examples
+[VERL]: https://verl.readthedocs.io/en/latest/
+[FSDP2]: https://docs.pytorch.org/tutorials/intermediate/FSDP_tutorial.html
+[MEGATRON]: https://docs.nvidia.com/megatron-core/developer-guide/latest/
+[QWEN3-0P6B]: https://huggingface.co/Qwen/Qwen3-0.6B
+[QWEN3-8B]: https://huggingface.co/Qwen/Qwen3-8B
+[GSM8K]: https://huggingface.co/datasets/openai/gsm8k
