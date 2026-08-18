@@ -47,7 +47,7 @@ ___
     7. Type the following exactly as shown and press **Enter**:
 
         ```bash 
-        xattr -cr sd_connect_s3_migrate_gui.app
+        xattr -cr sd_connect_s3_migrate_gui-2026.8.0-arm64.dmg
         ```
 
     8. Type the following and press **Enter**:
