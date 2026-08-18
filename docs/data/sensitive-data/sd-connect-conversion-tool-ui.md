@@ -28,30 +28,36 @@ ___
 
     2. Open your Downloads folder and drag the application into the Applications folder.
 
-    3. On your desktop, find the icon named SD_Connect_s3_migrate_gui. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
+    3. On your desktop, find the icon named **SD_Connect_s3_migrate_gui**. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
 
     4. Press **Command (⌘) + Space** to open Spotlight Search.
 
     5. Type **Terminal** and press **Enter**.
 
-    6. A Terminal window will open. Type the following exactly as shown and press **Enter**:
+    6. A Terminal window will open. Type the following exactly as shown (or copy and paste it into the terminal) and press **Enter**:
 
-    `cd /Applications´
+        ```bash 
+        cd /Applications
+        ```
 
     7. Type the following exactly as shown and press **Enter**:
 
-    xattr -cr sd_connect_s3_migrate_gui.app
+        ```bash 
+        xattr -cr sd_connect_s3_migrate_gui.app
+        ```
 
     8. Type the following and press **Enter**:
 
-    logout
+        ```bash 
+        logout
+        ```
 
     9. Log back in to your Mac.
 
     10. Open the Applications folder and double-click **SD Connect Conversion Tool** to start the application.
 
 
-??? info "IInstallation guide for Linux"
+??? info "Installation guide for Linux"
 
 
 
@@ -59,14 +65,11 @@ ___
 
     1. Download the SD Connect Conversion Tool.
 
-    2. Open your Downloads folder and extract the folder you just downloaded.
+    2. Open your **Downloads** folder and extract the folder you just downloaded.
 
     3. Drag the extracted folder to your Desktop.
 
-    4. Open the folder and locate file:
-
-
-    sd_connect_s3_migrate_gui
+    4. Open the folder and locate file **sd_connect_s3_migrate_gui.exe**.
 
     5. Launch the file. A new window appears **Windows protected your PC**. In this window, click **More info**, then **Run anyway** button.
 
