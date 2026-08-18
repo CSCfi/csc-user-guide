@@ -3,7 +3,7 @@
 ## Roihu web interface updated to release 2, 18.8.2026
 
 * The gpuinteractive partition is now available.
-* /dataset is now supported.
+* The `/dataset` path is now accessible in the web interface's file browser and Desktop app.
 * Roihu usage metrics graphs have been added.
 * Plugins in CloudCompare in Accelerated Visualization now work.
 * Open OnDemand updated to 4.2.3.
