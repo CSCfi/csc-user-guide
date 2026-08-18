@@ -15,14 +15,14 @@ script:
   # Checks all files for commonly misspelled English words with client9's misspell
   - bash tests/misspell.bash
 
-  # Testing if the build works
+  # Testing if the build works (some tests also run as MkDocs hooks here)
   - bash tests/checkbuild.bash
 
   #Testing link related things
   # Broken site and section links, hidden files
   - python3 tests/python_link_tests/link_check.py
   # Test if any http urls point to docs.csc.fi
-  - bash tests/check_internal_url.sh
+# (moved to MkDocs hook) - bash tests/check_internal_url.sh
   # Test if iframes contain src attribute
   - bash tests/check_youtube_embed.sh
 
