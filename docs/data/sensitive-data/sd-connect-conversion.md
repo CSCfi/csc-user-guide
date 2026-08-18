@@ -27,6 +27,9 @@ During the conversion, a new bucket is created and all files are copied to it.
 
 After conversion these buckets will have new compatible names with a suffix "-conv" at the end of the bucket name. 
 
+Note !!!
+This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion. If your project exceeds 5 TB, please contact us for migration planning and support. 
+
 
 ![Urgent buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
 
@@ -53,9 +56,9 @@ Choose the method based on bucket's tag and size.
 
 | Bucket Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
-| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | [Link](sd-connect-conversion-tool-ui.md)|
+| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. This is a network-intensive operation. On a standard home internet connection, transferring 25 GB may take around 2 hours. | [Link](sd-connect-conversion-tool-ui.md)|
 | Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Roihu. | Link |
-| Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with compatible name.  Use th SD Connect Conversion CLI on Roihu and convert a few buckets at a time. | Link |
+| Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with compatible name.  Use th SD Connect Conversion CLI on Roihu and convert a few buckets at a time.This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion. Please contact us for migration planning and support.  | Link |
 | Urgent | More than 50 TB | Contact CSC support to plan the conversion. | Contact us |
 | By End of 2026 | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | Link |
 | By End of 2026 | More than 1 TB | Use the SD Connect Conversion CLI on Roihu.| Link |
