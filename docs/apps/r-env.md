@@ -22,12 +22,14 @@ catalog:
 -   RStudio Server is an integrated development environment (IDE) for R. More information on RStudio can be found on the [RStudio website](https://posit.co/products/open-source/rstudio).
 
 !!! info "News"
+    **18.8.2026** R version 4.6.1 is now available in `r-env` in Roihu and is set as the default version.  
     **25.5.2026** `r-env` documentation has been updated with instructions for R use on the Roihu supercomputer.  
     **29.4.2026** `r-env` documentation has been updated and re-organised. Template scripts for parallel R batch jobs can now be found 
     on a separate tutorial page [Parallel R batch job examples](../support/tutorials/parallel-r-examples.md).  
-    **17.2.2026** R version 4.5.2 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
     
 ??? info "Older news (click to show)"  
+    **17.2.2026** R version 4.5.2 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
+    
     **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
     
     **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
@@ -43,20 +45,9 @@ Current modules and versions supported on CSC's supercomputers:
 === "Roihu-CPU"
     | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
     |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
-    | r-env/452 (default)     | Apr 4 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.39.0          |
-
-=== "Puhti"
-    | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
-    |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
-    | r-env/452 (default)     | Jan 7 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.38.0          |
-    | r-env/451               | July 7 2025         | 3.21                 | 2025.05.1-513          | 2025.2.0       | 2.36.0          |
-    | r-env/442               | Feb 12 2025         | 3.20                 | 2024.12.0-467          | 2025.0.1       | 2.36.0          |
-    | r-env/440               | May 15 2024         | 3.19                 | 2024.04.0-735          | 2024.1.0       | 2.35.0          |    
-    | r-env/432               | Jan 15 2024         | 3.18                 | 2023.12.0-369          | 2024.0.0       | 2.34.1          | 
-    | r-env/430               | Jun 07 2023         | 3.17                 | 2023.06.0-421          | 2023.1.0       | 2.32.2          |    
-    | r-env/422               | Mar 06 2023         | 3.16                 | 2023.03.0-386          | 2023.1.0       | 2.32.1          | 
-    | r-env/421               | Jun 29 2022         | 3.15                 | 2022.02.3-492          | 2022.1.0       | 2.30.1          | 
-
+    | r-env/461 (default)     | Jul 23 2026         | 3.23                 | 2026.07.1-147          | 2026.1.0       | 2.39.0          |
+    | r-env/452               | Apr 4 2026          | 3.22                 | 2026.01.0-392          | 2025.3.0       | 2.39.0          |
+    
 === "Mahti"
     | Module name (R version) | CRAN package dating | Bioconductor version | RStudio Server version | oneMKL version | Cmdstan version |
     |:-----------------------:|:--------------------|:--------------------:|:----------------------:|:--------------:|:---------------:|
@@ -67,8 +58,8 @@ Current modules and versions supported on CSC's supercomputers:
 
 Other software and libraries:
 
-- Open MPI (with Mellanox OFED™ software) 4.1.9 (r-env/452 on Roihu-CPU), 4.1.7 (r-env/452 on Puhti and Mahti, r-env/451), 4.1.2 (from r-env/421 to r-env 442)
-- TensorFlow 2.20.0 (r-env/452), 2.19.0 (r-env/451), 2.18.0 (r-env/442), 2.9.1 (from r-env/421 to r-env/440)
+- Open MPI (with Mellanox OFED™ software) 4.1.9 (Roihu-CPU), 4.1.7 (r-env/452 on Mahti, r-env/451), 4.1.2 (r-env 442)
+- TensorFlow 2.20.0 (r-env/452), 2.19.0 (r-env/451), 2.18.0 (r-env/442)
 - cget 0.2.0
 
 
@@ -126,7 +117,7 @@ The`r-env` module can be used to remotely launch RStudio Server on your web brow
 
 **The recommended way to launch RStudio is to use the [supercomputer web interface](../computing/webinterface/index.md)**. See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
 
-It is also possible to launch RStudio Server via SSH tunnelling on Puhti and Mahti. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
+It is also possible to launch RStudio Server via SSH tunnelling on Mahti. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
 !!! note ""
     **RStudio is meant for interactive work that consumes a modest amount of computational resources**. Long, memory-intensive, or otherwise resource-heavy tasks are best carried out as [non-interactive batch jobs](#non-interactive-batch-jobs).
@@ -139,7 +130,7 @@ To use R interactively from the command line on a compute node, first start an [
     **Option 1.** In the [supercomputer web interfaces](../computing/webinterface/index.md), open a shell session with the *Compute node shell* tool. When selecting the resources, make sure to reserve local disk space for temporary files. 
     
     **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting/index.md#using-an-ssh-client), open a shell session using the [`sinteractive` command](../computing/running/interactive-usage.md). 
-    As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk (on Puhti and Mahti).
+    As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk (on Mahti).
 
     === "Roihu-CPU"
           Each core gives 1.875 GB of memory. To get more memory, reserve more cores (maximum 32 cores for 60 GB of memory).
@@ -148,14 +139,6 @@ To use R interactively from the command line on a compute node, first start an [
           ``` bash
           sinteractive --account <project> --cores 2
           ```
-    
-    === "Puhti"
-        Local disk space should always be reserved for temporary files with the option `--tmp` when using R interactively.
-        
-        ``` bash
-        sinteractive --account <project> --mem 4000 --tmp 8
-        ```
-              
     === "Mahti"
           On Mahti, each core gives 1.875 GB of memory.
           Local disk space should always be reserved for temporary files with the option `--tmp` when using R interactively.
@@ -164,17 +147,11 @@ To use R interactively from the command line on a compute node, first start an [
           sinteractive --account <project> --cores 2 --tmp 8
           ```
     
-          
-    It is possible to specify other options including the running time ([see the `sinteractive` documentation](../computing/running/interactive-usage.md)).
+    It is possible to specify other options including the running time ([see `sinteractive --help` or the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
 Once you have opened an interactive shell session, you can **launch a command line version of R** as follows (note that the command needs to be run on a compute node):
 
 === "Roihu-CPU"
-    ``` bash
-    module load r-env
-    start-r
-    ```
-=== "Puhti"
     ``` bash
     module load r-env
     start-r
@@ -184,7 +161,6 @@ Once you have opened an interactive shell session, you can **launch a command li
     module load r-env
     start-r
     ```
-
 
 ### Interactive use on a login node
 
@@ -197,17 +173,11 @@ To launch the R console on a login node, run the following commands:
     module load r-env
     R --no-save
     ```
-=== "Puhti"
-    ``` bash
-    module load r-env
-    apptainer_wrapper exec R --no-save
-    ```
 === "Mahti"
     ``` bash
     module load r-env
     apptainer_wrapper exec R --no-save
     ```
-
 
 ### Non-interactive batch jobs
 
@@ -220,13 +190,13 @@ of the [CSC Computing Environment course on batch jobs](https://csc-training.git
 #### Basic R batch job script
 
 Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. 
-Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions), [Puhti](../computing/running/batch-job-partitions.md#puhti-partitions) and [Mahti](../computing/running/batch-job-partitions.md#mahti-partitions).
+Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions) and [Mahti](../computing/running/batch-job-partitions.md#mahti-partitions).
 
 !!! info "More than one CPU core?"
     By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
     at the examples of [parallel R batch job scripts](../support/tutorials/parallel-r-examples.md).
 
-We define the batch job script to execute the R script (here `myscript.R`). On Puhti and Mahti, we use the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
+We define the batch job script to execute the R script (here `myscript.R`). On Mahti, we use the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
 
 === "Roihu-CPU"
     ``` bash
@@ -248,36 +218,6 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
     # Run the R script
     srun Rscript --no-save myscript.R
     ```
-
-=== "Puhti"
-    ``` bash
-    #!/bin/bash
-    #SBATCH --job-name=r_serial     # Job name
-    #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
-    #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
-    #SBATCH --error=errors_%j.txt   # File for storing errors (%j will be job id)
-    #SBATCH --partition=test        # Job queue (partition): in general use 'small'
-    #SBATCH --time=00:05:00         # Max. duration of the job (hh:mm:ss)
-    #SBATCH --cpus-per-task=1       # Number of cores
-    #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
-    #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
-    #SBATCH --mem-per-cpu=2000      # Memory to reserve per core
-
-    # Load the r-env module
-    module load r-env
-
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
-    ```
-
 === "Mahti"
     ``` bash
     #!/bin/bash
@@ -308,7 +248,7 @@ We define the batch job script to execute the R script (here `myscript.R`). On P
 
 In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cpus-per-task=1`), 2 GB of memory (`--mem-per-cpu=2000M`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
 
-The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/452`.
+The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/461`.
 
 !!! warning "Important: make sure your R batch job has enough disk space for temporary files"
     === "Roihu-CPU"
@@ -316,8 +256,9 @@ The command `module load r-env` loads the latest `r-env` version [available](#av
         This storage is accessed with the environment variable `$TMPDIR`.
         
         If your R jobs produce very many or very large temporary files exceeding 20 GiB, 
-        please direct temporary files to the `/scratch` directory of your project as below, or to the [fast local scratch storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently unavailable on Roihu). Note that full node jobs on the 
-        `medium` partition provide 600 GiB of temporary storage by default.
+        please use the `medium` partition and reserve a full node, which provides 600 GiB of temporary storage by default under `$TMPDIR`. 
+        Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently only
+        available for full-node jobs) or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`. 
         
         ```bash
         # Add this line to the batch job script to direct temporary files to the /scratch directory of your 
@@ -325,10 +266,6 @@ The command `module load r-env` loads the latest `r-env` version [available](#av
     
         echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
         ```
-    
-    === "Puhti"
-        Please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference), 
-        use instead [the fast local disk](#using-fast-local-storage). Otherwise temporary files will go to `/tmp`, which has limited space and fills up easily, harming your and other users' jobs.
     
     === "Mahti"
         Please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference), 
@@ -356,7 +293,7 @@ For further advice on parallel R jobs and how to run them efficiently on CSC's s
 
 ### R package installations
 
-`r-env` includes 1500+ pre-installed R packages. To check if a particular package is already installed, the easiest way is to try to load it:
+`r-env` includes 1700+ pre-installed R packages. To check if a particular package is already installed, the easiest way is to try to load it:
 
 ``` r
 library(packagename)
@@ -377,13 +314,13 @@ installed_packages <- library()$results[,1]
     
     To install a package **yourself for your project:**  
     
-    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. Note that the folder should be specific to the R version you are using. 
-    A different `r-env` and R version require a new installation.
-    On the command prompt:
+    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. The folder can be named as you wish, but note that the folder should be specific to the R version you are using. 
+    A different `r-env` and R version require a new installation. To create the folder in R:
     
-    ```r
-    cd /projappl/<project>
-    mkdir project_rpackages_<rversion>
+    ``` r
+    # Replace <project> with your project number (project_xxxxxxx) and <rversion> with the R version you are working with, for example `project_rpackages_461` for r-env/461.
+    
+    dir.create("/projappl/<project>/project_rpackages_<rversion>")
     ```
     
     You can then add the folder to your library trees in R by running this in R:
@@ -426,47 +363,12 @@ echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 
 For jobs that read and write large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
-An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) on Puhti and Mahti is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior example where it was set as `/scratch/<project>`.
+An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) on Mahti is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior example where it was set as `/scratch/<project>`.
 
 === "Roihu-CPU"
     On Roihu CPU partitions `small`, `interactive`, and `test`, **each user has 20 GiB of temporary local storage by default**. This storage is suitable for I/O-intensive tasks and accessed with
     the environment variable `$TMPDIR`. For larger amounts of storage for I/O intensive tasks, see the [instructions on fast local scratch storage on Roihu](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage).
 
-=== "Puhti"
-    ``` bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_serial_fastlocal
-    #SBATCH --account=<project>
-    #SBATCH --output=output_%j.txt
-    #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=test
-    #SBATCH --time=00:05:00
-    #SBATCH --ntasks=1
-    #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1000
-    #SBATCH --gres=nvme:10
-    
-    # Load the module
-    module load r-env
-    
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify temporary directory to the fast local storage
-    echo "TMPDIR=$TMPDIR" >> ~/.Renviron
-    
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
-    ```
-    Further to temporary file storage, data sets for analysis can be stored on a fast local drive in the location specified by the variable `LOCAL_SCRATCH`. To enable R to find your data, you will need to indicate this location in your R script. After launching R, you can print out the location using the following command:
-
-    ```         
-    Sys.getenv("LOCAL_SCRATCH")
-    ```
-    
 === "Mahti"
     ``` bash
     #!/bin/bash -l
@@ -508,37 +410,27 @@ The `r-env` module includes several packages that provide an interface to [Stan]
 **Using R with the CmdStan backend**
 
 The `r-env` module comes with a separate [CmdStan](https://github.com/stan-dev/cmdstan) installation that is specific to [each module version](#available).
-To use it, one must set the correct path to CmdStan using `cmdstanr`. For example, for `r-env/452` this would be done as follows:
+To use it, one must set the correct path to CmdStan using `cmdstanr`. This would be done as follows:
 
 === "Roihu-CPU"
     ```r
-    cmdstanr::set_cmdstan_path("/appl/soft/manual/aida/x86_64/r-env/452-stan/cmdstan-2.39.0")
-    ```
-    If a model fails to compile, try running `module purge` before starting R.
+    # In r-env/461 (default):
+    cmdstanr::set_cmdstan_path("/appl/soft/manual/aida/x86_64/r-env/461-stan/cmdstan-2.39.0")
     
-=== "Puhti"   
-    ```r
-    cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/452-stan/cmdstan-2.38.0")
+    # In r-env/452:
+    cmdstanr::set_cmdstan_path("/appl/soft/manual/aida/x86_64/r-env/452-stan/cmdstan-2.39.0")
     ```
 === "Mahti"    
     ```r
+    # In r-env/452 (default):
     cmdstanr::set_cmdstan_path("/appl/soft/math/r-env/452-stan/cmdstan-2.38.0")
     ```
 
-If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs on Puhti and Mahti, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
+If you are using CmdStan in an interactive session, the above command will work directly. For non-interactive batch jobs on Mahti, the path to CmdStan needs to be separately set in the batch job file. This is done by including the following commands further to your other batch job file contents: 
 
 === "Roihu-CPU"
     No Cmdstan-specific settings needed in the batch job script.
-    
-=== "Puhti"
-    ```r
-    # Set R version
-    export RVER=452
-    
-    # Launch R after binding CmdStan
-    SING_FLAGS="$SING_FLAGS -B /appl/soft/math/r-env/${RVER}-stan:/appl/soft/math/r-env/${RVER}-stan"
-    srun apptainer_wrapper exec Rscript --no-save script.R
-    ```
+
 === "Mahti"
     ```r
     # Set R version
@@ -552,8 +444,6 @@ If you are using CmdStan in an interactive session, the above command will work 
 Other details on using the CmdStan backend are package-specific. As one example, one could use it with the [`brms`](https://paul-buerkner.github.io/brms/) package:
 
 ```r
-# Note: this doesn't currently work in Roihu, but we are trying to find a solution. 
-
 library(brms)
 
 fit_serial <- brm(
@@ -581,19 +471,47 @@ In practice, usually the best way to speed up an R job on a supercomputer is to 
 
 The `r-env` module comes with the [`aws.s3`](https://cran.r-project.org/web/packages/aws.s3/) package for working with S3 storage, which makes it possible to use the Allas storage system directly from an R script. See this link for [a practical example involving raster data](https://github.com/csc-training/geocomputing/blob/master/R/allas/working_with_allas_from_R_S3.R).
 
-Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands in a terminal:
+Accessing Allas via the `r-env` module can be done as follows. First configure Allas by running these commands in a terminal. This only needs to be done once when 
+using the default S3 protocol in Roihu.
 
 ``` bash
 module load allas
-allas-conf --mode s3cmd
+allas-conf
 ```
 
-You can now access your bucket list as follows. Note that, for this to work, you will need to have the argument `region=''` added to the `bucketlist()` function:
+You can now access your bucket list as follows:
 
 ``` r
-Sys.setenv(AWS_S3_ENDPOINT="a3s.fi")
 library(aws.s3)
-bucketlist(region='')
+
+Sys.setenv(AWS_S3_ENDPOINT="a3s.fi")
+options("cloudyr.aws.default_region" = "")
+
+bucketlist()
+```
+
+Commands for loading data depend on the type of files you have. Here are examples for `.RData`, `.json`, and `.csv` files:
+
+``` r
+# .RData:
+s3load(
+  object = "path/to/file.RData",
+  bucket = "your-bucket-name"
+)
+
+# .json file:
+data <- s3read_using(
+  FUN = jsonlite::fromJSON,
+  object = "path/to/file.json",
+  bucket = "your-bucket-name"
+)
+
+# .csv file:
+data <- s3read_using(
+  FUN = read_csv,
+  object = "path/to/file.csv",
+  bucket = "your-bucket-name"
+)
 ```
 
 ### Problems with pdf rendering
