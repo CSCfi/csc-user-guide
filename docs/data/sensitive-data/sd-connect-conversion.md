@@ -17,7 +17,10 @@ SD Connect has been upgraded to a new version. To continue using your existing b
 
 ## Step 1. Review CSC project's buckets in SD Connect
 
-Review your project's buckets together with your (possible) team. We recommend [deleting](sd-connect-delete.md) unneeded files and buckets from SD Connect before starting conversion as this shortens conversion time. It also saves resources for other research projects. Team should agree together on the schedule of the conversion. 
+Plan the conversion in advanced with the other CSC project members. When possible, we recommend [deleting](sd-connect-delete.md) unnecessary files and buckets from SD Connect before starting, as this reduces conversion time and frees up resources for other research projects. All the project members should agree together on the schedule of the conversion and no new files should be uploaded during. 
+AS probably they CAN NOT SEE THE BUCKET CONTENT THEY MIGHT NOT BE ABLE TO REVIEW SO the first sentence could be: 
+
+
 
 ### Buckets with label Urgent
 
@@ -25,10 +28,16 @@ These buckets seem empty, files cannot be accessed and sharing permissions are n
 
 During the conversion, a new bucket is created and all files are copied to it. 
 
-After conversion these buckets will have new compatible names with a suffix "-conv" at the end of the bucket name. 
+After conversion, the buckets will be assigned new compatible names with the suffix "-conv". 
 
-Note !!!
-This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion. If your project exceeds 5 TB, please contact us for migration planning and support. 
+
+These buckets may appear empty, files cannot be accessed and sharing permissions are not visible.Prioritize converting these buckets to restore access to the data.
+
+During conversion, a new bucket with the suffix "-conv" is created and all files are copied to it.
+
+After conversion, once you have verified that the converted data is complete and accessible, delete the original bucket to free storage space. Keeping both buckets may consume significant CSC storage resources. Warning: Deleting a bucket permanently removes all data it contains. Verify the converted data before deleting the original bucket.
+
+Note: This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. If your project exceeds 5 TB, please contact us for planning and support before starting the conversion. Buckets labelled urgent are given priority in helpdesk support queues. 
 
 
 ![Urgent buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
@@ -36,9 +45,11 @@ This is a network-intensive operation. Larger projects require advance planning 
 
 ### Buckets with label By the end of 2026
 
-In these buckets sharing permissions are not be visible and bucket size is zero. Files can still be accessed and downloaded. Please convert these buckets or create a new bucket before uploading new files. 
+In these buckets, files can still be accessed and downloaded, however buckets sharing permissions are not be visible and bucket size is zero.  
 
-**Conversion must be done by the end of 2026.** During the conversion, a new bucket is created only when there are capital letters and underscores in the bucket name. The tool will restore the correct bucket size and  sharing permissions. 
+**Conversion must be done by the end of 2026.** During the conversion, a new bucket with the suffix "-conv" ? is created only when there are capital letters and underscores in the bucket name. In all other cases, the tool will restore the correct bucket size and sharing permissions. 
+
+Unlike the operation described above, this conversion is not network intensive.  
 
 ![By the end of 2026 buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png)
 
