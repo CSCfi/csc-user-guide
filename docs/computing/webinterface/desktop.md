@@ -1,5 +1,5 @@
 # Desktop
-The desktop enables using graphical applications on a Roihu, Puhti, or Mahti compute node.
+The desktop enables using graphical applications on a Roihu or Mahti compute node.
 
 ## Available applications
 
@@ -17,18 +17,6 @@ applications:
 * [SAGA GIS](../../apps/saga-gis.md)
 * [SNAP](../../apps/snap.md)
 
-### Puhti
-
-* [COMSOL](../../apps/comsol.md)
-* [CloudCompare](../../apps/cloudcompare.md)
-* [GRASS GIS](../../apps/grass.md)
-* [Grace](../../apps/grace.md)
-* [MATLAB](../../apps/matlab.md)
-* [Maestro](../../apps/maestro.md)
-* [QGIS](../../apps/qgis.md)
-* [SAGA GIS](../../apps/saga-gis.md)
-* [SNAP](../../apps/snap.md)
-* [VMD](../../apps/vmd.md)
 
 ### Mahti
 
@@ -37,7 +25,7 @@ applications:
 
 Only CPU rendering is supported in the graphical applications launched from the desktop.
 See [here how to enable GPU-accelerated visualization](accelerated-visualization.md)
-for selected applications on Roihu and Puhti.
+for selected applications on Roihu.
 
 
 ## Launching

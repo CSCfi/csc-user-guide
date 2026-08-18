@@ -112,8 +112,9 @@ and automatically provides a GPU slice when run from a Roihu-GPU login node.
 | `gpuinteractive`  | G               | 12 hours   | 1      | TBA       | TBA            | GPU (slice)                             |
 
 !!! info "What is a GPU slice?"
-    The Roihu `gpuinteractive` partition uses GH200 superchips divided into 48 smaller slices.
-    Each slice has one-seventh of the compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 superchip.
+    The Roihu gpuinteractive partition consists of two nodes, each containing four GH200 GPUs.
+    Each GPU can be divided into up to seven 1g.12gb MIG slices, providing up to 56 GPU slices across the partition.
+    Each slice provides one-seventh of the GPU compute capacity and one-eighth of the GPU memory capacity (12 GiB) of a full GH200 GPU.
 
 !!! note "GPU slices not yet fully configured"
     GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
@@ -127,7 +128,7 @@ Roihu also features the following partition for interactive use and data visuali
 |------------------|-----------------|------------|-------|-----------|-----------------------------------------|
 | `vizinteractive` | G               | 12 hours   | 1     | 2 per job | V                                       |
 
-Each node in the partition has 2 Nvidia L40 GPUs with 44 GiB of memory and two 32-core AMD EPYC 9335 CPUs.
+Each node in the partition has 2 Nvidia L40 GPUs with 48 GB of memory and two 32-core AMD Turin 9335 CPUs.
 Each reserved GPU grants access to up to 32 CPU cores and 183 GiB of CPU memory.
 
 ### Local storage on Roihu nodes
@@ -136,15 +137,38 @@ Local storage on Roihu M, L, and GPU nodes is meant for storing temporary files 
 
 High-performance local storage is available on Roihu XL and V nodes, which is ideal for I/O-intensive jobs.
 
+There are two kinds of node-local storage: **automatic temporary storage**
+(`$TMPDIR`), available in every job without a reservation and free of charge,
+and **reservable local scratch** (`$LOCAL_SCRATCH`), which is only available
+on the XL and V nodes, is reserved through Slurm with the `--gres=nvme`
+option, and consumes billing units.
+
 The amount of local storage available to a single user depends on the [partition](#roihu-partitions) used:
 
-| Allocation type    | Quota per user | Read / Write speeds |
-|:-------------------|---------------:|---------------------|
-| R (shared nodes)   | 20 GiB         | 5000 / 1400 MB/s    |
-| N (full nodes)     | 600 GiB        | 5000 / 1400 MB/s    |
-| G (GPU nodes)      | 150 GiB        | 5000 / 1400 MB/s    |
-| Hugemem (XL) nodes | 13 TiB         | 6700 / 4000 MB/s    |
-| VIZ nodes          | 6.5 TiB        | 6700 / 4000 MB/s    |
+=== "Automatic (`$TMPDIR`)"
+
+    | Allocation type         | Available per user | Read / Write speeds |
+    |:------------------------|-------------------:|---------------------|
+    | R (shared nodes)        | 20 GiB             | 5000 / 1400 MB/s    |
+    | N (full nodes)          | 600 GiB            | 5000 / 1400 MB/s    |
+    | G (GPU nodes)           | 150 GiB            | 5000 / 1400 MB/s    |
+    | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
+
+    Reservable local scratch has not yet been implemented on visualization nodes (V).
+    Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
+
+    Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
+
+=== "Reservable (`$LOCAL_SCRATCH`)"
+
+    | Node type               | Maximum reservable | Read / Write speeds |
+    |:------------------------|-------------------:|---------------------|
+    | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
+
+    Reserving local scratch on the visualization nodes is not yet
+    implemented; use `$TMPDIR` on these nodes until this feature is added.
 
 Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
 
