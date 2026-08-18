@@ -26,7 +26,11 @@ ___
 
     1. Download the SD Connect Conversion Tool.
 
-    2. Open your Downloads folder and drag the application into the Applications folder.
+    3. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. Then select **Applications**.
+    
+    If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this Settings window select **Sidebar** tab and select **Home folder** to make it visible in the sidebar.
+
+    4. Launch the downloaded file. A new window named **sd_connect_s3_migrate_gui** will open. Drag and drop **sd_connect_s3_migrate_gui** file (black icon) to Applications folder.
 
     3. On your desktop, find the icon named **SD_Connect_s3_migrate_gui**. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
 
@@ -52,9 +56,8 @@ ___
         logout
         ```
 
-    9. Log back in to your Mac.
 
-    10. Open the Applications folder and double-click **SD Connect Conversion Tool** to start the application.
+    10. Ddouble-click **SD Connect Conversion Tool** to start the application.
 
 
 ??? info "Installation guide for Linux"
