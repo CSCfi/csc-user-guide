@@ -23,7 +23,7 @@ Review your project's buckets together with your (possible) team. We recommend [
 
 These buckets seem empty, files cannot be accessed and sharing permissions are not visible. **Prioritize converting these buckets** to regain access to the files.
 
-During the conversion, a new bucket is created and all files are copied to it. Make sure your CSC project has enough free quota to temporarily store both copies of the data.
+During the conversion, a new bucket is created and all files are copied to it. 
 
 After conversion these buckets will have new compatible names with a suffix "-conv" at the end of the bucket name. 
 
