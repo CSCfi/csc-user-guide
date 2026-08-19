@@ -98,7 +98,7 @@ Mahti or LUMI, but first check with the rule-of-thumb calculation
 mentioned above if there's even a chance of that! If not, read on for
 PEFT and FSDP approaches.
 
-## Reinforcement learning with LLMs
+### Reinforcement learning with LLMs
 
 Example scripts for reinforcement learning with LLMs are available in
 the [reinforcement learning fine-tuning repository][RL-EXAMPLES]. The
