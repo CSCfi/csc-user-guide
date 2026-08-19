@@ -168,7 +168,7 @@ If your data in Allas is in Swift format, for objects larger than 5 GB, S3-based
 
 - Use `a-get` or `rclone` with the option `--ignore-checksum`
 
-- Alternatively, use the Swift protocol on Roihu by initializing with `allas-conf --swift` and then use `a-get` with the option `--swift` or `rclone` with the remote name `allas:`.
+- Alternatively, use the Swift protocol on Roihu by initializing with `allas-conf --swift` and then use `a-get` with the option `--swift` or `rclone` with the remote name `allas:`
 
 ## Roihu hardware and software
 
