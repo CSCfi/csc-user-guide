@@ -18,12 +18,12 @@ Bio-apps provides access to a collection of bioinformatics software modules on R
 The module adds the bioinformatics application module tree to your `MODULEPATH`. After loading
 `bio-apps`, you can use the normal module commands to find and load individual applications.
 
-The `bio-apps` module does not load any specific bioinformatics programs into the system.
+The `bio-apps` module does **not** load any specific bioinformatics programs into the system, it just makes them available for loading.
 
 !!! warning "Bio-apps environment is not yet fully tested"
     Some software in the bio-apps environment are not yet fully tested, and might not
-    have corresponding docs pages yet. Use these apps with caution, and reach out to
-    servicedesk@csc.fi for any issues that you face.
+    have corresponding pages in Docs CSC yet. Use these apps with caution, and reach out to
+    [CSC Service Desk](../support/contact.md) for any issues that you face.
 
 ## Available
 
@@ -199,10 +199,10 @@ using or redistributing it.
 
 See above. See each application page for citation guidelines.
 
-# Support
+## Support
 
-Application-specific usage instructions may be available on the corresponding
-page in the CSC application catalog.
+Application-specific usage instructions will be made available on the corresponding
+page in the [CSC application catalog](by_discipline.md#biosciences).
 
 For problems related to the Bio-apps module tree or an included application,
-contact CSC Service Desk.
+[contact CSC Service Desk](../support/contact.md).
