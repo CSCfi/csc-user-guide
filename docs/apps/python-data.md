@@ -487,7 +487,7 @@ data analytics and machine learning, for example:
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  padding: 2px 8px;
+  padding: 2px 8px 2px 0;
 }
 .pkg-table li .v {
   color: var(--md-default-fg-color--light);
