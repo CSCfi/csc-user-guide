@@ -85,17 +85,17 @@ information about finding, loading and using individual software modules in bio-
 
 The collection contains applications for, among other things:
 
-- sequence quality control and preprocessing
-- sequence alignment and read mapping
-- genome and transcriptome assembly
-- SAM, BAM, BED and VCF processing
-- variant calling
-- genome annotation and gene prediction
-- metagenomics and taxonomic classification
-- phylogenetics and population genetics
-- multiple sequence alignment
-- workflow management
-- access to biological sequence archives
+* sequence quality control and preprocessing
+* sequence alignment and read mapping
+* genome and transcriptome assembly
+* SAM, BAM, BED and VCF processing
+* variant calling
+* genome annotation and gene prediction
+* metagenomics and taxonomic classification
+* phylogenetics and population genetics
+* multiple sequence alignment
+* workflow management
+* access to biological sequence archives
 
 The following modules are included in `bio-apps/v202603`:
 

@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - puhti
+    - Puhti
 ---
 # ArcGIS Python API
 
