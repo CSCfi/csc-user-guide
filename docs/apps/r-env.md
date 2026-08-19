@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Mathematics and Statistics
   available_on:
-    - Puhti
     - Mahti
     - Roihu
 ---
