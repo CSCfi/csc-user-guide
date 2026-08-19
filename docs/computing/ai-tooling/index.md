@@ -1,10 +1,10 @@
-# AI Tooling
+# AI Tools
 
 some preamble
 
 ## Agent environment
 
-A containerized coding agent is provided on Roihu. Containerization gives more control over what the agent can access. which makes its use more secure. Currently the environment includes the open-source terminal-based [OpenCode agent](https://opencode.ai/).
+A containerized coding agent is provided on Roihu. Containerization gives more control over what the agent can access, which makes its use more secure. Currently the environment includes the open-source terminal-based [OpenCode agent](https://opencode.ai/), [Claude Code](https://claude.com/product/claude-code), and [Codex](https://openai.com/codex/).
 
 !!! warning "Responsibility"
     The user is **always** responsible for the actions of the agent, and every command run by your agent is executed under your personal account.
@@ -46,33 +46,45 @@ If you want to use a different model provider, change tool permissions, or add M
 
 ## MCP servers
 
-The MCP servers in the default enviroment are one to run Slurm commands, and CSC-docs for providing the agent access to the CSC User Guide.
+Model Context Protocol (MCP) is a standardized way for AI agents to access a large variety of tools. It is hosted by the Linux Foundation. See the [MCP documentation](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) for a general introduction.
+
+The MCP servers in the default enviroment are one to run Slurm commands, and CSC-docs for providing the agent access to the CSC User Guide. You are free to add more.
 
 ### Slurm
 
 The Slurm MCP provides a controlled way for the agent to access Slurm commands, as the agent has no access to Slurm commands without the MCP. Results are cached, so the agent cannot stressing the Slurm database by repeated and redundant calls.
 
-MCP provides the following tools - listed with which underlying command it runs:
+The MCP provides the following tools, listed with the underlying command each one runs. By default the agent can call the read-only tools without asking, while `launchJobs` and `cancelJobs` require your permission each time.
 
-- MyJobs - "squeue --me"
-- JobHistory - "sacct"
-- Sinfo - "sinfo"
-- BatchScript - "scontrol write batch_script JOBID -" or "sacct -B -j JOBID"
-- slurm-config - "scontrol show config"
-- reservations - "scontrol show reservations"
-- launchJobs - "sbatch"
-- cancelJobs - "scancel"
-
-The default configuration allows the agent to call all except launchJobs and cancelJobs without authorization, the latter two require permission from the user each time.
+| Tool | Command | Needs permission |
+| --- | --- | --- |
+| my_jobs | `squeue --me` | No |
+| job_hstory | `sacct` | No |
+| sinfo | `sinfo` | No |
+| batch_script | `scontrol write batch_script` or `sacct -B` | No |
+| slurm_config | `scontrol show config` | No |
+| reservations | `scontrol show reservations` | No |
+| launch_job | `sbatch` | Yes |
+| cancel_job | `scancel` | Yes |
 
 ### CSC-docs
 
-The agents come preconfigured with the CSC-docs MCP server. Read more about the MCP in the [Docs MCP](docs-mcp.md) page.
+The agents come preconfigured with the CSC-docs MCP server. You can read more about it in the [Docs MCP](docs-mcp.md) page. You can also add the CSC-docs MCP to any local client you are using.
 
 ## Skills
 
+Agent skills are an token-efficient way to give agents more context. They are markdown files, which the agent reads only when necessary. They can provide the agent with workflows to follow, additional context, or ready scripts for the agent to run. You can read more about agent skills in the [Agent Skills Documentation](https://agentskills.io/home). 
+
+The Roihu agent environment contains three skills by default: Job efficiency, Software environments, and Slurm scripts. You can read more about them below.
+
 ### Job efficiency
+
+Enables the agent to get job efficiency metrics. It gives the agent a script to run to fetch the metrics for a given job ID. Instructs the agent to figure out what job is meant if not explicitly stated by the user.
 
 ### Software environments
 
-### Slurm scripts
+Helps with installing or using software on Roihu. It guides the agent on how to check if the software exists. If the software isn't preinstalled, the skill gives the agent the different methods of installation on Roihu, and tells it to the correct documentation using the CSC-docs MCP.
+
+### Batch scripts
+
+Helps with batch/Slurm script creation, debugging, and optimization. Guides the agent in what things to ask from the user, choosing a partition, and what to do in certain special cases (eg. I/O intensive tasks, MPI based jobs).
