@@ -4,7 +4,9 @@ some preamble
 
 ## Agent environment
 
-A containerized coding agent is provided on Roihu. Containerization gives more control over what the agent can access, which makes its use more secure. Currently the environment includes the open-source terminal-based [OpenCode agent](https://opencode.ai/), [Claude Code](https://claude.com/product/claude-code), and [Codex](https://openai.com/codex/).
+A containerized coding agent is provided on Roihu. Containerization gives more control over what the agent can access, which makes its use more secure. Currently the environment includes the open-source terminal-based [OpenCode agent](https://opencode.ai/), [Claude Code](https://claude.com/product/claude-code), and [Codex](https://openai.com/codex/). 
+
+All users must follow the [CSC AI Agent Policy](WIP). In addition, you must understand the following:
 
 !!! warning "Responsibility"
     The user is **always** responsible for the actions of the agent, and every command run by your agent is executed under your personal account.
@@ -12,7 +14,7 @@ A containerized coding agent is provided on Roihu. Containerization gives more c
 !!! warning "Data privacy"
     By default, OpenCode is configured with the model provider OpenCode Zen, which is hosted by [Anomaly Innovations](https://anoma.ly/), who maintain OpenCode. They provide a certain amount of use for free, but all of the data you enter or is read by the agent will be sent to Anomaly Innovations.
 
-- **Security**: The agent has access to the directory you launch it from, all of its subdirectories, and certain subdirectories in your $HOME. $HOME itself is not accessible by default.
+- **Security**: The agent has access to the directory you launch it from, all of its subdirectories, and certain hidden subdirectories in your $HOME. $HOME itself is not accessible by default.
 - **Tool use**: By default, the agent has permission to use many read-only tools without permission, but asks for permission for any write-operations.
 - **Experimental status**: The agent environment is still experimental and rapid changes are possible.
 
@@ -34,7 +36,7 @@ export AGENT_BIND_PATHS=/path/to/dir1,/path/to/dir2
 
 ### Configuring the Agent
 
-We recommend you use models hosted on [Aitta, a CSC service](https://aitta.csc.fi). Currently users with a Lumi project are able to use Aitta, but we are working on getting access for everyone with a Roihu project.
+We recommend you use models hosted on [Aitta](https://aitta.csc.fi), a CSC service. Unfortunately, currently only users with a Lumi project are able to use Aitta. We are working on getting access for everyone with a Roihu project.
 
 Aitta is included in the default configuration. You just need to get your API key from [Aitta](https://aitta.csc.fi) from the 'Generate token' button, and save it to the $AITTA_KEY env variable before you start the agent.
 ```bash
@@ -48,7 +50,7 @@ If you want to use a different model provider, change tool permissions, or add M
 
 Model Context Protocol (MCP) is a standardized way for AI agents to access a large variety of tools. It is hosted by the Linux Foundation. See the [MCP documentation](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) for a general introduction.
 
-The MCP servers in the default enviroment are one to run Slurm commands, and CSC-docs for providing the agent access to the CSC User Guide. You are free to add more.
+The MCP servers in the default environment are one to run Slurm commands, and CSC-docs for providing the agent access to the CSC User Guide. You are free to add more.
 
 ### Slurm
 
@@ -59,7 +61,7 @@ The MCP provides the following tools, listed with the underlying command each on
 | Tool | Command | Needs permission |
 | --- | --- | --- |
 | my_jobs | `squeue --me` | No |
-| job_hstory | `sacct` | No |
+| job_history | `sacct` | No |
 | sinfo | `sinfo` | No |
 | batch_script | `scontrol write batch_script` or `sacct -B` | No |
 | slurm_config | `scontrol show config` | No |
