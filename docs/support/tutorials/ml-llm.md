@@ -111,7 +111,7 @@ The examples demonstrate reinforcement learning with verifiable rewards
 (RLVR) using the GRPO algorithm. They fine-tune [Qwen3-0.6B][QWEN3-0P6B]
 and [Qwen3-8B][QWEN3-8B] models on the [GSM8K mathematics dataset][GSM8K].
 The repository includes environment setup and Slurm scripts for running
-the examples on LUMI-G nodes.
+the examples on one and two LUMI-G nodes.
 
 
 ### Using PEFT and LoRA
