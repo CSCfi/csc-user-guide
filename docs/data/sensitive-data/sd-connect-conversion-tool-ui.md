@@ -26,17 +26,15 @@ ___
 
     1. Download the SD Connect Conversion Tool.
 
-    3. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. Then select **Applications**.
+    2. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. Then select **Applications**.
     
     If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this Settings window select **Sidebar** tab and select **Home folder** to make it visible in the sidebar.
 
-    4. Launch the downloaded file. A new window named **sd_connect_s3_migrate_gui** will open. Drag and drop **sd_connect_s3_migrate_gui** file (black icon) to Applications folder.
+    3. Launch the downloaded file. A new window named **sd_connect_s3_migrate_gui** will open. Drag and drop **sd_connect_s3_migrate_gui** file (black icon) to Applications folder.
 
-    3. On your desktop, find the icon named **SD_Connect_s3_migrate_gui**. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
+    4. On your desktop, find the icon named **SD_Connect_s3_migrate_gui**. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
 
-    4. Press **Command (⌘) + Space** to open Spotlight Search.
-
-    5. Type **Terminal** and press **Enter**.
+    4. In Finder window, go back one step. Then right-click Applications folder. Select New Terminal at Folder.
 
     6. A Terminal window will open. Copy and paste command below into the terminal and press **Enter**:
 
