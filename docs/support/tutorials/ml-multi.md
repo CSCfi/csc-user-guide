@@ -509,7 +509,8 @@ trainer = pl.Trainer(devices=args.gpus,
 ```
 
 You need to give appropriate values for `devices` (number of GPUs *per
-node*) and `num_nodes`. We suggest giving these are command line arguments:
+node*) and `num_nodes`. We suggest giving these as command line
+arguments:
 
 ```python
 def main():
@@ -685,6 +686,10 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
     srun singularity run $SIF \
       python3 myprog.py --gpus=8 --nodes=2 <options>
     ```
+
+Fully working examples of using PyTorch lightning with one or two full
+nodes can be found in our [`pytorch-ddp-examples`
+repository](https://github.com/CSCfi/pytorch-ddp-examples).
 
 
 ### Accelerate
@@ -983,9 +988,13 @@ tpu_use_sudo: false
 use_cpu: false
 ```
 
-See our [GitHub repository for more
-examples](https://github.com/CSCfi/llm-fine-tuning-examples).
+Fully working examples of using PyTorch lightning with one or two full
+nodes can be found in our [`pytorch-ddp-examples`
+repository](https://github.com/CSCfi/pytorch-ddp-examples).
 
+More examples, for doing LLM finetuning using accelerate can be found
+in the [`llm-fine-tuning-examples`
+repository](https://github.com/CSCfi/llm-fine-tuning-examples).
 
 
 ### DeepSpeed
