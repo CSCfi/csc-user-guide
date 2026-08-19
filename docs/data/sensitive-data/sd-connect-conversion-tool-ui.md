@@ -38,26 +38,26 @@ ___
 
     5. Type **Terminal** and press **Enter**.
 
-    6. A Terminal window will open. Type the following exactly as shown (or copy and paste it into the terminal) and press **Enter**:
+    6. A Terminal window will open. Copy and paste command below into the terminal and press **Enter**:
 
         ```bash 
         cd /Applications
         ```
 
-    7. Type the following exactly as shown and press **Enter**:
+    7. Copy and paste command below into the terminal and press **Enter**:
 
         ```bash 
         xattr -cr sd_connect_s3_migrate_gui.app
         ```
 
-    8. Type the following and press **Enter**:
+    8. Copy and paste command below into the terminal and press **Enter**:
 
         ```bash 
         logout
         ```
 
 
-    10. Ddouble-click **SD Connect Conversion Tool** to start the application.
+    10. Double-click **SD Connect Conversion Tool** icon to start the application.
 
 
 ??? info "Installation guide for Linux"
