@@ -78,7 +78,7 @@ When you no longer need the bioinformatics module tree, unload `bio-apps`:
 module unload bio-apps
 ```
 
-See the sepcific application documentation for more
+See the specific application documentation for more
 information about finding, loading and using individual software modules in bio-apps.
 
 ## Included applications
