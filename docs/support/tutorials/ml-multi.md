@@ -7,10 +7,11 @@ of our [Machine learning guide](ml-guide.md).
 First we will explain the general principles, such as single- and
 multi-node jobs and mechanisms for launching multiple processes. After
 that we discuss some common software frameworks, and how to use them
-on CSC's supercomputers: [PyTorch DDP](#pytorch-ddp),
-[DeepSpeed](#deepspeed) and briefly [Horovod](#horovod) and
-[TensorFlow's
-`tf.distribute.Strategy`](#tensorflows-tfdistributestrategy).
+on CSC's supercomputers: [PyTorch DDP](#pytorch-ddp), [PyTorch
+Lightning with DDP](#pytorch-lightning-with-ddp),
+[Accelerate](#accelerate), [DeepSpeed](#deepspeed) and [TensorFlow's
+`tf.distribute.Strategy`](#tensorflows-tfdistributestrategy) is
+briefly mentioned.
 
 ## Multiple GPUs and multiple nodes
 
@@ -201,16 +202,16 @@ to launch **multiple MPI tasks**.
 ## Available frameworks
 
 There are many frameworks for doing multi-GPU and multi-node machine
-learning. Some frameworks are tightly coupled to a specific framework,
-such as PyTorch `DistributedDataParallel` (DDP), DeepSpeed or
-TensorFlow's `tf.distribute.Strategy`, while others are more general,
-for example Horovod.
+learning, typically tightly coupled with the deep learning framework
+you are using. Here we cover almost exclusively PyTorch-based
+solutions.
 
 Independent of which framework you pick, pay attention to the approach
-used to launch jobs. For example with Horovod it is common to use MPI,
-while DeepSpeed can be configured to use MPI or its own parallel
-launcher. In some frameworks, the launching mechanism may also vary
-depending on if you are running a single- or multi-node job.
+used to launch jobs. In some cases, like PyTorch DDP, there is a
+special launcher that launches individual jobs, while others, like
+DeepSpeed, can use MPI for this. In some frameworks, like PyTorch
+Lightning, the launching mechanism may also vary depending on if you
+are running a single- or multi-node job.
 
 All frameworks should use
 [NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
@@ -988,11 +989,11 @@ tpu_use_sudo: false
 use_cpu: false
 ```
 
-Fully working examples of using PyTorch lightning with one or two full
-nodes can be found in our [`pytorch-ddp-examples`
+Fully working examples of using Accelerate with one or two full nodes
+can be found in our [`pytorch-ddp-examples`
 repository](https://github.com/CSCfi/pytorch-ddp-examples).
 
-More examples, for doing LLM finetuning using accelerate can be found
+More examples, for doing LLM fine-tuning using accelerate can be found
 in the [`llm-fine-tuning-examples`
 repository](https://github.com/CSCfi/llm-fine-tuning-examples).
 
@@ -1250,25 +1251,6 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
   shows the same for two full nodes, with a total of 8 GPUs
 - [ds_config.json](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/ds_config.json)
   shows the DeepSpeed configuration file used for this example
-
-
-### Horovod
-
-[Horovod](https://horovod.ai/) is a general library that supports
-PyTorch and TensorFlow among other frameworks. With Horovod you should
-use MPI for launching jobs.  Horovod can be used both with single- and
-multi-node jobs.
-
-In CSC's supercomputers Horovod is supported only for some specific
-versions of [TensorFlow](../../apps/tensorflow.md) and
-[PyTorch](../../apps/pytorch.md).  Please check the application pages
-for further information. To take Horovod into use, just load the
-appropriate module, and modify your program according to the
-instructions in [Horovod's
-documentation](https://horovod.readthedocs.io/), for example:
-
-* [Horovod with PyTorch](https://horovod.readthedocs.io/en/latest/pytorch.html)
-* [Horovod with TensorFlow](https://horovod.readthedocs.io/en/stable/tensorflow.html) and [Keras](https://horovod.readthedocs.io/en/stable/keras.html)
 
 
 ### TensorFlow's `tf.distribute.Strategy`
