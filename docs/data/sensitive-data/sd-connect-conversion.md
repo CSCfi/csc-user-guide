@@ -24,13 +24,6 @@ Plan the conversion in advanced with the other CSC project members. All the proj
 
 ### Buckets with label Urgent
 
-These buckets seem empty, files cannot be accessed and sharing permissions are not visible. **Prioritize converting these buckets** to regain access to the files.
-
-During the conversion, a new bucket is created and all files are copied to it. 
-
-After conversion, the buckets will be assigned new compatible names with the suffix "-conv". 
-
-
 These buckets appear empty, files cannot be accessed and sharing permissions are not visible. Prioritize converting these buckets to restore access to the data.
 
 During conversion, a new bucket with the suffix "-conv" is created and all files are copied to it.
