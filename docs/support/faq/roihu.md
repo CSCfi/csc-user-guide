@@ -161,11 +161,14 @@ where you can apply for a special disk area for storing data that multiple (or a
 
 ### 12. I uploaded data from Puhti/Mahti to Allas. Now I'm downloading it to Roihu and get an error saying `corrupted on transfer: md5 hashes differ`.
 
-Uploads from Puhti/Mahti to Allas use by default the Swift protocol, while on Roihu the S3 protocol is the default. If your data in Allas is in Swift format,
-for objects larger than 5 GB, S3-based access in Roihu fails because of different ways these protocols use checksums. Solutions:
+Uploads from Puhti/Mahti to Allas use by default the Swift protocol, while on Roihu the S3 protocol is the default.
+In case of rclone, this means that the default rclone remote in Roihu is now `s3allas:`, not `allas:` that is used for Swift based connections.
 
-- Use `a-get` or `rclone` with the option `--ignore-checksum`
-- Alternatively, use Swift protocol on Roihu by initializing with `allas-conf --swift`
+If your data in Allas is in Swift format, for objects larger than 5 GB, S3-based access in Roihu fails because of different ways these protocols use checksums. Solutions:
+
+- Use a-get or rclone with the option `--ignore-checksum`
+
+- Alternatively, use Swift protocol on Roihu by initializing with `allas-conf --swift` and then use a-get with option `--swift` or rclone with remote name `allas:`
 
 ## Roihu hardware and software
 
