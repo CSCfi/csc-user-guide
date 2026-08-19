@@ -1,5 +1,9 @@
 # Applications
 
+## R 4.6.1 in r-env, 18.8.2026
+
+R version 4.6.1 is now available in [r-env](../../apps/r-env.md) in Roihu and is set as the default version.
+
 ## CSC chemistry software stack on LUMI updated, 23.3.2026
 
 The chemistry software stack maintained by CSC on LUMI

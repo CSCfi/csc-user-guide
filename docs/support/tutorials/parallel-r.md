@@ -1,6 +1,6 @@
 # Introduction to parallel jobs using R
 
-This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's supercomputers (Puhti, Mahti and Roihu). Links are also provided for further reading.
+This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's supercomputers (Roihu and Mahti). Links are also provided for further reading.
  For example batch job scripts, please see the [templates for parallel R batch jobs](../tutorials/parallel-r-examples.md).
 
 The term *parallelisation* is a broad one and there are many ways to parallelise an analysis. For example, one could:
@@ -96,8 +96,6 @@ When reading about parallel R and parallel batch jobs, you are likely to come ac
 
 ## Further resources
 
-- [Lecture slides on `r-env`](https://csc-training.github.io/puhti-r-workshop/slides/html/05_r-env.html#/r-env-singularity-on-puhti)
-    - In particular, see: [R jobs come in many guises (and from there onward)](https://csc-training.github.io/puhti-r-workshop/slides/html/05_r-env.html#/r-jobs-come-in-many-guises)
 - [Teaching materials for Using CSC HPC Environment Efficiently](https://csc-training.github.io/csc-env-eff/)
 - [Teaching materials for High Performance R](https://github.com/csc-training/high-performance-r)
 - [CRAN Task View on high-performance computing](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
