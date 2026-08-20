@@ -3,181 +3,140 @@ tags:
   - Free
 catalog:
   name: BRAKER
-  description: Automatic genome annotator for eucaryots
+  description: Automatic genome annotation pipeline for eukaryotes
   license_type: Free
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # BRAKER
 
+BRAKER is a pipeline for eukaryotic genome annotation. It combines GeneMark and
+AUGUSTUS, optionally guided by RNA-Seq and/or protein evidence, to generate full
+gene-structure annotations for novel genomes.
 
-
-BRAKER is a tool for eukaryotic genome annotation.
-It uses genomic and RNA-Seq data to automatically generate full gene structure annotations in novel genome.
-BRAKER is based on GeneMark-ET R2 and AUGUSTUS pipelines.
-
+On Roihu, BRAKER is provided as **BRAKER4** (`braker4`, version 0.5.0-beta): a
+complete re-implementation of the pipeline as a [Snakemake](https://snakemake.github.io/)
+workflow that runs every underlying tool (GeneMark, AUGUSTUS, DIAMOND,
+BUSCO/compleasm, RepeatMasker, …) inside Apptainer/Singularity **containers**.
+Because the tools ship in the containers, **you do not have to license or install
+GeneMark or ProtHint yourself.**
 
 ## License
 
-Free to use and open source under [Artistic License] (https://opensource.org/licenses/artistic-license-1.0)
-
+BRAKER is free and open source (MIT). Tools bundled in the BRAKER4 containers
+carry their own licenses, including GeneMark, which is free for academic use.
 
 ## Available
 
+* Roihu: `braker4` 0.5.0-beta, via the `bio-apps/v202603` module.
 
+## How it works on Roihu
 
-Puhti: 2.1.6, 3.0.7, 3.0.8
+BRAKER4 runs as a Snakemake workflow that submits each step of the pipeline as its
+own Slurm job and executes it inside a container. You control the workflow with the
+`braker4` command; it pulls the container images on first use and orchestrates the
+whole annotation.
 
+* All bioinformatics tools run **inside containers** — nothing to compile, and no
+  GeneMark/ProtHint license step.
+* The `braker4` module provides Snakemake, the Slurm executor plugin, pandas, the
+  BRAKER4 workflow, and a ready-made **Roihu Snakemake profile** at
+  `$BRAKER4_HOME/profiles/roihu`.
+* You run everything from a directory on **`/scratch`** (the workflow writes there;
+  the module installation directory is read-only to jobs).
+* Container images are downloaded once into a shared `/scratch` cache and reused.
 
-## Setting up BRAKER
+## Before your first run
 
-BRAKER needs some additional setting up steps before using it for the first time.
+You need:
 
-CSC BRAKER installations do not contain GeneMark or ProtHint software packages. While they are free
-for individual use, their licensing terms do not allow CSC to make a public installation of them.
-Each user needs to license and install them for their own use.
+1. A **working directory on `/scratch`** for inputs, outputs, and the image cache.
+2. A **`config.ini`** and a **`samples.csv`** in that working directory.
 
+### config.ini
 
-### GeneMark
-
-Go to [GeneMark download page](http://topaz.gatech.edu/GeneMark/license_download.cgi), and fill in the form. The version you need is "GeneMark-ES/ET/EP+" for "LINUX 64 kernel 3.10 - 5". Download the program file and the license key. To uncompress the packages:
-
-```bash
-tar xf gmes_linux_64_4.tar.gz
-gunzip gm_key_64.gz
-```
-
-Copy the uncompressed key file to your home directory with name `.gm_key`.
-
-```bash
-cp gm_key_64 $HOME/.gm_key
-```
-
-To tell BRAKER where to find GeneMark, use command line option `--GENEMARK_PATH` to point to install location.
-
-```txt
---GENEMARK_PATH=/path/to/gmes_linux_64_4
-```
-
-BRAKER module contains all the necessary dependencies.
-
-
-### ProtHint
-
-Download and uncompress ProtHint.
+Copy the Roihu template and edit it:
 
 ```bash
-wget https://github.com/gatech-genemark/ProtHint/releases/download/v2.6.0/ProtHint-2.6.0.tar.gz
-tar xf ProtHint-2.6.0.tar.gz
+module load bio-apps/v202603 braker4
+cp $BRAKER4_HOME/config.ini.roihu config.ini
 ```
 
-Use command line option `--PROTHINT_PATH`to point to install location.
+The template redirects the pipeline's download directories to `/scratch`
+(required — their defaults point inside the read-only installation directory). At
+minimum set, under `[paths]`:
 
-```text
---PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin
+```ini
+[paths]
+busco_download_path = /scratch/project_2012345/braker4_busco_downloads
 ```
 
-BRAKER module contains all the necessary dependencies.
+`[SLURM_ARGS]` controls the per-rule Slurm resources (`cpus_per_task`,
+`mem_of_node`, `max_runtime`); `[containers]` lists the container images
+(left at their defaults, they are pulled automatically).
 
+### samples.csv
 
-### AUGUSTUS
+One row per genome. The header (14 columns) and a minimal ab-initio (ES-mode)
+example:
 
-AUGUSTUS is included in the installation, but you will need your own copy of AUGUSTUS config directory, as it needs to be writable by the user. You can create this by running command:
+```csv
+sample_name,genome,genome_masked,protein_fasta,bam_files,fastq_r1,fastq_r2,sra_ids,varus_genus,varus_species,isoseq_bam,isoseq_fastq,busco_lineage,reference_gtf
+my_species,/scratch/project_2012345/genome.fa,/scratch/project_2012345/genome_masked.fa,,,,,,,,,,eukaryota_odb12,
+```
+
+`busco_lineage` is required. Add evidence by filling the relevant columns, e.g.
+`protein_fasta` for protein evidence, `bam_files` (colon-separated) for RNA-Seq
+alignments, or `isoseq_bam` for IsoSeq — BRAKER4 selects ES/EP/ET/ETP mode
+automatically from the evidence you provide.
+
+## Running BRAKER4
+
+Run `braker4` pipeline from your `/scratch` working directory. It is
+lightweight (it submits and waits); the actual computation runs in Slurm jobs it
+launches through the Roihu profile.
 
 ```bash
-copy_config
+module load bio-apps/v202603 braker4
+
+cd /scratch/project_2012345/braker_run     # your working directory
+cp $BRAKER4_HOME/config.ini.roihu config.ini      # edit busco_download_path etc.
+# ... create samples.csv ...
+
+# Fast, node-local cache for container image conversion:
+export APPTAINER_CACHEDIR=$TMPDIR/apptainer
+
+braker4 \
+    --workflow-profile $BRAKER4_HOME/profiles/roihu \
+    --default-resources slurm_account=project_2012345 slurm_partition=small \
+    --singularity-prefix /scratch/project_2012345/braker4_sif
 ```
 
-It will create directory `config` in your current directory.
+* Replace `project_2012345` with your own project.
+* `--default-resources slurm_account=… slurm_partition=…` must list **both**
+  values together (specifying `--default-resources` on the command line replaces
+  the whole block from the profile).
+* `--singularity-prefix` is the shared, persistent image store; it **must be on
+  `/scratch`** so the compute nodes can read the images.
+* Add `-n` for a dry run (builds the job plan without submitting anything) and
+  `--rerun-incomplete` to resume an interrupted run.
 
-Use command line option `--AUGUSTUS_CONFIG_PATH` to point to the config directory
+For long or heavy annotations, run the main Snakemake process inside an
+[interactive session](../computing/running/interactive-usage.md) instead of on a
+login node.
 
+## Resources and partitions
 
-## Usage
-
-In Puhti BRAKER should be used only in batch jobs. Either in normal batch jobs or in interactive batch jobs.
-
-
-### Interactive usage
-
-You can start interactive batch job with command:
-
-```bash
-sinteractive -i
-```
-
-BRAKER can utilize several computing cores and can require significant amount of memory so you should reserve
-more than the default resources for your interactive batch job. For example 4 cores and 32 GB of memory.
-
-In batch job, you can initialize BRAKER environment with command
-
-```bash
-module load braker
-```
-
-After that you can launch a BRAKER job with command:
-
-```bash
-braker.pl
-```
-
-To see the options, run command:
-
-```bash
-braker.pl --help
-```
-
-Sample BRAKER command in Puhti:
-
-```bash
-braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa --AUGUSTUS_ab_initio --threads=$SLURM_CPUS_PER_TASK --GENEMARK_PATH=/path/to/gmes_linux_64_4 --PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin --AUGUSTUS_CONFIG_PATH /path/to/config
-```
-
-
-### Batch jobs
-
-Sample batch job script for BRAKER:
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=BRAKER_Job
-#SBATCH --account=project_2012345
-#SBATCH --time=24:00:00
-#SBATCH --mem=32000
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --partition=small
-
-# load braker
-module load braker
-
-# Use correct paths instead of "/path/to"
-braker.pl --species=sp1 --genome=genome.fa --prot_seq=proteins.fa \
---AUGUSTUS_ab_initio --threads=$SLURM_CPUS_PER_TASK \
---GENEMARK_PATH=/path/to/gmes_linux_64_4 \
---PROTHINT_PATH=/path/to/ProtHint-2.6.0/bin \
---AUGUSTUS_CONFIG_PATH /path/to/config
-```
-
-In the batch job example above one task (--ntasks 1) is executed. The BRAKER job uses 8 cores (--cpus-per-task=8 ) with total of 32 GB of memory (--mem=32000).
-The maximum duration of the job is ten hours (--time 10:00:00 ).
-All the cores are assigned from one computing node (--nodes=1 ).
-In the example the project that will be used is _project_2012345_.
-This value should be replaced by the name of your computing project.
-
-You can submit the batch job file to the batch job system with command:
-
-```bash
-sbatch batch_job_file.bash
-```
-
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
-
+BRAKER4's rules are single-node jobs that request specific cores and memory, which
+fits the Roihu **`small`** partition. The per-rule sizing comes from `config.ini [SLURM_ARGS]`
+(defaults: 48 cores, 120 GB, 72 h); the profile supplies only the account and
+partition. If the pipeline fails because a step needs more than 72 h, move that
+run to `longrun` (10-day limit); if a step needs more than 1500 GiB, move it to
+`hugemem` (up to 6037 GiB, but a 36 h limit — use `hugemem_longrun` if it needs both).
 
 ## More information
 
-* [BRAKER home page](https://github.com/Gaius-Augustus/BRAKER)
+* [BRAKER4 home page](https://github.com/Gaius-Augustus/BRAKER4)
