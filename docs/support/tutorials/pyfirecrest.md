@@ -117,7 +117,7 @@ When using the firecrest methods, all of them require system_name as an input. T
 firecrest.mkdir(system_name="cpu", path=ROIHU_PROJ_DIR, create_parents=True)
 ``` 
 
-If the file you want to upload is larger than ~1MB, it will be uploaded as a batch job. Add the project you are part of in the 'account' parameter, NOT your user account on Roihu. Without the account the upload will fail.
+If the file you want to upload is larger than `firecrest.MAX_DIRECT_UPLOAD_SIZE` ~ 1MB, it will be uploaded as a batch job. Add the project you are part of in the 'account' parameter, NOT your user account on Roihu. Without the account the upload will fail.
 Local_file should be an absolute path.
 
 ```python
