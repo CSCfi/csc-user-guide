@@ -12,22 +12,21 @@
 </div>
 
 
-## Step 1: Check the amount of quota left
+## Step 1: Verify that you have enough quota 
 
-You will need enough quota to complete the conversion. First you need to know the amount
+You will need enough quota to complete the conversion. First you need to know the amount of data you have in Urgent buckets per project.
 
-1. Log into SD Connect.
-2. Add the sizes with Urgent label you have in your projects together.
-3. You will need twice this amount of quota to complete the conversion.
+1. Log into SD Connect and select a project.
+2. Add the sizes with **Urgent** label you have in your project together. Repeat for other projects.
 
-Please check the amount and apply for more needed if needed by following instructions below:
+You will need twice this amount of quota to complete the conversion. Check the amount you have and apply for more if needed by following instructions below. Repeat for other projects.
 
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Go to **Projects** page (menu on the left or hamburger icon) and navigate to your project's view.
 3. Scroll down to **Services** window.
 4. Click **Allas**. You can see storage quota  under **Usage** at the bottom of the window. By default amount of quota is 10 TB.
 ![Storage Quota limit in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
-5. Then scroll down service lista and click **SD Connect**. You can see how much storage quota  you are using under **Usage** at the bottom of the window. For example if you have 10 TB of storage quota and you've used 4 TB, your project has 6 TB of quota available.
+5. Then scroll down service list and click **SD Connect**. You can see how much storage quota  you are using under **Usage** at the bottom of the window. For example if you have 10 TB of storage quota and you've used 4 TB, your project has 6 TB of quota available.
 ![Storage Quota used in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_QuotaUsed.png)
 5. If you have less quota available than is needed, apply for more:
 

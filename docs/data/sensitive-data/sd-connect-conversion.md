@@ -30,8 +30,17 @@ During conversion, a new bucket with the suffix "-conv" is created and all files
 
 After conversion, once you have verified that the converted data is complete and accessible, delete the original bucket to free storage space via the conversion tool. Keeping both buckets consumes significant CSC storage resources. Warning: Deleting a bucket permanently removes all data it contains.
 
-Note: This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. If your project exceeds 5 TB, please contact us for planning and support before starting the conversion. Buckets labelled urgent are given priority in helpdesk support queues. 
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **When your project size exceeds 5 TB**
+  { .csc-grid-card-error }
+
+    ___
+
+    This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. If your project exceeds 5 TB, please contact us for planning and support before starting the conversion. Buckets labelled **Urgent** are given priority in helpdesk support queues. 
+
+</div>
 
 ![Urgent buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
 
@@ -60,7 +69,7 @@ Choose the method based on bucket's tag and size.
 
 | Bucket Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
-| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. This is a network-intensive operation. On a standard home internet connection, converting 25 GB may take around 2 hours. | [Link](sd-connect-conversion-tool-ui.md)|
+| Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. This is a network-intensive operation. On a standard home internet connection, converting 25 GB may take around 2 hours. | [Link](sd-connect-conversion-tool-ui.md) |
 | Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Roihu. | [Link](sd-connect-conversion-cli.md) |
 | Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with compatible name.  Use th SD Connect Conversion CLI on Roihu and convert a few buckets at a time.This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion.  | Link |
 | Urgent | More than 50 TB | Contact CSC support to plan the conversion. | Contact us |
