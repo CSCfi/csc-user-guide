@@ -73,15 +73,24 @@ ___
 
     1. Download the SD Connect Conversion Tool.
 
-    2. Open your **Downloads** folder and extract the folder you just downloaded.
+    2. Open your **Downloads** folder and **extract** the folder you just downloaded.
 
-    3. Drag the extracted folder to your Desktop.
+        ![Extract folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_1.png)
 
-    4. Open the folder and locate file **sd_connect_s3_migrate_gui.exe**.
+    3. Drag **the extracted folder** to your **Desktop**.
 
-    5. Launch the file. A new window appears **Windows protected your PC**. In this window, click **More info**, then **Run anyway** button.
+        ![Drag folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_2.png)
 
-    6. Conversion tool should start after a while.
+    4. Open the folder and locate file **sd_connect_s3_migrate_gui.exe**. Double-click the file. 
+
+        ![Launch file](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_3.png)
+
+    5. A new window **Windows protected your PC** opens. In this window, click **More info**, then click **Run anyway** button. Conversion tool starts.
+
+        ![More info](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_4.png)
+
+        ![Run anyway](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_5.png)
+
 
 ___
 
