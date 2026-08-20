@@ -138,6 +138,7 @@ GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/U
 Note that the GPU memory (or VRAM) is fixed according to the number of
 GPUs, you cannot allocate more (or less) of this.
 
+See the [tutorial on running single-GPU jobs for Slurm examples with the correct CPU and memory allocations](gpu-ml.md#running-gpu-jobs).
 
 ## Monitoring GPU utilization
 
