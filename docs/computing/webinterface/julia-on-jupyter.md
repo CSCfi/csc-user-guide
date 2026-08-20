@@ -5,7 +5,7 @@
 ![ood application menu](../../img/julia-jupyter/ood-application-menu.png)
 
 We can use [Julia](../../apps/julia.md) on Jupyter through the
-[Puhti](https://www.puhti.csc.fi) and [Mahti](https://www.mahti.csc.fi) web
+[Roihu](https://www.roihu.csc.fi) and [Mahti](https://www.mahti.csc.fi) web
 interfaces by selecting the **Julia-Jupyter** application from the menu.
 
 ## Launching Julia-Jupyter
