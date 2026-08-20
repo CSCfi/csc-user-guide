@@ -22,7 +22,7 @@ ___
 ## 1. Download and install SD Connect Conversion tool
 
 
-??? info "Installation guide for macOS"
+??? default "Installation guide for macOS"
 
     1. Download the SD Connect Conversion Tool.
 
@@ -65,11 +65,11 @@ ___
     10. Double-click **SD Connect Conversion Tool** icon in **Applications** folder to start the application.
 
 
-??? info "Installation guide for Linux"
+??? default "Installation guide for Linux"
 
 
 
-??? info "Installation guide for Windows"
+??? default "Installation guide for Windows"
 
     1. Download the SD Connect Conversion Tool.
 
@@ -106,7 +106,7 @@ ___
 
 - Next Converter tool will ask to add project's temporary API key. Follow instructions below.
 
-??? info "How to retrieve to API key"
+??? default "How to retrieve to API key"
 
     1. Log in to [SD Connect](https://sd-connect.csc.fi).
     2. Select project you want to convert from dropdown.
@@ -130,7 +130,7 @@ ___
 - If the estimated conversion time is very long we recommend using command-line version of the conversion tool. 
 - Converter tool tells you the amount of quota that is needed to complete the conversion. Please check the amount you have available from MyCSC and apply for more if needed. Follow instructions below.
 
-??? info "How to check quota from my.csc.fi"
+??? default "How to check quota from my.csc.fi"
 
     1. Log in to [MyCSC](https://my.csc.fi).
     2. Go to **Projects** page (menu on the left or hamburger icon) and navigate to your project's view.
