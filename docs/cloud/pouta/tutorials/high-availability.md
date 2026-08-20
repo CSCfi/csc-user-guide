@@ -16,7 +16,7 @@ We will deploy each part step by step, and describe them in more detail while do
 We will start by creating 4 VMs: `HAProxy-1`, `HAProxy-2`, `Frontend-1`, `Frontend-2` and `Monitoring`. You can follow the [create a new VM](../launch-vm-from-web-gui.md) guide. We are creating all VMs from the start so we get the IPs of each of them, this will make the networking configuration easier. Few notes:
 
 * In order to save quota and resources, please use the smallest flavor available.
-* We only need one single **floating IP** for the whole deployment and it will be initialy assigned to `HAProxy-1`.
+* We only need one single **floating IP** for the whole deployment and it will be initially assigned to `HAProxy-1`.
 * Make sure you can SSH into `HAProxy-1`. If in doubt, you can use the [Connecting to your virtual machine](../connecting-to-vm.md) guide. We will use this machine as a SSH jumphost to connect to the other VMs.
 
 In order to be able to SSH easily to each machine we will create a SSH config file:
