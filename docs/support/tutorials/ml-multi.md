@@ -1183,7 +1183,7 @@ separate task for each GPU:
     ```
 
 
-If you are converting an old PyTorch script there are a few steps that
+If you are converting a single-GPU PyTorch script there are a few steps that
 you need to do:
 
 1. Make sure it handles the DeepSpeed command line arguments, for example:
