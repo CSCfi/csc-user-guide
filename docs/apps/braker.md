@@ -21,8 +21,6 @@ On Roihu, BRAKER is provided as **BRAKER4** (`braker4`, version 0.5.0-beta): a
 complete re-implementation of the pipeline as a [Snakemake](https://snakemake.github.io/)
 workflow that runs every underlying tool (GeneMark, AUGUSTUS, DIAMOND,
 BUSCO/compleasm, RepeatMasker, …) inside Apptainer/Singularity **containers**.
-Because the tools ship in the containers, **you do not have to license or install
-GeneMark or ProtHint yourself.**
 
 ## License
 
@@ -40,8 +38,6 @@ own Slurm job and executes it inside a container. You control the workflow with 
 `braker4` command; it pulls the container images on first use and orchestrates the
 whole annotation.
 
-* All bioinformatics tools run **inside containers** — nothing to compile, and no
-  GeneMark/ProtHint license step.
 * The `braker4` module provides Snakemake, the Slurm executor plugin, pandas, the
   BRAKER4 workflow, and a ready-made **Roihu Snakemake profile** at
   `$BRAKER4_HOME/profiles/roihu`.
