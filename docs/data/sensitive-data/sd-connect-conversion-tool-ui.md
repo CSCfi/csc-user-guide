@@ -115,8 +115,6 @@ ___
 
 - Next Converter tool will ask to add project's temporary API key. Follow instructions below.
 
-??? default "How to retrieve to API key"
-
     1. Log in to [SD Connect](https://sd-connect.csc.fi).
     2. Select project you want to convert from dropdown.
     3. In the top right corner of the web interface, click on **Support**, then select **Create API Token** from the dropdown menu.
@@ -130,25 +128,13 @@ ___
 
     6. Paste API key to the field in Conversion tool. The token will be valid for 7 days and will be automatically deleted after this period. If your conversion takes longer than 7 days you need to create a new API key.
 
-![Add API key](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_API_key.png)
+    ![Add API key](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_API_key.png)
 
 
 ### 2.4 Select buckets to convert
 
 - Next select buckets you want to convert by clicking checkboxes on the left side of bucket names. 
 - If the estimated conversion time is very long we recommend using command-line version of the conversion tool. 
-- Converter tool tells you the amount of quota that is needed to complete the conversion. Please check the amount you have available from MyCSC and apply for more if needed. Follow instructions below.
-
-??? default "How to check quota from my.csc.fi"
-
-    1. Log in to [MyCSC](https://my.csc.fi).
-    2. Go to **Projects** page (menu on the left or hamburger icon) and navigate to your project's view.
-    3. Scroll down to **Services** window.
-    4. Click **Allas**. You can see storage quota usage under **Usage** at the bottom of the window (for example 6 TB/10 TB would mean your project has 4 TB of quota available).
-    ![Storage Quota in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
-    5. If you have less quota available than is needed, apply for more:
-        * Send email to Service Desk (subject line: Increase Allas quota). It takes few days to process your application.
-        * You will receive email when your quota is available.
 
 ![Select buckets](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_buckets.png)
 
