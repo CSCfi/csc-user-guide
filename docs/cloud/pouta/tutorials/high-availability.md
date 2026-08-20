@@ -58,17 +58,19 @@ ssh Frontend-2
 
 ### Load Balancer
 
-For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.keepalived.org/) to achieve high availability at the load balancer layer. Keepalived uses the VRRP protocol to share a single Virtual IP (VIP) between the two HAProxy nodes, if `HAproxy-1` goes down, `HAproxy-2` takes over the Floating IP automatically using the OpenStack API.
+For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.keepalived.org/) to achieve high availability at the load balancer layer. Keepalive in `HAProxy-2` will continually monitor `HAproxy-1`, and it goes down, `HAproxy-2` takes over the Floating IP automatically using the OpenStack API. When `HAProxy-1` is back to running status, it will again use the OpenStakc API to regain the use of the floatring IP.
 
 #### Install and configure HAProxy
 
-1. SSH into `HAproxy-1` and install HAProxy, Keepalived, and the OpenStack CLI:
+Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy behave the same on both machines.
+
+1. Install HAProxy, Keepalived, and the OpenStack CLI:
 
     ```sh
     sudo apt update && sudo apt install -y haproxy keepalived python3-openstackclient
     ```
 
-1. Edit `/etc/haproxy/haproxy.cfg` on `HAproxy-1` (repeat on `HAproxy-2` with the same content):
+1. Edit `/etc/haproxy/haproxy.cfg`:
 
     ```
     global
@@ -157,7 +159,7 @@ For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.ke
     }
     ```
 
-1. On `HAproxy-2`, use the same file but set `state BACKUP` and `priority 90`.
+1. On `HAproxy-2`, use the same file but set `state BACKUP` and `priority 90`, this makes `HAProxy-1` the main server.
 
 1. Enable and start Keepalived on both nodes:
 
@@ -186,7 +188,13 @@ The database is provided by [Pukki DBaaS](../../dbaas/index.md), CSC's managed P
     - Create a database and a user, for example called `postgres` (user) and `postgres` (database) to match the defaults used in this tutorial.
     - Set a good password for the database user
 
-1. Allow the Frontend VMs to connect to Pukki. In the Pukki web interface, add the **internal IP addresses** of `Frontend-1` and `Frontend-2` to the allowed hosts list.
+1. Allow the Frontend VMs to connect to Pukki. In the Pukki web interface, add the **IP address** used as **egress IP** by `Frontend-1` and `Frontend-2` to the allowed hosts list. You can get this IP by login in any of the two Frontend servers and run:
+
+```sh
+curl ifconfig.me -4
+```
+
+Or via pouta's web interface in **Network → Routers **, click in the name of the Router. You will find the IP in the **External Fixed IPs** section under **IP address**.
 
 ### Frontend VMs
 
@@ -194,10 +202,7 @@ We will install the following test application:
 
 - <https://github.com/CSCfi/rahti-ha-tutorial/>
 
-It is the same repository used for the Rahti tutorial mentioned before. It contains all the necessary files to also run it in Pouta. You can clone it in your local machine and check out the code, it is a simple Python application.
-
-!!! Info "Frontend 1 and 2"
-    You need to make these changes in `Frontend-1` and `Frontend-2`.
+It is the same repository used for the Rahti tutorial mentioned before. It contains all the necessary files to also run it in Pouta. You can clone it in your local machine and check out the code, it is a simple Python application. You need to make these changes in `Frontend-1` and `Frontend-2`, both servers will run the same software.
 
 1. Make sure that `git` is installed and then clone the repository mentioned above:
 
@@ -226,32 +231,20 @@ It is the same repository used for the Rahti tutorial mentioned before. It conta
     EOF
     ```
 
-    !!! Note
-        Leave `DB_HOST` and `DB_PASSWORD` as a placeholders for now. We will fill in the actual values after creating the Pukki database in the next section.
+    Replace `DB_HOST` and `DB_PASSWORD` with the values you got from the Pukki database.
 
-1. Create a systemd service so the application starts automatically and restarts on failure:
+1. Copy the systemd `rahti-ha-tutorial.service` file to `/etc/systemd/system/`.
+
+1. Enable and start the service:
 
     ```sh
-    sudo tee /etc/systemd/system/ha-tutorial.service > /dev/null <<'EOF'
-    [Unit]
-    Description=HA Tutorial Flask App
-    After=network.target
-
-    [Service]
-    User=ubuntu
-    WorkingDirectory=/opt/rahti-ha-tutorial
-    EnvironmentFile=/opt/rahti-ha-tutorial/.env
-    ExecStart=/usr/bin/python3 app.py
-    Restart=always
-    RestartSec=5
-
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-
     sudo systemctl daemon-reload
     sudo systemctl enable --now ha-tutorial
     ```
+
+    This start the application and also assure that it is started every time the VM restarts.
+
+### Testing
 
 Point your DNS records (or local `/etc/hosts` for testing) to the Floating IP of the load balancer:
 
@@ -380,7 +373,7 @@ Edit `group_vars/all.yml` and replace every `REPLACE_WITH_*` placeholder:
 | `db_host` / `db_password` | Pukki DBaaS connection details (see [Database](#database)) |
 
 !!! Note
-    The `floating_ip_id` variable is filled in after Step 2.
+    The `floating_ip_id` variable is filled in the next step.
 
 ### Provision infrastructure
 
@@ -431,7 +424,7 @@ ansible-playbook -i inventory.ini site.yml
 
 This single run configures all five VMs in three plays:
 
-1. **HAProxy play**, installs HAProxy, Keepalived, and the OpenStack CLI; deploys the load-balancer config and the VRRP failover script.
+1. **HAProxy play**, installs HAProxy, Keepalived, and the OpenStack CLI; deploys the load-balancer and the keepalive configs.
 2. **Frontend play**, clones the [rahti-ha-tutorial](https://github.com/CSCfi/rahti-ha-tutorial) Flask app and runs it as a systemd service.
 3. **Monitoring play**, installs Prometheus and Grafana.
 
@@ -455,7 +448,7 @@ ansible-playbook -i inventory.ini create_infra.yml
 │   └── all.yml            # All variables (fill in REPLACE_WITH_* values)
 └── templates/
     ├── haproxy.cfg.j2          # HAProxy load-balancer config
-    ├── keepalived.conf.j2      # VRRP config (master/backup priority)
+    ├── keepalived.conf.j2      # Keepalive config (master/backup priority)
     ├── failover.sh.j2          # Keepalived notify script (reassigns floating IP)
     ├── clouds.yaml.j2          # OpenStack credentials for the failover script
     ├── ha-tutorial.env.j2      # Flask app environment variables
