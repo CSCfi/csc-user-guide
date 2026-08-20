@@ -38,9 +38,8 @@ own Slurm job and executes it inside a container. You control the workflow with 
 `braker4` command; it pulls the container images on first use and orchestrates the
 whole annotation.
 
-* The `braker4` module provides Snakemake, the Slurm executor plugin, pandas, the
-  BRAKER4 workflow, and a ready-made **Roihu Snakemake profile** at
-  `$BRAKER4_HOME/profiles/roihu`.
+* The `braker4` module provides the BRAKER4 workflow, and a ready-made 
+  **Roihu Snakemake profile** at `$BRAKER4_HOME/profiles/roihu`.
 * You run everything from a directory on **`/scratch`** (the workflow writes there;
   the module installation directory is read-only to jobs).
 * Container images are downloaded once into a shared `/scratch` cache and reused.
