@@ -168,7 +168,7 @@ Conversion pauses if your laptop runs out of power or loses internet connection.
 
 1. Launch SD Connect Conversion tool and login with your CSC credentials.
 2. Converter tool will show you that conversion has been interrupted.
-    - If a new API key is needed, it will be shown in the tool. Follow these [instructions](#33-add-projects-temporary-api-key).
+    - If a new API key is needed, it will be shown in the tool. Follow these instructions.
 3. Continue by clicking **Continue conversion**.
 
 ![Conversion paused](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_pause.png)
