@@ -27,7 +27,7 @@ If you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
 need to reserve a **multi-node job**. While it is technically possible
 to reserve, e.g., two GPUs in one node and two in another, this is not
 recommended except for testing purposes, as the communication across
-nodes is always slower than inside a node.
+nodes is always slower than inside one node.
 
 To reserve a single node with N=1-4 GPUs on Puhti, Mahti or Roihu or
 1-8 GPUs on LUMI you need the following options (**change N for the
