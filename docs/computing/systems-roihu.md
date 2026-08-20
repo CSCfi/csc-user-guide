@@ -33,6 +33,9 @@ graph LR;
     G{{"<b>Mid October 2026</b>
         Mahti <i>storage services</i>
         shut down"}}
+    style A fill:#dceeceff;
+    style B fill:#dceeceff;
+    style C fill:#dceeceff;
     style D fill:#dceeceff;
 ```
 
@@ -106,6 +109,14 @@ single-thread performance.
 | XL   | 4               | AMD Turin 9555 | 2 x 64 cores (x86) @ 3.20 GHz  | 6144         | 15.36           |
 | V    | 4               | AMD Turin 9335<br>Nvidia L40 | 2 x 32 cores (x86) @ 3.40 GHz<br>2 x GPUs | 384<br>2 x 48 | 15.36 |
 | GPU  | 132             | Nvidia GH200   | 4 x 72 cores (ARM)<br>4 x GPUs | 4 x 120<br>4 x 96 | 0.96 |
+
+Due to differences in CPU architecture between the CPU and GPU nodes (x86 and
+ARM, respectively), Roihu provides separate login nodes for CPU and GPU
+workloads: `roihu-cpu.csc.fi` and `roihu-gpu.csc.fi`.
+
+Based on whether your workload targets CPUs or GPUs, please connect to the
+appropriate login node when installing software or submitting jobs.
+[More information about connecting](connecting/index.md).
 
 The operating system of Roihu is Red Hat Enterprise Linux 9 (RHEL9).
 
