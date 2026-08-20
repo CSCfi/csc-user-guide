@@ -1,19 +1,31 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Sharing folders
+# Sharing buckets
+
+
+SD Connect provides different ways to share a bucket and its entire content with another CSC project. Choose the option that best matches how the data will be used.
+
+**Share for data transfer**: Share one or more buckets with another CSC project so its members can copy and download the data. Use this option when you want to transfer data to another project, research group, or organization.
+
+**Share for collaboration and shared workspace**: Share a bucket with another CSC project so both projects can work with the same data. Members of both projects can upload, download, copy and delete files in the shared bucket. Use this option when multiple teams need to collaborate on a dataset.
+
+**Share for Read-Only Access**: Allow another CSC project to access the data through SD Desktop without modifying the original bucket contents. Use this option when you want others to analyze or review data while retaining control of the source data.
+
+
 
 !!! info "Share ID"
 
-    With SD Connect, you can share folders across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a folder with multiple CSC projects and use different permission levels. 
+    With SD Connect, you can share buckets across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a bucket and its entire content with multiple CSC projects and use different permission levels. 
 
-SD Connects provides you multiple ways to share your files. Please read about permission rights and example use cases which demonstrate how the different permissions:
+SD Connects provides you multiple ways to share a bucket and its entire content. Please read about permission rights and example use cases which demonstrate how the different permissions:
 
-* [Transfer data](#transfer-data)
-* [Collaborate](#collaborate)
+* [Transfer data](#transfer-data): the recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
+
+[Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)* [Collaborate](#collaborate)
 * [Read to SD Desktop](#read-to-sd-desktop)
 
 
-## Share folder to another project
+## Share buckets to another project
 
 
 1. Ask from recipient for their project Share ID. They find it from their SD Connect. The recipient should select correct CSC project from the top left corner, then click **Copy Share ID** next to the project number) and provide it to you via email. 
@@ -37,9 +49,7 @@ SD Connects provides you multiple ways to share your files. Please read about pe
 
 ### Transfer data
 
-The recipient project’s members can copy your folder in SD Connect and download files in decrypted format. Files are also accessible via SD Desktop. Use this when you want to transfer your data to another project.
 
-[Read about use case: Transfer your data to another project](./sd-connect-share-tranfer-data.md)
 
 
 ### Collaborate
