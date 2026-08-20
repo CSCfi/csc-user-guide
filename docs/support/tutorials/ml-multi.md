@@ -699,7 +699,7 @@ Hugging Face's
 [Accelerate](https://huggingface.co/docs/transformers/accelerate) is a
 popular framework for large language model training, and it makes
 using more advanced training algorithms like FSDP very easy. Launching
-a job with accelerate it similar to PyTorch DDP, except we need to use
+a job with accelerate is similar to PyTorch DDP, except we need to use
 the accelerate launcher and also provide an Accelerate config file.
 
 A working [example for LLM fine-tuning can be found in this GitHub
