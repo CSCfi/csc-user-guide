@@ -10,8 +10,7 @@ that we discuss some common software frameworks, and how to use them
 on CSC's supercomputers: [PyTorch DDP](#pytorch-ddp), [PyTorch
 Lightning with DDP](#pytorch-lightning-with-ddp),
 [Accelerate](#accelerate), [DeepSpeed](#deepspeed) and [TensorFlow's
-`tf.distribute.Strategy`](#tensorflows-tfdistributestrategy) is
-briefly mentioned.
+`tf.distribute.Strategy`](#tensorflows-tfdistributestrategy).
 
 ## Multiple GPUs and multiple nodes
 
