@@ -590,9 +590,6 @@ nav:
               - Download: data/sensitive-data/sd-connect-download.md
               - Delete: data/sensitive-data/sd-connect-delete.md
               - Share buckets: data/sensitive-data/sd-connect-share.md
-                   - for data transfer: data/sensitive-data/sd-connect-share-tranfer-data.md
-                   - as collaborative workspace: data/sensitive-data/sd-connect-share-workspace.md
-                   - for read only access: data/sensitive-data/sd-connect-share-read-to-sd-desktop.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
               - Page under construction: data/sensitive-data/sd-connect-conversion.md
