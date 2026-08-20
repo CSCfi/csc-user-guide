@@ -434,7 +434,7 @@ Example of running PyTorch DDP on 2 full nodes:
 The LUMI examples are using the [LUMI AI Factory PyTorch
 installation](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
-If you are converting an old PyTorch script there are a few steps that you need to do:
+If you are converting a single-GPU PyTorch script there are a few steps that you need to do:
 
 1. Initialize with `init_process_group()`, for example:
 
