@@ -1021,7 +1021,7 @@ Example of running DeepSpeed on a single full node using the
     module purge
     module load python-pytorch
     
-    srun apptainer_wrapper exec deepspeed myprog.py \
+    srun deepspeed myprog.py \
         --deepspeed --deepspeed_config my_ds_config.json \
         <further options>
     ```
