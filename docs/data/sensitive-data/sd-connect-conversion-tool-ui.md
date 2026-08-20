@@ -26,21 +26,23 @@ ___
 
     1. Download the SD Connect Conversion Tool.
 
-    2. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. Then select **Applications**.
-    
-    If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this Settings window select **Sidebar** tab and select **Home folder** to make it visible in the sidebar.
+    2. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. (If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this **Settings** window select **Sidebar** tab and then select **Home folder** to make it visible in the sidebar.)
 
-    3. Launch the downloaded file. A new window named **sd_connect_s3_migrate_gui** will open. Drag and drop **sd_connect_s3_migrate_gui** file (black icon) to Applications folder.
+        ![Find Home folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_1.png)
+      
+
+    3. Right-click **Applications** folder. Select **New Terminal at Folder**.
+
+        ![New Terminal](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_2.png)
+
+    3. Double-click the downloaded file. A new window named **sd_connect_s3_migrate_gui** will open. Drag and drop **sd_connect_s3_migrate_gui** file (black icon) to **Applications** folder.
+
+        ![Drag icon](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_4.png)
 
     4. On your desktop, find the icon named **SD_Connect_s3_migrate_gui**. Right-click it and select **Eject SD_Connect_s3_migrate_gui**.
 
-    4. In Finder window, go back one step. Then right-click Applications folder. Select New Terminal at Folder.
+        ![Eject](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_5.png)
 
-    6. A Terminal window will open. Copy and paste command below into the terminal and press **Enter**:
-
-        ```bash 
-        cd /Applications
-        ```
 
     7. Copy and paste command below into the terminal and press **Enter**:
 
@@ -48,14 +50,19 @@ ___
         xattr -cr sd_connect_s3_migrate_gui.app
         ```
 
+
+        ![Command](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_6.png)
+
+
     8. Copy and paste command below into the terminal and press **Enter**:
 
         ```bash 
         logout
         ```
 
+        ![Logout](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_7.png)
 
-    10. Double-click **SD Connect Conversion Tool** icon to start the application.
+    10. Double-click **SD Connect Conversion Tool** icon in **Applications** folder to start the application.
 
 
 ??? info "Installation guide for Linux"
