@@ -8,7 +8,7 @@
     With SD Connect, you can share a bucket and its entire content across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a bucket and its entire content with multiple CSC projects and use different permission levels. 
 
 
-## Sharing buckets options
+## Sharing buckets to another CSC project: overview
 
 SD Connect provides different ways to share a bucket and its entire content with another CSC project. Choose the option that best matches how the data will be used.
 
