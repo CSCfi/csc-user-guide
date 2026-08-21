@@ -118,3 +118,7 @@ You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud
 ## Visualisation
 
 * [Blender tutorial](blender-tutorial.md)
+
+## FirecREST
+
+* [Using PyFireCREST in a Python script or Jupyter notebook](./pyfirecrest.md)
