@@ -23,8 +23,7 @@ import time
 # Set constants:
 RAW_DATA_PATH = "~/Downloads/iris.csv"
 ROIHU_PROJ_DIR = "/scratch/project_1234567/<username>/jupyter-dir/"
-OUTPUT_ON_ROIHU = "confusion_matrix.png"
-DOWNLOAD_TARGET = "confusion_matrix.png"
+OUTPUT_FILENAME = "confusion_matrix.png"
 FIRECREST_URL = "https://api.roihu.csc.fi/v1"
 ACCOUNT = "project_1234567"
 ```
@@ -144,13 +143,13 @@ print(f"Upload complete for file {upload_file}.")
     else the environment won't be set up properly, and among other things the modules will not work properly.
     
 
-To pass environment variables we use a dictionary. In addition to `CSC_ENV_INIT_NON_INTERACTIVE=yes` we will pass the OUTPUT_PATH and DATA_FILE variables which we can then access in the Slurm script.
+To pass environment variables we use a dictionary. In addition to `CSC_ENV_INIT_NON_INTERACTIVE=yes` we will pass the OUTPUT_FILENAME and DATA_FILE variables which we can then access in the Slurm script.
 
 
 ```python
 env_vars = dict()
 env_vars["CSC_ENV_INIT_NON_INTERACTIVE"] = "yes"
-env_vars["OUTPUT_PATH"] = OUTPUT_ON_ROIHU
+env_vars["OUTPUT_FILENAME"] = OUTPUT_FILENAME
 env_vars["DATA_FILE"] = filename_on_roihu
 ```
 
@@ -207,7 +206,7 @@ cm = confusion_matrix(y_test, y_pred)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=clf.classes_)
 disp.plot(cmap=plt.cm.Blues)
 plt.title("Confusion Matrix")
-plt.savefig(os.getenv("OUTPUT_PATH"), format="png")
+plt.savefig(os.getenv("OUTPUT_FILENAME"), format="png")
 EOF
 ```
 
@@ -242,14 +241,14 @@ Wait for the job to finish using firecrest.wait_for_job(). When it is, we can do
 firecrest.wait_for_job(system_name="cpu", job_id=jobid, timeout=None, not_found_timeout=80)
 ```
 
-When downloading, the target_path can be any path on your local machine which includes the file. It can be a relative path. We are using `DOWNLOAD_TARGET = "confusion_matrix.png"`, so the file will be downloaded to out current working directory.
+When downloading, the target_path can be any path on your local machine which includes the file. It can be a relative path. We are using `OUTPUT_FILENAME = "confusion_matrix.png"`, so the file will be downloaded to out current working directory.
 
 ```python
-download = firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_ON_ROIHU), target_path=DOWNLOAD_TARGET, account=ACCOUNT)
+download = firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_FILENAME), target_path=OUTPUT_FILENAME, account=ACCOUNT)
 if download != None:
     print("Download is done as a batch job, waiting for it to finish.")
     download.wait_for_transfer_job()
-print(f"Results downloaded successfully to {DOWNLOAD_TARGET}.")
+print(f"Results downloaded successfully to {OUTPUT_FILENAME}.")
 ```
 
 Now you can analyse the results locally with whatever tools you have.
