@@ -24,50 +24,59 @@ Plan the conversion in advanced with the other CSC project members. All the proj
 
 ### Buckets with label Urgent
 
+![Urgent bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
+
 These buckets appear empty, files cannot be accessed and sharing permissions are not visible. Prioritize converting these buckets to restore access to the data.
 
 During conversion, a new bucket with the suffix "-conv" is created and all files are copied to it.
 
-| Example (old name -> New name) | Changes |
+#### Example of new bucket names:
+
+| Example (Old name -> New name) | Changes |
 |----------|----------|
 | `Non-compatible name` → `non-compatible-name-conv` | Capital letters are converted to lowercase. Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
 | `non-compatible name` → `non-compatible-name-conv` | Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
 | `non_compatible name` → `non-compatible-name-conv` | Underscores (`_`) are replaced with hyphens (`-`). Spaces are replaplaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| In case of similar bucket names, for example: `Non-compatible name` and `non-compatible name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |
 
-After conversion, once you have verified that the converted data is complete and accessible, delete the original bucket to free storage space via the conversion tool. Keeping both buckets consumes significant CSC storage resources. Warning: Deleting a bucket permanently removes all data it contains.
+After conversion, once you have verified that the converted data is complete and accessible, delete the original bucket to free storage space via the conversion tool. Keeping both buckets consumes significant CSC storage resources. 
+
+Warning: Deleting a bucket permanently removes all data it contains.
 
 
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **When your project size exceeds 5 TB**
-  { .csc-grid-card-error }
+  { .csc-grid-card-warning }
 
     ___
 
-    This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. If your project exceeds 5 TB, please contact us for planning and support before starting the conversion. Buckets labelled **Urgent** are given priority in helpdesk support queues. 
+    This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. If your project exceeds 5 TB, please contact us for support before starting the conversion. Buckets labelled **Urgent** are given priority in Helpdesk support queues. 
 
 </div>
 
-![Urgent buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
 
 
 ### Buckets with label By the end of 2026
 
-In these buckets, files can still be accessed and downloaded, however buckets sharing permissions are not be visible and bucket size is zero.  
+![By the end of 2026 bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png)
 
-**Conversion must be done by the end of 2026.** During the conversion, a new bucket with the suffix "-conv" is created when there are capital letters and underscores in the bucket name. In all other cases, the tool will restore the correct bucket size and sharing permissions. 
+In these buckets, files can still be accessed and downloaded, however buckets sharing permissions are not be visible and bucket size is zero. **Conversion must be done by the end of 2026.** 
 
-Examples of new buckets names:
+During the conversion, a new bucket with the suffix "-conv" is created when there are capital letters and underscores in the bucket name. In all other cases, the tool will restore the correct bucket size and sharing permissions. 
 
-| Example | Changes |
+Unlike the conversion of Urgent buckets, this process is not network intensive.  
+
+
+#### Examples of new buckets names:
+
+| Examples (Old name -> New name) | Changes |
 |----------|----------|
 | `compatible-name` → `compatible-name` | No changes in bucket name. |
 | `NONcompatible-name` → `noncompatible-name-conv` | Capital letters are converted to lowercase. Suffix `-conv`is added to the end. |
 | `non_compatible_name` → `non-compatible-name-conv` | Underscores (`_`) are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| In case of similar bucket names, for example: `Non-compatible_name` and `non-compatible_name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |
 
-Unlike the operation described above, this conversion is not network intensive.  
-
-![By the end of 2026 buckets in SD Connect](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png)
 
 
 ### If your project contains both Urgent and By the end of 2026 buckets
