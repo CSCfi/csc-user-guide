@@ -42,7 +42,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 ```
 
-Before we can call FireCREST, we have to implement a class that has a get_access_token() method. If you are using a robot account, you can use the built-in authorization class `ClientCredentialsAuth`.
+Before we can call FireCREST, we have to implement a class that has a `get_access_token()` method. If you are using a robot account, you can use the built-in authorization class `ClientCredentialsAuth`.
 
 For an example implementation of the authorization class, see the [Python SDK](../../computing/firecrest/pyfirecrest.md).
 
@@ -71,7 +71,7 @@ class TokenAuth:
     return token
 ```
 
-Before we can upload the file, we must initialize the Firecrest connection with the API url, and the authorization class TokenAuth().
+Before we can upload the file, we must initialize the Firecrest connection with the API url, and the authorization class `TokenAuth()`.
 You can view the full documentation for the library here: [PyfirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_sync_v2.html#the-firecrest-class).
 
 
@@ -112,8 +112,8 @@ df_filtered.to_csv(upload_file)
 
 ## Upload files to Roihu
 
-Now we upload the file using firecrest.upload(), but first we'll make sure the directory exists with firecrest.mkdir()
-When using the firecrest methods, all of them require system_name as an input. This distinguishes the different node types, "cpu" and "gpu". As Roihu uses a shared filesystem, the only command this has an effect on is the firecrest.submit().
+Now we upload the file using `firecrest.upload()`, but first we'll make sure the directory exists with `firecrest.mkdir()`.
+When using the firecrest methods, all of them require `system_name` as an input. This distinguishes the different node types, "cpu" and "gpu". As Roihu uses a shared filesystem, the only command this has an effect on is the `firecrest.submit()`.
 
 If you are using Lumi, use `system_name="lumi"` on all firecrest commands.
 
@@ -121,7 +121,7 @@ If you are using Lumi, use `system_name="lumi"` on all firecrest commands.
 firecrest.mkdir(system_name="cpu", path=ROIHU_PROJ_DIR, create_parents=True)
 ``` 
 
-If the file you want to upload is larger than `firecrest.MAX_DIRECT_UPLOAD_SIZE` ~ 1MB, it will be uploaded as a batch job. Add the project you are part of in the 'account' parameter, NOT your user account on Roihu. Without the account the upload will fail.
+If the file you want to upload is larger than `firecrest.MAX_DIRECT_UPLOAD_SIZE` ~ 1MB, it will be uploaded as a batch job. Add the project you are part of in the `account` parameter, NOT your user account on Roihu. Without the account the upload will fail.
 Local_file should be an absolute path.
 
 ```python
@@ -139,11 +139,11 @@ print(f"Upload complete for file {upload_file}.")
 ## Submit the job
 
 !!! note
-    The environment variable CSC_ENV_INIT_NON_INTERACTIVE=yes must be passed to the slurm job,
+    The environment variable `CSC_ENV_INIT_NON_INTERACTIVE=yes` must be passed to the slurm job,
     else the environment won't be set up properly, and among other things the modules will not work properly.
     
 
-To pass environment variables we use a dictionary. In addition to `CSC_ENV_INIT_NON_INTERACTIVE=yes` we will pass the OUTPUT_FILENAME and DATA_FILE variables which we can then access in the Slurm script.
+To pass environment variables we use a dictionary. In addition to `CSC_ENV_INIT_NON_INTERACTIVE=yes` we will pass the `OUTPUT_FILENAME` and `DATA_FILE` variables which we can then access in the Slurm script.
 
 
 ```python
@@ -171,10 +171,10 @@ pip install pandas
 Make sure to read the Lumi documentation about [installing Python packages](https://docs.lumi-supercomputer.eu/software/installing/python/).
 
 !!! note "shebang" 
-    You must use `#!/bin/bash -l" as the shebang at the start of your batch script to get the 
+    You must use `#!/bin/bash -l` as the shebang at the start of your batch script to get the 
     computing environment, like the module system, to work.
 
-```bash
+```bash title="iris_slurm_script.sh"
 #!/bin/bash -l
 #SBATCH --job-name=firecrest_test_job
 #SBATCH --partition=small
@@ -221,11 +221,11 @@ plt.savefig(os.getenv("OUTPUT_FILENAME"), format="png")
 EOF
 ```
 
-As the Python script we want to run is relatively short, the slurm script has the code directly in-line, but we could also create a `run_classifier.py`, upload it to Roihu, and call it from the Slurm script. Since we are using the scikit-learn and pandas libraries, we must load the Python-data module at the start of the script.
+As the Python script we want to run is relatively short, the slurm script has the code directly in-line, but we could also create a `run_classifier.py`, upload it to Roihu, and call it from the Slurm script. Since we are using the scikit-learn and pandas libraries, we must load the python-data module at the start of the script.
 
 The Python reads the preprocessed data we uploaded, splits it into the training and testing sets, trains a Decision Tree -classifier, and creates a confusion matrix on the test set performance of the classifier.
 
-Now we submit the job with firecrest.submit. The inputs are:
+Now we submit the job with `firecrest.submit`. The inputs are:
 
 - system_name: Are you requesting a CPU or GPU partition?
 - working_dir: Working directory of the job.
@@ -241,7 +241,7 @@ jobid = job["jobId"]
 
 ## Download results
 
-Wait for the job to finish using firecrest.wait_for_job(). When it is, we can download the results, which could be any file. In this case is a png image of the confusion matrix. Parameters to note for wait_for_job are:
+Wait for the job to finish using `firecrest.wait_for_job()`. When it is, we can download the results, which could be any file. In this case is a png image of the confusion matrix. Parameters to note for `wait_for_job` are:
 
 - timeout: Amount of seconds before job is cancelled.
 - not_found_timeout: Amount of seconds before wait_for_job raises error, but doesn't cancel the job itself.
@@ -252,7 +252,7 @@ Wait for the job to finish using firecrest.wait_for_job(). When it is, we can do
 firecrest.wait_for_job(system_name="cpu", job_id=jobid, timeout=None, not_found_timeout=80)
 ```
 
-When downloading, the target_path can be any path on your local machine which includes the file. It can be a relative path. We are using `OUTPUT_FILENAME = "confusion_matrix.png"`, so the file will be downloaded to out current working directory.
+When downloading, the target_path can be any path on your local machine which includes the file. It can be a relative path. We are using `OUTPUT_FILENAME = "confusion_matrix.png"`, so the file will be downloaded to our current working directory.
 
 ```python
 download = firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_FILENAME), target_path=OUTPUT_FILENAME, account=ACCOUNT)
