@@ -28,6 +28,12 @@ These buckets appear empty, files cannot be accessed and sharing permissions are
 
 During conversion, a new bucket with the suffix "-conv" is created and all files are copied to it.
 
+| Example (old name -> New name) | Changes |
+|----------|----------|
+| `Non-compatible name` → `non-compatible-name-conv` | Capital letters are converted to lowercase. Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| `non-compatible name` → `non-compatible-name-conv` | Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| `non_compatible name` → `non-compatible-name-conv` | Underscores (`_`) are replaced with hyphens (`-`). Spaces are replaplaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+
 After conversion, once you have verified that the converted data is complete and accessible, delete the original bucket to free storage space via the conversion tool. Keeping both buckets consumes significant CSC storage resources. Warning: Deleting a bucket permanently removes all data it contains.
 
 
@@ -49,7 +55,15 @@ After conversion, once you have verified that the converted data is complete and
 
 In these buckets, files can still be accessed and downloaded, however buckets sharing permissions are not be visible and bucket size is zero.  
 
-**Conversion must be done by the end of 2026.** During the conversion, a new bucket with the suffix "-conv" ? is created only when there are capital letters and underscores in the bucket name. In all other cases, the tool will restore the correct bucket size and sharing permissions. 
+**Conversion must be done by the end of 2026.** During the conversion, a new bucket with the suffix "-conv" is created when there are capital letters and underscores in the bucket name. In all other cases, the tool will restore the correct bucket size and sharing permissions. 
+
+Examples of new buckets names:
+
+| Example | Changes |
+|----------|----------|
+| `compatible-name` → `compatible-name` | No changes in bucket name. |
+| `NONcompatible-name` → `noncompatible-name-conv` | Capital letters are converted to lowercase. Suffix `-conv`is added to the end. |
+| `non_compatible_name` → `non-compatible-name-conv` | Underscores (`_`) are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
 
 Unlike the operation described above, this conversion is not network intensive.  
 
