@@ -22,7 +22,7 @@ translator:
     applicationCredentialSecret: ""
   restic:
     image: ghcr.io/restic/restic
-    tag: 0.18.1
+    tag: 0.19.1
     repository: swift:docs-restic:/translations
 # This is not the server hostname. Only used as the hostname in restic snapshots:
     host: docs.csc.fi
@@ -73,9 +73,9 @@ site:
   replicaCount: 3
 base:
   image: ubi9
-  tag: 9.7-1778044007
+  tag: 9.8-1786985871
 server:
-  image: ubi9/nginx-124
-  tag: 9.7-1778130638
+  image: ubi9/nginx-126
+  tag: 9.8-1787043707
 localRegistry: image-registry.openshift-image-registry.svc:5000
 nameOverride: null
