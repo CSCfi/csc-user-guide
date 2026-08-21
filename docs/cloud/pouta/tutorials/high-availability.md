@@ -50,19 +50,19 @@ Host Monitoring
 EOF
 ```
 
-After this, you will be able to ssh to any VM by just running:
-
+After this, you will be able to ssh to any VM by just running `ssh <name_of_vm>`, like for `Frontend-2`:
+ 
 ```sh
 ssh Frontend-2
 ```
 
 ### Load Balancer
 
-For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.keepalived.org/) to achieve high availability at the load balancer layer. Keepalive in `HAProxy-2` will continually monitor `HAproxy-1`, and it goes down, `HAproxy-2` takes over the Floating IP automatically using the OpenStack API. When `HAProxy-1` is back to running status, it will again use the OpenStakc API to regain the use of the floatring IP.
+For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.keepalived.org/) to achieve high availability at the load balancer layer. Keepalive in `HAProxy-2` will continually monitor `HAproxy-1`, and if it goes down, `HAproxy-2` takes over the Floating IP automatically using the OpenStack API. When `HAProxy-1` is back to running status, `HAProxy-1` will use again the OpenStack API to regain the use of the floating IP.
 
 #### Install and configure HAProxy
 
-Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy behave the same on both machines.
+Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the same on both machines.
 
 1. Install HAProxy, Keepalived, and the OpenStack CLI:
 
