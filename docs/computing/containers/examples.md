@@ -74,10 +74,6 @@ apptainer exec python-pip-2.sif pip --no-cache list
 
 ## Example: Roihu-CPU base container with OSU micro benchmarks
 
-The following base container image is available:
-
-- `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03` (4.54 GB)
-
 This image is built for x86_64, so build and run it on Roihu-CPU (`roihu-cpu.csc.fi`).
 
 Build definition file:
@@ -152,13 +148,7 @@ sbatch batch.sh
 
 ## Example: Roihu-GPU base container with NCCL tests
 
-The following base container images are available:
-
-- `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03` (13.7 GB)
-- `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03` (15.9 GB)
-- `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03` (13.5 GB)
-
-These images are built for the Arm-based (aarch64) Nvidia Grace processors, so build and run them on Roihu-GPU (`roihu-gpu.csc.fi`).
+This image is built for the Arm-based (aarch64) Nvidia Grace processors, so build and run them on Roihu-GPU (`roihu-gpu.csc.fi`).
 
 Build definition file:
 

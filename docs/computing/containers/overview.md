@@ -238,6 +238,16 @@ The resulting container images are self-contained and do not require bind-mounti
 However, these containers are not portable to other machines.
 Container images are available in the OCI format on [Satama](../../cloud/satama/index.md), CSC's container image registry.
 
+Roihu-CPU base images:
+
+- `satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03` (4.54 GB)
+
+Roihu-GPU base images:
+
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-15.2.0-cuda-13.1.1:v2026_03` (13.7 GB)
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_03` (15.9 GB)
+- `satama.csc.fi/r_installation_spack/core-gpu-gcc-13.4.0-cuda-12.6.3:v2026_03` (13.5 GB)
+
 !!! info "Roihu-CPU and Roihu-GPU have different architectures"
     Roihu-CPU nodes use x86_64 processors while Roihu-GPU nodes use the Arm-based (aarch64) Nvidia Grace processors.
     The CPU base images are therefore built for x86_64 and the GPU base images for aarch64, and a container built for one side does not run on the other.
