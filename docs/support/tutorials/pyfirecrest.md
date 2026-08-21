@@ -4,6 +4,8 @@ This page gives an example of how you could use FireCREST to access Roihu and Lu
 
 This workflow enables easy modification of your unprocessed data within a notebook or Python script, while still using HPC resources for the heavy computations. This way you use BU:s only on the heavy computation, not on the parts you can do locally.
 
+We will be using Roihu for this tutorial. Any differences to Lumi will be mentioned when they occur.
+
 ## Setup
 Install PyFireCREST in your environment. You can do this with `pip install pyfirecrest`. Then you can import firecrest
 
@@ -20,14 +22,15 @@ import time
 
 # Set constants:
 RAW_DATA_PATH = "~/Downloads/iris.csv"
-ROIHU_PROJ_DIR = "/scratch/project_1234567/username/jupyter-dir/"
-OUTPUT_FILE = "/Users/username/Jupyter-ML/confusion_matrix.png"
+ROIHU_PROJ_DIR = "/scratch/project_1234567/<username>/jupyter-dir/"
 OUTPUT_ON_ROIHU = "confusion_matrix.png"
+DOWNLOAD_TARGET = "confusion_matrix.png"
 FIRECREST_URL = "https://api.roihu.csc.fi/v1"
 ACCOUNT = "project_1234567"
 ```
 
-Retrieve your personal access token. Instructions for this and the exact API endpoint are found in the [Connecting to Roihu FirecREST HPC API](../../computing/firecrest/connecting.md).
+Retrieve your personal access token. Instructions for this and the exact API endpoint are found in the [Connecting to Roihu FirecREST HPC API](../../computing/firecrest/connecting.md) and for Lumi in the [Lumi Documentation](https://docs.lumi-supercomputer.eu/).
+
 !!! warning
 
     Access tokens issued for FirecREST HPC API allow the token holder to interact with Slurm jobs, and read, manipulate and transfer data with your privileges. Don't share your access token with anyone.
@@ -113,6 +116,8 @@ df_filtered.to_csv(upload_file)
 Now we upload the file using firecrest.upload(), but first we'll make sure the directory exists with firecrest.mkdir()
 When using the firecrest methods, all of them require system_name as an input. This distinguishes the different node types, "cpu" and "gpu". As Roihu uses a shared filesystem, the only command this has an effect on is the firecrest.submit().
 
+If you are using Lumi, use `system_name="lumi"` on all firecrest commands.
+
 ```python
 firecrest.mkdir(system_name="cpu", path=ROIHU_PROJ_DIR, create_parents=True)
 ``` 
@@ -149,12 +154,18 @@ env_vars["OUTPUT_PATH"] = OUTPUT_ON_ROIHU
 env_vars["DATA_FILE"] = filename_on_roihu
 ```
 
-To submit a job on the compute nodes, we need a slurm script just as if we were submitting it on Roihu. See [here](../../computing/running/creating-job-scripts-roihu.md) for instructions on how to create one.
+To submit a job on the compute nodes, we need a slurm script just as if we were submitting it on Roihu. See [Roihu Documentation](../../computing/running/creating-job-scripts-roihu.md) or [Lumi documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart) for instructions on how to create one. 
 You can write the script locally and upload it to Roihu the same way as the data, or you can give the local Slurm script path as the input. We will use the latter option.
-The script is at `./iris_slurm_script.sh`, and is as follows:
+The script is saved to `./iris_slurm_script.sh`.
+
+If you are using Lumi, you cannot use this exact script, as Lumi doesn't have a python-data module. See the [Lumi software stack](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/softwarestacks/) for options.
+
+!!! note "shebang" 
+    You must use `#!/bin/bash -l" as the shebang at the start of your batch script to get the 
+    computing environment, like the module system, to work.
 
 ```bash
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name=firecrest_test_job
 #SBATCH --partition=test
 #SBATCH --account=project_2001659
@@ -231,18 +242,17 @@ Wait for the job to finish using firecrest.wait_for_job(). When it is, we can do
 firecrest.wait_for_job(system_name="cpu", job_id=jobid, timeout=None, not_found_timeout=80)
 ```
 
-When downloading, use an absolute path as the target_path.
+When downloading, the target_path can be any path on your local machine which includes the file. It can be a relative path. We are using `DOWNLOAD_TARGET = "confusion_matrix.png"`, so the file will be downloaded to out current working directory.
 
 ```python
-download = firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_ON_ROIHU), target_path=OUTPUT_FILE, account=ACCOUNT)
+download = firecrest.download(system_name="cpu", source_path=os.path.join(ROIHU_PROJ_DIR, OUTPUT_ON_ROIHU), target_path=DOWNLOAD_TARGET, account=ACCOUNT)
 if download != None:
     print("Download is done as a batch job, waiting for it to finish.")
     download.wait_for_transfer_job()
-print(f"Results downloaded successfully to {OUTPUT_FILE}.")
+print(f"Results downloaded successfully to {DOWNLOAD_TARGET}.")
 ```
 
 Now you can analyse the results locally with whatever tools you have.
-
 
 ```python
 final_results = your_post_processing(results)
