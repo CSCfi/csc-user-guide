@@ -167,7 +167,7 @@ If you are using Lumi, you cannot use this exact script, as Lumi doesn't have a 
 #!/bin/bash -l
 #SBATCH --job-name=firecrest_test_job
 #SBATCH --partition=test
-#SBATCH --account=project_2001659
+#SBATCH --account=project_1234567
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2G
 #SBATCH --time=00:02:00
