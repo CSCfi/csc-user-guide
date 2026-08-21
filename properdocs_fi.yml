@@ -26,10 +26,6 @@ extra:
       link: /
       lang: en
 
-plugins:
-  search:
-    lang: fi
-
 theme:
   language: fi-CSC
   features:
