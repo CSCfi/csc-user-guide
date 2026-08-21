@@ -85,6 +85,7 @@ hooks:
 watch:
   - hooks
   - includes
+  - overrides
 
 plugins:
   tags:
