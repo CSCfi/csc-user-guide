@@ -157,7 +157,18 @@ To submit a job on the compute nodes, we need a slurm script just as if we were 
 You can write the script locally and upload it to Roihu the same way as the data, or you can give the local Slurm script path as the input. We will use the latter option.
 The script is saved to `./iris_slurm_script.sh`.
 
-If you are using Lumi, you cannot use this exact script, as Lumi doesn't have a python-data module. See the [Lumi software stack](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/softwarestacks/) for options.
+If you are using Lumi, you cannot use this exact script, as Lumi doesn't have a python-data module. If you want to follow the rest of this tutorial, you can substitute the `module load python-data`  int the slurm script with:
+```bash
+module load cray-python
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install scikit-learn
+pip install matplotlib
+pip install pandas
+```
+
+Make sure to read the Lumi documentation about [installing Python packages](https://docs.lumi-supercomputer.eu/software/installing/python/).
 
 !!! note "shebang" 
     You must use `#!/bin/bash -l" as the shebang at the start of your batch script to get the 
@@ -166,7 +177,7 @@ If you are using Lumi, you cannot use this exact script, as Lumi doesn't have a 
 ```bash
 #!/bin/bash -l
 #SBATCH --job-name=firecrest_test_job
-#SBATCH --partition=test
+#SBATCH --partition=small
 #SBATCH --account=project_1234567
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2G
