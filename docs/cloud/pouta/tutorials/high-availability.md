@@ -185,7 +185,7 @@ The database is provided by [Pukki DBaaS](../../dbaas/index.md), CSC's managed P
 
 1. Follow the [Pukki getting started guide](../../dbaas/index.md) to create a new PostgreSQL instance. When creating it:
     - Note the public IP
-    - Create a database and a user, for example called `postgres` (user) and `postgres` (database) to match the defaults used in this tutorial.
+    - Create a database and a user, for example called `ha` (user) and `ha` (database) to match the defaults used in this tutorial.
     - Set a good password for the database user
 
 1. Allow the Frontend VMs to connect to Pukki. In the Pukki web interface, add the **IP address** used as **egress IP** by `Frontend-1` and `Frontend-2` to the allowed hosts list. You can get this IP by login in any of the two Frontend servers and run:
@@ -223,11 +223,7 @@ It is the same repository used for the Rahti tutorial mentioned before. It conta
 
     ```sh
     sudo cat >/opt/rahti-ha-tutorial/.env <<EOF
-    DB_HOST=<PUKKI_DB_HOST>
-    DB_PORT=5432
-    DB_USER=postgres
-    DB_PASSWORD=<DB_PASSWORD>
-    DB_NAME=postgres
+    DATABASE_URL=postgresql://ha:<DBPASSWORD>@<PUKKI_DB_HOST>:5432/ha
     EOF
     ```
 
