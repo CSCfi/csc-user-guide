@@ -93,8 +93,7 @@ plugins:
       - "Free"
       - "Non-commercial"
       - "Other"
-  search:
-    lang: en
+  search: {}
   document-dates:
     position: bottom
     type: date
