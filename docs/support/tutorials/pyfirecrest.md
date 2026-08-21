@@ -1,6 +1,6 @@
 # Using PyFireCREST in a Python script or Jupyter notebook
 
-This page gives an example of how you could use FireCREST to access Roihu and Lumi from a Python script or a Jupyter notebook. We will train a Classifier model on the Iris dataset, and output the confusion matrix. Basic knowledge of Python and its usage in a HPC environment are assumed. If you're unsure about these topics, see the page on [Using Python on CSC supercomputers](./python-usage-guide.md). See also [CSC FirecREST documentation](../../computing/firecrest/index.md) and [PyFirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_v2_index.html).
+This page gives an example of how you could use FireCREST to access Roihu and Lumi from a Python script or a Jupyter notebook. We will train a Classifier model on the [Iris dataset](https://archive.ics.uci.edu/dataset/53/iris), and output the confusion matrix. Basic knowledge of Python and its usage in a HPC environment are assumed. If you're unsure about these topics, see the page on [Using Python on CSC supercomputers](./python-usage-guide.md). See also [CSC FirecREST documentation](../../computing/firecrest/index.md) and [PyFirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_v2_index.html).
 
 This workflow enables easy modification of your unprocessed data within a notebook or Python script, while still using HPC resources for the heavy computations. This way you use BU:s only on the heavy computation, not on the parts you can do locally.
 
