@@ -231,7 +231,7 @@ Now we submit the job with `firecrest.submit`. The inputs are:
 - working_dir: Working directory of the job.
 - script_local_path: path (full or relative) to the Slurm script on your machine. Optional
 - script_remote_path: path to the Slurm script on Roihu. Optional
-- env_vars: dictionary of environment variables, must include at least CSC_ENV_INIT_NON_INTERACTIVE=yes
+- env_vars: dictionary of environment variables, must include at least `CSC_ENV_INIT_NON_INTERACTIVE=yes`
 
 
 ```python
