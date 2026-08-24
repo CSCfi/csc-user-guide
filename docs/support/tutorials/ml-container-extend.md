@@ -1,5 +1,5 @@
 # Build Your Own ML Container on Top of the Base Images Using Apptainer Sandbox on Roihu
-
+This guide is also part of our [Machine learning guide](ml-guide.md).
 ## Motivation
 
 Using the pre-installed PyTorch modules on Roihu is convenient for many workflows. However, when working with different repositories, users may need different PyTorch versions or specific libraries that depend on a particular PyTorch version.
@@ -10,7 +10,7 @@ The workflow uses an Apptainer **sandbox** as a writable environment during inst
 
 > **Note:** The commands below are intended to be run on **Roihu**, but it should be easily adaptable to other clusters.
 
-## 1. Allocate Resources
+## Allocate Resources
 
 Start an interactive GPU job with the required resources, here we ask for 1 GPU for 1 hour, we do not encourage users to ask more than what they need since GPUs are valuable resources:
 
@@ -24,7 +24,7 @@ salloc --account=project_***** \
     --gres=gpu:gh200:1 
 ```
 
-## 2. Set the Apptainer Cache Directory
+## Set the Apptainer Cache Directory
 
 Set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory:
 
@@ -33,7 +33,7 @@ export APPTAINER_CACHEDIR="$TMPDIR/apptainer-cache"
 mkdir -p "$APPTAINER_CACHEDIR"
 ```
 
-## 3. Create a Writable Sandbox from `ml-base`
+## Create a Writable Sandbox from `ml-base`
 
 Initialize an Apptainer sandbox using the CSC `ml-base` image:
 
@@ -52,7 +52,7 @@ The exact path will depend on your `$TMPDIR`.
 
 The `--sandbox` option creates a writable directory containing the extracted container filesystem. This allows you to install and modify software interactively before creating the final SIF image.
 
-## 4. Create the Users Directory
+## Create the Users Directory
 
 Create the `users` directory inside the sandbox:
 
@@ -60,7 +60,7 @@ Create the `users` directory inside the sandbox:
 mkdir -p "$TMPDIR/mlbase/users"
 ```
 
-## 5. Enter the Sandbox 
+## Enter the Sandbox 
 
 Start a writable shell inside the sandbox. The `--nv` option makes the NVIDIA GPU and relevant NVIDIA libraries available inside the container:
 
@@ -73,7 +73,7 @@ apptainer shell --fakeroot --writable --nv \
 
 You are now working inside the writable `mlbase` sandbox.
 
-## 6. Configure the pip Cache
+## Configure the pip Cache
 
 Inside the container, configure pip to use a cache directory under `/tmp`:
 
@@ -84,7 +84,7 @@ mkdir -p /tmp/pip-cache
 
 Because `$TMPDIR` is bound to `/tmp` inside the container, the pip cache is stored outside the container image.
 
-## 7. Work Around `useradd` and `groupadd`
+## Work Around `useradd` and `groupadd`
 
 If package installation fails because `useradd` or `groupadd` cannot be executed in the sandbox, replace these commands with `/usr/bin/true`:
 
@@ -95,7 +95,7 @@ cp /usr/bin/true /usr/sbin/groupadd
 
 This prevents package installation scripts from failing when they attempt to create system users or groups.
 
-## 8. Install PyTorch 2.13.0 with CUDA 13.0
+## Install PyTorch 2.13.0 with CUDA 13.0
 
 Install PyTorch 2.13.0 and `torchvision` using the CUDA 13.0 PyTorch wheel index:
 
@@ -112,7 +112,7 @@ python -c "import torch; print(torch.__version__); print(torch.cuda.is_available
 
 The output should show the installed PyTorch version and indicate whether CUDA is available.
 
-## 9. Install `fairchem-core 2.22.0`
+## Install `fairchem-core 2.22.0`
 
 ```bash
 pip install fairchem-core==2.22.0
@@ -124,7 +124,7 @@ Verify:
 python -c "from fairchem.core import pretrained_mlip, FAIRChemCalculator; print('fairchem ok')"
 ```
 
-## 10. Exit the Sandbox
+## Exit the Sandbox
 
 Once all required software has been installed, exit the container:
 
@@ -134,7 +134,7 @@ exit
 
 You should now be back in the host environment.
 
-## 11. Build the SIF Image
+## Build the SIF Image
 
 Convert the writable sandbox into a standard Apptainer SIF image:
 
@@ -150,7 +150,7 @@ fairchem.sif
 
 The SIF format is a portable, read-only Apptainer image that can be used for subsequent jobs.
 
-## 12. Verify the SIF Image
+## Verify the SIF Image
 
 Check the size of the generated container:
 
@@ -160,7 +160,7 @@ ls -lh fairchem.sif
 
 The SIF file will typically be several GB in size, depending on the packages installed in the container.
 
-## 13. Test the Container
+## Test the Container
 
 Finally, verify that both FairChem and PyTorch can be imported from the generated SIF image:
 
