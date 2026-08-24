@@ -101,14 +101,15 @@ After downloading the files, you need to adjust their extensions. Right-click th
 
 [Video](https://youtu.be/SQJ8QEKV7BE)
 
- Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
-      1. Open the Crypt4GH application and click on _load Your Private Key_.
-      2. Click on _Select File_ and upload the file you want to decrypt.
-      3. Click on _Open_.
-      4. Next, click on _Decrypt File_.
-      5. The tool will ask you to write the secret key's password. Press _ok_.
+Next, you can decrypt the file using the Crypt4GH application and your secret encryption key. Unfortunately, it is currently only possible to single files.
 
-      The secret key must match the public key used to encrypt the data.
+1. Open the Crypt4GH application and click on _load Your Private Key_.
+2. Click on _Select File_ and upload the file you want to decrypt.
+3. Click on _Open_.
+4. Next, click on _Decrypt File_.
+5. The tool will ask you to write the secret key's password. Press _ok_.
+
+The secret key must match the public key used to encrypt the data.
 
 !!! Note
     In the case of decryption, adding the public key is not mandatory, but if you have the public key of the person who has encrypted the file, you can use it to verify the encryption signature. If you don't select a public key, the activity log will display the following (the decryption will be executed anyway):
