@@ -1,14 +1,16 @@
-# Build Your Own ML Container on Top of the Base Images Using Apptainer Sandbox on Roihu
+# Extend CSC-based ML containers using sandbox on Roihu
 This guide is also part of our [Machine learning guide](ml-guide.md).
 ## Motivation
 
-Using the pre-installed PyTorch modules on Roihu is convenient for many workflows. However, when working with different repositories, users may need different PyTorch versions or specific libraries that depend on a particular PyTorch version.
+Using the [pre-installed PyTorch modules on Roihu](../../apps/pytorch.md) is convenient for many workflows. However, when working with different libraries, users may need PyTorch versions or other libraries that have not been installed by CSC.
 
 For example, the latest `fairchem-core` release requires a recent PyTorch version. In this guide, we demonstrate how to build a custom Apptainer container based on the CSC `ml-base` image and install **PyTorch 2.13.0 with CUDA 13.0** together with **`fairchem-core` 2.22.0**.
 
 The workflow uses an Apptainer **sandbox** as a writable environment during installation. Once the required software has been installed, the sandbox is converted into a portable `.sif` image that can be used for subsequent FairChem workloads.
 
-> **Note:** The commands below are intended to be run on **Roihu**, but it should be easily adaptable to other clusters.
+!!! info "Note"
+
+    The commands below are intended to be run on **Roihu**, but it should be easily adaptable to other clusters.
 
 ## Allocate Resources
 
@@ -30,7 +32,6 @@ Set the Apptainer cache directory to `$TMPDIR` to avoid filling your home direct
 
 ```bash
 export APPTAINER_CACHEDIR="$TMPDIR/apptainer-cache"
-mkdir -p "$APPTAINER_CACHEDIR"
 ```
 
 ## Create a Writable Sandbox from `ml-base`
@@ -51,6 +52,10 @@ INFO:    Build complete: /tmp/shanshan/715617/mlbase
 The exact path will depend on your `$TMPDIR`.
 
 The `--sandbox` option creates a writable directory containing the extracted container filesystem. This allows you to install and modify software interactively before creating the final SIF image.
+
+!!! warning
+
+    Do not create a sandbox on the shared Lustre file system (for example on `/scratch`, `/projappl` or `/home`) as [it will create a lot of small files which can slow down the system for all users](../../computing/lustre.md#best-practices)!
 
 ## Create the Users Directory
 
@@ -79,7 +84,6 @@ Inside the container, configure pip to use a cache directory under `/tmp`:
 
 ```bash
 export PIP_CACHE_DIR=/tmp/pip-cache
-mkdir -p /tmp/pip-cache
 ```
 
 Because `$TMPDIR` is bound to `/tmp` inside the container, the pip cache is stored outside the container image.
@@ -142,13 +146,7 @@ Convert the writable sandbox into a standard Apptainer SIF image:
 apptainer build --fakeroot fairchem.sif "$TMPDIR/mlbase"
 ```
 
-The resulting image will be:
-
-```text
-fairchem.sif
-```
-
-The SIF format is a portable, read-only Apptainer image that can be used for subsequent jobs.
+The resulting image will be in the file `fairchem.sif`. The SIF format is a portable, read-only Apptainer image that can be used for subsequent jobs.
 
 ## Verify the SIF Image
 
@@ -169,11 +167,11 @@ apptainer exec fairchem.sif \
     python -c "import fairchem.core, torch; print(torch.__version__)"
 ```
 
-You can also check CUDA availability with flag --nv. In addition, on Roihu, we can use csc-common-bind command to bind mounts the common disk areas such as "`/users`, `/projappl`, `/scratch`, `$TMPDIR`,`$LOCAL_SCRATCH`":
+In order to access the GPU, add the `--nv` flag. In addition, on Roihu, we can use `csc-common-bind` command to list the bind mounts to common disk areas such as `/scratch` and `/projappl`:
 
 ```bash
 apptainer exec --bind="$(csc-common-bind)" --nv fairchem.sif \
     python -c "import torch; print('PyTorch:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 ```
-If the commands complete successfully, the custom FairChem container has been built successfully.
+If the commands complete successfully, the custom FairChem container has been built successfully. You can move the resulting SIF file to the proper location such as in the project's directory in `/projappl`.
 
