@@ -1,8 +1,8 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Downloading folders and files
+# Downloading buckets and files
 
-You can easily download folders or individual files from SD Connect user interface.
+You can easily download buckets or individual files from SD Connect user interface.
 
 **Automated decryption is available only for files uploaded and automatically encrypted via the user interface after October 1, 2024**. In contrast, files have been uploaded before October 1 2024, were manually encrypted using your encryption key and will need to be decrypted manually after download. Although both file types use the same .c4h extension, if you see the message "Requested files could not be decrypted" during download, it indicates that the file was encrypted manually and its decryption will require an extra step. If you need any assistance, don't hesitate to contact us.
 
@@ -10,7 +10,7 @@ You can easily download folders or individual files from SD Connect user interfa
 2. [Download and manual decryption](#download-and-manual-decryption)
 
 !!! Note
-    If this is your first time using the service, a pop-up may appear in your browser asking you to accept cookies. Please click Accept to enable the download to start.
+    If this is your first time using the service, a **pop-up** may appear in your browser asking you to accept cookies. Please click **Accept** to enable the download to start.
 
 ## Download and automated decryption
 
@@ -18,28 +18,27 @@ You can easily download folders or individual files from SD Connect user interfa
 
 For files and folders uploaded using SD Connect user interface after October 1, 2024.
 
-### Downloading folder
+### Downloading a bucket
 
-1. Find the correct folder from **All folders** tab.
-2. Click **Download** button on the right side of the folder you want to download.
+1. Find the correct bucket from **All buckets** tab.
+2. Click **Download** button on the right side of the bucket you want to download.
 3. **Accept cookies** if needed: A pop-up window may appear at the top of your browser asking for cookie consent. The download will not start until cookies have been accepted.
 
+4. **Wait for the download to complete**: a progress bar will show the download status. Once finished, open **Downloads** folder on your computer, where you may see two files:
 
-4. **Wait for the download to complete**: a progress bar will show the download status. Once finished, open your local download folder, where you may see two files:
-
-    * .tar file – This is the actual file containing your downloaded folder.
+    * .tar file – This is the actual file containing your downloaded bucket.
     * .tar.part file – This is a temporary file created while the .tar file is still downloading.
     * If both the .tar and .tar.part files are present, the download is still in progress. Your browser will continue downloading in the background.
     * **Do not open or extract any files** until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This ensures that the download has completed successfully.
 
-5. Files are decrypted automatically. The downloaded folder has a .tar extension, double-click it to extract the contents into a new folder.
+5. Files are decrypted automatically. The downloaded bucket has a .tar extension, double-click it to extract the contents into a new folder.
 
 
-![SD Connect Download folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Download.png)
+![SD Connect Download bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Download.png)
 
 ### Downloading individual files
 
-1. Find correct folder from **All folders tab** and open it.
+1. Find correct bucket from **All buckets tab** and open it.
    
 2. Find corrects files. Click **Download** button on the right side of each file you want to download. Note that files are downloaded one-by-one.
 
@@ -47,7 +46,7 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 
 4. **Wait for the download to complete**: a progress bar will show the download status. Once finished, open your local download folder, where you may see two files:
 
-    * .tar file – This is the actual file containing your downloaded folder.
+    * .tar file – This is the actual file containing your downloaded file.
     * .tar.part file – This is a temporary file created while the .tar file is still downloading.
     * If both the .tar and .tar.part files are present, the download is still in progress. Your browser will continue downloading in the background.
     * **Do not open or extract any files** until the .tar.part file disappears and the .tar file shows a proper file size (not 0 bytes). This ensures that the download has completed successfully.
@@ -58,7 +57,7 @@ For files and folders uploaded using SD Connect user interface after October 1, 
 !!! Warning
     If you encounter the message 'Some downloaded files need manual decryption.' while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
-![SD Connect Download files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Downloadfiles.png)
+![SD Connect Download files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DownloadFiles.png)
 
 
 
