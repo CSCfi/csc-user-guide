@@ -76,7 +76,7 @@ LUMI AI
 Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 All supercomputers also provide a [web user
-interface](https://docs.csc.fi/computing/webinterface/), through which
+interface](../../computing/webinterface/index.md), through which
 one can easily launch for example a Jupyter Notebook session with
 PyTorch. Note that GPUs access is more restricted for interactive
 sessions.

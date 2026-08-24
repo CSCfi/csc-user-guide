@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    This tutorial uses OpenShift CLI tool [oc](../../get-started/cli.md)
+    This tutorial uses OKD CLI tool [oc](../../get-started/cli.md)
 
     A knowledge of Kubernetes environment is required
 

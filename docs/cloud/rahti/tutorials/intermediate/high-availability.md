@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    You need a knowledge of OpenShift CLI tool [oc](../../get-started/cli.md) and [Helm](../../../../support/faq/helm.md)
+    You need a knowledge of OKD CLI tool [oc](../../get-started/cli.md) and [Helm](../../../../support/faq/helm.md)
 
 # How to deploy a High Available application in Rahti
 

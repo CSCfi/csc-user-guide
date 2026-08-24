@@ -1,52 +1,65 @@
 # Using Rahti integrated registry
 
-## Manual Image Caching
+## Pushing local images to Rahti registry
 
-It is possible to manually cache images in Rahti. This could be useful to remove
-an external dependency or improve performance.
+The internal registry allows you to store container images inside your Rahti project. This is useful when you build 
+images locally and want to deploy them on the cluster without using an external registry.
 
 The process is simple:
 
-1. [Install](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login with OC](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui).
+1. Make sure to [login via the CLI](../../get-started/cli.md#how-to-login-with-oc)
 
-1. With a terminal, connect to the Rahti registry:
-    ```sh
-    sudo docker login -p $(oc whoami -t ) -u unused image-registry.apps.2.rahti.csc.fi
-    ```
 
-    _Alternatively, you can access to this address: <https://oauth-openshift.apps.2.rahti.csc.fi/oauth/token/display> to request
-    a token. Once connected, display and copy the token. The command will be:_
+2. Log in to the registry
 
     ```sh
-    sudo docker login -p <YOUR_TOKEN> -u unused image-registry.apps.2.rahti.csc.fi
+    docker login -u unused -p $(oc whoami -t) image-registry.apps.2.rahti.csc.fi
     ```
 
     !!! info
         If you get any error, make sure you are logged in. If you run `oc whoami`, the command should return your username.
 
-2. Tag the image you want to push:
-   ```sh
-   sudo docker tag almalinux:10 image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/almalinux:<tag>
-   ```
-   _Replace {YOUR_RAHTI_PROJECT_NAME} by the name of your project._
-   _Please note that YOUR_RAHTI_PROJECT_NAME here is the Rahti project name (AKA namespace name), and does not refer to CSC project._
+3. Tag your local image so it points to your project’s ImageStream location. Images must follow this format:
 
-4. Push your image:
-   ```sh
-   sudo docker push image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/almalinux:<tag>
-   ```
+    ```sh
+    docker tag <image-name>:<image-tag> image-registry.apps.2.rahti.csc.fi/<rahti-project-name>/<image-name>:<image-tag>
+    ```
+   
+    Example:
 
-You should be able to see your images in your project:
-![Image Streams](../../../img/image_streams_rahti4.png)
+    ```sh
+    docker tag myapp:latest image-registry.apps.2.rahti.csc.fi/myproject/myapp:latest
+    ```
 
-Alternatively you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
+
+4. Push the image to the registry:
+
+    ```sh
+    docker push  image-registry.apps.2.rahti.csc.fi/<rahti-project-name>/<image-name>:<image-tag>
+    ```
+    Example:
+
+    ```sh
+    docker push myapp:latest image-registry.apps.2.rahti.csc.fi/myproject/myapp:latest
+    ```
+
+5. Verify the ImageStream in Rahti.
+
+    ```sh
+    oc describe is <image-name>
+    ```
+
+You should be able to see the ImageStream in the web console as well under Builds -> ImageStreams.
+
+
+Alternatively, you can query images in remote registry with `docker image ls [OPTIONS] [REPOSITORY[:TAG]]`
 
 !!! warning "Troubleshooting"
 
     If you receive this error when attempting to push your image:
 
     ```
-    unknown: unexpected status from HEAD request to https://image-registry.apps.2.rahti.csc.fi/v2/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}/manifests/sha256:834e7b0d913dd73e8616810c2c3a199cd8a3618e981f75eea235e0920d601ce4: 500
+    unknown: unexpected status from HEAD request to https://image-registry.apps.2.rahti.csc.fi/v2/<rahti-project-name>/<image-name>/manifests/sha256:834e7b036543663e8616810c2c3a199cd8a3618e981f75eea235e0920d601ce4: 500
     ```
 
     You must create the `ImageStream` before pushing.
@@ -59,59 +72,70 @@ Alternatively you can query images in remote registry with `docker image ls [OPT
 
 [oc](../../get-started/cli.md) must be installed locally on your machine.
 
-## Pulling Images from Rahti
+## Pulling images from Rahti registry
 
-You can pull any image stored in the Rahti integrated registry to your local machine, save it as a portable archive, or push it to an external registry.
+1. Make sure to [login via the CLI](../../get-started/cli.md#how-to-login-with-oc)
 
-1. Connect to the Rahti registry (same login as for pushing):
+2. Log in to the registry
 
-   ```bash
-   sudo docker login -p $(oc whoami -t) -u unused image-registry.apps.2.rahti.csc.fi
-   ```
+    ```sh
+    docker login -u unused -p $(oc whoami -t) image-registry.apps.2.rahti.csc.fi
+    ```
 
-   To list the images and tags available in your project:
+3. Pull the image
 
-   ```bash
-   oc get imagestreams
-   oc describe imagestream {YOUR_IMAGE_NAME}
-   ```
+    ```sh 
+    docker pull image-registry.apps.2.rahti.csc.fi/<rahti-project-name>/<image-name>:<image-tag>
+    ```
 
-2. Pull the image to your local machine:
+4. Optionally you can re-tag the local image before using it (so you can refer to it without the the registry url)
 
-   ```bash
-   sudo docker pull image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}:<tag>
-   ```
+    ```sh 
+    docker tag image-registry.apps.2.rahti.csc.fi/<rahti-project-name>/<image-name>:<image-tag> <image-name>:<image-tag> 
+    ```
 
-3. (Optional) Save the image as a `.tar` archive:
+5. Verify the image
 
-   ```bash
-   sudo docker save -o {YOUR_IMAGE_NAME}.tar image-registry.apps.2.rahti.csc.fi/{YOUR_RAHTI_PROJECT_NAME}/{YOUR_IMAGE_NAME}:<tag>
-   ```
+    ```sh 
+    docker images
+    ```
 
-## Using Manually Cached Images
+## Access control for the Rahti integrated registry
 
-Go to your project's deployment, and edit it.
+The Rahti internal registry enforces access control based on project (namespace) permissions. Each image stored in the 
+registry belongs to a project, and users must have the appropriate privileges in that project to push, pull, or 
+manage images.
 
-![Edit deployment](../../../img/edit_deployment.png)
 
-Go to the Images section, make sure the option "Deploy images from an image stream tag" is clicked.
-Finally select the new image.
+### Registry ownership and image visibility
 
-![Use cached image](../../../img/use_cached_image.png)
+Stored images in the internal registry are scoped to the project that owns them.
+An image located at:
 
-## Access Control for the Rahti Integrated Registry
+`image-registry.apps.2.rahti.csc.fi/<rahti-project-name>/<image-name>:<image-tag>`
 
-Rahti provides granular control over access to the integrated image registry, allowing you to manage permissions based on [user authentication](https://docs.redhat.com/en/documentation/openshift_container_platform/4.22/html/authentication_and_authorization/index).
+
+is by default accessible only to:
+
+* users who have access to same `Rahti-project-name`
+
+* service accounts in `Rahti-project-name`
+
+Users in other projects cannot pull this image or push unless explicit access is granted.
+
+
+Rahti provides granular control over access to the integrated image registry, allowing users to manage permissions based on [user authentication](https://docs.okd.io/4.22/authentication/index.html).
 
 As a Rahti user, you can choose how broadly your stored images are exposed for different scenarios.
 
-### Use case 1: Publicly pullable images through the internet
+
+#### Use case 1: Publicly pullable images through the internet
 
 This method allows **all images** within a Rahti project to be pulled by **anyone on the internet**.
 
 !!! info "Expose selected images only"
 
-    If you need to only make one or more specific images see [Use case 3](integrated-registry.md#use-case-3-granular-control-over-publicly-exposing-specific-image-recommended)
+    If you need to only make one or more specific images publicly accessible see [Use case 3](./integrated-registry.md#use-case-3-granular-control-over-publicly-exposing-specific-image-recommended)
 
 
 - **How to enable**: Use one of the following commands to allow anyone pulling images from your Rahti project:
@@ -130,7 +154,7 @@ This method allows **all images** within a Rahti project to be pulled by **anyon
   oc policy remove-role-from-group "system:image-puller" "system:unauthenticated" -n <project>
   ```
 
-### Use case 2: Pullable images for all Rahti users, groups, serviceaccounts, and projects
+#### Use case 2: Pullable images for all Rahti users, groups, serviceaccounts, and projects
 
 This method allows **all images** within a project to be pulled by **any authenticated Rahti user**, including other projects and service accounts inside Rahti.
 
@@ -146,10 +170,10 @@ This method allows **all images** within a project to be pulled by **any authent
   oc policy remove-role-from-group "system:image-puller" "system:authenticated" -n <project>
   ```
 
-### Use case 3: Granular control over publicly exposing specific image (Recommended)
+#### Use case 3: Granular control over publicly exposing specific image (Recommended)
 
 This method provides fine-grained control, allowing you to expose **only selected imagestreams** to unauthenticated users on the internet.
-It is a more secure alternative to Use case 1 because it exposes only what you explicitly choose.
+It is a more safe alternative to Use case 1 because it exposes only what you explicitly choose.
 
 - **How to enable**: For this, you are required to create a custom role and rolebinding in your Rahti project. 
 
@@ -175,7 +199,7 @@ It is a more secure alternative to Use case 1 because it exposes only what you e
   oc delete role my-image-puller
   ```
 
-### Use case 4: Exposing the images from one Rahti project to another Rahti project (cross-namespace pulling)
+#### Use case 4: Exposing the images from one Rahti project to another Rahti project (cross-namespace pulling)
 
 This method enables one Rahti project to pull images from another project.
 It is useful when different namespaces need to share base images.

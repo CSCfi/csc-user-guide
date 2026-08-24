@@ -110,7 +110,7 @@
 * Export data and images
     * [How to back up volume data to Allas?](../../cloud/rahti/usage/storage/object-storage.md#backup-to-allas)
     * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
-    * [How to export container images?](../../cloud/rahti/usage/images/integrated-registry.md#pulling-images-from-rahti)
+    * [How to export container images?](../../cloud/rahti/usage/images/integrated-registry.md#pulling-images-from-rahti-registry)
     * [How to share images between projects?](../../cloud/rahti/tutorials/basic/allow-pull-from-other-projects.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)

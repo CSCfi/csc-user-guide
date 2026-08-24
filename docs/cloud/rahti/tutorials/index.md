@@ -33,4 +33,4 @@
 * 🔴 [Nextcloud](advanced/nextcloud.md)
 * 🔴 [Reverse proxy authentication using a sidecar container](advanced/sidecar-proxy-authentication.md)
 
-We also have an [FAQ](../../../support/faq/index.md#rahti) for Rahti. Take a look at it.
+We also have an [FAQ](../../../support/faq/index.md#rahti) for Rahti.

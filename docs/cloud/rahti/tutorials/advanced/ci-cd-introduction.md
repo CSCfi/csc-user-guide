@@ -1,6 +1,6 @@
 !!! error "Advanced level"
-    You need to familiarize yourself with OpenShift [ImageStreams](../../usage/kubernetes-concepts.md#imagestream) and [BuildConfig](../../usage/kubernetes-concepts.md#buildconfig) API  
-    In this tutorial, we will use the OpenShift CLI tool [oc](../../get-started/cli.md)
+    You need to familiarize yourself with [ImageStreams](../../usage/kubernetes-concepts.md#imagestream) and [BuildConfig](../../usage/kubernetes-concepts.md#buildconfig) API  
+    In this tutorial, we will use the OKD CLI tool [oc](../../get-started/cli.md)
     
 # Introduction
 
@@ -13,7 +13,7 @@ and accelerate the speed at which they can deploy new code and become more agile
 
 In this tutorial, we will set up a simple CI/CD pipeline using the Kubernetes concepts
 such as _ImageStream_, _BuildConfig_, and _Deployment``_. Please refer to these Kubernetes
-concepts in [Kubernetes and OpenShift concepts](../../usage/kubernetes-concepts.md).
+concepts in [Kubernetes and OKD concepts](../../usage/kubernetes-concepts.md).
 
 !!! info
 
@@ -49,7 +49,7 @@ Make sure you are in the right project with `oc project` and if not you can crea
 with `oc new-project <your-new-project-name>`.
 
 We have all the necessary object definitions in the `rahti-bc-example` project under the `k8s-api-objs.yaml`.
-Please refer to [Kubernetes and OpenShift concepts](../../usage/kubernetes-concepts.md) to understand the objects
+Please refer to [Kubernetes and OKD concepts](../../usage/kubernetes-concepts.md) to understand the objects
 defined under `k8s-api-objs.yaml`. You can easily create these objects necessary for our CI/CD pipeline using
 the `oc create` command as follows:
 

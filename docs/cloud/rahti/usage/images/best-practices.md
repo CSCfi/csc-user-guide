@@ -1,67 +1,102 @@
-# Keeping docker images small
+# Keeping container images small
 
-It is important to keep docker images small. The smaller the image is, the faster it will be pulled, speeding up deployments, both in production and development environments. In addition, bigger images get deleted from the nodes cache sooner. The maximum size for an image stored in Rahti's internal registry is 5GB. Images over 1GB are already considered very big images.
+It is important to keep container images small. Smaller images download faster, which reduces startup 
+time for Pods in Kubernetes and improves the responsiveness of scaling operations. They also use less storage in 
+registries and on cluster nodes, which matters in multi-tenant environments like Rahti. Moreover, a smaller image 
+contains fewer packages and files, which reduces the potential attack surface and lowers the chance of including 
+outdated or vulnerable components. This makes maintenance easier and improves overall security. Because smaller images 
+contain only what the application actually needs, they are more predictable, easier to debug, and simpler to reproduce
+across environments. Rahti's registry has an image size limit of 5 GiB.
 
-## Be mindful about what is added to the image
 
-The first way to keep an image small is to by simply not adding unnecessary files. When developing is common to install full sources of libraries or other dependencies, for example the Linux kernel headers. These sources are not anymore necessary in production deployments.
+## Use a minimal base image
+
+Start with the smallest image that still provides what you need. Images like Alpine, UBI-minimal, or Distroless include 
+only essential components, which significantly reduces the size of the final image and lowers the attack surface. Example:
+
+```Dockerfile
+FROM alpine:3.19
+```
+
+
+## Use multi-stage builds
+
+Build your application in one stage that contains compilers and build tools, and copy only the final binary or required 
+output into a much smaller runtime stage. This prevents large toolchains from ending up in the final image. Example:
+
+```Dockerfile
+
+FROM golang:1.21 AS builder
+WORKDIR /app
+COPY ../../images .
+RUN go build -o app
+
+FROM alpine:3.19
+COPY --from=builder /app/app /usr/local/bin/app
+CMD ["app"]
+```
+
+
+## Use a **.dockerignore** file
+
+The `.dockerignore` file allows you to exclude files like source control metadata, documentation, artifacts, and other 
+unnecessary files reduces the build context and keeps them out of your image. This speeds up builds and avoids adding
+unwanted content. Example:
+
+```Dockerfile
+.git
+node_modules
+tests/
+docs/
+*.log
+```
+
+## Install only what the application needs
+
+Adding tools, debuggers, shells, or libraries “just in case” increases the image size and security risk. 
+Stick to the minimal set of dependencies your application actually needs. Example:
+
+**Bad (bloated image)**:
+
+```Dockerfile
+RUN apt-get update && apt-get install -y curl vim net-tools
+```
+
+**Better**:
+
+```Dockerfile
+RUN apt-get update && apt-get install -y curl
+```
+
+
+## Combine related commands into fewer layers.
+
+Every **RUN** instruction creates a new layer. If you install packages in one layer and clean them in another, 
+the unwanted content remains in earlier layers. Package managers leave behind metadata, caches, and temporary files. Cleaning these in the same layer where they're 
+created prevents them from being stored permanently in the image. Combining commands prevents this. Example:
+
+
+**Bad (bloated image)**:
+
+```Dockerfile
+
+RUN apt-get update
+RUN apt-get install -y python3
+RUN rm -rf /var/lib/apt/lists/*
+```
+
+**Better (all in one layer)**:
+
+```Dockerfile
+RUN apt-get update && apt-get install -y python3 \
+    && rm -rf /var/lib/apt/lists/*
+```
+
 
 ## Keep data out of the image
 
-Images should only contain the application's runtime. This means that the data needed to run the application should not be added to the image. This way not only the image is smaller, but we avoid a rebuild when the data changes. The data can be stored in an [external volume](../storage/persistent.md) (PVC) that will be attached to the Pod upon startup, or it can be stored in [Allas](../../../../data/Allas/index.md) and downloaded during the startup or on demand when needed. Storing the data in Allas requires an extra logic in the application (or in a pre-load script) that understands where the data is and how to retrieve it.
-data can be stored in a external volume (PVC) that will be attached to the Pod upon startup, or it can be stored in
-
-## Reduce the number of layers
-
-For every `Dockerfile` instruction (`RUN`, `COPY`, `CMD`, `EXPOSE`, ...), a new layer is added to the docker image. Each layer is stored as the difference from the previous one. This means that if some data is added in one layer, but removed in the next, the image will still contain said data. In order to see how much data each layer adds to the image, you may use:
-
-`docker history image_name`
-
-There are 3 approaches to reduce the number of layers:
-
-* Combine layers in the `Dockerfile`. Sometimes there are several `RUN` instructions one after the other. They can be easily combined by using `&&`:
-
-```Dockerfile
-RUN apt update
-
-RUN apt install git
-```
-
-will become:
-
-```Dockerfile
-RUN apt update && \
-    apt install git
-```
-
-* Use multi stage builds (This feature was introduced in docker v17.05). The idea behind multi stage builds is to have several `FROM` commands in the same `Dockerfile`, each `FROM` starts a new stage in the build and does not carry the files from the previous stage, but allows copying files from the previous stages. The pattern used here is, to build the application in the first stage, and then in the second stage copy only the compiled application, leaving behind the sources and other compilation sub-products that we do not need to run the application. For example:
-
-```Dockerfile
-FROM golang:1.21
-WORKDIR /src
-
-RUN echo 'package main\n\
-\nimport "fmt"\nfunc main() {\nfmt.Println("hello, world")\n}' >main.go
-
-RUN go build -o /bin/hello ./main.go && cat main.go
-
-FROM scratch
-COPY --from=0 /bin/hello /bin/hello
-CMD ["/bin/hello"]
-```
-
-The example was taken from the [Use multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) article in Docker's documentation.
-
-* Use [docker build --squash](https://docs.docker.com/engine/reference/commandline/build/#squash). Docker will squash the image into a single layer. This means that if your `Dockerfile` produces multiple layers modifying the same files, only the final state of the files will be stored. Similarly, if a file is created in one layer and later deleted in another, the file will not be stored in the image.
-
-## Use a small base image
-
-When creating an image, choosing the base image is an important task. There are almost always multiple base images available for certain need. These base images can be very different in content, maintenance, security, size, etc. It is a good practice to evaluate the available images and do some comparisons between them. It is often not a good idea to take the first random image you find and put it to production. One base image that is very commonly used and has lots of documentation available is [Alpine Linux](https://www.alpinelinux.org).
-
-> Alpine Linux is a security-oriented, lightweight Linux distribution based on **musl libc** and **busybox**.
-
-Currently the base image for Alpine (`docker.io/alpine`) is only 5.61 MB. For comparison, the sizes of Ubuntu's and AlmaLinux' base images are 72.9 MB and 189 MB respectively. The biggest drawback that Alpine has versus other base images is that some applications are not compatible with [musl libc](https://en.wikipedia.org/wiki/Musl) and require `glibc`. Alpine will also have a smaller selection of software available in the repositories than Ubuntu or AlmaLinux.
-
-## Use `.dockerignore`
-
-`.dockerignore` works in the same way as `gitignore` does, creates a black list of files that will not be added to the image. This way is possible to exclude files that are not needed to run the application.
+Images should only contain the application's runtime. This means that the data needed to run the application should not 
+be added to the image. In this way, not only the image is smaller, but we avoid a rebuild when the data changes. 
+The data can be stored in an [external volume](../storage/index.md) that will be attached to the Pod upon startup, 
+or it can be stored in a remote object storage like [Allas](../../../../data/Allas/index.md) and downloaded during
+the startup or on demand when needed.

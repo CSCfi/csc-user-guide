@@ -1,6 +1,6 @@
 !!! error "Advanced level"
     You need to have Linux, Docker, Docker Compose and Kompose knowledge. Python knowledge is a plus.  
-    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../../get-started/cli.md)
+    Regarding Rahti, we will privilege the use of OKD CLI tool [oc](../../get-started/cli.md)
 
 # How to deploy 4cat in Rahti
 
@@ -292,7 +292,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
         io.kompose.service: frontend
     ```
 
-    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](../../usage/networking.md#services).
+    The two relevant parts are `selector` and `ports`. The first one links the service with the `deployment` and the second lists the ports this service export. See more information about [Services](../../usage/kubernetes-concepts.md#service).
 
 - `deployment` is the most complex configuration generated. We can try to map the con figuration of `docker-compose.yaml` into these files. For example using the shortest one generated:
 
@@ -356,7 +356,7 @@ The tool has generated 4 kind of files: `service`, `deployment`,  `configmap` an
 
 ## Deployment to Rahti
 
-We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../../get-started/cli.md#the-command-line-tools-page-in-the-rahti-web-ui) and [login into Rahti](../../get-started/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../../get-started/projects.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
+We will take the current unmodified YAML files and deploy them one by one. First you need to [install oc](../../get-started/cli.md#downloading-the-oc-tool) and [login into Rahti](../../get-started/cli.md#how-to-login-with-oc). Then you need to [create a Rahti project](../../get-started/projects.md#creating-a-project). Finally make sure you are in the correct project: `oc project <project_name>`.
 
 ### Volumes, ConfigMaps and Services
 
@@ -393,7 +393,7 @@ These 3 types are going to be straight forward and should cause no issue.
     openshift-service-ca.crt   1      5m45s
     ```
 
-    The other two entries (`kube-root-cs.crt` and `openshift-service-ca.crt`) are pre-created Kubernetes and Openshift base config maps.
+    The other two entries (`kube-root-cs.crt` and `openshift-service-ca.crt`) are pre-created Kubernetes and OKD base configmaps.
 
 1. We do not expect any error while creating the `services` (db service is missing because the docker compose file did not mention any ports, and we will need to create it ourselves manually later):
 
@@ -504,7 +504,7 @@ Finally we will create the deployments. We have 3 deployments and we will start 
     fixing permissions on existing directory /var/lib/postgresql/data ... initdb: error: could not change permissions of directory "/var/lib/postgresql/data": Operation not permitted
     ```
 
-    In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti/Openshift provides a PostgreSQL template that is available in the Software Catalog.
+    In this case we can see that this container image will never work in Rahti, as it needs to be able to change folder permissions. Luckily Rahti provides a PostgreSQL template that is available in the Software Catalog.
 
     ![Developer Catalog](../../../img/db-developer-catalog.png)
 
