@@ -87,7 +87,7 @@ Unlike the conversion of **Urgent** buckets, this process is not network intensi
 
 | Examples (Old name -> New name) | Changes |
 |----------|----------|
-| `compatible-name` → `compatible-name` | No changes in bucket name. |
+| `compatible-name` → `compatible-name` | No changes in the bucket name. |
 | `NONcompatible-name` → `noncompatible-name-conv` | Capital letters are converted to lowercase. Suffix `-conv`is added to the end. |
 | `non_compatible_name` → `non-compatible-name-conv` | Underscores (`_`) are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
 | In case of similar bucket names, for example: `Non-compatible_name` and `non-compatible_name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |

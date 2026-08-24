@@ -161,6 +161,7 @@ Conversion pauses if your laptop runs out of power or loses internet connection.
 
 ### 2.7 Finish conversion
 
-After conversion is complete Conversion tool will ask you if you want delete original incompatible buckets. 
+Ensure that the bucket size and item count match before and after the conversion.
 
-![Deleting incombatible buckets](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_delete.png)
+If the conversion was successful proceed with deleting permanently the original bucket/s with incompatible name. 
+
