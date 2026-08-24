@@ -13,9 +13,9 @@ so that users can pick and choose what fits their needs best.
 [MLflow][MLflow] is an open source tool for tracking experiments and
 models in machine learning projects. It is included in most of [our
 pre-installed modules for machine learning][ml-apps], such as
-`pytorch`, `tensorflow` and `python-data`. You can also easily install
-MLflow yourself with `pip` (see [our documentation on how to install
-Python packages][own-install]).
+`python-pytorch`, `python-tensorflow` and `python-data`. You can also
+easily install MLflow yourself with `pip` (see [our documentation on
+how to install Python packages][own-install]).
 
 We document **two ways to use MLflow on CSC's supercomputers**:
 
@@ -87,10 +87,10 @@ the [MLflow documentation for a list of logging functions][log-func].
 ### MLflow tracking UI
 
 To visualize and monitor your runs you can start the [MLflow tracking
-UI][mlflow-app] using the [Puhti web user interface][webui].
+UI][mlflow-app] using the [Roihu web user interface][webui].
 
 To launch it, log in to the web interface at
-<https://www.puhti.csc.fi/> and select "MLflow" from the "Apps"
+<https://www.roihu.csc.fi/> and select "MLflow" from the "Apps"
 menu. In the submission form you need to select where the MLflow files
 are stored. This is the same path that you used for the
 `mlflow.set_tracking_uri()` method, i.e., typically:
@@ -164,11 +164,11 @@ application, for example:
 [MLflow]: https://www.mlflow.org/
 [ml-apps]: ../../apps/by_discipline.md#data-analytics-and-machine-learning
 [own-install]: ./python-usage-guide.md#installing-python-packages-to-existing-modules
-[autolog]: https://www.mlflow.org/docs/latest/tracking.html#automatic-logging
+[autolog]: https://www.mlflow.org/docs/latest/ml/tracking/autolog/
 [pytorch-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_mlflow.py
 [lightning-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_lightning_ddp.py
 [mlflow-app]: ../../computing/webinterface/mlflow.md
 [webui]: ../../computing/webinterface/index.md
-[log-func]: https://www.mlflow.org/docs/latest/tracking.html#logging-data-to-runs
-[tracking-server]: https://www.mlflow.org/docs/latest/tracking.html#mlflow-tracking-servers
+[log-func]: https://www.mlflow.org/docs/latest/ml/tracking/tracking-api/#core-logging-functions
+[tracking-server]: https://www.mlflow.org/docs/latest/self-hosting/architecture/tracking-server/
 [mlflow-rahti]: https://github.com/CSCfi/mlflow-openshift/blob/master/docs/USER_GUIDE.md
