@@ -69,11 +69,7 @@ MLflow in Rahti can be deployed using [Helm](https://helm.sh/) either from the R
     oc get routes --namespace=<your project name>
     ```
 
-    The endpoint is shown in the HOST/PORT column. Rahti automatically creates this `Route` from the `Ingress`. To get only the host name, for example in scripts, you can query the `Ingress` directly:
-
-    ```bash
-    oc get ingress <your release name>-mlflow --namespace=<your project name> -o jsonpath='{.spec.rules[0].host}'
-    ```
+    The endpoint is shown in the HOST/PORT column. Rahti automatically creates this `Route` from the `Ingress`.
 
     A host name under `*.rahtiapp.fi`, for example `mlflow-my-namespace.rahtiapp.fi`, has a DNS record and a valid TLS certificate automatically. If you want to use a domain of your own instead, see the [Custom domains](../configurations/custom-domain.md) page.
 
