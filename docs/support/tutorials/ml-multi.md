@@ -6,10 +6,10 @@ of our [Machine learning guide](ml-guide.md).
 
 First we will explain the general principles, such as single- and
 multi-node jobs and mechanisms for launching multiple processes. After
-that we discuss some common software frameworks how to use them on
-CSC's supercomputers: [PyTorch DDP](#pytorch-ddp),
-[DeepSpeed](#deepspeed) and briefly [Horovod](#horovod) and
-[TensorFlow's
+that we discuss some common software frameworks, and how to use them
+on CSC's supercomputers: [PyTorch DDP](#pytorch-ddp), [PyTorch
+Lightning with DDP](#pytorch-lightning-with-ddp),
+[Accelerate](#accelerate), [DeepSpeed](#deepspeed) and [TensorFlow's
 `tf.distribute.Strategy`](#tensorflows-tfdistributestrategy).
 
 ## Multiple GPUs and multiple nodes
@@ -27,11 +27,18 @@ If you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
 need to reserve a **multi-node job**. While it is technically possible
 to reserve, e.g., two GPUs in one node and two in another, this is not
 recommended except for testing purposes, as the communication across
-nodes is always slower than inside a node.
+nodes is always slower than inside one node.
 
-To reserve a single node with N=1-4 GPUs on Puhti, Mahti or 1-8 GPUs
-on LUMI you need the following options (**change N for the actual
-number of GPUs**):
+To reserve a single node with N=1-4 GPUs on Puhti, Mahti or Roihu or
+1-8 GPUs on LUMI you need the following options (**change N for the
+actual number of GPUs**):
+
+=== "Roihu-GPU"
+
+    ```bash
+    #SBATCH --partition=gpumedium
+    #SBATCH --gres=gpu:gh200:N
+    ```
 
 === "Puhti"
 
@@ -62,7 +69,18 @@ number of GPUs**):
 
 For multi-node jobs you always reserve full nodes, so you will have a
 multiple of 4 GPUs (or 8 in LUMI). For example with two nodes on
-Mahti, you'll have 2*4=8 GPUs.
+Roihu, you'll have 2*4=8 GPUs.
+
+=== "Roihu-GPU"
+
+    ```bash
+    #SBATCH --partition=gpularge
+    #SBATCH --gres=gpu:gh200:4
+    #SBATCH --nodes=2
+    ```
+
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+
 
 === "Puhti"
 
@@ -90,8 +108,8 @@ Mahti, you'll have 2*4=8 GPUs.
 
 Note that the `--gres` (or `--gpus-per-node` on LUMI) option always
 specifies the number of GPUs *per node*, even in the multi-node
-case. So if we are reserving 8 GPUs across 2 nodes in Puhti, that is 4
-GPUs on each node, i.e, `--gres=gpu:v100:4`.
+case. So if we are reserving 8 GPUs across 2 nodes in Roihu, that is 4
+GPUs *on each node*, i.e, `--gres=gpu:gh200:4`.
 
 
 ### Allocation of non-GPU resources
@@ -106,13 +124,21 @@ memory we round down a bit as the units are not so exact). On Mahti
 the maximum is 32 CPU cores, the memory should be automatically
 allocated.
 
+On Roihu each GH200 GPU is actually a superchip containing a GPU, CPU
+and the CPU memory in a single tightly integrated unit. On Roihu you
+will automatically get the full memory of the GH200 superchip (95 GiB
+of HBM3 memory + 122 GiB of LPDDR5 memory = 217 GiB). For the CPU
+cores you can allocate up to 72 cores (the entire ARM CPU of the
+superchip).
+
 On [LUMI use a maximum of 7 CPU cores and 60GB per reserved
 GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/Update-202308/responsible-use/#core-and-memory-use-on-small-g-and-dev-g).
 
 
-Note that the GPU memory is fixed according to the number of GPUs, you
-cannot allocate more (or less) of this.
+Note that the GPU memory (or VRAM) is fixed according to the number of
+GPUs, you cannot allocate more (or less) of this.
 
+See the [tutorial on running single-GPU jobs for Slurm examples with the correct CPU and memory allocations](gpu-ml.md#running-gpu-jobs).
 
 ## Monitoring GPU utilization
 
@@ -127,42 +153,43 @@ GPUs](gpu-ml.md#gpu-utilization) with the same mechanisms described in
 our GPU-accelerated machine learning guide. The only difference is
 that you should now see statistics for more than one GPU.
 
-Example output using `nvidia-smi` for a 2 GPU job on Puhti (single node):
+Example output using `nvidia-smi` for a 2 GPU job on Roihu (single node):
 
 ```
-Tue Mar 17 13:36:42 2026       
-+---------------------------------------------------------------------------------------+
-| NVIDIA-SMI 535.288.01             Driver Version: 535.288.01   CUDA Version: 12.2     |
-|-----------------------------------------+----------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
-|                                         |                      |               MIG M. |
-|=========================================+======================+======================|
-|   0  Tesla V100-SXM2-32GB           On  | 00000000:61:00.0 Off |                    0 |
-| N/A   44C    P0             259W / 300W |   3973MiB / 32768MiB |     97%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
-|   1  Tesla V100-SXM2-32GB           On  | 00000000:62:00.0 Off |                    0 |
-| N/A   43C    P0             257W / 300W |   3973MiB / 32768MiB |     98%      Default |
-|                                         |                      |                  N/A |
-+-----------------------------------------+----------------------+----------------------+
-                                                                                         
-+---------------------------------------------------------------------------------------+
-| Processes:                                                                            |
-|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
-|        ID   ID                                                             Usage      |
-|=======================================================================================|
-|    0   N/A  N/A   2047858      C   ...oft/ai/wrap/pytorch-2.9/bin/python3     3968MiB |
-|    1   N/A  N/A   2047859      C   ...oft/ai/wrap/pytorch-2.9/bin/python3     3968MiB |
-+---------------------------------------------------------------------------------------+
+Mon Aug 17 16:01:05 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.71.05              Driver Version: 595.71.05      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GH200 120GB             On  |   00000019:01:00.0 Off |                    0 |
+| N/A   55C    P0            424W /  680W |    4911MiB /  97871MiB |     81%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GH200 120GB             On  |   00000029:01:00.0 Off |                    0 |
+| N/A   56C    P0            426W /  680W |    4911MiB /  97871MiB |     86%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         1499602      C   .../wrappers/2.10-te/bin/python3       4902MiB |
+|    1   N/A  N/A         1499603      C   .../wrappers/2.10-te/bin/python3       4902MiB |
++-----------------------------------------------------------------------------------------+
 ```
 
-Here we have two CPU processes, each using a GPU close to 100%
+Here we have two CPU processes, each using a GPU with around 80%
 utilization (GPU-Util column). If either GPU instead shows 0% it is
 not used at all. If the GPUs show rather low percentages, it might
 mean that you don't need multiple GPUs at least for the computational
 power. For large language models, you might need them for the GPU
-memory however, so check also the GPU memory usage (Memory-Usage column).
+memory however, so check also the GPU memory usage (Memory-Usage
+column). In this example the memory usage is quite small, around 5%.
 
 ## Launching multiple processes
 
@@ -175,21 +202,22 @@ to launch **multiple MPI tasks**.
 ## Available frameworks
 
 There are many frameworks for doing multi-GPU and multi-node machine
-learning. Some frameworks are tightly coupled to a specific framework,
-such as PyTorch `DistributedDataParallel` (DDP), DeepSpeed or
-TensorFlow's `tf.distribute.Strategy`, while others are more general,
-for example Horovod.
+learning, typically tightly coupled with the deep learning framework
+you are using. Here we cover almost exclusively PyTorch-based
+solutions.
 
 Independent of which framework you pick, pay attention to the approach
-used to launch jobs. For example with Horovod it is common to use MPI,
-while DeepSpeed can be configured to use MPI or its own parallel
-launcher. In some frameworks, the launching mechanism may also vary
-depending on if you are running a single- or multi-node job.
+used to launch jobs. In some cases, like PyTorch DDP, there is a
+special launcher that launches individual jobs, while others, like
+DeepSpeed, can use MPI for this. In some frameworks, like PyTorch
+Lightning, the launching mechanism may also vary depending on if you
+are running a single- or multi-node job.
 
 All frameworks should use
 [NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
-(NVIDIA) or [RCCL](https://github.com/ROCmSoftwarePlatform/rccl) (AMD)
-for fast inter-GPU communication, even if MPI is used to set up the
+on Puhti, Mahti and Roihu (NVIDIA) or
+[RCCL](https://github.com/ROCmSoftwarePlatform/rccl) (AMD) on LUMI for
+fast inter-GPU communication, even if MPI is used to set up the
 connections.
 
 
@@ -210,6 +238,23 @@ examples we use the
 mechanism to set up communications across nodes, not MPI.
 
 Example Slurm batch job for running PyTorch DDP on a single full node:
+
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=288
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+    
+    srun torchrun --standalone --nnodes=1 --nproc_per_node=4 myprog.py <options>
+    ```
 
 === "Puhti"
 
@@ -271,6 +316,35 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
 
 Example of running PyTorch DDP on 2 full nodes:
 
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpularge
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=288
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
+    srun torchrun \
+        --nnodes=$SLURM_JOB_NUM_NODES \
+        --nproc_per_node=4 \
+        --rdzv_id=$SLURM_JOB_ID \
+        --rdzv_backend=c10d \
+        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
+        myprog.py <options>
+    ```
+
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+
 === "Puhti"
 
     ```bash
@@ -284,12 +358,12 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:v100:4
     
-    export RDZV_HOST=$(hostname)
-    export RDZV_PORT=29400
-    
     module purge
     module load pytorch
 
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
     srun torchrun \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
@@ -311,12 +385,12 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --time=1:00:00
     #SBATCH --gres=gpu:a100:4
     
-    export RDZV_HOST=$(hostname)
-    export RDZV_PORT=29400
-    
     module purge
     module load pytorch
 
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
     srun torchrun \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=4 \
@@ -339,15 +413,15 @@ Example of running PyTorch DDP on 2 full nodes:
     #SBATCH --mem=480G
     #SBATCH --time=1:00:00
     
-    export RDZV_HOST=$(hostname)
-    export RDZV_PORT=29400
-    
     module purge
     module use /appl/local/laifs/modules
     module load lumi-aif-singularity-bindings
 
     export SIF=/appl/local/laifs/containers/lumi-multitorch-latest.sif
 
+    export RDZV_HOST=$(hostname)
+    export RDZV_PORT=29400
+    
     srun singularity run $SIF torchrun \
         --nnodes=$SLURM_JOB_NUM_NODES \
         --nproc_per_node=$SLURM_GPUS_PER_NODE \
@@ -360,7 +434,7 @@ Example of running PyTorch DDP on 2 full nodes:
 The LUMI examples are using the [LUMI AI Factory PyTorch
 installation](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
-If you are converting an old PyTorch script there are a few steps that you need to do:
+If you are converting a single-GPU PyTorch script there are a few steps that you need to do:
 
 1. Initialize with `init_process_group()`, for example:
 
@@ -368,20 +442,29 @@ If you are converting an old PyTorch script there are a few steps that you need 
     import torch.distributed as dist
 
     dist.init_process_group(backend='nccl')
+    ```
+    
+2. Use the correct GPU according to the local rank
 
-    local_rank = int(os.environ['LOCAL_RANK'])
-    torch.cuda.set_device(local_rank)
+    ```python
+    device_id = int(os.environ['LOCAL_RANK'])
+    ```
+    
+    for example when later moving data to the GPU:
+    
+    ```python
+    x = x.to(device_id)
     ```
 
-2. Wrap your model with `DistributedDataParallel`:
+3. Wrap your model with `DistributedDataParallel`:
 
     ```python
     from torch.nn.parallel import DistributedDataParallel
 
-    model = DistributedDataParallel(model, device_ids=[local_rank])
+    model = DistributedDataParallel(model, device_ids=[device_id])
     ```
 
-3. Use `DistributedSampler` in your `DataLoader`:
+4. Use `DistributedSampler` in your `DataLoader`:
 
     ```python
     from torch.utils.data.distributed import DistributedSampler
@@ -391,7 +474,7 @@ If you are converting an old PyTorch script there are a few steps that you need 
     ```
 
 
-A fully working example for Puhti can be found in our [`pytorch-ddp-examples`
+A fully working example for Roihu can be found in our [`pytorch-ddp-examples`
 repository](https://github.com/CSCfi/pytorch-ddp-examples):
 
 - [mnist_ddp.py](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp.py)
@@ -427,7 +510,8 @@ trainer = pl.Trainer(devices=args.gpus,
 ```
 
 You need to give appropriate values for `devices` (number of GPUs *per
-node*) and `num_nodes`. We suggest giving these are command line arguments:
+node*) and `num_nodes`. We suggest giving these as command line
+arguments:
 
 ```python
 def main():
@@ -442,6 +526,24 @@ def main():
 ```
 
 PyTorch Lightning Slurm script for single node using all GPUs:
+
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=72
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+
+    srun python3 myprog.py --gpus=4 --nodes=1 <options>
+    ```
 
 === "Puhti"
 
@@ -506,6 +608,26 @@ PyTorch Lightning Slurm script for single node using all GPUs:
 <br/>
 PyTorch Lightning Slurm script for two full nodes using all GPUs:
 
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpularge
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=72
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+    
+    srun python3 myprog.py --gpus=4 --nodes=2 <options>
+    ```
+
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+
 === "Puhti"
 
     ```bash
@@ -566,6 +688,10 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
       python3 myprog.py --gpus=8 --nodes=2 <options>
     ```
 
+Fully working examples of using PyTorch lightning with one or two full
+nodes can be found in our [`pytorch-ddp-examples`
+repository](https://github.com/CSCfi/pytorch-ddp-examples).
+
 
 ### Accelerate
 
@@ -573,7 +699,7 @@ Hugging Face's
 [Accelerate](https://huggingface.co/docs/transformers/accelerate) is a
 popular framework for large language model training, and it makes
 using more advanced training algorithms like FSDP very easy. Launching
-a job with accelerate it similar to PyTorch DDP, except we need to use
+a job with accelerate is similar to PyTorch DDP, except we need to use
 the accelerate launcher and also provide an Accelerate config file.
 
 A working [example for LLM fine-tuning can be found in this GitHub
@@ -582,6 +708,28 @@ repository](https://github.com/CSCfi/llm-fine-tuning-examples)
 on using LLMs on supercomputers](ml-llm.md).
 
 Example using Accelerate on all GPUs on a single node:
+
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=288
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+
+    srun accelerate launch \
+     --config_file=accelerate_config.yaml \
+     --num_processes=4 \
+     --num_machines=1 \
+     --machine_rank=0 \
+     myprog.py <options>
+    ```
 
 === "Puhti"
 
@@ -656,6 +804,37 @@ Example using Accelerate on all GPUs on a single node:
 
 
 Example of running Accelerate on 2 full nodes (8 GPUs).
+
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpularge
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=1
+    #SBATCH --cpus-per-task=288
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+
+    NUM_PROCS=$(expr ${SLURM_NNODES} \* ${SLURM_GPUS_ON_NODE})
+    MAIN_PROCESS_IP=$(hostname -i)
+    
+    RUN_CMD="accelerate launch \
+                        --config_file=accelerate_config.yaml \
+                        --num_processes=$NUM_PROCS \
+                        --num_machines=$SLURM_NNODES \
+                        --machine_rank=\$SLURM_NODEID \
+                        --main_process_ip=$MAIN_PROCESS_IP \
+                        myprog.py <options>"
+    
+    srun bash -c "$RUN_CMD"
+    ```
+
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
 
 === "Puhti"
 
@@ -810,9 +989,13 @@ tpu_use_sudo: false
 use_cpu: false
 ```
 
-See our [GitHub repository for more
-examples](https://github.com/CSCfi/llm-fine-tuning-examples).
+Fully working examples of using Accelerate with one or two full nodes
+can be found in our [`pytorch-ddp-examples`
+repository](https://github.com/CSCfi/pytorch-ddp-examples).
 
+More examples, for doing LLM fine-tuning using accelerate can be found
+in the [`llm-fine-tuning-examples`
+repository](https://github.com/CSCfi/llm-fine-tuning-examples).
 
 
 ### DeepSpeed
@@ -823,6 +1006,25 @@ for large deep learning models.
 
 Example of running DeepSpeed on a single full node using the
 `deepspeed` launcher:
+
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=288
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+    
+    srun deepspeed myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
 
 === "Puhti"
 
@@ -892,6 +1094,29 @@ Example of running DeepSpeed on a single full node using the
 Example of running DeepSpeed on 2 full nodes using MPI for launching a
 separate task for each GPU:
 
+
+=== "Roihu-GPU"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpularge
+    #SBATCH --nodes=2
+    #SBATCH --ntasks-per-node=4
+    #SBATCH --cpus-per-task=72
+    #SBATCH --time=1:00:00
+    #SBATCH --gres=gpu:gh200:4
+    
+    module purge
+    module load python-pytorch
+
+    srun python3 myprog.py \
+        --deepspeed --deepspeed_config my_ds_config.json \
+        <further options>
+    ```
+
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+
 === "Puhti"
 
     ```bash
@@ -958,7 +1183,7 @@ separate task for each GPU:
     ```
 
 
-If you are converting an old PyTorch script there are a few steps that
+If you are converting a single-GPU PyTorch script there are a few steps that
 you need to do:
 
 1. Make sure it handles the DeepSpeed command line arguments, for example:
@@ -1028,31 +1253,9 @@ repository](https://github.com/CSCfi/pytorch-ddp-examples):
   shows the DeepSpeed configuration file used for this example
 
 
-### Horovod
-
-[Horovod](https://horovod.ai/) is a general library that supports
-PyTorch and TensorFlow among other frameworks. With Horovod you should
-use MPI for launching jobs.  Horovod can be used both with single- and
-multi-node jobs.
-
-In CSC's supercomputers Horovod is supported only for some specific
-versions of [TensorFlow](../../apps/tensorflow.md) and
-[PyTorch](../../apps/pytorch.md).  Please check the application pages
-for further information. To take Horovod into use, just load the
-appropriate module, and modify your program according to the
-instructions in [Horovod's
-documentation](https://horovod.readthedocs.io/), for example:
-
-* [Horovod with PyTorch](https://horovod.readthedocs.io/en/latest/pytorch.html)
-* [Horovod with TensorFlow](https://horovod.readthedocs.io/en/stable/tensorflow.html) and [Keras](https://horovod.readthedocs.io/en/stable/keras.html)
-
-
 ### TensorFlow's `tf.distribute.Strategy`
 
 TensorFlow also has its own [built-in mechanisms for distributed
 training](https://www.tensorflow.org/guide/distributed_training) in
 the [`tf.distribute.Strategy`
 API](https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy).
-
-
-
