@@ -38,7 +38,7 @@ own Slurm job and executes it inside a container. You control the workflow with 
 `braker4` command; it pulls the container images on first use and orchestrates the
 whole annotation.
 
-* The `braker4` module provides the BRAKER4 workflow, and a ready-made 
+* The `braker4` module provides the BRAKER4 workflow, and a ready-made
   **Roihu Snakemake profile** at `$BRAKER4_HOME/profiles/roihu`.
 * You run everything from a directory on **`/scratch`** (the workflow writes there;
   the module installation directory is read-only to jobs).
@@ -90,7 +90,7 @@ automatically from the evidence you provide.
 
 ## Running BRAKER4
 
-Run `braker4` pipeline from your `/scratch` working directory. It is
+Run the `braker4` pipeline from your `/scratch` working directory. It is
 lightweight (it submits and waits); the actual computation runs in Slurm jobs it
 launches through the Roihu profile.
 
