@@ -12,7 +12,7 @@ The workflow uses an Apptainer **sandbox** as a writable environment during inst
 
     The commands below are intended to be run on **Roihu**, but it should be easily adaptable to other clusters.
 
-## Allocate Resources
+## Allocate resources
 
 Start an interactive GPU job with the required resources, here we ask for 1 GPU for 1 hour, we do not encourage users to ask more than what they need since GPUs are valuable resources:
 
@@ -26,7 +26,7 @@ salloc --account=project_***** \
     --gres=gpu:gh200:1 
 ```
 
-## Set the Apptainer Cache Directory
+## Set the Apptainer cache directory
 
 Set the Apptainer cache directory to `$TMPDIR` to avoid filling your home directory:
 
@@ -34,7 +34,7 @@ Set the Apptainer cache directory to `$TMPDIR` to avoid filling your home direct
 export APPTAINER_CACHEDIR="$TMPDIR/apptainer-cache"
 ```
 
-## Create a Writable Sandbox from `ml-base`
+## Create a writable sandbox from `ml-base`
 
 Initialize an Apptainer sandbox using the CSC `ml-base` image:
 
@@ -57,7 +57,7 @@ The `--sandbox` option creates a writable directory containing the extracted con
 
     Do not create a sandbox on the shared Lustre file system (for example on `/scratch`, `/projappl` or `/home`) as [it will create a lot of small files which can slow down the system for all users](../../computing/lustre.md#best-practices)!
 
-## Create the Users Directory
+## Create the `users` directory
 
 Create the `users` directory inside the sandbox:
 
@@ -65,7 +65,7 @@ Create the `users` directory inside the sandbox:
 mkdir -p "$TMPDIR/mlbase/users"
 ```
 
-## Enter the Sandbox 
+## Enter the sandbox 
 
 Start a writable shell inside the sandbox. The `--nv` option makes the NVIDIA GPU and relevant NVIDIA libraries available inside the container:
 
@@ -78,7 +78,7 @@ apptainer shell --fakeroot --writable --nv \
 
 You are now working inside the writable `mlbase` sandbox.
 
-## Configure the pip Cache
+## Configure the pip cache
 
 Inside the container, configure pip to use a cache directory under `/tmp`:
 
@@ -88,7 +88,7 @@ export PIP_CACHE_DIR=/tmp/pip-cache
 
 Because `$TMPDIR` is bound to `/tmp` inside the container, the pip cache is stored outside the container image.
 
-## Work Around `useradd` and `groupadd`
+## Workaround for `useradd` and `groupadd`
 
 If package installation fails because `useradd` or `groupadd` cannot be executed in the sandbox, replace these commands with `/usr/bin/true`:
 
@@ -128,7 +128,7 @@ Verify:
 python -c "from fairchem.core import pretrained_mlip, FAIRChemCalculator; print('fairchem ok')"
 ```
 
-## Exit the Sandbox
+## Exit the sandbox
 
 Once all required software has been installed, exit the container:
 
@@ -138,7 +138,7 @@ exit
 
 You should now be back in the host environment.
 
-## Build the SIF Image
+## Build the SIF image
 
 Convert the writable sandbox into a standard Apptainer SIF image:
 
@@ -148,7 +148,7 @@ apptainer build --fakeroot fairchem.sif "$TMPDIR/mlbase"
 
 The resulting image will be in the file `fairchem.sif`. The SIF format is a portable, read-only Apptainer image that can be used for subsequent jobs.
 
-## Verify the SIF Image
+## Verify the SIF image
 
 Check the size of the generated container:
 
@@ -158,7 +158,7 @@ ls -lh fairchem.sif
 
 The SIF file will typically be several GB in size, depending on the packages installed in the container.
 
-## Test the Container
+## Test the container
 
 Finally, verify that both FairChem and PyTorch can be imported from the generated SIF image:
 
