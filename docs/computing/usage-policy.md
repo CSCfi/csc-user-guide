@@ -67,7 +67,7 @@ Key rules for using AI agent tools on Roihu:
    with auto-approved tools. See the tool documentation on how to
    configure this, for example
    [Claude Code permissions](https://code.claude.com/docs/en/permissions)
-   and [Codex security and approvals](https://developers.openai.com/codex/security).
+   and [Codex sandbox and approval policies](https://learn.chatgpt.com/docs/sandboxing).
 
 4. *Prefer running the agent on your own computer.* If possible, run
    the tool on your own laptop or workstation and not on the
