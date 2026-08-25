@@ -145,6 +145,8 @@ Before you start - Are SD Services the right solution for me? Who can support me
 
 Before you start - What data can I process in SD Services? What approvals, permits, and documentation do I need?
 
+Before you start - How do I get started with CSC SD Services?
+
 Before you start - What happens to my data when my project ends?
 
 Before you start - How does SD Desktop differ from ePouta?
