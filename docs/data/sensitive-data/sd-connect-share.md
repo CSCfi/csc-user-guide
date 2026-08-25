@@ -52,11 +52,11 @@ Before proceeding familiarize yourself with different use cases and choose the o
 
     ---
     
-    Allow another CSC project to one of more buckets content the data only via SD Desktop, so its members can only access it in a secure and isolated computing environment for analysis. 
-    
+    Allow another CSC project to access data via SD Desktop only. Members of the another project can only access data in a secure and isolated computing environment for analysis. 
+
     Use this when you need maximum certainty that your files are not distributed further. **Note that you also have to be the project manager of the recipient project**.
     
-    [**Read more  about the use case**](./sd-connect-share-read-to-sd-desktop.md)
+    [**Read more about the use case**](./sd-connect-share-read-to-sd-desktop.md)
 
 </div>
 
@@ -82,6 +82,8 @@ ____
 3. Paste the recipient project's **Share ID** to the field, then select suitable sharing permission, [see options](#sharing-buckets-to-another-csc-project-overview). Finally click **Share**.
 ![Add share ID, select permissions and Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share2.png)
 
+____
+
 
 ### Change sharing permission
 
@@ -95,6 +97,7 @@ ____
 3. A notification will open above the project list. **You may have to scroll up to see it.** Confirm your choise by clicking **Change Permissions** button.
 ![Accept](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareChangePermission2.png)
 
+____
 
 
 ### Delete sharing permission
