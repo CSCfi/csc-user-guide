@@ -137,42 +137,27 @@
 
 ## Sensitive Data (SD) Services for research
 
-Before you start - Who can use SD Services? Does it have a cost?
-
-Before you start - How is my data protected?
-
-Before you start - Are SD Services the right solution for me? Who can support me in doing this evaluation?
-
-Before you start - What data can I process in SD Services? What approvals, permits, and documentation do I need?
-
-Before you start - How do I get started with CSC SD Services?
-
-Before you start - What happens to my data when my project ends?
-
-Before you start - How does SD Desktop differ from ePouta?
-
-Before you start - How SD Connect differes from Allas?
-
-Working with others - Who can access my data and workspace? 
-
-Working with others - How can I collaborate with project members and external collaborators?
-
-Working with others - How can I share data with collaborators?
-
-Data storage and analysis - Can I use SD services from the command line?
-
-Data storage and analysis  - How much storage space to I have?
-
-Data storage and analysis -  What software is available in SD Desktop and can I install additional software?
-
-Data storage and analysis  - Can I edit data and get root or sudo access?
-
-Processing register data under the Finnish Act on Secondary Use - What is SD Desktop for secondary use?
-
-Processing register data under the Finnish Act on Secondary Use - How do I access and work with register data?
-
-Processing register data under the Finnish Act on Secondary Use - Can I combine register data with my own data?
-
-Processing register data under the Finnish Act on Secondary Use - How do I export results and what happens when my permit expires?
-
-
+* Who can use SD Services? Does it have a cost?
+* What data can I process in SD Services? What approvals, permits and documentation do I need?
+* How is my data protected?
+* Are SD Services the right solution for me? Who can support me in doing this evaluation?
+* How do I get started with CSC SD Services?
+*  Research data storage and analysis
+    * Where do I start?
+    * Who can access my data and workspace?
+    * How can I collaborate with project members and external collaborators?
+    * How can I share data with collaborators?
+    * Can I use SD services from the command line?
+    * How much storage space to I have?
+    * What software is available in SD Desktop and can I install additional software?
+    * Can I edit data and get root or sudo access?
+    * What happens to my data when my project ends?
+    * How does SD Desktop differ from ePouta?
+    * How SD Connect differs from Allas?
+* Register data analysis under the Finnish Act on Secondary Use
+    * How can I access and analyze data provided by Findata or a well-being county via SD Services?
+    * Can I combine register data with my own data?
+    * How do I export results and what happens when my permit expires?
+    * How do I add project members?
+ 
+  
