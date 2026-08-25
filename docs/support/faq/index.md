@@ -143,15 +143,13 @@
 * Are SD Services the right solution for me? Who can support me in doing this evaluation?
 * How do I get started with CSC SD Services?
 *  Research data storage and analysis
-    * Where do I start?
     * Who can access my data and workspace?
-    * How can I collaborate with project members and external collaborators?
     * How can I share data with collaborators?
-    * Can I use SD services from the command line?
     * How much storage space to I have?
-    * What software is available in SD Desktop and can I install additional software?
+    * What software is available for data analysis and can I install additional software?
+    * * What happens to my data when my project ends?
+    * Can I use SD services from the command line?
     * Can I edit data and get root or sudo access?
-    * What happens to my data when my project ends?
     * How does SD Desktop differ from ePouta?
     * How SD Connect differs from Allas?
 * Register data analysis under the Finnish Act on Secondary Use
