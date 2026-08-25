@@ -88,7 +88,7 @@ platform.
 
 [VASP tutorials](https://www.vasp.at/tutorials/latest/) can also be
 followed using JupyterLab from the
-[Mahti web interface](https://www.mahti.csc.fi). Open the *Jupyter* app,
+[Roihu web interface](https://www.roihu.csc.fi). Open the *Jupyter* app,
 and from *Settings* -> *Python*, select *Custom module* and type in
 *py4vasp*. When submitting jobs from the JupyterLab terminal window to
 compute nodes, first load module `vasp`, and then use a command similar to
