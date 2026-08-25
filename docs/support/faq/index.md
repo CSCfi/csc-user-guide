@@ -147,7 +147,7 @@
     * How can I share data with collaborators?
     * How much storage space to I have?
     * What software is available for data analysis and can I install additional software?
-    * * What happens to my data when my project ends?
+    * What happens to my data when the CSC project expires or resources end?
     * Can I use SD services from the command line?
     * Can I edit data and get root or sudo access?
     * How does SD Desktop differ from ePouta?
@@ -157,5 +157,5 @@
     * Can I combine register data with my own data?
     * How do I export results and what happens when my permit expires?
     * How do I add project members?
- 
+
   
