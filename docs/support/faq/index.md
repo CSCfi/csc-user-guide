@@ -137,100 +137,40 @@
 
 ## Sensitive Data (SD) Services for research
 
-* Getting started - Are SD Services the right solution for me?
-* Getting started - What type of data can I process with SD services? What approvals, permits, or documentation do I need?
-* Getting started - How do I know if SD services are suitable for processing my research data?
-* 2.	How can I access and work with register data? What is SD Desktop for secondary use of health and social data?
-  3.	Can I combine register data with my own data?
-  4.	5.	What happens to my data when the permit expires?
-     6.		How can I export research results?
-* Getting started - Which service should I choose: SD Connect, SD Desktop, Federated EGA or SD Apply ?
-* Getting started - How are sensitive data protected in the services?
-* Getting started - How can I collaborate with collecting data or analyzing data with my research team or collaborators in a shared workspace?
-* Gettign started _ Who can use CSC Sensitive Data Services?
-* Geting started - 3.	What are my responsibilities and CSC's responsibilities when processing sensitive data?
-* Gettng started - 3.	Who can access my workspace and data? How can I share sensitive data with my collaborators?]
-* [What will happen to my data after the secondary use data permit expires?](
+Before you start - Who can use SD Services? Does it have a cost?
 
-?
- [I am not sure if the data I am working with is sensitive or not. Where can I find support?]
+Before you start - How is my data protected?
 
-[Can I edit/annotate data using SD Desktop?]
-* [Can I use SD connect from command line]
-[What software is available on SD Desktop?]
-[What is the difference between SD Desktop and ePouta?]
-Can I have root or sudo access to a virtual machine running in SD Desktop?]
-WHat will happen to my data when my data permit expires?
+Before you start - Are SD Services the right solution for me? Who can support me in doing this evaluation?
 
+Before you start - What data can I process in SD Services? What approvals, permits, and documentation do I need?
 
-### Access and authentication
+Before you start - What happens to my data when my project ends?
 
-* [Are CSC Sensitive Data services accessible through the public internet?](sensitive-data-access.md)
-* [How I can start using CSC Sensitive Data services?](sensitive-data-access.md#how-can-i-start-using-csc-sensitive-data-services)
-* [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md#does-csc-provide-multi-factor-authentication-mfa)
+Before you start - How does SD Desktop differ from ePouta?
 
-### Collaborative projects
+Before you start - How SD Connect differes from Allas?
 
-* [How can I share sensitive data with my collaborators?](sensitive-data-collaborative.md)
+Working with others - Who can access my data and workspace? 
 
+Working with others - How can I collaborate with project members and external collaborators?
 
-### General characteristics of the services
+Working with others - How can I share data with collaborators?
 
-* [Are CSC Sensitive Data services suitable for any research professional?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data services suitable for any research project?](sensitive-data-general.md#are-csc-sensitive-data-services-suitable-for-any-research-project) 
-* [I am not an expert on cloud services and computing, where should I start?](sensitive-data-general.md#i-am-not-an-expert-on-cloud-services-and-computing-where-should-i-start) 
-* [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
-* [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
-* [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-* [Do I need any particular expertise to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-expertise-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
-* [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
+Data storage and analysis - Can I use SD services from the command line?
 
-### Encryption
+Data storage and analysis  - How much storage space to I have?
 
-* [Why do I need to encrypt my data?](sensitive-data-encryption.md)
-* [Do sensitive data always need to be encrypted during data transfer e.g. using an  SSH connection?](sensitive-data-encryption.md#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an-ssh-connection)
-* [What data formats can be encrypted using SD Connect?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-sd-connect)
-* [What is the new extension that was added to my files after upload with SD Connect?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-upload-with-sd-connect)
-* [Do CSC Sensitive Data services allow the use of customers' own encryption keys?](sensitive-data-encryption.md#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys)
+Data storage and analysis -  What software is available in SD Desktop and can I install additional software?
+
+Data storage and analysis  - Can I edit data and get root or sudo access?
+
+Processing register data under the Finnish Act on Secondary Use - What is SD Desktop for secondary use?
+
+Processing register data under the Finnish Act on Secondary Use - How do I access and work with register data?
+
+Processing register data under the Finnish Act on Secondary Use - Can I combine register data with my own data?
+
+Processing register data under the Finnish Act on Secondary Use - How do I export results and what happens when my permit expires?
 
 
-### Sensitive Data and GDPR
-
-* [What type of data is sensitive?](sensitive-data-legal.md)
-* [What is personal data?](sensitive-data-legal.md#what-is-personal-data)
-* [What is the difference between sensitive personal data and personal data?](sensitive-data-legal.md#what-is-the-difference-between-sensitive-personal-data-and-personal-data)
-* [What is the GDPR?](sensitive-data-legal.md#what-is-the-gdpr)
-* [What are the roles of CSC and its service users under GDPR?](sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr)
-* [I am not sure if the data I am working with is sensitive or not. Where can I find support?](sensitive-data-legal.md#i-am-not-sure-if-the-data-i-am-working-with-is-sensitive-or-not-where-can-i-find-support)
-* [What type of sensitive data can I process with CSC Sensitive Data Services?](sensitive-data-legal.md#what-type-of-sensitive-data-can-i-process-with-csc-sensitive-data-services)
-* [What kind of documentation do I need to provide to use CSC Sensitive Data Services?](sensitive-data-legal.md#what-type-of-documentation-do-i-need-to-provide-to-use-csc-sensitive-data-services)
-
-### SD Connect
-
-* [What are the technical specifications of the service?](sensitive-data-connect.md)
-* [How long can I store data in SD Connect for?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect)
-* [What is the difference between SD Connect and Allas?](sensitive-data-connect.md#what-is-the-difference-between-sd-connect-and-allas)
-* [Can I use SD connect from command line](sensitive-data-connect.md#can-i-use-sd-connect-from-command-line)?
-
-### SD Desktop
-
-* [Can I access/analyse encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md)
-* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md#can-i-editannotate-data-using-sd-desktop)
-* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md#does-csc-provide-sd-desktop-operating-system-software-and-security-updates)
-* [What are the technical specifications of the service?](sensitive-data-desktop.md#what-are-the-technical-specifications-of-the-service)
-* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md#what-type-of-file-can-i-analyze-using-sd-desktop)
-* [What software is available on SD Desktop?](sensitive-data-desktop.md#what-software-is-available-on-sd-desktop)
-* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md#who-can-access-my-private-computing-environment-in-sd-desktop)
-* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md#what-is-the-difference-between-sd-desktop-and-epouta)
-* [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
-* [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
-
-### SD Desktop for secondary use of health and social data (register data)
-
-* [What is SD Desktop for secondary use?](sensitive-data-desktop-audited.md#what-is-the-sd-desktop-for-secondary-use)
-* [How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?](sensitive-data-desktop-audited.md#how-does-processing-secondary-use-data-on-sd-desktop-differ-from-standard-use-of-sensitive-data-services)
-* [How can I access register data with SD Desktop?](sensitive-data-desktop-audited.md#how-can-i-access-register-data-with-sd-desktop)
-* [Can I combine my own data with register data on SD Desktop?](sensitive-data-desktop-audited.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
-* [Is it possible to install software to SD Desktop when processing secondary use data?](sensitive-data-desktop-audited.md#is-it-possible-to-install-software-to-sd-desktop-when-processing-secondary-use-data)
-* [How can I export my results from the Desktop?](sensitive-data-desktop-audited.md#how-can-i-export-my-results-from-sd-desktop)
-* [What will happen to my data after the secondary use data permit expires?](sensitive-data-desktop-audited.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)
