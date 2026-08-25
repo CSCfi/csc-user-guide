@@ -135,7 +135,33 @@
 * [How to install my own software on CSC supercomputers?](how-to-install-own-software.md)
 * [An application CSC used to provide has disappeared. Where did it go?](deprecated-apps.md)
 
-## Sensitive Data Services for research
+## Sensitive Data (SD) Services for research
+
+* Getting started - Are SD Services the right solution for me?
+* Getting started - What type of data can I process with SD services? What approvals, permits, or documentation do I need?
+* Getting started - How do I know if SD services are suitable for processing my research data?
+* 2.	How can I access and work with register data? What is SD Desktop for secondary use of health and social data?
+  3.	Can I combine register data with my own data?
+  4.	5.	What happens to my data when the permit expires?
+     6.		How can I export research results?
+* Getting started - Which service should I choose: SD Connect, SD Desktop, Federated EGA or SD Apply ?
+* Getting started - How are sensitive data protected in the services?
+* Getting started - How can I collaborate with collecting data or analyzing data with my research team or collaborators in a shared workspace?
+* Gettign started _ Who can use CSC Sensitive Data Services?
+* Geting started - 3.	What are my responsibilities and CSC's responsibilities when processing sensitive data?
+* Gettng started - 3.	Who can access my workspace and data? How can I share sensitive data with my collaborators?]
+* [What will happen to my data after the secondary use data permit expires?](
+
+?
+ [I am not sure if the data I am working with is sensitive or not. Where can I find support?]
+
+[Can I edit/annotate data using SD Desktop?]
+* [Can I use SD connect from command line]
+[What software is available on SD Desktop?]
+[What is the difference between SD Desktop and ePouta?]
+Can I have root or sudo access to a virtual machine running in SD Desktop?]
+WHat will happen to my data when my data permit expires?
+
 
 ### Access and authentication
 
