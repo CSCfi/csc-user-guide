@@ -1,26 +1,26 @@
 # Sensitive Data (SD) Services for Research
    
-### Who can use SD Services? Does it have a cost?
+#### Who can use SD Services? Does it have a cost?
 
 
 
 
-###  What data can I process in SD Services? What approvals, permits and documentation do I need?
+####  What data can I process in SD Services? What approvals, permits and documentation do I need?
 
 
 
 
 
-### How is my data protected?
+#### How is my data protected?
 
 
 
 
-### Are SD Services the right solution for my project? Who can support me in doing this evaluation?
+#### Are SD Services the right solution for my project? Who can support me in doing this evaluation?
 
 
 
-### How do I get started with CSC SD Services?
+#### How do I get started with CSC SD Services?
 
 If you are processing research data, you can set up a CSC account and a CSC project (see: user guide or video tutorials). You can then access the services at any time.
 
@@ -30,32 +30,32 @@ Federated EGA, the services for submitting sensitive biomedical data to a nation
 
 
 
-### Research data storage and analysis
+## Research data storage and analysis
 
-### Who can access my data and workspace?
+#### Who can access my data and workspace?
 
-### How can I share data with collaborators?
+#### How can I share data with collaborators?
 
-### How much storage space to I have?
+#### How much storage space to I have?
 
-### What software is available for data analysis and can I install additional software?
+#### What software is available for data analysis and can I install additional software?
 
-### What happens to my data when the CSC project expires or resources end?
+#### What happens to my data when the CSC project expires or resources end?
 
-### Can I use SD services from the command line?
+#### Can I use SD services from the command line?
 
-### Can I edit data and get root or sudo access?
+#### Can I edit data and get root or sudo access?
 
-### How does SD Desktop differ from ePouta?
+#### How does SD Desktop differ from ePouta?
 
-### How SD Connect differs from Allas?
+#### How SD Connect differs from Allas?
 
-### Register data analysis under the Finnish Act on Secondary Use
+#### Register data analysis under the Finnish Act on Secondary Use
 
-### How can I access and analyze data provided by Findata or a well-being county via SD Services?
+#### How can I access and analyze data provided by Findata or a well-being county via SD Services?
 
-### Can I combine register data with my own data?
+#### Can I combine register data with my own data?
 
-### How do I export results and what happens when my permit expires?
+#### How do I export results and what happens when my permit expires?
 
- ### How do I add project members?
+#### How do I add project members?
