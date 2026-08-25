@@ -25,7 +25,7 @@ Files uploaded to SD Connect are automatically encrypted and decrypted during do
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into  a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
-- **Once files are uploaded to SD Connect, they cannot be edited or modified**.  It is therefore important to plan the bucket structure in advance. To simplify data management and avoid issues, it is recommended to create a separate bucket for each dataset or experiment. Avoid placing too many files in a single bucket, each bucket can contain up to 500.000 segmented files.
+- **Once files are uploaded to SD Connect, they cannot be edited or modified**. It is therefore important to plan the bucket structure in advance. To simplify data management and avoid issues, it is recommended to create a separate bucket for each dataset or experiment. Avoid placing too many files in a single bucket, each bucket can contain up to 500.000 segmented files.
 
 - **Uploading files into subfolders is not supported.** 
 
@@ -62,7 +62,7 @@ These rules apply only to buckets created in the service, not to subfolders or f
 **Bucket names must not contain**:
 
 * uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
-* all folder names are public; please do not include any confidential information.
+* all bucket names are public; please do not include any confidential information.
 * Bucket names can't be modified afterwards.
 
 
@@ -88,7 +88,9 @@ Now the files are accessible for downloading and sharing via SD Connect or for a
 ## 5. Upload and encrypt files to an existing bucket
 
 1. Select the correct bucket.
-2. Click **Upload** in the top right corner and follow steps from 5 to 9 in above paragraph.
+2. Click **Upload** in the top right corner.
+3. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. 
+4. Click **Upload** to start automatic encryption and upload.
 
 ### 6. Create a bucket
 

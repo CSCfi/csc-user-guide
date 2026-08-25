@@ -12,9 +12,19 @@ Please select your download method below:
 
 ## Download and automated decryption
 
-For files and folders uploaded using SD Connect user interface **after** October 1, 2024.
+You can download either [the entire bucket](#downloading-a-bucket) or [individual files](#downloading-individual-files). This method is available for files and folders uploaded using SD Connect user interface **after** October 1, 2024.
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
+    If you encounter the message **"Some downloaded files need manual decryption."** while downloading, it indicates that some files in your bucket were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
+
+</div>
+
 
 ### Downloading a bucket
 
@@ -34,15 +44,6 @@ For files and folders uploaded using SD Connect user interface **after** October
 5. Files are decrypted automatically. The downloaded bucket has a .tar extension, double-click it to extract the contents into a new folder.
 
 ![SD Connect Download bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Download.png)
-
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
-
-    If you encounter the message "Some downloaded files need manual decryption." while downloading, it indicates that some files in your folder were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
-
-</div>
 
 
 ### Downloading individual files
@@ -67,11 +68,13 @@ For files and folders uploaded using SD Connect user interface **after** October
 
 
 
+
+
 ## Download and manual decryption
 
-**Files have been uploaded before October 1 2024,** were manually encrypted using your encryption key and will need to be decrypted manually after download. 
+**Files uploaded before October 1, 2024** were encrypted manually using your encryption key and must be decrypted manually after download.
 
-If you see the message **"Requested files could not be decrypted"**, the file requires an extra decryption step. After downloading, use the Crypt4GH application on your laptop to decrypt the file by following the provided instructions.
+If you see the message **"Requested files could not be decrypted"** during download, the file requires an extra decryption step. After downloading, use the **Crypt4GH application** on your laptop to decrypt the file by following the provided instructions.
 
 Please note that you can only decrypt one file at a time. If you need to decrypt multiple files at once, a command line option is available. For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
@@ -80,7 +83,7 @@ Please note that you can only decrypt one file at a time. If you need to decrypt
 - **Have your private encryption key available.** If you don’t remember the key used, please [contact CSC Service Desk](../../support/contact.md).
 
 - **Download the Crypt4GH graphical user interface on your laptop.** This tool is necessary for decrypting the files. If you experience any issues installing the tool, especially on a laptop provided by your IT department, please [contact us for assistance](../../support/contact.md).
-- Install the Crypt4GH application: CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui): <!-- (links need to be updated) -->
+- **Install the Crypt4GH application:** CSC has developed a simple application that will allow you to generate your encryption keys and decrypt data when necessary. Download the version specific to your operating system from the [GitHub repository](https://github.com/CSCfi/crypt4gh-gui): <!-- (links need to be updated) -->
       - [Mac](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-macos-amd64.zip)
       - [Windows](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-windows-amd64.zip)
       - [Linux](https://github.com/CSCfi/crypt4gh-gui/releases/download/v1.3.0/crypt4gh-gui-python3.10-linux-amd64.zip)
