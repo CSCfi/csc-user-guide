@@ -262,15 +262,15 @@ wrap-container -w /path/inside/container <container> --prefix <install_dir>
 
 With very large installations the resources available on the login node might
 not be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
-installation needs to be done on a compute node, for example using an [interactive
-session](../../computing/running/interactive-usage.md#sinteractive-on-puhti):
+installation needs to be done on a compute node, for example using an
+[interactive session](../../computing/running/interactive-usage.md#sinteractive-on-roihu):
 
 ```bash
-# Start interactive session, here with 12 GB memory and 15 GB local disk (increase if needed)
-# In Puhti:
-sinteractive --account <project> --time 1:00:00 --mem 12000 --tmp 15
+# Start interactive session, here with 15 GB local disk on Mahti and 20 GB default amount on Roihu (increase if needed)
 # In Mahti:
 sinteractive --account <project> --time 1:00:00 --cores 8 --tmp 15
+# In Roihu:
+sinteractive --account <project> --time 1:00:00 --cores 8 
 
 # Load Tykky
 module purge
@@ -287,10 +287,10 @@ For deleting a Tykky installation, remove the <install_dir> folder.
 Tykky installations can also be moved:
 
 * Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
-* Between Puhti and Mahti use `rsync`. For copying to Mahti, log in to Mahti and change to the folder where you want to move the Tykky installation, then use: 
+* Between Roihu and Mahti use `rsync`. For copying to Roihu, log in to Mahti and change to the folder where you want to move the Tykky installation, then use:
 
 ```
-rsync -al <username>@puhti.csc.fi:<install_dir> .
+rsync -al <username>@roihu-cpu.csc.fi:<install_dir> .
 ```
 
 ## More complicated example

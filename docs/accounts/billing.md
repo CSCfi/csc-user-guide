@@ -15,7 +15,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
 * Allas object storage billing:  1 TiB consumes **1.05** Storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
-* [Rahti billing](../cloud/rahti/billing.md)
+* [Rahti billing](../cloud/rahti/get-started/billing.md)
 * [Satama billing](../cloud/satama/billing_and_quota.md)
 * [SD Connect and SD Desktop billing](../data/sensitive-data/sd-billing-units.md)
 

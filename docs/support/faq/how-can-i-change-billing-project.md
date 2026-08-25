@@ -13,5 +13,5 @@ selecting the project first.
 * In **cPouta** or **ePouta**, you
   [select the project from the dropdown menu of the OpenStack Horizon UI](../../cloud/pouta/launch-vm-from-web-gui.md#prerequisites).
 * In **Rahti**,
-  [OpenShift projects are mapped to CSC projects using the *Description* field](../../cloud/rahti/usage/projects_and_quota.md)
+  [OpenShift projects are mapped to CSC projects using the *Description* field](../../cloud/rahti/get-started/projects.md)
   of the OpenShift project.

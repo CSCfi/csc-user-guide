@@ -10,10 +10,8 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
         - Roihu
     - LUMI
-    - Puhti
     - Roihu
 ---
 
@@ -29,18 +27,15 @@ In supercomputers, QGIS could be used for example to visualize the resulting fil
 __QGIS__ is available with following versions:
 
 * 3.44.9 in Roihu, includes also [GDAL](gdal.md) and [PDAL](pdal.md). It also has PCRaster library installed to the container, but [PCRaster QGIS plug-in](https://jvdkwast.github.io/qgis-processing-pcraster/) should be added by each user.
-* 3.38 in Puhti, includes also [GDAL](gdal.md) and [PDAL](pdal.md). It also has PCRaster library installed to the container, but [PCRaster QGIS plug-in](https://jvdkwast.github.io/qgis-processing-pcraster/) should be added by each user.
-* 3.34 in Puhti, includes also [GDAL](gdal.md), [PDAL](pdal.md) and the new native point cloud tools in QGIS.
-* 3.31 in Puhti and LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
-* 3.22 in Puhti
+* 3.31 in LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
 
 ## Usage
 
-### QGIS in Puhti and Roihu
+### QGIS in Roihu
 
-For using QGIS, open it in Puhti web interface:
+For using QGIS, open it in web interface:
 
-1. Log in to [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi) webinterface. 
+1. Log in to [Roihu](https://roihu.csc.fi) webinterface. 
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. `Applications` -> `Geosciences` -> `QGIS` or use `QGIS`-shortcut
 
@@ -87,6 +82,10 @@ QGIS can __read__ files directly from Allas, either using S3 or SWIFT API. Befor
 
 With large quantities of data in Allas, consider using [virtual rasters](https://research.csc.fi/virtual_rasters). 
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License 
 
 QGIS is licensed under the GNU General Public License.
@@ -105,8 +104,6 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 * 3.44 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
-* 3.38 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
-* 3.34 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` package from `conda-forge` repository.
 * 3.31 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
 
 `wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`

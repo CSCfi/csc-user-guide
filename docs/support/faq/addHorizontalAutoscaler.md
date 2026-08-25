@@ -14,7 +14,7 @@ The obvious utility of this is to allow automatically and dynamically optimize t
 
 For doing this, first we need a `Deployment`. Any deployment will work, but you can use this example that deploys a dummy application: 
 
-**Note:** Remember to [login in Rahti](../../cloud/rahti/usage/cli.md#how-to-login-with-oc) first
+**Note:** Remember to [login in Rahti](../../cloud/rahti/get-started/cli.md#how-to-login-with-oc) first
 
 ```sh
 echo "apiVersion: apps/v1

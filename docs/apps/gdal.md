@@ -9,7 +9,6 @@ catalog:
     - Geosciences
   available_on:
     - LUMI
-    - Puhti
     - Mahti
     - Roihu
 ---
@@ -25,16 +24,13 @@ GDAL is available with following versions:
 * 3.12.4 - in the 3.44.9 [QGIS](qgis.md) in Roihu.
 * 3.12.2 - in the 3.14.5 [python-geo](python-geo.md) in Roihu
 * 3.12.2 stand-alone: `gdal` in Roihu. Additionally is available `proj/9.7.0`.
-* 3.9.2 - in the 3.38 [QGIS](qgis.md) and 3.11.10 [geoconda](geoconda.md) in Puhti
-* 3.9.1 - in the 3.11.9 [geoconda](geoconda.md) in Puhti and Mahti
-* 3.8.5 stand-alone: `gdal` in Puhti
-* 3.8.3 - in the 3.31 [QGIS](qgis.md) in Puhti and LUMI
-* 3.6.2 - in the 3.10.x [geoconda](geoconda.md) in Puhti and Mahti
-* 3.4.3 stand-alone: `gdal` in Puhti
+* 3.9.1 - in the 3.11.9 [geoconda](geoconda.md) in Mahti
+* 3.8.3 - in the 3.31 [QGIS](qgis.md) in LUMI
+* 3.6.2 - in the 3.10.x [geoconda](geoconda.md) in Mahti
 * Also in: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note
-    The stand-alone GDAL and R modules don't have Python bindings installed so e.g `gdal_calc` works only in the geoconda and qgis modules. Also, the supported file formats vary between the modules. `gdal/3.4.3` has the most limited driver support and no support for virtual drivers. It is possible to add more drivers to standalone and r-env GDAL installations, please ask. geoconda and qgis GDAL installations are based on conda gdal package and are impossible to change regarding drivers support. Use `gdalinfo --formats` to see supported raster formats and `ogrinfo --formats` for vector formats.
+    The stand-alone GDAL and R modules don't have Python bindings installed so e.g `gdal_calc` works only in the geoconda and qgis modules. Also, the supported file formats vary between the modules. It is possible to add more drivers to standalone and r-env GDAL installations, please ask. geoconda and qgis GDAL installations are based on conda gdal package and are impossible to change regarding drivers support. Use `gdalinfo --formats` to see supported raster formats and `ogrinfo --formats` for vector formats.
 
 ## Usage
 GDAL is included in the modules listed above, so it can be used when any of these modules is loaded. 
@@ -44,21 +40,11 @@ The stand-alone `gdal` module is mainly meant for building software on top of GD
 ```
 # GDAL 3.12.2 (Roihu)
 gcc/15.2.0  openmpi/5.0.10 gdal/3.12.2
-
-# GDAL 3.8.5 (Puhti)
-module load gcc/13.2.0 openmpi/5.0.5 gdal/3.8.5
-
-# GDAL 3.4.3 (Puhti)
-module load gcc/11.3.0 gdal/3.4.3
 ```
 
 You can test if GDAL loaded successfully with following
 
 `gdalinfo --version`
-
-With `r-env` gdal commands can be used as (only in Puhti):
-
-`apptainer_wrapper exec gdalinfo --version`
 
 Note that, starting with GDAL 3.11, parts of the GDAL utilities are available from a [new single gdal program](https://gdal.org/en/stable/programs/index.html) that accepts commands and subcommands.
 
@@ -70,6 +56,10 @@ GDAL supports virtual [network based file systems](https://gdal.org/user/virtual
 #### Virtual rasters
 
 With large quantities of raster data (also in Allas), the most convenient method of accessing them might be [GDAL virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License 
 
@@ -91,33 +81,13 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation 
 
-Standalone GDAL was installed to Puhti using [Spack and its GDAL package definition](https://packages.spack.io/package.html?name=gdal). For other installations, see respective application page.
+Standalone GDAL was installed using [Spack and its GDAL package definition](https://packages.spack.io/package.html?name=gdal). For other installations, see respective application page.
 
 Installation settings for 3.12.2. `+` means enabled option,
 ```
 gdal+deflate+expat+gif+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+parquet+png+postgresql+zstd
 ```
 
-Installation settings for 3.8.5. `+` means enabled option, `~` disabled.
-```
-gdal@3.8.5+arrow+curl+deflate+expat+geos+gif+hdf4+hdf5+iconv+jpeg+liblzma+libxml2+lz4+netcdf+openjpeg+png+postgresql+spatialite+sqlite3+zstd
-~archive~armadillo~basisu~blosc~brunsli~cfitsio~crnlib~cryptopp~csharp~ecw~filegdb~freexl~fyba~gta~hdfs~heif~idb~ipo~java~jxl~kdu~kea~lerc
-~libaec~libcsf~libkml~libqb3~luratech~mongocxx~mrsid~mssql_ncli~mssql_odbc~mysql~odbc~odbccpp~ogdi~opencad~opencl~openexr~openssl~oracle
-~parquet~pcidsk~pcre2~pdfium~podofo~poppler~python~qhull~rasterlite2~rdb~sfcgal~teigha~tiledb~webp~xercesc
-build_system=cmake build_type=Release generator=ninja patches=52459dc
-```
-
-Installation settings for 3.4.3:
-```
---with-libtiff=/appl/spack/v018/install-tree/gcc-11.3.0/libtiff-4.3.0-4xvmnn
---with-geotiff=/appl/spack/v018/install-tree/gcc-11.3.0/libgeotiff-1.6.0-m66qzg
---with-libjson-c=/appl/spack/v018/install-tree/gcc-11.3.0/json-c-0.15-cvy2yv
---with-proj=/appl/spack/v018/install-tree/gcc-11.3.0/proj-8.2.1-zj2pln
---with-libtool=yes
---with-libz=/appl/spack/v018/install-tree/gcc-11.3.0/zlib-1.2.12-tpcwxh
---with-liblzma=yes
---with-jpeg=/appl/spack/v018/install-tree/gcc-11.3.0/libjpeg-turbo-2.1.3-hnflqm"
-```
 ## References
 
 * [GDAL documentation, programs](https://gdal.org/programs/index.html)

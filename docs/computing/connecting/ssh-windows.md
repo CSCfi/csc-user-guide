@@ -135,7 +135,7 @@ supercomputer.
     where `<algorithm>` is either `ed25519` or `rsa`.
 
     Alternatively, you may
-    [connect using the GUI following this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html#connecting-from-windows).
+    [connect using the GUI following this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-roihu.html#connecting-from-windows).
 
 === "PuTTY"
 
@@ -144,7 +144,7 @@ supercomputer.
 
     | Option | Value |
     |-|-|
-    | **Host Name** | `puhti.csc.fi` or `mahti.csc.fi` |
+    | **Host Name** | `puhti.csc.fi`, `mahti.csc.fi`, `roihu-cpu.csc.fi` or `roihu-gpu.csc.fi` |
     | **Port** | `22` |
     | **Connection type** | `SSH` |
 	| Connection -> Data -> Auto-login username | `csc_username` |
@@ -197,8 +197,8 @@ follows:
 
 ```bash
 # Replace <username> with the name of your CSC user account,
-# <host> with "puhti" or "mahti" and <path-to-private-key>
-# with the path to your SSH private key
+# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu", and
+# <path-to-private-key> with the path to your SSH private key
 
 ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ```

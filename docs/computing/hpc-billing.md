@@ -37,7 +37,10 @@ On GPU partitions the pricing is always based on the amount of reserved GPUs. CP
 and memory are not billed separately, each job will at most be able to reserve a corresponding
 share of CPU and memory resources of the node.
 
-For all partitions local disk usage is billed additionally to the above BUs.
+For all partitions, *reserved* local storage — disaggregated storage, and
+local scratch reserved with the `--gres=nvme` option — is billed in addition
+to the above BUs. The automatic local temporary storage (`$TMPDIR`) is free
+of charge.
 
 See details of the different [CPU and GPU partitions on Roihu](running/batch-job-partitions.md#roihu-partitions).
 

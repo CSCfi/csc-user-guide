@@ -1,5 +1,22 @@
 # Computing environment
 
+## Roihu web interface updated to release 2, 18.8.2026
+
+* The gpuinteractive partition is now available.
+* The `/dataset` path is now accessible in the web interface's file browser and Desktop app.
+* Roihu usage metrics graphs have been added.
+* Plugins in CloudCompare in Accelerated Visualization now work.
+* Open OnDemand updated to 4.2.3.
+
+## Puhti compute services decommissioned, 31.7.2026
+
+Compute services in Puhti have been decommissioned as of 31 July 2026 at 12:00 EEST.
+No new jobs will be accepted or executed on its compute nodes.
+
+Mahti's compute services are being decommissioned 31 August 2026.
+
+Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026.
+
 ## Roihu FAQ and data migration instructions updated, 11.6.2026
 
 The [Roihu FAQ](../faq/roihu.md) and [data migration instructions](../tutorials/roihu-data-preparation.md) have

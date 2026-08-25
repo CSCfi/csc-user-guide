@@ -104,14 +104,14 @@
 
 ## Rahti
 
-* [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/rahti_faq.md)
+* [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/reference/faq.md)
 * [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
 * [Does Rahti support UDP connections?](rahti-udp.md)
 * Export data and images
-    * [How to back up volume data to Allas?](../../cloud/rahti/storage/objectstorage.md#backup-to-allas)
+    * [How to back up volume data to Allas?](../../cloud/rahti/usage/storage/object-storage.md#backup-to-allas)
     * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
-    * [How to export container images?](../../cloud/rahti/images/Using_Rahti_integrated_registry.md#pulling-images-from-rahti)
-    * [How to share images between projects?](../../cloud/rahti/tutorials/allow-pull-from-other-projects.md)
+    * [How to export container images?](../../cloud/rahti/usage/images/integrated-registry.md#pulling-images-from-rahti-registry)
+    * [How to share images between projects?](../../cloud/rahti/tutorials/basic/allow-pull-from-other-projects.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
 * [How to debug a container?](oc-debug.md)

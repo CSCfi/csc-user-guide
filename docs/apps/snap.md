@@ -9,9 +9,7 @@ catalog:
     - Geosciences
   available_on:
     - web_interfaces:
-        - Puhti
         - Roihu
-    - Puhti
     - Roihu
 ---
 
@@ -21,15 +19,11 @@ catalog:
 
 ## Available
 
-__SNAP__ is available with following versions:
+__SNAP__ is available in Roihu with following versions:
 
-* SNAP `13.0` + Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab in Roihu
-* SNAP `13.0` + Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab in Puhti
-* SNAP `jupyter` (9.0) + Python 3.6.9 including snappy and snapista + JupyterLab in Puhti
-* SNAP `9.0` + Python 3.6.9 including snappy and snapista in Puhti
-* SNAP `8.0` + Python 3.6.9 including snappy in Puhti
+* SNAP `13.0` + Python 3.12.3 including esa_snappy and pyroSAR + JupyterLab
 
-The versions including JupyterLab can be used in the Jupyter application in the Puhti webinterface via the **custom module** option.
+The versions including JupyterLab can be used in the Jupyter application in the Roihu webinterface via the **custom module** option.
 
 ## Usage
 
@@ -41,11 +35,11 @@ This loads the newest available version. You can load an older version with:
 
 `module load snap/<VERSION>`
 
-### Using SNAP with Graphical User Interface (GUI) in the Puhti/Roihu web interface
+### Using SNAP with Graphical User Interface (GUI) in the Roihu web interface
 
-The easiest option for using SNAP is to open it in the Puhti/Roihu web interface.
+The easiest option for using SNAP is to open it in the Roihu web interface.
 
-1. Log in to web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi)
+1. Log in to web interface: [Roihu](https://roihu.csc.fi)
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. After launching the remote desktop, start SNAP from `Applications` (upper left corner) -> `Geosciences`.
 
@@ -164,7 +158,7 @@ for instructions.
 
 ### Using the Python package with JupyterLab
 
-1. Log in to web interface: [Puhti](https://puhti.csc.fi) or [Roihu](https://roihu.csc.fi)
+1. Log in to web interface: [Roihu](https://roihu.csc.fi)
 2. Open [Jupyter app](../computing/webinterface/jupyter.md). 
 3. Select **custom module** and write `snap` as module.
 
@@ -173,6 +167,10 @@ In Jupyter remember to set the temporary directories. Follow the [SNAP set up No
 ## Updating SNAP
 
 SNAP minor and module updates are stored in the `$HOME/.snap` directory. This means that all minor updates need to be installed by the user. You can do this in SNAP Desktop by following the instructions in the pop-up at start up.
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License
 
@@ -193,8 +191,6 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 ## Installation
 
 SNAP 13.0 was installed with Singularity using installer provided by ESA, with pip was added Jupyter, `esa_snappy` and `pyroSAR`. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
-
-SNAP 9.0 was installed to Puhti with Singularity using the [SNAP Docker image provided by mundialis on Dockerhub](https://hub.docker.com/r/mundialis/esa-snap) with some small additions to provide snappy and snapista Python interfaces. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
 
 `wrap-container -w /usr/local/snap/bin,/usr/bin snap9_py.sif --prefix install_dir`
 

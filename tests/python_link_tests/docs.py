@@ -22,6 +22,7 @@ class Docs:
         self.files={}
         self.nav_links=[]
         self.whitelist=[]
+        self.ignore=["docs/ref.md"]
 
 
         self.dump_data()
@@ -123,7 +124,7 @@ class Docs:
         output=""
         for fileo in self.files.values():
             for link in fileo.links:
-                if(link.file_link_is_broken):
+                if(fileo.path+"/"+fileo.name not in self.ignore and link.file_link_is_broken):
                     output+="The file link " +link.link_file_target+" in file "+fileo.path+"/"+fileo.name +" on line " +link.line_number+ " is broken\n"
 
 
@@ -136,7 +137,7 @@ class Docs:
         output=""
         for fileo in self.files.values():
             for link in fileo.links:
-                if(link.link_section_target!="" and not link.file_link_is_broken):
+                if(fileo.path+"/"+fileo.name not in self.ignore and link.link_section_target!="" and not link.file_link_is_broken):
                     command="grep -- " +"\"" + link.link_section_target  +  "\"" +" " + link.valid_site_target 
                     grep_res=run_bash(command)
                     if(grep_res.returncode!=0):

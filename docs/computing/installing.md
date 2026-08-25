@@ -38,7 +38,6 @@ be found from the links below. A list of available HPC libraries that may need t
 linked upon compiling is also provided.
 
 - [Compiling on Roihu](compiling-roihu.md)
-- [Compiling on Puhti](compiling-puhti.md)
 - [Compiling on Mahti](compiling-mahti.md)
 - [Compiling on LUMI](compiling-lumi.md)
 - [HPC libraries](hpc-libraries.md)
@@ -51,7 +50,7 @@ compilers, MPI libraries and many of the available software on CSC supercomputer
 been installed using Spack. Spack is similar to the [EasyBuild package manager extensively
 used on LUMI](https://docs.lumi-supercomputer.eu/software/installing/easybuild/).
 
-CSC provides user Spack modules on Puhti and Mahti that can be used to build software on top of the
+CSC provides user Spack modules on Roihu and Mahti that can be used to build software on top of the
 available compilers and libraries. It is also possible to install different customized versions of
 packages available in the module tree for special use cases. [See here for a short tutorial on how to
 install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md). Spack is

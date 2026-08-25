@@ -15,10 +15,8 @@ In the form for launching the application:
 ## Creating a course environment
 
 The files for course environments (modules) can be created in
-`/projappl/<project>/www_roihu_modules/` on Roihu,
-`/projappl/<project>/www_puhti_modules/` on Puhti, and
-`/projappl/<project>/www_mahti_modules` on Mahti. The directories can be created
-if they do not exist.
+`/projappl/<project>/www_roihu_modules/` on Roihu, and `/projappl/<project>/www_mahti_modules` on
+Mahti. The directories can be created if they do not exist.
 
 The course environment is only visible for the project that it was created for.
 Note that you may need to *Restart Web Server* in the *Help* menu in the web interface if the course

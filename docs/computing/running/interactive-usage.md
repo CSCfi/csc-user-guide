@@ -4,7 +4,7 @@ When you log into a CSC supercomputer, you are connected to one of its login
 nodes. Login nodes are shared by all users and are **not** to be used for
 heavy processing. [See our usage policy for details](../usage-policy.md). If
 you need to run heavy computations interactively, you can use the `interactive`
-partitions on Puhti and Mahti.
+partitions on Roihu and Mahti.
 
 The `interactive` partition offers fewer resources than other partitions, but
 jobs submitted to it have a much higher priority in comparison, so they will
@@ -44,17 +44,23 @@ When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments. Note that the available options and resources are not identical on
-Roihu, Puhti and Mahti due to differences in hardware.
+Roihu and Mahti due to differences in hardware.
 
 ### `sinteractive` on Roihu
 
 There are two interactive partitions available on Roihu; `interactive` for CPU 
 resources and `gpuinteractive` for GPU resources. See the
 [Roihu `interactive` partition details](./batch-job-partitions.md#roihu-partitions)
-for information on the available resources. The Roihu `gpuinteractive` partition 
-features GH200 superchips that are divided into a total of 48 smaller slices that 
-have one-seventh of the compute capacity and one-eighth of the GPU memory capacity 
-(12 GiB) of a full GH200 superchip. `sinteractive` will select the correct partition
+for information on the available resources.
+
+Once GPU slicing is implemented, the GH200 GPUs in the `gpuinteractive` partition
+will be divided into smaller Multi-Instance GPU (MIG) slices. Each slice will provide
+one-seventh of the GPU compute capacity and one-eighth of the GPU memory capacity
+of a full GH200 GPU, giving each slice 12 GiB of GPU memory. With two nodes, four
+GPUs per node, and up to seven slices per GPU, the partition can provide up to
+56 GPU slices in total.
+
+`sinteractive` will select the correct partition
 based on your resource request, and will automatically provide you with a GPU if
 run from the GPU login node without additional parameters.
 
@@ -76,35 +82,6 @@ logged into the system:
 sinteractive --help
 ```
 
-### `sinteractive` on Puhti
-
-On Puhti, each user can have up to two active sessions on the `interactive`
-partition.
-
-If your resource requests exceed the
-[limits of the Puhti `interactive` partition](./batch-job-partitions.md#puhti-interactive-partition),
-or if you already have two active sessions there, you are offered the option
-to submit the job to the `small` or `gpu` partitions instead. In this case,
-your job does not benefit from the higher priority of the `interactive`
-partition, so you will need to wait some time before the requested resources
-become available and the interactive session starts. If you request GPUs using
-the `-g` option, your job is automatically submitted to the `gpu` partition.
-
-All sessions started with `sinteractive` are run on nodes that have
-[fast local NVMe storage](../disk.md#compute-nodes-with-local-ssd-nvme-disks)
-available. This local disk area has high I/O
-capacity and is therefore the ideal location for temporary files created by
-your processes. Do keep in mind that this disk area is emptied when the
-interactive session ends. The `$TMPDIR` and `$LOCAL_SCRATCH` environment
-variables point to the local disk area of the job.
-
-To see the command options available on Puhti, run the following while
-logged into the system:
-
-```bash
-sinteractive --help
-```
-
 ### `sinteractive` on Mahti
 
 On Mahti, each user can have up to 8 active sessions on the `interactive`
@@ -116,7 +93,7 @@ using the `-g` flag, which submits the job to the `gpusmall` partition. Note
 that using a GPU slice restricts the amount of CPU cores and memory that is
 available for your job.
 
-As with Puhti, you can see the Mahti-specific command options by running the
+As with Roihu, you can see the Mahti-specific command options by running the
 following while logged into the system:
 
 ```bash

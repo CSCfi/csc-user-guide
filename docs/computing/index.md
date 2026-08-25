@@ -5,7 +5,7 @@
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    * Puhti computing services will be shut down by 31 July 2026 at 12:00 EEST.
+    * Puhti computing services have been shut down since 31 July 2026.
     * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
     * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
@@ -26,8 +26,7 @@ for details on the systems and [this page for an outline of differences between 
 Mahti](lumi-vs-mahti.md).
 
 Puhti and Mahti are being replaced in by CSC's next national supercomputer
-called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu is accessible as a service in MyCSC
-around end of June 2026.
+called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu has been accessible for CSC users since end of June 2026.
 
 Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
 and software environments.
