@@ -115,18 +115,15 @@ of that metric over time:
 
 For more advanced use cases you may want to use an [MLflow remote
 tracking server][tracking-server]. For this the tracking UI in the
-Puhti web interface is not suitable, as it cannot be accessed over the
+Roihu web interface is not suitable, as it cannot be accessed over the
 network, and it would typically not be running all the time when you
 need to store data to it.
 
 A more suitable platform for running an MLflow tracking server is
-CSC's Rahti service.  We have provided a ready-made MLflow template in
-Rahti's service catalog which makes starting an MLflow tracking server
-easy. See our [user guide on how to start your own MLflow tracking
-server on Rahti][mlflow-rahti]. There's even a [nice
-video!](https://video.csc.fi/media/t/0_2frjyzz9).
-
-You can also set it up to use Allas for storing artifacts.
+CSC's Rahti service. MLflow can be found in the [Rahti Software
+Catalog](../../cloud/rahti/usage/catalog.md). See our [user guide on
+how to start your own MLflow tracking server on
+Rahti][mlflow-rahti].
 
 Once you have your server running on Rahti you can access the web user
 interface. The address can be found from Rahti (Applications → Routes
@@ -171,4 +168,4 @@ application, for example:
 [webui]: ../../computing/webinterface/index.md
 [log-func]: https://www.mlflow.org/docs/latest/ml/tracking/tracking-api/#core-logging-functions
 [tracking-server]: https://www.mlflow.org/docs/latest/self-hosting/architecture/tracking-server/
-[mlflow-rahti]: https://github.com/CSCfi/mlflow-openshift/blob/master/docs/USER_GUIDE.md
+[mlflow-rahti]: https://docs.csc.fi/cloud/rahti/managed-software/mlflow/
