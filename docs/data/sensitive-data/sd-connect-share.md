@@ -4,15 +4,21 @@
 
 # Sharing buckets
 
-
-!!! info "Share ID"
-
-    With SD Connect, you can share a bucket and its entire content across different CSC projects. This is done by using Share ID, a unique 32-digit code associated with a CSC project. You can share a bucket and its entire content with multiple CSC projects and use different permission levels. 
+* [Sharing buckets to another CSC project: overview](#sharing-buckets-to-another-csc-project-overview)
+* [Share buckets to another CSC project: step-by-step](#share-buckets-to-another-csc-project-step-by-step)
+* [Change sharing permission](#change-sharing-permission)
+* [Delete sharing permission](#delete-sharing-permission)
 
 
 ## Sharing buckets to another CSC project: overview
 
-SD Connect provides different ways to share a bucket and its entire content with another CSC project. Choose the option that best matches how the data will be used.
+
+!!! info "Share ID"
+
+    With SD Connect, you can share a bucket and all its contents with other CSC projects. Sharing is done using the **recipient project's Share ID**, a unique 32-digit identifier assigned to each CSC project. A bucket can be shared with multiple projects, and you can assign different permission levels to each shared project.
+
+Before proceeding familiarize yourself with different use cases and choose the option that best matches how the data will be used:
+
 
 <div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
 
@@ -25,7 +31,7 @@ SD Connect provides different ways to share a bucket and its entire content with
     
     Use this option when you want to transfer data to another project, research group, or organization. 
     
-    [**Read more about the use case**](./sd-connect-share-tranfer-data.md).
+    [**Read more about the use case**](./sd-connect-share-tranfer-data.md)
 
 
 -   **Share for collaboration and shared workspace**
@@ -41,7 +47,7 @@ SD Connect provides different ways to share a bucket and its entire content with
 
 
 
-- **Share for Read-Only Access**
+- **Share for Read-only access**
   { .csc-grid-card-info }
 
     ---
@@ -55,21 +61,16 @@ SD Connect provides different ways to share a bucket and its entire content with
 </div>
 
 
-<div class="grid cards" markdown>
+!!! warning "Assigning the wrong sharing option may grant unintended access to your data. If you are new to SD services, contact [contact CSC Service Desk](../../support/contact.md) to discuss this option before proceeding."
 
-- :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
 
-    Assigning the wrong sharing option may grant unintended access to your data. If you are new to SD services, contact [contact CSC Service Desk](../../support/contact.md) to discuss this option before proceeding.
 
-</div>
+____
 
 
 
 
-
-
-## Share buckets to another CSC project: step-by-step
+### Share buckets to another CSC project: step-by-step 
 
 
 1. **Ask from recipient for their project Share ID**. They can find it in the SD Connect user interface by selecting the correct CSC project from the top-left corner and clicking **Copy Share ID **next to the project number. Ask them to send the Share ID to you by email.
