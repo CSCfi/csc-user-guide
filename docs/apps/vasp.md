@@ -21,10 +21,12 @@ This page briefly describes how to use VASP on Roihu. That said, using
 VASP efficiently requires experience. It is advised that new VASP users start
 out with a supervisor or an experienced colleague.
 
+## VASP executables
+
 There are two ways to get access to VASP executables. You can build your own executables,
 or you can get a personal license key and use CSC's pre-built executables.
 
-## Build your own VASP executables
+### Build your own VASP executables
 
 This is simple and documented in [GitHub](https://github.com/jlento/vasp-env). This
 is also the way if you want to develop VASP, build modified versions of VASP, or
@@ -33,7 +35,7 @@ have acquired the license from Materials Desing Inc.
 If you run into any issues building VASP, please send feedback to
 [CSC's ServiceDesk](../support/contact.md).
 
-## Use CSC's pre-built executables
+### Use CSC's pre-built executables
 
 You can see the available VASP versions with command
 
@@ -54,7 +56,9 @@ request_license_key.sh
 
 The `request_license_key.sh` script will ask user's VASP Portal username and password.
 
-### An example batch job script for a small test
+## VASP batch jobs
+
+An example batch job script for a small test:
 
 ```bash
 #!/bin/bash
@@ -68,7 +72,19 @@ module load vasp
 srun vasp_std
 ```
 
-### VASP tutorials in JupyterLab
+## Performance optimisation
+
+VASP performance depends crucially on the parameters in the INCAR file
+and that the correct version (std/gam/ncl) of the executable is used.
+The INCAR parameters control how the different k-points, bands and FFT
+coefficients are distributed among the MPI tasks, among many other things.
+Initial settings for the parameters can be found from the VASP documentation,
+but in most cases finding optimal parameters requires experience and
+experimentation, and depend on the studied system and the underlying computational
+platform.
+
+
+## VASP tutorials in JupyterLab
 
 [VASP tutorials](https://www.vasp.at/tutorials/latest/) can also be
 followed using JupyterLab from the
@@ -82,10 +98,3 @@ srun -p test -A <project> -t 5 -n 2 vasp_std
 ```
 
 instead of the `mpirun ...` command shown in the tutorial.
-
-### Performance optimization
-
-VASP peformance depends crucially on the parameters in the INCAR file
-and that the correct version (std/gam/ncl) of the executable is used.
-The INCAR parameters control how the different k-points, bands and FFT
-coefficients are distributed among the MPI tasks, among many other things.
