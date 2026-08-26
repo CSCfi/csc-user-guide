@@ -137,7 +137,7 @@
 
 ## Sensitive Data (SD) Services for research
 
-* [Are CSC Sensitive Data services the right solution for my research project and how do I get started?](sdservices-faq.md#are-csc-sensitive-data-services-the-right-solution-for-my-research-project-and-how-do-i-get-started)
+* [Are CSC Sensitive Data services the correct solution for my project ?](sdservices-faq.md#are-csc-sensitive-data-services-the-correct-solution-for-my-project)
 *  Research data storage and analysis
     * [Who can access my data and workspace?](sdservices-faq.md#who-can-access-my-data-and-workspace)
     * [How can I share data with collaborators?](sdservices-faq.md#how-can-i-share-data-with-collaborators)
@@ -148,7 +148,7 @@
     * [How does SD Desktop differ from ePouta?](sdservices-faq.md#how-does-sd-desktop-differ-from-epouta)
     * [How SD Connect differs from Allas?](sdservices-faq.md#how-sd-connect-differs-from-allas-and-allas-ui)
 * Register data analysis under the Finnish Act on Secondary Use
-    * [How can I access register data via SD Services?](sdservices-faq.md#what-is-the-sd-desktop-for-secondary-use)
+    * [How can I access register data via SD Services?](sdservices-faq.md#how-can-i-access-register-data-via-sd-services)
     * [Can I combine register data with my own data?](sdservices-faq.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
     * [How can I export my results from SD Desktop?](sdservices-faq.md#how-can-i-export-my-results-from-sd-desktop)
     * [What will happen to my data after the secondary use data permit expires?](sdservices-faq.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)
