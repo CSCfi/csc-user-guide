@@ -149,8 +149,6 @@
     * [How SD Connect differs from Allas?](sdservices-faq.md#how-sd-connect-differs-from-allas-and-allas-ui)
 * Register data analysis under the Finnish Act on Secondary Use
     * [How can I access register data via SD Services?](sdservices-faq.md#what-is-the-sd-desktop-for-secondary-use)
-    * [Can I combine register data with my own data?]
-    * [How do I export results and what happens when my permit expires?]
-    * [How do I add project members?]
-
-  
+    * [Can I combine register data with my own data?](sdservices-faq.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
+    * [How can I export my results from SD Desktop?](sdservices-faq.md#how-can-i-export-my-results-from-sd-desktop)
+    * [What will happen to my data after the secondary use data permit expires?](sdservices-faq.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)
