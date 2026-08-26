@@ -137,25 +137,20 @@
 
 ## Sensitive Data (SD) Services for research
 
-* Who can use SD Services? Does it have a cost?
-* What data can I process in SD Services? What approvals, permits and documentation do I need?
-* How is my data protected?
-* Are SD Services the right solution for me? Who can support me in doing this evaluation?
-* How do I get started with CSC SD Services?
+* [Are CSC Sensitive Data services the right solution for my research project and how do I get started?](sdservices-faq.md#are-csc-sensitive-data-services-the-right-solution-for-my-research-project-and-how-do-i-get-started)
 *  Research data storage and analysis
-    * Who can access my data and workspace?
-    * How can I share data with collaborators?
-    * How much storage space to I have?
-    * What software is available for data analysis and can I install additional software?
-    * What happens to my data when the CSC project expires or resources end?
-    * Can I use SD services from the command line?
-    * Can I edit data and get root or sudo access?
-    * How does SD Desktop differ from ePouta?
-    * How SD Connect differs from Allas?
+    * [Who can access my data and workspace?](sdservices-faq.md#who-can-access-my-data-and-workspace)
+    * [How can I share data with collaborators?](sdservices-faq.md#how-can-i-share-data-with-collaborators)
+    * [How much storage space is available in SD Connect and SD Desktop?](sdservices-faq.md#how-much-storage-space-is-available-in-sd-connect-and-sd-desktop)
+    * [What software is available for data analysis and can I install additional software?](sdservices-faq.md#what-software-is-available-for-data-analysis-and-can-i-install-additional-software)
+    * [What happens to my data when the CSC project expires or resources end?](sdservices-faq.md#what-happens-to-my-data-when-the-csc-project-expires-or-billing-units-end)
+    * [Can I get root or sudo access?](sdservices-faq.md#can-i-get-root-or-sudo-access-in-sd-desktop)
+    * [How does SD Desktop differ from ePouta?](sdservices-faq.md#how-does-sd-desktop-differ-from-epouta)
+    * [How SD Connect differs from Allas?](sdservices-faq.md#how-sd-connect-differs-from-allas-and-allas-ui)
 * Register data analysis under the Finnish Act on Secondary Use
-    * How can I access and analyze data provided by Findata or a well-being county via SD Services?
-    * Can I combine register data with my own data?
-    * How do I export results and what happens when my permit expires?
-    * How do I add project members?
+    * [How can I access register data via SD Services?](sdservices-faq.md#what-is-the-sd-desktop-for-secondary-use)
+    * [Can I combine register data with my own data?]
+    * [How do I export results and what happens when my permit expires?]
+    * [How do I add project members?]
 
   
