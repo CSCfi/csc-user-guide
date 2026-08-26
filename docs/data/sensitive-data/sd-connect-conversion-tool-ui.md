@@ -161,7 +161,15 @@ Conversion pauses if your laptop runs out of power or loses internet connection.
 
 ### 2.7 Finish conversion
 
-Ensure that the bucket size and item count match before and after the conversion.
+In this final step if the converted bucket has -conv suffix the original incompatible bucket will be permanently deleted freeing up storage space. In other buckets only some technical segments will be removed, the original bucket and data will remain intact. 
 
-If the conversion was successful proceed with deleting permanently the original bucket/s with incompatible name. 
+
+* Ensure that the bucket size and item count match before and after the conversion from data table.
+
+* If the conversion was successful finalize it by clicking Delete. 
+
+* If you have questions, please contact servicedesk@csc.fi.
+
+* Finally, re-login to SD Connect. Labels should have been removed. In your buckets you should now see bucket size, item size and also the sharing information.
+
 
