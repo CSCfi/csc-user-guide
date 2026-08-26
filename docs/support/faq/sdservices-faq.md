@@ -1,17 +1,18 @@
 # Sensitive Data (SD) Services for Research
    
-#### Who can use SD Services? Does it have a cost?
+
+#### Are CSC Sensitive Data (SD) services the right solution for my research project and how do I get started?
 
 
+If you are new to CSC and the Sensitive Data (SD) services, we recommend contacting servicedesk@csc.fi (subject: SD services). We can arrange an online meeting to discuss your research project, introduce the available services, explain any current limitations and help you determine whether the services are suitable for your needs.
+
+We can also provide the relevant documentation needed by your organization and data support personnel to assess whether the services meet your organization's security and privacy requirements.
+
+Getting started depends on your use case. For most research projects, you simply need to create a CSC account and project before accessing the services. 
+
+If you are working with register data under the Act on Secondary Use, contact us before planning for the data permit and we will guide you through the on boarding process. If you are planning to use Federated EGA (FEGA), a separate service agreement is required, and we can help you get started.
 
 
-####  What data can I process in SD Services? What approvals, permits and documentation do I need?
-
-
-
-
-
-#### How is my data protected?
 
 
 
