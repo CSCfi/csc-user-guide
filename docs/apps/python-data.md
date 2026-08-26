@@ -554,6 +554,9 @@ data analytics and machine learning, for example:
     </div>
 
 <style>
+.pkg-table {
+  margin-left: -1.6rem;
+}
 .pkg-table ul {
   list-style: none;
   padding-left: 0;
