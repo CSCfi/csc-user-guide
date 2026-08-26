@@ -239,6 +239,11 @@ machine-to-machine robot account on Roihu. Robot accounts are intended
 for automation (e.g. automatic data processing pipeline obeying rules
 below) and integrations to external services or infrastructures.
 
+Any use where the Robot account is used as a shared account is
+considered account sharing, which is against the [General Terms of
+Use](https://research.csc.fi/terms-of-use). 
+
+
 
 Rules concerning acount creation, management and secrets:
 
@@ -262,5 +267,5 @@ Rules concerning Roihu usage:
 CSC may audit and monitor the usage:
 
 * CSC reserves the right to audit and monitor usage of robot accounts. Should CSC find suspicious activity, CSC may close the robot account pending thorough review.
-* Should it be found that a robot account is being misused, CSC may close the robot account permanently and prevent creation of any new robot accounts for the project.
-* Should there be egregious misuse of robot account, CSC reserves the right to determine appropriate measures on case-by-case basis, including closure of project or user accounts involved in misuse.
+* Should it be found that a robot account is being misused,  CSC reserves the right to determine appropriate measures on case-by-case basis, including closure of project and user accounts involved in misuse.
+
