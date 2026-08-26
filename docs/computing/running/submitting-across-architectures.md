@@ -2,6 +2,12 @@
 
 ## Overview
 
+It is preferred that you submit GPU jobs from CPU (login) nodes and GPU jobs from GPU (login) nodes.
+However, if you have a valid use case, it is possible to submit jobs across architectures.
+We must make sure that the environment of the running job does not point to software from a different architecture.
+For example, if you submit GPU job from CPU node it will default to the software stack from the CPU side.
+The following instructions explain how to set the environment correctly.
+
 By default Slurm copies the whole submitting environment to the job (`--export=ALL`), so variables such as `PATH`, `LD_LIBRARY_PATH` and the Lmod/module state arrive pointing at binaries and module trees built for the *submitting* architecture.
 For running jobs on a different architecture than the shell you submit from requires the following modications to the environment:
 
