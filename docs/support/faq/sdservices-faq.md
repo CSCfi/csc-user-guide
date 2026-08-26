@@ -1,6 +1,6 @@
 # Sensitive Data (SD) Services for Research
    
-#### Are CSC Sensitive Data services the right solution for my research project and how do I get started?
+## Are CSC Sensitive Data services the right solution for my research project and how do I get started?
 
 
 If you are new to CSC and the Sensitive Data (SD) services, we recommend contacting servicedesk@csc.fi (subject: SD services). We can arrange an online meeting to discuss your research project, introduce the available services, explain any current limitations and help you determine whether the services are suitable for your needs.
@@ -12,7 +12,7 @@ Getting started depends on your use case. For most research projects, you simply
 
 ## Research data storage and analysis
 
-#### Who can access my data and workspace?
+## Who can access my data and workspace?
 
 You decide who can access your data. CSC provides the tools and services, while access rights are managed by you.
 
@@ -21,7 +21,7 @@ By default, all members of a CSC project have the same permissions. They can acc
 If needed, access rights can be further restricted. For example, some users can be granted read-only access or access only to specific datasets. If you would like to implement more detailed access controls, please contact the CSC Service Desk at servicedesk@csc.fi.
 
 
-#### How can I share data with collaborators?
+## How can I share data with collaborators?
 
 1. Share access to the entire project
 
@@ -41,7 +41,7 @@ Please note that sharing in SD Connect is managed at the bucket level. This mean
 Collaborators can access shared data only for analysis within the secure computing environment without being able to export it. If you would like to enable this option, please contact us at servicedesk@csc.fi.
 
 
-#### How much storage space is available in SD Connect and SD Desktop?
+## How much storage space is available in SD Connect and SD Desktop?
 
 When you create a CSC account and project, you are allocated 10 TB of storage space in SD Connect. 
 
@@ -52,29 +52,29 @@ Please note: when your storage quota is full, you will no longer be able to uplo
 If you need additional storage, please contact servicedesk@csc.fi with the subject "SD Services". 
 
 
-#### What software is available for data analysis and can I install additional software?
+## What software is available for data analysis and can I install additional software?
 
 SD Desktop only provides only Linux Ubuntu22 computing environments with a limited amount of open-source software installed, including Libre Office (with LibreOffice Calc, a spreadsheet program similar to Microsoft Excel, and LibreOffice Writer,  a word processor similar to Microsoft Word), R Studio and Python. We are not providing proprietary software, but we could help you install on your private desktop an open-source version. 
 For further information and for desktop customisation see: [Default programs available on SD Desktop](../../data/sensitive-data/sd-desktop-software.md).  
 Don't hesitate to get in touch with us at servicedesk@csc.fi (subject SD services) for specific technical support.
 
 
-#### What happens to my data when the CSC project expires or billing units end?
+## What happens to my data when the CSC project expires or billing units end?
 
 If your CSC project runs out of Billing Units, all the virtual desktop in your project will be automatically paused and become inaccessible. If the project is not renewed or additional Billing Units are not granted, the project will be closed after 60 days. Please note that all data stored in SD Connect and SD Desktop, including files, virtual desktops, and storage volumes, will be permanently deleted 90 days after the project is closed or expires.
 
 
-#### Can I get root or sudo access in SD Desktop?
+## Can I get root or sudo access in SD Desktop?
 
 No. Your account has only normal user level privileges. Providing sudo rights to a user would compromise the security of you SD Desktop environment.
 
-#### How does SD Desktop differ from ePouta?
+## How does SD Desktop differ from ePouta?
 
 SD Desktop is a web-user interface that allows you to connect to your virtual computing environment securely. CSC manages SD Desktop: we manage the connection, access, and security. SD Desktop is suitable for collaborative projects across Finnish organizations and provides the computational capability to research organizations that do not have an ePouta tenant.
 
 ePouta is an infrastructure provided to research organizations, and the organization's own IT unit manages its access and network. ePouta works on extending an academic organization infrastructure and provides all the flexibility and requirements decided by the organization. 
 
-#### How SD Connect differs from Allas and Allas UI?
+## How SD Connect differs from Allas and Allas UI?
 
 SD Connect is a service for storing and sharing sensitive research data that uses Allas as the underlying storage platform. Allas is CSC's general purpose cloud storage service, 
 
