@@ -69,6 +69,6 @@ For convenient access to SD services, visit and bookmark the [Quick access webpa
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
        - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
 !!! Note
-    When contacting our team, please do not include sensitive or confidential information, or any personal data that should not be shared in your message. Before sending screenshots or other attachments, please review them carefully to ensure they do not contain such information. 
+    When contacting our team, please **do not include sensitive or confidential information, or any personal data that should not be shared** in your message. Before sending screenshots or other attachments, please review them carefully to ensure they do not contain such information. 
 
 Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)
