@@ -2,22 +2,36 @@
 
 ## Overview
 
-It is preferred that you submit GPU jobs from CPU (login) nodes and GPU jobs from GPU (login) nodes.
-However, if you have a valid use case, it is possible to submit jobs across architectures.
-We must make sure that the environment of the running job does not point to software from a different architecture.
-For example, if you submit GPU job from CPU node it will default to the software stack from the CPU side.
-The following instructions explain how to set the environment correctly.
+On Roihu, the CPU nodes are x86 and the GPU nodes are ARM, so the system has
+[separate login nodes](../systems-roihu.md) for each architecture. Normally you
+should submit CPU jobs from `roihu-cpu.csc.fi` and GPU jobs from
+`roihu-gpu.csc.fi`. If you have a valid reason to cross architectures, for
+example when a workflow on a CPU node needs to launch a GPU job, some extra care
+is needed to make sure the job does not end up using software built for the
+wrong architecture.
 
-By default Slurm copies the whole submitting environment to the job (`--export=ALL`), so variables such as `PATH`, `LD_LIBRARY_PATH` and the Lmod/module state arrive pointing at binaries and module trees built for the *submitting* architecture.
-For running jobs on a different architecture than the shell you submit from requires the following modications to the environment:
+The problem is that Slurm copies the whole submitting environment to the job by
+default (`--export=ALL`). Variables such as `PATH`, `LD_LIBRARY_PATH` and the
+Lmod/module state then arrive pointing at binaries and module trees built for
+the *submitting* architecture, and the job either fails or silently picks up the
+wrong software. Avoid this as follows:
 
-1. **Limit what is propagated** with `--export`, so the target node builds its own environment. `HOME` and `TERM` are usually enough; Slurm's own `SLURM_*` variables are always passed. Add only what your job genuinely needs.
+1. **Limit what is propagated** with `--export`, so that the target node builds
+   its own environment from scratch. `HOME` and `TERM` are usually enough, and
+   Slurm's own `SLURM_*` variables are always passed. Add only the variables
+   your job genuinely needs.
 
-2. **Use a login shell with full path to the binary** (`/bin/bash --login)`, so that the user enviroment, including the module system, is fully initialized.
-For batch jobs, set `CSC_ENV_INIT_NON_INTERACTIVE=yes` to force `/etc/profile.d/zz-csc-env.sh` to initialize the CSC environment in a non-interactive shell.
-Interactive shells initialize it by default (because they set `PS1`).
+2. **Start the job in a login shell**, given by full path (`/bin/bash --login`),
+   so that the user environment, including the module system, is initialized on
+   the target node. In batch jobs, also set
+   `CSC_ENV_INIT_NON_INTERACTIVE=yes`, which makes
+   `/etc/profile.d/zz-csc-env.sh` initialize the CSC environment in a
+   non-interactive shell. Interactive shells do this by default, as they set
+   `PS1`.
 
-3. For batch jobs, set `export SLURM_EXPORT_ENV=ALL` in the batch script such that commands run via `srun` will inherit all environment variables defined within the batch job.
+3. **In batch jobs, set** `SLURM_EXPORT_ENV=ALL` inside the script. Otherwise
+   `srun` would inherit the restricted `--export` list instead of the
+   environment the batch script has just set up on the target node.
 
 ## Interactive job
 
