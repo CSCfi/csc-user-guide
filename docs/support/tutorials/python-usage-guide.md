@@ -136,7 +136,6 @@ in a module provided by CSC, do not hesitate to contact our
 
         ```bash
         #!/appl/soft/manual/aida/$(uname -m)/python-data/python-data-2026-03/bin/python3  # On Roihu
-        #!/appl/soft/ai/tykky/python-data-2022-09/bin/python3                             # On Puhti and Mahti
         ```
 
     ---
@@ -253,8 +252,8 @@ in a single document.
 The [Jupyter interactive application](../../computing/webinterface/jupyter.md)
 on our web interface allows using Jupyter on CSC supercomputers.
 Many of our Python environments, including
-[`python-data`](../../apps/python-data.md), [`python-geo`](../../apps/python-geo.md) (geoconda on Puhti and Mahti)
-as well as deep learning modules like [`python-pytorch`](../../apps/pytorch.md) (pytorch on Puhti and Mahti)
+[`python-data`](../../apps/python-data.md), [`python-geo`](../../apps/python-geo.md)
+as well as deep learning modules like [`python-pytorch`](../../apps/pytorch.md)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
 [list of supported environments](../../computing/webinterface/jupyter.md#supported-python-environments-on-roihu).
@@ -286,7 +285,7 @@ There are two ways to run VSCode on CSC supercomputers:
 environment. The [python-data](../../apps/python-data.md) and
 [python-geo](../../apps/python-geo.md) modules
 have Spyder included. The best option for using it is through the
-[Puhti web interface remote desktop](../../computing/webinterface/desktop.md).
+[Roihu web interface remote desktop](../../computing/webinterface/desktop.md).
 
 ## Python parallel jobs
 
