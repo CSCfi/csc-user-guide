@@ -76,9 +76,7 @@ ePouta is an infrastructure provided to research organizations, and the organiza
 
 ## How SD Connect differs from Allas and Allas UI?
 
-SD Connect is a service for storing and sharing sensitive research data that uses Allas as the underlying storage platform. Allas is CSC's general purpose cloud storage service, 
-
-The main difference is that SD Connect (user interface and command line tools) provides automated encryption, decryption and encryption key management, whereas Allas does not provide data encryption. 
+SD Connect is a service for storing and sharing sensitive research data that uses Allas as the underlying storage platform. Allas is CSC's general purpose cloud storage service. The main difference is that SD Connect (user interface and command line tools) provides automated encryption, decryption and encryption key management, whereas Allas does not provide data encryption and it is accessible through various clients or user interfaces.
 
 ## Register data analysis under the Finnish Act on Secondary Use
 
