@@ -9,8 +9,7 @@ catalog:
     - Data Analytics and Machine Learning
   available_on:
     - Roihu
-    - Puhti
-    - Mahti
+    
 ---
 
 # Python Data
@@ -59,32 +58,6 @@ Current versions in Roihu are:
 - Roihu-GPU: `python-data/3.10-17.04`: installed in April 2026,
   includes the Python libraries available in the default Roihu-GPU python-data environment with Python 3.10.
 
-Current versions in Puhti and Mahti are:
-
-- (default version) `python-data/3.12-25.09`: installed in September 2025,
-  includes for example Scikit-learn 1.7.2, SciPy 1.16.1, Pandas 2.3.2
-  and JupyterLab 4.4.7.
-
-- `python-data/3.10-24.04`: installed in April 2024,
-  includes for example Scikit-learn 1.4.2, SciPy 1.13.0, Pandas 2.2.2
-  and JupyterLab 4.1.6.
-
-- `python-data/3.10-23.11`: installed in November 2023, includes for
-  example Scikit-learn 1.3.2, SciPy 1.11.4, Pandas 2.1.3 and
-  JupyterLab 4.0.9.
-
-- `python-data/3.10-23.07`: installed in July 2023, includes for
-  example Scikit-learn 1.2.2, SciPy 1.11.1, Pandas 2.0.3 and JupyterLab
-  4.0.2.
-- `python-data/3.10-22.09` or `python-data/3.10`:
-  installed in September 2022, includes for example Scikit-learn
-  1.1.2, SciPy 1.9.1, Pandas 1.4.4 and JupyterLab 3.4.6.
-- `python-data/3.9-22.04` or `python-data/3.9`: installed in April
-  2022, includes for example Scikit-learn 1.0.2, SciPy 1.8.0, Pandas
-  1.4.2 and JupyterLab 3.3.4.
-- `python-data/3.8-22.10` or `python-data/3.8`: added for those who
-  specifically need Python 3.8.
-
 Python-data tries to include a comprehensive selection of Python libraries for
 data analytics and machine learning, for example:
 
@@ -132,7 +105,7 @@ All packages are licensed under various free and open source licenses (FOSS).
 
 ## Usage
 
-To use this software on Roihu, Puhti or Mahti, initialize it with:
+To use this software on Roihu, initialize it with:
 
 ```text
 module load python-data
@@ -143,7 +116,6 @@ above for available versions](#available)):
 
 ```text
 module load python-data/3.12-31.03   # on Roihu
-module load python-data/3.12-25.09   # on other systems
 ```
 
 If you just want the most recent version with a specific Python version, you can also run:
@@ -166,7 +138,7 @@ list-packages
 
 !!! warning
 
-    Note that Puhti login nodes are not intended for heavy computing, please use
+    Note that Roihu login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
     system](../computing/running/getting-started.md).
 
@@ -174,7 +146,7 @@ Please also check [CSC's general Python documentation](python.md).
 
 ### Local storage
 
-Some nodes in Puhti have fast local storage which is useful for
+All nodes in Roihu have fast local storage which is useful for
 IO-intensive applications. See our [general instructions on how to
 take the fast local storage into
-use](../computing/running/creating-job-scripts-puhti.md#local-storage).
+use](../computing/running/creating-job-scripts-roihu.md#local-storage).
