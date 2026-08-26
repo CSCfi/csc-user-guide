@@ -45,11 +45,11 @@ for all Roihu users, including yourself.
 
 Key rules for using AI agent tools on Roihu:
 
-1. *Use up-to-date [csc-skills](https://github.com/CSCfi/csc-skills).*
+1. **Use up-to-date [csc-skills](https://github.com/CSCfi/csc-skills).**
    These skills provide guidance for the tools on how to use the system
    without causing disruptions, and help with the other points in this list.
 
-2. *Control the agent's access to files on the system.* Do not give the
+2. **Control the agent's access to files on the system.** Do not give the
    agent access to files that contain your secrets, or any other
    information that you do not want to provide to it. Typical examples are
    your SSH keys in `~/.ssh` and Allas credentials in
@@ -61,7 +61,7 @@ Key rules for using AI agent tools on Roihu:
    methods are supported on Roihu. See for example
    [Claude Code sandbox environments](https://code.claude.com/docs/en/sandbox-environments).
 
-3. *Control the agent's access to tools on the system.* Be mindful of
+3. **Control the agent's access to tools on the system.** Be mindful of
    what tools you allow the agent to execute without confirmation. The
    more isolated the sandbox, the more permissive you can afford to be
    with auto-approved tools. See the tool documentation on how to
@@ -69,7 +69,7 @@ Key rules for using AI agent tools on Roihu:
    [Claude Code permissions](https://code.claude.com/docs/en/permissions)
    and [Codex sandbox and approval policies](https://learn.chatgpt.com/docs/sandboxing).
 
-4. *Prefer running the agent on your own computer.* If possible, run
+4. **Prefer running the agent on your own computer.** If possible, run
    the tool on your own laptop or workstation and not on the
    supercomputer. The agent can then run commands and manage jobs
    through the [FirecREST API](firecrest/index.md). Keep the FirecREST
@@ -80,14 +80,14 @@ Key rules for using AI agent tools on Roihu:
    accessed over [SSH](connecting/index.md).
 
 
-5. *Do not overload the login node!* As an exception to the login node
+5. **Do not overload the login node!** As an exception to the login node
    rules above, running the interactive session of an agent on a login
    node is allowed, provided that you supervise it and that the agent
    itself only does light work.  All heavy computation must be
    submitted as normal [batch jobs](running/getting-started.md) or
    [interactive batch jobs](running/interactive-usage.md).
 
-6. *Do not overload Lustre and Slurm!* If you run the agent on Roihu, instruct
+6. **Do not overload Lustre and Slurm!** If you run the agent on Roihu, instruct
    it that `home`, `projappl` and `scratch` are on a
    [Lustre filesystem](roihu-disk.md) and that it should use the
    [local disk under `$TMPDIR`](roihu-disk.md#temporary-local-disk-areas)
@@ -96,8 +96,8 @@ Key rules for using AI agent tools on Roihu:
    recursive `find` or `grep` over large directories on Lustre, and no
    bursts of test jobs. 
 
-7. *Never give your CSC credentials to an agent running on a third-party
-   service.* Do not give your CSC password, SSH keys or FirecREST tokens
+7. **Never give your CSC credentials to an agent running on a third-party
+   service.** Do not give your CSC password, SSH keys or FirecREST tokens
    to an agent hosted on a system that you do not control, such as a
    web-based chatbot with tool calling or a cloud-based AI-assisted IDE.
    Under the
@@ -107,14 +107,14 @@ Key rules for using AI agent tools on Roihu:
    It is permitted to run an agent on your own computer where your SSH
    keys are stored.
 
-8. *Do not open Roihu to an agent running on a third-party service.* Do
+8. **Do not open Roihu to an agent running on a third-party service.** Do
    not start an MCP server, a reverse tunnel or a similar service on Roihu
    that lets an agent running on a system you do not control execute
    commands on Roihu. This gives that service the same access to your
    account as sharing your credentials would.
    
 
-9. *Do not expose other users' data to the agent.* On a shared system
+9. **Do not expose other users' data to the agent.** On a shared system
    you can see information about other users that is not yours to pass
    on: their user names, jobs and processes on login nodes. Everything
    the agent reads may be sent to an external LLM provider, so
@@ -134,7 +134,7 @@ Each project has disk space in the directory `/scratch/<project>`. This fast
 parallel scratch space is intended for data that is in active use. To ensure
 that the parallel disk system does not run out of storage space and to keep
 performance acceptable,
-[CSC automatically removes files in Puhti scratch](../support/tutorials/clean-up-data.md#automatic-removal-of-files)
+[CSC automatically removes files in Roihu scratch](../support/tutorials/clean-up-data.md#automatic-removal-of-files)
 that have not been accessed in a long time. The performance of a parallel file
 system starts to degrade when it fills up, and the more it fills up, the slower
 the performance will get.
@@ -155,25 +155,17 @@ suitable disk systems.
 You can use the `csc-workspaces` command to see which cleaning cycle your
 projects are subject to.
 
-**Mahti:** A similar procedure will be introduced on Mahti if the disk usage
-grows enough to warrant it. The policy is still that users should keep only
-actively used data in scratch.
 
 ## GPU nodes
 
-Puhti and Mahti GPUs should only be used for workloads that greatly benefit
-from GPU capacity compared to using CPUs or which can't be run on CPUs. In
-particular AI/ML workloads are prioritized, since many of them cannot be done
-at all on CPUs. A good rule of thumb is to compare the
+Roihu GPUs should be used for workloads that benefit
+from GPU capacity compared to using CPUs or which can't be run on CPUs. A good rule of thumb is to compare the
 [Billing Unit (BU)](../accounts/billing.md) usage (_e.g._ with
 [`seff`](./performance.md#quick-start-efficiency-report-with-seff) or the
 [Billing Unit calculator](https://research.csc.fi/resources/#buc))
 of the job on GPUs against CPUs and select the one using less. One CPU BU and one 
 GPU BU are equal in terms of cost.
 
-For Puhti and Mahti, this means that a full node of CPU cores roughly equals
-one GPU. However, since Puhti and Mahti have more CPU capacity than GPU, you
-might get access to CPUs with less queuing. Note that
 [LUMI has a lot of GPU capacity](https://docs.lumi-supercomputer.eu/hardware/lumig/)
 which is also "cheaper" as measured in BUs, and on LUMI it's better to use GPUs
 if possible for your research. In any case, always make sure you use resources
