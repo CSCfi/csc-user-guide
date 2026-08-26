@@ -1,6 +1,6 @@
 # Sensitive Data (SD) Services for Research
    
-## Are CSC Sensitive Data services the right solution for my research project and how do I get started?
+## Are CSC Sensitive Data services the correct solution for my project? 
 
 
 If you are new to CSC and the Sensitive Data (SD) services, we recommend contacting servicedesk@csc.fi (subject: SD services). We can arrange an online meeting to discuss your research project, introduce the available services, explain any current limitations and help you determine whether the services are suitable for your needs.
