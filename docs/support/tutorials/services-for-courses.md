@@ -270,7 +270,7 @@ If you're unsure which services would be suitable for your course,
 
         | System | Approval | CPU limit | GPU limit | Max. daily time window | Max. course days in total |
         |--------|----------|-----------|-----------|------------------------|---------------------------|
-        | Roihu  | Automatic | 1 nodes (384 cores) | 0 | 08:00–17:00 | 5 |
+        | Roihu  | Automatic | 1 node (384 cores) | 0 | 08:00–17:00 | 5 |
         |        | CSC Resource Allocation Group   | 3 nodes (1152 cores) | 4 nodes (16 GPUs) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
    
 
