@@ -659,4 +659,4 @@ Please also check [CSC's general Python documentation](python.md).
 All nodes in Roihu have fast local storage which is useful for
 IO-intensive applications. See our [general instructions on how to
 take the fast local storage into
-use](../computing/running/creating-job-scripts-roihu.md#local-storage).
+use](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
