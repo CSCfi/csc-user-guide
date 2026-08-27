@@ -309,7 +309,7 @@ nav:
           - High-throughput computing and workflows: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
-          - Submitting across architectures: computing/running/submitting-across-architectures.md
+          - Submitting jobs across architectures: computing/running/submitting-jobs-across-architectures.md
       - Installing software:
           - computing/installing.md
           - Compiling on Roihu: computing/compiling-roihu.md
