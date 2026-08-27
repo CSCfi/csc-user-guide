@@ -63,7 +63,3 @@ export SLURM_EXPORT_ENV=ALL
 
 # Write your code here
 ```
-
-```bash
-sbatch batch.sh
-```
