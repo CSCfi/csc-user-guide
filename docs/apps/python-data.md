@@ -17,7 +17,8 @@ catalog:
 Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
-     **31.3.2026** Python-data is now available on Roihu.
+     **31.3.2026** Python-data is now available on Roihu. The default version on Roihu-CPU is `python-data/3.12-31.03` and
+     `python-data/3.12-20.04` on Roihu-GPU.
 
      **12.9.2025** Installed `python-data/3.12-25.09` with newer packages of popular Python 
      modules.
@@ -49,7 +50,7 @@ allow.
 Current versions in Roihu are: 
 
 - Roihu-CPU: (default version) `python-data/3.12-31.03`: installed in March 2026,
-  includes for example Scikit-learn 1.8.0, SciPy 1.17.1, Pandas 3.0.2
+  includes for example Scikit-learn 1.8.0, SciPy 1.17.1, Pandas 2.3.3
   and JupyterLab 4.5.6.
 
 - Roihu-GPU: (default version) `python-data/3.12-20.04`: installed in April 2026,
@@ -57,6 +58,9 @@ Current versions in Roihu are:
 
 - Roihu-GPU: `python-data/3.10-17.04`: installed in April 2026,
   includes the Python libraries available in the default Roihu-GPU python-data environment with Python 3.10.
+  
+- Roihu-CPU: `python-data/3.10-03.07`: installed in July 2026,
+  includes the Python libraries available in the default Roihu-CPU python-data environment with Python 3.10.
 
 Python-data tries to include a comprehensive selection of Python libraries for
 data analytics and machine learning, for example:
@@ -66,10 +70,11 @@ data analytics and machine learning, for example:
 - [Jupyter](https://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
 - [Marimo](https://marimo.io) (Roihu)
 - [NLTK](https://matplotlib.org/): Natural language toolkit
+- [Polars (https://docs.pola.rs): Large-scale data analytics
 - [PyTables](http://www.pytables.org/)
 - [SciPy](https://www.scipy.org/), including [NumPy](https://www.numpy.org/), [Matplotlib](https://matplotlib.org/) and [Pandas](https://pandas.pydata.org/)
-- [Scikit-learn](https://scikit-learn.org/stable/): machine learning in Python
-- [Seaborn](https://seaborn.pydata.org/): statistical data visualization
+- [Scikit-learn](https://scikit-learn.org/stable/): Machine learning in Python
+- [Seaborn](https://seaborn.pydata.org/): Statistical data visualization
 
 ??? info "Click to see full list of packages for python-data/3.12-31.03"
 
@@ -348,6 +353,7 @@ data analytics and machine learning, for example:
     - `plotly` <span class="v">6.6.0</span>
     - `pluggy` <span class="v">1.6.0</span>
     - `ply` <span class="v">3.11</span>
+    - `polars` <span class="v">1.44.1</span>
     - `prettytable` <span class="v">3.17.0</span>
     - `prometheus_client` <span class="v">0.25.0</span>
     - `prometheus_flask_exporter` <span class="v">0.23.2</span>
@@ -448,6 +454,7 @@ data analytics and machine learning, for example:
     - `rtree` <span class="v">1.4.1</span>
     - `ruamel.yaml` <span class="v">0.19.1</span>
     - `ruff` <span class="v">0.15.10</span>
+    - `s3cmd` <span class="v">2.4.0</span>
     - `s3transfer` <span class="v">0.16.0</span>
     - `scikit-image` <span class="v">0.26.0</span>
     - `scikit-learn` <span class="v">1.8.0</span>
