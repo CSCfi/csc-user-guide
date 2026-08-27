@@ -1,4 +1,4 @@
-# Submitting across architectures
+# Submitting jobs across architectures
 
 ## Overview
 
