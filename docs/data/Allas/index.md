@@ -42,4 +42,4 @@ This Allas object storage service user guide consists of following parts:
 * [How to get Allas S3 credentials](../../support/faq/how-to-get-Allas-s3-credentials.md)
 * [How to mount my Allas S3 bucket to a VM running in cPouta](../../support/faq/how-to-mount-os-bucket-for-cpouta.md)
 * [How to backup a Postgres DB into Allas from Rahti?](../../support/faq/backup-postgres-allas.md)
-* [What is the difference between SD Connect and Allas?](../../support/faq/sensitive-data-connect.md#what-is-the-difference-between-sd-connect-and-allas)
+* [What is the difference between SD Connect and Allas?](../../support/faq/sdservices-faq.md#how-sd-connect-differs-from-allas-and-allas-ui)
