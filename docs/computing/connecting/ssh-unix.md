@@ -205,16 +205,29 @@ You can save yourself some time by adding host-specific options for CSC
 supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
 (e.g. `~/.ssh/config`).
 
+An example config for Roihu:
+
 ```bash
-Host <host>  # e.g. "roihu-cpu"
-    HostName <host>.csc.fi
+Host roihu*
     User <csc-username>
     IdentityFile <path-to-private-key>
     CertificateFile <path-to-certificate>  # Required for Roihu only
+
+Host roihu-cpu
+    HostName roihu-cpu.csc.f1
+
+Host roihu-gpu
+    HostName roihu-gpu.csc.fi
 ```
 
-Now you can connect to the host simply by running:
+Now you can connect to the Roihu by running:
 
 ```bash
-ssh <host>
+ssh roihu-cpu
+```
+
+or:
+
+```bash
+ssh roihu-gpu
 ```
