@@ -280,6 +280,7 @@ fi
 ```
 
 Note that the following needs to be edited in this script for it to work:
+
 - Path to the `csc_cert.py` python script
 - CSC username and path to the public key
 - Command to launch the terminal. The `gnome-terminal` command here works with GNOME desktop environment
