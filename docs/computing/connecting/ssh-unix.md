@@ -212,6 +212,7 @@ Host roihu*
     User <csc-username>
     IdentityFile <path-to-private-key>
     CertificateFile <path-to-certificate>  # Required for Roihu only
+    IdentitiesOnly yes
 
 Host roihu-cpu
     HostName roihu-cpu.csc.f1
@@ -246,6 +247,7 @@ Host roihu*
     User <csc-username>
     IdentityFile <path-to-private-key>
     CertificateFile <path-to-certificate>  # Required for Roihu only
+    IdentitiesOnly yes
 
 Host roihu-cpu
     HostName roihu-cpu.csc.f1
