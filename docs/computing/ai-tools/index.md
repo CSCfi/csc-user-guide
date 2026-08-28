@@ -1,20 +1,20 @@
 # AI tools
 
-CSC provides tools for working with AI agents in an HPC environment. This page
-describes the containerized agent environment on Roihu, together with the MCP servers
-and skills included in it. The CSC-docs MCP server is not limited to Roihu: you can
-add it to an AI client running on your own computer as well.
+CSC provides a ready-made container environment for working with AI agents on HPC
+systems. This page describes the environment on Roihu, including the MCP servers
+and skills it provides.
 
-These tools are meant for HPC-specific work such as managing and debugging Slurm
-jobs, writing batch scripts, and setting up software environments. General code
-development is **not** an intended use case.
+The MCP servers and skills in the container aim to extend the agents' capabilities
+at HPC tasks, while also making responsible agent usage on the cluster easier
+to follow.
 
 ## Agent environment
 
 A containerized environment that hosts coding agents is provided on Roihu.
 Containerization limits what files the agent can access, and the virtual filesystem
 lowers the I/O load the agent can cause on Lustre. Currently the environment includes
-the open-source [OpenCode agent](https://opencode.ai/) and [Claude Code](https://claude.com/product/claude-code).
+the open-source [OpenCode agent](https://opencode.ai/), [Claude Code](https://claude.com/product/claude-code),
+and [Codex](https://openai.com/codex/).
 
 All users must follow the TODO: [CSC AI Agent Policy](WIP). In addition, you must
 understand the following:
@@ -38,7 +38,7 @@ understand the following:
 
 TODO: List directories in a smart way. Link to public repo?
 - **Security**: The agent has access to the directory you launch it from, all of its
-subdirectories, and certain hidden subdirectories in your `$HOME`. `$HOME` itself is
+subdirectories, and certain directories in your `$HOME`. `$HOME` itself is
 not accessible by default.
 TODO: Link to repo for tool permissions?
 - **Tool use**: By default, the agent can use many read-only tools
@@ -51,13 +51,14 @@ change without notice.
 To use OpenCode or Claude in your project directory, navigate to the directory and run the
 following commands:
 
-TODO: Update to real commands
 ```bash
 module load roihu-agent-env
 
 opencode
 # or
 claude
+# or
+codex
 ```
 
 You can make additional directories visible in the environment by adding them to the
@@ -76,8 +77,8 @@ We recommend you use models hosted on [Aitta](https://aitta.csc.fi), a CSC servi
     Only users with a LUMI project are able to access Aitta. We are working on
     providing access to everyone with a Roihu project.
 
-Aitta is included in the default OpenCode configuration. You just need to get your API key
-from [Aitta](https://aitta.csc.fi) from the *Generate token* button, and save it to
+Aitta is included in the default OpenCode configuration. You just need to get your API
+key from [Aitta](https://aitta.csc.fi) from the *Generate token* button, and save it to
 the `$AITTA_KEY` environment variable before you start the agent.
 ```bash
 export AITTA_KEY=<YOUR_KEY_HERE>
@@ -96,12 +97,15 @@ use it as an endpoint for Claude Code.
 
 As with OpenCode, you can change settings with
 a JSON file, which you place at `$HOME/roihu-claude/settings.json`. Note that this path
-differs from the official path of `$HOME/.claude/settings.json`. This is due to some
-problems with binding the directory to the agent container. Alternatively you can
-change settings in Claude Code and the file will be auto-generated.
+differs from the official path of `$HOME/.claude/settings.json`. This is done due to
+claude saving some things to `~/.claude.json`, which would require binding `$HOME`.
+The custom directory allows us to avoid this. For the format and other details regarding settings
+and the configuration file, see the [Claude Code documentation](https://code.claude.com/docs/en/model-config).
 
-For the format and other details regarding settings and the configuration file, see the
-[Claude Code documentation](https://code.claude.com/docs/en/model-config).
+Alternatively you can change settings in Claude Code and the file will be auto-generated.
+
+#### Codex
+TODO:
 
 ## MCP servers
 
