@@ -5,7 +5,7 @@ This is a simple High Available web application deployment in Pouta. We have a s
 ## Schema
 ![Pouta HA](../../img/Pouta-HA.drawio.svg)
 
-In the schema above you can see the end result that you will achieve at the end of this tutorial. We will deploy two URLs, one for the application itself (`app.example.com`), and the other for the monitoring dashboard(s) (`grafana.example.com`). The application runs on the Frontend VMs, we will create two replicas. The frontend is connected to a Postgres database running on [CSC's Pukki database on demand service](../../dbaas/index.md). The monitoring is provided by Grafana and Prometheus, two very commonly used software solutions for monitoring. Prometheus gathers the metrics exposed by the frontend and Grafana show the data in nice graphs.
+In the schema above you can see the end result that you will achieve at the end of this tutorial. We will deploy two URLs, one for the application itself (`app.example.com`), and the other for the monitoring dashboard(s) (`grafana.example.com`). The application runs on the Frontend VMs, we will create two replicas. The frontend is connected to a Postgres database running on [CSC's Pukki database on demand service](../../dbaas/index.md). The monitoring is provided by [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/), two very commonly used software solutions for monitoring. Prometheus gathers the metrics exposed by the frontend and Grafana show the data in nice graphs.
 
 We will deploy each part step by step, and describe them in more detail while doing so.
 
@@ -13,56 +13,57 @@ We will deploy each part step by step, and describe them in more detail while do
 
 ### Create the VMs
 
-We will start by creating 4 VMs: `HAProxy-1`, `HAProxy-2`, `Frontend-1`, `Frontend-2` and `Monitoring`. You can follow the [create a new VM](../launch-vm-from-web-gui.md) guide. We are creating all VMs from the start so we get the IPs of each of them, this will make the networking configuration easier. Few notes:
+We will start by creating 4 VMs: `haproxy-1`, `haproxy-2`, `frontend-1`, `frontend-2` and `Monitoring`. You can follow the [create a new VM](../launch-vm-from-web-gui.md) guide. We are creating all VMs from the start so we get the IPs of each of them, this will make the networking configuration easier. Few notes:
 
 * In order to save quota and resources, please use the smallest flavor available.
-* We only need one single **floating IP** for the whole deployment and it will be initially assigned to `HAProxy-1`.
-* Make sure you can SSH into `HAProxy-1`. If in doubt, you can use the [Connecting to your virtual machine](../connecting-to-vm.md) guide. We will use this machine as a SSH jumphost to connect to the other VMs.
+* We only need one single **floating IP** for the whole deployment and it will be initially assigned to `haproxy-1`.
+* Make sure you can SSH into `haproxy-1`. If in doubt, you can use the [Connecting to your virtual machine](../connecting-to-vm.md) guide. We will use this machine as a SSH jumphost to connect to the other VMs.
 
 In order to be able to SSH easily to each machine we will create a SSH config file:
 
 ```sh
 mkdir -p ~/.ssh/config.d/
+echo 'Include config.d/*' >>~/.ssh/config
 cat >~/.ssh/config.d/pouta-ha-tutorial <<EOF
-Host HAProxy-1
+Host haproxy-1
     User ubuntu # Replace if not using an Ubuntu distribution
     Hostname <floating_IP> # Replace by the floating IP
 
-Host HAProxy-2
+Host haproxy-2
     User ubuntu
-    ProxyJump HAProxy-1
+    ProxyJump haproxy-1
     Hostname <private_IP> # Replace by the private IP
 
-Host Frontend-1
+Host frontend-1
     User ubuntu
-    ProxyJump HAProxy-1
+    ProxyJump haproxy-1
     Hostname <private_IP> # Replace by the private IP
 
-Host Frontend-2
+Host frontend-2
     User ubuntu
-    ProxyJump HAProxy-1
+    ProxyJump haproxy-1
     Hostname <private_IP> # Replace by the private IP
 
 Host Monitoring
     User ubuntu
-    ProxyJump HAProxy-1
+    ProxyJump haproxy-1
     Hostname <private_IP> # Replace by the private IP
 EOF
 ```
 
-After this, you will be able to ssh to any VM by just running `ssh <name_of_vm>`, like for `Frontend-2`:
+After this, you will be able to ssh to any VM by just running `ssh <name_of_vm>`, like for `frontend-2`:
  
 ```sh
-ssh Frontend-2
+ssh frontend-2
 ```
 
 ### Load Balancer
 
-For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.keepalived.org/) to achieve high availability at the load balancer layer. Keepalive in `HAProxy-2` will continually monitor `HAproxy-1`, and if it goes down, `HAproxy-2` takes over the Floating IP automatically using the OpenStack API. When `HAProxy-1` is back to running status, `HAProxy-1` will use again the OpenStack API to regain the use of the floating IP.
+For Load balancing, we will use two HAProxy VMs with [Keepalived](https://www.keepalived.org/) to achieve high availability at the load balancer layer. Keepalive in `haproxy-2` will continually monitor `haproxy-1`, and if it goes down, `haproxy-2` takes over the Floating IP automatically using the OpenStack API. When `haproxy-1` is back to running status, `haproxy-1` will use again the OpenStack API to regain the use of the floating IP.
 
 #### Install and configure HAProxy
 
-Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the same on both machines.
+Do each step in both `haproxy-1` and `haproxy-2` we want HAProxy to behave the same on both machines.
 
 1. Install HAProxy, Keepalived, and the OpenStack CLI:
 
@@ -72,7 +73,7 @@ Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the s
 
 1. Edit `/etc/haproxy/haproxy.cfg`:
 
-    ```
+    ```ini
     global
         log /dev/log local0
         maxconn 4096
@@ -88,6 +89,9 @@ Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the s
 
     frontend http_front
         bind *:80
+        # Route grafana.example.com -> grafana_back, everything else -> http_back
+        acl is_grafana hdr(host) -i grafana.example.com
+        use_backend grafana_back if is_grafana
         default_backend http_back
 
     backend http_back
@@ -95,9 +99,14 @@ Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the s
         option httpchk GET /
         server frontend1 <FRONTEND_1_IP>:5000 check
         server frontend2 t <FRONTEND_2_IP>:5000 check
+
+    backend grafana_back
+        balance roundrobin
+        option httpchk GET /api/health
+        server grafana1 <GRAFANA_IP>:3000 check
     ```
 
-    You will replace `<FRONTEND_1_IP>` and `<FRONTEND_2_IP>` with the internal IP addresses of `Frontend-1` and `Frontend-2`.
+    You will replace `<FRONTEND_1_IP>` and `<FRONTEND_2_IP>` with the internal IP addresses of `frontend-1` and `frontend-2`, and `<GRAFANA_IP>` with the internal IP address of `Monitoring`.
 
 1. Enable and start the HAProxy service to apply the configuration:
 
@@ -125,7 +134,7 @@ Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the s
 
     !!!Info "Floating IP ID"
         You can get the floating IP ID by running:
-        `openstack port list --server HAProxy-1`
+        `openstack floating ip list --port "$(openstack port list --server haproxy-1 -c ID -f value)"`
 
 1. Make the script executable:
 
@@ -133,7 +142,7 @@ Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the s
     sudo chmod +x /etc/keepalived/failover.sh
     ```
 
-1. On `HAproxy-1`, create `/etc/keepalived/keepalived.conf`:
+1. On `haproxy-1`, create `/etc/keepalived/keepalived.conf`:
 
     ```
     vrrp_script chk_haproxy {
@@ -159,7 +168,7 @@ Do each step in both `HAproxy-1` and `HAProxy-2` we want HAProxy to behave the s
     }
     ```
 
-1. On `HAproxy-2`, use the same file but set `state BACKUP` and `priority 90`, this makes `HAProxy-1` the main server.
+1. On `haproxy-2`, use the same file but set `state BACKUP` and `priority 90`, this makes `haproxy-1` the main server.
 
 1. Enable and start Keepalived on both nodes:
 
@@ -173,9 +182,9 @@ In the Pouta web interface, add the following security group rules:
 
 | VM | Protocol | Port | Source |
 |---|---|---|---|
-| HAproxy-1, HAproxy-2 | TCP | 80 | 0.0.0.0/0 |
-| HAproxy-1, HAproxy-2 | 112 (VRRP) | - | Internal network |
-| Frontend-1, Frontend-2 | TCP | 5000 | Internal network |
+| haproxy-1, haproxy-2 | TCP | 80 | 0.0.0.0/0 |
+| haproxy-1, haproxy-2 | 112 (VRRP) | - | Internal network |
+| frontend-1, frontend-2 | TCP | 5000 | Internal network |
 
 For more reference on [Security Groups](../networking.md#security-groups), check out our documentation.
 
@@ -188,7 +197,7 @@ The database is provided by [Pukki DBaaS](../../dbaas/index.md), CSC's managed P
     - Create a database and a user, for example called `ha` (user) and `ha` (database) to match the defaults used in this tutorial.
     - Set a good password for the database user
 
-1. Allow the Frontend VMs to connect to Pukki. In the Pukki web interface, add the **IP address** used as **egress IP** by `Frontend-1` and `Frontend-2` to the allowed hosts list. You can get this IP by login in any of the two Frontend servers and run:
+1. Allow the Frontend VMs to connect to Pukki. In the Pukki web interface, add the **IP address** used as **egress IP** by `frontend-1` and `frontend-2` to the allowed hosts list. You can get this IP by login in any of the two Frontend servers and run:
 
 ```sh
 curl ifconfig.me -4
@@ -202,7 +211,7 @@ We will install the following test application:
 
 - <https://github.com/CSCfi/rahti-ha-tutorial/>
 
-It is the same repository used for the Rahti tutorial mentioned before. It contains all the necessary files to also run it in Pouta. You can clone it in your local machine and check out the code, it is a simple Python application. You need to make these changes in `Frontend-1` and `Frontend-2`, both servers will run the same software.
+It is the same repository used for the Rahti tutorial mentioned before. It contains all the necessary files to also run it in Pouta. You can clone it in your local machine and check out the code, it is a simple Python application. You need to make these changes in `frontend-1` and `frontend-2`, both servers will run the same software.
 
 1. Make sure that `git` is installed and then clone the repository mentioned above:
 
@@ -216,6 +225,8 @@ It is the same repository used for the Rahti tutorial mentioned before. It conta
     ```sh
     sudo apt update && sudo apt install -y python3 python3-pip netcat-openbsd
     cd /opt/rahti-ha-tutorial
+    python3 -m venv venv
+    . venv/bin/activate
     pip3 install -r requirements.txt
     ```
 
@@ -235,7 +246,7 @@ It is the same repository used for the Rahti tutorial mentioned before. It conta
 
     ```sh
     sudo systemctl daemon-reload
-    sudo systemctl enable --now ha-tutorial
+    sudo systemctl enable --now rahti-ha-tutorial
     ```
 
     This start the application and also assure that it is started every time the VM restarts.
@@ -257,7 +268,7 @@ curl http://app.example.com/
 
 ### Monitoring
 
-For monitoring we will use Prometheus to collect metrics from the Frontend VMs and Grafana to visualize them. Both will run on a dedicated `Monitoring` VM.
+For monitoring we will use [Prometheus](https://prometheus.io/) to collect metrics from the Frontend VMs and [Grafana](https://grafana.com/) to visualize them. Both will run on a dedicated `Monitoring` VM.
 
 #### Install the software
 
@@ -307,15 +318,11 @@ sudo systemctl enable --now prometheus
     sudo systemctl enable --now grafana-server
     ```
 
-1. Access Grafana through an SSH tunnel from your local machine:
+1. Access Grafana using the `grafana.example.com` name you configured earlier:
 
-    ```sh
-    ssh -L 3000:localhost:3000 ubuntu@<MONITORING_VM_IP>
-    ```
+    The default credentials are `admin`/`admin`.
 
-    Open <http://localhost:3000> in your browser. The default credentials are `admin`/`admin`.
-
-1. Add Prometheus as a data source: go to **Connections → Data sources → Add data source**, select **Prometheus**, and set the URL to `http://localhost:9090`. Click **Save & test**.
+1. Add Prometheus as a data source: go to **Connections → Data sources → Add data source**, select **Prometheus**, and set the URL to `http://localhost:9090`. Click **Save & test**. This works because Prometheis runs on the same VMas Grafana.
 
 1. Go to **Explore**, select the Prometheus data source, and enter the query:
 
@@ -325,10 +332,7 @@ sudo systemctl enable --now prometheus
 
     You will see the request rate per second for each Frontend instance, similar to what we saw in the Rahti tutorial.
 
-!!! Note
-    To expose Grafana externally through the load balancer, add a second HAProxy frontend on port 3000 (or another dedicated port) that proxies to the Monitoring VM, and point `grafana.example.com` to the Floating IP.
-
-## Automated deployment with Ansible
+## Automated deployment with ansible
 
 All of the manual steps above can be automated with the Ansible playbooks in the [ha-ansible](https://github.com/lvarin/ha-ansible) repository. Clone it first:
 
@@ -365,22 +369,22 @@ Edit `group_vars/all.yml` and replace every `REPLACE_WITH_*` placeholder:
 | `project_cidr` | Your Pouta project network CIDR (e.g. `192.168.1.0/24`) |
 | `keepalived_auth_pass` | Shared VRRP password (choose any strong password) |
 | `os_project_id` / `os_project_name` | Your OpenStack project |
-| `os_username` / `os_password` | OpenStack credentials for the failover script |
+| `os_application_credential_id` / `os_appliccation_credential_secret` | OpenStack application credentials for the failover script |
 | `db_host` / `db_password` | Pukki DBaaS connection details (see [Database](#database)) |
 
 !!! Note
     The `floating_ip_id` variable is filled in the next step.
+
+Create a `local.yml` file from the `local.yml.example`. You need to fill up two values:
+
+* `key_name`, a key pair name as is registered in Pouta.
+* `network`, your project's network name.
 
 ### Provision infrastructure
 
 ```sh
 ansible-playbook create_infra.yml
 ```
-
-The playbook prompts for:
-
-- **SSH key pair name**, as registered in the Pouta dashboard
-- **Project network name**, your project's internal network
 
 When it finishes it prints a summary like:
 
