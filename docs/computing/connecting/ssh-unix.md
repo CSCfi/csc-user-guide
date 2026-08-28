@@ -85,22 +85,8 @@ these files. Use option `-i` as follows:
 ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ```
 
-Alternatively, you may specify the key location in the `~/.ssh/config` file:
-
-```bash
-Host <host>
-  HostName <host>.csc.fi
-  User <csc-username>
-  IdentityFile <path-to-private-key>
-  CertificateFile <path-to-certificate>
-```
-
-The `~/.ssh/config` file above would allow you to log in to `<host>` simply
-using:
-
-```bash
-ssh <host>
-```
+Alternatively, you may specify the key location in the SSH configuration file
+as described in the section on [configuring SSH client](#configuring-ssh-client).
 
 ## Graphical connection
 
