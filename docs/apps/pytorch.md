@@ -204,19 +204,18 @@ pip list
 Example batch script for reserving one GPU and a corresponding
 proportion of the available CPU cores in a single node:
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=72
-    #SBATCH --gres=gpu:gh200:1
-    #SBATCH --time=1:00:00
-    
-    module load python-pytorch/2.13
-    srun python3 myprog.py <options>
-    ```
+```bash
+#!/bin/bash
+#SBATCH --account=<project>
+#SBATCH --partition=gpumedium
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=72
+#SBATCH --gres=gpu:gh200:1
+#SBATCH --time=1:00:00
 
+module load python-pytorch/2.13
+srun python3 myprog.py <options>
+```
 
 Please read the section on [Efficient GPU utilization in our Machine
 learning guide](../support/tutorials/gpu-ml.md) to learn how to use
