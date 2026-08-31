@@ -4,6 +4,8 @@
 
 You can delete main folders, subfolders or individual files from SD Connect.
 
+___
+
 ## Deleting a file
 
 1. Select the correct project and bucket.
@@ -15,6 +17,7 @@ You can delete main folders, subfolders or individual files from SD Connect.
 3. Confirm by clicking **Delete items** from the notification.
 ![SD Connect Confirm delete](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteConfirm.png)
 
+___
 
 
 ## Deleting multiple files

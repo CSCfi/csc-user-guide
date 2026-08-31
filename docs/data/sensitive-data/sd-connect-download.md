@@ -8,7 +8,7 @@ Please select your download method below:
 
 * [Download and manual decryption](#download-and-manual-decryption): For files and folders uploaded using SD Connect user interface **before** October 1, 2024.
 
-
+___
 
 ## Download and automated decryption
 
@@ -24,6 +24,8 @@ You can download either [the entire bucket](#downloading-a-bucket) or [individua
     If you encounter the message **"Some downloaded files need manual decryption."** while downloading, it indicates that some files in your bucket were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
 
 </div>
+
+___
 
 
 ### Downloading a bucket
@@ -45,6 +47,7 @@ You can download either [the entire bucket](#downloading-a-bucket) or [individua
 
 ![SD Connect Download bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Download.png)
 
+___
 
 ### Downloading individual files
 
@@ -68,6 +71,7 @@ You can download either [the entire bucket](#downloading-a-bucket) or [individua
 
 
 
+___
 
 
 ## Download and manual decryption
