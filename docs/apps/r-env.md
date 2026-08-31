@@ -250,26 +250,20 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/461`.
 
 !!! warning "Important: make sure your R batch job has enough disk space for temporary files"
-    === "Roihu-CPU"
-        Each user has [20 GiB of temporary storage on the local disk](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) by default on the partitions `small`, `interactive`, and `test`.
-        This storage is accessed with the environment variable `$TMPDIR`.
+    Each user has [20 GiB of temporary storage on the local disk](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) by default on the partitions `small`, `interactive`, and `test`.
+    This storage is accessed with the environment variable `$TMPDIR`.
         
-        If your R jobs produce very many or very large temporary files exceeding 20 GiB, 
-        please use the `medium` partition and reserve a full node, which provides 600 GiB of temporary storage by default under `$TMPDIR`. 
-        Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently only
-        available for full-node jobs) or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`. 
+    If your R jobs produce very many or very large temporary files exceeding 20 GiB,
+    please use the `medium` partition and reserve a full node, which provides 600 GiB of temporary storage by default under `$TMPDIR`.
+    Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently only
+    available for full-node jobs) or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`.
         
-        ```bash
-        # Add this line to the batch job script to direct temporary files to the /scratch directory of your 
-        # project (replace <project> with your project)
+    ```bash
+    # Add this line to the batch job script to direct temporary files to the scratch directory of your
+    # project (replace <project> with your project)
     
-        echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-        ```
-    
-    === "Mahti"
-        Please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference), 
-        use instead [the fast local disk](#using-fast-local-storage). Otherwise temporary files will go to `/tmp`, which has limited space and fills up easily, harming your and other users' jobs.
-    
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    ```
           
     
 When ready, the batch job file is **submitted to the batch job system on a login node**:
