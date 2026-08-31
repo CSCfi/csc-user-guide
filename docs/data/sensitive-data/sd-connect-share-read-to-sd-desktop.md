@@ -9,6 +9,7 @@ You (Team A) have data that other team (Team B) needs access to. They wish to vi
 ## Solution
 
 To prevent Team B from downloading or exporting the original data, create two separate projects in MyCSC:
+
 1. **A recipient project** for Team B, where you are the project manager and Team B members are assigned as project members.
 2. **A sender project**, where you are the project manager and no additional project members are added.
 
