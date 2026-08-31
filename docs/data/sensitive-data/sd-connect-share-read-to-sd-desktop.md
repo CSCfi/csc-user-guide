@@ -46,7 +46,7 @@ You need a CSC account to complete this guide. If you don't have one yet, please
 9. Add **Project 2's (Recipient project)** **Share ID** to the field. Select sharing permission **Read to SD Desktop**. Finally click **Share**.
 ![Add Share ID](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareReadtoDesktop.png)
 
-Now, all the content in the bucket is visible to **Project 2** (Team B) and accessible only through SD Desktop. **Project 2 members** can access and analyse the shared bucket content via SD desktop. However, they cannot export or download files, as the project manager manages data exports - and you are the project manager of both projects.
+Now **Project 2 members** can access and analyse the shared bucket content via SD Desktop. However, they cannot export or download files, as the project manager manages data exports - and you are the project manager of both projects.
 
 
 ## Features in SD Connect 
