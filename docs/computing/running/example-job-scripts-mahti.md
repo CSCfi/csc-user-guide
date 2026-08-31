@@ -1,5 +1,7 @@
 # Example batch job scripts for Mahti
 
+--8<-- "mahti-retirement-running-notice.md"
+
 Example job scripts for running different types of programs:
 
 [TOC]

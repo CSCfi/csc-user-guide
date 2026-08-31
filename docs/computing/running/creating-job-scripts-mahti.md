@@ -1,16 +1,10 @@
 # Creating a batch job script for Mahti
 
+--8<-- "mahti-retirement-running-notice.md"
+
 Please have a look at the [Puhti documentation](creating-job-scripts-puhti.md)
 for the general introduction to batch scripts in the CSC supercomputing
 environment. On this page we focus on Mahti-specific topics.
-
-!!! Note
-    Full nodes are allocated for jobs, with the exception of jobs in `small`,
-    [`interactive`](interactive-usage.md#sinteractive-on-mahti) and GPU partitions,
-    [see also below](#using-interactive-partition-for-non-parallel-pre-or-post-processing).
-    Many options also work differently on Mahti compared to Puhti, so it is not
-    advisable to copy scripts from Puhti to Mahti without appropriate
-    modifications.
 
 [TOC]
 

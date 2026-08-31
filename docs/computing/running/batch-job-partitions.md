@@ -174,6 +174,11 @@ Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local
 
 ## Mahti partitions
 
+!!! note
+    This section is deprecated
+
+--8<-- "mahti-retirement-running-notice.md"
+
 ### Mahti CPU partitions with node-based allocation
 
 Mahti features the following partitions for submitting jobs to CPU nodes. Jobs

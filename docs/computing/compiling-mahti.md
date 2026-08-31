@@ -1,5 +1,7 @@
 # Compiling applications in Mahti
 
+--8<-- "mahti-retirement-running-notice.md"
+
 ## General instructions
 
 

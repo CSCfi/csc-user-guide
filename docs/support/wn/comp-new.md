@@ -1,5 +1,12 @@
 # Computing environment
 
+## Mahti compute services decommissioned, 31.8.2026
+
+Compute services in Mahti have been decommissioned as of 31 August 2026 at 12:00 EEST.
+No new jobs will be accepted or executed on its compute nodes.
+
+Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026.
+
 ## Roihu web interface updated to release 2, 18.8.2026
 
 * The gpuinteractive partition is now available.
