@@ -354,7 +354,7 @@ echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 
 ### Using fast local storage
 
-For jobs that read and write large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+For jobs that read and write large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
 An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) on Mahti is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior example where it was set as `/scratch/<project>`.
 

@@ -95,7 +95,8 @@ Be aware that this version is frequently updated. If you have User Functions as 
     ```
 
 === "Mahti"
-    The main difference on Mahti is that only full nodes can be allocated. A single node contains 128 cores (we do _not_ recommend to use [multithreading](../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs-with-simultaneous-multithreading-smt)). The following script submits a 6-hour job using 4 nodes and all 128 cores per node (hence in total 512).
+    The main difference on Mahti is that only full nodes can be allocated. A single node contains 128 cores.
+    The following script submits a 6-hour job using 4 nodes and all 128 cores per node (hence in total 512).
 
     ```bash
     #!/bin/bash 
