@@ -1,5 +1,7 @@
 # Creating a batch job script for Mahti
 
+--8<-- "mahti-retirement-running-notice.md"
+
 Please have a look at the [Puhti documentation](creating-job-scripts-puhti.md)
 for the general introduction to batch scripts in the CSC supercomputing
 environment. On this page we focus on Mahti-specific topics.
