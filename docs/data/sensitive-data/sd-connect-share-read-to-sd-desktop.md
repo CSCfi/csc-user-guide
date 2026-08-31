@@ -1,6 +1,6 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# How to give access to folder content only in SD Desktop
+# How to give access to bucket content only in SD Desktop
 
 ## Use case
 
@@ -8,7 +8,7 @@ You (Team A) have data that other team (Team B) needs access to. They wish to vi
 
 ## Solution
 
-To prevent Team B from downloading or exporting the original data, create two separate projects in MyCSC:
+To prevent Team B from downloading the original data, create two separate projects in MyCSC:
 
 1. **A recipient project** for Team B, where you are the project manager and Team B members are assigned as project members.
 2. **A sender project**, where you are the project manager and no additional project members are added.
