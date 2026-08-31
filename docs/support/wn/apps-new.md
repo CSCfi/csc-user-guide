@@ -1,5 +1,11 @@
 # Applications
 
+## PyTorch 2.13.0 available on Roihu-GPU, 31.8.2026
+
+PyTorch 2.13.0 is now available on Roihu-GPU in the [python-pytorch
+module](../../apps/pytorch.md). It has been set to the default
+version.
+
 ## R 4.6.1 in r-env, 18.8.2026
 
 R version 4.6.1 is now available in [r-env](../../apps/r-env.md) in Roihu and is set as the default version.
