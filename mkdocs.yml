@@ -298,10 +298,6 @@ nav:
           - Available batch job partitions: computing/running/batch-job-partitions.md
           - Create Roihu batch jobs: computing/running/creating-job-scripts-roihu.md
           - Roihu example scripts: computing/running/example-job-scripts-roihu.md
-          - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
-          - Puhti example scripts: computing/running/example-job-scripts-puhti.md
-          - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
-          - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
           - High-throughput computing and workflows: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
@@ -310,8 +306,6 @@ nav:
       - Installing software:
           - computing/installing.md
           - Compiling on Roihu: computing/compiling-roihu.md
-          - Compiling on Puhti: computing/compiling-puhti.md
-          - Compiling on Mahti: computing/compiling-mahti.md
           - Compiling on LUMI: computing/compiling-lumi.md
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md
