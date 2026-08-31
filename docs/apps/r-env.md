@@ -31,7 +31,7 @@ catalog:
     
     **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
     
-    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
 
 ## Available
 
@@ -98,7 +98,7 @@ There are several ways to use R with the `r-env` module:
   -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 !!! note ""
-    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Roihu](../computing/running/batch-job-partitions.md#roihu-cpu-partitions) and on [Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation).
+    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Roihu](../computing/running/batch-job-partitions.md#roihu-cpu-partitions).
 
 **Non-interactive use**
 
@@ -189,7 +189,7 @@ of the [CSC Computing Environment course on batch jobs](https://csc-training.git
 #### Basic R batch job script
 
 Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. 
-Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions) and [Mahti](../computing/running/batch-job-partitions.md#mahti-partitions).
+Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions).
 
 !!! info "More than one CPU core?"
     By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
