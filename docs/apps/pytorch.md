@@ -9,8 +9,6 @@ catalog:
     - Data Analytics and Machine Learning
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -19,6 +17,9 @@ catalog:
 Machine learning framework for Python.
 
 !!! info "News" 
+
+    **31.8.2026** PyTorch 2.13 installed to Roihu-GPU, and is now the default
+    version.
 
     **7.4.2026** PyTorch is now available on Roihu-GPU, the module has been 
     renamed `python-pytorch`.
@@ -29,6 +30,8 @@ Machine learning framework for Python.
     multi-node jobs are expected to be 10-20% slower than before. 
     See further [LUMI installation notes below](#lumi-note).
     
+??? info "Older news (click to show)"
+
     **9.1.2026** PyTorch 2.9.1 installed to Puhti and Mahti, and made the
     default version. Apex was removed, since the library has been
     deprecated for a long time already. SGLang is also not included in
@@ -45,9 +48,6 @@ Machine learning framework for Python.
     supports Mahti due to the older GPU architecture on Puhti.
     
     **26.6.2025** PyTorch 2.7.1 installed to LUMI, and made the default version. 
-    
-
-??? info "Older news (click to show)"
 
     **10.4.2025** PyTorch 2.6.0 installed to Puhti and Mahti, and made the
     default version. Includes the most recent versions of popular packages
@@ -116,26 +116,10 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module                | Roihu-GPU | Puhti | Mahti | (LUMI)<br/>*see notes below* | Notes                    |
-|:--------|-----------------------|-----------|:-----:|:-----:|------------------------------|:-------------------------|
-| 2.10.0  | `python-pytorch/2.10` | X         | -     | -     | -                            | Default on Roihu-GPU     |
-| 2.9.1   | `pytorch/2.9`         |           | X     | X     | -                            | Default on Puhti, Mahti  |
-| 2.7.1   | `pytorch/2.7`         |           | X     | X     | (X)                          | No Slingshot (see below) |
-| 2.6.0   | `pytorch/2.6`         |           | X     | X     | -                            |                          |
-| 2.5.1   | `pytorch/2.5`         |           | X     | X     | (X)                          |                          |
-| 2.4.1   | `pytorch/2.4`         |           | -     | -     | (X)                          |                          |
-| 2.4.0   | `pytorch/2.4`         |           | X     | X     | -                            | New tykky-based wrappers |
-| 2.3.1   | `pytorch/2.3`         |           | X     | X     | -                            | New tykky-based wrappers |
-| 2.2.2   | `pytorch/2.2`         |           | -     | -     | (X)                          |                          |
-| 2.2.1   | `pytorch/2.2`         |           | X     | X     | -                            |                          |
-| 2.1.2   | `pytorch/2.1`         |           | -     | -     | (X)                          |                          |
-| 2.1.0   | `pytorch/2.1`         |           | X     | X     | -                            |                          |
-| 2.0.1   | `pytorch/2.0`         |           | -     | -     | (X)                          |                          |
-| 2.0.0   | `pytorch/2.0`         |           | X     | X     | -                            |                          |
-| 1.13.1  | `pytorch/1.13`        |           | -     | -     | (X)                          |                          |
-| 1.13.0  | `pytorch/1.13`        |           | X     | X     | -                            |                          |
-| 1.12.0  | `pytorch/1.12`        |           | X     | X     | -                            |                          |
-| 1.11.0  | `pytorch/1.11`        |           | X     | X     | -                            |                          |
+| Version | Module                | Roihu-GPU | Notes   |
+|:--------|-----------------------|-----------|:--------|
+| 2.13.0  | `python-pytorch/2.13` | X         | Default |
+| 2.10.0  | `python-pytorch/2.10` | X         |         |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
@@ -146,15 +130,9 @@ GPU support via CUDA/ROCm.
 
 !!! warning "<span id="lumi-note">LUMI installations</span>"
 
-    LUMI installations - marked with "(X)" in the table above - no longer
-    support the fast Slingshot network due to binary incompatibilities
-    with the new drivers installed in the LUMI service break
-    21.1.2026. This means that multi-node jobs are expected to be 10-20%
-    slower than before. For single-node jobs, there is no difference.
-    **The CSC PyTorch on LUMI can be considered as deprecated, and we
+    The CSC PyTorch module on LUMI can be considered as deprecated, and we
     recommend using the [LUMI AI Factory-provided containers
-    instead](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).**
-
+    instead](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 If you find that some package is missing, you can often install it
 yourself using `pip install`. It is recommended to use Python virtual
@@ -169,21 +147,6 @@ All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
 normal. 
-
-For **PyTorch version 2.2 and earlier**, other commands need to be
-prefixed with `apptainer_wrapper exec`, for example `apptainer_wrapper
-exec huggingface-cli`. For more information, see [CSC's general
-instructions on how to run Apptainer
-containers](../computing/containers/overview.md#running-containers). 
-
-For **PyTorch version 2.3 and later on Puhti or Mahti**, we have used
-wrappers created with [the tykky
-tool](../computing/containers/tykky.md), and all commands provided by
-pre-installed Python packages are wrapped and can be used directly. In
-case you really need to run something inside the container you can
-prefix with `_debug_exec` or run `_debug_shell` to open a shell
-session.
-
 
 !!! info "New users"
 
@@ -207,25 +170,11 @@ with:
 module load python-pytorch
 ```
 
-To access PyTorch on Puhti or Mahti:
-
-```text
-module load pytorch
-```
-
-To access PyTorch on LUMI - see the [caveats about the LUMI installation above](#lumi-note).
-
-```text
-module use /appl/local/csc/modulefiles/
-module load pytorch
-```
-
 If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load python-pytorch/2.10  # on Roihu-GPU
-module load pytorch/2.9          # on other systems
+module load python-pytorch/2.10
 ```
 
 Please note that the module already includes CUDA and cuDNN libraries,
@@ -234,8 +183,7 @@ so **there is no need to load cuda and cudnn modules separately!**
 This command will also show all available versions:
 
 ```text
-module avail python-pytorch # on Roihu-GPU
-module avail pytorch        # on other systems
+module avail python-pytorch
 ```
 
 To check the exact packages and versions included in the loaded module you can
@@ -257,7 +205,6 @@ pip list
 Example batch script for reserving one GPU and a corresponding
 proportion of the available CPU cores in a single node:
 
-=== "Roihu-GPU"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
@@ -267,54 +214,10 @@ proportion of the available CPU cores in a single node:
     #SBATCH --gres=gpu:gh200:1
     #SBATCH --time=1:00:00
     
-    module load python-pytorch/2.10
+    module load python-pytorch/2.13
     srun python3 myprog.py <options>
     ```
 
-=== "Puhti"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=80G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:1
-        
-    module load pytorch/2.9
-    srun python3 myprog.py <options>
-    ```
-
-=== "Mahti"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpusmall
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:1
-    
-    module load pytorch/2.9
-    srun python3 myprog.py <options>
-    ```
-
-=== "LUMI"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small-g
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=7
-    #SBATCH --gpus-per-node=1
-    #SBATCH --mem=60G
-    #SBATCH --time=1:00:00
-    
-    module use /appl/local/csc/modulefiles/
-    module load pytorch/2.7
-    srun python3 myprog.py <options>
-    ```
 
 Please read the section on [Efficient GPU utilization in our Machine
 learning guide](../support/tutorials/gpu-ml.md) to learn how to use
