@@ -124,7 +124,7 @@ Currently supported PyTorch versions:
 Includes [PyTorch](https://pytorch.org/) and related libraries with
 GPU support via CUDA/ROCm.
 
-!!! note "<span id="roihu-vllm">vLLM on Roihu</span>"
+!!! info "<span id="roihu-vllm">vLLM on Roihu</span>"
     On Roihu we have moved vLLM to a separate module `python-vllm`.
     The [vLLM module has its own documentation page](vllm.md).
 
