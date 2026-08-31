@@ -16,7 +16,7 @@ lowers the I/O load the agent can cause on Lustre. Currently the environment inc
 the open-source [OpenCode agent](https://opencode.ai/), [Claude Code](https://claude.com/product/claude-code),
 and [Codex](https://openai.com/codex/).
 
-All users must follow the TODO: [CSC AI Agent Policy](WIP). In addition, you must
+All users must follow the [CSC AI Agent Policy](../usage-policy.md). In addition, you must
 understand the following:
 
 !!! warning "Responsibility"
@@ -30,16 +30,18 @@ understand the following:
     the agent reads is sent to Anomaly Innovations and used according to their
     terms of service.
 
-    Claude Code sends your prompts and the files the agent reads to [Anthropic](https://www.anthropic.com/).
+    Claude Code and Codex send your prompts and the files the agent reads to [Anthropic](https://www.anthropic.com/)
+    and [OpenAI](https://openai.com/) respectively.
     How that data is retained, and whether it may be used for model training, depends
     on the terms of the account you sign in with. CSC does not provide the endpoint
     and cannot determine this for you, so check the terms that apply to your own
-    subscription before using Claude Code with confidential material.
+    subscription before using Claude Code or Codex 
+    with confidential material.
 
-TODO: List directories in a smart way. Link to public repo?
+TODO: Link to public repo?
 - **Security**: The agent has access to the directory you launch it from, all of its
-subdirectories, and certain directories in your `$HOME`. `$HOME` itself is
-not accessible by default.
+subdirectories, and the directories in the [How to configure agents](#how-to-configure-the-agents)
+section. `$HOME` itself is not accessible by default.
 TODO: Link to repo for tool permissions?
 - **Tool use**: By default, the agent can use many read-only tools
 without permission, but asks for confirmation for any write operations.
@@ -105,7 +107,21 @@ and the configuration file, see the [Claude Code documentation](https://code.cla
 Alternatively you can change settings in Claude Code and the file will be auto-generated.
 
 #### Codex
-TODO:
+
+Codex does not support the endpoint format that Aitta provides, so you cannot use
+Aitta as an endpoint.
+
+You can change settings and MCP servers in a `config.toml` placed in `$HOME/roihu-codex`.
+See the [Codex docs](https://learn.chatgpt.com/docs/config-file/config-reference)
+for details on the exact format.
+
+You can add MCP servers with the command
+
+```bash
+codex mcp add <server-name> --env VAR1=VALUE1 --env VAR2=VALUE2 -- <stdio server-command>
+```
+
+Any skills you want to add should be placed in the `$HOME/roihu-codex/skills` directory.
 
 ## MCP servers
 
@@ -182,8 +198,8 @@ in the [agent skills documentation](https://agentskills.io/home), and add it to
 Alternatively you can add the skills to the directory you launch the agents from
 in a `.claude/skills` folder instead of the aforementioned directories. Both Claude
 Code and OpenCode will check this directory. Skills placed in other locations than
-`$HOME/.agents` or `$HOME/roihu-claude` will only be accessible to agents launched in
-the directory with the `.claude` directory.
+`$HOME/.agents`, `$HOME/roihu-claude`, or `$HOME/roihu-codex` will be scoped to the
+directory where they are placed.
 
 You can find more skills created by CSC from our [Github](https://github.com/CSCfi/csc-skills),
 which can help in the use other CSC services.
