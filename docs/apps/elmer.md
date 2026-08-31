@@ -145,7 +145,7 @@ Be aware that this version is frequently updated. If you have User Functions as 
 
 Instructions on how to submit and monitor jobs can be found in [CSC docs](../computing/running/submitting-jobs.md) and in [LUMI docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
 
-It can be advantageous to utilize fewer cores per node than available to increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-roihu#undersubscribing-full-nodes-on-roihu-cpu).
+It can be advantageous to utilize fewer cores per node than available to increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-roihu.md#undersubscribing-full-nodes-on-roihu-cpu).
 
 ## More information
 
