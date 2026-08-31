@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Data Analytics and Machine Learning
   available_on:
-    - LUMI
     - Roihu
 ---
 
@@ -24,14 +23,14 @@ Machine learning framework for Python.
     **7.4.2026** PyTorch is now available on Roihu-GPU, the module has been 
     renamed `python-pytorch`.
 
+??? info "Older news (click to show)"
+
     **23.1.2026** Since the LUMI service break 21.1.2026, the CSC PyTorch
     installations no longer work with the fast Slingshot network due to
     binary incompatibilities with the new drivers. This means that
     multi-node jobs are expected to be 10-20% slower than before. 
     See further [LUMI installation notes below](#lumi-note).
     
-??? info "Older news (click to show)"
-
     **9.1.2026** PyTorch 2.9.1 installed to Puhti and Mahti, and made the
     default version. Apex was removed, since the library has been
     deprecated for a long time already. SGLang is also not included in
@@ -128,9 +127,9 @@ GPU support via CUDA/ROCm.
     On Roihu we have moved vLLM to a separate module `python-vllm`.
     The [vLLM module has its own documentation page](vllm.md).
 
-!!! warning "<span id="lumi-note">LUMI installations</span>"
+!!! warning "<span id="lumi-note">PyTorch for LUMI</span>"
 
-    The CSC PyTorch module on LUMI can be considered as deprecated, and we
+    CSC does not provide this module for LUMI anymore, we
     recommend using the [LUMI AI Factory-provided containers
     instead](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
