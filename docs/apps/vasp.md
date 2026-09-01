@@ -90,11 +90,12 @@ platform.
 followed using JupyterLab from the
 [Roihu web interface](https://www.roihu.csc.fi). Open the *Jupyter* app,
 and from *Settings* -> *Python*, select *Custom module* and type in
-*py4vasp*. When submitting jobs from the JupyterLab terminal window to
-compute nodes, first load module `vasp`, and then use a command similar to
+*py4vasp*. Launch vasp example runs from a separate login shell terminal
+using `srun` command, for example,
 
-```console
-srun -p test -A <project> -t 5 -n 2 vasp_std
+```bash
+module load vasp
+srun -A project_2001659 -p small -n 4 vasp_std
 ```
 
-instead of the `mpirun ...` command shown in the tutorial.
+instead of `mpirun ...` commands as in the Vasp tutorial.
