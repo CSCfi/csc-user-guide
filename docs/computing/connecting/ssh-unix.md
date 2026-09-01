@@ -255,7 +255,7 @@ Host roihu-cpu
 Host roihu-gpu
     HostName roihu-gpu.csc.fi
 
-Match originalhost roihu* exec ~/bin/csc-cert
+Match originalhost roihu* exec "~/bin/csc-cert %r <path-to-public-key>"
 ```
 
 This config means that the script `~/bin/csc-cert` is executed
@@ -272,7 +272,12 @@ Store this script as `~/bin/csc-cert` and make executable (`chmod a+x ~/bin/csc-
 
 set -eu
 
-cert_helper="python3 $HOME/certificate-helper-tool/csc_cert.py -u <csc-username> <path-to-public-key>"
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <username> <path-to-public-key>" >&2
+    exit 1
+fi
+
+cert_helper="python3 $HOME/certificate-helper-tool/csc_cert.py -u \"$1\" \"$2\""
 
 # Check status
 if ! $cert_helper -S 2>&1 | grep -q valid; then
@@ -284,5 +289,4 @@ fi
 Note that the following needs to be edited in this script for it to work:
 
 - Path to the `csc_cert.py` python script
-- CSC username and path to the public key
 - Command to launch the terminal. The `gnome-terminal` command here works with GNOME desktop environment
