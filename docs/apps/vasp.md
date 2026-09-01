@@ -98,8 +98,7 @@ srun vasp_std
 ```
 
 For more options and details, see how to create batch job scripts for
-[Puhti](../computing/running/creating-job-scripts-puhti.md) and
-[Mahti](../computing/running/creating-job-scripts-mahti.md).
+[Roihu](../computing/running/creating-job-scripts-roihu.md).
 
 ### VASP tutorials in JupyterLab
 
