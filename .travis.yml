@@ -9,6 +9,7 @@ before_install:
 env:
   global:
     - PROPERDOCS_ENV=test
+    - ENABLED_GIT_REVISION_DATE=false
 script:
 
   # Checks all files for commonly misspelled English words with client9's misspell

@@ -3,6 +3,7 @@
 properdocs
 mkdocs-materialx
 mkdocs-redirects
+mkdocs-git-revision-date-localized-plugin
 feedparser
 pyhumps
 GitPython
