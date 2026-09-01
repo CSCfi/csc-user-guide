@@ -21,6 +21,10 @@ This page briefly describes how to use VASP on Roihu. That said, using
 VASP efficiently requires experience. It is advised that new VASP users start
 out with a supervisor or an experienced colleague.
 
+## License
+
+Commercial, more info from [VASP Portal](https://vasp.at).
+
 ## VASP executables
 
 There are two ways to get access to VASP executables. You can build your own executables,
