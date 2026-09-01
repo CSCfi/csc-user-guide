@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "docs-csc.altClaimName" . }}
+  name: {{ include "docs-csc.volumeClaimName" . }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
   annotations:

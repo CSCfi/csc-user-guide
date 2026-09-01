@@ -39,14 +39,14 @@ Create names for resources.
 {{- define "docs-csc.altBuilderName" -}}
 {{- "builder" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
-{{- define "docs-csc.altClaimName" -}}
-{{- "builds" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
-{{- end }}
 {{- define "docs-csc.translatorName" -}}
 {{- "translator" | printf "%s-%s" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- define "docs-csc.translatorSecretName" -}}
 {{- "secret" | printf "%s-%s" (include "docs-csc.translatorName" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "docs-csc.volumeClaimName" -}}
+{{- "cache" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*

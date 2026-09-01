@@ -9,6 +9,7 @@ before_install:
 env:
   global:
     - PROPERDOCS_ENV=test
+    - ENABLED_MATERIALX_PRIVACY=false
     - ENABLED_GIT_REVISION_DATE=false
 script:
 
