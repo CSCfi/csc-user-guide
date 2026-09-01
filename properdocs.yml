@@ -94,12 +94,14 @@ plugins:
       - "Non-commercial"
       - "Other"
   search: {}
-  document-dates:
-    position: bottom
+  git-revision-date-localized:
+    enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
+    fallback_to_build_date: true
+    ignored_commits_file: .git-revision-date-ignore-revs
     type: date
-    show_created: false
-    show_updated: true
-    show_author: false
+    custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
+    locale: en
+    timezone: Europe/Helsinki
     exclude:
       - index.md
       - support/archives/*.md

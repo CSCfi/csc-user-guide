@@ -26,6 +26,10 @@ extra:
       link: /
       lang: en
 
+plugins:
+  git-revision-date-localized:
+    enabled: false
+
 theme:
   language: fi-CSC
   features:
