@@ -8,12 +8,10 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # MrBayes
-
-
 
 MrBayes is a program for Bayesian inference on phylogenies.
 
@@ -25,19 +23,15 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Puhti: 3.2.7a
+* Roihu: 3.2.7a, via the `bio-apps` module.
 
 ## Usage
 
-To check the available versions, use:
+MrBayes is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the MrBayes module:
 
 ```bash
-module spider mrbayes
-```
-
-To load a specific version:
-
-```bash
+module load bio-apps/v202603
 module load mrbayes/3.2.7a
 ```
 
@@ -57,7 +51,7 @@ When using the parallel version, you should note that MrBayes assigns one chain 
 
 ## Batch jobs
 
-Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended running it through the batch job system on Puhti. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
+Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended running it through the batch job system on Roihu. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
 
 To run a batch job you need to:
 
@@ -80,7 +74,7 @@ begin mrbayes;
 end;
 ```
 
-Below is an example batch job script for Puhti using 8 cores. We are using 8 cores since our example uses `nchains=4`, `nruns=2`, so 4 * 2 = 8.
+Below is an example batch job script for Roihu using 8 cores. We are using 8 cores since our example uses `nchains=4`, `nruns=2`, so 4 * 2 = 8.
 
 ```bash
 #!/bin/bash
@@ -88,20 +82,29 @@ Below is an example batch job script for Puhti using 8 cores. We are using 8 cor
 #SBATCH --job-name=my_mrbjob
 #SBATCH --error=my_mrbjob_err%j
 #SBATCH --output=my_mrbjob_out%j
+#SBATCH --partition=small
+#SBATCH --time=01:00:00
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=4000
-#SBATCH --time=01:00:00
-#SBATCH --partition=small
+
+module load bio-apps/v202603
+module load mrbayes/3.2.7a
 
 srun mb-mpi mb_com.nex >log.txt
 ```
 
-To submit the job on Puhti:
+To submit the job:
 
 ```bash
 sbatch mb_batch 
 ```
+
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

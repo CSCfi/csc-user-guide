@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Bowtie2
@@ -29,34 +29,26 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
--   Puhti: 2.3.5.1, 2.4.1, 2.4.4, 2.5.3
--   Chipster graphical user interface
+* Roihu: 2.5.4, via the `bio-apps` module.
 
 ## Usage
 
-On Puhti, Bowtie2 can be taken in use as part of the `biokit` module collection:
+Bowtie2 is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Bowtie2 module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load bowtie2/2.5.4
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Bowtie2. Note however that there are other bioinformatics tools on Puhti,
-that have a separate setup command.
-
-In a typical Bowtie2 run, you first need to index the reference genome with `bowtie2-build` command. You should do this in scratch directory instead of your 
-home directory. For example;
+In a typical Bowtie2 run, you first need to index the reference genome with the `bowtie2-build` command. You should do this in a scratch directory instead of your 
+home directory. For example:
 
 ```bash
 bowtie2-build genome.fa genome
 ```
 
-Alternatively, you can use `chipster_genomes` command to download pre-calculated bowtie2 indexes from the CSC Chipster server to Puhti:
-
-```bash
-chipster_genomes bowtie2
-``` 
-
-When the reference genome has been downloaded or indexed, the actual alignment job can be launched with `bowtie2` command. For example, for single end reads, this could be done with the command:
+When the reference genome has been indexed, the actual alignment job can be launched with the `bowtie2` command. For example, for single end reads, this could be done with the command:
 
 ```bash
 bowtie2 -x genome -U reads.fq -S output.sam
@@ -68,47 +60,44 @@ For paired end data, the minimal Bowtie2 syntax is:
 bowtie2 -x genome -1 first_read_set.fq -2 second_read_set.fq -S output.sam
 ``` 
 
-### Example batch script for Puhti
+### Example batch script
 
-On Puhti, `bowtie` and `bowtie2` jobs should be run as batch jobs. Below is a sample batch job file, 
-for running a Bowtie2 paired end alignment on Puhti. The recent Bowtie2 versions scale well, so you can effectively use up 
+`bowtie` and `bowtie2` jobs should be run as batch jobs. Below is a sample batch job script 
+for running a Bowtie2 paired-end alignment on Roihu. The recent Bowtie2 versions scale well, so you can effectively use up 
 to 16 cores in your batch job.
 
-Note that the batch job file must define the project that will be used.
-You can check all the projects that you belong to with the command `groups` or
-`csc-projects`. Use [MyCSC](https://my.csc.fi) to obtain more specific information about a
-specific project.
-
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=bowtie2
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
-#SBATCH --time=04:00:00
+#SBATCH --account=<project>
 #SBATCH --partition=small
+#SBATCH --time=04:00:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --nodes=1  
 #SBATCH --cpus-per-task=16
-#SBATCH --account=project_123456
-#SBATCH --mem=16000
+#SBATCH --mem-per-cpu=1000M
 
-module load biokit
+module load bio-apps/v202603
+module load bowtie2/2.5.4
+
 bowtie2-build genome.fasta genome
-bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
+bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq -S output.sam
 ```
 
-In the batch job example above one task (`--ntasks=1`) is executed. The Bowtie2 job uses 16 cores (`--cpus-per-task=16`) with total of 16 GB of memory (`--mem=16000`). 
+In the batch job example above one task (`--ntasks=1`) is executed. The Bowtie2 job uses 16 cores (`--cpus-per-task=16`) with a total of 16 GB of memory. 
 The maximum duration of the job is four hours (`--time=04:00:00`).
 All the cores are assigned from one computing node (`--nodes=1`).
-In the example, the project that will be used is `project_123456`. This value should be replaced by the name of your computing project.
+Replace `<project>` with your CSC project (for example `project_2001234`).
 
-You can submit the batch job file to the batch job system with command:
+You can submit the batch job file to the batch job system with the command:
 
 ```bash
-sbatch batch_job_file.bash
+sbatch batch_job_file.sh
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## References
 
