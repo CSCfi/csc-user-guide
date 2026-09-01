@@ -55,7 +55,7 @@ Regardless of whether you are running a multiprocess or multithreaded R job, it 
 
 A number of practical examples can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#multi-node-r-jobs-with-mpi). Multinode R examples using raster data can also be found in the [Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu).
 
-One topic of note is that setting up multiprocess and/or multithread jobs on multiple nodes (so-called hybrid jobs) is a special case of its own. Even if you have successfully set up a parallel R job on a single node, it will be necessary to rethink your setup when scaling up to several nodes. Tips on how to approach this can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#openmp-mpi-hybrid-jobs) and as part of [CSC's general documentation on hybrid batch jobs](../../computing/running/creating-job-scripts-mahti.md#hybrid-batch-jobs).
+One topic of note is that setting up multiprocess and/or multithread jobs on multiple nodes (so-called hybrid jobs) is a special case of its own. Even if you have successfully set up a parallel R job on a single node, it will be necessary to rethink your setup when scaling up to several nodes. Tips on how to approach this can be found in the [`r-env` parallel batch job examples](../../support/tutorials/parallel-r-examples.md#openmp-mpi-hybrid-jobs) and as part of [CSC's general documentation on hybrid batch jobs](../../computing/running/creating-job-scripts-roihu.md#hybrid-batch-jobs-eg-mpiopenmp).
 
 ## Some practical tips
 
