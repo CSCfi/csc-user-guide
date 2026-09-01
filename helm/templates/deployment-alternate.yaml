@@ -46,7 +46,8 @@ spec:
             - name: nginx-location
               mountPath: /opt/app-root/etc/nginx.default.d/
             - name: {{ include "translation.buildsVolumeName" . }}
-              mountPath: /opt/app-root/src/
+              mountPath: /opt/app-root/src
+              subpath: /builds
   strategy:
     type: RollingUpdate
     rollingUpdate:
