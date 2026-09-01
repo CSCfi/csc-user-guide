@@ -18,7 +18,7 @@ builds
 {{- define "translation.buildsVolume" -}}
 - name: {{ include "translation.buildsVolumeName" . }}
   persistentVolumeClaim:
-    claimName: {{ include "docs-csc.altClaimName" . }}
+    claimName: {{ include "docs-csc.volumeClaimName" . }}
 {{- end -}}
 
 {{/*
@@ -27,6 +27,36 @@ Helper template for volumes.
 {{- define "translation.volumes" -}}
 {{ include "translation.translationsVolume" . }}
 {{ include "translation.buildsVolume" . }}
+{{- end -}}
+
+{{/*
+Helper template for translator volume mounts.
+*/}}
+{{- define "translation.translatorMounts" -}}
+- name: {{ include "translation.translationsVolumeName" . }}
+  mountPath: /translations
+{{- end -}}
+
+{{/*
+Translator builds volume mounts.
+
+Expects a list where
+- [0] is the root context
+- [1] is a language code, e.g. "fi"
+
+*/}}
+{{- define "translation.buildMounts" -}}
+{{- $ := index . 0 -}}
+{{- $langcode := index . 1 -}}
+{{- $buildvolname := include "translation.buildsVolumeName" $ -}}
+- name: {{ include "translation.translationsVolumeName" $ }}
+  mountPath: /translations
+- name: {{ $buildvolname }}
+  mountPath: {{ $langcode | printf "/site/%s" }}
+  subPath: {{ $langcode | printf "/builds/%s" }}
+- name: {{ $buildvolname }}
+  mountPath: /work/.cache
+  subPath: /cache
 {{- end -}}
 
 {{/*
@@ -66,9 +96,6 @@ spec:
     - name: {{ $langcode | printf "%s-%s" $translatorname }}
       image: {{ $ | include "docs-csc.latestTranslatorImage" | squote }}
       imagePullPolicy: Always
-      volumeMounts:
-        - name: {{ $ | include "translation.translationsVolumeName" }}
-          mountPath: /translations
       env:
         - name: CONFIG_BRANCH
           value: {{ $translator.configBranchOverride | default $.Values.git.ref | squote }}
@@ -110,6 +137,8 @@ spec:
         - name: CACHE_PREFIX
           value: {{ .prefix | squote }}
 {{- end }}
+      volumeMounts:
+{{ include "translation.translatorMounts" $ | indent 8 }}
   containers:
     - name: {{ $langcode | printf "%s-%s" $buildername }}
       image: {{ $ | include "docs-csc.latestAltBuilderImage" | squote }}
@@ -134,9 +163,5 @@ spec:
           value: {{ $matomoid | squote }}
 {{- end }}
       volumeMounts:
-        - name: {{ include "translation.translationsVolumeName" $ }}
-          mountPath: /translations
-        - name: {{ include "translation.buildsVolumeName" $ }}
-          mountPath: {{ $langcode | printf "/site/%s" }}
-          subPath: {{ $langcode }}
-{{- end }}
+{{ include "translation.buildMounts" ($langcode | list $) | indent 8 }}
+{{- end -}}
