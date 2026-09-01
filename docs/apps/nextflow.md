@@ -231,7 +231,7 @@ profiles {
    }
 
  roihu {
-     process.clusterOptions = '--account=project_xxxx --ntasks-per-node=1 --cpus-per-task=4 --ntasks=1 --time=00:15:00'
+     process.clusterOptions = '--account=<project> --ntasks-per-node=1 --cpus-per-task=4 --ntasks=1 --time=00:15:00'
      process.executor = 'slurm'
      process.queue = 'small'
      process.memory = '10GB'
