@@ -18,7 +18,7 @@ to the human genome at a rate of over 25 million 35-bp reads per hour. Bowtie2 i
 with a Burrows-Wheeler index to keep its memory footprint small: typically about 2.2 GB for the 
 human genome (2.9 GB for paired-end).
 
-There are two versions of Bowtie available: Bowtie2 and Bowtie. The more recent Bowtie2 program differs 
+There are two versions of Bowtie available: Bowtie2 and [Bowtie](bowtie.md). The more recent Bowtie2 program differs 
 significantly from its ancestor Bowtie. For example the command line options are different for these two tools.
 
 [TOC]

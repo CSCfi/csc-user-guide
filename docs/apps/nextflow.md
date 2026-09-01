@@ -346,4 +346,3 @@ If you use Nextflow in your work, please cite:
 * [General guidelines for high-throughput computing in CSC's HPC environment](../computing/running/throughput.md)
 * [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
 * [CSC's HyperQueue documentation](../apps/hyperqueue.md)
-```

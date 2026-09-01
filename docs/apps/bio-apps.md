@@ -149,7 +149,6 @@ fastx-toolkit/0.0.14
 freebayes/1.3.6
 gapseq/2.1.0
 gatk/4.5.0.0
-getorganelle/1.7.7.0
 getorganelle/1.7.7.1
 hisat2/2.2.1
 hmmer/3.4
@@ -204,7 +203,6 @@ snakemake/9.14.0
 sortmerna/7.0.0
 spades/4.2.0
 sra-tools/3.3.0
-sratoolkit/3.0.0
 star/2.7.11b
 strauto/1.0
 stringtie/3.0.3

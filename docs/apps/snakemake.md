@@ -305,4 +305,3 @@ If you use Snakemake in your work, please cite:
 * [CSC Snakemake Hackathon 2024](https://coderefinery.github.io/snakemake_hackathon/)
 * [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
 * [Contact CSC Service Desk for technical support](../support/contact.md)
-```
