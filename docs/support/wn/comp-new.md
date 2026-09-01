@@ -183,7 +183,7 @@ questions or need support with taking SSH keys into use.
 ## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
 Mahti has expanded its capabilities with a
-[new small partition](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
+new small partition
 featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
 of local NVMe storage. This partition introduces flexible CPU
 core-based allocation, allowing users to reserve individual cores
@@ -272,7 +272,6 @@ compute and memory capacity of a full A100 GPU. These a100_1g.5gb GPUs have one 
 the compute power of one A100 GPU and in total 5 GB of memory. These are useful for interactive work, 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
-[See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
 
 ## Mahti web interface updated to release 4, 27.2.2024
 
@@ -423,7 +422,7 @@ to connect to a specific login node, e.g. `ssh kkayttaj@puhti-login14.csc.fi`.
 The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.
 
 * Pre-installed software and libraries as well as the documentation have been updated
-* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../../computing/compiling-puhti.md)
+* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`.
 * Note that `hpcx-mpi` has been removed and replaced by `openmpi`
 * Users should recompile their own codes for the new OS
 * Some older versions of applications are not available anymore
