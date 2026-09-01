@@ -42,43 +42,6 @@ module load igv/2.19.7
 igv.sh
 ```
 
-### igvtools
-
-For command-line tasks such as creating index or coverage files for large data, use
-the `igvtools` utility, which can be run in a normal terminal or batch job. For example,
-to index a sorted BAM file:
-
-```bash
-module load bio-apps/v202603
-module load igv/2.19.7
-igvtools index aligned.sorted.bam
-```
-
-`igvtools` can also be run as a batch job:
-
-```bash
-#!/bin/bash
-#SBATCH --job-name=igvtools
-#SBATCH --account=<project>
-#SBATCH --output=output_%j.txt
-#SBATCH --error=errors_%j.txt
-#SBATCH --partition=small
-#SBATCH --time=01:00:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=4G
-
-module load bio-apps/v202603
-module load igv/2.19.7
-
-igvtools index aligned.sorted.bam
-```
-
-Replace `<project>` with your CSC project (for example `project_2001234`).
-
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
-
 ## Support
 
 [CSC Service Desk](../support/contact.md)
