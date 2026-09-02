@@ -758,7 +758,7 @@ expected.
 ## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
 
 New versions of [Python Data](../../apps/python-data.md) and
-[RAPIDS](../../apps/rapids.md) are now available on both Puhti and Mahti. The
+RAPIDS are now available on both Puhti and Mahti. The
 default versions have been changed to these new versions.
 
 ## CP2K 9.1 linked to Gromacs 2022, 19.4.2022
