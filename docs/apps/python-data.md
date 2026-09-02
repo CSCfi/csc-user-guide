@@ -70,7 +70,7 @@ data analytics and machine learning, for example:
 - [Jupyter](https://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
 - [Marimo](https://marimo.io) (Roihu)
 - [NLTK](https://matplotlib.org/): Natural language toolkit
-- [Polars (https://docs.pola.rs): Large-scale data analytics
+- [Polars] (https://docs.pola.rs): Large-scale data analytics
 - [PyTables](http://www.pytables.org/)
 - [SciPy](https://www.scipy.org/), including [NumPy](https://www.numpy.org/), [Matplotlib](https://matplotlib.org/) and [Pandas](https://pandas.pydata.org/)
 - [Scikit-learn](https://scikit-learn.org/stable/): Machine learning in Python
