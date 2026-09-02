@@ -11,8 +11,8 @@ of our [Machine learning guide](ml-guide.md).
 ## Roihu-GPU or LUMI?
 
 Roihu is the most recent of CSC's national supercomputers, opened in
-June 2026. The older supercomputers Puhti and Mahti will be shutdown
-during the summer 2026, and we don't recommend starting any new
+June 2026. The older supercomputers Puhti and Mahti had their computing
+services shut down during the summer 2026, and we don't recommend starting any new
 projects on them. Roihu-GPU, which refers to the GPU side of Roihu,
 has 528 GPUs (NVIDIA GH200) and aims to provide a wide software stack
 for Finnish researchers.
@@ -31,8 +31,8 @@ The main GPU-related statistics are summarized in the table below.
 |       | GPU type            | GPU memory  | GPU nodes | GPUs/node | Total GPUs    | Notes                                                      |
 |-------|---------------------|-------------|-----------|-----------|---------------|------------------------------------------------------------|
 | Roihu-GPU | NVIDIA Hopper GH200 | 96 GB       | 132       | 4         | 528           | [Available in June 2026](../../computing/systems-roihu.md) |
-| Puhti | NVIDIA Volta V100   | 32 GB       | 80        | 4         | 320           | [Shutdown in July](../../computing/systems-roihu.md)       |
-| Mahti | NVIDIA Ampere A100  | 40 GB       | 24        | 4         | 96            | [Shutdown in August](../../computing/systems-roihu.md)     |
+| Puhti | NVIDIA Volta V100   | 32 GB       | 80        | 4         | 320           | [Shut down in July](../../computing/systems-roihu.md)       |
+| Mahti | NVIDIA Ampere A100  | 40 GB       | 24        | 4         | 96            | [Shut down in August](../../computing/systems-roihu.md)     |
 | LUMI  | AMD MI250x          | 64 (128) GB | 2978      | 8 (4)     | 23824 (11912) |                                                            |
 
 !!! info "Note"
