@@ -44,7 +44,7 @@ Contains the [RAPIDS](https://rapids.ai/) suite (including
 [cuDF](https://github.com/rapidsai/cudf),
 [cuML](https://github.com/rapidsai/cuml),
 [cuGraph](https://github.com/rapidsai/cugraph), and
-[XGBoost](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
+[XGBoost FIXME](https://rapids.ai/xgboost.html)) for Python with GPU support via CUDA.
 
 If you find that some package is missing, you can often install it yourself with
 `pip install --user`. See
