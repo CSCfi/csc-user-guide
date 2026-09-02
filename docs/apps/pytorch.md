@@ -17,6 +17,10 @@ Machine learning framework for Python.
 
 !!! info "News" 
 
+    **1.9.2026** PyTorch is now available on Roihu-CPU, both versions 2.10 
+    and 2.13 (the same as on Roihu-GPU). Naturally this version does not 
+    support GPU acceleration. 
+
     **31.8.2026** PyTorch 2.13 installed to Roihu-GPU, and is now the default
     version.
 
@@ -115,13 +119,15 @@ Machine learning framework for Python.
 
 Currently supported PyTorch versions:
 
-| Version | Module                | Roihu-GPU | Notes   |
-|:--------|-----------------------|-----------|:--------|
-| 2.13.0  | `python-pytorch/2.13` | X         | Default |
-| 2.10.0  | `python-pytorch/2.10` | X         |         |
+| Version | Module                | Roihu-GPU | Roihu-CPU | Notes   |
+|:--------|-----------------------|-----------|-----------|:--------|
+| 2.13.0  | `python-pytorch/2.13` | X         | X         | Default |
+| 2.10.0  | `python-pytorch/2.10` | X         | X         |         |
 
 Includes [PyTorch](https://pytorch.org/) and related libraries with
-GPU support via CUDA/ROCm.
+GPU support via CUDA/ROCm. The version on Roihu-CPU naturally does not
+support GPUs, but has been made available for light workloads and
+workloads that need x86_64 CPU architecture.
 
 !!! info "<span id="roihu-vllm">vLLM on Roihu</span>"
     On Roihu we have moved vLLM to a separate module `python-vllm`.
@@ -162,8 +168,8 @@ file](https://github.com/pytorch/pytorch/blob/master/LICENSE).
 
 ## Usage
 
-To use the default version of PyTorch on Roihu-GPU, initialize it
-with:
+To use the default version of PyTorch on Roihu-GPU or Roihu-CPU,
+initialize it with:
 
 ```text
 module load python-pytorch
@@ -176,8 +182,9 @@ versions](#available)), use:
 module load python-pytorch/2.10
 ```
 
-Please note that the module already includes CUDA and cuDNN libraries,
-so **there is no need to load cuda and cudnn modules separately!**
+Please note that the Roihu-GPU module already includes CUDA and cuDNN
+libraries, so **there is no need to load cuda and cudnn modules
+separately!**
 
 This command will also show all available versions:
 
@@ -204,18 +211,34 @@ pip list
 Example batch script for reserving one GPU and a corresponding
 proportion of the available CPU cores in a single node:
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>
-#SBATCH --partition=gpumedium
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=72
-#SBATCH --gres=gpu:gh200:1
-#SBATCH --time=1:00:00
+=== "Roihu-GPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=72
+    #SBATCH --gres=gpu:gh200:1
+    #SBATCH --time=1:00:00
+    
+    module load python-pytorch/2.13
+    srun python3 myprog.py <options>
+    ```
 
-module load python-pytorch/2.13
-srun python3 myprog.py <options>
-```
+=== "Roihu-CPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=<project>
+    #SBATCH --partition=small
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=7
+    #SBATCH --mem=15G
+    #SBATCH --time=1:00:00
+    
+    module load python-pytorch/2.13
+    srun python3 myprog.py <options>
+    ```
+
 
 Please read the section on [Efficient GPU utilization in our Machine
 learning guide](../support/tutorials/gpu-ml.md) to learn how to use
