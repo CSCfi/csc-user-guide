@@ -8,6 +8,8 @@ before_install:
   - curl -L https://git.io/misspell | BINDIR=~/.local/bin sh
 env:
   global:
+    - NO_MKDOCS_2_WARNING=1
+    - DISABLE_MKDOCS_2_WARNING=true
     - ENABLED_GIT_REVISION_DATE=false
     - MKDOCS_ENV=test
 script:

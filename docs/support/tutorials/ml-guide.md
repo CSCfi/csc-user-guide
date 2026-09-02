@@ -18,6 +18,7 @@ In addition to this page, this guide contains the following subsections:
 - [**Hyperparameter search**](hyperparameter_search.md)
 - [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
 - [**Working with large language models on supercomputers**](ml-llm.md)
+- [**Extend CSC-based ML containers using sandbox**](ml-container-extend.md)
 
 ## What CSC service to use?
 
