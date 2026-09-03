@@ -607,7 +607,7 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load python-data/3.12-31.03   # on Roihu
+module load python-data/3.12-31.03
 ```
 
 If you just want the most recent version with a specific Python version, you can also run:
