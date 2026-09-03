@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # EMBOSS
@@ -37,21 +37,19 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-- Puhti: 6.5.7
+- Roihu: 6.6.0
 - [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSS tools.
 
 ## Usage
 
-EMBOSS programs are available on Puhti as part of the collection in biokit module. To use it, load the biokit module by running the command:
+EMBOSS can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load emboss
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including EMBOSS.
-Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
-
-After loading biokit, you can start any of the EMBOSS programs by typing its name. For example:
+After loading the modules, you can start any of the EMBOSS programs by typing its name. For example:
 
 ```bash
 wossname

@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Megahit
@@ -23,14 +23,15 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Puhti: 1.2.9
+* Roihu: 1.2.9
 
 ## Usage
 
-On Puhti, Megahit is activated by loading the `biokit` environment:
+Megahit can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load megahit
 ```
 
 For usage help, use command:
@@ -57,7 +58,16 @@ Sample Megahit batch job:
 #SBATCH --mem=32G
 #SBATCH --partition=small
 
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load megahit
 srun megahit -1 reads_1.fastq -2 reads_2.fastq -t $SLURM_CPUS_PER_TASK --m 32000000000 -o result_directory
 ```
 
@@ -73,7 +83,7 @@ file is named as `megahit_job.sh`, then the submission command is:
 sbatch megahit_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
 
 ## More information
 

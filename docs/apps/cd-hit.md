@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # CD-HIT
@@ -25,14 +25,15 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-Puhti: 4.8.1 
+Roihu: 4.8.1 
 
 ## Usage
 
-The setup command for CD-HIT on Puhti is:
+The setup command for CD-HIT on Rohu is:
 
 ```bash
-module load biokit
+module load bio-apps
+module load cdhit
 ```
 
 After the setup command, the server recognizes CD-HIT commands. The CD-HIT package has many programs. The most notable are:
@@ -70,6 +71,8 @@ The sample command above produces two result files:
 
 * `reduced_set.fasta` contains a pruned sequence set. In this case, if two sequences are more than 95% identical, only the longer one is included in the results.
 * `reduced_set.fasta.clstr` contains information about the clustering of the sequences that share higher similarity than the given threshold value (in this case 95%).
+
+All CD-HIT jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
 
 ## Support
 

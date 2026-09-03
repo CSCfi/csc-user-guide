@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # BamTools
@@ -24,19 +24,17 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
--   Puhti: 2.5.2
+-   Roihu: 2.5.2
 -   Chipster graphical user interface
 
 ## Usage
 
-On Puhti, BamTools can be taken in use as a part of biokit module collection:
+On Roihu, BamTools can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load bamtools
 ```
-
-The biokit module sets up a set of commonly used bioinformatics tools. Note however that there are other bioinformatics tools on Puhti,
-that have a separate setup commands.
 
 The syntax of BamTools is:
 
@@ -72,4 +70,4 @@ bamtools help COMMAND
 
 ## More information
 
-More information about BamTools can be found from the [BamTools home page](https://github.com/pezmaster31/bamtools).
+- [BamTools home page](https://github.com/pezmaster31/bamtools).

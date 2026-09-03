@@ -8,12 +8,12 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Illumina BaseSpace
 
-Illumina BaseSpace command line client, `bs`, can be used to retrieve data from the Illumina BaseSpace environment to Puhti.
+Illumina BaseSpace command line client, `bs`, can be used to retrieve data from the Illumina BaseSpace environment to Roihu.
 
 [TOC]
 
@@ -23,17 +23,17 @@ Software is free to use.
 
 ## Available
 
-* Puhti: 1.0.0 
+* Roihu: 1.7.0 
 
 ## Usage
 
-First load the biokit module:
+First load the basespace module:
 
 ```bash
-module load biokit
+module load basespace
 ```
 
-When biokit is loaded, the Illumina BaseSpace command line client starts with the command:
+When module is loaded, the Illumina BaseSpace command line client starts with the command:
 
 ```bash
 bs
@@ -48,7 +48,7 @@ This is done by running the command:
 bs auth
 ```
 
-The authentication information is stored to your home directory on Puhti
+The authentication information is stored to your home directory on Roihu
 (`$HOME/.basespace/default.cfg`). Thus, the authentication needs to be done only
 once.
 
@@ -58,7 +58,7 @@ After that you can start working with your Illumina data. For example, available
 bs list datasets
 ```
 
-Single dataset can be downloaded to Puhti with the command:
+Single dataset can be downloaded to Roihu with the command:
 
 ```bash
 bs download dataset -i dataset_id -o local_download_dir

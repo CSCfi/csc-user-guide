@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Exonerate
@@ -30,20 +30,17 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-Puhti: 2.4.0
+Roihu: 2.4.0
 
 ## Usage
 
-On Puhti, you can initialize Exonerate with the command:
+On Roihu, you can initialize Exonerate with the command:
 
 ```bash
-module load biokit
+module load exonerate
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Exonerate.
-Note however that there are other bioinformatics tools in Puhti that have separate setup commands.
-
-After loading the `biokit` module, the `exonerate` commands are recognized.
+After loading the module, the `exonerate` commands are recognized.
 
 For example, to align cDNA to genomic sequence, you can use `exonerate` command with `est2genome` model:
 
@@ -57,8 +54,8 @@ You can see the command line options for `exonerate` with the command:
 exonerate -h
 ```
  
-On Puhti, large Exonerate tasks should be executed as a batch jobs. Below is a sample batch job file for running an 
-Exonerate batch job in Puhti:
+On Roihu, Exonerate tasks should be executed as a batch jobs. Below is a sample batch job file for running an 
+Exonerate batch job in Roihu:
 
 ```bash
 #!/bin/bash
@@ -68,7 +65,15 @@ Exonerate batch job in Puhti:
 #SBATCH --mem=8G
 #SBATCH --partition=small
 
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load exonerate
 exonerate --model est2genome query.fasta target.fasta
 ```
 

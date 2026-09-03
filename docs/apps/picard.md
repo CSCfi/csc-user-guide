@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Picard Tools
@@ -28,17 +28,15 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 ## Available
 
 
-- Puhti:  2.27.4, 2.27.5, 3.0.1,  3.1.1
+- Roihu:  3.3.0
 
 ## Usage
 
 To load Picard, load module:
 ```bash
+module load bio-apps
 module load picard
 ```
-
-Note: The `biokit` module comes with Picard version 2.27.5 due to Java version compatibility
-with other software. To use newer version of Picard, load the `picard` module.
 
 To get a summary of available tools:
 ```bash
@@ -46,21 +44,12 @@ picard
 ```
 
 Please note that in the Picard manual commands start with "java -jar
-picard.jar". In Puhti it is easiest to run Picard through a wrapper script,
+picard.jar". In Roihu it is easiest to run Picard through a wrapper script,
 so substitute that with just `picard`.
 
 Example:
 ```bash
 picard SamToFASTQ I=input.bam FASTQ=output.fastq
-```
-
-By default picard can use up to 8 GB  of memory. If your analysis task
-requires more memory, you can launch picard with commands, `picard16`, `picard32`
-and `picard64` that reserve 16, 32 or 64 GB of memory respectively.
-
-Example:
-```bash
-picard16 SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
 
 If you need to specify Java options for Picard you can use `java -jar $PICARD`.
@@ -69,6 +58,8 @@ Example:
 ```bash
 java -Xmx128g -jar $PICARD  SamToFASTQ I=input.bam FASTQ=output.fastq
 ```
+
+All Picard jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
 
 
 ## More information

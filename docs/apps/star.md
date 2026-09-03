@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # STAR
@@ -26,17 +26,18 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 
 
-Puhti: 2.7.10a, 2.7.11a
+Roihu: 2.7.11b
 
 ## Usage
 
-The `STAR` commands listed below are activated by loading `biokit` module.
+STAR can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load star
 ```
 
-Before you can run the actual alignment job, you must index your fasta formatted reference genome. In Puhti the working copies of reference genome indexes, as well as any large files, should be stored to the /scratch directory.
+Before you can run the actual alignment job, you must index your fasta formatted reference genome. In Roihu the working copies of reference genome indexes, as well as any large files, should be stored to the /scratch directory.
 
 For ease of use, set an environment variable to point to your /scratch directory. (Substitute correct path for the one used in example).
 ```bash
@@ -53,7 +54,7 @@ After that, the indexing can be done with command:
 STAR --runMode genomeGenerate --genomeDir $SCRATCH/star-genome --genomeFastaFiles /path/to/genome/genome.fasta --runThreadN 2
 ```
 
-Once the indexing is done, the actual mapping task can be launched. STAR will generate the mapping output using fixed file names. Because of that it is recommended that each STAR job is run in a new, empty directory. In Puhti you should create this new job directory to /scratch directory of your project. New directory called _starjob1_ can be created with command:
+Once the indexing is done, the actual mapping task can be launched. STAR will generate the mapping output using fixed file names. Because of that it is recommended that each STAR job is run in a new, empty directory. In Roihu you should create this new job directory to /scratch directory of your project. New directory called _starjob1_ can be created with command:
 ```bash
 mkdir $SCRATCH/starjob1
 ```
@@ -66,9 +67,10 @@ STAR --genomeDir $SCRATCH/star-genomes --readFilesIn my_reads.fastq
 
 The default parameters STAR uses are typical for mapping 2x76 or 2x101 Illumina reads to the human genome.
 
-In Puhti, all computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based parallelization. Below is a sample batch job file for STAR. The job uses six computing cores from a single computing node. The memory reservation is 24 GB. Note that you must change the `--account` setting to match your project.
+In Roihu, all computing tasks should be executed as batch jobs. In batch jobs you can also utilize thread based parallelization. Below is a sample batch job file for STAR. The job uses six computing cores from a single computing node. The memory reservation is 24 GB. Note that you must change the `--account` setting to match your project.
+
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=STAR
 #SBATCH --output=STAR.stdout
 #SBATCH --error=STAR.stderr
@@ -79,6 +81,16 @@ In Puhti, all computing tasks should be executed as batch jobs. In batch jobs yo
 #SBATCH --account=project_1234567
 #SBATCH --mem=24000
 
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps/v202603
+module load star/2.7.11b
 export SCRATCH=/scratch/project_12345/$USER
 
 # calculate indexes. You don't need to recalculte the indexes if they already exist.

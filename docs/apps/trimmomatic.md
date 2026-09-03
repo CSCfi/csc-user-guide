@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Trimmomatic
@@ -25,20 +25,15 @@ THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina a
 
 ## Available
 
-- Puhti: 0.39
+- Roihu: 0.39
 - [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
-Trimmomatic is included in the `biokit` module:
+Trimmomatic can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
-```
-
-It can also be loaded separately:
-
-```bash
+module load bio-apps
 module load trimmomatic
 ```
 
@@ -48,19 +43,20 @@ Trimmomatic can be launched with command:
 trimmomatic
 ```
 
-If you need to adjust Java settings you can use variable `$TMJAR`
+If you need to adjust Java settings you can use path `$TRIMMOMATIC_INSTROOT/bin`
 
 ```bash
-java <java options> -jar $TMJAR <trimmomatic options>
+java <java options> -jar $TRIMMOMATIC_INSTROOT/bin/trimmomatic-0.39.jar <trimmomatic options>
 ```
 
-Included adapter sequences for ILLUMINACLIP can be used by specifying `$ADAPTERS`, e.g:
+Included adapter sequences for ILLUMINACLIP can be used by specifying `$TRIMMOMATIC_INSTROOT/share/adapters`, e.g:
 
 ```bash
-ILLUMINACLIP:$ADAPTERS/TruSeq3-PE.fa:2:30:10
+ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10
 ```
 
-Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job.
+Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+
 
 Example batch job script:
 
@@ -74,10 +70,18 @@ Example batch job script:
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8000
 
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
 trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred64 \
 forward.fq.gz reverse.fq.gz \
 out_fw_paired.fq.gz out_fw_unpaired.fq.gz out_rev_paired.fq.gz out_rev_unpaired.fq.gz \
-ILLUMINACLIP:$ADAPTERS/TruSeq3-PE.fa:2:30:10 \
+ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10 \
 LEADING:3 \
 TRAILING:3 \
 SLIDINGWINDOW:4:15 \

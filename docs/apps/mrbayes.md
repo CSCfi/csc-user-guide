@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # MrBayes
@@ -25,39 +25,28 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Puhti: 3.2.7a
+- Roihu: 3.2.7a
 
 ## Usage
 
-To check the available versions, use:
+MrBayes can be taken in use by first loading the bio-apps module:
 
 ```bash
-module spider mrbayes
+module load bio-apps
+module load mrbayes
 ```
 
-To load a specific version:
-
-```bash
-module load mrbayes/3.2.7a
-```
-
-After loading the module, the serial (i.e. single processor) version starts with the command:
+After loading the module MrBayes starts with the command:
 
 ```bash
 mb
-```
-
-Parallel version starts with the command:
-
-```bash
-mb-mpi 
 ```
 
 When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
 
 ## Batch jobs
 
-Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended running it through the batch job system on Puhti. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
+Running MrBayes analysis might take considerable amount of CPU time and memory. It is, therefore, recommended running it through the batch job system on Roihu. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
 
 To run a batch job you need to:
 
@@ -80,7 +69,7 @@ begin mrbayes;
 end;
 ```
 
-Below is an example batch job script for Puhti using 8 cores. We are using 8 cores since our example uses `nchains=4`, `nruns=2`, so 4 * 2 = 8.
+Below is an example batch job script for Roihu using 8 cores. We are using 8 cores since our example uses `nchains=4`, `nruns=2`, so 4 * 2 = 8.
 
 ```bash
 #!/bin/bash
@@ -94,10 +83,20 @@ Below is an example batch job script for Puhti using 8 cores. We are using 8 cor
 #SBATCH --time=01:00:00
 #SBATCH --partition=small
 
-srun mb-mpi mb_com.nex >log.txt
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load mrbayes
+srun mb mb_com.nex >log.txt
 ```
 
-To submit the job on Puhti:
+To submit the job on Roihu:
 
 ```bash
 sbatch mb_batch 

@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Cutadapt
@@ -24,11 +24,11 @@ Free to use and open source under [MIT License](https://github.com/marcelm/cutad
 
 ## Available
 
-- Puhti: 3.2, 3.4, 3.5, 4.6
+- Roihu: 5.1.0
 
 ## Usage
 
-On Puhti, the latest version of Cutadapt can be taken in use by loading the module:
+On Roihu, Cutadapt can be taken in use by loading the module:
 
 ```bash
 module load cutadapt
@@ -43,7 +43,7 @@ module spider cutadapt
 You can load a specific version with the command:
 
 ```bash
-module load cutadapt/3.2
+module load cutadapt/5.1.0
 ```
 
 The basic syntax is:
@@ -60,4 +60,4 @@ Cutadapt should be run either in an interactive session or as a batch job.
 
 ## More information
 
-More information about Cutadapt can be found from the [Cutadapt home page](https://cutadapt.readthedocs.io/en/stable/).
+- [Cutadapt home page](https://cutadapt.readthedocs.io/en/stable/).

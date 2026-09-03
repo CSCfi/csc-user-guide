@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Minimap2
@@ -29,19 +29,19 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Puhti: 2.24, 2.28
+* Roihu: 2.30
 * Chipster graphical user interface
 
 ## Usage
 
-On Puhti, Minimap2 can be used as part of the `biokit` module collection:
+Minimap2 can be taken in use by first loading the bio-apps module:
 
 ```bash
-module load biokit
+module load bio-apps
+module load minimap2
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Minimap2. Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
-Once biokit module is loaded, Minimap2 starts with the command:
+Once minimap2 module is loaded, Minimap2 starts with the command:
 
 ```bash
 minimap2
@@ -142,13 +142,13 @@ minimap2 -ax sr ref.fa reads-interleaved.fq > aln.sam
 minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 ```
 
-## Example batch script for Puhti
+## Example batch script for Roihu
 
-On Puhti, Minimap2 jobs should be run as batch jobs. Below is a sample batch job file
-for running a Minimap2 paired-end alignment on Puhti.
+On Roihu, Minimap2 jobs should be run as batch jobs. Below is a sample batch job file
+for running a Minimap2 paired-end alignment on Roihu.
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=minimap2
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
@@ -160,7 +160,16 @@ for running a Minimap2 paired-end alignment on Puhti.
 #SBATCH --account=<project>
 #SBATCH --mem=16000
 
-module load biokit
+# Set the number of threads based on cpus-per-task
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+# Place and bind threads to single cores
+# Comment the following lines if binding is not desired
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
+module load bio-apps
+module load minimap2
 minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 ```
 
@@ -170,7 +179,7 @@ The maximum duration of the job is four hours (`--time=04:00:00`). All the cores
 are assigned from one computing node (`--nodes=1`). In addition to the resource
 reservations, you have to define the billing project for your batch job. This
 is done by replacing the `<project>` with the name of your project. You can
-use command `csc-projects` to see what projects you have on Puhti.
+use command `csc-projects` to see what projects you have on Roihu.
 
 You can submit the batch job file to the batch job system with the command:
 
@@ -178,7 +187,7 @@ You can submit the batch job file to the batch job system with the command:
 sbatch batch_job_file.bash
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See the [Roihu user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
 ## Support
 
@@ -186,4 +195,4 @@ See the [Puhti user guide](../computing/running/getting-started.md) for more inf
 
 ## More information
 
-* More information about Minimap2 can be found from the [Minimap2 home page](https://lh3.github.io/minimap2/).
+* [Minimap2 home page](https://lh3.github.io/minimap2/).
