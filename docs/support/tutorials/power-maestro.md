@@ -5,6 +5,10 @@ and then consult the power user and special case instructions below.
 Further down there are steps to help solving or diagnosing issues
 and to prepare data for support requests.
 
+!!! warning
+    This page contains outdated Puhti- and Mahti-related content. An updated
+    version including instructions for Roihu and LUMI will be published soon.
+
 [TOC]
 
 ## Standalone jobs on Puhti
@@ -323,7 +327,7 @@ and the time spent waiting in the queue will be wasted.
 ## Optimal disk usage
 
 The Schrödinger HOSTs in Puhti have not been configured to use the
-local NVMe disk,
+[local NVMe disk](../../computing/running/creating-job-scripts-puhti.md#local-storage),
 which is available only on some of the compute nodes. Since most jobs don't
 gain speed advantage from NVMe disk, you'll likely queue less by not asking
 for it. If your job performs a lot of I/O operations, please contact
