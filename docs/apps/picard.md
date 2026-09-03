@@ -49,7 +49,7 @@ wrapper, so substitute that with just `picard`.
 Example:
 
 ```bash
-picard SamToFASTQ I=input.bam FASTQ=output.fastq
+picard SamToFastq I=input.bam FASTQ=output.fastq
 ```
 
 If you need to specify Java options for Picard (for example to control the
@@ -59,7 +59,7 @@ the `$PICARD` environment variable to the Picard jar file.
 Example:
 
 ```bash
-java -Xmx16g -jar $PICARD SamToFASTQ I=input.bam FASTQ=output.fastq
+java -Xmx16g -jar $PICARD SamToFastq I=input.bam FASTQ=output.fastq
 ```
 
 ## Support

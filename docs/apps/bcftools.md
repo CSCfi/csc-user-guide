@@ -46,7 +46,9 @@ variants from an alignment:
 bcftools mpileup -f reference.fa aln.bam | bcftools call -mv -Oz -o calls.vcf.gz
 ```
 
-Many subcommands can use several threads with the `--threads` option.
+Several BCFtools subcommands support the `--threads` option.
+For commands using the common BCFtools threading option, additional threads are currently
+used for compression of compressed BCF (`-Ob`) or VCF (`-Oz`) output rather than for parallelizing the main analysis.
 
 ### Example batch script
 
@@ -60,13 +62,13 @@ Many subcommands can use several threads with the `--threads` option.
 #SBATCH --time=04:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=2G
 
 module load bio-apps/v202603
 module load bcftools/1.23.1
 
-bcftools mpileup -f reference.fa aln.bam | bcftools call -mv -Oz -o calls.vcf.gz
+bcftools mpileup -Ou -f reference.fa aln.bam | bcftools call -mv -Oz -o calls.vcf.gz
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).

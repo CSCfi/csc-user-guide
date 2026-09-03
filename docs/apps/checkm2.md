@@ -75,7 +75,7 @@ module load bio-apps/v202603
 module load checkm2/1.1.0
 
 checkm2 predict --threads $SLURM_CPUS_PER_TASK \
-    --database_path /scratch/<project>/checkm2_db/*.dmnd \
+    --database_path /scratch/<project>/checkm2_db/CheckM2_database/*.dmnd \
     --input bins/ --output-directory checkm2_out -x fa
 ```
 

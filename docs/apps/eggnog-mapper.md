@@ -51,8 +51,10 @@ Download the databases with `download_eggnog_data.py` and point eggNOG-mapper at
 with `--data_dir` (or the `EGGNOG_DATA_DIR` environment variable):
 
 ```bash
-download_eggnog_data.py --data_dir /scratch/<project>/eggnog_db
+download_eggnog_data.py -y --data_dir /scratch/<project>/eggnog_db
 ```
+
+The `-y` flag in the above command can be included e.g. in scripts and batch jobs to skip a confirmation prompt before the download proceeds.
 
 ### Running eggNOG-mapper
 

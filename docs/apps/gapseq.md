@@ -36,6 +36,28 @@ module load bio-apps/v202603
 module load gapseq/2.1.0
 ```
 
+### Reference sequence database
+
+gapseq requires a reference sequence database for sequence searches. If a shared
+database is not available on Roihu, download it to a writable location such as your
+project's `/scratch` directory.
+
+For bacterial genomes:
+
+```bash
+DB=/scratch/<project>/gapseq_db
+
+gapseq update-sequences \
+    -t Bacteria \
+    -D "$DB"
+```
+
+For archaeal genomes, replace `Bacteria` with `Archaea`.
+
+Specify the same database directory with `-D` when running gapseq.
+
+### Running gapseq
+
 The full pipeline (pathway prediction, network building and gap-filling) can be run on
 a genome with the `doall` subcommand:
 
@@ -63,7 +85,12 @@ jobs:
 module load bio-apps/v202603
 module load gapseq/2.1.0
 
-gapseq doall genome.fna.gz
+DB=/scratch/<project>/gapseq_db
+
+gapseq doall \
+    -K "$SLURM_CPUS_PER_TASK" \
+    -D "$DB" \
+    genome.fna.gz
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).

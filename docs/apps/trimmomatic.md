@@ -79,7 +79,7 @@ Example batch job script:
 module load bio-apps/v202603
 module load trimmomatic/0.39
 
-trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred64 \
+trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 \
 forward.fq.gz reverse.fq.gz \
 out_fw_paired.fq.gz out_fw_unpaired.fq.gz out_rev_paired.fq.gz out_rev_unpaired.fq.gz \
 ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10 \
