@@ -46,7 +46,7 @@ metaphlan --help
 MetaPhlAn can automatically retrieve the MetaPhlAn database and create the Bowtie2 
 indexes it needs on-the-fly when the command is executed. By default MetaPhlAn 
 saves these index files to the MetaPhlAn installation directory, but on Roihu
-this installation is read-only, so this is not possible. Because of that, users should use the option `--bowtie2db` 
+this installation is read-only, so this is not possible. Because of that, users should use the option `--db_dir` 
 to define a directory that will be used to store the database and index files.
 
 !!! info "Shared reference databases"
@@ -76,7 +76,7 @@ By default, the latest MetaPhlAn database is downloaded and built. You can downl
 metaphlan --install --index mpa_vJan21_CHOCOPhlAnSGB_202103 --db_dir metaphlan_databases
 ```
 
-When running MetaPhlAn analyses you must include the `--bowtie2db` option, and also `--index`
+When running MetaPhlAn analyses you must include the `--db_dir` option, and also `--index`
 if using a non-default database. If the database is not found in the indicated location, it will be automatically generated.
 
 A test input dataset for testing MetaPhlAn can be downloaded from the MetaPhlAn github site:
