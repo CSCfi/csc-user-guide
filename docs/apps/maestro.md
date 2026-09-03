@@ -135,7 +135,7 @@ For actual simulations we recommend using Roihu-CPU or LUMI as follows:
         #SBATCH --cpus-per-task=16
         #SBATCH --mem-per-cpu=2000M
 
-        module load maestro/2026.2
+        module load maestro/2026.3
 
         # Start a local job server
         ${SCHRODINGER}/jsc local-server-start
@@ -158,7 +158,9 @@ For actual simulations we recommend using Roihu-CPU or LUMI as follows:
         #SBATCH --mem-per-cpu=2000M
 
         module use /appl/local/csc/modulefiles
-        module load maestro/2026.2
+        module load maestro/2026.3
+
+        export SCHRODINGER_LICENSE_SERVERS='<server:port>' # See instructions at https://wiki.eduuni.fi/x/XbbHBw
 
         # Start a local job server
         ${SCHRODINGER}/jsc local-server-start
@@ -181,7 +183,9 @@ For actual simulations we recommend using Roihu-CPU or LUMI as follows:
         #SBATCH --mem-per-cpu=2000M
 
         module use /appl/local/csc/modulefiles
-        module load maestro/2026.2
+        module load maestro/2026.3
+
+        export SCHRODINGER_LICENSE_SERVERS='<server:port>' # See instructions at https://wiki.eduuni.fi/x/XbbHBw
 
         # Start a local job server
         ${SCHRODINGER}/jsc local-server-start
