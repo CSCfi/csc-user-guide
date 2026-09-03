@@ -60,29 +60,52 @@ Keep **Data Gateway** open and click **Open folder**.
 
 After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only (orange lock icon).
 
-1. Right-click the folder copied to **Volume** and select **Properties** to adjust folder permissions.
-    * Open the **Permissions** tab.
-    * Set permissions to Create and Delete Files so they remain accessible when the volume is reattached to a different virtual desktop.
-        1. Owner -> Access -> Select “Create and delete files”.
-        2. Group -> Access -> Select “Create and delete files”.
-        3. Others -> Access -> Select “Create and delete files”.
-        4. Close the permission tab (top right corner).
-        5. The orange lock icon will no longer be visible next to the folder and can now be edited by all project members.
+With the steps below, you ensure that all project members have read and write access to all files and folders. This prevents possible access issues when the volume is used on different virtual desktop, where file ownership information may be handled differently.
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions1.png)
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+??? default "Method 1: Use CSC Tools to set access permissions"
 
-2. Next select **Change Permissions for Enclosed Files** to adjust file permissions inside the folder.
-    * Set permissions to:
-        1. Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        2. Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        3. Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        4. Click **Change**.
-        5. Close the permission tab (top right corner).
-        6. The orange lock icon will no longer be visible next to the files and can now be edited by all project members.     
+    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+    3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
 
-![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+    4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
+    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
+    6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
+    7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
+    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
+
+
+??? default "Method 2: Set access permissions manually"
+
+    By default, permissions are limited to your access only (orange lock icon).
+
+    1. Right-click the folder and select **Properties**.
+    2. Open the **Permissions** tab.
+    3. Set permissions to **Create and Delete Files**:
+       
+        * Owner -> Access -> Select “Create and delete files”.
+        * Group -> Access -> Select “Create and delete files”.
+        * Others -> Access -> Select “Create and delete files”.
+            
+        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
+
+    * Next select **Change Permissions for Enclosed Files** button to adjust file permissions inside the folder.
+    * Set permissions to **Create and Delete files**:
+
+        * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
+        * Click **Change**.
+
+        ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
+
+    5. Close the permission tab (top right corner).
+    
+    The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
+        
+    **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
 
 !!! Note
     If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.

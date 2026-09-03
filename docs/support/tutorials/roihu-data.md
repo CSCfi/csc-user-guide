@@ -19,9 +19,7 @@
 !!! warning "Mahti and Puhti shutdown in Fall 2026"
      Mahti and Puhti are being decommissioned by October 2026.
 
-     * Puhti computing services will be shut down 31 July 2026 at 12:00 EEST.
-     * Mahti computing services will be shut down 31 August 2026 at 12:00 EEST.
-     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
+     * Puhti and Mahti computing services have been shut down.
 
      Puhti and Mahti storage services will be decommissioned 15 October 2026 at 12:00 EEST, but
      are not covered by service contracts after end of August.
