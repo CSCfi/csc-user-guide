@@ -29,15 +29,15 @@ Deep learning framework for Python.
 
 Currently supported TensorFlow versions:
 
-| Version | Module                   | Roihu-GPU | Roihu-CPU | LUMI | Notes                |
-|:--------|:-------------------------|-----------|-----------|:----:|----------------------|
-| 2.21.0  | `python-tensorflow/2.21` | X         | X         |  -   | Default on Roihu-GPU |
-| 2.16.1  | `tensorflow/2.16`        |           |           |  X   | Default on LUMI      |
-| 2.12.0  | `tensorflow/2.12`        |           |           |  X   |                      |
-| 2.11.0  | `tensorflow/2.11`        |           |           |  X   |                      |
-| 2.10.0  | `tensorflow/2.10`        |           |           |  X   |                      |
-| 2.9.0   | `tensorflow/2.9`         |           |           |  X   |                      |
-| 2.8.0   | `tensorflow/2.8`         |           |           |  X   |                      |
+| Version | Module                   | Roihu-GPU | Roihu-CPU | LUMI | Notes            |
+|:--------|:-------------------------|-----------|-----------|:----:|------------------|
+| 2.21.0  | `python-tensorflow/2.21` | X         | X         |  -   | Default on Roihu |
+| 2.16.1  | `tensorflow/2.16`        |           |           |  X   | Default on LUMI  |
+| 2.12.0  | `tensorflow/2.12`        |           |           |  X   |                  |
+| 2.11.0  | `tensorflow/2.11`        |           |           |  X   |                  |
+| 2.10.0  | `tensorflow/2.10`        |           |           |  X   |                  |
+| 2.9.0   | `tensorflow/2.9`         |           |           |  X   |                  |
+| 2.8.0   | `tensorflow/2.8`         |           |           |  X   |                  |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and
 [Keras](https://keras.io/) with GPU support via CUDA/ROCm. The version
@@ -66,7 +66,8 @@ TensorFlow is licensed under [Apache License
 
 ## Usage
 
-To use the default version of TensorFlow on Roihu-GPU, initialize it with:
+To use the default version of TensorFlow on Roihu-GPU or Roihu-CPU,
+initialize it with:
 
 ```text
 module load python-tensorflow
@@ -83,7 +84,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load python-tensorflow/2.21  # on Roihu-GPU
+module load python-tensorflow/2.21  # on Roihu
 module load tensorflow/2.12         # on LUMI
 ```
 
@@ -93,7 +94,7 @@ Please note that the modules already include CUDA/ROCm libraries, so
 This command will also show all available versions:
 
 ```text
-module avail python-tensorflow  # on Roihu-GPU
+module avail python-tensorflow  # on Roihu
 module avail tensorflow         # on LUMI
 ```
 
