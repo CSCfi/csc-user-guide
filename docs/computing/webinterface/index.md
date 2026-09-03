@@ -34,7 +34,7 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
 
 ## Available features
 
-- **Features available in the Roihu and Mahti web interfaces:**
+- **Features available in the Roihu web interface:**
     - View, download, upload and move files between Allas, the supercomputer
       and your local computer
     - Open a shell on the login node
@@ -42,21 +42,21 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
     - View running batch jobs
     - View disk quotas and project status
     - Launch interactive apps and connect to them directly from the browser:
-        - Accelerated Visualization with applications such as Blender and ParaView (Roihu only)
+        - Accelerated Visualization with applications such as Blender and ParaView
         - Desktop with applications such as Maestro and VMD
         - Julia-Jupyter
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
-        - marimo (Roihu only)
+        - marimo
         - MATLAB
         - MLflow
-        - R-Jupyter (Roihu and Mahti only)
+        - R-Jupyter
         - RStudio
         - TensorBoard
         - Visual Studio Code
-- **Features available in the Puhti web interface:**
-    - Puhti compute services have been decommissioned. Use the Puhti web interface only for login node
+- **Features available in the Puhti and Mahti web interfaces:**
+    - Puhti and Mahti compute services have been decommissioned. Use the web interfaces only for login node
       connections, or for inspecting or moving data from the file system.
 
 ### Shell
@@ -126,12 +126,6 @@ partitions are available. In the [Accelerated Visualization app](accelerated-vis
 page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues on
 Roihu.
 
-In the **Mahti web interface**, the `interactive`, `small` and `gpusmall`
-partitions are available. Selecting the `gpusmall` partition will allocate a
-split Nvidia A100 GPU (a100_1g.5g) with 1/7th of the compute capacity of a full
-A100. For more details about the split GPUs on Mahti, see the
-[Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).
-
-Puhti computing services have been retired as of 31 July 2026, so in the
-**Puhti web interface**, you can only access login node resources and inspect the
+Puhti and Mahti computing services have been retired, so in the
+**Puhti and Mahti web interfaces**, you can only access login node resources and inspect the
 storage in the system, until full retirement on 15 October 2026.

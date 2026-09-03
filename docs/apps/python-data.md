@@ -648,7 +648,7 @@ list-packages
 
 !!! warning
 
-    Note that Roihu login nodes are not intended for heavy computing, please use
+    Note that login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
     system](../computing/running/getting-started.md).
 
@@ -656,7 +656,6 @@ Please also check [CSC's general Python documentation](python.md).
 
 ### Local storage
 
-All nodes in Roihu have fast local storage which is useful for
-IO-intensive applications. See our [general instructions on how to
-take the fast local storage into
-use](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
+Roihu nodes have fast local storage which is useful for
+I/O-intensive applications. See our general instructions on
+[how to use local temporary storage on Roihu](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
