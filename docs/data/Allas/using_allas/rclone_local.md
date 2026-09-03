@@ -68,9 +68,9 @@ And do following selections:
    4. Next you are asked to Choose your S3 provider. Select option that provides _Any other S3 compatible provider_
    5. Then select that you _Enter AWS credentials in the next step_ 
    6. Give the _AWS access key_. You can check this in Roihu with command: 
-   `grep access_key $HOME/.s3cfg  | cut -d " " -f3`
+   `grep access_key $HOME/.s3cfg  | awk '{print $3}'`
    7. Give the _AWS secret access key_. You can check this in Roihu with command: 
-   `grep secret_key $HOME/.s3cfg  | cut -d " " -f3`
+   `grep secret_key $HOME/.s3cfg  | awk '{print $3}'`
    8. Region: **1**
    9. Endpoint: **a3s.fi**
    10. Location constant: (blank, just press Enter)
