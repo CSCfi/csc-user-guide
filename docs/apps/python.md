@@ -64,7 +64,6 @@ Roihu has several pre-installed
 Python environments made for different science areas.
 
 In Roihu: 
-
 | Module name | Purpose | Roihu-CPU/Roihu-GPU |
 |-|-|-|
 | [python-geo](python-geo.md) | geoinformatics | CPU |
