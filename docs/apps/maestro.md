@@ -10,6 +10,7 @@ catalog:
     - Biosciences
   available_on:
     - Roihu
+    - LUMI
 ---
 
 # Maestro
@@ -36,8 +37,8 @@ self-learning materials.
 
 ## Available
 
-* Roihu-CPU: 2025.1, 2025.2, 2025.3, 2025.4, 2026.1
-* LUMI: 2025.1, 2025.2, 2025.3, 2025.4, 2026.1
+* Roihu-CPU: 2025.1, 2025.2, 2025.3, 2025.4, 2026.1, 2026.2, 2026.3
+* LUMI: 2026.1, 2026.2, 2026.3
 
 A two-year cleaning cycle is applied on the Maestro modules on CSC
 supercomputers. Specifically, this means that module versions older than two

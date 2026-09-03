@@ -20,7 +20,7 @@ and to prepare data for support requests.
 
 The recommended way to run Maestro jobs on Puhti is to create the input files on
 your local computer and instead of running them, write them to disk. The procedure
-is shown in [a video](../../apps/maestro.md#standalone-usage-on-puhti) on our
+is shown in a video on our
 main Maestro page. Use e.g. `scp` on your local machine to copy the inputs to
 Puhti (edit your username and project accordingly):
 
