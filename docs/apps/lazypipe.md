@@ -93,4 +93,4 @@ lazypipe.pl --filters
 ## More information
 
 *   [Lazypipe home page](https://www.helsinki.fi/en/projects/lazypipe)
-*   [Lazypipe UserGuide FIXME](https://bitbucket.org/plyusnin/lazypipe/wiki/UserGuide.v3.0)
+*   [Lazypipe UserGuide](https://www.helsinki.fi/en/projects/lazypipe/user-guide)
