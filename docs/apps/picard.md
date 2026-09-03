@@ -8,16 +8,13 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Picard Tools
 
-
-
 Picard is a set of command line tools for manipulating high-throughput
 sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
-
 
 [TOC]
 
@@ -27,49 +24,47 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 
 ## Available
 
-
-- Puhti:  2.27.4, 2.27.5, 3.0.1,  3.1.1
+* Roihu: 3.3.0, via the `bio-apps` module.
 
 ## Usage
 
-To load Picard, load module:
+Picard is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Picard module:
+
 ```bash
-module load picard
+module load bio-apps/v202603
+module load picard/3.3.0
 ```
 
-Note: The `biokit` module comes with Picard version 2.27.5 due to Java version compatibility
-with other software. To use newer version of Picard, load the `picard` module.
-
 To get a summary of available tools:
+
 ```bash
 picard
 ```
 
-Please note that in the Picard manual commands start with "java -jar
-picard.jar". In Puhti it is easiest to run Picard through a wrapper script,
-so substitute that with just `picard`.
+Please note that in the Picard manual commands start with `java -jar
+picard.jar`. On Roihu it is easiest to run Picard through the `picard`
+wrapper, so substitute that with just `picard`.
 
 Example:
+
 ```bash
-picard SamToFASTQ I=input.bam FASTQ=output.fastq
+picard SamToFastq I=input.bam FASTQ=output.fastq
 ```
 
-By default picard can use up to 8 GB  of memory. If your analysis task
-requires more memory, you can launch picard with commands, `picard16`, `picard32`
-and `picard64` that reserve 16, 32 or 64 GB of memory respectively.
+If you need to specify Java options for Picard (for example to control the
+Java heap size), you can run the jar directly with `java` — the module sets
+the `$PICARD` environment variable to the Picard jar file.
 
 Example:
+
 ```bash
-picard16 SamToFASTQ I=input.bam FASTQ=output.fastq
+java -Xmx16g -jar $PICARD SamToFastq I=input.bam FASTQ=output.fastq
 ```
 
-If you need to specify Java options for Picard you can use `java -jar $PICARD`.
+## Support
 
-Example:
-```bash
-java -Xmx128g -jar $PICARD  SamToFASTQ I=input.bam FASTQ=output.fastq
-```
-
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

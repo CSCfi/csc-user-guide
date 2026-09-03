@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Structure
@@ -24,85 +24,74 @@ It can be applied to most of the commonly-used genetic markers, including SNPS, 
 
 ## License
 
-- Structure is free to use and open source, but no license is specified.
-- StrAuto is free to use and open source, but no license is specified.
-- strasuto-puhti is free to use and open source, but no license is specified.
-- structureHarvester is free to use and open source under its own [License](https://github.com/dentearl/structureHarvester/blob/master/LICENSE)
-- CLUMPP is free to use, but no license is specified.
+Structure is free to use. Source code is available from the upstream website, but no explicit open-source license is specified.
 
 ## Available
 
-* Puhti: 2.3.4
+* Roihu: 2.3.4, via the `bio-apps` module.
 
 ## Usage
 
-To use Structure in Puhti, run first the following setup commands:
+Structure is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Structure module:
 
 ```bash
-module load biokit
-module load structure
+module load bio-apps/v202603
+module load structure/2.3.4
 ```
 
-In addition to the `structure` command, the Structure module makes available programs [CLUMPP](https://web.stanford.edu/group/rosenberglab/clumpp.html) and [structureHarvester](https://github.com/dentearl/structureHarvester/) that can be used for post-processing Structure results.
-
-On Puhti, we recommend that you submit your Structure jobs using a help tool called `strauto-puhti`.
-This tool is a modified version of [StrAuto](http://dx.doi.org/10.1186/s12859-017-1593-0) Structure
-job submission tool. Note that many details in the StrAuto manual do not apply to `strauto-puhti`.
-
-Next, move to the scratch directory of your project. Any subdirectory inside your scratch area will do.
-For example:
+Structure reads its run settings from `mainparams` and `extraparams` files in the
+working directory. Prepare these files (along with your genotype data file), then
+run Structure with:
 
 ```bash
-cd /scratch/project_xxxxxx/$USER
+structure
 ```
 
-Create a new empty directory:
+You can also point Structure at specific files and options on the command line, for example:
 
 ```bash
-mkdir structure_job1
+structure -m mainparams -e extraparams -K 3 -i infile -o outfile
 ```
 
-Next, you need to copy or create to this directory the two input files used by `strauto-puhti` program.
-The parameter file must always be named as `input.py`. The name of the actual data file is defined in
-`input.py`. The data file name should end with `.str` or `.ustr`.
-
-A sample file provided by StrAuto can be copied to your current directory with the commands:
+Structure runs are single-core and can be long, so real analyses should be run as batch jobs. Below is a simple example batch job script:
 
 ```bash
-cd structure_job1
-cp /appl/soft/bio/structure/strauto/input.py ./  
-cp /appl/soft/bio/structure/strauto/sim.str ./ 
+#!/bin/bash
+#SBATCH --job-name=structure
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=12:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=4G
+
+module load bio-apps/v202603
+module load structure/2.3.4
+
+structure
 ```
 
-When the input file has been prepared, the Structure job can be launched with the command:
+Replace `<project>` with your CSC project (for example `project_2001234`).
 
-```bash
-strauto-puhti
-```
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
-StrAuto first asks you to check and accept Structure parameters and after that
-submits the Structure job to the batch job system of Puhti. After that
-it starts monitoring the progress of your job.
+### Automating Structure and post-processing
 
-You can leave the monitor process running, but if you want to stop it, press
-`Ctrl-c`.
+Related tools for running and post-processing Structure analyses are available as
+separate modules in bio-apps:
 
-The structure jobs will still continue their execution in the batch job system
-of Puhti. If you run the command:
+* [StrAuto](strauto.md) (`strauto`) — automate Structure across a range of *K* values and replicate runs, and chain the results into the Evanno ΔK analysis.
+* `structureharvester` — StructureHarvester, for parsing Structure results and applying the Evanno ΔK method.
+* `clumpp` — CLUMPP, for aligning replicate cluster assignments across runs.
 
-```bash
-strauto-puhti
-```
+## Support
 
-in the same directory again it will check the status of structure jobs and do the
-post-processing of the results if all the Structure-related tasks have finished.
-
-Note that `strauto-puhti` does not use the internal, GNU-parallel based, parallelization.
-Instead, parallelization is based on array jobs. Because of this, you should not change 
-the _parallel_ parameter value to _True_ in the structure input file. 
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 
 * [Structure home page](https://web.stanford.edu/group/pritchardlab/structure.html)
-* [StrAuto home page ](https://vc.popgen.org/software/strauto/)
-* [StructureHarvester home page](https://alumni.soe.ucsc.edu/~dearl/software/structureHarvester/)
