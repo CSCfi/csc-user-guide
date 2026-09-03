@@ -70,7 +70,7 @@ In Roihu:
 | [python-data](python-data.md) | data analysis and ML utilities | CPU/GPU |
 | [python-pytorch](pytorch.md) | PyTorch ML framework | CPU/GPU |
 | [python-vllm](vllm.md) | LLM inference | GPU |
-| [python-tensorflow](tensorflow.md) | Tensorflow ML framework | GPU |
+| [python-tensorflow](tensorflow.md) | Tensorflow ML framework | CPU/GPU |
 | [python-jax](jax.md) | JAX ML framework | GPU |
 
 To use any of the above environments, simply load the corresponding module
