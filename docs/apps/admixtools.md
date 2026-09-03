@@ -23,8 +23,7 @@ command-line programs, including `qpDstat` (D-statistics), `qp3Pop` (f3-statisti
 
 ## License
 
-Free to use and open source under the
-[AdmixTools license](https://github.com/DReichLab/AdmixTools/blob/master/LICENSE).
+AdmixTools may be freely copied for non-commercial purposes, provided the upstream copyright notice is retained. See the AdmixTools [README](https://github.com/DReichLab/AdmixTools/blob/master/README) for licensing terms.
 
 ## Available
 
