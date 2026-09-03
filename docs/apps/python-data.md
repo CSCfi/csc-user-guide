@@ -18,26 +18,8 @@ Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
      **31.3.2026** Python-data is now available on Roihu. The default version on Roihu-CPU is `python-data/3.12-31.03` and
-     `python-data/3.12-20.04` on Roihu-GPU.
-
-     **12.9.2025** Installed `python-data/3.12-25.09` with newer packages of popular Python 
-     modules.
-
-     **2.5.2024** Installed `python-data/3.10-24.04` with newer packages of popular Python 
-     modules.
-
-    **28.11.2023** Installed `python-data/3.10-23.11` with newer packages of popular Python 
-     modules.
-
-     **28.11.2023** Installed `python-data/3.10-23.11` with newer packages of popular Python 
-     modules.
-
-     **4.7.2023** Installed `python-data/3.10-23.07` with newer packages of popular Python 
-     modules.
-
-    **28.10.2022** Module `python-data/3.8` was added for those who
-    specifically need Python 3.8.
-
+     `python-data/3.12-20.04` on Roihu-GPU. 
+     
 
 ## Available
 
