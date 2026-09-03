@@ -1,6 +1,6 @@
 # Using Allas with Rclone 
 
-This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others). At the moment, the Swift protocol is the default option on the CSC servers. 
+This chapter contains instructions for using Allas with [Rclone](https://rclone.org/) in the Puhti and Mahti computing environments. _Rclone_ provides a very powerful and versatile way to use Allas and other object storage services. It is able to use both the S3 and Swift protocols (and many others). At the moment, the S3 protocol is the default option on the CSC Roihu server. 
 
 > **WARNING:** Rclone should not be used to copy, move or rename objects **inside** Allas. Rclone provides commands for these operations but they don't work correctly for files larger than 5 GB.
 > 
@@ -35,49 +35,83 @@ A more extensive list can be found on the [Rclone manual pages](https://rclone.o
 
 ## Authentication on CSC supercomputers
 
-Below, we describe how Rclone is used in CSC computing environment (Puhti and Mahti). You can use [Rclone also in your local computer](./rclone_local.md). 
+Below, we describe how Rclone is used in Roihu supercomputer. You can use [Rclone also in your local computer](./rclone_local.md). 
 
 
-The first step is to configure connection to a project in Allas. Rclone can use both Swift and S3 protocols but these connections will have different names in rclone commands. 
+The first step is to configure connection to a project in Allas. Rclone can use both S3 and Swift protocols but these connections will have different names in rclone commands. 
 
 
- [`allas-conf`](allas-conf.md#allas-conf-configure-connection) for more info and additional options.
+Check [`allas-conf`](allas-conf.md#allas-conf-configure-connection) for more info and additional option
+
+
+### S3 connection to Allas
+
+You can define a new S3 connection to Allas with command:
+
+```text
+allas-conf  project_proj-number
+```
+or
+
+```text
+allas-conf
+```
+
+First allas-conf asks you to give your CSC password (Haka-password can't be used here).  After that, if target project is not given as an argument, it lists all available Allas projects and asks user to pick one. ( Note that allas-conf has often problems with passwords that have characters that have special meaning in bash shell.  For example space, *,  ;  and different quotation marks can cause allas-conf to fail).
+
+The project specific access key pair is stored to the configuration file of rclone in your home directory ($HOME/config/rclone/rclone.conf). Due to this the configuration is not session specific, but applies to all sessions that utilize rclone. S3 keys are permanent so you need to run allas-conf command again only when you wish to set a new default S3 connection in use. Thus, in case of S3 based Allas usage, you normally need just to load the Allas module and then start using Allas.  
+
+
+Allas conf defines two rclone remotes **s3allas:** and **s3allas-project-_proj-number_:**. Both remotes refer to the same Allas project. When a new project is defined with allas-conf, the s3allas: endpoint is changed
+to refer to the new project, but the older project specific endpoint is preserved in addition to the new project specific endpoint that gets generated. 
+
+For example after commands:
+
+```text
+allas-conf project_200111
+allas-conf project_200222
+```
+
+Following remotes are available:
+
+| Rclone remote                  | Target project |
+|--------------------------------|----------------|
+| rclone s3allas:                | project_200222 |
+| rclone s3allas-project_200111: | project_200111 |
+| rclone s3allas-project_200222: | project_200222 |
+
+
+
 
 ### Rclone with swift 
 
-The default protocol of Allas is Swift. In Puhti and Mahti Swift based Allas connection is activated  with commands:
+If need to use rclone with Swift based Allas connection, for example for accessing data that your stored to Allas from Puhti and Mahti, the connection
+is activated with commands:
 ```text
 module load allas
-allas-conf
+allas-conf --swift
 ```
 In Rclone commands, this Swift based connection is referred with remote name `allas:`. 
 
-### Rclone with S3
+In the examples below the S3 based `s3allas:` remote definition is used, but if you have Swift connection defined, you could replace it
+with `allas:`. 
 
-If you want to use Allas with the S3 protocol instead, run:
-```text
-module load allas
-allas-conf --mode S3
-```
-This command opens permanent S3 based connection to Allas. Rclone can now refer to this connection with remote name `s3allas:`.
-In the examples below the swift based `allas:` remote definition is used, but if you have S3 connection defined, you could replace it
-with `s3allas:`. 
-
-Note, that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects. However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
+Note, that you can have both `allas:` and `s3allas:` functional in the same time and that they can still use different Allas projects.
+However, you should avoid mixing protocols. If an object is loaded using `allas:` do also all operations with `allas:`.  
 
 
 
 ## Create buckets and upload objects
 
-The data in Allas is arranged into containers called buckets. You can consider them as root-level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets-and-objects) for how to name a bucket.
+The data in Allas is arranged into containers called buckets. You can consider them as root-level directories. All buckets in Allas must have unique names – you cannot create a bucket if some other project has already used that bucket name. It is a good rule of thumb to have something project- or user-specific in the bucket name, e.g. _2000620-raw-data_. See the [checklist](../introduction.md#naming-buckets-and-objects) for how to name a bucket. Further avoid upper case letters and spcial characters, including uderscore (_) in the bucket names. In the object names inside the bucket these scahracters are allowed.
 
 In the case of _Rclone_, create a bucket:
 ```text
-rclone mkdir allas:2000620-raw-data
+rclone mkdir s3allas:2000620-raw-data
 ```
 Upload a file using the command ```rclone copy```:
 ```text
-rclone copy file.dat allas:2000620-raw-data/
+rclone copy file.dat s3allas:2000620-raw-data/
 ```
 The command above creates an object _file.dat_ in the bucket _2000620-raw-data_.
 If you use `rclone move` instead of `rclone copy`, the local version of the uploaded file (file.dat)
@@ -90,7 +124,7 @@ During upload, files that are larger than 5 GB will be split and stored as sever
 ## List buckets and objects
 
 List all the buckets belonging to a project:
-<pre><b>rclone lsd allas:</b>
+<pre><b>rclone lsd s3allas:</b>
 0 2019-06-06 14:43:40         0 2000620-raw-data
 </pre>
 
@@ -103,12 +137,12 @@ List the content of a bucket:
 
 Use the same `rclone copy` and `rclone copyto` commands to download a file:
 ```text
-rclone copy allas:2000620-raw-data/file.dat
+rclone copy s3allas:2000620-raw-data/file.dat
 ```
 
 If you include a destination parameter in the download command, Rclone creates a directory for the download:
 ```text
-rclone copy allas:2000620-raw-data/file.dat doh
+rclone copy s3allas:2000620-raw-data/file.dat doh
 ```
 
 <pre><b>ls doh</b>
@@ -142,7 +176,7 @@ An example of using _sync_ (note that the destination parameter requires the fol
 rclone sync mydata allas:2000620-raw-data/mydata
 ```
 
-<pre><b>rclone ls allas:2000620-raw-data</b>
+<pre><b>rclone ls s3allas:2000620-raw-data</b>
    677972 mydata/file1.txt
     10927 mydata/setA/file2.txt
      1116 mydata/setB/file3.txt
@@ -153,7 +187,7 @@ Let us assume that we are storing new data (_file5.txt_ and _file6.txt_) in the 
 
 <pre><b>rclone sync mydata allas:2000620-raw-data/mydata</b>
 
-<b>rclone ls allas:2000620-raw-data</b>
+<b>rclone ls s3allas:2000620-raw-data</b>
    677972 mydata/file1.txt
     10927 mydata/setA/file2.txt
      5075 mydata/setB/file4.txt
@@ -170,7 +204,7 @@ This command returns the uploaded data from Allas to the _mydata_ directory. Not
 
 ## Copying files directly between object storages
 
-Rclone can also be used to directly copy files from another object storage (e.g. [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) to Allas. For this both credentials need to be stored in a Rclone configuration file in the users home directory (`.config/rclone/rclone.conf`). An example is shown below:
+Rclone can also be used to directly copy files from another object storage (e.g. [Lumi-O](https://docs.lumi-supercomputer.eu/storage/lumio/),  [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Google cloud](https://cloud.google.com/learn/what-is-object-storage), [CREODIAS](https://creodias.eu/cloud/cloudferro-cloud/storage-2/object-storage/),...) to Allas. For this both credentials need to be stored in a Rclone configuration file in the users home directory (`.config/rclone/rclone.conf`). An example is shown below:
 
 ```
 [s3allas]
@@ -191,9 +225,9 @@ secret_access_key = yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 endpoint = yourotherendpoint.com
 acl = private
 ```
-The configuration for Allas is added automatically when configuring Allas in s3 mode 
+The configuration for Allas is added automatically when configuring Allas in S3 mode 
 
-`source allas_conf --mode s3cmd` .
+`allas-conf` 
 
 After creating/updating this file, Rclone can be used to copy files
 

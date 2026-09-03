@@ -9,12 +9,11 @@ The easiest general option to set up Allas connection configuration is to use `a
 * Can be installed to Linux and Mac, but not Windows.
 * Suits well, if only one CSC project at a time in use for Allas.
 
-Alternatively, one can use [Puhti or Mahti web interface](../../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o):
+Alternatively, one can use [Roihu web interface](../../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o):
 
 * Sets up connection configuration for web interface file section and `rclone`, but not other Allas clients.
 * Swift or S3 connection
-* Available in web-interface, so no installations needed for using it, but the CSC project must have Puhti or Mahti service enabled.
-* Suits well, if one or several CSC projects in use for Allas.
+* Available in web-interface, so no installations needed for using it, but the CSC project must have Roihu service enabled.
 
 
 ## `allas-conf` availability
@@ -25,40 +24,11 @@ Available on CSC supercomputers with **allas** module. Can be (installed)[allas-
 module load allas
 ```
 
-## `allas-conf` configure connection
-### SWIFT connection
+## Using `allas-conf` to configure connections to Allas, SD Connect and Lumi-O
 
-is valid for up to **eight hours**
+### S3 connection to Allas
 
-Configure Allas access using Swift protocol:
-```text
-allas-conf
-```
-The `allas-conf` command prompts for your CSC password (University/Haka password will not work here). It lists your Allas projects and asks you to define a project (if not already defined as an argument). 
-
-By default, `allas-conf` lists your projects that have access to Allas, but if you know the name of the project, you
-can also give it as an argument:
-```text
-allas-conf project_201234
-```
-
-`allas-conf` enables you to use only one Allas project at a time in one session. You can switch to another project by running `allas-conf` again.
-
-Note that the Allas project does not need to be the same as the project you are using in Puhti or Mahti.
-
-`allas-conf` generates Swift configuration files for : `a-tools, `rclone` and `swift`.
-
-The authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
-
-If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipeline takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
-```text
-allas-conf -k
-```
-With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
-
-### S3 connection
-
-To enable S3 protocol, use option `-m S3`
+To enable S3 protocol in Roihu, use command `allas-conf`.  In Puhti and Mahti you must add option `-m S3`
 ```text
 allas-conf -m S3
 ```
@@ -86,6 +56,39 @@ allas-conf --s3remove
     Remember to be careful and security-aware when configuring S3 connection to Allas. The S3 keys are stored in a readable format in your home directory and anyone who can read your keys can access Allas until the keys are expilicitly revoked from Allas. Removing the keys from your own computer is not enough to deactivate them.
 
 
+
+### SWIFT connection to Allas
+
+Swift connection is valid for up to **eight hours**
+
+Configure Allas access using Swift protocol:
+```text
+allas-conf --swift 
+```
+The `allas-conf` command prompts for your CSC password (University/Haka password will not work here). It lists your Allas projects and asks you to define a project (if not already defined as an argument). 
+
+By default, `allas-conf` lists your projects that have access to Allas, but if you know the name of the project, you
+can also give it as an argument:
+```text
+allas-conf project_201234
+```
+
+`allas-conf --swift` enables you to use only one Allas project at a time in one session. You can switch to another project by running `allas-conf` again.
+
+Note that the Allas project does not need to be the same as the project you are using in Roihu.
+
+`allas-conf --swift` generates Swift configuration files for : `a-tools, `rclone` and `swift`.
+
+The authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
+
+If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipeline takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
+```text
+allas-conf -k
+```
+With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
+
+
+
 ## `allas-conf` installation 
 
 `allas-conf` can be installed only to Linux or Mac. 
@@ -104,6 +107,8 @@ For example:
 source allas_conf --user your-csc-username -p your-csc-project-name
 source allas_conf --user your-csc-username -p your-csc-project-name -m S3
 source allas_conf --user your-csc-username -p csc-project-name --s3remove
+source allas_conf --user your-csc-username --lumi
+source allas_conf --user your-csc-username --sdc
 ```
 
 ## S3 connection details

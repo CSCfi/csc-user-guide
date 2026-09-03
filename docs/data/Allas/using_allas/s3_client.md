@@ -4,77 +4,7 @@
 This chapter describes how to use the Allas object storage service with the **s3cmd** command line client. This client uses
 the _S3_ protocol that differs from the _Swift_ protocol used in the [Rclone](./rclone.md), [swift](./swift_client.md) and [a-commands](./a_commands.md) examples. Normally data uploaded with S3 can be utilized with swift protocol too. However, over 5 GB files uploaded to Allas with swift can't be downloaded with S3 protocol.
 
-From the user perspective, one of the main differences between S3 and Swift protocols is that Swift based connections remain valid for eight hours at a time, but with S3, the connection remains permanently open. The permanent connection is practical in many ways but it has a security aspect: if your CSC account is compromised, so is the object storage space.
 
-Use version 2.0.2 or later.
-
-The syntax of the `s3cmd` command:
-```text
-s3cmd -options command parameters
-```
-
-The most commonly used _s3cmd_ commands:
-
-| s3cmd command | Function |
-| :---- | :---- |
-| mb | Create a bucket |
-| put | Upload an object |
-| ls | List objects and buckets |
-| get | Download objects and buckets |
-| cp | Move object |
-| del | Remove objects or buckets |
-| md5sum | Get the checksum |
-| info | View metadata |
-| signurl | Create a temporary URL |
-| put -P | Make an object public |
-| setacl --acl-grant | Manage access rights |
-
-
-The table above lists only the most essential _s3cmd_ commands. For more complete list, visit the [s3cmd manual page](https://s3tools.org/usage) or type:
-```text
-s3cmd -h
-```
-## Getting started with s3cmd
-
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
-
-To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
-
-**OpenStack s3cmd installation:**
-
-Fedora/RHEL derivatives:
-```text
-sudo yum update
-sudo yum install python3
-sudo pip3 install python-openstackclient
-sudo yum install s3cmd
-```
-Debian derivatives:
-```text
-sudo apt install python3-pip
-sudo pip3 install python-openstackclient
-sudo apt install restic
-curl https://rclone.org/install.sh | sudo bash
-sudo pip3 install s3cmd
-```
-OSX:
-```text
-python3 virtualenv
-pip3 install s3cmd
-s3cmd
-```
-
-Please refer to [http://s3tools.org/download](http://s3tools.org/download) and [http://s3tools.org/usage](http://s3tools.org/usage) for upstream documentation.
-
-Additionally install [`allas-conf`](allas-conf.md#allas-conf-installation).
-
-## Configuring S3 connection 
-
-To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
-```text
-module load allas
-allas-conf --mode S3
-```
 
 On local computer:
 ```text
@@ -188,11 +118,11 @@ Public URL of the object is: https://a3s.fi/my_fishbucket/fishes/salmon.jpg
 
 ## Giving another project read access to a bucket
 
-You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Puhti and Mahti:
+You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Roihu:
 
 ```text
 module load allas
-allas-conf -k --mode s3cmd
+allas-conf -k 
 openstack project show $OS_PROJECT_NAME
 ```
 

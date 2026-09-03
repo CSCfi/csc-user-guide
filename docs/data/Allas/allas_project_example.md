@@ -25,7 +25,7 @@ As a first step, Saara and Pekka login to the [MyCSC portal](https://my.csc.fi) 
 
 Then Saara [creates two research projects](../../accounts/how-to-create-new-project.md) at CSC: one called _Data management of the HiaNo project_ (project ID: project_2000444) and another called _HiaNo research project_ (project ID: project_2000333).
 
-Once the CSC projects are established, Saara [activates the Allas, Puhti and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 TB) will not be enough for the incoming data set, she sends a request for 90 TB of Allas quota for the project _Data management of the HiaNo project_ to servicedesk@csc.fi.
+Once the CSC projects are established, Saara [activates the Allas, Roihu and cPouta services](../../accounts/how-to-add-service-access-for-project.md) for both projects. As Saara knows that the default storage space of Allas (10 TB) will not be enough for the incoming data set, she sends a request for 25 TB of Allas quota for the project _Data management of the HiaNo project_ to servicedesk@csc.fi.
 
 Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-members-to-project.md) and asks him to take care of the details of the incoming data.  
 
@@ -33,9 +33,9 @@ Finally, Saara [adds Pekka to both CSC projects](../../accounts/how-to-add-membe
 
 Mats from Analysis Service Center contacts Pekka and tells that the results are available, and asks how he should deliver the data. Mats has an account at CSC (_msundber_ in the project _project_2000111_) with Allas enabled, so Pekka proposes that data be uploaded to Allas. For that purpose, Pekka creates a bucket in Allas and allows Mats to use it.
 
-Pekka logs in to Puhti
+Pekka logs in to Roihu
 ```text
-ssh puhti.csc.fi   
+ssh roihu-cpu.csc.fi   
 ```
 and opens a connection to the data management project in Allas:
 ```text
@@ -54,13 +54,18 @@ Next Pekka uses the _a-access_ command to [modify the access rights of the new b
 ```text
 a-access +rw project_2000111 hiano-project-sample001
 ```
+
+
 Pekka still needs to send the name of the shared bucket to Mats, as normal Allas listing commands do not display the name for Mats who is not a member in the project that owns the bucket.
+
+Note: If you are using this process to recieve data from sequencing facilities, use the [sharing feature of SD Connect service](../sensitive-data/sd-connect-share.md) instead of the a-access command as it does not work properly in the case of SD Connect encrypted data
+
 
 ## Act 3. Uploading data
 
 Mats has [Allas tools](https://github.com/CSCfi/allas-cli-utils) installed in the front-end server of the measurement device at Analysis Service Center. Thus he can upload the data directly from the front-end server to the _hiano-project-sample1_ bucket in Allas:
 ```text
-rclone copy sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample001/sample1/cannel43/aa_3278830.dat
+rclone copy -P sample1/cannel43/aa_3278830.dat  allas:hiano-project-sample001/sample1/cannel43/aa_3278830.dat
 ```
 As there is a large amount of data to be transported, the upload takes few days and needs to be done in several batches. When Mats tells that he is ready with the data uploads, Pekka closes the shared bucket:
 ```text
@@ -79,9 +84,9 @@ a-access +r project_2000333 hiano-project-sample001
 ```
 Xi and Laura can now start working with the data. They register using the MyCSC portal, after which Saara, who is the Principal Investigator, adds them to the CSC project _HiaNo research project_ (project_2000333).
 
-Xi and Laura need to revisit MyCSC and accept the services of the research project. After that, they can download the research data they need to any environment that is able to connect to Allas: Puhti, a virtual machine in cPouta, or their own laptop. As new researchers join the project, Saara adds them in project_2000333, so that they can access the data.
+Xi and Laura need to revisit MyCSC and accept the services of the research project. After that, they can download the research data they need to any environment that is able to connect to Allas: Roihu, a virtual machine in cPouta, or their own laptop. As new researchers join the project, Saara adds them in project_2000333, so that they can access the data.
 
-Because storing data in Allas consumes Storage Billing Units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more Billing Units](../../accounts/how-to-apply-for-billing-units.md) (80 TB consumes 700 800 Storage BUs in year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the Billing Units.
+Because storing data in Allas consumes Storage Billing Units, Saara needs to check the saldo in MyCSC from time to time, and if needed, [apply for more Billing Units](../../accounts/how-to-apply-for-billing-units.md) (25 TB consumes 229950 Storage BUs in a year). Fortunately, HiaNo is an academic research project, so Saara does not need to pay for the Billing Units.
 
 Allas storage is only for research project's duration, but Saara thinks it would be beneficial to have the preliminary data made publicly available and easier to be found. This is supported by the [Fairdata Services](https://www.fairdata.fi/en/) produced by CSC.
 
