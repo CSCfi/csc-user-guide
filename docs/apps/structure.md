@@ -24,7 +24,7 @@ It can be applied to most of the commonly-used genetic markers, including SNPS, 
 
 ## License
 
-Structure is free to use and open source, but no license is specified.
+Structure is free to use. Source code is available from the upstream website, but no explicit open-source license is specified.
 
 ## Available
 

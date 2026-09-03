@@ -25,7 +25,7 @@ Database searches with HMM profiles can require very long computing times in nor
 
 ## License
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Free to use and open source under the [BSD 3-Clause License](https://github.com/EddyRivasLab/hmmer/blob/master/LICENSE).
 
 ## Available
 

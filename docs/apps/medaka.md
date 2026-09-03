@@ -22,7 +22,11 @@ the GH200 GPU nodes.
 
 ## License
 
-Free to use and open source. See the [medaka repository](https://github.com/nanoporetech/medaka) for license terms.
+## License
+
+Medaka is distributed under the [Oxford Nanopore Technologies PLC Public License v1.0](https://github.com/nanoporetech/medaka/blob/master/LICENSE).
+The license permits use solely for research purposes, defined as internal research not intended for or directed towards commercial advantage or monetary compensation.
+Sponsored or grant-funded research is permitted under the license.
 
 ## Available
 
