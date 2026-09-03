@@ -5,6 +5,10 @@ and then consult the power user and special case instructions below.
 Further down there are steps to help solving or diagnosing issues
 and to prepare data for support requests.
 
+!!! warning
+    This page contains outdated Puhti- and Mahti-related content. An updated
+    version including instructions for Roihu and LUMI will be published soon.
+
 [TOC]
 
 ## Standalone jobs on Puhti
