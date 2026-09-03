@@ -135,7 +135,7 @@ in a module provided by CSC, do not hesitate to contact our
         to have the following as its first line:
 
         ```bash
-        #!/appl/soft/manual/aida/$(uname -m)/python-data/python-data-2026-03/bin/python3  # On Roihu
+        #!/appl/soft/manual/aida/$(uname -m)/python-data/python-data-2026-03/bin/python3
         ```
 
     ---
