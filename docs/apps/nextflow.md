@@ -96,14 +96,14 @@ Practical considerations:
 
 * Apptainer is installed on login and compute nodes and does not require loading a separate module on CSC supercomputers.
 * For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer) use `nextflow.config` file.
-* If you are directly pulling multiple Apptainer images on the fly, please use the NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk space and then set Apptainer temporary folders as environmental variables.
+* If you are directly pulling multiple Apptainer images on the fly, please use the NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, utilize local NVMe disk space and then set Apptainer temporary folders as environmental variables. For example, on Roihu, to utilize the node-specific fast local storage in `$TMPDIR`:
 
 ```bash title="batch_job.sh"
-#SBATCH --gres=nvme:100   # Request 100 GB of space to local disk
-
-export APPTAINER_TMPDIR=$LOCAL_SCRATCH
-export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
+export APPTAINER_TMPDIR="$TMPDIR"
+export APPTAINER_CACHEDIR="$TMPDIR"
 ```
+
+Depending on the partition, the `$TMPDIR` space on a node will have anywhere from 20 GiB to 600 GiB of available quota in Roihu. The disk space is local to a single node, so move your installations outside of the disk space after the job is finished.
 
 !!! warning
     Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.

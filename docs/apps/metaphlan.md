@@ -35,7 +35,7 @@ module load bio-apps/v202603
 module load py-metaphlan/4.2.4
 ```
 
-You can check basic usage with command:
+You can check basic usage with the command:
 
 ```bash
 metaphlan --help
@@ -64,7 +64,7 @@ mkdir metaphlan_databases
 Databases can be also be pre-prepared with the `--install` option:
 
 ```bash
-metaphlan --install --bowtie2db metaphlan_databases
+metaphlan --install --db_dir metaphlan_databases
 ```
 
 The database is quite big and downloading and building it can take 
@@ -73,7 +73,7 @@ some time.
 By default, the latest MetaPhlAn database is downloaded and built. You can download a specific version with the `--index` parameter.
 
 ```bash
-metaphlan --install --index mpa_vJan21_CHOCOPhlAnSGB_202103 --bowtie2db metaphlan_databases
+metaphlan --install --index mpa_vJan21_CHOCOPhlAnSGB_202103 --db_dir metaphlan_databases
 ```
 
 When running MetaPhlAn analyses you must include the `--bowtie2db` option, and also `--index`
@@ -94,7 +94,7 @@ partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB
 sinteractive --account <project> --cores 8
 module load bio-apps/v202603
 module load py-metaphlan/4.2.4
-metaphlan --nproc 8 --bowtie2db metaphlan_databases SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt
+metaphlan --nproc 8 --db_dir metaphlan_databases SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt
 ```
 
 ## Support
