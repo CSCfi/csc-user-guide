@@ -24,7 +24,7 @@ See [a more technical description of the Lustre filesystem on CSC supercomputers
 |-------------|--------|--------------------|----------------------|---------------------|----------------|
 |**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
 |**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
-|**scratch**  |Project |Not defined         |`/scratch/<project>`  |180 days             |No              |
+|**scratch**  |Project |Not defined         |`/scratch/<project>`  |90 or 180 days       |No              |
 |**dataset**  |Project |Not defined         |`/dataset/<project>`  |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
@@ -47,7 +47,7 @@ These disk areas have quotas for both the amount of data and total number of fil
     recommend that you always first ensure that the data you have stored on the
     shared file system is really needed and in active use. Unused data should be
     deleted or moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
-    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
+    and cleaning data on supercomputer disks](../support/tutorials/clean-up-data.md)
     is also available.
 
 ## Home directory
@@ -79,7 +79,9 @@ You should aim to run your jobs on the supercomputer in this `scratch` directory
 The scratch directory is **not intended for long-term storage**. Files that have not 
 been accessed for a long time may be automatically removed to free up space.
 The current policy on Roihu is to remove files that have not been accessed for
-more than 180 days.
+more than 180 days (scratch quota less than 5 TiB) or 90 days (scratch quota
+5 TiB or more). See the [Usage policy](usage-policy.md#disk-cleaning) page for
+details on the current policy.
 
 Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
@@ -110,7 +112,8 @@ csc-workspaces
 ```
 
 The above command displays all `scratch` and `projappl` directories you have access to.
-It also displays which of your projects are subject to the 180 day `scratch` cleaning cycle.
+It also displays which of your projects are subject to the 90 day `scratch` cleaning
+cycle and which to the 180 day `scratch` cleaning cycle.
 
 For example, if you are a member in two projects, with unix groups `project_2000123`
 and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
@@ -132,7 +135,7 @@ Project: project_2000123 "Project X"
 Project: project_2001234 "Project Y"
 
 /projappl/project_2001234        25G/100G       282K/1.0M       n/a
-/scratch/project_2001234         7.2/10TB       2.1M/2.5M       180d
+/scratch/project_2001234         7.2/10TB       2.1M/2.5M       90d
 ----------------------------------------------------------------------
 ```
 
