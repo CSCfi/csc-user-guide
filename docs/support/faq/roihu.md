@@ -9,16 +9,16 @@ and [more information on Roihu](../../computing/systems-roihu.md).
 
 ### 1. When will Puhti/Mahti be shut down?
 
-Puhti compute resources will be shut down one month after Roihu general
-availability, by 31 July 2026. After this, jobs can no longer be submitted on
+Puhti compute resources were shut down one month after Roihu general
+availability, on 31 July 2026. Jobs can no longer be submitted on
 Puhti. Puhti storage and login nodes are planned to remain accessible until
 15 October 2026.
 
-Mahti compute resources will be shut down on 31 August 2026. Mahti storage and
+Mahti compute resources were shut down on 31 August 2026. Mahti storage and
 login nodes are planned to remain accessible until 15 October 2026.
 
-We strongly encourage users to move any required data by the end of August
-2026, as Mahti and Puhti storage services will not be covered by service contracts between
+We strongly encourage users to move any required data without delay,
+as Mahti and Puhti storage services will not be covered by service contracts between
 September and October, and availability cannot be fully guaranteed.
 
 [Read more about the shutdown schedule here](../../computing/systems-roihu.md#schedule).
