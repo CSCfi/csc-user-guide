@@ -79,5 +79,3 @@ The sample command above produces two result files:
 
 * [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki)
 * [CD-HIT home page](http://sites.google.com/view/cd-hit)
-
-*[CD]: ''

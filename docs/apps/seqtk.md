@@ -90,5 +90,3 @@ seqtk subseq in.fa reg.bed > out.fa
 ## More information
 
 * [Seqtk home page](https://github.com/lh3/seqtk)
-
-*[GC]: ''
