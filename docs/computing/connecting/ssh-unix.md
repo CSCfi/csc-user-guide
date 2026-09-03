@@ -255,38 +255,11 @@ Host roihu-cpu
 Host roihu-gpu
     HostName roihu-gpu.csc.fi
 
-Match originalhost roihu* exec "~/bin/csc-cert %r <path-to-public-key>"
+Match originalhost roihu* exec "python3 <path-to-certificate-helper-tool>/csc_cert.py -s -a none -u %r <path-to-public-key>"
 ```
 
-This config means that the script `~/bin/csc-cert` is executed
-every time when `ssh roihu-cpu` or `ssh roihu-gpu` is done.
+This config means that the certificate tool is executed
+every time when `ssh roihu-cpu` or `ssh roihu-gpu` is done, and
+the tool requests certificate renewal only when the current certificate has expired.
 
-Below is an example script `~/bin/csc-cert` that
-first checks if the certificate is still valid, and if not,
-then opens a new terminal window to run the certificate
-helper tool to create a new certificate.
-Store this script as `~/bin/csc-cert` and make executable (`chmod a+x ~/bin/csc-cert`):
-
-```bash
-#!/bin/bash
-
-set -eu
-
-if [ $# -lt 2 ]; then
-    echo "Usage: $0 <username> <path-to-public-key>" >&2
-    exit 1
-fi
-
-cert_helper="python3 $HOME/certificate-helper-tool/csc_cert.py -u \"$1\" \"$2\""
-
-# Check status
-if ! $cert_helper -S 2>&1 | grep -q valid; then
-    # Certificate not valid; request a new one
-    gnome-terminal --wait -- bash -c "$cert_helper"
-fi
-```
-
-Note that the following needs to be edited in this script for it to work:
-
-- Path to the `csc_cert.py` python script
-- Command to launch the terminal. The `gnome-terminal` command here works with GNOME desktop environment
+Note that the agent handling is disabled (`-a none`), assuming that the agent already has the keys.
