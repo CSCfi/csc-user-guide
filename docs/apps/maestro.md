@@ -28,7 +28,8 @@ Schrödinger Maestro is a versatile molecular modeling environment. It has
 modules for _drug design_ and _materials science_. It can be used to build,
 edit, run and analyze chemical model systems.
 
-Schrödinger Maestro provides access to the, which runs **very well** on GPUs.
+Schrödinger Maestro provides access to the Desmond molecular dynamics engine,
+which runs **very well** on GPUs.
 
 See also the [bottom of this page](#more-information) for links to further
 self-learning materials.
