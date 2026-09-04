@@ -23,17 +23,32 @@ Available on CSC supercomputers with **allas** module. Can be (installed)[allas-
 ```text
 module load allas
 ```
+When you load the Allas module in Roihu, it lists you the status of currently configured Allas and Lumi-O connections.
+You can check this information later on with command:
 
-## Using `allas-conf` to configure connections to Allas, SD Connect and Lumi-O
+```text
+check-allas-connections
+```
+
+## Using `allas-conf` to configure connections to Allas, SD-Connect and Lumi-O
 
 ### S3 connection to Allas
 
-To enable S3 protocol in Roihu, use command `allas-conf`.  In Puhti and Mahti you must add option `-m S3`
+To enable S3 based connection to Allas in Roihu, use command `allas-conf`.  
+
+```text
+allas-conf 
+```
+
+In Puhti and Mahti you must add option `-m S3`
 ```text
 allas-conf -m S3
 ```
 
-The same authentication is used for all login sessions and it does not have an expiration time.
+The authentication process asks you to give the password of your CSC account. Note that the Haka password or password related to you ssh key 
+are not valid in this authentication step.
+
+Once S3 connection is configured, same authentication is used for all login sessions and it does not have an expiration time.
 
 `allas-conf` generates configuration files in S3 mode for: 
 * `rclone`: `.config/rclone/rclone.conf`
@@ -41,8 +56,6 @@ The same authentication is used for all login sessions and it does not have an e
 * `aws`: credentials and S3 region in `~/.aws/credentials` and S3 endpoint in `~/.aws/config` files.
 
 Additionally, Python 'boto3' and R 'aws.s3' libraries use 'aws' configuration files.
-
-This saves the  
 
 If you use these keys in other services, your should make sure that the keys always remain private. Any person who has access to these two keys, can access and modify all the data that the project has in Allas.
 
@@ -87,6 +100,28 @@ allas-conf -k
 ```
 With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 
+### S3 connection to Lumi-O
+
+You can configure Lumi-O connection with command:
+
+```text
+allas-conf --lumi
+```
+The configuration process asks you to retrieve your Lumi project number and keys from [Lumi-O Credentioals Management Service Page](https://auth.lumidata.eu/). Note that configuring Lumi-O connection this way overwrites the configuration files that `aws s3` and `s3cmd` commands use.
+In the case of `rclone` previosly defined Allas connections remain still active.
+
+### Connection to SD Connect service
+
+You can configure SD Connect connection with command:
+
+```text
+allas-conf --sdc
+```
+
+The authentication process asks you to give the password of your CSC account. Note that the Haka password or password related to you ssh key 
+are not valid in this authentication step. Once you have selected the SD Connect project you wish to use, the configuration process asks you to copy an API-token from [SD Connect web interface](https://sd-connect.csc.fi). Not that in SD Connerct, you must create the API-token using the same project that you seleted in the beginning of this configuration process.
+
+
 
 
 ## `allas-conf` installation 
@@ -119,7 +154,7 @@ To use Allas with S3 on a machine where `allas-conf` is not available or with to
 * S3 endpoint: `a3s.fi` or `https://a3s.fi`
 * S3 region: sometimes no settings needed, sometimes leave empty (````)
 
-The easiest way to get the S3 credentials is by configuring an [S3 connection](#s3-connection) on a CSC supercomputer (or some other machine that can run `allas_conf` tool) and see the keys from the printout of the command. 
+The easiest way to get the S3 credentials is by configuring an [S3 connection](#s3-connection-to-allas) on a CSC supercomputer (or some other machine that can run `allas_conf` tool) and see the keys from the printout of the command. 
 
 ```
 module load allas

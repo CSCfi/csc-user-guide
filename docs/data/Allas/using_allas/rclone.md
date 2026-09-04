@@ -41,7 +41,7 @@ Below, we describe how Rclone is used in Roihu supercomputer. You can use [Rclon
 The first step is to configure connection to a project in Allas. Rclone can use both S3 and Swift protocols but these connections will have different names in rclone commands. 
 
 
-Check [`allas-conf`](allas-conf.md#allas-conf-configure-connection) for more info and additional option
+Check [`allas-conf`](allas-conf.md) for more info and additional options.
 
 
 ### S3 connection to Allas
