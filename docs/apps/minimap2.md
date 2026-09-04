@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Minimap2
@@ -29,19 +29,19 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Puhti: 2.24, 2.28
-* Chipster graphical user interface
+* Roihu: 2.30, via the `bio-apps` module.
 
 ## Usage
 
-On Puhti, Minimap2 can be used as part of the `biokit` module collection:
+Minimap2 is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Minimap2 module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load minimap2/2.30
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Minimap2. Note however that there are other bioinformatics tools on Puhti that have separate setup commands.
-Once biokit module is loaded, Minimap2 starts with the command:
+Once the module is loaded, Minimap2 starts with the command:
 
 ```bash
 minimap2
@@ -60,7 +60,7 @@ With option `-x` you can use case specific parameter sets, pre-defined and recom
  
 ### Map long noisy genomic reads (_map-pb_ and _map-ont_)
 
-* PacBio subreads (_map-db_):
+* PacBio subreads (_map-pb_):
 
 ```bash
 minimap2 -ax map-pb ref.fa pacbio-reads.fq > aln.sam
@@ -98,7 +98,7 @@ minimap2 -ax splice -uf -k14 ref.fa direct-rna.fq > aln.sam
 minimap2 -ax splice --splice-flank=no SIRV.fa SIRV-seq.fa
 ```
 
-### Find overlaps between long reads (_ava-pb_ and _aca-ont_)
+### Find overlaps between long reads (_ava-pb_ and _ava-ont_)
 
 * PacBio read overlap
 
@@ -142,25 +142,27 @@ minimap2 -ax sr ref.fa reads-interleaved.fq > aln.sam
 minimap2 -ax asm5 ref.fa asm.fa > aln.sam
 ```
 
-## Example batch script for Puhti
+## Example batch script
 
-On Puhti, Minimap2 jobs should be run as batch jobs. Below is a sample batch job file
-for running a Minimap2 paired-end alignment on Puhti.
+Minimap2 jobs should be run as batch jobs. Below is a sample batch job script
+for running a Minimap2 alignment on Roihu.
 
 ```bash
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=minimap2
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
-#SBATCH --time=04:00:00
 #SBATCH --partition=small
-#SBATCH --ntasks=1
+#SBATCH --time=04:00:00
 #SBATCH --nodes=1
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --account=<project>
 #SBATCH --mem=16000
 
-module load biokit
+module load bio-apps/v202603
+module load minimap2/2.30
+
 minimap2 -t $SLURM_CPUS_PER_TASK -ax splice -uf ref.fa iso-seq.fq > aln.sam
 ```
 
@@ -170,15 +172,15 @@ The maximum duration of the job is four hours (`--time=04:00:00`). All the cores
 are assigned from one computing node (`--nodes=1`). In addition to the resource
 reservations, you have to define the billing project for your batch job. This
 is done by replacing the `<project>` with the name of your project. You can
-use command `csc-projects` to see what projects you have on Puhti.
+use command `csc-projects` to see what projects you have.
 
 You can submit the batch job file to the batch job system with the command:
 
 ```bash
-sbatch batch_job_file.bash
+sbatch batch_job_file.sh
 ```
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 
