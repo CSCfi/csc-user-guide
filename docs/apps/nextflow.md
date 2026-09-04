@@ -9,8 +9,6 @@ catalog:
     - Biosciences
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -32,10 +30,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available on CSC's servers
 
-* Roihu-CPU: 25.10.4.11173
-* Roihu-GPU: not available
-* Puhti: 21.10.6, 22.04.5, 22.10.1, 23.04.3, 24.01.0-edge.5903, 24.10.0
-* Mahti: 22.05.0-edge, 24.04.4
+* Roihu-CPU: 25.10.2-standalone (via the `bio-apps` module)
+* Roihu-GPU: 25.10.2-standalone (via the `bio-apps` module)
 * LUMI: 22.10.4
 
 !!! info "Pay attention to usage of Nextflow version"
@@ -52,27 +48,20 @@ Nextflow is released under the
 
 ### Nextflow
 
-!!! info "Nextflow on LUMI"
-    To access CSC modules on LUMI, remember to first load the CSC module tree
-    into use with
-
-    ```bash
-    module use /appl/local/csc/modulefiles
-    ```
-
-Nextflow itself is available as a module on Puhti, Mahti and LUMI. Specific
-versions available are listed [above](#available).
-
-Nextflow is activated by loading `nextflow` module:
+On Roihu, Nextflow is part of the [bio-apps](bio-apps.md) collection and is available
+on both CPU and GPU nodes. Load the bio-apps module tree and then the Nextflow module:
 
 ```bash
-module load nextflow
+module load bio-apps/v202603
+module load nextflow/25.10.2-standalone
 ```
 
-The default version is usually the latest. Choose the version of the Nextflow depending on the requirements of your own pipeline. It is recommended to load Nextflow module with a version, for the reproducibility point of view.  To load `nextflow` module with a specific version:
+On LUMI, Nextflow is available as a separate module. To access CSC modules on LUMI,
+first load the CSC module tree into use:
 
 ```bash
-module load nextflow/22.04.5
+module use /appl/local/csc/modulefiles
+module load nextflow
 ```
 
 For usage help, use command:
@@ -107,14 +96,14 @@ Practical considerations:
 
 * Apptainer is installed on login and compute nodes and does not require loading a separate module on CSC supercomputers.
 * For binding folders or using other [Apptainer settings](https://www.nextflow.io/docs/latest/reference/config.html#apptainer) use `nextflow.config` file.
-* If you are directly pulling multiple Apptainer images on the fly, please use the NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, first request NVMe disk space and then set Apptainer temporary folders as environmental variables.
+* If you are directly pulling multiple Apptainer images on the fly, please use the NVMe disk of a compute node for storing the Apptainer images. For that in your batch job file, utilize local NVMe disk space and then set Apptainer temporary folders as environmental variables. For example, on Roihu, to utilize the node-specific fast local storage in `$TMPDIR`:
 
 ```bash title="batch_job.sh"
-#SBATCH --gres=nvme:100   # Request 100 GB of space to local disk
-
-export APPTAINER_TMPDIR=$LOCAL_SCRATCH
-export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
+export APPTAINER_TMPDIR="$TMPDIR"
+export APPTAINER_CACHEDIR="$TMPDIR"
 ```
+
+Depending on the partition, the `$TMPDIR` space on a node will have anywhere from 20 GiB to 600 GiB of available quota in Roihu. The disk space is local to a single node, so move your installations outside of the disk space after the job is finished.
 
 !!! warning
     Although Nextflow supports also Docker containers, these can't be used as such on supercomputers due to the lack of administrative privileges for normal users.
@@ -181,10 +170,12 @@ executor >  local (5)
 
 ### Running Nextflow pipeline with local executor interactively
 
-To run Nextflow in [interactive session](../computing/running/interactive-usage.md):
-```
-sinteractive -c 2 -m 4G -d 250 -A project_2xxxx  # replace actual project number here
-module load nextflow/23.04.3                     # Load nextflow module
+To run Nextflow in an [interactive session](../computing/running/interactive-usage.md):
+
+```bash
+sinteractive --account <project> --cores 2   # replace <project> with your project
+module load bio-apps/v202603
+module load nextflow/25.10.2-standalone
 nextflow run workflow.nf
 ```
 
@@ -205,7 +196,8 @@ allocation, create the batch job file:
 #SBATCH --mem-per-cpu=1G           # Increase as needed
 
 # Load Nextflow module
-module load nextflow/23.04.3
+module load bio-apps/v202603
+module load nextflow/25.10.2-standalone
 
 # Actual Nextflow command here
 nextflow run workflow.nf <options>
@@ -215,7 +207,7 @@ nextflow run workflow.nf <options>
 
 Finally, submit the job to the supercomputer:
 
-```
+```bash
 sbatch nextflow_local_batch_job.sh
 ```
 
@@ -238,8 +230,8 @@ profiles {
      process.executor = 'local'
    }
 
- puhti {
-     process.clusterOptions = '--account=project_xxxx --ntasks-per-node=1 --cpus-per-task=4 --ntasks=1 --time=00:00:05'
+ roihu {
+     process.clusterOptions = '--account=<project> --ntasks-per-node=1 --cpus-per-task=4 --ntasks=1 --time=00:15:00'
      process.executor = 'slurm'
      process.queue = 'small'
      process.memory = '10GB'
@@ -259,19 +251,20 @@ Create the batch job file, note the usage of a profile.
 #SBATCH --mem-per-cpu=1G           # Increase as needed
 
 # Load Nextflow module
-module load nextflow/23.04.3
+module load bio-apps/v202603
+module load nextflow/25.10.2-standalone
 
 # Actual Nextflow command here
-nextflow run workflow.nf -profile puhti
+nextflow run workflow.nf -profile roihu
 ```
 
 Finally, submit the job to the supercomputer:
 
-```
+```bash
 sbatch nextflow_slurm_batch_job.sh
 ```
 
-This will submit each process of your workflow as a separate batch job to Puhti supercomputer.
+This will submit each process of your workflow as a separate batch job to the Roihu supercomputer.
 
 
 ### Running Nextflow with HyperQueue executor
@@ -294,7 +287,8 @@ Here is a batch script for running a
 
 # Load the required modules
 module load hyperqueue
-module load nextflow
+module load bio-apps/v202603
+module load nextflow/25.10.2-standalone
 
 # Create a per job directory
 wrkdir=${PWD}/WRKDIR-${SLURM_JOB_ID}
@@ -334,7 +328,7 @@ hq server stop
 
 Finally, submit the job to the supercomputer:
 
-```
+```bash
 sbatch nextflow_hyperqueue_batch_job.sh
 ```
 
@@ -348,7 +342,7 @@ If you use Nextflow in your work, please cite:
 
 * [Nextflow official documentation](https://www.nextflow.io/docs/latest/index.html)
 * [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
-    * [Full code Nextflow example from Antoni Gołoś with 3 different executors for Puhti](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
+    * [Full code Nextflow example from Antoni Gołoś with 3 different executors](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
 * [General guidelines for high-throughput computing in CSC's HPC environment](../computing/running/throughput.md)
 * [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
 * [CSC's HyperQueue documentation](../apps/hyperqueue.md)
