@@ -8,7 +8,6 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | `a`-command | Help text | Function |
 | :--- | :--- | :--- |
 | [`a-put`:material-arrow-down:](#a-put)| [GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md){ target=_blank}|Upload a file or directory to Allas |
-| [`a-check`:material-arrow-down:](#a-check) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md){ target=_blank }| Check if all the objects, that `a-put` should have created, are found in Allas |
 | [`a-list`:material-arrow-down:](#a-list) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md){ target=_blank }| List buckets and objects in Allas |
 | [`a-publish`:material-arrow-down:](#a-publish) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md){ target=_blank }|Upload a file to Allas into a bucket that allows public access over the internet |
 | [`a-flip`:material-arrow-down:](#a-flip) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md){ target=_blank }|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
