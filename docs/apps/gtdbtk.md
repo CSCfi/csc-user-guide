@@ -16,10 +16,11 @@ catalog:
 GTDB-Tk is a software toolkit for assigning objective taxonomic classifications to
 bacterial and archaeal genomes, including metagenome-assembled genomes (MAGs) and
 single-amplified genomes (SAGs). Classifications are based on the
-[Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/), and the
-`classify_wf` workflow places query genomes into the GTDB reference tree using a
-combination of gene calling (Prodigal), marker identification (HMMER, pplacer),
-tree placement (FastTree) and average nucleotide identity screening (skani).
+[Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/). The `classify_wf`
+workflow identifies marker genes (Prodigal gene calling, HMMER marker search),
+aligns them, screens query genomes against the GTDB reference genomes by average
+nucleotide identity (skani), and places them into the GTDB reference tree with
+pplacer.
 
 [TOC]
 
@@ -60,7 +61,8 @@ echo $GTDBTK_DATA_PATH
 ### Example batch script
 
 `classify_wf` takes a directory of genome FASTA files as input. The default
-divide-and-conquer classification needs roughly **140 GiB of memory** and benefits
+classification (which splits the reference tree) needs roughly **140 GiB of memory**
+and benefits
 from many cores (see the GTDB-Tk
 [hardware requirements](https://ecogenomics.github.io/GTDBTk/installing/index.html#hardware-requirements)).
 
@@ -101,9 +103,10 @@ Replace `<project>` with your CSC project (for example `project_2001234`).
   memory-mapped access pattern performs poorly on the Lustre `/scratch` filesystem.
 
 Running `--full_tree` (placement into the complete, undecorated reference tree)
-requires around **950 GiB of memory** and must be run on the
-[`hugemem` partition](../computing/running/creating-job-scripts-roihu.md); the
-default divide-and-conquer approach is recommended for almost all use.
+requires around **950 GiB of memory**. This still fits within the `small` partition's
+1500 GiB ceiling; the
+[`hugemem` partition](../computing/running/creating-job-scripts-roihu.md) is an
+alternative. The default split-tree approach is recommended for almost all use.
 
 See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md)
 for more information about running batch jobs.
@@ -116,4 +119,4 @@ for more information about running batch jobs.
 
 * [GTDB-Tk GitHub repository](https://github.com/Ecogenomics/GTDBTk)
 * [GTDB-Tk documentation](https://ecogenomics.github.io/GTDBTk/)
-* [Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomics.org/)
+* [Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/)
