@@ -30,7 +30,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/Ecogenomics/GTD
 
 ## Available
 
-* Roihu: 2.7.2, via the `bio-apps` module.
+* Roihu-CPU: 2.7.2, via the `bio-apps` module.
 
 ## Usage
 
