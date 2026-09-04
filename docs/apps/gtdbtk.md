@@ -16,7 +16,7 @@ catalog:
 GTDB-Tk is a software toolkit for assigning objective taxonomic classifications to
 bacterial and archaeal genomes, including metagenome-assembled genomes (MAGs) and
 single-amplified genomes (SAGs). Classifications are based on the
-[Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomics.org/), and the
+[Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/), and the
 `classify_wf` workflow places query genomes into the GTDB reference tree using a
 combination of gene calling (Prodigal), marker identification (HMMER, pplacer),
 tree placement (FastTree) and average nucleotide identity screening (skani).
@@ -46,7 +46,7 @@ The classification commands are run through the `gtdbtk` command, for example
 
 ### Reference data
 
-GTDB-Tk needs the GTDB reference data package (~100 GB), matched to the tool
+GTDB-Tk needs the GTDB reference data package (~100 GiB), matched to the tool
 version. On Roihu this data is **already provided** by CSC and the module sets the
 `GTDBTK_DATA_PATH` environment variable for you — you do **not** need to download
 or configure anything. GTDB-Tk 2.7.2 uses GTDB release **R232**.
@@ -60,7 +60,7 @@ echo $GTDBTK_DATA_PATH
 ### Example batch script
 
 `classify_wf` takes a directory of genome FASTA files as input. The default
-divide-and-conquer classification needs roughly **140 GB of memory** and benefits
+divide-and-conquer classification needs roughly **140 GiB of memory** and benefits
 from many cores (see the GTDB-Tk
 [hardware requirements](https://ecogenomics.github.io/GTDBTk/installing/index.html#hardware-requirements)).
 
@@ -93,13 +93,15 @@ Replace `<project>` with your CSC project (for example `project_2001234`).
 * GTDB-Tk 2.7 screens query genomes against the GTDB representatives with skani
   automatically; there is no separate reference database to download or configure
   for this step.
-* The `pplacer` step is the most memory-intensive. If a run runs out of memory, add
-  `--pplacer_cpus 1` (lower memory, slower) or `--scratch_dir $TMPDIR` to spill
-  pplacer's data to the node-local disk. `$TMPDIR` is available on every node
-  (20 GiB on the `small` partition) without a separate reservation.
+* The `pplacer` step is the most memory-intensive. If a run runs out of memory, first
+  add `--pplacer_cpus 1` (lower peak memory, slower), then try increasing your `--mem` request
+  — the `small` partition can provide up to 1500 GiB. GTDB-Tk's `--scratch_dir` option, which spills
+  pplacer's allocation to disk, is best avoided on Roihu: its backing file is roughly
+  as large as the memory it saves (likely making it too big for `$TMPDIR`), and its random, 
+  memory-mapped access pattern performs poorly on the Lustre `/scratch` filesystem.
 
 Running `--full_tree` (placement into the complete, undecorated reference tree)
-requires around **950 GB of memory** and must be run on the
+requires around **950 GiB of memory** and must be run on the
 [`hugemem` partition](../computing/running/creating-job-scripts-roihu.md); the
 default divide-and-conquer approach is recommended for almost all use.
 
