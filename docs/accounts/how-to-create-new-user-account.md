@@ -72,10 +72,12 @@ Send the following information to servicedesk@csc.fi:
   service uses
 * The CSC service your service uses (e.g. cPouta, Rahti)
 * Your mobile number (to which the password is sent via SMS)
+* Purpose and use case
+* For Roihu robot accounts, also include a detailed description of how the [General Terms of Use](https://research.csc.fi/general-terms-of-use) and the [robot account policy](../computing/usage-policy.md#robot-accounts-on-roihu) are followed
 
-On Roihu, computing resources can be accessed with a robot account using [FirecREST HPC API](../computing/firecrest/connecting.md#connecting-with-a-robot-account). Direct SSH terminal login with a robot account is not available.
+Note that in Roihu, computing resources can only be accessed with a robot account using [FirecREST HPC API](../computing/firecrest/connecting.md#connecting-with-a-robot-account).
 
-If you are using the robot account with another CSC supercomputer, you also need to
+If you are using the robot account with LUMI, you also need to
 [generate a new SSH key pair](../computing/connecting/ssh-keys.md#generating-ssh-keys) for the robot
 account. Note that this cannot be set via MyCSC as with normal user accounts, as robot accounts
 cannot log in to MyCSC. Instead the project PI must log in to the supercomputer with the robot
