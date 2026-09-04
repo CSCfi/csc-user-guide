@@ -9,7 +9,7 @@ that automatically encrypt the data when it is stored to Allas.
 
 If you for some reason don't want to use SD Connect, below you can find some alternative approaches for storing your sensitive data to Allas. When you use Allas with these encryption tools, remember that:
    
-   1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in environments with a high enough security level. For example, in manu cases the CSC HPC environments (i.e. Roihu, LUMI) is considerd not secure enough for sensitive data. The decision, if centain computing or storage environmnet is safe enough, is made by the data controller, not CSC.
+   1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in environments with a high enough security level. For example, in manu cases the CSC HPC environments (i.e. Roihu, LUMI) is considered not secure enough for sensitive data. The decision, if centain computing or storage environment is safe enough, is made by the data controller, not CSC.
    
    2. You should use strong enough encryption passwords and keep them safe.  
    

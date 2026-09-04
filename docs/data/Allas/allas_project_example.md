@@ -58,7 +58,7 @@ a-access +rw project_2000111 hiano-project-sample001
 
 Pekka still needs to send the name of the shared bucket to Mats, as normal Allas listing commands do not display the name for Mats who is not a member in the project that owns the bucket.
 
-Note: If you are using this process to recieve data from sequencing facilities, use the [sharing feature of SD Connect service](../sensitive-data/sd-connect-share.md) instead of the a-access command as it does not work properly in the case of SD Connect encrypted data
+Note: If you are using this process to receive data from sequencing facilities, use the [sharing feature of SD Connect service](../sensitive-data/sd-connect-share.md) instead of the a-access command as a-access does not work properly in the case of SD Connect encrypted data.
 
 
 ## Act 3. Uploading data

@@ -130,7 +130,7 @@ cd /scratch/project_2012345
 a-put test_1.txt
 ```
 
-In this case, the file is stored in the bucket _2012345-roihu-scracth_.
+In this case, the file is stored in the bucket _2012345-roihu-scratch_.
 as the object _test_1.txt_
 
 If you have another file called _test_1.txt_ located in _/scratch/project_2012345/kkayttaj/project2/_,
