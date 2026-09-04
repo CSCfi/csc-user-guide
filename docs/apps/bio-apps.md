@@ -185,6 +185,7 @@ py-biopython/1.85
 py-cutadapt/4.7
 py-dbcan/5.2.9
 py-deeptools/3.5.3
+py-gtdbtk/2.7.2
 py-htseq/2.0.3
 py-instrain/1.6.3
 py-ipyrad/0.9.102
