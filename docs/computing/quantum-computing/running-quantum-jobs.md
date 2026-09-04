@@ -261,7 +261,7 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
 
 ## Additional examples
 
-An additionalexamples for e.g querying additional job metadata can be found [here](https://github.com/FiQCI/fiqci-examples).
+Additional examples for e.g. querying additional job metadata can be found from [here](https://github.com/FiQCI/fiqci-examples).
 
 
 ## Simulated test runs
