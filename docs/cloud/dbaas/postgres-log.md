@@ -95,6 +95,10 @@ Checkpoint message is also possible during shutdown;
 2026-01-30 14:51:39.558 UTC [43] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.163 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=14745 kB; lsn=0/E7000168, redo lsn=0/E7000168
 ```
 
+#### Database deletion
+
+The database is shutdown and logs are removed.
+
 #### Database startup messages
 
 ```
@@ -120,6 +124,29 @@ Above `FATAL` error could be also caused by Pukki trying to ping the database.
 #### Volume & instance resize, instance rebuild and upgrade
 
 These are from Pukki's database logging point of view just a shutdown and startup. Upgrade does other actions on background but logs of these are not shown to the user.
+
+The database upgrade might complain about discrepancy of default collation version and databases' actual collation version on disk, but this is handled automatically by Pukki;
+
+```
+2026-07-31 14:32:51.739 UTC [17] WARNING:  database "postgres" has a collation version mismatch
+2026-07-31 14:32:51.739 UTC [17] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
+2026-07-31 14:32:51.739 UTC [17] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+2026-07-31 14:32:51.913 UTC [18] WARNING:  database "postgres" has a collation version mismatch
+2026-07-31 14:32:51.913 UTC [18] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
+2026-07-31 14:32:51.913 UTC [18] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+2026-07-31 14:32:52.061 UTC [19] WARNING:  database "postgres" has a collation version mismatch
+2026-07-31 14:32:52.061 UTC [19] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
+2026-07-31 14:32:52.061 UTC [19] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+2026-07-31 14:32:52.087 UTC [20] WARNING:  database "postgres" has a collation version mismatch
+2026-07-31 14:32:52.087 UTC [20] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
+2026-07-31 14:32:52.087 UTC [20] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+2026-07-31 14:32:52.188 UTC [21] WARNING:  database "template1" has a collation version mismatch
+2026-07-31 14:32:52.188 UTC [21] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
+2026-07-31 14:32:52.188 UTC [21] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE template1 REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+2026-07-31 14:32:52.260 UTC [22] WARNING:  database "template1" has a collation version mismatch
+2026-07-31 14:32:52.260 UTC [22] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
+2026-07-31 14:32:52.260 UTC [22] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE template1 REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
+```
 
 #### Database creation and database restore
 

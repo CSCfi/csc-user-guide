@@ -11,16 +11,51 @@ Server log in MariaDB gives important information from database's current health
 If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
 ## What to look for
-Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages from startup and from possible shutdown.
+Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages related to DB's startup, shutdown, creation, upgrade or restore related operations.
 
-What other messages can be usually seen in error log;
+MariaDB does not by default log anything performance related unlike PostgreSQL.
 
-* **Aborted connection:** Usually these are connections timing out due to inactivity. There is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
-* **Access denied:** Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+### Most important log entries
 
-Any other message that requires attention (including `note` and `warning` level messages) are usually related to performance of the database.
+User authentication, idle connections and networking issues are what should be kept eye on.
 
-### Common messages
+#### Incorrect password or user does not exists
+
+In this example the first attempt did not specify password when connecting and the second one used incorrect password.
+
+The log line looks same in case of incorrect password or trying to connect with user that does not exists.
+
+```
+2026-09-04 13:45:54 10 [Warning] Access denied for user 'testuser'@'$random_container_id' (using password: NO)
+2026-09-04 13:46:04 13 [Warning] Access denied for user 'testuser'@'$random_container_id' (using password: YES)
+```
+
+!!! info "Note"
+    Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+
+#### Idle connections
+
+Session's `wait_timeout` or/and `interactive_timeout` is exceeded.
+
+```
+2026-09-04 14:13:43 nn [Warning] Aborted connection nn to db: 'test' user: 'testuser' host: '$random_container_id' (Got timeout reading communication packets)
+```
+
+!!! info "Note"
+    Usually these are connections timing out due to inactivity, but there is a possibility that there is and open transaction and exceeding timeout would cause resource intesive rollback, so these cannot be completely ignored either.
+
+#### Connection was not closed properly from the client side
+
+Session's `wait_timeout` or/and `interactive_timeout` is exceeded.
+
+```
+2026-09-04 14:15:55 nn [Warning] Aborted connection nn to db: 'test' user: 'testuser' host: '$random_container_id' (Got an error reading communication packets)
+```
+
+!!! info "Note"
+    Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
+
+### Other common messages
 
 #### Database shutdown messages
 
@@ -34,6 +69,10 @@ Any other message that requires attention (including `note` and `warning` level 
 2026-07-31 11:24:40 0 [Note] Shutdown completed; log sequence number 45434; transaction id 15
 2026-07-31 11:24:40 0 [Note] mariadbd: Shutdown complete
 ```
+
+#### Database deletion
+
+The database is shutdown and logs are removed.
 
 #### Database startup messages
 
@@ -74,7 +113,7 @@ These are from Pukki's database logging point of view just a shutdown and startu
 
 #### Database creation
 
-In reality it is just a startup and shutdown of temporary server, ending up to normal startup sequence.
+In reality it is a startup and shutdown of a temporary server, ending up to normal startup sequence.
 
 ```
 2026-07-31 11:13:27+00:00 [Note] [Entrypoint]: Entrypoint script for MariaDB Server 1:12.3.2+maria~ubu2404 started.
@@ -271,18 +310,10 @@ The restore process also prints following which is not an issue;
 2026-07-31 11:36:35 0 [Note] InnoDB: Cannot open '/var/lib/mysql/data/ib_buffer_pool' for reading: No such file or directory
 ```
 
-#### Rewrite What to look for section
+#### SQL level errors
 
-#### Incorrect password???
+For instance, typos entered in command-line interface (CLI), in MariaDB's case nothing will be logged in server log.
 
-#### User does not exists????
+Committing or rolling back a transaction when transaction was not explicitly started does not cause an error and transaction control language (TCL) is just performed.
 
-#### Transaction was committed or rollbacked and there was no transaction started in the first place???
-
-#### Typos when running SQLs manually???
-
-#### Connection was not closed properly from the client side
-
-#### Database deletion
-
-Shutdown and logs are removed also. Add to PG too.
+MariaDB's behaviour differs from for example PostgreSQL in these cases.
