@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Exonerate
@@ -30,22 +30,21 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-Puhti: 2.4.0
+* Roihu: 2.4.0, via the `bio-apps` module.
 
 ## Usage
 
-On Puhti, you can initialize Exonerate with the command:
+Exonerate is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Exonerate module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load exonerate/2.4.0
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Exonerate.
-Note however that there are other bioinformatics tools in Puhti that have separate setup commands.
+After loading, the `exonerate` commands are recognized.
 
-After loading the `biokit` module, the `exonerate` commands are recognized.
-
-For example, to align cDNA to genomic sequence, you can use `exonerate` command with `est2genome` model:
+For example, to align cDNA to genomic sequence, you can use the `exonerate` command with the `est2genome` model:
 
 ```bash
 exonerate --model est2genome query.fasta target.fasta
@@ -57,28 +56,38 @@ You can see the command line options for `exonerate` with the command:
 exonerate -h
 ```
  
-On Puhti, large Exonerate tasks should be executed as a batch jobs. Below is a sample batch job file for running an 
-Exonerate batch job in Puhti:
+Large Exonerate tasks should be executed as batch jobs. Below is a sample batch job script for running an 
+Exonerate batch job on Roihu:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=exonerate_job
 #SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --time=08:00:00
-#SBATCH --mem=8G
 #SBATCH --partition=small
+#SBATCH --mem=8G
 
-module load biokit
+module load bio-apps/v202603
+module load exonerate/2.4.0
+
 exonerate --model est2genome query.fasta target.fasta
 ```
 
-In the batch job example above, the maximum duration of the job is eight hours (`--time=08:00:00`) and the reserved memory is 8 GB (`--mem=8G`).
+In the batch job example above, the maximum duration of the job is eight hours (`--time=08:00:00`) and the reserved memory is 8 GB (`--mem=8G`). Replace `<project>` with your CSC project (for example `project_2001234`).
 
-You can submit the batch job file to the batch job system with command:
+You can submit the batch job file to the batch job system with the command:
 
 ```bash
-sbatch batch_job_file.bash
+sbatch batch_job_file.sh
 ```
+
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 
