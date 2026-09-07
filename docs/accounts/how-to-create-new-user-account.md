@@ -75,7 +75,8 @@ Send the following information to servicedesk@csc.fi:
 * Purpose and use case
 * For Roihu robot accounts, also include a detailed description of how the [General Terms of Use](https://research.csc.fi/general-terms-of-use) and the [robot account policy](../computing/usage-policy.md#robot-accounts-on-roihu) are followed
 
-Note that in Roihu, computing resources can only be accessed with a robot account using [FirecREST HPC API](../computing/firecrest/connecting.md#connecting-with-a-robot-account).
+!!! Note
+    Roihu robot accounts can only access computing resources using [FirecREST HPC API](../computing/firecrest/connecting.md#connecting-with-a-robot-account). I.e ssh access to Roihu is not possible for robot accounts.  
 
 If you are using the robot account with LUMI, you also need to
 [generate a new SSH key pair](../computing/connecting/ssh-keys.md#generating-ssh-keys) for the robot
