@@ -66,7 +66,7 @@ minimum set, under `[paths]`:
 
 ```ini
 [paths]
-busco_download_path = /scratch/project_2012345/braker4_busco_downloads
+busco_download_path = /scratch/<project>/braker4_busco_downloads
 ```
 
 `[SLURM_ARGS]` controls the per-rule Slurm resources (`cpus_per_task`,
@@ -80,7 +80,7 @@ example:
 
 ```csv
 sample_name,genome,genome_masked,protein_fasta,bam_files,fastq_r1,fastq_r2,sra_ids,varus_genus,varus_species,isoseq_bam,isoseq_fastq,busco_lineage,reference_gtf
-my_species,/scratch/project_2012345/genome.fa,/scratch/project_2012345/genome_masked.fa,,,,,,,,,,eukaryota_odb12,
+my_species,/scratch/<project>/genome.fa,/scratch/<project>/genome_masked.fa,,,,,,,,,,eukaryota_odb12,
 ```
 
 `busco_lineage` is required. Add evidence by filling the relevant columns, e.g.
@@ -97,7 +97,7 @@ launches through the Roihu profile.
 ```bash
 module load bio-apps/v202603 braker4
 
-cd /scratch/project_2012345/braker_run     # your working directory
+cd /scratch/<project>/braker_run     # your working directory
 cp $BRAKER4_HOME/config.ini.roihu config.ini      # edit busco_download_path etc.
 # ... create samples.csv ...
 
@@ -106,11 +106,11 @@ export APPTAINER_CACHEDIR=$TMPDIR/apptainer
 
 braker4 \
     --workflow-profile $BRAKER4_HOME/profiles/roihu \
-    --default-resources slurm_account=project_2012345 slurm_partition=small \
-    --singularity-prefix /scratch/project_2012345/braker4_sif
+    --default-resources slurm_account=<project> slurm_partition=small \
+    --singularity-prefix /scratch/<project>/braker4_sif
 ```
 
-* Replace `project_2012345` with your own project.
+* Replace `<project>` with your own project.
 * `--default-resources slurm_account=… slurm_partition=…` must list **both**
   values together (specifying `--default-resources` on the command line replaces
   the whole block from the profile).

@@ -33,8 +33,8 @@ New users are recommended to start working on the
 [Roihu supercomputer](../../computing/available-systems.md#roihu), as
 Puhti and Mahti are being decommissioned in 2026.
 
-* Puhti computing services will be shut down by 31 July 2026
-* Mahti computing services will be shut down by 31 August 2026
+* Puhti computing services have been shut down since 31 July 2026
+* Mahti computing services have been shut down since 31 August 2026
 * Puhti and Mahti storage and login nodes are planned to remain accessible
 until 15 October 2026
 
@@ -81,7 +81,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
 ### Puhti
 
 !!! warning "Do not start new work on Puhti"
-     Puhti will be decommissioned over the summer 2026, and its storage will be
+     Puhti's computing services have been shut down since 31 July 2026, and its storage will be
      fully inaccessible after mid October 2026.
 
      If you are a new user, we advise you to start using Roihu for your supercomputing needs.
@@ -96,7 +96,7 @@ CPU nodes on Puhti have
 ### Mahti
 
 !!! warning "Do not start new work on Mahti"
-     Mahti will be decommissioned over the summer 2026, and it will be
+     Mahti's computing services have been shut down since 31 August 2026, and its storage will be
      fully inaccessible after mid October 2026.
 
      If you are a new user, we advise you to start using Roihu for your supercomputing needs.
@@ -104,7 +104,7 @@ CPU nodes on Puhti have
 Mahti has been CSC’s CPU-focused supercomputer for highly parallel workloads.
 It has many more CPU nodes and cores per node than Puhti, and has mainly been
 intended for computations that can efficiently utilize at least an entire CPU node.
-However, Mahti will be decommissioned in August 2026, so new work should be started on Roihu instead.
+However, Mahti's computing services have been shut down since August 2026, so new work should be started on Roihu instead.
 Roihu will provide even more support for highly parallel workloads.
 
 While Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
@@ -135,8 +135,8 @@ schedule your jobs.
 
 - [Roihu web interface](https://www.roihu.csc.fi)
 - [LUMI web interface](https://www.lumi.csc.fi)
-- [Puhti web interface](https://www.puhti.csc.fi) - retiring in 2026
-- [Mahti web interface](https://www.mahti.csc.fi) - retiring in 2026
+- [Puhti web interface](https://www.puhti.csc.fi) - compute services decommissioned; login and data access only, until 15 October 2026
+- [Mahti web interface](https://www.mahti.csc.fi) - compute services decommissioned; login and data access only, until 15 October 2026
 
 ### Command-line interface
 
