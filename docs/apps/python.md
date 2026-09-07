@@ -9,8 +9,7 @@ catalog:
     - Mathematics and Statistics
   available_on:
     - Roihu
-    - Puhti
-    - Mahti
+
 ---
 
 # Python
@@ -24,8 +23,6 @@ please see our
 ## Available
 
 * Roihu: 3.x. versions
-* Puhti: 3.x versions
-* Mahti: 3.x versions
 
 ## License
 
@@ -60,42 +57,21 @@ the basic system Python 3.9 in Roihu can be launched with:
 python
 ```
 
-In Puhti and Mahti, Python 3.9 can be launched with:
-
-```bash
-python3.9
-```
-
-Note that the  the default version launched by `python3` (3.6.8) in Puhti and Mahti has [reached end-of-life](https://devguide.python.org/versions/) and it is strongly advised to explicitly launch Python version 3.9 as above.
-
 ### Pre-installed Python environments
 
-Roihu, Puhti and Mahti have several pre-installed
+Roihu has several pre-installed
 [environment modules](../computing/modules.md) containing
 Python environments made for different science areas.
 
 In Roihu: 
-
 | Module name | Purpose | Roihu-CPU/Roihu-GPU |
 |-|-|-|
 | [python-geo](python-geo.md) | geoinformatics | CPU |
 | [python-data](python-data.md) | data analysis and ML utilities | CPU/GPU |
-| [python-pytorch](pytorch.md) | PyTorch ML framework | GPU |
+| [python-pytorch](pytorch.md) | PyTorch ML framework | CPU/GPU |
 | [python-vllm](vllm.md) | LLM inference | GPU |
-| [python-tensorflow](tensorflow.md) | Tensorflow ML framework | GPU |
+| [python-tensorflow](tensorflow.md) | Tensorflow ML framework | CPU/GPU |
 | [python-jax](jax.md) | JAX ML framework | GPU |
-
-In Puhti and Mahti:
-
-| Module name | Purpose |
-|-|-|
-| [biopythontools](biopython.md) | bioinformatics |
-| [geoconda](geoconda.md) | geoinformatics |
-| [jax](jax.md) | JAX ML framework |
-| [python-data](python-data.md) | data analysis and ML utilities |
-| [pytorch](pytorch.md) | PyTorch ML framework |
-| [qiskit](qiskit.md) | quantum computing |
-| [tensorflow](tensorflow.md) | TensorFlow ML framework |
 
 To use any of the above environments, simply load the corresponding module
 using the `module load` command.
