@@ -36,7 +36,7 @@ s3cmd -h
 ```
 ## Getting started with s3cmd
 
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
+If you use Allas on Roihu or Lumi, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
 
 To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
 
