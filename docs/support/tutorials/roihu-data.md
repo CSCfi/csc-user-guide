@@ -35,8 +35,10 @@
   truly need**.
     * Good data hygiene reduces transfer time and load on the file system, as
       well as eliminates the risk of moving redundant or duplicate data. Roihu
-      will implement a similar disk cleaning policy as Puhti, meaning that
-      files that have not been accessed in 180 days will be deleted.
+      has the same [disk cleaning policy](../../computing/usage-policy.md#disk-cleaning)
+      as Puhti, meaning that files that have not been accessed in 180 days
+      (or 90 days for projects with a scratch quota of 5 TiB or more) will be
+      deleted.
     * We recommend using the [LUE tool](lue.md) to identify where you have lots of
       data. Avoid using tools such as `du` as they may cause a lot of load on
       the file system. Simple usage example (run `lue -h` for other options):
