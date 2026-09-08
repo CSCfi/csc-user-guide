@@ -22,7 +22,7 @@ graphics and built-in scripting.
 
 ## Available
 
-- Roihu: 1.9.3
+- Roihu-CPU: 1.9.3
 
 ## License
 
