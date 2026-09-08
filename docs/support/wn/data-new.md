@@ -1,5 +1,23 @@
 # Data management
 
+## SD Connect and SD Desktop major service upgrade
+
+After the major upgrade between 21-15 of Setemtber, SD Connect and SD Desktop will again be available for use. However, some additional steps may be required to restore data access via SD Connect or regain  SD Desktop functionalities:
+
+- SD Connect (CSC Academic projects): Existing folders (buckets) must be updated according to the provided instructions after the service break from 28 September. 
+
+- SD Desktop (CSC Academic projects): Access to virtual desktops will continue after the upgrade; however, virtual desktops must be updated according to the provided instructions. Preparation can begin before the service break by following these steps:
+
+
+
+
+- SD Desktop (Secondary Use projects): Access to virtual desktops will continue after the upgrade; however, virtual desktops must be updated according to the provided instructions. Preparation can begin before the service break. New data imports from Findata or individual registers will not be available until further notice.
+
+To support users during the transition, regular online support sessions in Finnish and English will be available throughout September and October.
+
+If you have any questions, please contact us at servicedesk@csc.fi with the subject line "SD services".
+
+
 ## Sensitive Data (SD) Desktop service: billing changes and export process update, 05.2026
 
 ### Billing Units for external volumes: applies to all CSC project types (Academic & Secondary Use) with SD desktop service enabled
