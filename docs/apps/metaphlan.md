@@ -19,7 +19,7 @@ MetaPhlAn is a computational tool for profiling the composition of microbial com
 
 ## License
 
-Free to use and open source under [MIT License](https://github.com/biobakery/MetaPhlAn2/blob/master/license.txt).
+Free to use and open source under [MIT License](https://github.com/biobakery/MetaPhlAn/blob/master/license.txt).
 
 ## Available
 
