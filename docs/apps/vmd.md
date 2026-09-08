@@ -10,10 +10,8 @@ catalog:
     - Biosciences
   available_on:
     - web_interfaces:
-        - Puhti
-        - Mahti
-    - Puhti
-    - Mahti
+        - Roihu
+    - Roihu
 ---
 
 # VMD
@@ -24,8 +22,7 @@ graphics and built-in scripting.
 
 ## Available
 
-- Puhti: 1.9.3
-- Mahti: 1.9.3
+- Roihu: 1.9.3
 
 ## License
 
@@ -41,14 +38,14 @@ module load vmd/1.9.3
 ```
 
 Note, that you need remote graphics to work with VMD. Due to the heavy graphics
-required by VMD, we recommend using it through
-[the HPC web interface remote desktops](../computing/webinterface/desktop.md).
+required by VMD, we recommend using it through the
+[Roihu web interface remote desktop](../computing/webinterface/desktop.md).
 **Please don't run VMD on the login nodes.**
 
-!!! info "Running VMD with GPU-accelerated graphics on Puhti"
-    For much better performance, you can now also run VMD with
+!!! info "Running VMD with GPU-accelerated graphics on Roihu"
+    For even better performance, you can run VMD with
     [GPU acceleration](../computing/webinterface/accelerated-visualization.md)
-    in the Puhti web interface. In this case, select
+    in the Roihu web interface. In this case, select
     _Accelerated Visualization_ instead of the plain _Desktop_ app.
 
 ## References
