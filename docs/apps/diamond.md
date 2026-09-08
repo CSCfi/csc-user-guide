@@ -23,7 +23,7 @@ output formats (BLAST pairwise, tabular, XML, and taxonomic classification).
 
 ## License
 
-Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+Free to use and open source under [GNU GPLv3](https://github.com/bbuchfink/diamond/blob/master/LICENSE).
 
 ## Available
 
