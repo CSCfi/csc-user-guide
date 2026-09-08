@@ -8,7 +8,6 @@ For users who simply want to use Allas for storing data that is in the CSC compu
 | `a`-command | Help text | Function |
 | :--- | :--- | :--- |
 | [`a-put`:material-arrow-down:](#a-put)| [GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-put.md){ target=_blank}|Upload a file or directory to Allas |
-| [`a-check`:material-arrow-down:](#a-check) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-check.md){ target=_blank }| Check if all the objects, that `a-put` should have created, are found in Allas |
 | [`a-list`:material-arrow-down:](#a-list) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-list.md){ target=_blank }| List buckets and objects in Allas |
 | [`a-publish`:material-arrow-down:](#a-publish) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-publish.md){ target=_blank }|Upload a file to Allas into a bucket that allows public access over the internet |
 | [`a-flip`:material-arrow-down:](#a-flip) |[GitHub:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/blob/master/help/a-flip.md){ target=_blank }|Upload a file temporarily to Allas into a bucket that allows public access over the internet |
@@ -40,7 +39,7 @@ a-put --help
 
 ### Configuring a connection in supercomputers
 
-In order to use these tools in Puhti and Mahti, first load `a`-commands:
+In order to use these tools in Roihu, first load `a`-commands:
 ```bash
 module load allas
 ```
@@ -51,7 +50,15 @@ Configure Allas connection with [`allas-conf`](allas-conf.md).
 allas-conf
 ```
 
-### Copying data between Puhti scratch directory and Allas
+In Roihu `allas-conf` and `a`-commands use by default S3 protocol. If you wish to use Swift protocol, that was the default Allas protcol in older CSC supercomputers, you will need to add option `--swift` to both `allas-conf` command
+and `a`-commands. For example:
+
+```bash
+allas-conf --swift
+a-list --swift
+```
+
+### Copying data between Roihu scratch directory and Allas
 
 Copying data from directory _/scratch/project_201234/dataset_3_ to Allas:
 
@@ -59,21 +66,21 @@ Copying data from directory _/scratch/project_201234/dataset_3_ to Allas:
 cd /scratch/project_201234
 a-put dataset_3
 ```
-The data in directory _dataset_3_ is stored to the default bucket _201234-puhti-SCRATCH_ as object: _dataset_3.tar_.
+The data in directory _dataset_3_ is stored to the default bucket _201234-roihu-scratch_ as object: _dataset_3.tar_.
 Available data buckets in Allas can be listed with command:
 
 ```bash
 a-list
 ```
-And the content of 201234-puhti-SCRATCH can be listed with command:
+And the content of 201234-roihu-scratch can be listed with command:
 
 ```
-a-list 201234-puhti-SCRATCH
+a-list 201234-roihu-scratch
 ```
-The directory that was stored to Allas can be retrieved back to Puhti with command:
+The directory that was stored to Allas can be retrieved back to Roihu with command:
 
 ```bash
-a-get 201234-puhti-SCRATCH/dataset_3.tar
+a-get 201234-roihu-scratch/dataset_3.tar
 ```
 
 
@@ -81,7 +88,7 @@ a-get 201234-puhti-SCRATCH/dataset_3.tar
 
 ### `a-put`
 
-`a-put` is used to upload data from the disk environment of Mahti and Puhti to 
+`a-put` is used to upload data from the disk environment of Roihu to 
 the Allas storage environment. The basic syntax of the command:
 ```bash
 a-put directory_or_file
@@ -95,36 +102,38 @@ define the project that will be used to store the data.
 2.    In the case of a directory, the content of the directory is collected as a single file
 using the `tar` command. If you have a lot of data, this might not be a good option, consider then using some other [Allas client](../accessing_allas.md) that does not package files.
 
-3.    The packed data is uploaded to Allas using the `rclone` command and the _Swift_ protocol.
+3.    The packed data is uploaded to Allas using the `rclone` command and the _S3_ protocol.
 
 
 By default, `a-put` uses the standard bucket and object names that depend on the username, project and location
 of the data uploaded:
 
-*    a) Data from /scratch in Puhti is uploaded to the bucket _projectNumber-puhti-SCRATCH_
-*    b) Data from /scratch in Mahti is uploaded to the bucket _projectNumber-mahti-SCRATCH_
-*    c) Data from /projappl in Puhti is uploaded to the bucket _projectNumber-puhti-PROJAPPL_ 
-*    d) Data from /projappl in Mahti is uploaded to the bucket _projectNumber-mahti-PROJAPPL_ 
-*    e) Data from $LOCAL_SCRATCH in Puhti is uploaded to the bucket _projectNumber-puhti-LOCAL_SCRATCH_
-*    f) In other cases, the data is uploaded to _username-projectNumber-MISC_
+*    a) Data from /scratch in Roihu is uploaded to the bucket _projectNumber-rahti-scratch_
+*    b) Data from /project in Lumi is uploaded to bucket:  projectNumber-lumi-o-project
+*    c) Data form /flash in Lumi is uploaded to bucket:  projectNumber-lumi-o-flash
+*    d) Data from /projappl in Roihu is uploaded to the bucket _projectNumber-roihu-projappl_ _ 
+*    f) In other cases, the data is uploaded to _username-projectNumber-misc_
 
 For example, for the user _kkayttaj_, a member of the project _12345_, data located in the HOME directory
-is uploaded to the bucket _kkayttaj-12345-MISC_.
+is uploaded to the bucket _kkayttaj-12345-misc_.
 
 If you wish to use other than the standard bucket, you can define a bucket name with the option _-b_ or  
 _--bucket_.
 
-The compressed dataset is stored as one object. By default, the object name depends on the file name and location. The possible subdirectory path in Puhti or Mahti is included in the object name, e.g. a file called _test_1.txt_ in /scratch/project_2012345 in Puhti can be stored using the commands:
+The compressed dataset is stored as one object.
+
+In cases where the bucket name is not defined and default buckets are used, the object name depends on the file name and location. T
+he possible subdirectory path in Roihu is included in the object name, e.g. a file called _test_1.txt_ in /scratch/project_2012345 in Roihu can be stored using the commands:
 ```bash
 cd /scratch/project_2012345
 a-put test_1.txt
 ```
 
-In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_.
+In this case, the file is stored in the bucket _2012345-roihu-scratch_.
 as the object _test_1.txt_
 
 If you have another file called _test_1.txt_ located in _/scratch/project_2012345/kkayttaj/project2/_,
-you can store it using the commands
+you can store it using the commands:
 ```bash
 cd /scratch/project_2012345/kkayttaj/project2/
 a-put test_1.txt
@@ -134,22 +143,34 @@ or
 cd /scratch/project_2012345/kkayttaj
 a-put project2/test_1.txt
 ```
-In this case, the file is stored in the bucket _2012345-puhti-SCRATCH_ 
+In this case, the file is stored in the bucket _2012345-roihu-scratch_ 
 as the object _kkayttaj/project2/test_1.txt_.
 
 In addition to the actual data object, another object containing metadata is created. This metadata object has the 
 same name as the main object with the extension *_ameta*. This metadata file is used by the 
 other `a`-commands, and normally, it is not displayed to the user, but if you examine the buckets
-using tools like _swift_ or _rclone_, you will see these metadata objects as well.
+using tools like _rclone_, you will see these metadata objects as well.
+
+
+Note, that if you define the target bucket with option `-b` then the loation in the directory is not included in the object name.
+
+For examplle commands:
+
+```bash
+cd /scratch/project_2012345/kkayttaj
+a-put project2/test_1.txt -b 2012345-data
+```
+Would store the data to Allas into location: 2012345-data/test_1.txt
+
 
 If you wish to use a name differing from the default object name, you can define it with the option _-o_ or  
-_--object_:
+_--object_  the possible pseudofolder path needs to be included in the bucket name definition:
 ```bash
 cd /scratch/project_2012345
-a-put project2/test_1.txt -b newbucket1 -o case1.txt -c
+a-put project2/test_1.txt -b  2012345-data/dir_a -o case1.txt -c
 ```
 
-The command above uploads the file *test_1.txt* to Allas in the bucket _newbucket1_ as the object _case1.txt.zst_.
+The command above uploads the file *test_1.txt* to Allas in the bucket _2012345-data_ as the object _dir_a/case1.txt.zst_.
 As the option _-c_ is used, the data is stored in zstd compressed format. 
 
 You can give several file or directory names for `a-put` and use * as a wildcard character when naming the data to be uploaded. Note that in these cases each item (file or directory) will be stored as a separate object. For example, say that we have a directory called _job123_ that contains files _input1.txt_, _input2.txt_ and _program.py_. In addition there are directories _output_dir_1_ and _output_dir_2_ .
@@ -165,36 +186,6 @@ Similarly command
 a-put job123/output_dir*
 ```
 uploads content of _output_dir_1_ to object _job123/output_dir_1.tar_ and content of _output_dir_2_ to object _job123/output_dir_2.tar_. 
-
-During upload datasets that are larger than 5 GB will be split and stored as several objects. This is done automatically to a bucket that is named by adding extension `_segments` to the original bucket name. For example, if you would upload a large file to  bucket  _kkayttaj-12345-MISC_ the actual data would be stored as several pieces into bucket _kkayttaj-12345-MISC_segments_. The target bucket (_kkayttaj-12345-MISC_) would contain just a front object that contains information what segments make the stored dataset. Operations performed to the front object are automatically reflected to the segments. Normally users don't need to operate with the segments buckets at all and objects inside these buckets should not be deleted or modified.
-
-
-### `a-check`
-
-This command goes through the Allas object names, that a corresponding `a-put` command would create, and then checks if object with the same name already exists in Allas. The main purpose of this command is to provide a tool to check if a large `a-put` command was successfully executed. `a-check` accepts the same command line options as `a-put`.
-
-For example, if a dataset is uploaded with command:
-```bash
-a-put job123/*
-```
-The upload can be checked with command: 
-```bash
-a-check job123/*
-```
-The _a-check_ command compares the item names to be uploaded to the matching objects in Allas.
-The files or directories that don't have a target object Allas, are reported and stored to a file:
-missing_bucket-name_number. If some of the objects in the sample commands above would be missing, then
-`a-check` would list the missing files and directories in file `missing_job123_67889` (the number in the end is
-just a random number).
-
-This file of missing items can be used with `a-put` option --input-list, to continue the failed upload process:
-```bash
-a-put --input-list missing_job123_67889
-```
-
-You should note, that `a-check` does not check if the actual contents of the object is correct. It checks only the object names, which may originate from some other sources.
-
-In addition to checking, if upload was successful, `a-check` can be used to do a "dry-run" test for `a-put` to see, what objects will be created or replaced before running the actual `a-put` command. 
 
 
 ### `a-list`
@@ -350,13 +341,12 @@ By default, the object is retrieved, uncompressed and extracted to a file or dir
 
 Options:
 
-- **-p**, **--project _project_ID_** Retrieve data from the buckets of the defined project instead of the currently configured project. 
 - **-f**, **--file _file_name_** Retrieve only a specific file or directory from the stored dataset. **Note:** Define the full path of the file or directory within the stored object.
 - **-d** **--target_dir** <dir_name> If this option is defined, a new target directory is created and the data is retrieved there.
 - **-t** **--target_file** <file_name> Define a file name for the object for the object to be downloaded.
 - **-l** **--original_location**       Retrieve the data to the original location in the directory structure.
 - **--asis**                        Download the object without unpacking tar files and uncompressing zst compressed data.
-- **--s3s3cmd**                       Use S3 protocol and s3cmd command for data retrieval in stead of Swift protocol and rclone.
+- **--swift**                       Use Swift protocol for data retrieval in stead of S3 protocol.
 
 At the moment, `a-get` can download only one object at a time. If you need to download large number of objects you need to use loops. For example to download all the objects in bucket _bucket_123_ , you could use commands:
 
@@ -441,20 +431,20 @@ it will print out the current settings of the bucket.
 
 A users can modify the default settings of `a`-commands by making a configuration file named as **.a_tools_conf** to their **home directory**.  In this file you can set default values for many of the functions that are defined with `a-put` command options.
 
-For example, if you are working mostly with files that would benefit from compression, you might like to use the _--compress_ option with `a-put`. If you want this to be default setting you could create .a_tools_conf file
+For example, if you want to switch `a`-commands to use by defaut Swift protocol, you could create .a_tools_conf file
 that contains setting:
 
 ```text
-compression=1
+mode=swift
 ```
 Now command:
 ```bash
 a-put my_data.b
 ```
-will compress the data during the upload process (that would normally not be the case). However, you can still skip compression with option _--nc_.
+will uplaod the data to Allas using Swift protocol. However, you can still use S3 protocol with option _--s3_.
 
 ```bash
-a-put --nc my_data.b
+a-put --s3 my_data.b
 ```
  
 You can check most commonly used settings from this sample [`.a_tools_conf`:material-open-in-new:](https://github.com/CSCfi/allas-cli-utils/edit/master/.a_tools_conf){ target=_blank } file. Copy the sample file to your home directory and un-comment and define the variables you wish to use.
