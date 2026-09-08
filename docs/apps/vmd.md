@@ -48,6 +48,10 @@ required by VMD, we recommend using it through the
     in the Roihu web interface. In this case, select
     _Accelerated Visualization_ instead of the plain _Desktop_ app.
 
+It is in principle also possible to run VMD over X11. In this case, see the
+[instructions on starting an interactive application with X11 graphics](../computing/running/interactive-usage.md#starting-an-interactive-application-with-x11-graphics).
+However, using X11 to run VMD is very slow and thus discouraged.
+
 ## References
 
 The authors request that all published work which utilizes VMD include the
