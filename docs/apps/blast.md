@@ -17,23 +17,6 @@ BLAST (Basic Local Alignment Search Tool) is the most frequently used sequence h
 
 The command line version of NCBI-BLAST (BLAST+) allows a user to modify all parameters of BLAST, to use special methods like PSI-BLAST and PHI-BLAST, and to analyze large data sets.
 
-The most commonly used BLAST commands are:
-
-* `blastn` search hits for a nucleotide sequence from a nucleotide database
-* `blastp` search hits for a protein sequence from a protein database
-* `blastx` search hits for a nucleotide sequence from a protein database
-* `psiblast` do iterative search for a protein sequence from a protein database
-* `rpsblast` search hits for a protein sequence from a protein profile database
-* `rpstblastn` search hits for a nucleotide sequence from a protein profile database
-* `tblastn` search hits for a protein sequence from a nucleotide database
-* `tblastx` search hits for a nucleotide sequence from a nucleotide database by using the protein translations of both query and database sequences.
-
-Other BLAST commands:
-
-* `blastdbcmd` retrieve a sequence or a set of sequences from BLAST databases
-* `makeblastdb` create a new BLAST database
-* `blast_formatter` reformat a BLAST archive formatted result file.
-
 [TOC]
 
 ## License
@@ -60,6 +43,25 @@ command, for example:
 ```bash
 blastp -help
 ```
+
+### BLAST commands
+
+The most commonly used BLAST search commands are:
+
+* `blastn` search hits for a nucleotide sequence from a nucleotide database
+* `blastp` search hits for a protein sequence from a protein database
+* `blastx` search hits for a nucleotide sequence from a protein database
+* `psiblast` do iterative search for a protein sequence from a protein database
+* `rpsblast` search hits for a protein sequence from a protein profile database
+* `rpstblastn` search hits for a nucleotide sequence from a protein profile database
+* `tblastn` search hits for a protein sequence from a nucleotide database
+* `tblastx` search hits for a nucleotide sequence from a nucleotide database by using the protein translations of both query and database sequences.
+
+Other useful commands:
+
+* `blastdbcmd` retrieve a sequence or a set of sequences from BLAST databases
+* `makeblastdb` create a new BLAST database
+* `blast_formatter` reformat a BLAST archive formatted result file.
 
 BLAST searches against the large shared databases are memory- and time-hungry, so
 run them in an [interactive session](../computing/running/interactive-usage.md) or
