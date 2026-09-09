@@ -15,7 +15,7 @@ catalog:
 
 Diamond is a fast sequence similarity search tool for matching nucleotide or
 protein sequences against protein databases. It aligns proteins and translated
-DNA at 500–20,000× the speed of BLAST, supports frameshift alignments for
+DNA at 100–10,000× the speed of BLAST, supports frameshift alignments for
 long-read analysis, runs with low resource requirements, and writes a range of
 output formats (BLAST pairwise, tabular, XML, and taxonomic classification).
 
