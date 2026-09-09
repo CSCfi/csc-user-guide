@@ -141,6 +141,7 @@ samestr compare \
 
 samestr summarize \
     --input-dir  out_compare/ \
+    --tax-profiles-dir out_profile/ \
     --marker-dir samestr_db/ \
     --output-dir out_summarize/
 ```
