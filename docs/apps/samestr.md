@@ -120,6 +120,12 @@ samestr convert \
     --nprocs 8 --min-vcov 5 \
     --output-dir out_convert/
 
+samestr merge \
+    --input-files out_convert/*.npy \
+    --marker-dir samestr_db/ \
+    --nprocs 8 \
+    --output-dir out_merge/
+
 samestr filter \
     --input-files out_convert/*.npy \
     --marker-dir  samestr_db/ \
