@@ -3,12 +3,13 @@
 Allas is not certified as high level security storage platform and thus you should not use it to store sensitive data in readable format.
 However, sensitive data can be stored on Allas if it is properly encrypted before transfer to the object storage.
 
+
 For sensitive data we generally recommend the [SD Connect service](../sensitive-data/sd_connect.md) that provides Web and command line interfaces 
 that automatically encrypt the data when it is stored to Allas. 
 
 If you for some reason don't want to use SD Connect, below you can find some alternative approaches for storing your sensitive data to Allas. When you use Allas with these encryption tools, remember that:
    
-   1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in environments with a high enough security level. For example, the CSC HPC environment (i.e. Puhti, Mahti, LUMI) is **not** secure enough for sensitive data.
+   1. You can store encrypted sensitive data in Allas, but are allowed to decrypt it only in environments with a high enough security level. For example, in manu cases the CSC HPC environments (i.e. Roihu, LUMI) is considered not secure enough for sensitive data. The decision, if centain computing or storage environment is safe enough, is made by the data controller, not CSC.
    
    2. You should use strong enough encryption passwords and keep them safe.  
    
@@ -40,7 +41,7 @@ a-get my_allas_bucket/data_dir.tar.zst.gpg
 ### Asymmetric crypt4gh encryption
 
 If you want to use asymmetric `crypt4gh` encryption, you need to have a public key file for encryption and a secret key file for decryption.
-In Puhti, you first need to make `crypt4gh` available with the command:
+In Roihu, you first need to make `crypt4gh` available with the command:
 ```text
 module load allas
 ```
@@ -77,7 +78,7 @@ The configuration process will ask for a name for the new rclone _remote_.
 In this case, the new remote is named as named as _allas-crypt_.
 
 <pre>
-[kkayttaj@puhti-login11 ~]$ <b>rclone config</b>
+[kkayttaj@roihu-cpu-login3 ~]$ <b>rclone config</b>
 Current remotes:
 
 Name                 Type
@@ -133,7 +134,7 @@ e/n/d/r/c/s/q><b>q</b>
  
 Now the repository is ready to be used. Say, you have a directory called _job_6_ containing some files and directories:
 <pre>
-[kkayttaj@puhti-login11 ~]$ <b>ls job_6</b>
+[kkayttaj@roihu-cpu-login3 ~]$ <b>ls job_6</b>
 hello.xrsl  results  results.1601291937.71  runhello.sh
 </pre>
 
@@ -153,7 +154,7 @@ The data has now been copied to Allas and you can check the uploaded files with 
 
 The `allas-crypt remote` translates the data from the encrypted bucket (allas:2001659-crypt) automatically into readable format. However, if you study the content of the encrypted bucket directly, you can see that the object names, as well as the stored data, are in encrypted format:
 
-<pre>[kkayttaj@puhti-login11 ~]$ <b>rclone ls allas:2001659-crypt</b>
+<pre>[kkayttaj@roihu-cpu-login3 ~]$ <b>rclone ls allas:2001659-crypt</b>
       125 4lpbj55pc5v8t119q0tp2o6k58/36sb832och3tde30k9nlks3dpo
        59 4lpbj55pc5v8t119q0tp2o6k58/90alcaodph3386197agf252t5b97f144n88e99m9ire5tcpqu380/flqitnrsrc8iloggbc4ouagukg
       134 4lpbj55pc5v8t119q0tp2o6k58/90alcaodph3386197agf252t5b97f144n88e99m9ire5tcpqu380/gvie6dv3s50v32qptl30960me4
@@ -216,7 +217,7 @@ rclone copy --config $HOME/rc-encrypt.conf job_6 allas-crypt:job_6
 
 [Restic](https://restic.net/) is a backup program that can use Allas as storage space for the backuped data. In stead of importing the data directly, `restic` stores the data as a collection hash. This feature enables effective storage of datasets that include small changes. Thus, different versions of a dataset can be stored so that in the case of a new dataset version, only the changes compared to the previous version needs to be stored. This approach also enables retrieving not just the latest version, also earlier versions of the backuped data. 
 
-In addition to hashing, `restic` encrypts the data using AES256 cipher. The Allas specific backup tool, `allas-backup` (available in Puhti and Mahti) is based on `restic` but it uses a fixed pre-defined encryption password and thus it should not be used, if high security level is required. In those cases you can use `restic` directly.
+In addition to hashing, `restic` encrypts the data using AES256 cipher. The Allas specific backup tool, `allas-backup` (available in Roihu and Lumi) is based on `restic` but it uses a fixed pre-defined encryption password and thus it should not be used, if high security level is required. In those cases you can use `restic` directly.
 
 To use Allas as the storage place for `restic`, first open a connection to Allas. When you start using `restic` for the first time, you must set up a `restic` repository.
 The repository definition includes a protocol (`swift` in this case), location that is the bucket name in the case of Allas, and a prefix for the stored data objects. For example: 

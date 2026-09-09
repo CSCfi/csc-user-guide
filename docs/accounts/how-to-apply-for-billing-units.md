@@ -63,7 +63,7 @@ flowchart TD
     C2["Monitor approval
        (2-3 days)"]
     C3["CSC resource allocation
-       group approval (every 3
+       group approval (every 2
        weeks)"]
     D{"Grant larger than
       50% of remaining

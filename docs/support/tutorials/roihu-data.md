@@ -20,9 +20,7 @@
 !!! warning "Mahti and Puhti shutdown in Fall 2026"
      Mahti and Puhti are being decommissioned by October 2026.
 
-     * Puhti computing services will be shut down 31 July 2026 at 12:00 EEST.
-     * Mahti computing services will be shut down 31 August 2026 at 12:00 EEST.
-     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
+     * Puhti and Mahti computing services have been shut down.
 
      Puhti and Mahti storage services will be decommissioned 15 October 2026 at 12:00 EEST, but
      are not covered by service contracts after end of August.
@@ -40,8 +38,10 @@
   truly need**.
     * Good data hygiene reduces transfer time and load on the file system, as
       well as eliminates the risk of moving redundant or duplicate data. Roihu
-      will implement a similar disk cleaning policy as Puhti, meaning that
-      files that have not been accessed in 180 days will be deleted.
+      has the same [disk cleaning policy](../../computing/usage-policy.md#disk-cleaning)
+      as Puhti, meaning that files that have not been accessed in 180 days
+      (or 90 days for projects with a scratch quota of 5 TiB or more) will be
+      deleted.
     * We recommend using the [LUE tool](lue.md) to identify where you have lots of
       data. Avoid using tools such as `du` as they may cause a lot of load on
       the file system. Simple usage example (run `lue -h` for other options):

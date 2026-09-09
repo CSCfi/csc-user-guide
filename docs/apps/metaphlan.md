@@ -8,12 +8,10 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # MetaPhlAn
-
-
 
 MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic sequencing data. 
 
@@ -21,71 +19,104 @@ MetaPhlAn is a computational tool for profiling the composition of microbial com
 
 ## License
 
-Free to use and open source under [MIT License](https://github.com/biobakery/MetaPhlAn2/blob/master/license.txt).
+Free to use and open source under [MIT License](https://github.com/biobakery/MetaPhlAn/blob/master/license.txt).
 
 ## Available
 
-*   Puhti: 4.0.2, 4.0.3, 4.0.6, 4.1.1
+* Roihu: 4.2.4 (module `py-metaphlan`), via the `bio-apps` module.
 
 ## Usage
 
-To activate MetaPhlAn Puhti, run command:
+MetaPhlAn is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the MetaPhlAn module:
 
-```text
-module load metaphlan
+```bash
+module load bio-apps/v202603
+module load py-metaphlan/4.2.4
 ```
 
-You can check basic usage with command;
+You can check basic usage with the command:
 
-```text
+```bash
 metaphlan --help
 ```
 
-MetaPhlAn can automatically retrieve the MetaPhlAn database and create the Bowtie2 
-indexes it needs on-the-fly when it the command is executed. By default MetaPhlAn 
-saves these index files to the MetaPhlAn installation directory, but in Puhti,
-this is not possible. Because of that, the users should use option `--bowtie2db` 
-to define a directory that will be used to store the database and index files. 
- 
-For example in the case of _project_2001234_ the user could first create a directory for the databases:
+### Database
 
-```text
-cd /scratch/project_2001234
+MetaPhlAn needs a marker database (the ChocoPhlAn-SGB Bowtie2 indexes) to run.
+On Roihu a shared, read-only copy is provided centrally, and the `py-metaphlan`
+module points MetaPhlAn at it automatically through the `$METAPHLAN_DB_DIR`
+environment variable — so for the bundled database versions you do **not** need
+to pass `--db_dir`.
+
+The following database versions are available in the shared location:
+
+* `mpa_vJan26_CHOCOPhlAnSGB_202605` (latest)
+* `mpa_vJun23_CHOCOPhlAnSGB_202403`
+
+They sit side by side in one folder; choose which one to use with `--index` (its
+value must be one of the versions listed above):
+
+```bash
+metaphlan --index mpa_vJan26_CHOCOPhlAnSGB_202605 ...
+```
+
+#### Using your own database
+
+To use a version that is not in the shared location — or to let MetaPhlAn
+download and build a fresh database — point `--db_dir` at a **writable**
+directory of your own. An explicit `--db_dir` overrides `$METAPHLAN_DB_DIR`, and
+because the shared copy is read-only MetaPhlAn cannot create a missing index
+there.
+
+For example, create a directory for the databases in your project's `/scratch`:
+
+```bash
+cd /scratch/<project>
 mkdir metaphlan_databases
 ```
 
-Databases can be also be pre-prepared with the `--install` option:
+Databases can be pre-prepared with the `--install` option:
 
-```text
-metaphlan --install --bowtie2db metaphlan_databases
+```bash
+metaphlan --install --db_dir metaphlan_databases
 ```
 
-The database is quite big and downloading and building it can take 
-some time.
+The database is quite big and downloading and building it can take some time.
 
-By default, the latest MetaPhlAn database is downloaded and built. You can download a specific version with the `--index` parameter.
+By default the latest MetaPhlAn database is downloaded and built. You can request
+a specific version with the `--index` parameter:
 
-```text
-metaphlan --install --index mpa_vJan21_CHOCOPhlAnSGB_202103 --bowtie2db metaphlan_databases
+```bash
+metaphlan --install --index mpa_vJan21_CHOCOPhlAnSGB_202103 --db_dir metaphlan_databases
 ```
 
-When running MetaPhlan analyses you must include the `--bowtie2db` option, and also `--index`
-if using non-default database. If database is not found in the indicated location, it will be automatically generated.
+If the requested database is not found in the indicated writable location, it
+will be generated automatically.
 
-A test input dataset for testing MataPhlAn can be downloaded from the metaphlan github site:
+A test input dataset for testing MetaPhlAn can be downloaded from the MetaPhlAn github site:
 
-```text
+```bash
 wget https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014476-Supragingival_plaque.fasta.gz
 ```
 
-In this example the job is executed as an interactive batch job.
+In this example the job is executed as an interactive job. On the Roihu `interactive`
+partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB /
+36 hours), so request the number of cores that gives you enough memory — here 8 cores
+(about 15 GB):
 
-```text
-sinteractive -m 16G -c 4
-module load metaphlan
-metaphlan --nproc 4 --bowtie2db metaphlan_databases  SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt
+```bash
+sinteractive --account <project> --cores 8
+module load bio-apps/v202603
+module load py-metaphlan/4.2.4
+metaphlan --nproc 8 --index mpa_vJan26_CHOCOPhlAnSGB_202605 SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt
 ```
 
-# More information
+## Support
+
+[CSC Service Desk](../support/contact.md)
+
+## More information
+
 *   [MetaPhlAn 4 documentation](https://github.com/biobakery/MetaPhlAn/wiki/MetaPhlAn-4)
 *   [MetaPhlAn 4 tutorial](https://github.com/biobakery/biobakery/wiki/metaphlan4)

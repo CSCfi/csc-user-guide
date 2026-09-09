@@ -37,6 +37,7 @@ graph LR;
     style B fill:#dceeceff;
     style C fill:#dceeceff;
     style D fill:#dceeceff;
+    style E fill:#dceeceff;
 ```
 
 **Roihu** is installed in the same datacenter as LUMI, meaning that the
@@ -51,12 +52,12 @@ means that jobs will not run on Puhti's compute nodes anymore. Puhti's storage a
 however, remain accessible until midday October 15th 2026, after which Puhti will be retired
 completely.
 
-Mahti will be closed in a similar two-stage process. Mahti’s computing services will be shut down on 31 August 2026 at 12:00 EEST, and jobs will not run on Mahti after this date.
+Mahti will be closed in a similar two-stage process. Mahti’s computing services have been shut down on 31 August 2026 at 12:00 EEST, and jobs will not run on Mahti anymore.
 Its storage and login nodes will remain accessible until midday 15 October 2026, after which Mahti will be retired completely.
 
 Between September and October 2026, the storage services will not be covered by service contracts.
 As a result, we cannot guarantee that they will remain accessible throughout this period.
-We strongly encourage all users to prioritize moving their data by the end of August 2026.
+We strongly encourage all users to prioritize moving their data without delay.
 
 ### Prepare for data migration from Mahti and Puhti to Roihu
 
