@@ -145,7 +145,7 @@ carefully, and consider compressing your data before transferring it, to save ti
 used in the migration. Only move data that you truly need.
 
 For long transfers, use `screen` or `tmux` on Mahti/Puhti so the transfer is not interrupted if your connection drops.
-See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#32-running-long-transfer-processes-safely),
+See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#42-running-long-transfer-processes-safely),
 or our [tmux usage tutorial](../tutorials/tmux.md).
 
 Transfer times depend on the amount and size of files: large numbers of small files take longer, so consider
