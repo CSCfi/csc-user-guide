@@ -80,7 +80,7 @@ cd /scratch/<project>/samestr_run
 samestr db \
     --markers-info  $METAPHLAN_DB_DIR/mpa_vJan26_CHOCOPhlAnSGB_202605.pkl \
     --markers-fasta $METAPHLAN_DB_DIR/mpa_vJan26_CHOCOPhlAnSGB_202605_SGB.fna.bz2 \
-    --db-version    $METAPHLAN_DB_DIR/mpa_latest
+    --db-version    $METAPHLAN_DB_DIR/mpa_latest \
     --output-dir    samestr_db/
 ```
 
