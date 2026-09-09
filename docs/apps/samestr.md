@@ -135,6 +135,7 @@ samestr filter \
 
 samestr compare \
     --input-files out_filter/*.npy \
+    --input-names out_filter/*.names.txt \
     --marker-dir  samestr_db/ \
     --output-dir out_compare/
 
