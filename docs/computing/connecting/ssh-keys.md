@@ -220,6 +220,7 @@ following instructions illustrate only basic usage.
             - The signed certificate is saved as
               `<key>-cert.pub` (e.g., `~/.ssh/id_ed25519-cert.pub`).
         6. You now have everything ready to **[connect to Roihu following these instructions](ssh-unix.md#basic-usage)**.
+        7. (Optional) You can further automate the use of the tool by [integrating it to the ssh config](ssh-unix.md#configuring-ssh-client).
 
     === "Windows"
 
