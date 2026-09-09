@@ -159,7 +159,7 @@ We recommend trying the MyCSC workflow first, since it should work out-of-the-bo
 
 === "Windows"
 
-	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla and WinSCP.
+	1. Optional, add certificate to [SSH authentication agent](ssh-windows.md#authentication-agents-with-roihu). Mandatory for SSH agent forwarding or for using FileZilla.
 	1. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 
 ---
@@ -224,14 +224,14 @@ following instructions illustrate only basic usage.
     === "Windows"
 
 
-		6. [Depending on the tool you plan to use](ssh-windows.md), select the OpenSSH or Putty Private Keys (PPK) as input for the script. With OpenSSH keys you can generate certificates for both OpenSSH client and all Windows SSH applications using Putty keys, if you are only using graphical Windows applications you can also use Putty keys as input.  
-        7. If you are using Putty keys, install [WinSCP](https://winscp.net/eng/docs/installation). This tool is used to generate Putty Private Keys (PPK) from the certificate from MyCSC.
+		6. [Depending on the tool you plan to use](ssh-windows.md), select the OpenSSH or PuTTY Private Keys (PPK) as input for the script. With OpenSSH keys you can generate certificates for both OpenSSH client and all Windows SSH applications using PuTTY keys, if you are only using graphical Windows applications you can also use PuTTY keys as input.  
+        7. If you are using PuTTY keys, install [WinSCP](https://winscp.net/eng/docs/installation). This tool is used to generate PuTTY Private Keys (PPK) from the certificate from MyCSC.
                * If you install WinSCP without admin rights, you must add 
                `WinSCP.exe` to your Path environment variable. Search for the
                _Edit environment variables for your account_ settings menu.
         8. Optional, but **strongly recommended** start one of the [SSH agents](ssh-windows.md#authentication-agent) to
            automatically add SSH key and certificate to the SSH agent:
-               * Pageant for Putty keys. 
+               * Pageant for PuTTY keys. 
                * Windows `ssh-agent` for OpenSSH keys.
 
         9. Open PowerShell and run the script. Depending on what tools you plan to use, provide the helper script the right type of key.
@@ -272,7 +272,7 @@ following instructions illustrate only basic usage.
               your SSH authentication agent if you have it running.
             - The signed certificate is saved to the same folder as the input key
                as `<key>-cert.pub` for OpenSSH keys and/or
-              `<key>-cert.ppk` for Putty keys.
+              `<key>-cert.ppk` for PuTTY keys.
         13. Connect to Roihu [with SSH clients](ssh-windows.md#basic-usage) or [graphical file transfer tools](../../data/moving/graphical_transfer.md).
 ---
 
