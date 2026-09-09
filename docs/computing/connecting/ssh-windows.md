@@ -27,11 +27,11 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | Tool             |  Roihu, option 1 |    Roihu, option 2|        
 |:-----------------|-----------------:|------------------:|
 | MobaXterm, inc SFTP browser |   :ok:|              :ok: |
-| Putty            |              :ok:|              :ok: |
+| PuTTY            |              :ok:|              :ok: |
 | PowerShell       |              :ok:|               :ok:|
 | [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)    |    :ok: |               :ok:|        
 | [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)   |   Difficult | Only with Pageant |      
-| Cyberduck        |    :ok: with OpenSSH key, difficult with Putty key    |       :ok:|
+| Cyberduck        |    :ok: with OpenSSH key, difficult with PuTTY key    |       :ok:|
 
 
 For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it can not be used from transferring data from Puhti or Mahti to Roihu.
@@ -95,7 +95,7 @@ Depending on the tools you plan to use (see above) for SSH connection and moving
 
 ---
 
-PuTTYgen or MobaKeyGen can also be used for converting keys from OpenSSH to Putty format and vice versa.
+PuTTYgen or MobaKeyGen can also be used for converting keys from OpenSSH to PuTTY format and vice versa.
 
 After you have generated an SSH key pair, you need to [add the **public key** to
 the MyCSC portal](ssh-keys.md#adding-public-key-in-mycsc). To
@@ -347,7 +347,7 @@ Option 1 requires some extra steps for adding the SSH certificate to the SSH age
 
 !!! warning "Data transfer from Puhti/Mahti to Roihu"
 
-     To transfer data from Puhti/Mahti to Roihu, add to Pageant or MobAgent two keys: the signed SSH key for Roihu and unsigned SSH key for Puhti and Mahti. This is needed even if the keys have the same public key in My.csc.fi. 
+     To transfer data from Puhti/Mahti to Roihu, add to Pageant or MobAgent two keys: the signed SSH key for Roihu and unsigned SSH key for Puhti and Mahti. This is needed even if the keys have the same public key in my.csc.fi. 
 
 === "Windows ssh-agent"
 

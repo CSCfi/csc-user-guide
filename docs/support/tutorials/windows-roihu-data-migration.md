@@ -32,11 +32,11 @@ Connecting with SSH and SSH Agent to Puhti
 4. Connect to Roihu:
 	* PowerShell: `ssh -A <username>@roihu-cpu.csc.fi`
  	* Putty:
-	 	* Host: roihu-cpu.csc.fi
+	 	* Host: `roihu-cpu.csc.fi`
 		* Private key and SSH certificate: Connection -> SSH -> Auth -> Credentials
   		* Connection -> SSH -> Auth: Allow agent forwarding 
   	* MobaXterm: 
- 		* Host: roihu-cpu.csc.fi
+ 		* Host: `roihu-cpu.csc.fi`
     	* Private key and SSH certificate: Advanced SSH settings + Expert SSH settings
 		* Advanced SSH settings > Expert SSH settings: Allow agent forwarding
 5. From Roihu-CPU login-node, use `rsync` to pull data from Puhti. 
