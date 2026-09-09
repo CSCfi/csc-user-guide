@@ -113,7 +113,7 @@ You can create three types of policies:
 
 Data deposition to the Finnish Federated EGA requires several legal agreements: a Service Agreement for Federated EGA and a Data Access Agreement including a Data Transfer Agreement. 
 
-**Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the Polcies in SD Apply. For further information, please contact your home organization's legal services. You can [download an example template](https://ega-archive.org/assets/files/Example_DAA.doc) provided by the EGA.
+**Data Access Agreement**: The Data Access Agreement (DAA) is a contract between the Data Access Committee (DAC) and an applicant seeking access to the data for reuse. Through the DAA, the data controller can define conditions and restrictions for data reuse, including policies governing data use, publication, download, and access. The DAA should also include a Data Transfer Agreement (DTA), necessary when researchers from non-EU/non-EEA regions access the data via SD Desktop. DAA and DTA will be included in the Policies in SD Apply. For further information, please contact your home organization's legal services. You can [download an example template](https://ega-archive.org/assets/files/Example_DAA.doc) provided by the EGA.
 
 Consult your organization's legal experts to define data access policies that are appropriate for this purpose.  
 
@@ -152,7 +152,7 @@ If you know all the datasets your organization manages in SD Apply will have the
 
 Unfortunately, we currently have a technical limitation of 1 MB for PDF attachments. **Please optimise your PDF file before adding it to SD Apply**.  
 
-This way these polcies will be added automatically to all catalogue items that use the same DAC. You can also add dataset specific terms of use by connecting a policy to a identifier. 
+This way these policies will be added automatically to all catalogue items that use the same DAC. You can also add dataset specific terms of use by connecting a policy to a identifier. 
 
 ### 2.4. Create a identifier
 

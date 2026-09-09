@@ -91,7 +91,7 @@ This chapter will walk you through creating an SSH key pair in the OpenStack web
 
 ### Linux and Mac
 
-In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commmands:
+In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run these commands:
 
 !!! info "For macOS"
 

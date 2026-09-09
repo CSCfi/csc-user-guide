@@ -87,7 +87,7 @@ Infrastructure as Code (IaC) tools are very useful, as they allow to specify com
 * **Heat** is the tool integrated by OpenStack. See the example [heat-openstack-example].
 * **Ansible** has some modules that provide IaC functionality. See the example [ansible-openstack-example].
 
-You can see above three examples, one for for each tool. All of them aim to get the same result: One or more VMs with nginx installed and few local files deployed. In order to choose which one to use, you will need to consider the up and downs of the tools and use the one that fits more your use case. For example, if you think about support. Both Heat and Ansible are developed by the OpenStack team and the Terraform provider is a community written software. In addition, Heat is provided together with OpenStack and can  be used via command line or the web interface. Finally Heat is the only one that the Pouta team fully supports. On the other hand, Terraform is more widely used and will be easier to find examples and help than the other two tools.
+You can see above three examples, one for each tool. All of them aim to get the same result: One or more VMs with nginx installed and few local files deployed. In order to choose which one to use, you will need to consider the ups and downs of the tools and use the one that fits more your use case. For example, if you think about support. Both Heat and Ansible are developed by the OpenStack team and the Terraform provider is a community written software. In addition, Heat is provided together with OpenStack and can  be used via command line or the web interface. Finally Heat is the only one that the Pouta team fully supports. On the other hand, Terraform is more widely used and will be easier to find examples and help than the other two tools.
 
 !!! Info "Terraform license"
 
@@ -149,7 +149,7 @@ If you need a database, you should take a look to [Pukki](../dbaas/what-is-dbaas
 
 ## Summary
 
-Pouta offers few useful tools and resources that will make it easier to develop more reliable applications. Cloud deployments work very well when the application follow the idea of disposable microservices that are prepared to scale up and down transparently and are designed to respond well to unexpected failures. Pouta gives the flexibility of easily deploying isolated development environments. In addition, the API gives all the power of automation to you, and thanks to Devops tools it is simple to use that power. And of course never forget to backup your data.
+Pouta offers few useful tools and resources that will make it easier to develop more reliable applications. Cloud deployments work very well when the application follows the idea of disposable microservices that are prepared to scale up and down transparently and are designed to respond well to unexpected failures. Pouta gives the flexibility of easily deploying isolated development environments. In addition, the API gives all the power of automation to you, and thanks to Devops tools it is simple to use that power. And of course never forget to backup your data.
 
   [practices]: https://12factor.net/
   [code repositories]: https://github.com/CSCfi

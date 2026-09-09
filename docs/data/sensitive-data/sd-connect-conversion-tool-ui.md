@@ -33,7 +33,7 @@ Review your project's buckets together with your (possible) team. We recommend [
 
 ### Buckets with incompatible names (Label: Urgent)
 
-In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incombatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
+In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
 
 After conversion these buckets will have new compatible names with a suffix "-conv" at the end of the bucket name. 
 
@@ -141,4 +141,4 @@ Conversion pauses if your laptop runs out of power or loses internet connection.
 
 After conversion is complete Conversion tool will ask you if you want delete original incompatible buckets. 
 
-![Deleting incombatible buckets](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_delete.png)
+![Deleting incompatible buckets](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_delete.png)

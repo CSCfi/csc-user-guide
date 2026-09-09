@@ -22,9 +22,9 @@ to add the missing libraries. This tutorial demonstrates two ways to add missing
 
 ## Option 1: add-python-lib tool
 
-_Add-python-lib_ is a help tool tha can be used to add python libraries to
+_Add-python-lib_ is a help tool that can be used to add python libraries to
 a Python virtual environment in a SD Desktop virtual machine.
-This tool can be added to your virtual machine with the [SD Sotware installer tool](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
+This tool can be added to your virtual machine with the [SD Software installer tool](../../sensitive-data/sd-desktop-software.md#customisation-via-sd-software-installer)
 
 Basic syntax of the command is:
 
@@ -37,7 +37,7 @@ Note that the preloaded set of libraries is very small (some hundreds) compared 
 Please send a request to [CSC Service Desk](../../../support/contact.md) if you would need to have a library to be added to the selection.
 Note that all python libraries are not compatible with this approach.
 
-The selected library will added to a Python virtual environment that locates in _/shared-directory/sd-tools/python3-venv_.
+The selected library will added to a Python virtual environment located in _/shared-directory/sd-tools/python3-venv_.
 This virtual environment is automatically created when _add-python-lib_ is used for the first time.
 
 In the case of SciKit-Optimize, you could do the installation with command:

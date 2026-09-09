@@ -9,8 +9,7 @@ catalog:
     - Data Analytics and Machine Learning
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
+    - Roihu
 ---
 
 # TensorFlow
@@ -19,55 +18,32 @@ Deep learning framework for Python.
 
 !!! info "News"
 
-    **5.10.2022** Due to Puhti's update to Red Hat Enterprise Linux 8
-    (RHEL8), **the number of fully supported TensorFlow versions has been
-    reduced. Previously deprecated conda-based versions have been
-    removed.** Please [contact our servicedesk](../support/contact.md) if
-    you really need access to older versions.
+    **3.9.2026** TensorFlow version 2.21 is now available on Roihu-CPU. Naturally 
+    this version does not support GPU acceleration. 
 
-    **5.5.2022** Due to Mahti's update to Red Hat Enterprise Linux 8 (RHEL8),
-    the number of fully supported TensorFlow versions has been reduced. Please [contact our
-    servicedesk](../support/contact.md) if you really need access to other versions.
-
-    **4.2.2022** All old TensorFlow versions which were based on direct Conda
-    installations have been deprecated, and we encourage users to move to newer
-    versions. Read more on our separate [Conda deprecation page](../support/tutorials/conda.md).
-
+    **16.6.2026** TensorFlow is now available on Roihu-GPU, the module has been 
+    renamed `python-tensorflow`.
+    
 
 ## Available
 
 Currently supported TensorFlow versions:
 
-| Version | Module               | Puhti | Mahti | LUMI | Notes           |
-|:--------|:---------------------|:-----:|:-----:|:----:|-----------------|
-| 2.18.0  | `tensorflow/2.18`    | X     | X     | -    | default version |
-| 2.17.0  | `tensorflow/2.17`    | X     | X     | -    |                 |
-| 2.16.1  | `tensorflow/2.16`    | -     | -     | X    | default version |
-| 2.15.0  | `tensorflow/2.15`    | X     | X     | -    |                 |
-| 2.14.0  | `tensorflow/2.14`    | X     | X     | -    |                 |
-| 2.13.0  | `tensorflow/2.13`    | X     | X     | -    |                 |
-| 2.12.0  | `tensorflow/2.12`    | X     | X     | X    |                 |
-| 2.11.0  | `tensorflow/2.11`    | X     | X     | X    |                 |
-| 2.10.0  | `tensorflow/2.10`    | X     | X     | X    |                 |
-| 2.9.0   | `tensorflow/2.9`     | X     | X     | X    |                 |
-| 2.8.0   | `tensorflow/2.8`     | X     | X     | X    |                 |
-| 2.7.0   | `tensorflow/2.7`     | (x)   | (x)   | -    |                 |
-| 2.6.0   | `tensorflow/2.6`     | (x)   | (x)   | -    |                 |
-| 2.5.0   | `tensorflow/2.5`     | (x)   | (x)   | -    |                 |
-| 2.4.1   | `tensorflow/2.4`     | (x)   | (x)   | -    |                 |
-| 2.4.0   | `tensorflow/2.4-sng` | (x)   | -     | -    |                 |
-| 2.3.0   | `tensorflow/2.3`     | (x)   | -     | -    |                 |
-| 2.2.0   | `tensorflow/2.2`     | (x)   | -     | -    |                 |
-| 1.15.5  | `tensorflow/1.15`    | (x)   | -     | -    |                 |
+| Version | Module                   | Roihu-GPU | Roihu-CPU | LUMI | Notes            |
+|:--------|:-------------------------|-----------|-----------|:----:|------------------|
+| 2.21.0  | `python-tensorflow/2.21` | X         | X         |  -   | Default on Roihu |
+| 2.16.1  | `tensorflow/2.16`        |           |           |  X   | Default on LUMI  |
+| 2.12.0  | `tensorflow/2.12`        |           |           |  X   |                  |
+| 2.11.0  | `tensorflow/2.11`        |           |           |  X   |                  |
+| 2.10.0  | `tensorflow/2.10`        |           |           |  X   |                  |
+| 2.9.0   | `tensorflow/2.9`         |           |           |  X   |                  |
+| 2.8.0   | `tensorflow/2.8`         |           |           |  X   |                  |
 
 Includes [TensorFlow](https://www.tensorflow.org/) and
-[Keras](https://keras.io/) with GPU support via CUDA/ROCm.
-
-Versions marked with "(x)" are based on old Red Hat Enterprise Linux 7
-(RHEL7) images, and are no longer fully supported. In particular MPI
-and Horovod are not expected to work anymore with these modules. If
-you still wish to access these versions, you need to enable old RHEL7
-modules by `module use /appl/soft/ai/rhel7/modulefiles/`.
+[Keras](https://keras.io/) with GPU support via CUDA/ROCm. The version
+on Roihu-CPU naturally does not support GPUs, but has been made
+available for light workloads and workloads that need x86_64 CPU
+architecture.
 
 If you find that some package is missing, you can often install it
 yourself using `pip install`. It is recommended to use Python virtual
@@ -81,19 +57,7 @@ servicedesk](../support/contact.md).
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
-normal. For other commands, you need to prefix them with
-`apptainer_wrapper exec`, for example `apptainer_wrapper exec
-huggingface-cli`. For more information, see [CSC's general
-instructions on how to run Apptainer
-containers](../computing/containers/overview.md#running-containers).
-
-Some modules support [Horovod](https://horovod.ai/), which is our
-recommended framework for multi-node jobs, i.e., jobs needing more
-than 4 GPUs on Puhti and Mahti. Horovod can also be used with
-single-node jobs for 2-4 GPUs. For more information, read the
-[Multi-GPU section in our machine learning
-guide](../support/tutorials/ml-multi.md).
-
+normal.
 
 ## License
 
@@ -102,11 +66,11 @@ TensorFlow is licensed under [Apache License
 
 ## Usage
 
-To use the default version of TensorFlow on Puhti or Mahti, initialize
-it with:
+To use the default version of TensorFlow on Roihu-GPU or Roihu-CPU,
+initialize it with:
 
 ```text
-module load tensorflow
+module load python-tensorflow
 ```
 
 To access TensorFlow on LUMI:
@@ -120,7 +84,8 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load tensorflow/2.12
+module load python-tensorflow/2.21  # on Roihu
+module load tensorflow/2.12         # on LUMI
 ```
 
 Please note that the modules already include CUDA/ROCm libraries, so
@@ -129,14 +94,15 @@ Please note that the modules already include CUDA/ROCm libraries, so
 This command will also show all available versions:
 
 ```text
-module avail tensorflow
+module avail python-tensorflow  # on Roihu
+module avail tensorflow         # on LUMI
 ```
 
 To check the exact packages and versions included in the loaded module you can
 run:
 
 ```text
-list-packages
+pip list
 ```
 
 !!! warning 
@@ -150,34 +116,32 @@ list-packages
 Example batch script for reserving one GPU and 1/4 (1/8 on LUMI) of
 the available CPU cores in a single node:
 
-=== "Puhti"
+
+=== "Roihu-GPU"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=1
+    #SBATCH --partition=gpumedium
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=64G
+    #SBATCH --cpus-per-task=72
+    #SBATCH --gres=gpu:gh200:1
     #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:1
     
-    module load tensorflow/2.14
+    module load python-tensorflow/2.21
     srun python3 myprog.py <options>
     ```
-    
-=== "Mahti"
+
+=== "Roihu-CPU"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=gpusmall
-    #SBATCH --nodes=1
+    #SBATCH --partition=small
     #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=32
+    #SBATCH --cpus-per-task=7
+    #SBATCH --mem=15G
     #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:1
     
-    module load tensorflow/2.14
+    module load python-tensorflow/2.21
     srun python3 myprog.py <options>
     ```
 

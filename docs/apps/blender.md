@@ -11,8 +11,10 @@ catalog:
     - web_interfaces:
         - LUMI
         - Puhti
+        - Roihu
     - LUMI
     - Puhti
+    - Roihu
 ---
 
 # Blender
@@ -24,6 +26,7 @@ game creation.
 
 ## Available
 
+* Roihu: 4.5.10
 * Puhti: 3.2, 3.6
 * LUMI: 3.5.1
 
@@ -37,9 +40,9 @@ including commercially or for education under Blender's
 
 You need accelerated graphics to work with Blender efficiently.
 
-### Puhti
+### Roihu
 
-1. Connect to the [Puhti web interface](../computing/webinterface/connecting.md).
+1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
 2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
    app of the web interface and specify the required resources.
 3. Click the *Launch* button. Your job is placed in the queue, and once it has
@@ -48,7 +51,7 @@ You need accelerated graphics to work with Blender efficiently.
    for it using the *Application Finder*). Launching the software may take a
    few seconds, so be patient.
 
-![Launching Blender in Puhti web interface accelerated desktop](../img/interactive_session_workspace_blender.png 'Launching Blender in Puhti web interface accelerated desktop')
+![Launching Blender in Roihu web interface accelerated desktop](../img/blender_interactive_roihu.png 'Launching Blender in Roihu web interface accelerated desktop')
 
 ![Blender workspace](../img/blender_workspace.png 'Blender workspace')
 

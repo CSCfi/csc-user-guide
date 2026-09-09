@@ -11,7 +11,7 @@ One needs to get DeepVariant docker image, models and test data in order to run 
 
 #### Convert docker image into Singularity image on your local machine ####
 
-One way to build a Singularity image is to download the deepvariant docker image to local registry and then convert it to singularity one to avoid any possible erros with docker images pulled directly with singularity build command from google registry. Please note that one has to do these image conversions in your local machine or virtual machine in cPouta as Puhti does not grant root access to users.
+One way to build a Singularity image is to download the deepvariant docker image to local registry and then convert it to singularity one to avoid any possible errors with docker images pulled directly with singularity build command from google registry. Please note that one has to do these image conversions in your local machine or virtual machine in cPouta as Puhti does not grant root access to users.
 
 Pull DeepVariant image and push it into local registry as below:
 

@@ -104,7 +104,7 @@ Read more about [CSC free-of-charge use cases and pricing](https://research.csc.
 The EU General Data Protection Regulation (GDPR) outlines the principles on sensitive data processing, without giving exact technical details on how to process sensitive data. You can learn about sensitive data more from [CSC's definition of sensitive data](https://research.csc.fi/en/definition-of-sensitive-data). At this point only certain basic rules regarding sensitive personal data are highlighted.
 
   1. Minimize the data. This means that you should only process the data that is absolutely needed. 
-  2. Anonymize or pseudonymizse the data whenever possible. 
+  2. Anonymize or pseudonymize the data whenever possible. 
   3. Encrypt the data.
   4. Destroy the data you do not need. 
 

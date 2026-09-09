@@ -43,6 +43,8 @@ reliable storage option as the data in them is replicated.
 You can find additional information on the
 [persistent volumes page](persistent-volumes.md).
 
+For volumes that require user controlled encryption, see [Encrypted persistent volumes](encrypted-volumes.md).
+
 ## Object storage
 
 In case you need a storage space where your data can be easily accessed over

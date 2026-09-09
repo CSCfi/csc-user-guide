@@ -86,7 +86,7 @@ class MovedTranslation(PageTranslation):
 
     def __handle_move(self):
         mkparents(self.__dest_path)
-        self.__src_path.unlink(missing_ok=True, follow_symlinks=False)
+        self.__src_path.unlink(missing_ok=True)
         self.__dest_path.write_text(self.__content, encoding="utf-8")
         logger.info("Moved '%s' to '%s'.",
                     self.__docs_src,

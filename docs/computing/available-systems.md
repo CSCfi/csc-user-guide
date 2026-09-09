@@ -5,40 +5,56 @@
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu general
-      availability in spring 2026.
-    * Puhti storage will remain accessible until August 2026.
-    * Mahti will be shut down in August 2026.
+    * Puhti computing services have been shut down since 31 July 2026.
+    * Mahti computing services have been shut down since 31 August 2026.
+    * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
+    * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
-    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
-
-CSC's computing environment consists of supercomputers Puhti and
+CSC's computing environment consists of supercomputers Roihu, Puhti and
 Mahti. Puhti and Mahti have a
 fairly similar compute environment, and there is a wide range of
 workloads that can utilize both efficiently. At the same time their
-hardware is different, and this makes some worklods uniquely suitable
+hardware is different, and this makes some workloads uniquely suitable
 for either Puhti or Mahti.
 
-In addition to the national resources, CSC's data center in Kajaani hosts the
+Mahti and Puhti are being decommissioned over the summer 2026, with their storage services shutting down 15 October 2026.
+Puhti's and Mahti's compute services have been shut down, and no new jobs will be accepted or executed on their compute nodes.
+
+In addition to the national supercomputers, CSC's data center in Kajaani hosts the
 pan-European pre-exascale supercomputer LUMI. The CPU-partition of LUMI has
 been available since early 2022, while the largest partition of the system
 consisting of GPU-accelerated nodes became available in 2023.
 
+## Roihu
+
+The Roihu supercomputer, BullSequana XH3000 hybrid system, is CSC's next
+national supercomputer and is replacing Puhti and Mahti over the summer, in 2026.
+Roihu is designed as a versatile system for CPU and GPU computing, AI workloads,
+data-intensive research and applications requiring large memory.
+
+Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
+and software environments. The CPU partition contains AMD EPYC
+CPUs, while the GPU partition is based on NVIDIA GH200 Grace Hopper Superchips.
+The system also includes special-purpose nodes for visualization and high-memory
+tasks, and will provide enhanced support for processing sensitive and confidential data.
+
+- [More information about Roihu](systems-roihu.md)
+
 ## Puhti
 
 The Puhti supercomputer, Atos BullSequana X400 cluster based on Intel
-CPUs, was launched on September 2, 2019. It has a powerful CPU
+CPUs, was launched on September 2, 2019. It had a powerful CPU
 partition with almost 700 nodes with a range of memory sizes and local
-storage options, all connected with a fast interconnect. Puhti allows
+storage options, all connected with a fast interconnect. Puhti allowed
 the user to reserve compute and memory resources flexibly, and the
-user can run anything from interactive single core data processing to
+user could run anything from interactive single core data processing to
 medium scale simulations spanning multiple nodes.
 
-There are also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This
-partition is suitable for all kinds workloads capable of utilizing GPUs, even
+There were also 80 GPU nodes, with total of 320 Nvidia Volta V100 GPUs. This
+partition was suitable for all kinds workloads capable of utilizing GPUs, even
 heavy AI models that span multiple nodes.
 
-Puhti has a wide selection of [scientific software](../apps/by_availability.md#puhti)
+Puhti provided a wide selection of [scientific software](../apps/by_availability.md#puhti)
 installed.
 
 - [A more technical description of Puhti](systems-puhti.md)
@@ -54,7 +70,7 @@ allowing jobs to scale across the full system. In Mahti user reserves
 full nodes so that the jobs can extract full performance from each
 node. Mahti is in particular geared towards medium to large scale
 simulations requiring Petaflops of compute power. Also smaller
-parellel workloads that are able to use full nodes efficiently can
+parallel workloads that are able to use full nodes efficiently can
 utilize Mahti.
 
 There are also 24 GPU nodes, with total of 96 Nvidia Ampere A100 GPUs. This
@@ -68,15 +84,6 @@ The selection of installed [scientific software](../apps/by_availability.md#maht
 Mahti is more limited than in Puhti.
 
 - [A more technical description of Mahti](systems-mahti.md)
-
-## Roihu (coming in spring 2026)
-
-CSC's next national supercomputer Roihu, a BullSequana XH3000 hybrid system,
-will replace the Puhti and Mahti supercomputers. Roihu will be located in
-CSC's Kajaani data center, and it is projected to be in researchers' use early
-2026.
-
-- [More information about Roihu](systems-roihu.md)
 
 ## LUMI
 

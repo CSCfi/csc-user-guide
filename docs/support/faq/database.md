@@ -1,7 +1,7 @@
 # I need a Database, where can I deploy it?
 
 If you need a Database that needs to be accessible from other systems (like
-Puhti or Mahti), the best and easiest option is the
+Roihu), the best and easiest option is the
 [Pukki DBaaS service](../../cloud/dbaas/index.md), which currently supports
 PostgreSQL databases. Other types are under consideration.
 
@@ -24,5 +24,5 @@ outside Rahti using the HTTP(s) protocol in ports 80 and 443.
 
 One way to connect to Rahti from CSC supercomputers is to establish a TCP
 tunnel over an HTTP-compatible WebSocket connection. See
-[Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/connect-database-hpc.md)
+[Accessing databases on Rahti from CSC supercomputers](../../cloud/rahti/tutorials/advanced/connect-database-hpc.md)
 for more details about this workaround.

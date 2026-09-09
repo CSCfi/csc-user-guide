@@ -48,7 +48,7 @@ Users are not able to use the services which have been applied for the Project a
 | Service | What happens right after Project is closed |
 | -- | -- |
 | Allas, Fairdata IDA, SD Connect | Project is disabled, and users will not be able to use the service in the context of the Project. |
-| Mahti and Puhti | No new Slurm jobs can be submitted. Users cannot access the Project data anymore. |
+| Mahti and Roihu | No new Slurm jobs can be submitted. Users cannot access the Project data anymore. |
 | cPouta and ePouta | Project is disabled, and users will not be able to use the service in the context of the Project. All virtual machines of the Project will be powered off. |
 | Rahti | Project pod quota is set to 0 and all workloads are stopped. |
 | SD Desktop | Desktops are paused, Project can't launch new desktops. |

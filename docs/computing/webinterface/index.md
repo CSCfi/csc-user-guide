@@ -1,16 +1,17 @@
-# Web interfaces for Puhti and Mahti
+# Web interfaces for Roihu, Puhti and Mahti
 
 ## Intro
 
-The web interfaces for Puhti and Mahti at
-[www.puhti.csc.fi](https://www.puhti.csc.fi) and
+The web interfaces for Roihu, Puhti, and Mahti at
+[www.roihu.csc.fi](https://www.roihu.csc.fi),
+[www.puhti.csc.fi](https://www.puhti.csc.fi), and
 [www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the
 supercomputers using only a web browser. A web interface for LUMI is also
-available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the
-[LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for
-more details.
+available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the [LUMI
+documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more
+details.
 
-Please note that logging in to Puhti and Mahti web interfaces requires
+Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
 **multi-factor authentication**.
 [More information on the Connecting page](connecting.md).
 
@@ -33,7 +34,7 @@ Please note that logging in to Puhti and Mahti web interfaces requires
 
 ## Available features
 
-- **Features available in both the Puhti and Mahti web interfaces:**
+- **Features available in the Roihu web interface:**
     - View, download, upload and move files between Allas, the supercomputer
       and your local computer
     - Open a shell on the login node
@@ -41,24 +42,22 @@ Please note that logging in to Puhti and Mahti web interfaces requires
     - View running batch jobs
     - View disk quotas and project status
     - Launch interactive apps and connect to them directly from the browser:
-        - Desktop with apps such as Maestro and VMD
+        - Accelerated Visualization with applications such as Blender and ParaView
+        - Desktop with applications such as Maestro and VMD
         - Julia-Jupyter
         - Jupyter
         - Jupyter for courses: An interactive Jupyter session specifically for
           courses
+        - marimo
         - MATLAB
         - MLflow
+        - R-Jupyter
         - RStudio
         - TensorBoard
         - Visual Studio Code
-- **Apps available in Puhti only:**
-    - Accelerated visualization with applications:
-        - Blender
-        - COMSOL
-        - ParaView
-        - VMD
-- **Apps available in Mahti only:**
-    - R-Jupyter
+- **Features available in the Puhti and Mahti web interfaces:**
+    - Puhti and Mahti compute services have been decommissioned. Use the web interfaces only for login node
+      connections, or for inspecting or moving data from the file system.
 
 ### Shell
 
@@ -112,7 +111,7 @@ specific instructions, see the [Interactive apps](apps.md) page.
 ### Partitions and resources
 
 !!! warning-label
-    Only a few partitions of Puhti and Mahti are available for use in the web
+    Only a few partitions of the cluster are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
     than others.  
     The maximum length of jobs in the web interfaces is 16 hours to keep the
@@ -120,14 +119,13 @@ specific instructions, see the [Interactive apps](apps.md) page.
     requires longer jobs than that, we recommend that you run your software as
     [batch jobs](../running/getting-started.md).
 
-In the **Puhti web interface**, the `interactive`, `small`, `test`, `gpu` and
-`gputest` partitions are available. Selecting the `gpu` or `gputest` partition
-will allocate one Nvidia V100 GPU. See the
-[Puhti partitions page](../running/batch-job-partitions.md#puhti-partitions)
-for general information about queues on Puhti.
+In the **Roihu web interface**, the `interactive`, `small`, `test`, `gpuinteractive`, and `gputest`
+partitions are available. In the [Accelerated Visualization app](accelerated-visualization.md), the
+`vizinteractive` partition is used, and will reserve one Nvidia L40 GPU. On the `gpuinteractive` and
+`gputest` partitions, one Nvidia GH200 GPU will be allocated. See the [Roihu partitions
+page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues on
+Roihu.
 
-In the **Mahti web interface**, the `interactive`, `small` and `gpusmall`
-partitions are available. Selecting the `gpusmall` partition will allocate a
-split Nvidia A100 GPU (a100_1g.5g) with 1/7th of the compute capacity of a full
-A100. For more details about the split GPUs on Mahti, see the
-[Mahti partitions page](../running/batch-job-partitions.md#mahti-partitions).
+Puhti and Mahti computing services have been retired, so in the
+**Puhti and Mahti web interfaces**, you can only access login node resources and inspect the
+storage in the system, until full retirement on 15 October 2026.

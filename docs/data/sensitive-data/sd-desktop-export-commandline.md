@@ -6,7 +6,7 @@
 
 ### Data export from SD Desktop requires manual encryption
 
-The SD Connect update on October 2024, added automated key management to SD Desktop. This feature enambel direct uploads and downloads via SD Connect. 
+The SD Connect update on October 2024, added automated key management to SD Desktop. This feature enables direct uploads and downloads via SD Connect. 
 However the tools that export data (e.g. results) from SD Desktop to SD Connect are not yet compatible with the automatic key management.
 Instead, *the data export from SD Desktop is still a manual process requiring Crypt4GH tools and generating your own encryption key pair*.
 Since SD Connect may store files encrypted using these two methods, yet with the same .c4gh extension,
@@ -29,7 +29,7 @@ After the download, the files must still manually decrypted.
 
 In this example, we first generate your key pair (a password-protected _private key_ and a _public key_ that can be shared with collaborators). We upload the public key to 
 SD Connect and import it to SD Desktop. In SD Desktop, we encrypt the files to be exported with the public key and export them to SD Connect /Allas using the airlock CLI. 
-Finally we download the files form Sd Connect/Allas and decrypt them on our local environment using the correspondent secret encryption key. 
+Finally we download the files from SD Connect/Allas and decrypt them on our local environment using the correspondent secret encryption key. 
 
 1. Download and install the Crypt4GH encryption CLI tool
 2. Generate your encryption key pair
@@ -270,7 +270,7 @@ If you need to decrypt a large number of files, please check the tutorial [Decry
 ## Advanced: Back-up copies
 
 If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members 
-can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+can utilise to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
 ## More support:
 

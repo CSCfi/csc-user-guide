@@ -60,12 +60,12 @@ Note that the directory name contains a space, so you need to either escape it u
 
  - Finally submit your script
 
-Create a batch script according to the [instructions for shared memory jobs](../../computing/running/creating-job-scripts-puhti.md#serial-and-shared-memory-batch-jobs) 
+Create a batch script according to the [instructions for shared memory jobs](../../computing/running/creating-job-scripts-roihu.md#serial-and-shared-memory-batch-jobs) 
 and make sure the script ends up in the same directory as your `mqpar.xml` 
 file and other data files are located.
 
 Just to facilitate writing your batch scripting process, you may use the following  
-minimal example script (calles say, e.g., `maxquant.sh`), to start with: 
+minimal example script (called say, e.g., `maxquant.sh`), to start with: 
 
 ```bash
 #!/bin/bash

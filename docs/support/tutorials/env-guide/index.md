@@ -10,9 +10,10 @@ Even though more and more tools provided by CSC can be used through
 the basic Linux commands is in many cases still the most efficient way.
 
 This tutorial provides an introduction to the usage of the Linux
-environment of CSC. Puhti is used in the examples, but the same
-commands can be used in the other servers of CSC, too. If you
-are using Linux or macOS machine, you can also use most of
+environment of CSC. Roihu is used in the examples, but the same
+commands can be used in the other servers of CSC, too, like in many
+cPouta images. If you
+are using a Linux or a macOS machine, you can also use most of
 the commands in a terminal on your local machine. Once you are
 familiar with the basic Linux commands, you can continue to
 topics that go deeper to the file and data management commands of
@@ -33,7 +34,7 @@ flavor is given.
     * [nano](text-and-image-processing.md#nano)
     * [Emacs](text-and-image-processing.md#emacs)
     * [vi and Vim](text-and-image-processing.md#vim)
-    * [Image and PostScript viewers](text-and-image-processing.md#image-and-postscript-viewers)
+    * [Image and PostScript viewers](text-and-image-processing.md#viewing-images)
 * [**Working with bash shell**](working-with-bash-shell.md)
     * [Automatic tab completion](working-with-bash-shell.md#automatic-tab-completion)
     * [Stopping programs and running programs in background](working-with-bash-shell.md#stopping-programs-and-running-programs-in-background)

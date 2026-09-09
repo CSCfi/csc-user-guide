@@ -467,7 +467,7 @@ Example `<myprog>.py` python script for single node simulations. Do note that th
     use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
     num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)".
                                           # Use 28 with single precision; use 29 with double precision (see notes below).
-    use_batched_shots = True              # Distributing shots to multiple processess
+    use_batched_shots = True              # Distributing shots to multiple processes
     num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
 
     ## INITIALIZE SIMULATOR BACKEND
@@ -613,7 +613,7 @@ Small code example of `<myprog_MPI>.py` python script using 38 qubits which we r
     use_cache_blocking = True             # Cache blocking technique parallelizes simulation by distributing quantum states into distributed memory space
     num_blocking_qubits = 29              # Defines chunk size for cache blocking. Must be smaller than "qubits-log2(number-of-processes)".
                                           # Use 28 with single precision; use 29 with double precision (see notes below).
-    use_batched_shots = True              # Distributing shots to multiple processess
+    use_batched_shots = True              # Distributing shots to multiple processes
     num_parallel_experiments = 1          # Does not seem to do anything when running with MPI, probably intended to be used with multithreading
 
     ## INITIALIZE SIMULATOR BACKEND

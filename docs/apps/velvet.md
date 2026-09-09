@@ -34,7 +34,7 @@ On Puhti, the Velvet commands are initialized with the command:
 module load biokit
 ```
 
-`velveth` (and the corresponding colorspace version `velveth_de`) helps you construct the dataset for the `velvetg` program. Velveth takes in a number of sequence ﬁles, produces a hashtable, then outputs two files in an output directory, Sequences and Roadmaps, which are necessary to Velvetg. The syntax is as follows:
+`velveth` (and the corresponding colorspace version `velveth_de`) helps you construct the dataset for the `velvetg` program. Velveth takes in a number of sequence files, produces a hashtable, then outputs two files in an output directory, Sequences and Roadmaps, which are necessary to Velvetg. The syntax is as follows:
 
 ```bash
 velveth output_directory hash_length  [[-file_format][-read_type] filename]

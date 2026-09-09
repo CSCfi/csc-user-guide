@@ -6,11 +6,15 @@ file) and *compress* (i.e., reduce its size without losing any data) the
 data. Archiving makes file transfer easier and compressed files
 require less storage space and are thus faster to move from one system
 to another. In this chapter we will introduce
-**tar**, **gzip**, **bzip2**, **zip**, **7zip** and **Zstandard** tools
-that are frequently used for archiving and compression.
+**Zstandard**, **tar**, **gzip**, **bzip2**, **zip** and **7zip** tools
+that are frequently used for archiving and compression. Of these,
+**Zstandard (zstd)** is the recommended default for most use cases. It
+is dramatically faster than gzip/bzip2/zip while achieving comparable
+or better compression ratios.
 
 | Type                           | Extension                                 |
 |--------------------------------|-------------------------------------------|
+| A Zstandard compressed file    | `.zst`                                    |
 | A zip archive                  | `.zip`, `.ZIP`, or `.Z`                   |
 | A gzip compressed file         | `.gz`                                     |
 | A bzip2 compressed file        | `.bz2`, or `.bz`                          |
@@ -18,7 +22,6 @@ that are frequently used for archiving and compression.
 | A gzip compressed tar archive  | `.tar.gz`, or `.tgz`                      |
 | A bzip2 compressed tar archive | `.tar.bz2`, `.tar.bz`, `.tbz`, or `.tbz2` |
 | A 7zip compressed file         | `.7z`                                     |
-| A Zstandard compressed file    | `.zst`                                    |
 
 ## tar: packing several files into one file
 
@@ -88,7 +91,7 @@ drwxr-xr-x+ 2 testuser csc   11 Nov  9 10:44 project_3
 
 The `tar` command does not require that you assign a certain extension,
 like `.tar`, for your archive files. However, applying commonly used
-file name extensions will help you and other users to select right
+file name extensions will help you and other users to select the right
 commands for processing the file later on. The newly created tar archive
 file can now be easily moved to another directory or system and then
 unarchived with the extract (`x`) command:
@@ -122,17 +125,25 @@ write to. The file name must follow right after the option, thus it is
 commonly the last option given. Below are some frequently used tar
 options.
 
-| Option | Function                                                                    |
-|--------|-----------------------------------------------------------------------------|
-| `f`    | Use the given file name as the source or target archive                     |
-| `v`    | Be verbose, i.e. list processed files to the screen while processing        |
-| `z`    | Use gzip compression/decompression while creating or extracting an archive  |
-| `j`    | Use bzip2 compression/decompression while creating or extracting an archive |
+| Option   | Function                                                                        |
+|----------|---------------------------------------------------------------------------------|
+| `f`      | Use the given file name as the source or target archive                         |
+| `v`      | Be verbose, i.e. list processed files to the screen while processing            |
+| `z`      | Use gzip compression/decompression while creating or extracting an archive      |
+| `j`      | Use bzip2 compression/decompression while creating or extracting an archive     |
+| `--zstd` | Use Zstandard compression/decompression while creating or extracting an archive |
+
+With option `--zstd` you can filter the archive through `zstd` to 
+(de)compress the archive on the fly. Since Zstandard is the recommended
+default, this is generally the best option to reach for:
+
+```bash
+tar --zstd cvf project_3.tar.zst project_3
+```
 
 With options `z` (zip) or `j` (no meaning, it was chosen because no
-meaningful letter was available) you can filter the archive
-through `gzip` or `bzip2`, respectively, to (de)compress the archive on
-the fly:
+meaningful letter was available) you can similarly filter the archive
+through `gzip` or `bzip2`, respectively:
 
 ```bash
 tar cvzf project_3.tar.gz project_3
@@ -195,17 +206,69 @@ The compression time depends on the algorithm used and the type of data
 to be compressed. In most cases the newer Zstandard method is
 significantly faster than the older, but very widely used methods like
 gzip or zip. The table below shows results for one sample case,
-where a 10 GB text file (fastq-formatted sequence data) was compressed with
-these five methods in the Puhti supercomputer using default command settings.
+where a 13 GB text file (fastq-formatted sequence data) was compressed with
+these four methods in the Roihu supercomputer using default command settings.
 
-| Command | Size of the<br>compressed file<br>(original size 10GB) | Compression time | Decompression time |
+| Command | Size of the<br>compressed file<br>(original size 13GB) | Compression time | Decompression time |
 |------------|--------|---------|---------|
-| `zstd`     | 2.6 GB | 2 min   | 1.7 min |
-| `zstd -T4` | 2.6 GB | 0.8 min | 1.7 min |
-| `7z`       | 1.8 GB | 56 min  | 2.7 min |
-| `gzip`     | 2.5 GB | 29 min  | 2.5 min |
-| `bzip2`    | 2.0 GB | 17 min  | 9 min   |
-| `zip`      | 2.5 GB | 29 min  | 2.5 min |
+| `zstd`     | 5.1 GB | 25.4 s  | 18.7 s  |
+| `gzip`     | 5.11 GB| 25.1 min| 1.9 min |
+| `bzip2`    | 4.25 GB| 15 min  | 9.7 min |
+| `zip`      | 5.11 GB| 24.7 min| 1.9 min |
+
+### Zstandard compression tool
+
+**Zstandard** is a fast compression tool and a sensible default in most cases.
+In Roihu, Zstandard compression can be done with command `zstd`. For
+example, to compress file `data.txt`, give command:
+
+```bash
+zstd data.txt
+```
+
+The above command produces a compressed file named as `data.txt.zst`.
+By default, `zstd` uses compression level 3, which offers a good balance
+between speed and compression ratio. You can adjust the level with `-#`,
+where `#` ranges from `1` (fastest, lowest ratio) to `19`
+(slowest, highest ratio):
+
+```bash
+zstd -19 data.txt
+```
+
+For even higher compression at the cost of memory and speed, use the
+`--ultra` flag together with levels 20-22:
+
+```bash
+zstd --ultra -22 data.txt
+```
+
+For larger data files you can speed up the compression by using multiple
+computing cores (threads). The number of threads is defined with option
+`-T`. In the login nodes of Roihu, it is recommended that you use just
+one thread that is the default setting, but, for example, in an interactive
+session you could use four threads:
+
+```bash
+zstd -T4 data.txt
+```
+
+Additionally, large files with long-range repetition (e.g. genomic data
+or structured logs) may benefit from the `--long` option, which enables
+long-distance matching. The number given (`--long=#`) sets the window size
+as a power of two in bytes, so `--long=28` means a 256 MB window (2^28 bytes).
+Large windows can improve compression ratio significantly for such files, but
+increase memory usage accordingly.
+
+```bash
+zstd --long=28 data.txt
+```
+
+Decompression is defined by adding option `-d` to the command:
+
+```bash
+zstd -d data.txt.zst
+```
 
 ### gzip and gunzip
 
@@ -254,7 +317,7 @@ compress) so you will not find a separate manual page for that.
 
 #### gzip example
 
-Let's assume we are in some directory on Puhti where we
+Let's assume we are in some directory on Roihu where we
 have just one file called `my_data.dat`. Let's first check the size of
 that file with command `ls -lh`:
 
@@ -316,29 +379,6 @@ bunzip2 < file_name.bz2 > file_name
 
 Note that a file compressed with bzip2 can not be uncompressed with
 gunzip and vice versa.
-
-In addition to the standard bzip2 and bunzip2 programs, you can also use
-the parallel versions of `bzip2`
-command: `pbzip2` and `pbunzip2`. When these commands are
-used, the user must use option `-p` to define the number of processor
-cores to be used. For example, compressing the file `my_data.dat` using
-four cores can be done with command:
-
-```bash
-pbzip2 -p4 my_data.dat
-```
-
-Similarly, to decompress the file with two cores you can use command:
-
-```bash
-punbzip2 -p2 my_data.dat.bz2
-```
-
-The `pbzip2` and `pbunzip2` commands scale well for small core numbers.
-Already with two cores the `pbzip2` is about as fast as `gzip`. The number
-of processors used does not affect to the actual output file. Thus, a
-file that has been compressed with parallel `pbzip2` can be uncompressed
-with normal `bunzip2` command and vice versa.
 
 ### zip and unzip: the combined compression and file archiving tool
 
@@ -504,6 +544,9 @@ replace project_3/sample1.txt? [y]es, [n]o, [A]ll, [N]one, [r]ename:A
 
 ### 7zip packing and compression tool 
 
+!!! note
+    7zip is not installed or supported on Roihu.
+
 **7zip** is a packing and compression tool that is frequently
 used especially on Windows platforms. It can be, however, used in macOS
 and Linux systems too. By default, the command uses its own *7z*
@@ -622,29 +665,5 @@ The output directory of the extracted files can be defined with option
 7z e -oproject_3 project_3_backup.7z
 ```
 
-### Zstandard compression tool
 
-**Zstandard** is a fairly new and very fast compression tool. In Puhti,
-Zstandard compression can be done with command `zstd`. For
-example, to compress file `data.txt`, give command:
-
-```bash
-zstd data.txt
-```
-
-The above command produces a compressed file named as `data.txt.zst`.
-For larger data files you can speed up the compression by using multiple
-computing cores (threads). The number of threads is defined with option
-`-T`. In the login nodes of Puhti, it is recommended that you use just
-one thread that is the default setting, but, for example, in an interactive
-session you could use four threads:
-
-```bash
-zstd -T4 data.txt
-```
-
-Decompression is defined by adding option `-d` to the command:
-
-```bash
-zstd -d data.txt.zst
-```
+See also: [Interactive sessions on Roihu](../../../computing/running/interactive-usage.md).

@@ -48,7 +48,7 @@ The [OpenStack](https://www.openstack.org/) cloud management middleware_ can be 
 
 Buckets cannot contain other buckets. You can, however, use so-called _pseudo folders_.
 
-If an object's name contains a forward slash `/`, it is interpreted as a folder separator. These are shown as folder listings when accessing the data via come clients, for example the web interfaces. These pseudo folders are automatically added if you upload whole folders using a command line client.
+If an object's name contains a forward slash `/`, it is interpreted as a folder separator. These are shown as folder listings when accessing the data via some clients, for example the web interfaces. These pseudo folders are automatically added if you upload whole folders using a command line client.
 
 For example, if you add two objects
 ```bash

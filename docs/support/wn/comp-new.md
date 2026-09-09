@@ -1,5 +1,47 @@
 # Computing environment
 
+## Mahti compute services decommissioned, 31.8.2026
+
+Compute services in Mahti have been decommissioned as of 31 August 2026 at 12:00 EEST.
+No new jobs will be accepted or executed on its compute nodes.
+
+Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026.
+
+## Roihu web interface updated to release 2, 18.8.2026
+
+* The gpuinteractive partition is now available.
+* The `/dataset` path is now accessible in the web interface's file browser and Desktop app.
+* Roihu usage metrics graphs have been added.
+* Plugins in CloudCompare in Accelerated Visualization now work.
+* Open OnDemand updated to 4.2.3.
+
+## Puhti compute services decommissioned, 31.7.2026
+
+Compute services in Puhti have been decommissioned as of 31 July 2026 at 12:00 EEST.
+No new jobs will be accepted or executed on its compute nodes.
+
+Mahti's compute services are being decommissioned 31 August 2026.
+
+Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026.
+
+## Roihu FAQ and data migration instructions updated, 11.6.2026
+
+The [Roihu FAQ](../faq/roihu.md) and [data migration instructions](../tutorials/roihu-data-preparation.md) have
+been updated with the latest information for the transition from Puhti
+and Mahti to Roihu. Roihu is scheduled to become generally available during end of June 2026.
+
+Puhti and Mahti will be fully decommissioned by mid October, after Roihu becomes available, so users
+should start preparing their data for migration. We recommend reviewing what data
+needs to be moved, deleting unnecessary files and ensuring that important data is
+moved, or saved, before Mahti and Puhti are decommissioned.
+
+Puhti and Mahti storage services will be fully inaccessible after October 15th 2026.
+
+See the updated instructions:
+
+* [Roihu FAQ](../faq/roihu.md)
+* [Roihu data preparation instructions](../tutorials/roihu-data-preparation.md)
+
 ## Puhti and Mahti web interface updated to release 33 and 17, 11.6.2026
 
 * The MATLAB version can now be selected.
@@ -141,7 +183,7 @@ questions or need support with taking SSH keys into use.
 ## New Small Partition with High-Performance NVMe Storage on Mahti, 13.2.2025
 
 Mahti has expanded its capabilities with a
-[new small partition](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
+new small partition
 featuring 56 compute nodes (7168 cores), each equipped with 3500 GiB
 of local NVMe storage. This partition introduces flexible CPU
 core-based allocation, allowing users to reserve individual cores
@@ -230,7 +272,6 @@ compute and memory capacity of a full A100 GPU. These a100_1g.5gb GPUs have one 
 the compute power of one A100 GPU and in total 5 GB of memory. These are useful for interactive work, 
 courses and for code development, and are also available via the
 [web interface](../../computing/webinterface/index.md#partitions-and-resources).
-[See more details here](../../computing/running/creating-job-scripts-mahti.md#gpu-batch-jobs).
 
 ## Mahti web interface updated to release 4, 27.2.2024
 
@@ -348,7 +389,7 @@ remains before access is removed.
 * All terminals in the desktop now open outside the container -> should work exactly as a normal login shell
   * Host terminal has been renamed Terminal on the desktop
 * Graphical Emacs now available in the desktop
-* Jupyter app now accepts full path to Python interpeter, enabling direct usage of Tykky installations.
+* Jupyter app now accepts full path to Python interpreter, enabling direct usage of Tykky installations.
 * Time left for job is now correctly calculated and displayed at the bottom of the terminal when reconnecting to a compute node shell. 
 
 ## Puhti disk cleaning policy changed, 17.1.2023
@@ -381,7 +422,7 @@ to connect to a specific login node, e.g. `ssh kkayttaj@puhti-login14.csc.fi`.
 The operating system of Puhti has been updated from Red Hat Enterprise Linux (RHEL) 7 to RHEL 8.
 
 * Pre-installed software and libraries as well as the documentation have been updated
-* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`. [See more details.](../../computing/compiling-puhti.md)
+* Default compiler stack is now `gcc/11.3.0`, `openmpi/4.1.4` and `intel-oneapi-mkl/2022.1.0`.
 * Note that `hpcx-mpi` has been removed and replaced by `openmpi`
 * Users should recompile their own codes for the new OS
 * Some older versions of applications are not available anymore

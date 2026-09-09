@@ -12,6 +12,7 @@ catalog:
         - LUMI
         - Puhti
         - Mahti
+        - Roihu
     - LUMI
 ---
 

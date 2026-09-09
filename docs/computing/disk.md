@@ -1,5 +1,16 @@
 # Disk areas
 
+!!! warning "Roihu documentation on a separate docs page"
+     This page contains storage information on Puhti and Mahti.
+     For information on Roihu's storage, see: [Roihu storage](roihu-disk.md)
+
+!!! warning "Puhti and Mahti retirement in 2026"
+    Puhti and Mahti are being retired in 2026, and their storage systems will
+    be fully unavailable 15 October 2026 at 12:00 EEST.
+     
+    Migrate any data that you wish to keep into Roihu.
+    See the [Roihu data migration tutorial](../support/tutorials/pukki_data_migration.md) for details.
+
 CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**.
 In addition to these disk areas visible to all compute and login nodes, each node has a
 **local temporary disk area** that is visible to the particular compute node during a batch
@@ -45,7 +56,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 
 ## Home directory
 
-Each user has a home directory (`$HOME`) that can contain up to 10 GB of data.
+Each user on Mahti and Puhti has a home directory (`$HOME`) that can contain up to 10 GB of data.
 
 The home directory is the default directory where you begin after logging in to CSC supercomputers.
 However, typically you should change to your project's `scratch` directory when working because
@@ -59,7 +70,8 @@ are project-specific. If you are a member of several projects, you also have acc
 
 ## Scratch directory
 
-Each project has by default 1 TB of scratch disk space in the directory `/scratch/<project>`.
+Each project on Mahti and Puhti has, by default, 1 TiB of scratch disk space in the
+directory `/scratch/<project>`.
 
 This fast parallel scratch space is intended as temporary storage space for the
 data that is used in the supercomputer. The scratch directory is not intended
@@ -76,8 +88,8 @@ manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 ## Projappl directory
 
-Each project has also a 50 GB project application disk space in the directory
-`/projappl/<project>`.
+Each project on Mahti and Puhti also has 50 GB project application disk space
+in the directory `/projappl/<project>`.
 
 It is intended for storing compiled software binaries, source code, libraries, scripts
 and small-scale reference data that are shared within a project. It is not a
@@ -105,6 +117,7 @@ cycle and which to the 180 day `scratch` cleaning cycle.
 
 For example, if you are a member in two projects, with unix groups `project_2000123`
 and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
+
 
 ```text
 [kkayttaj@puhti-login11 ~]$ csc-workspaces 
@@ -206,7 +219,7 @@ are only needed within a single login- or compute node.
 ### Login nodes
 
 Each of the login nodes have 2900 GiB of fast local storage. The storage is located under
-`$TMPDIR` and is separate for each login node.  
+`$TMPDIR` and is separate for each login node.
 
 The local storage is good for compiling applications and performing pre- and post-processing
 that require heavy I/O operations, for example packing and unpacking archive files.
@@ -214,6 +227,7 @@ that require heavy I/O operations, for example packing and unpacking archive fil
 !!! Note
     The local storage is meant for **temporary** storage and is cleaned frequently.
     Remember to move your data to a shared disk area after completing your task.
+
 
 ### Compute nodes with local SSD (NVMe) disks
 
@@ -233,7 +247,7 @@ need to process large amounts (over 100 000) of small files. These directories a
 the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
 to preserve from these temporary disk areas to `scratch` directory or to Allas.
 
-For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
+For more information see [creating job scripts](running/creating-job-scripts-roihu.md#local-temporary-storage).
 
 ### Compute nodes without local SSD (NVMe) disks
 

@@ -149,7 +149,7 @@ If you have been using the SD Software Installer and one of the member of the pr
 
 ##### Step 2. 
 
-Type the folloging command and press enter:
+Type the following command and press enter:
 
 ```bash
 dg-fix

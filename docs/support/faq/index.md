@@ -3,7 +3,7 @@
 ## General
 * [I'm a new CSC user. How to get started?](how-to-get-started-at-CSC.md)
 * [X11 remote graphics does not work](x11-graphics.md)
-* [How to get access to Puhti](how-to-get-puhti-access.md)
+* [How to get access to Roihu](how-to-get-roihu-access.md)
 * [How to cite CSC in a paper?](how-to-cite-csc.md)
 * [Can I still use CSC services if I'm moving abroad?](can-i-use-csc-services-abroad.md)
 * [How can I move data between CSC and my local computer?](../../data/moving/index.md)
@@ -17,6 +17,7 @@
 * [WARNING: connection is not using a post-quantum key exchange algorithm.](ssh-post-quantum.md)
 
 ## Roihu
+* [How to get access to Roihu](how-to-get-roihu-access.md)
 * [Frequently asked questions about Roihu](roihu.md)
 
 ## Batch jobs
@@ -56,8 +57,13 @@
 
 ## Allas
 
-* [How to move data from Puhti to Allas and vice versa?](how-to-move-data-between-puhti-and-allas.md)
+* [How to move data from Roihu to Allas and vice versa?](how-to-move-data-between-roihu-and-allas.md)
 * [Can I have a personal project or bucket in Allas?](can-i-have-a-personal-project-or-bucket-in-allas.md)
+* Export data
+    * [How to download data from Allas with rclone?](../../data/Allas/using_allas/rclone.md#download-objects)
+    * [How to download data from Allas with s3cmd?](../../data/Allas/using_allas/s3_client.md#download-objects-and-buckets)
+    * [How to download data from Allas with Python using S3?](../../data/Allas/using_allas/python_boto3.md#download-an-object)
+    * [How to download data from Allas with swift?](../../data/Allas/using_allas/swift_client.md#download-or-delete-projects)
 * [Is it possible to move data in Allas to new project?](is-it-possible-to-move-data-in-allas-to-new-project.md)
 * [Is it possible to make data in Allas read-only?](is-it-possible-to-make-data-in-allas-read-only.md)
 * [What to do for data in Allas after project ends?](what-to-do-for-data-in-allas-after-project-ends.md)
@@ -68,6 +74,10 @@
 * [Can I access MyCSC home/wrkdir/scratch/project directories from Pouta?](how-to-access-home-wrkdir-projdir-from-cpouta.md)
 * [Can I run MPI applications on pouta?](can-i-run-mpi-applications-on-pouta.md)
 * [Do you offer SSL certificates?](do-you-offer-ssl-certificates.md)
+* Export data and images
+    * [How to download an instance snapshot?](../../cloud/pouta/snapshots.md#downloading-an-instance-snapshot)
+    * [How to download a volume snapshot?](../../cloud/pouta/snapshots.md#downloading-a-volume-snapshot)
+    * [How to download a backup or snapshot image file?](../../cloud/pouta/qemu-vm.md#1-downloading-a-backup-or-snapshot)
 * [How can I give access to other people to my VM in Pouta?](how-can-I-give-access-to-other-people-to-my-vm-in-pouta.md)
 * [How can I store data on Pouta?](how-to-store-data-in-pouta.md)
 * [How fast is the Pouta network?](how-fast-is-the-pouta-network.md)
@@ -85,14 +95,26 @@
 * [Why can't I connect to my VM in Pouta?](why-cant-i-connect-to-my-vm-in-pouta.md)
 * [Do you provide Windows Virtual Machines?](do-you-provide-windows-vms.md)
 
+## Pukki
+
+* Export data and backup
+    * [How to export a PostgreSQL database?](../tutorials/pukki_data_migration.md#step-2-export-your-current-postgresql-database)
+    * [How to export a MariaDB database?](../../cloud/dbaas/mariadb-accessing.md#export-your-current-mariadb-database)
+    * [How to create a manual backup?](../../cloud/dbaas/backups.md#manual-backups)
+
 ## Rahti
 
-* [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/rahti_faq.md)
+* [Rahti FAQ – common tasks and UI usage](../../cloud/rahti/reference/faq.md)
 * [Do you offer in Rahti SSL certificates?](rahti-ssl-certificates.md)
 * [Does Rahti support UDP connections?](rahti-udp.md)
+* Export data and images
+    * [How to back up volume data to Allas?](../../cloud/rahti/usage/storage/object-storage.md#backup-to-allas)
+    * [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
+    * [How to export container images?](../../cloud/rahti/usage/images/integrated-registry.md#pulling-images-from-rahti-registry)
+    * [How to share images between projects?](../../cloud/rahti/tutorials/basic/allow-pull-from-other-projects.md)
 * [How to add docker hub credentials to a project](docker_hub_login.md)
 * [How to automatically scale up and down replicas](addHorizontalAutoscaler.md)
-* [How to backup a Postgres DB into Allas](backup-postgres-allas.md)
+* [How to debug a container?](oc-debug.md)
 * [How to open a terminal to a Pod?](terminal-rahti-pod.md)
 * [How to package a Kubernetes application with Helm](helm.md)
 * [How to run an ad-hoc interactive container](oc-run.md)
@@ -102,82 +124,31 @@
 * [Why Rahti cannot find this docker image?](get-image-format.md)
 * [Why this container report permission denied errors?](why-this-container-does-not-work.md)
 
+## Satama
+
+* [Satama Known issues](../../cloud/satama/known_issues.md) 
+* [How to manage labels](satama-manage-labels.md)
+* [How to add description to repositories](satama-add-description.md)
 
 ## Applications
 
 * [How to install my own software on CSC supercomputers?](how-to-install-own-software.md)
 * [An application CSC used to provide has disappeared. Where did it go?](deprecated-apps.md)
 
-## Sensitive Data Services for research
+## Sensitive Data (SD) Services for research
 
-### Access and authentication
-
-* [Are CSC Sensitive Data services accessible through the public internet?](sensitive-data-access.md)
-* [How I can start using CSC Sensitive Data services?](sensitive-data-access.md#how-can-i-start-using-csc-sensitive-data-services)
-* [Does CSC provide Multi-Factor Authentication (MFA)?](sensitive-data-access.md#does-csc-provide-multi-factor-authentication-mfa)
-
-### Collaborative projects
-
-* [How can I share sensitive data with my collaborators?](sensitive-data-collaborative.md)
-
-
-### General characteristics of the services
-
-* [Are CSC Sensitive Data services suitable for any research professional?](sensitive-data-general.md) 
-* [Are CSC Sensitive Data services suitable for any research project?](sensitive-data-general.md#are-csc-sensitive-data-services-suitable-for-any-research-project) 
-* [I am not an expert on cloud services and computing, where should I start?](sensitive-data-general.md#i-am-not-an-expert-on-cloud-services-and-computing-where-should-i-start) 
-* [What type of data can I process using the services?](sensitive-data-general.md#what-type-of-data-can-i-process-using-the-services)
-* [Do you provide a backup service?](sensitive-data-general.md#do-you-provide-a-backup-service) 
-* [Are CSC Sensitive Data service free of charge?](sensitive-data-general.md#are-csc-sensitive-data-service-free-of-charge) 
-* [Do I need any particular expertise to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#do-i-need-any-particular-expertise-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
-* [How long does it take to set up a private workspace with SD Connect and SD Desktop?](sensitive-data-general.md#how-long-does-it-take-to-set-up-a-private-workspace-with-sd-connect-and-sd-desktop) 
-
-### Encryption
-
-* [Why do I need to encrypt my data?](sensitive-data-encryption.md)
-* [Do sensitive data always need to be encrypted during data transfer e.g. using an  SSH connection?](sensitive-data-encryption.md#do-sensitive-data-always-need-to-be-encrypted-during-upload-or-data-transfer-eg-using-an-ssh-connection)
-* [What data formats can be encrypted using SD Connect?](sensitive-data-encryption.md#what-data-formats-can-be-encrypted-using-sd-connect)
-* [What is the new extension that was added to my files after upload with SD Connect?](sensitive-data-encryption.md#what-is-the-new-extension-added-to-my-files-after-upload-with-sd-connect)
-* [Do CSC Sensitive Data services allow the use of customers' own encryption keys?](sensitive-data-encryption.md#do-csc-sensitive-data-services-allow-the-use-of-customers-encryption-keys)
-
-
-### Sensitive Data and GDPR
-
-* [What type of data is sensitive?](sensitive-data-legal.md)
-* [What is personal data?](sensitive-data-legal.md#what-is-personal-data)
-* [What is the difference between sensitive personal data and personal data?](sensitive-data-legal.md#what-is-the-difference-between-sensitive-personal-data-and-personal-data)
-* [What is the GDPR?](sensitive-data-legal.md#what-is-the-gdpr)
-* [What are the roles of CSC and its service users under GDPR?](sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr)
-* [I am not sure if the data I am working with is sensitive or not. Where can I find support?](sensitive-data-legal.md#i-am-not-sure-if-the-data-i-am-working-with-is-sensitive-or-not-where-can-i-find-support)
-* [What type of sensitive data can I process with CSC Sensitive Data Services?](sensitive-data-legal.md#what-type-of-sensitive-data-can-i-process-with-csc-sensitive-data-services)
-* [What kind of documentation do I need to provide to use CSC Sensitive Data Services?](sensitive-data-legal.md#what-type-of-documentation-do-i-need-to-provide-to-use-csc-sensitive-data-services)
-
-### SD Connect
-
-* [What are the technical specifications of the service?](sensitive-data-connect.md)
-* [How long can I store data in SD Connect for?](sensitive-data-connect.md#how-long-can-i-store-data-in-sd-connect)
-* [What is the difference between SD Connect and Allas?](sensitive-data-connect.md#what-is-the-difference-between-sd-connect-and-allas)
-* [Can I use SD connect from command line](sensitive-data-connect.md#can-i-use-sd-connect-from-command-line)?
-
-### SD Desktop
-
-* [Can I access/analyse encrypted data stored in SD Connect using SD Desktop?](sensitive-data-desktop.md)
-* [Can I edit/annotate data using SD Desktop?](sensitive-data-desktop.md#can-i-editannotate-data-using-sd-desktop)
-* [Does CSC provide SD Desktop operating system, software, and security updates?](sensitive-data-desktop.md#does-csc-provide-sd-desktop-operating-system-software-and-security-updates)
-* [What are the technical specifications of the service?](sensitive-data-desktop.md#what-are-the-technical-specifications-of-the-service)
-* [What type of file can I analyze using SD Desktop?](sensitive-data-desktop.md#what-type-of-file-can-i-analyze-using-sd-desktop)
-* [What software is available on SD Desktop?](sensitive-data-desktop.md#what-software-is-available-on-sd-desktop)
-* [Who can access my private computing environment in SD Desktop?](sensitive-data-desktop.md#who-can-access-my-private-computing-environment-in-sd-desktop)
-* [What is the difference between SD Desktop and ePouta?](sensitive-data-desktop.md#what-is-the-difference-between-sd-desktop-and-epouta)
-* [Can I have root or sudo access to a virtual machine running in SD Desktop?](sensitive-data-desktop.md#can-i-have-root-or-sudo-access-to-a-virtual-machine-running-in-sd-desktop)
-* [Why do I see the word guacamole in the URL next to sd-desktop.CSC.fi?](sensitive-data-desktop.md#why-do-i-see-the-word-guacamole-in-the-url-next-to-sd-desktopcscfi)
-
-### SD Desktop for secondary use of health and social data (register data)
-
-* [What is SD Desktop for seconday use?](sensitive-data-desktop-audited.md#what-is-the-sd-desktop-for-secondary-use)
-* [How does processing secondary use data on SD Desktop differ from standard use of Sensitive Data services?](sensitive-data-desktop-audited.md#how-does-processing-secondary-use-data-on-sd-desktop-differ-from-standard-use-of-sensitive-data-services)
-* [How can I access register data with SD Desktop?](sensitive-data-desktop-audited.md#how-can-i-access-register-data-with-sd-desktop)
-* [Can I combine my own data with register data on SD Desktop?](sensitive-data-desktop-audited.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
-* [Is it possible to install software to SD Desktop when processing secondary use data?](sensitive-data-desktop-audited.md#is-it-possible-to-install-software-to-sd-desktop-when-processing-secondary-use-data)
-* [How can I export my results from the Desktop?](sensitive-data-desktop-audited.md#how-can-i-export-my-results-from-sd-desktop)
-* [What will happen to my data after the secondary use data permit expires?](sensitive-data-desktop-audited.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)
+* [Are CSC Sensitive Data services the correct solution for my project ?](sdservices-faq.md#are-csc-sensitive-data-services-the-correct-solution-for-my-project)
+*  Research data storage and analysis
+    * [Who can access my data and workspace?](sdservices-faq.md#who-can-access-my-data-and-workspace)
+    * [How can I share data with collaborators?](sdservices-faq.md#how-can-i-share-data-with-collaborators)
+    * [How much storage space is available in SD Connect and SD Desktop?](sdservices-faq.md#how-much-storage-space-is-available-in-sd-connect-and-sd-desktop)
+    * [What software is available for data analysis and can I install additional software?](sdservices-faq.md#what-software-is-available-for-data-analysis-and-can-i-install-additional-software)
+    * [What happens to my data when the CSC project expires or resources end?](sdservices-faq.md#what-happens-to-my-data-when-the-csc-project-expires-or-billing-units-end)
+    * [Can I get root or sudo access?](sdservices-faq.md#can-i-get-root-or-sudo-access-in-sd-desktop)
+    * [How does SD Desktop differ from ePouta?](sdservices-faq.md#how-does-sd-desktop-differ-from-epouta)
+    * [How SD Connect differs from Allas?](sdservices-faq.md#how-sd-connect-differs-from-allas-and-allas-ui)
+* Register data analysis under the Finnish Act on Secondary Use
+    * [How can I access register data via SD Services?](sdservices-faq.md#how-can-i-access-register-data-via-sd-services)
+    * [Can I combine register data with my own data?](sdservices-faq.md#can-i-combine-my-own-data-with-register-data-on-sd-desktop)
+    * [How can I export my results from SD Desktop?](sdservices-faq.md#how-can-i-export-my-results-from-sd-desktop)
+    * [What will happen to my data after the secondary use data permit expires?](sdservices-faq.md#what-will-happen-to-my-data-after-the-secondary-use-data-permit-expires)

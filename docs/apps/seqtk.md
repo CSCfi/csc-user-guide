@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Seqtk
@@ -23,20 +23,16 @@ Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blo
 
 ## Available
 
-* Puhti: 1.3-r106, 1.4
+* Roihu: 1.4, via the `bio-apps` module.
 
 ## Usage
 
-Seqtk is included in the biokit module:
+Seqtk is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Seqtk module:
 
 ```bash
-module load biokit
-```
-
-Alternatively, Seqtk can be loaded as an independent module:
-
-```bash
-module load seqtk/<version>
+module load bio-apps/v202603
+module load seqtk/1.4
 ```
 
 `seqtk` command syntax is:
@@ -86,6 +82,10 @@ Extract sequences in regions contained in file `reg.bed`:
 ```bash
 seqtk subseq in.fa reg.bed > out.fa
 ```
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

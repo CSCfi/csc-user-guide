@@ -3,27 +3,17 @@ tags:
   - Free
 catalog:
   name: R for GIS
-  description: R spataial analysis libraries
+  description: R spatial analysis libraries
   license_type: Free
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # R for GIS
 
-This page is for the spatial R libraries and tools installed in the R environment in Puhti. Documentation for R in general is located on the [`r-env` page](r-env.md). Spatial libraries are included in all R versions in Puhti.
-
-## Usage
-
-### Loading the module
-
-Load the general R module with
-
-```
-module load r-env
-```
+This page is for the spatial R libraries and tools installed in the R environment in Roihu. Documentation for R in general is located on the [`r-env` page](r-env.md).
 
 ### Installed spatial R libraries
 
@@ -36,7 +26,7 @@ module load r-env
 * [geofi](https://ropengov.github.io/geofi/) - download geospatial data on municipalities, zipcodes and population and statistical grids from Statistics Finland
 * [geoR](https://cran.r-project.org/web/packages/geoR/index.html) - geostatistical analysis including traditional, likelihood-based and Bayesian methods
 * [geosphere](https://cran.r-project.org/web/packages/geosphere/index.html) - spherical trigonometry for geographic coordinates (lat, lon)
-* [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be ued (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
+* [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html) - map visualizations with `ggplot2`. As background map various online sources can be used (e.g Google Maps and Stamen Maps). It includes tools also for geocoding and routing
 * [ggspatial](https://cran.r-project.org/web/packages/ggspatial/index.html) - for map plotting
 * [gstat](https://cran.r-project.org/web/packages/gstat/index.html) - spatial and spatio-temporal geostatistical modelling, prediction and simulation. Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions
 * [GWmodel](https://cran.r-project.org/web/packages/GWmodel/index.html) - geographically-weighted models: GW summary statistics, GW principal components analysis, GW discriminant analysis and various forms of GW regression
@@ -87,6 +77,10 @@ It is also possible to __read__ and __write__ files from and to Allas or other c
 
 With large quantities of data in Allas, consider using [virtual rasters](../support/tutorials/gis/virtual-rasters.md). 
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
+
 ## License and acknowledgement
 
 All packages are licensed under various free and open source licenses (FOSS), see the linked pages above for exact details.
@@ -102,7 +96,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## References
 
-* [Examples for using R spatial packages for GIS in Puhti](https://github.com/csc-training/geocomputing/tree/master/R), CSC
+* [Examples for using R spatial packages for GIS in Roihu](https://github.com/csc-training/geocomputing/tree/master/R), CSC
 * [List of spatial R packages in CRAN](https://cran.r-project.org/web/views/Spatial.html)
 * [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/), Edzer Pebesma, Roger Bivand
 * [Geocomputation with R](https://geocompr.robinlovelace.net/), Robin Lovelace, Jakub Nowosad, Jannes Muenchow

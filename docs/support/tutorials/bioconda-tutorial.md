@@ -112,7 +112,7 @@ metabat --help
     and having them in your default `$PATH` will cause problems with running other
     software. It's best to add the installation directory to your `$PATH` only when
     you are using the program. You can e.g. add the `export` command to your
-    [batch job script](../../computing/running/creating-job-scripts-puhti.md).
+    [batch job script](../../computing/running/creating-job-scripts-roihu.md).
 
 ## Containers from other source
 

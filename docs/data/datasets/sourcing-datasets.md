@@ -85,12 +85,13 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 ### Language research and other digital humanities and social sciences
 
+- [The National Library of Finland open material dataset](https://digi.kansalliskirjasto.fi/collections?id=861&set_language=en) is [available on Roihu](https://urn.fi/urn:nbn:fi:lb-202311261)
 - The latest versions of
   [CLARIN PUB or ACA licensed corpora](https://www.kielipankki.fi/corpora/) are
   available unpacked on Puhti in `/appl/data/kielipankki/`
 
 ## Processing and analyzing data
 
-Read more in [CSC's Data analysis guide](../../support/tutorials/da-guide.md)
+Read more about [CSC's resources for AI and data analytics](https://research.csc.fi/sciences/ai-and-data-analytics/)
 
 [CSC's services for processing and analyzing data](https://research.csc.fi/en/service-catalog#compute)

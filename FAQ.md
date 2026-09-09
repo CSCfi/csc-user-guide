@@ -253,7 +253,7 @@ The tests depend on the Conda environment, so remember to activate it before run
 It's good practice to leave comments/suggest changes to a PR so that they appear as a `diff` in the conversation tab. To do this,
 
 1. In the `Files changed` tab, go to the line you want to edit and click the blue `+` sign. 
-2. In the pop-up, write you're comment, or if you wan't to suggest changes, click the stacked `+-` icon in the top bar.
+2. In the pop-up, write you're comment, or if you want to suggest changes, click the stacked `+-` icon in the top bar.
 3. Write between the tics (including the word "suggestion") what you want to appear in the page.
 4. If you want to remove a line, delete the content (leave the tics and the word suggestion)
 5. If you want to edit multiple lines, click and drag the `+` sign to select all lines.

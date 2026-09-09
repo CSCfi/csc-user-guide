@@ -7,15 +7,15 @@
 * [Install GDAL](https://gdal.org/download.html#binaries). If you have installed already QGIS or R/Python GIS packages, then you should have GDAL already. Just find where it is, look for example for OSGeo shell, Anaconda Prompt or gdalinfo file from your disk.
 * Open terminal, OSGeo shell, Anaconda Prompt or Windows Command Prompt.
 * (See the basic command-line help at the end of this page.)
-* [GDAL is available in Puhti](../../../apps/gdal.md).
+* [GDAL is available in CSC supercomputers](../../../apps/gdal.md).
 
 ## Main tools
 
 *  [gdalinfo](http://www.gdal.org/gdalinfo.html) and [ogrinfo](http://www.gdal.org/ogrinfo.html) - for printing metadata about a file (coordinate system, tiling, bands, attribute fields etc). Tools with gdal* in name are for raster files and with ogr* for vector files.
 *   [gdal_translate](http://www.gdal.org/gdal_translate.html) and [ogr2ogr](http://www.gdal.org/ogr2ogr.html) - for changing format and modifying files.
-*   [gdalwarp](http://www.gdal.org/gdalwarp.html) and [ogr2ogr](http://www.gdal.org/ogr2ogr.html) - for chaning coordinate system
+*   [gdalwarp](http://www.gdal.org/gdalwarp.html) and [ogr2ogr](http://www.gdal.org/ogr2ogr.html) - for changing coordinate system
 *   [gdal_merge ](http://www.gdal.org/gdal_merge.html)and [ogr2ogr](http://www.gdal.org/ogr2ogr.html) - for joinig files
-*   [gdal_edit](https://gdal.org/programs/gdal_edit.html#gdal-edit) - chaning raster files in place
+*   [gdal_edit](https://gdal.org/programs/gdal_edit.html#gdal-edit) - changing raster files in place
 *   [gdalbuildvrt](https://gdal.org/programs/gdalbuildvrt.html) - creating virtual rasters, see our [Virtual rasters tutorial](virtual-rasters.md) for details.
 *   GDAL has additionally many other tools, for full reference see [GDAL programs page](https://gdal.org/programs/index.html) where all tools and options of the tools are described in detail.
 
@@ -96,7 +96,7 @@ ogr2ogr -where "admin_level='8'" fin_municipalities.shp finland-latest.osm.pbf m
 
 **Optimize Shape file's dbf-file**
 
-Shape datasets have ofter too big .dbf-files, because field lengths are based to defaults, not data. For optimizing field lengths for string and integer fields:
+Shape datasets have often too big .dbf-files, because field lengths are based to defaults, not data. For optimizing field lengths for string and integer fields:
 
 `ogr2ogr output.shp input.shp –lco RESIZE=YES`
 
@@ -175,7 +175,7 @@ From batch file:
     done
 ```
 
-## Windos and Linux basic commands
+## Windows and Linux basic commands
 
 *   Change working directory and list contents of it. DOS: [cd](http://www.computerhope.com/cdhlp.htm) and [dir](http://www.computerhope.com/dirhlp.htm). Linux: [cd](http://www.computerhope.com/unix/ucd.htm) and [ls](http://www.computerhope.com/unix/uls.htm).
 *   Copy the folder hierarchy (without the files)

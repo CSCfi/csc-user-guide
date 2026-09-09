@@ -49,4 +49,4 @@ the export-line to the `.bashrc` file in your home directory.
 
 
 [pip-caching]: https://pip.pypa.io/en/stable/topics/caching/
-[home-dir]: https://docs.csc.fi/computing/disk/#home-directory
+[home-dir]: ../../computing/disk.md#home-directory

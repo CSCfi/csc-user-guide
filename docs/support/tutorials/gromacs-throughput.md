@@ -3,7 +3,7 @@
 !!! info "Note"
     High-throughput simulations can easily produce *a lot* of data, so please
     plan your data management (data flow, storage needs) and analysis pipelines
-    beforehead. Don't hesitate to [contact CSC Service Desk](../contact.md) if
+    beforehand. Don't hesitate to [contact CSC Service Desk](../contact.md) if
     you're unsure about any aspect of your workflow.
 
 GROMACS comes with a built-in `multidir` functionality, which allows users to run

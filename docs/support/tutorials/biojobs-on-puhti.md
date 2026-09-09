@@ -231,13 +231,13 @@ module load biokit
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-All the lines staring with **#SBATCH** are passed on to the batch job
+All the lines starting with **#SBATCH** are passed on to the batch job
 system. We use them to request the necessary resources.
 
 Job name (--job-name) is mainly used to identify your job *e.g.* when
 listing jobs with **squeue** or checking past jobs with **sacct**.
 
-It is necessary to to inform the system which project should be
+It is necessary to inform the system which project should be
 billed. This is done with **--account**. You can check the projects that
 you belong to in [MyCSC](https://my.csc.fi/myProjects) or with `csc-projects`
 in the command line.
@@ -290,10 +290,6 @@ the outputs and errors. This can be done adding options `--output` and
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 ```
-
-There are also other available options. For a more detailed
-explanation, please see the User Guide: [Creating a batch job script
-for Puhti](../../computing/running/creating-job-scripts-puhti.md)
 
 When you have written the batch job script, you can submit the job to the queue:
 ```text
@@ -381,8 +377,7 @@ Most important things to check are the CPU efficiency and memory utilization.
 
 There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
-you should consider using a node with fast local disk.  For details, please see the User Guide: 
-[Creating a batch job script for Puhti](../../computing/running/creating-job-scripts-puhti.md)
+you should consider using a node with fast local disk.
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,

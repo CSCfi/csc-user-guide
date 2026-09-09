@@ -20,7 +20,7 @@ different on different servers.
 
 ## Structure of Linux commands
 
-Once a terminal connection to CSC, e.g., to Puhti, has been
+Once a terminal connection to CSC, e.g., to Roihu, has been
 opened, the remote server is operated by using Linux commands. The standard
 structure of a command is:
 
@@ -161,10 +161,10 @@ and what files your current directory contains.
 
 The command `cd directory_name` moves you from the current
 directory to a directory you specified. For example, the user `kkayttaj`
-could go to their local temporary directory using the command
+could go to their local temporary directory (in Roihu) using the command
 
 ```bash
-cd /local_scratch/kkayttaj
+cd /tmp/kkayttaj
 ```
 
 or
@@ -214,7 +214,7 @@ rmdir project1
 ## Basic commands for files
 
 On a fundamental level, a file in a Linux system is just a string of
-bytes, were a byte consists of eight bits. So-called text files
+bytes, where a byte consists of eight bits. So-called text files
 contain only bytes that can be interpreted as text characters using the
 ASCII encoding rules. Thus, these files can be considered as consisting of
 lines of text. In so-called binary files, also non-ASCII bytes are used,
@@ -340,7 +340,7 @@ rm: remove output_copy.dat (yes/no)?
 
 You can answer `y` (yes) or `n` (no). Note that this confirmation step
 is not necessarily in use in your local Linux environment or currently in
-Puhti. You can skip the confirmation query using the option `-f`, standing for
+Roihu. You can skip the confirmation query using the option `-f`, standing for
 *force*. However, you should use this option with caution as the `rm` command
 will remove the file immediately and permanently!
 

@@ -2,7 +2,7 @@
 
 # Command Line Interface and automated key management
 
-SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be edited or analysed once imported in Sd Desktop. Small files (less than 50 GB) can also be downloaded via SD Connect user interface, which provides also automated decryption.
+SD Connect command line tool, **sd-lock-util**, as well as **a-put** and **a-get** commands support SD Connect compatible data upload and download with automatic encryption and decryption. After upload, the data can be edited or analysed once imported in SD Desktop. Small files (less than 50 GB) can also be downloaded via SD Connect user interface, which provides also automated decryption.
 
 Note that files have been uploaded ** before February 2025**  were manually encrypted using your encryption key pair and will still need to be decrypted manually after download.
 

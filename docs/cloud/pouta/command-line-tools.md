@@ -108,7 +108,7 @@ useradd -m boss
 echo 'boss ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/boss
 ```
 
-The script file can contain any arbitrary command, so some cautioness is recommended.
+The script file can contain any arbitrary command, so some caution is recommended.
 
 !!! Note
     Please note that the example does not contain addition of user authentication (public SSH key).

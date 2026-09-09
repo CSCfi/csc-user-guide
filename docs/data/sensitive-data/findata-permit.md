@@ -46,7 +46,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 !!! warning-label
     Team manager
 
-- Sign in to MyCSC with you Haka or Virtu credentials.
+- Sign in to MyCSC with your Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
 - On the top of the page choose **New project**. 
 
@@ -86,8 +86,8 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 - Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
 - The document appears when you create a new project. You can edit this document later.
-- Your home organization is the **data controller**. [Read more about the roles and GDPR](../../support/faq/sensitive-data-legal.md#what-are-the-roles-of-csc-and-its-service-users-under-gdpr).
-
+- Your home organization is the **data controller**.
+  
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
 ### 4. Contact CSC service desk

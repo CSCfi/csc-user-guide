@@ -3,7 +3,7 @@
 !!! warning    
     By default the quota is set to 0, you must request it by sending an email to servicedesk@csc.fi
 
-It is possible to attach and mount the same _cinder_ volume into more that one VM at the same time. This means that each of the VMs will be able to read and write to the same block device. This is similar to what a SAN will allow you to achieve.
+It is possible to attach and mount the same _cinder_ volume into more than one VM at the same time. This means that each of the VMs will be able to read and write to the same block device. This is similar to what a SAN will allow you to achieve.
 
 ![Multi attach](../img/multi-attach.drawio.svg)
 
@@ -442,7 +442,7 @@ You can enable them if you wish with `pcs`:
 
 * **How to extend my GFS2 volume?**
 
-    The GFS2 volume was configured using LVM ([Logical Volume Manager](https://en.wikipedia.org/wiki/Logical_volume_management)) that enhance the management and flexibility of physical storage.
+    The GFS2 volume was configured using LVM ([Logical Volume Manager](https://en.wikipedia.org/wiki/Logical_volume_management)) that enhances the management and flexibility of physical storage.
 
     a. Create a new multiattach volume and attach it to your instances. Check that the volume is well attached by running the command `sudo parted -l`
 
@@ -602,7 +602,7 @@ If you already have a cluster of VMs, or want to manually create them, it is sti
 In order to install OCFS2, you need to follow few steps:
 
 1. Install the VM nodes. There is no special consideration on this step, other than making sure the nodes can see each other in the Network (it is the default behaviour of VM nodes created in the same Pouta project), and that they are installed with the same distribution version. We have tested this with `Ubuntu v22.04` and `AlmaLinux-9`, other distributions and versions might also work, but we have not tested them. This guide will use **Ubuntu** as an example.  
-AlmaLinux requires to install an specific [Oracle kernel](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html). More information in the [FAQ](#ocfs2-faq)
+AlmaLinux requires to install a specific [Oracle kernel](https://support.oracle.com/knowledge/Oracle%20Linux%20and%20Virtualization/1253272_1.html). More information in the [FAQ](#ocfs2-faq)
 
 1. Create and attach the volume. See the manual [Create and attach a volume](#create-and-attach-a-volume) from above.
 

@@ -4,9 +4,7 @@
 
     Please read this page carefully!
 
-<center>
 [![MyCSC - Getting started with CSC services for students](../../img/mycsc-getting-started-with-csc-services-for-students-video-poster.png){ width=400px }](https://video.csc.fi/id/0_oesbi3v1?width=608&height=402&playerId=14971191){ target="_blank" }
-</center>
 
 This tutorial gathers all the information you, as a student, need to get started with using CSC services.
 
@@ -38,7 +36,7 @@ The easiest way is to **create a student project**.
 
 - [Allas](../../data/Allas/index.md){:target="_blank"} storage service
 - [Pouta](../../cloud/pouta/index.md){:target="_blank"} cloud service
-- [Puhti](hpc-quick.md){:target="_blank"} computing service
+- [Roihu](hpc-quick.md){:target="_blank"} computing service
 - [Pukki](../../cloud/dbaas/index.md){:target="_blank"} database service
 - [Rahti](../../cloud/rahti/index.md){:target="_blank"} container service
 
