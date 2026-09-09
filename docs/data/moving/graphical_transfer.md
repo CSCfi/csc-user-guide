@@ -90,10 +90,10 @@ _OK_.
 !!! warning "Important: Connecting to Roihu"
     If you're connecting to Roihu, please use one of the options below:
     
-    1) Specify your private key file `.ppk` and SSH certificate file `.pub`. 
-    2) Specify your private key file `.ppk` that includes a
-    valid SSH certificate, either created with `csc_cert.py`-script or manually with PuttyGen.
-    3) If using Pageant, leave private key and certificate file fields empty (important) and toggle the _Attempt authentication using Pageant_
+    1. Specify your private key file `.ppk` and SSH certificate file `.pub`. 
+    2. Specify your private key file `.ppk` that includes a
+    valid SSH certificate, either created with `csc_cert.py`-script or manually with PuTTYgen.
+    3. If using Pageant, leave private key and certificate file fields empty (important) and toggle the _Attempt authentication using Pageant_
     option in the _SSH_ > _Authentication_ tab (on by default). 
 
     [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).

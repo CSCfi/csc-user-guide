@@ -5,9 +5,9 @@
 
     1. [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
     2. [SSH connection with SSH agent forwarding](#2-ssh-connection-with-ssh-agent-forwarding)
-    2. [Recommended data migration methods](#3-recommended-data-migration-methods)
-    3. [Special cases](#4-special-cases)
-    4. [Discouraged methods](#5-discouraged-methods)
+    3. [Recommended data migration methods](#3-recommended-data-migration-methods)
+    4. [Special cases](#4-special-cases)
+    5. [Discouraged methods](#5-discouraged-methods)
 
     Please read the
     [General guidelines and prerequisites](#1-general-guidelines-and-prerequisites)
@@ -28,8 +28,6 @@
      are not covered by service contracts after end of August.
      Due to this, aim to complete your data transfers from Mahti and/or Puhti
      by the **end of August 2026**, or by October 15th at the very latest.
-
-
 
 ## 1. General guidelines and prerequisites
 
@@ -61,7 +59,7 @@
       architecture).
       [More about installing software on Roihu](roihu.md#installing-software).
 
-### 1.2. Add Roihu service access to your CSC project
+### 1.2 Add Roihu service access to your CSC project
 
 * Like any other CSC service, access to Roihu must be enabled for your project
   via [MyCSC](https://my.csc.fi).
@@ -107,31 +105,32 @@
   [`rsync`](#3-recommended-data-migration-methods) to **directly transfer data
   from Puhti/Mahti/LUMI to Roihu.**
       * If in trouble with SSH workflow described below:
-          * For small amounts of data, tranfer via your local laptop could be considered using [web interface](#52-using-the-web-interfaces-to-migrate-data) or [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows).
+          * For small amounts of data, transfer via your local laptop could be considered using [web interface](#52-using-the-web-interfaces-to-migrate-data) or [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows).
           * Windows users who mainly use Roihu web interface, see [the simplified data transfer tutorial](windows-roihu-data-migration.md).
      
 ## 2. SSH connection with SSH agent forwarding
 
-For data transfer between Puhti/Mahti/LUMI and Roihu requires SSH connection with **SSH agent forwarding** enabled. 
+Data transfer between Puhti/Mahti/LUMI and Roihu requires SSH connection with **SSH agent forwarding** enabled. 
 
 Before you start, make sure you have:
 
-1. Created a SSH key, uploaded the public key to my.csc.fi and you know the path to the private SSH key on you laptop. [Instructions](../../computing/connecting/ssh-keys.md)
+1. Created a SSH key, uploaded the public key to my.csc.fi and you know the path to the private SSH key on your laptop. [Instructions](../../computing/connecting/ssh-keys.md)
 2. A tool for SSH connections. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md) and [Windows](../../computing/connecting/ssh-windows.md).
 3. SSH agent installed and running. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
 
 For connecting:
 
-2. Get signed **[SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key)** for Roihu.
-    * If you plan to use SSH connection to Roihu also later, it is recommended to use Option 2 for getting SSH certificate. The provided script adds the SSH certificate automatially to the SSH agent. It requires more steps first time, but is easier later.
+1. Get signed **[SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key)** for Roihu.
+    * If you plan to use SSH connection to Roihu also later, it is recommended to use Option 2 for getting SSH certificate. The provided script adds the SSH certificate automatically to the SSH agent. It requires more steps first time, but is easier later.
     * If you mainly plan to use Roihu web interface, use Option 1.
     * The certificate is valid for 24 hours, so make sure to repeat this process as needed.
-4. Add the SSH key and certificate to SSH agent. 
+2. Add the SSH key and certificate to SSH agent. 
     * If you used option 2 in previous step, then the script did this for you.
     * If you used option 1 in previous step, add manually your SSH keys and certificate to the SSH agent. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agents-with-roihu).
-    * In Windows, with PageAnt, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
-5. Log in to Puhti with SSH agent forwarding turned on. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and [Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
-   * Before continuing to data transfer, first test that your SSH forwarding is working with:
+    * In Windows, with Pageant, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
+3. Log in to Puhti with SSH agent forwarding turned on. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and [Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
+
+Before continuing to data transfer, first test that your SSH forwarding is working with:
 
 ```bash
 ssh roihu-cpu.csc.fi
@@ -159,7 +158,7 @@ ssh roihu-cpu.csc.fi
 ### 3.1 Basic `rsync`
 
 1. Write down what folder you want to move from Puhti and to which folder in Roihu.
-4. On the login node, transfer directory `/scratch/project_2001234/my-data`
+2. On the login node, transfer directory `/scratch/project_2001234/my-data`
    from Puhti to directory `/scratch/project_2001234/` on Roihu.
 
     ```bash

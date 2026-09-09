@@ -30,7 +30,7 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | Putty            |              :ok:|              :ok: |
 | PowerShell       |              :ok:|               :ok:|
 | [WinSCP](../../data/moving/graphical_transfer.md#winscp-file-transfer-and-more-on-windows)    |    :ok: |               :ok:|        
-| [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)   |   Difficult | Only with PageAnt |      
+| [FileZilla](../../data/moving/graphical_transfer.md#filezilla-a-general-file-transfer-tool)   |   Difficult | Only with Pageant |      
 | Cyberduck        |    :ok: with OpenSSH key, difficult with Putty key    |       :ok:|
 
 
@@ -149,11 +149,11 @@ supercomputer.
     | **Connection type** | `SSH` |
 	| Connection -> Data -> Auto-login username | `csc_username` |
 
-    It is recommended to use [PageAnt](#authentication-agent) for providing your SSH keys. If you do not use PageAnt, add the keys manually: select the private key and
+    It is recommended to use [Pageant](#authentication-agent) for providing your SSH keys. If you do not use Pageant, add the keys manually: select the private key and
     certificate file (**only if connecting to Roihu**) under
     `Connection --> SSH --> Auth --> Credentials`. 
 	
-	Finally, click `Open`. If you do not use PageAnt, your SSH key passphrase is asked.
+	Finally, click `Open`. If you do not use Pageant, your SSH key passphrase is asked.
 
     If you are connecting for the first time, PuTTY will ask if you trust the
     host. Click `Accept`.
@@ -253,7 +253,7 @@ SSH authentication agents help managing your keys and their passphrases. It can 
 
 Different authentication agents work with different tools:
 
-* [PageAnt](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant): PuTTY, WinSCP, FileZilla, MobaXterm, Cyberduck
+* [Pageant](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant): PuTTY, WinSCP, FileZilla, MobaXterm, Cyberduck
 * Window ssh-agent: PowerShell, Cyberduck, MobaXterm
 * MobAgent: MobaXterm
 
