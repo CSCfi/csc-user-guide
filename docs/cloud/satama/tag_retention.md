@@ -17,6 +17,7 @@ Click on **Tag Retention** section. Click on **Add rule**. A pop-up window will 
 Create a rule specifying which images should be retained and which should be deleted.
 
 For example, 
+
 * Keep the latest 10 tags
 * Delete tags older than 30 days
 * Keep tags matching release- pattern*

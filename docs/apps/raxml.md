@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # RAxML
@@ -23,32 +23,22 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Puhti: 8.2.12
+* Roihu: 8.2.12, via the `bio-apps` module.
 
 ## Usage
+
+RAxML is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the RAxML module:
+
+```bash
+module load bio-apps/v202603
+module load raxml/8.2.12
+```
 
 To see the installed RAxML versions, use the command:
 
 ```bash
 module spider raxml
-```
-
-To see the requirements for a specific version, use:
-
-```bash
-module spider raxml/<version>
-```
-
-e.g:
-
-```bash
-module spider raxml/8.2.12
-```
-
-Then load the required modules. For example, for version 8.2.12:
-
-```bash
-module load raxml/8.2.12
 ```
 
 ### Which version to use?
@@ -57,7 +47,7 @@ RAxML comes in a serial version and three different parallel versions.
 
 The serial version (**raxmlHPC**) is intended for small to medium datasets and for initial experiments to determine appropriate search parameters.
 
-The PThreads version (`raxmlHPC-PTHREADS`) will work well for very long alignments. Make sure to specify the number of threads with the ­`-T` option. This should match the number of cores you request in the batch job script.
+The PThreads version (`raxmlHPC-PTHREADS`) will work well for very long alignments. Make sure to specify the number of threads with the `-T` option. This should match the number of cores you request in the batch job script.
 
 To choose the number of threads to use, please see section "How many Threads shall I use?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf). Using too many threads can cause the program to run slower.
 
@@ -67,43 +57,55 @@ The current MPI version only works properly if you specify the number of runs in
 
 For versions 8.2.12 and newer there is also a hybrid MPI/threaded version (`raxmlHPC-HYBRID`)
 
-For versions 8.2.12 and newer there are also AVX-optimized binaries available (` raxmlHPC-AVX`, `raxmlHPC-PTHREADS-AVX`, `raxmlHPC-MPI-AVX`, `raxmlHPC-HYBRID-AVX`). These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions in case of problems.
+For versions 8.2.12 and newer there are also AVX-optimized binaries available (`raxmlHPC-AVX`, `raxmlHPC-PTHREADS-AVX`, `raxmlHPC-MPI-AVX`, `raxmlHPC-HYBRID-AVX`). These can run faster that non-optimized versions, but can cause problems on some datasets. Try the non-optimized versions in case of problems.
 
 For details, please refer to the chapter "When to use which Version?" in the [RAxML manual](https://cme.h-its.org/exelixis/resource/download/NewManual.pdf).
 
 ### Example batch job scripts
 
-=== "PThreads version for Puhti"
+=== "PThreads version"
 
     ```bash
     #!/bin/bash
-    #SBATCH --account=project_1234567
+    #SBATCH --account=<project>
     #SBATCH --job-name=raxml_threads
+    #SBATCH --partition=small
+    #SBATCH --time=10:00:00
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=4
     #SBATCH --mem=8G
-    #SBATCH --time=10:00:00
-    #SBATCH --partition=small
 
+    module load bio-apps/v202603
     module load raxml/8.2.12
-    raxmlHPC-PTHREADS -T $SLURM_CPUS_PER_TASK ­-s alg -­m GTRGAMMA ­-p 12345 ­-n test1
+
+    raxmlHPC-PTHREADS -T $SLURM_CPUS_PER_TASK -s alg -m GTRGAMMA -p 12345 -n test1
     ```
 
-=== "MPI version for Puhti"
+=== "MPI version"
 
     ```bash
     #!/bin/bash
-    #SBATCH --account=project_1234567
+    #SBATCH --account=<project>
     #SBATCH --job-name=raxml_mpi
+    #SBATCH --partition=small
+    #SBATCH --time=10:00:00
     #SBATCH --ntasks=100
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=8G
-    #SBATCH --time=10:00:00
-    #SBATCH --partition=large
+    #SBATCH --mem-per-cpu=2G
 
+    module load bio-apps/v202603
     module load raxml/8.2.12
+
     srun raxmlHPC-MPI -N 100 -s cox1.phy -m GTRGAMMAI -p 12345 -n test2
     ```
+
+The MPI example above runs 100 ranks within the single-node `small` partition. For
+larger, multi-node runs you can use the `large` partition, which requires a
+completed [scalability test](../accounts/how-to-access-roihu-large-partition.md).
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

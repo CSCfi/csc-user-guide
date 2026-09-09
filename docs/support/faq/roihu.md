@@ -9,16 +9,16 @@ and [more information on Roihu](../../computing/systems-roihu.md).
 
 ### 1. When will Puhti/Mahti be shut down?
 
-Puhti compute resources will be shut down one month after Roihu general
-availability, by 31 July 2026. After this, jobs can no longer be submitted on
+Puhti compute resources were shut down one month after Roihu general
+availability, on 31 July 2026. Jobs can no longer be submitted on
 Puhti. Puhti storage and login nodes are planned to remain accessible until
 15 October 2026.
 
-Mahti compute resources will be shut down on 31 August 2026. Mahti storage and
+Mahti compute resources were shut down on 31 August 2026. Mahti storage and
 login nodes are planned to remain accessible until 15 October 2026.
 
-We strongly encourage users to move any required data by the end of August
-2026, as Mahti and Puhti storage services will not be covered by service contracts between
+We strongly encourage users to move any required data without delay,
+as Mahti and Puhti storage services will not be covered by service contracts between
 September and October, and availability cannot be fully guaranteed.
 
 [Read more about the shutdown schedule here](../../computing/systems-roihu.md#schedule).
@@ -135,7 +135,7 @@ That data does not need to be migrated, as Allas will remain available during an
 
 It is not recommended to transfer data from Mahti/Puhti to Roihu via Allas or your local workstation.
 Instead, CSC recommends using command-line based tools such as
-[`rsync`](../../support/tutorials/roihu-data.md#2-recommended-data-migration-methods)
+[`rsync`](../../support/tutorials/roihu-data.md#3-recommended-data-migration-methods)
 to directly transfer data from Puhti/Mahti/LUMI to Roihu.
 
 ### 10. How should I run large or long-running data transfers, and how long do they take?
@@ -145,7 +145,7 @@ carefully, and consider compressing your data before transferring it, to save ti
 used in the migration. Only move data that you truly need.
 
 For long transfers, use `screen` or `tmux` on Mahti/Puhti so the transfer is not interrupted if your connection drops.
-See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#32-running-long-transfer-processes-safely),
+See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#42-running-long-transfer-processes-safely),
 or our [tmux usage tutorial](../tutorials/tmux.md).
 
 Transfer times depend on the amount and size of files: large numbers of small files take longer, so consider

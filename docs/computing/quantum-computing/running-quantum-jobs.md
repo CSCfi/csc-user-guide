@@ -254,12 +254,14 @@ To load the Cirq module use `module load fiqci-vtt-cirq`.
     print(result.measurements['m'])
     ```
 
+!!! info "Save your Job ID!"
+    Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
+    The same applies for the calibration set id.
+
+
 ## Additional examples
 
-An additional [set of examples can be found here](https://github.com/FiQCI/fiqci-examples).
-The examples emphasize the difference between running on a simulator and a real physical quantum computer,
-and how to construct your circuits for optimum results on the quantum computers. The repository also contains some useful
-scripts for submitting jobs.
+Additional examples for e.g. querying additional job metadata can be found from [here](https://github.com/FiQCI/fiqci-examples).
 
 
 ## Simulated test runs
@@ -267,70 +269,6 @@ scripts for submitting jobs.
 As quantum resources can be scarce, it is recommended that you prepare the codes and algorithms you intend to run on the quantum computers in advance. To help with this process, [`qiskit-on-iqm` provides a fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution). You can run the fake noise model backend locally on your laptop for simulation and testing.
 
 A set of Qiskit and Cirq examples and scripts for guidance in using the quantum computers are also available. [You can find these here](https://github.com/FiQCI/fiqci-examples).
-
-## Job Metadata
-
-Additional metadata about your job can be queried directly with Qiskit. For example:
-
-=== "Q20
-
-    ```python
-
-    DEVICE_CORTEX_URL = os.getenv('Q20_CORTEX_URL')
-    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="radiance20")
-    backend = provider.get_backend()
-
-    #Retrieving backend information
-    print(f'Native operations: {backend.operation_names}')
-    print(f'Number of qubits: {backend.num_qubits}')
-    print(f'Coupling map: {backend.coupling_map}')
-
-    transpiled_circuit = transpile(circuit, backend)
-    job = backend.run(transpiled_circuit, shots=shots)
-    result = job.result()
-    exp_result = result._get_experiment(circuit)
-
-    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
-    print(result.request.circuits)  # Retrieving the circuit request sent
-    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
-    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
-    print(result.request.shots)  # Retrieving the number of requested shots.
-
-    #retrieve a job using the job_id from a previous session
-    #old_job = backend.retrieve_job(job_id)
-    ```
-
-=== "Q50"
-
-    ```python
-
-    DEVICE_CORTEX_URL = os.getenv('Q50_CORTEX_URL')
-    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="q50")
-    backend = provider.get_backend()
-
-    #Retrieving backend information
-    print(f'Native operations: {backend.operation_names}')
-    print(f'Number of qubits: {backend.num_qubits}')
-    print(f'Coupling map: {backend.coupling_map}')
-
-    transpiled_circuit = transpile(circuit, backend)
-    job = backend.run(transpiled_circuit, shots=shots)
-    result = job.result()
-    exp_result = result._get_experiment(circuit)
-
-    print("Job ID: ", job.job_id())  # Retrieving the submitted job id
-    print(result.request.circuits)  # Retrieving the circuit request sent
-    print("Calibration Set ID: ", exp_result.calibration_set_id)  # Retrieving the current calibration set id.
-    print(result.request.qubit_mapping)  # Retrieving the qubit mapping
-    print(result.request.shots)  # Retrieving the number of requested shots.
-
-    #retrieve a job using the job_id from a previous session
-    #old_job = backend.retrieve_job(job_id)
-    ```
-
-!!! info "Save your Job ID!"
-    Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
-    The same applies for the calibration set id.
 
 
 ## Calibration data
