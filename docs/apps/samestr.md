@@ -127,7 +127,8 @@ samestr merge \
     --output-dir out_merge/
 
 samestr filter \
-    --input-files out_convert/*.npy \
+    --input-files out_merge/*.npy \
+    --input-names out_merge/*.names.txt \
     --marker-dir  samestr_db/ \
     --nprocs 8 \
     --output-dir out_filter/
