@@ -4,9 +4,7 @@
 
     Please read this page carefully!
 
-<center>
 [![MyCSC - Getting started with CSC services for students](../../img/mycsc-getting-started-with-csc-services-for-students-video-poster.png){ width=400px }](https://video.csc.fi/id/0_oesbi3v1?width=608&height=402&playerId=14971191){ target="_blank" }
-</center>
 
 This tutorial gathers all the information you, as a student, need to get started with using CSC services.
 

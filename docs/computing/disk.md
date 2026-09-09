@@ -247,7 +247,7 @@ need to process large amounts (over 100 000) of small files. These directories a
 the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
 to preserve from these temporary disk areas to `scratch` directory or to Allas.
 
-For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
+For more information see [creating job scripts](running/creating-job-scripts-roihu.md#local-temporary-storage).
 
 ### Compute nodes without local SSD (NVMe) disks
 

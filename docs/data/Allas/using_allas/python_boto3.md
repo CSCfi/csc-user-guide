@@ -55,22 +55,20 @@ use `pip` to
 
 ```text
 module load allas
-allas-conf -m S3
+allas-conf
 ```
 
 `boto3` is internally using `aws`-library, so if you want to [copy your credentials](allas-conf.md#s3-connection-details) outside the supercomputer, follow instructions for `aws`.
 
 ### Credentials for accessing multiple CSC projects
 
-Using `allas-conf -m S3` is straightforward,
+Using `allas-conf` is straightforward,
 but it overwrites the existing credentials file when run,
 making it somewhat tedious to work with multiple projects.
 Therefore, it is recommended to use the 
 [Cloud storage configuration](../../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
-app in the [Puhti](https://puhti.csc.fi) or [Mahti](https://mahti.csc.fi)
-web interface to configure S3 connections, since these configurations are
-stored under
-[individual S3 profiles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file).
+app in the [Roihu](https://roihu.csc.fi) web interface to configure S3 connections, since these configurations are
+stored under [individual S3 profiles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file).
 
 1. Use *Cloud storage configuration* to configure S3 connections,
 or _remotes_, for the projects whose Allas storage you wish

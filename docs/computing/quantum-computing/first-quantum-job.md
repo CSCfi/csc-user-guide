@@ -288,16 +288,10 @@ The full python script can be found below.
     transpiled_circuit = transpile(circuit, backend_q20)
 
     job = backend.run(transpiled_circuit, shots=shots)
-    result = job.result()
+    
+    print("Job ID: ", job.job_id())
 
-    # You can retrieve the job at a later date with backend.retrieve_job(job_id)
-    # Uncomment the following lines to get more information about your submitted job
-    # print("Job ID: ", job.job_id())
-	# print(result.circuits)
-    # exp_result = result._get_experiment("circuit_name")
-    # print("Calibration Set ID: ", exp_result.calibration_set_id)
-    # print(result.parameters.qubit_mapping)
-    # print(result.parameters.shots)
+    result = job.result()
 
     counts = result.get_counts()
     print(counts)
@@ -336,17 +330,15 @@ The full python script can be found below.
     transpiled_circuit = transpile(circuit, backend_q50)
     
     job = backend_q50.run(transpiled_circuit, shots=shots)
+    
+    print("Job ID: ", job.job_id())
+    
     result = job.result()
-
-    # You can retrieve the job at a later date with backend.retrieve_job(job_id)
-    # Uncomment the following lines to get more information about your submitted job
-    # print("Job ID: ", job.job_id())
-	# print(result.circuits)
-    # exp_result = job.result()._get_experiment("circuit_name")
-    # print("Calibration Set ID: ", result.parameters.calibration_set_id)
-    # print(result.parameters.qubit_mapping)
-    # print(result.parameters.shots)
 
     counts = result.get_counts()
     print(counts)
     ```
+
+!!! info "Save your Job ID!"
+    Note that there is currently no method to list previous Job ID's therefore it is recommended to always print your Job ID after job submission and save it somewhere!
+    The same applies for the calibration set id.
