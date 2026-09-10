@@ -31,7 +31,7 @@ catalog:
     
     **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
     
-    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The [new small partition on Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
 
 ## Available
 
@@ -98,7 +98,7 @@ There are several ways to use R with the `r-env` module:
   -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
 
 !!! note ""
-    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Roihu](../computing/running/batch-job-partitions.md#roihu-cpu-partitions) and on [Mahti](../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation).
+    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Roihu](../computing/running/batch-job-partitions.md#roihu-cpu-partitions).
 
 **Non-interactive use**
 
@@ -189,7 +189,7 @@ of the [CSC Computing Environment course on batch jobs](https://csc-training.git
 #### Basic R batch job script
 
 Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. 
-Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions) and [Mahti](../computing/running/batch-job-partitions.md#mahti-partitions).
+Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions).
 
 !!! info "More than one CPU core?"
     By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
@@ -250,26 +250,20 @@ In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cp
 The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/461`.
 
 !!! warning "Important: make sure your R batch job has enough disk space for temporary files"
-    === "Roihu-CPU"
-        Each user has [20 GiB of temporary storage on the local disk](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) by default on the partitions `small`, `interactive`, and `test`.
-        This storage is accessed with the environment variable `$TMPDIR`.
+    Each user has [20 GiB of temporary storage on the local disk](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) by default on the partitions `small`, `interactive`, and `test`.
+    This storage is accessed with the environment variable `$TMPDIR`.
         
-        If your R jobs produce very many or very large temporary files exceeding 20 GiB, 
-        please use the `medium` partition and reserve a full node, which provides 600 GiB of temporary storage by default under `$TMPDIR`. 
-        Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently only
-        available for full-node jobs) or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`. 
+    If your R jobs produce very many or very large temporary files exceeding 20 GiB,
+    please use the `medium` partition and reserve a full node, which provides 600 GiB of temporary storage by default under `$TMPDIR`.
+    Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently only
+    available for full-node jobs) or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`.
         
-        ```bash
-        # Add this line to the batch job script to direct temporary files to the /scratch directory of your 
-        # project (replace <project> with your project)
+    ```bash
+    # Add this line to the batch job script to direct temporary files to the scratch directory of your
+    # project (replace <project> with your project)
     
-        echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-        ```
-    
-    === "Mahti"
-        Please make sure to specify a **temporary directory path** to the `scratch` directory of your project `/scratch/<project>` as in the example above. Or, if your job [reads and writes a lot of files](../computing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference), 
-        use instead [the fast local disk](#using-fast-local-storage). Otherwise temporary files will go to `/tmp`, which has limited space and fills up easily, harming your and other users' jobs.
-    
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    ```
           
     
 When ready, the batch job file is **submitted to the batch job system on a login node**:
@@ -360,7 +354,7 @@ echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 
 ### Using fast local storage
 
-For jobs that read and write large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-puhti.md#local-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
+For jobs that read and write large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) can be used in non-interactive batch jobs with minor changes to the batch job file. Interactive R jobs use fast local storage by default.
 
 An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme:10`) on Mahti is given below. Here a temporary directory is specified using the environment variable `TMPDIR`, in contrast to the prior example where it was set as `/scratch/<project>`.
 

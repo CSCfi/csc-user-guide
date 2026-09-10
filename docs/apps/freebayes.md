@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Freebayes
@@ -27,62 +27,64 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Puhti: 1.3.6, 1.3.7
+* Roihu: 1.3.6, via the `bio-apps` module.
 
 ## Usage
 
-First load the FreeBayes module.
+FreeBayes is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the FreeBayes module:
 
 ```bash
-module load freebayes
+module load bio-apps/v202603
+module load freebayes/1.3.6
 ```
 
-After this you can launch Freebayes. For example:
+After this you can launch FreeBayes. For example:
 
 ```bash
 freebayes -f reference.fa input.bam > results.vcf
 ```
 
-Note that FreeBayes requires a BAM file that is indexed. A BAM file can be indexed with command:
+Note that FreeBayes requires a BAM file that is indexed. A BAM file can be indexed with the `samtools index` command (load the `samtools` module first):
 
 ```bash
+module load samtools/1.21
 samtools index input.bam
 ```
 
-FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs on Puhti.
-
-On Puhti, you can use `freebayes-puhti` to automatically submit a Freebayes job to the batch job system.
-This tool also speeds up the analysis by running the analysis as several simultaneous tasks in parallel.
-To be able to use `freebayes-puhti`, you first need to define a regions file for your reference fasta file.
-This can be done with the command:
+FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs on Roihu. Below is a sample batch job script:
 
 ```bash
-fasta_generate_regions.py reference.fa.fai 100000 > regions.txt
+#!/bin/bash
+#SBATCH --job-name=freebayes
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --time=24:00:00
+#SBATCH --partition=small
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=16000M
+
+module load bio-apps/v202603
+module load freebayes/1.3.6
+
+freebayes -f reference.fa input.bam > results.vcf
 ```
 
-For small datasets you may decrease the region size in the command above so that you will get more than 100 regions in the regions file.
+Replace `<project>` with your CSC project (for example `project_2001234`).
 
-Once you have the regions file created, you can launch your analysis task with the command:
+You can submit the batch job file to the batch job system with the command:
 
 ```bash
-freebayes-puhti -regions regions.txt -f reference.fa input.bam -out results.vcf
+sbatch batch_job_file.sh
 ```
 
-`freebayes-puhti` will execute your FreeBayes analysis as an automatically generated array batch job. The results will also be automatically merged and sorted once the batch jobs have finished. By default, `freebayes-puhti` allows each sub-job to use 16 GB of memory and to run for 24 hours. For massive FreeBayes jobs, this may not be sufficient. In that case, you can try to use options `-mem` and `-time` to extend the limits. `-mem` option 
-defines the memory reservation in gigabytes while the `-time` option defines the time reservation in hours. For example, extending the task to 64 GB of memory and 48 hours of running time could be done with the command:
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
-```bash
-freebayes-puhti -mem 64 -time 48 -regions regions.txt -f reference.fa input.bam -out results.vcf
-```
+## Support
 
-Once launched, FreeBayes starts monitoring the progress of the job. As the job may take several days, the connection
-may break, or you may need to close the connection. This does not harm the actual computing task. Once all sub-jobs have completed, you can use command `freebayes-puhti-recover` to collect the results. For example:
-
-```bash
-freebayes-puhti-recover freebayes_jobnum_tmp 
-```
-
-Where `freebayes_jobnum_tmp` is the temporary FreeBayes directory that was created by the `freebayes-puhti` command in the same directory where the command was launched.
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

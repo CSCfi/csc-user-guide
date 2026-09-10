@@ -10,47 +10,42 @@ search:
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    Mahti computing services will be shut down on 31 August 2026 at 12:00 EEST. Storage and
+    Mahti computing services have been shut down on 31 August 2026. Storage and
     login nodes are planned to remain accessible until midday 15 October 2026, but
-    users are strongly encouraged to move any required data from the system by
-    the end of August 2026.
+    users are strongly encouraged to move any required data from the system without delay.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
 ## Compute nodes
 
-**Mahti** has a total of **1404** CPU nodes and **24** GPU nodes. The
+**Mahti** had a total of **1404** CPU nodes and **24** GPU nodes. The
 theoretical peak performance is 7.5 petaflops for the CPU nodes and 2.0
 petaflops for the GPU nodes, in total 9.5 petaflops.
 
-Both CPU and GPU nodes have two AMD Rome 7H12 CPUs with 64 cores each,
-making the total core count about 180 000. The CPUs are based on AMD Zen 2
+Both CPU and GPU nodes had two AMD Rome 7H12 CPUs with 64 cores each,
+making the total core count about 180 000. The CPUs were based on AMD Zen 2
 architecture, supporting the AVX2 vector instruction set, and run at 2.6 GHz
 base frequency (max boost up to 3.3 GHz). The CPUs support simultaneous
 multithreading (SMT) where each core can run two hardware threads. When SMT is
 enabled, the total thread count per node is 256 threads.
 
-The CPU nodes are equipped with 256 GB of memory and the vast majority
-have no local disks. There are in total 60 nodes that are equipped
-with a local 3.8 TB NVMe drive. These are available in the `small` and
-`interactive` partitions.
+The CPU nodes were equipped with 256 GB of memory and the vast majority
+had no local disks. There were in total 60 nodes that were equipped
+with a local 3.8 TB NVMe drive.
 
-The GPU nodes are equipped with 512 GB of memory and a local 3.8 TB NVMe drive.
-They also have four Nvidia Ampere A100 GPUs. In a subset of the nodes the A100
-GPUs have been split into multiple smaller GPUs with a fraction of the compute
-and memory capacity of the A100 GPUs. These are useful for interactive work,
-courses and for code development.
+The GPU nodes were equipped with 512 GB of memory and a local 3.8 TB NVMe drive.
+They also had four Nvidia Ampere A100 GPUs.
 
 ### NUMA configuration
 
-Mahti node has a highly hierarchical structure. There are two sockets in the
+Mahti node had a highly hierarchical structure. There were two sockets in the
 node, each containing a single CPU and memory DIMMs. All the memory within the
-node is shared, but memory performance depends on the distance of the core to
-the memory. In order to provide slightly increased memory performance we run
-each CPU in NPS4 (NUMA per socket 4) mode that further splits each CPU into 4
-NUMA domains. Each NUMA domain has 16 cores, and two memory controllers with 32
-GiB of memory in total. Core 0 runs threads 0 and 128, core 1 threads 1 and 129
-and so on. The figure below shows how the threads are distributed over each of
+node was shared, but memory performance depended on the distance of the core to
+the memory. In order to provide slightly increased memory performance we ran
+each CPU in NPS4 (NUMA per socket 4) mode that further split each CPU into 4
+NUMA domains. Each NUMA domain had 16 cores, and two memory controllers with 32
+GiB of memory in total. Core 0 ran threads 0 and 128, core 1 threads 1 and 129
+and so on. The figure below shows how the threads were distributed over each of
 the cores and NUMA nodes.
 
 !["NUMA configuration"](../img/mahti_numa.png)
@@ -93,11 +88,11 @@ then connected to each other using all to all links.
 
 !["Simplified dragonfly+ topology"](../img/mahti_df_ex.png)
 
-In Mahti there are 234 nodes in each dragonfly group and the internal fat tree
-has a blocking factor of 1.7:1, with 20 or 18 nodes connected per leaf switch
-and each leaf switch has 12 links going to the spine switch in the group, all
-links are 200 Gbps links. There are in total 6 groups, and between the groups
-there is fully non-blocking all-to-all connectivity, with 5 200 Gbps links
+In Mahti there were 234 nodes in each dragonfly group and the internal fat tree
+had a blocking factor of 1.7:1, with 20 or 18 nodes connected per leaf switch
+and each leaf switch had 12 links going to the spine switch in the group, all
+links were 200 Gbps links. There were in total 6 groups, and between the groups
+there was fully non-blocking all-to-all connectivity, with 5 200 Gbps links
 going from each spine switch to one spine switch in every other group.
 
 !["Mahti dragonfly+ topology"](../img/mahti_df.png)

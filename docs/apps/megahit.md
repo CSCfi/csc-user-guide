@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Megahit
@@ -23,14 +23,16 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Puhti: 1.2.9
+* Roihu: 1.2.9, via the `bio-apps` module.
 
 ## Usage
 
-On Puhti, Megahit is activated by loading the `biokit` environment:
+Megahit is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Megahit module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load megahit/1.2.9
 ```
 
 For usage help, use command:
@@ -39,7 +41,7 @@ For usage help, use command:
 megahit -h
 ```
 
-Assembling metagenomic data can be very resource demanding. Note that you should not run Megahit on the login nodes of Puhti.
+Assembling metagenomic data can be very resource demanding. Note that you should not run Megahit on the login nodes.
 For any real analysis task, we recommend running Megahit as a batch job.
 
 Sample Megahit batch job:
@@ -48,16 +50,18 @@ Sample Megahit batch job:
 #!/bin/bash
 #SBATCH --job-name=Megahit
 #SBATCH --account=<project>
+#SBATCH --output=megahit_out_%j
+#SBATCH --error=megahit_err_%j
+#SBATCH --partition=small
 #SBATCH --time=12:00:00
-#SBATCH --ntasks=1
 #SBATCH --nodes=1
-#SBATCH --output=megahit_out_8
-#SBATCH --error=megahit_err_8
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --partition=small
 
-module load biokit
+module load bio-apps/v202603
+module load megahit/1.2.9
+
 srun megahit -1 reads_1.fastq -2 reads_2.fastq -t $SLURM_CPUS_PER_TASK --m 32000000000 -o result_directory
 ```
 
@@ -73,7 +77,11 @@ file is named as `megahit_job.sh`, then the submission command is:
 sbatch megahit_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Puhti user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 
