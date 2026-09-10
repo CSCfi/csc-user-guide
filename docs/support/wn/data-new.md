@@ -4,8 +4,7 @@
 
 A new version of SD Connect and SD Desktop will be released and available from September 28. The upgrade comes whit new features and introduces significant improvements but also includes changes that are not compatible with the current version of the services. 
 
-Here you can find all the support material 
-
+Here you can find a video giving an overview and links to al the support materials: 
 
 
 fter the major upgrade between 21-15 of September, SD Connect and SD Desktop will again be available for use. However, some additional steps may be required to restore data access via SD Connect or regain  SD Desktop functionalities:
