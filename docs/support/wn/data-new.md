@@ -4,8 +4,29 @@
 
 A new version of SD Connect and SD Desktop will be released and available from September 28. The upgrade comes whit new features and introduces significant improvements but also includes changes that are not compatible with the current version of the services. 
 
-Here you can find a video giving an overview and links to al the support materials: 
+Please review the following resources:
 
+- a video introducing the new features and changes and step that need to be taken
+
+
+Imprtant dates:
+- service break during 21-15 Sepetber: SD Servcie not available 
+- register to on line support sessions on Mondays at 12:00 or Thusdays at 10:00 for step-by-step guidance or discussion about the upgrade
+- webinar introducing the chnages on Wednenesday 30 of September
+
+  
+
+New features:
+
+SD Connect: 
+SD Desktop: 
+
+
+
+Actions you need to take before the servcie break:
+-
+
+Actions you need to take after the servcei break: 
 
 
 
