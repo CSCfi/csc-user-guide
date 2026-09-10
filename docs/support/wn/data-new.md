@@ -7,6 +7,8 @@ A new version of SD Connect and SD Desktop will be released and available from S
 Here you can find a video giving an overview and links to al the support materials: 
 
 
+
+
 fter the major upgrade between 21-15 of September, SD Connect and SD Desktop will again be available for use. However, some additional steps may be required to restore data access via SD Connect or regain  SD Desktop functionalities:
 
 - SD Connect (CSC Academic projects): Existing folders (buckets) must be updated according to the provided instructions after the service break from 28 September. 
