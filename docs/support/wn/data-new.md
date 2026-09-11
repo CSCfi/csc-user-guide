@@ -54,8 +54,8 @@ If you are unable to complete this preparatory step before the service break, do
   
 
 #### Materials and instructions:
-- [SD Connect: New features](../data/sensitive-data/releases-sd-desktop/)
-- [SD Desktop: New features](../data/sensitive-data&/releases-sd-connect/)
+- [SD Connect: New features](../../data/sensitive-data/releases-sd-desktop/)
+- [SD Desktop: New features](../../data/sensitive-data&/releases-sd-connect/)
 - Step-by-step instructions for actions required after 28 September, link soon available here
 
 
