@@ -14,9 +14,9 @@ To help you prepare for the upgrade, please review the following information:
 
 ### CSC Project-Academic type: video overview and required preliminary actions
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608?si=VkDKVeE1qWulr0Qp" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608?si=VkDKVeE1qWulr0Qp" title="CSC Academic project type: SD Connect and SD Desktop major upgrade ="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-https://youtu.be/
+
 
 - **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available here from 28 September.
 
@@ -57,22 +57,11 @@ If you are unable to complete this preparatory step before the service break, do
 - **30 September at 14:00**: Webinar introducing the upgrade, key changes and required actions at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)
   
 
-#### Materials and instructions:
+### Materials and instructions:
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-desktop.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-connect.md)
 - Step-by-step instructions for actions required after 28 September, link soon available here
 
-
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } 
-  { .csc-grid-card-error }
-
-    ___
-
-    For any questions or support don't hesitate to contact us at servicedesk.csc.fi (subject: SD Services)
-    
-</div>
 
 
 
