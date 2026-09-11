@@ -23,7 +23,7 @@ https://youtu.be/
 - **SD Desktop**: import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. To simplify the installation of the new Data Gateway after the service break, **we recommend completing the following preparatory step before 21 September**.
 
 
-#### Step-by-step**: 
+#### Step-by-step: 
 
 Important: this preparation only needs to be completed once per virtual desktop by one project member.
 
