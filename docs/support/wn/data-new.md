@@ -12,22 +12,26 @@ To help you prepare for the upgrade, please review the following information:
 - [Materials and instructions](#materials-and-instructions)
 
 
-### CSC Project-Academic type: video overview and required actions
+### CSC Project-Academic type: video overview and required preliminary actions
 
+<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608?si=VkDKVeE1qWulr0Qp" title="How to install software on SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+https://youtu.be/
 
 - **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available here from 28 September.
 
 - **SD Desktop**: import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. To simplify the installation of the new Data Gateway after the service break, **we recommend completing the following preparatory step before 21 September**.
 
-Important: this preparation only needs to be completed once per virtual desktop by one project member.
 
-**Step-by-step**: 
+#### Step-by-step**: 
+
+Important: this preparation only needs to be completed once per virtual desktop by one project member.
 
 1.Access your virtual desktop.
 
 2. Open Data Gateway.
 
-3.Open SD Software Installer. If the application is not installed, first follow these instructions: [link].
+3.Open SD Software Installer. If the application is not installed, first follow these [instructions](../../data/sensitive-data/sd-desktop-software.md#step-1-send-a-request)
 
 4. In the SD Software Installer, select CSC Tools.
 
