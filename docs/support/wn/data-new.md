@@ -2,48 +2,63 @@
 
 ## SD Connect and SD Desktop major service upgrade
 
-A new version of SD Connect and SD Desktop will be released and available from September 28. The upgrade comes whit new features and introduces significant improvements but also includes changes that are not compatible with the current version of the services. 
+A new version of SD Connect and SD Desktop will be released and available from 28 September. The upgrade introduces significant improvements but also includes changes that are not compatible with the current version of the services.
 
-Please review the following resources:
+To help you prepare for the upgrade, please review the following information:
 
-- a video introducing the new features and changes and step that need to be taken
+-[CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
+-[CSC Project- Secondary use type (#important-dates-and-support]
+- [Important dates and support]((#important-dates-and-support)
+- [Materials and instructions](#materials-and-instructions)
 
 
-Imprtant dates:
-- service break during 21-15 Sepetber: SD Servcie not available 
-- register to on line support sessions on Mondays at 12:00 or Thusdays at 10:00 for step-by-step guidance or discussion about the upgrade
-- webinar introducing the chnages on Wednenesday 30 of September
+#### CSC Project-Academic type: video overview and required actions
 
+
+- **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available here from 28 September.
+
+- **SD Desktop**: import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. To simplify the installation of the new Data Gateway after the service break, **we recommend completing the following preparatory step before 21 September**.
+
+Important: this preparation only needs to be completed once per virtual desktop by one project member.
+
+**Step-by-step**: 
+
+1.Access your virtual desktop.
+
+2. Open Data Gateway.
+
+3.Open SD Software Installer. If the application is not installed, first follow these instructions: [link].
+
+4. In the SD Software Installer, select CSC Tools.
+
+5. Wait approximately 30 seconds until you receive a confirmation that the installation has completed successfully.
+
+6. You can then close the Data Gateway and log out of the virtual desktop.
+
+7. Final instructions that must be completed by all users will be provided after the service break.
+
+If you are unable to complete this preparatory step before the service break, don't worry. You will still be able to complete all required via different workflow after September 28. 
+
+
+#### CSC Project- Secondary use type
+
+- **SD Desktop **: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September: [link]
+
+#### Important dates and support
+
+- **21 9:00-25 September 17:00 EEST**: Service break. SD services will not be available during this period.
+
+- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available from September 28 via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
+  
+- **30 September at 14:00**: Webinar introducing the upgrade, key changes and required actions at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)
   
 
-New features:
-
-SD Connect: 
-SD Desktop: 
-
-
-
-Actions you need to take before the servcie break:
--
-
-Actions you need to take after the servcei break: 
+#### Materials and instructions:
+- SD Connect: New features [link]
+- SD Desktop: New features [link]
+- Step-by-step instructions for actions required after 28 September [link]
 
 
-
-fter the major upgrade between 21-15 of September, SD Connect and SD Desktop will again be available for use. However, some additional steps may be required to restore data access via SD Connect or regain  SD Desktop functionalities:
-
-- SD Connect (CSC Academic projects): Existing folders (buckets) must be updated according to the provided instructions after the service break from 28 September. 
-
-- SD Desktop (CSC Academic projects): Access to virtual desktops will continue after the upgrade; however, virtual desktops must be updated according to the provided instructions. Preparation can begin before the service break by following these steps:
-
-
-
-
-- SD Desktop (Secondary Use projects): Access to virtual desktops will continue after the upgrade; however, virtual desktops must be updated according to the provided instructions. Preparation can begin before the service break. New data imports from Findata or individual registers will not be available until further notice.
-
-To support users during the transition, regular online support sessions in Finnish and English will be available throughout September and October.
-
-If you have any questions, please contact us at servicedesk@csc.fi with the subject line "SD services".
 
 
 ## Sensitive Data (SD) Desktop service: billing changes and export process update, 05.2026
