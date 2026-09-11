@@ -9,31 +9,31 @@ Version shortcuts:
 
 ## SD Desktop v3.0.0 
 
-Upcoming, in testing phase.
+Available from September 28, 2026. 
 
-## Overview
+### Overview
 
-SD Desktop v3 introduces a completely redesigned user interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, flexibility in volumes management and automation. 
+SD Desktop v3 introduces a completely redesigned user interface that is more intuitive, easier to use, and developed in close collaboration with users. This version focuses on improving usability, increasing flexibility in volume management, and enhancing automation.
 
-!!! Note
-    More detailed documentation, support materials, guidance and webinars will be published closer to the official release.
+## Key new features
 
+**Redesigned user interface**: the interface has been rebuilt with a more modern and intuitive layout, improving navigation and simplifying common tasks. The redesign is based on extensive user feedback.
 
-## Key features and changes
+**Flexible volume creation**: volumes can now be created at any time, not only during virtual desktop creation. Users can choose between volumes of 200-500 GB and 1 TB.
 
-- **Redesigned user interface**: The entire interface has been rebuilt with a more modern and intuitive layout, improving navigation and simplifying common tasks. The redesign is based on extensive user feedback.
+**Enhanced volume management**: users can now attach or detach storage volumes from running virtual desktop. This enables real-time adjustments to storage needs and improves workflow continuity. A single virtual desktop can use multiple volumes simultaneously. However, the same external volume cannot be attached to multiple virtual desktops at the same time.
 
-- **New feature for volumes**: Users can now attach or detach storage volumes without stopping or restarting the virtual desktop. This allows real‑time adjustments to storage needs and improves workflow continuity. A single virtual desktop can now use multiple volumes simultaneously.
+**Enhanced Data Gateway functionality**: Data export from the virtual desktop now includes automated encryption, allowing multiple files, folders, and subfolders to be exported in a single operation. In addition, accessing the Data Gateway no longer requires manual entry of a username and password.
 
-- **New Data Gateway applicationd functions**: Data export from the virtual desktop now offers automated encrypted. Additionally, accessing the gateway no longer requires manual entry of a username or password, making the process more streamlined and secure.
+**Updated operating system**: based on Ubuntu 24 and includes pre-installed container platforms such as Apptainer and Podman.
 
-- **Backward compatibility**: Existing virtual desktops will continue to work, but import/export may be interrupted. Users can either:
+**Resource alerts**: Users can now receive alerts when a virtual desktop is running low on resources, enabling corrective action before the desktop becomes unresponsive.
 
-- create a new virtual desktop and move the old volume to it, this option enables all new SD Desktop v3 features.
+**Backward compatibility**: existing virtual desktops will continue to work, but import and export functionality may be affected after the upgrade. Users can choose one of the following options:
 
-- import the new Data Gateway application into the current desktop: import/export works, but attaching new or multiple volumes will not be available.
+- Create a new virtual desktop and move the existing volume to it. This option provides access to all SD Desktop v3 features.
 
-
+- Install the new Data Gateway application on the existing virtual desktop. This restores import and export functionality, but features such as using multiple volumes simultaneously will not be available.
 
 ## Feature comparison table: 
 
