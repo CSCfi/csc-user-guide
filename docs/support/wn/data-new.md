@@ -1,6 +1,6 @@
 # Data management
 
-## SD Connect and SD Desktop major service upgrade
+## SD Connect and SD Desktop major service upgrade 09,2026
 
 A new version of SD Connect and SD Desktop will be released and available from 28 September. The upgrade introduces significant improvements but also includes changes that are not compatible with the current version of the services.
 
