@@ -6,13 +6,13 @@ A new version of SD Connect and SD Desktop will be released and available from 2
 
 To help you prepare for the upgrade, please review the following information:
 
--[CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
--[CSC Project- Secondary use type (#important-dates-and-support]
-- [Important dates and support]((#important-dates-and-support)
+- [CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
+- [CSC Project- Secondary use type](#important-dates-and-support)
+- [Important dates and support](#important-dates-and-support)
 - [Materials and instructions](#materials-and-instructions)
 
 
-#### CSC Project-Academic type: video overview and required actions
+### CSC Project-Academic type: video overview and required actions
 
 
 - **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available here from 28 September.
@@ -40,11 +40,11 @@ Important: this preparation only needs to be completed once per virtual desktop 
 If you are unable to complete this preparatory step before the service break, don't worry. You will still be able to complete all required via different workflow after September 28. 
 
 
-#### CSC Project- Secondary use type
+### CSC Project- Secondary use type
 
 - **SD Desktop **: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September: [link]
 
-#### Important dates and support
+### Important dates and support
 
 - **21 9:00-25 September 17:00 EEST**: Service break. SD services will not be available during this period.
 
@@ -57,6 +57,19 @@ If you are unable to complete this preparatory step before the service break, do
 - [SD Connect: New features](../data/sensitive-data/releases-sd-desktop/)
 - [SD Desktop: New features](../data/sensitive-data&/releases-sd-connect/)
 - Step-by-step instructions for actions required after 28 September, link soon available here
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } 
+  { .csc-grid-card-error }
+
+    ___
+
+    For any questions or support don't hesitate to contact us at servicedesk.csc.fi (subject: SD Services)
+    
+</div>
+
 
 
 
