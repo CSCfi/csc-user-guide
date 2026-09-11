@@ -2,9 +2,8 @@
 
 Here is a short video explaining how to run a virtual machine with the Pouta service.
 
-<center>
 [![Pouta - Creating a virtual machine](../img/pouta_getting_started_video_poster.png){ width=400px }](https://video.csc.fi/id/0_qilcsiyp?width=608&height=402&playerId=14971191){ target="_blank" }
-</center>
+
 
 Please visit also [Creating a virtual machine](launch-vm-from-web-gui.md) and [Connecting the virtual machine](connecting-to-vm.md) for more detailed instructions.
 

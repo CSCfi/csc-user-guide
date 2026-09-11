@@ -1,5 +1,18 @@
 # Applications
 
+## CPU versions of PyTorch and TensorFlow available on Roihu, 3.9.2026
+
+CPU editions of all installed [PyTorch](../../apps/pytorch.md) and
+[TensorFlow](../../apps/tensorflow.md) versions have been made
+available on Roihu. This is to better support interactive usage and
+hybrid workflows.
+
+## PyTorch 2.13.0 available on Roihu-GPU, 31.8.2026
+
+PyTorch 2.13.0 is now available on Roihu-GPU in the [python-pytorch
+module](../../apps/pytorch.md). It has been set to the default
+version.
+
 ## R 4.6.1 in r-env, 18.8.2026
 
 R version 4.6.1 is now available in [r-env](../../apps/r-env.md) in Roihu and is set as the default version.
@@ -153,7 +166,7 @@ more information](../../apps/pytorch.md#available).
 
 ## R in Mahti, 7.4.2025
 
-R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The [new small partition on Mahti](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
 
 ## Tykky 0.4.2, 27.2.2025
 
@@ -752,7 +765,7 @@ expected.
 ## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
 
 New versions of [Python Data](../../apps/python-data.md) and
-[RAPIDS](../../apps/rapids.md) are now available on both Puhti and Mahti. The
+RAPIDS are now available on both Puhti and Mahti. The
 default versions have been changed to these new versions.
 
 ## CP2K 9.1 linked to Gromacs 2022, 19.4.2022

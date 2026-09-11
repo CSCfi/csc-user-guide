@@ -89,7 +89,7 @@ The object storage service is provided over two different protocols, **S3** and 
 
 The permanent connection of S3 is practical in many ways, but it includes a security aspect: if the server where Allas is used is compromised, the object storage space will be compromised as well. Due to this security concern, Swift has been the default for multiple-user servers such as Allas web interface, Mahti and Puhti. However, due to technical development Allas services are starting to use S3 as the default protocol. For  example in Roihu S3 will be the default Allas protocol.
 
-Thus, for example, the CSC-specific `a-commands`, as well as the `rclone` configuration in Puhti and Mahti, are by default based on Swift. But in Roihu they use S3-
+Thus, for example, the CSC-specific `a-commands`, as well as the `rclone` configuration in Puhti and Mahti, are by default based on Swift. But in Roihu they use S3.
 
 The Swift and S3 protocols are not mutually compatible when handling objects. For small objects that do not need to be split during the upload, the protocols can be used interchangeably, but split objects can be accessed only with the protocol that was used for uploading them. The size limit for splitting an object depends on the settings and protocol. The limit is typically between 500 MB and 5 GB.
 

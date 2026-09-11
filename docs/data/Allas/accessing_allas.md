@@ -33,8 +33,7 @@ At the moment CSC provides several web browser interfaces for Allas:
 | Web interface  | Instructions |SWIFT support | S3 support | Use cases | Limits |
 | ----- | ------------- | ---------- | --------- | ------- | ------- |
 | [Allas web UI](https://allas.csc.fi)  | [Instructions](./using_allas/allas-ui.md) | <font color="green">&#x2714;</font> |   | General first choice, share data with another project, make buckets public | Max 5 GB downloads |
-| [Puhti web UI](https://www.puhti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Puhti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
-| [Mahti web UI](https://www.mahti.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Mahti or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
+| [Roihu web UI](https://www.roihu.csc.fi) | [Instructions](../../computing/webinterface/file-browser.md) | <font color="green">&#x2714;</font>  | <font color="green">&#x2714;</font> | Moving data to/from Roihu or local, also S3 usage and LUMI-O | Max 10 GB file uploads from local |
 | [cPouta web UI](https://pouta.csc.fi) | [Instructions](./using_allas/web_client.md)  | <font color="green">&#x2714;</font> |  | Make your bucket public | Max 5 GB files, uploading/downloading only a single file at a time. | 
 | [SD Connect ](https://sd-connect.csc.fi) | [Instructions](../sensitive-data/sd_connect.md) | <font color="green">&#x2714;</font> |  | Sensitive data | |
 

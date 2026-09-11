@@ -16,10 +16,7 @@ extra:
     content: |-
       <p>Warning!</p>
       <div>
-        <p>Puhti and Mahti are being decommissioned in stages, and their storage areas will become fully unavailable from <strong>15 October 2026</strong>. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions on transferring your data to Roihu.</p>
-      </div>
-      <div>
-        <p><strong>Puhti computing services have been decommissioned</strong> and no new jobs are accepted or executed on its compute nodes. Puhti login nodes and storage services are planned to remain available until 15 October 2026.</p>
+        <p><strong>Puhti and Mahti computing services have been decommissioned</strong> and no new jobs are accepted or executed on its compute nodes. Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions on transferring your data to Roihu.</p></p>
       </div>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
@@ -301,19 +298,14 @@ nav:
           - Available batch job partitions: computing/running/batch-job-partitions.md
           - Create Roihu batch jobs: computing/running/creating-job-scripts-roihu.md
           - Roihu example scripts: computing/running/example-job-scripts-roihu.md
-          - Create Puhti batch jobs: computing/running/creating-job-scripts-puhti.md
-          - Puhti example scripts: computing/running/example-job-scripts-puhti.md
-          - Create Mahti batch jobs: computing/running/creating-job-scripts-mahti.md
-          - Mahti example scripts: computing/running/example-job-scripts-mahti.md
           - Submitting a job: computing/running/submitting-jobs.md
           - High-throughput computing and workflows: computing/running/throughput.md
           - Interactive usage: computing/running/interactive-usage.md
           - Performance checklist: computing/running/performance-checklist.md
+          - Submitting jobs across architectures: computing/running/submitting-jobs-across-architectures.md
       - Installing software:
           - computing/installing.md
           - Compiling on Roihu: computing/compiling-roihu.md
-          - Compiling on Puhti: computing/compiling-puhti.md
-          - Compiling on Mahti: computing/compiling-mahti.md
           - Compiling on LUMI: computing/compiling-lumi.md
           - High performance libraries: computing/hpc-libraries.md
       - Debugging: computing/debugging.md

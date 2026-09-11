@@ -68,7 +68,7 @@ must use pull requests.
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
         - If your commits aren't showing up on the pull request, i.e., the pull request isn't updating when making new commits, try switching the base branch ('Edit' button, top-right) from `master` to something else and then back again.
     - Write meaningful pull request messages, so it is easier for reviewers to do their job.
-    - Communicate! Use "WIP" (= Work In Progress) in your pull request title, if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
+    - Communicate! Open a draft pull request (select "Create Draft Pull Request" from the dropdown next to the _Create Pull Request_ button), if you don't wish the branch to be merged to master (i.e. you want to continue working with it).
  - Once your PR has been accepted, remove the temporary branch (if not deleted automatically at merge)
 
 #### Reviewer
