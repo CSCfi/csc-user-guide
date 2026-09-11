@@ -6,10 +6,10 @@ A new version of SD Connect and SD Desktop will be released and available from 2
 
 To help you prepare for the upgrade, please review the following information:
 
-- [CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
-- [CSC Project- Secondary use type](#important-dates-and-support)
-- [Important dates and support](#important-dates-and-support)
-- [Materials and instructions](#materials-and-instructions)
+- [1. CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
+- [2. CSC Project- Secondary use type](#important-dates-and-support)
+- [3. Important dates and support](#important-dates-and-support)
+- [4. Materials and instructions](#materials-and-instructions)
 
 
 ### CSC Project-Academic type: video overview and required preliminary actions
