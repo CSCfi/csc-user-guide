@@ -108,7 +108,7 @@ If you reserve only one task (the default), MHM2 runs on a single core and warns
 four GPUs and 288 tasks (`--ntasks-per-node=288 --gres=gpu:gh200:4`); MHM2 shares
 the node's GPUs among its processes. Because it communicates over InfiniBand it
 can also coassemble across several nodes — increase `--nodes` accordingly, and also
-switch to the `gpularge` partition which accomadates requests for multiple nodes.
+switch to the `gpularge` partition which accommadates requests for multiple nodes.
 
 !!! tip "Match the number of processes to the data size"
     MHM2's parallel start-up, communication and GPU-sharing overheads dominate on
