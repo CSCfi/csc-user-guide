@@ -3,7 +3,7 @@
 
 # How to deploy a High Available application in Rahti
 
-This is a simple High Available web application deployment in Rahti. 
+This is a simple High Available web application deployment in Rahti. We have a similar tutorial for [High availability](../../../pouta/tutorials/high-availability.md) in Pouta.
 
 ## Schema
 

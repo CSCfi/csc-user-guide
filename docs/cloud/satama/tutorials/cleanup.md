@@ -41,6 +41,9 @@ To remove an image tag:
 * Click on **Remove Tag** button
 * A pop-up window will appear. Click on **Delete**.
 
+!!! warning
+    Deleting a tag is immediate and permanent, and cannot be undone. Double-check that the tag is not in use before confirming the deletion.
+
 Once deleted, the tag will no longer appear in the repository.
 
 Note that deleting a tag removes the reference to the image. The underlying data may be removed later during storage cleanup processes.
