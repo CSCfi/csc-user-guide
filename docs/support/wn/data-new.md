@@ -25,18 +25,12 @@ To help you prepare for the upgrade, please review the following information:
 
 Important: this preparation only needs to be completed once per virtual desktop by one project member.
 
-1.Access your virtual desktop.
-
+1. Access your virtual desktop.
 2. Open Data Gateway.
-
-3.Open SD Software Installer. If the application is not installed, first follow these [instructions](../../data/sensitive-data/sd-desktop-software.md#step-1-send-a-request)
-
+3. Open SD Software Installer. If the application is not installed, first follow these [instructions](../../data/sensitive-data/sd-desktop-software.md#step-1-send-a-request)
 4. In the SD Software Installer, select CSC Tools.
-
 5. Wait approximately 30 seconds until you receive a confirmation that the installation has completed successfully.
-
 6. You can then close the Data Gateway and log out of the virtual desktop.
-
 7. Final instructions that must be completed by all users will be provided after the service break.
 
 If you are unable to complete this preparatory step before the service break, don't worry. You will still be able to complete all required via different workflow after September 28. 
@@ -48,7 +42,7 @@ If you are unable to complete this preparatory step before the service break, do
 
 ### Important dates and support
 
-- **21 9:00-25 September 17:00 EEST**: Service break. SD services will not be available during this period.
+- **21.9.2026 09:00 – 25.9.2026 17:00 EEST**: Service break. SD services will not be available during this period.
 
 - **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available from September 28 via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
   
