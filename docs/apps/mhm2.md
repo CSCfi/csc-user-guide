@@ -47,8 +47,12 @@ Assemblies are launched with the `mhm2.py` driver, which starts the parallel
 paired-end reads:
 
 ```bash
-mhm2.py -r reads_1.fastq reads_2.fastq -o assembly_result
+mhm2.py -p reads_1.fastq,reads_2.fastq -o assembly_result
 ```
+
+Use `-p`/`--paired-reads` for paired reads split into separate R1/R2 files (the two
+files are comma-separated), or `-r`/`--reads` for interleaved paired reads in a
+single file.
 
 The assembled contigs are written to `assembly_result/final_assembly.fasta`. For
 the full list of options use:
@@ -70,9 +74,8 @@ a GPU node.
 
 MHM2 is process-parallel (UPC++): `mhm2.py` launches one process per Slurm task
 and derives that count from `--ntasks-per-node`. Reserve **one task per CPU core**
-you want to use, with `--cpus-per-task=1`. The example below uses one GPU with 16
-processes — a reasonable starting point that you can raise (up to 72 cores per
-GH200) for larger assemblies:
+you want to use, with `--cpus-per-task=1`. The example below uses one GPU with 72
+processes:
 
 ```bash
 #!/bin/bash
@@ -89,7 +92,7 @@ GH200) for larger assemblies:
 module load bio-apps/v202603
 module load mhm2/2.2.2.0-20260904
 
-mhm2.py -r reads_1.fastq reads_2.fastq -o assembly_result
+mhm2.py -p reads_1.fastq,reads_2.fastq -o assembly_result
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`). You
@@ -104,7 +107,8 @@ If you reserve only one task (the default), MHM2 runs on a single core and warns
 `--ntasks-per-node` as shown to avoid this. To use a full GPU node, request all
 four GPUs and 288 tasks (`--ntasks-per-node=288 --gres=gpu:gh200:4`); MHM2 shares
 the node's GPUs among its processes. Because it communicates over InfiniBand it
-can also coassemble across several nodes — increase `--nodes` accordingly.
+can also coassemble across several nodes — increase `--nodes` accordingly, and also
+switch to the `gpularge` partition which accomadates requests for multiple nodes.
 
 !!! tip "Match the number of processes to the data size"
     MHM2's parallel start-up, communication and GPU-sharing overheads dominate on
