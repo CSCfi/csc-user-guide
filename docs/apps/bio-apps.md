@@ -223,6 +223,7 @@ GPU-accelerated tools:
 
 ```text
 dorado/2.1.1
+mhm2/2.2.2.0-20260904
 mmseqs2/18-8cc5c
 nextflow/25.10.2-standalone
 py-medaka/2.2.2
