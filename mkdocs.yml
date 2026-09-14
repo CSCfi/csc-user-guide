@@ -409,7 +409,7 @@ nav:
               - Set up a NFS server: cloud/pouta/tutorials/nfs-server.md
               - Set up a pipeline for pictures: cloud/pouta/tutorials/picture-pipeline.md
               - SSH Key-pair: cloud/pouta/tutorials/ssh-key.md
-
+              - How to deploy a High Available application in Pouta: cloud/pouta/tutorials/high-availability.md
       - Pukki:
           - cloud/dbaas/index.md
           - What is DBaaS: cloud/dbaas/what-is-dbaas.md
