@@ -33,10 +33,10 @@ plugins:
 theme:
   language: fi-CSC
   features:
-  - content.code.copy
-  - content.tabs.link
-  - navigation.indexes
-  - navigation.path
+    - content.code.copy
+    - content.tabs.link
+    - navigation.indexes
+    - navigation.path
 
 nav:
   - Etusivu: index.md
