@@ -44,7 +44,7 @@
 [data-md-color-scheme="docs-ui"] {
   --md-default-fg-color:               var(--c-tertiary-700);
   --md-default-fg-color--light:        var(--c-tertiary-500);
-  --md-default-fg-color--lighter:      var(--c-tertiary-200);
+  --md-default-fg-color--lighter:      var(--c-tertiary-300);
   --md-default-fg-color--lightest:     var(--c-tertiary-100);
   --md-default-fg-color--quote:        var(--md-accent-fg-color);
   --md-default-bg-color:               var(--c-white);
@@ -167,6 +167,22 @@
     }
   }
 
+  .steps {
+    --md-steps-fg-color: var(--c-white);
+    --md-steps-bg-color: var(--md-primary-fg-color);
+    --md-steps-circle-border: none;
+    --md-steps-line-color: var(--md-primary-fg-color);
+    --md-steps-circle-size: 28px;
+    --md-steps-gap: 0;
+    --md-steps-indent: 64px;
+
+  }
+
+  .steps::before {
+    width: 4px;
+    left: calc(var(--md-steps-circle-size)/2 - 2px);
+  }
+
   .admonition:is(.note,.default,.info,.success,.warning,.error,.training),
   details:is(.note,.default,.info,.success,.warning,.error,.training) {
     border-width: var(--docs-admonition-border-width);
@@ -203,6 +219,7 @@
   }
 
   .admonition:is(.status) {
+    --md-steps-indent: epx;
     display: inline-block;
     border: none;
     background-color: var(--c-white);
@@ -222,16 +239,23 @@
     * { font-size: small; }
   }
 
-  hgroup:has(>ul:nth-child(2)>li>.admonition.status) {
+  hgroup {
     margin-bottom: 1.25em;
 
-    >:is(h1,h2,h3,h4,h5,h6):first-child { margin-bottom: 0; }
-    >ul:nth-child(2) {
+    >:is(h1,h2,h3,h4,h5,h6):first-child {
+      margin-bottom: 0;
+
+      +p {
+        font-weight: var(--docs-font-weight--bold);
+        margin: 0;
+      }
+    }
+
+    >ul:has(>li>.admonition.status) {
       display: flex;
       flex-wrap: wrap;
       gap: .25em;
       list-style: none;
-      max-width: 50%;
       margin-top: .5em;
 
       >li {
@@ -332,6 +356,7 @@
 
   [data-md-toggle=search]:checked {
     ~.md-header .md-search__form {
+      background-color: var(--c-white);
       box-shadow: none;
       border-radius: var(--docs-border-radius)
                      var(--docs-border-radius)
@@ -377,8 +402,11 @@
     }
 
     .md-search__form {
-      --mx-search-hover: var(--md-accent-bg-color--light);
       --mx-search-outline: var(--mx-topbar-fg);
+    }
+
+    .md-search__form:hover {
+      background-color: initial;
     }
   }
 
