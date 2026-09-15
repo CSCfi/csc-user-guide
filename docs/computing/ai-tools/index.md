@@ -11,6 +11,7 @@ to follow.
 ## Agent environment
 
 A containerized environment that hosts coding agents is provided on Roihu.
+You can check the details of the implementation from the [repository](https://github.com/CSCfi/roihu-agent-env/tree/main).
 Containerization limits what files the agent can access, and the virtual filesystem
 lowers the I/O load the agent can cause on Lustre. Currently the environment includes
 the open-source [OpenCode agent](https://opencode.ai/), [Claude Code](https://claude.com/product/claude-code),
@@ -174,11 +175,6 @@ prompt for both OpenCode and Claude Code. You can read more about agent skills i
 
 The Roihu agent environment contains three skills by default: `job-efficiency`,
 `software-environments`, and `batch-scripts`. You can read more about them below.
-
-### Job efficiency
-
-Fetches efficiency metrics for a job. If you don't give a Job ID, the agent works
-out which job you mean.
 
 ### Software environments
 
