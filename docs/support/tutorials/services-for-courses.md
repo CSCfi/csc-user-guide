@@ -220,7 +220,8 @@ If you're unsure which services would be suitable for your course,
     !!! warning
         Please note that the first Tuesday and Wednesday of each month whose
         preceding Monday is a working day, are reserved for regular maintenance
-        breaks. You should never rely on the services being available on those days.
+        breaks. You should never rely on the services being available on those
+        days.
 
     ## Instructions
 
