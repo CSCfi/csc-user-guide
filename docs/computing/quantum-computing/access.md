@@ -1,23 +1,26 @@
-!!! warning "Q20 Service in MyCSC"
-    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+# Setting up a LUMI project and accounts for accessing the Quantum devices
+This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50** quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md){ target=_blank }.
 
-# Setting up a LUMI project and accounts for accessing the Quantum computers
+## 1. Request a quantum computing project
 
-This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50**  quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md).
+To access Q20 or Q50, you must first request a LUMI project with allocated quantum computing resources. To apply for an academic project with quantum computing time, see the [open call for quantum academic projects](https://fiqci.fi/resource-call){ target=_blank }.
 
-To access Q20 or Q50, you must first create a LUMI project with quantum computing resources: [Quantum Projects on LUMI](projects.md).
+Some devices carry additional terms of use that the project PI is responsible for ensuring are followed. Check the [device pages](./devices/overview.md) for device specific terms.
 
-Once the project is created, the **Principal Investigator (PI)** can invite other users: [How to add members to project](../../accounts/how-to-add-members-to-project.md)
+## 2. Add project members
 
-The project PI is responsible for ensuring that the [Q50 Terms of Use](https://a3s.fi/FiQCI/VTT_Quantum_Academic_Use_EULA.pdf) are followed. Aalto Q20 has no such terms.
+Once the project is created, the **Principal Investigator (PI)** can invite other users. See [How to add members to project](../../accounts/how-to-add-members-to-project.md){ target=_blank }.
 
-## Connect to LUMI
+## 3. Connect to LUMI
 
-Follow the official instructions to connect to the LUMI system: [Connecting to LUMI – Official Documentation](https://docs.lumi-supercomputer.eu/firststeps/).
+Follow the official instructions to connect to the LUMI system: [Connecting to LUMI – Official Documentation](https://docs.lumi-supercomputer.eu/firststeps/){ target=_blank }.
 
-Details for running jobs on the quantum computers through LUMI can found in the [Running quantum jobs](running-quantum-jobs.md) page.
+## 4. Run your quantum jobs
 
-## Support channels
+Once connected, read the [Running quantum jobs](./running-quantum-jobs.md) section for instructions on submitting to a device.
 
-For support with access via LUMI, contact the  [CSC Service Desk](../../support/contact.md), reachable at servicedesk@csc.fi. 
+## Support
+
+For support with access via LUMI, contact the [CSC Service Desk](../../support/contact.md){ target=_blank }, reachable at servicedesk@csc.fi.
+
 
