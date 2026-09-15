@@ -340,15 +340,15 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Quantum computing:
           - computing/quantum-computing/overview.md
+          - Access through LUMI: computing/quantum-computing/access.md
           - Devices: 
             - computing/quantum-computing/devices/overview.md
             - Aalto Q20: computing/quantum-computing/devices/q20.md
             - VTT Q50: computing/quantum-computing/devices/q50.md
           - First quantum job: computing/quantum-computing/first-quantum-job.md
-          - FiQCI partition: computing/quantum-computing/fiqci-partition.md
-          - Access through LUMI: computing/quantum-computing/access.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
           - Pulse level access: computing/quantum-computing/pulse-level-access.md
+          - FiQCI partition: computing/quantum-computing/fiqci-partition.md
       - FirecREST HPC API:
           - computing/firecrest/index.md
           - Connecting: computing/firecrest/connecting.md
