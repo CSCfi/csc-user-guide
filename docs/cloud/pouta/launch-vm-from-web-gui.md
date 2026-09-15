@@ -1,6 +1,6 @@
 # Creating a virtual machine in Pouta
 
-!!! Warning
+!!! warning
 
     You should familiarize yourself with the [security guidelines](security.md) and
     terms of Pouta accounting before launching your first virtual
@@ -24,13 +24,15 @@ You can log in to ePouta only using your CSC account.
 
 ## Prerequisites
 
-Before creating a Virtual Machine you need these two prerequisites:
+Before creating a Virtual Machine you need these three prerequisites:
 
 1. A **CSC account**. Accounts can be created following [How to create new CSC user account](../../accounts/how-to-create-new-user-account.md).
 
-    > [MFA required] Since November 18th 2025 in ePouta and since November 25th 2025 in cPouta
+1. Multi Factor Authentication (MFA) is required at login.
 
-1. Multi Factor Authentication (MFA) is required when login. For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../accounts/mfa.md)
+    > MFA required since November 18th 2025 in ePouta and since November 25th 2025 in cPouta.
+
+    For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../accounts/mfa.md).
 
 1. A **CSC project** with the **cPouta** or the **ePouta** service enabled. You can [Create a new project](../../accounts/how-to-create-new-project.md), or ask to be added to an existing one. The project needs to have the suitable service enabled. You can follow [Applying for cPouta access](../../accounts/how-to-add-service-access-for-project.md). **But** If you need to store or process **sensitive data**, you must use ePouta instead and [Apply for ePouta access](ePouta-access.md).
 
@@ -47,7 +49,7 @@ Back in [Pouta's web interface](https://pouta.csc.fi), make sure that you select
 
 ## Setting up SSH keys
 
-To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual and for that need SSH keys. It is commonly called a SSH key pair because it consist on two files, the private key and the public key. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
+To open a connection to your virtual machines in cPouta/ePouta, you first need to prove your identity to the Virtual Machine and for that you need SSH keys. It is commonly called a SSH key pair because it consist of two files, the private key and the public key. This is the default (and more secure) way to access Virtual Machines. You only need to set up your SSH keys once per project.
 
 !!! info "Import public keys"
     If you are already familiar with SSH keys, you can use your existing SSH keys to access the virtual machines. In the web interface, go to the **Compute > Key Pairs** section, and select **Import Public Key**. You need to name your key, keep in mind you will need to use this name when creating Virtual Machines, so the recommendation is to keep it short and informative of the intended use. Secondly paste your public key, it must be in a single line and be in the form of `key-type hash comment`, for example a RSA key from `person@domain.name`:
@@ -66,77 +68,7 @@ If you have not used SSH keypairs before, you need to create one. The web interf
 
     ![Create key](../../img/pouta-create-key.png)
 
-#### Linux and Mac
-
-In order to install the key you downloaded in the previous step (_keyname.pem_ or _keyname.cer_), you must run this commands:
-
-!!! info "For MacOS"
-    If you are using Chrome browser in Mac OS X Monterey, you will get keyname.cer instead of keyname.pem. The following procedure will remain same.
-
-```bash
-mkdir -p ~/.ssh
-chmod 700 .ssh
-mv keyname.pem ~/.ssh
-chmod 400 ~/.ssh/keyname.pem
-```
-
-!!! info "400 = Only owner can read"
-    When a file in Unix has 400 permissions, it translates to:
-    `r-- --- ---`
-
-    which means, only the owner can read the file. This is the recommended value for SSH, but in case you need to overwrite the file, you will need to give also write permissions: `chmod 600 ~/.ssh/keyname.pem`.
-
-
-Before using the newly created key, you should protect it with a passphrase:
-
-```bash
-chmod 600 ~/.ssh/keyname.pem
-ssh-keygen -p -f .ssh/keyname.pem
-chmod 400 ~/.ssh/keyname.pem
-```
-
-#### Windows (PowerShell)
-
-In **Windows** environments it is recommended to use PowerShell. The process is very similar
-
-```PowerShell
-mkdir ~/.ssh
-mv yourkey.pem ~/.ssh/
-```
-
-Before using the newly created key, you should protect it with a passphrase:
-
-```PowerShell
-ssh-keygen.exe -p -f yourkey.pem
-```
-
-Then, still from PowerShell, you can use the `ssh` command to connect to your machine, in the same way it is done from Linux or Mac.
-
-#### Windows (Putty)
-
-If your copy of Windows does not have the _ssh_ command installed, it is also possible to use _Putty_.
-
-This is done by using the _puttygen_ tool to load your private key (.pem) and save it in the (password protected) .ppk format which Putty can use.
-
-1. Download _Putty_ and _puttygen_, which are available at <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>.
-
-1. Run _puttygen_ and load the key you downloaded (it should be in the Downloads page).
-
-    ![Putty Gen](../../img/putty-load.png)
-
-1. Set a password to the key. This is not compulsory, but advised.
-
-1. Save the key in _ppk_ format, this is the default Putty format for keys.
-
-    ![Saved](../../img/putty-saved-ppk.png)
-
-Now we can use this new in Putty to connect to a Virtual Machine.
-
-1. Run _putty_ and load the ssh key. Go to **Connection > SSH > Auth > Credentials** and under **Private key file for authentication**, use the **Browse...** button to select the proper .ppk file.
-
-    ![Private key file for authentication](../../img/putty-key-file-authentication.png)
-
-1. Once the key is loaded, you will save the session. Go to the **Session** section and under **Saved Sessions** write the name of the new session and click save.
+Once you have downloaded the private key, you need to install it on your computer before you can use it to connect to a virtual machine. Step-by-step instructions for Linux, Mac, and Windows (PowerShell or Putty) are covered in the [SSH Key Pair tutorial](tutorials/ssh-key.md#linux-and-mac).
 
 ### Firewalls and security groups
 
@@ -155,17 +87,17 @@ In order to create a new security group:
 
     ![Add rule](../../img/pouta-add-rules-secgroup.png)
 
-    There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inter-Domain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or an specific IP (`88.44.55.77/32`).
+    There is a lot customization available, but in this case it is recommended to use the `SSH` rule that only requires one parameter: `CIDR`. The **Classless Inter-Domain Routing** or **CIDR** allows you to specify a subnet (`88.44.55.0/24`) or a specific IP (`88.44.55.77/32`).
 
 1. In order to find out your IP you can use services like <https://apps.csc.fi/myip>.
 
 !!! warning
-    Your network situation might more complicated than that. You may be behind a proxy. In that case, consult with your network support.
+    Your network situation might be more complicated than that. You may be behind a proxy. In that case, consult with your network support.
 
 !!! error
     You can also open ports to all possible IP addresses by using `0.0.0.0/0` as CIDR, but doing this is a bad security practise.
 
-!!! Tip
+!!! tip
     **Please note:**
 
     *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption in the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80, for SSH key injections to work.**
@@ -178,10 +110,10 @@ If you want a policy that allows your instances to run (or not) on the same host
 
 ![Server Groups](../../img/pouta-server-groups.png)
 
-!!! Warning  
+!!! warning  
     You can only add an instance to a server group at instance creation time. Not afterwards!
 
-After clicking on **Create Server Group**, a windows will open:  
+After clicking on **Create Server Group**, a window will open:  
 
 ![Create Server Group](../../img/pouta-create-server-group.png)
 
@@ -200,7 +132,7 @@ To check if your instances are running on the same (or different) hosts, you can
 openstack server show [INSTANCE_NAME | INSTANCE_ID] | grep HostId
 ```
 
-!!! Note  
+!!! note  
     The "soft" variants allow for more flexibility in instance placement.  
     Affinity or anti-affinity policies may not always be possible due to resource constraints or other scheduling limitations.
 
@@ -227,11 +159,11 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     **Figure** Select the instance source
 
-    !!! Info "Cloud-native"
+    !!! info "Cloud-native"
 
         In case you want to be more cloud-native, you can select the "Image" and set "Create a New Volume" to "Yes". This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
 
-    !!! Warning "Please note"
+    !!! warning "Please note"
 
         The option "Create New Volume" set to "Yes" creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
 
@@ -245,7 +177,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
     **Figure** Select the instance flavour
 
 
-    !!! Info "Warning quota usage"
+    !!! info "Warning quota usage"
 
         Pay attention that you can have a warning sign indicating if your quota is sufficient to run a specific flavour. If your quota is not enough, you can send a request to our [Service Desk](mailto:servicedesk@csc.fi) by specifying the amount you want.
 
@@ -263,7 +195,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     ![Launch the instance key-pairs](../img/pouta-launch-instance-key-pairs.png 'Launch the instance key-pairs')
 
-    !!! Warning "Key pairs cannot be added after creation"
+    !!! warning "Key pairs cannot be added after creation"
         A public key is only added to the VM if it has been specified in this step.
         After clicking on **Launch Instance**, the VM will be created, and the configured key pairs cannot be changed. If no key pair is configured, the recommended solution is to delete the VM and start from scratch.
 
@@ -275,7 +207,7 @@ You can click **Launch Instance** to start the Virtual Machine creation.
 
 ## Post creation step
 
-When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that meanwhile the machine can access the internet and other virtual machines in the same project, it can not be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.  
+When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.XXX`). This means that while the machine can access the internet and other virtual machines in the same project, it cannot be accessed from outside the project. To be able to access your virtual machine, you need to attach a **public IP address** to it.  
 
 !!! info
     Associate a floating IP is only available for cPouta instances.
