@@ -52,8 +52,8 @@ class CatalogHook(DocsHook):
         for key, warning in warnings:
             self._logger.warning(f"{key}: {warning}")
 
-    def __handle_config(self, mkdocs_config) -> None:
-        catalog_config = CatalogConfig(mkdocs_config, self._config_dict)
+    def __handle_config(self, properdocs_config) -> None:
+        catalog_config = CatalogConfig(properdocs_config, self._config_dict)
 
         self.__validate(catalog_config)
         self.__init_catalog(catalog_config)

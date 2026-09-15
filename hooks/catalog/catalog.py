@@ -1,7 +1,7 @@
 from typing import Optional, Callable
 
 from .ordering import OrderedValue
-from .apps import App, DocsApp, AppendixApp
+from .apps import App, AppendixApp
 from .config import CatalogConfig
 
 

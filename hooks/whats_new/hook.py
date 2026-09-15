@@ -14,10 +14,11 @@ class WhatsNewHook(DocsHook):
         - docs/index.md (cutoff)
         - docs/support/whats-new.md
     """
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        self.__docs_path = None
+        self.__md = None
         self.__wn_sections = {}
 
     def __get_reducer(self, source, level=2, cutoff=None):
@@ -31,25 +32,32 @@ class WhatsNewHook(DocsHook):
         return wn_reducer
 
     def on_config(self, config): # pylint: disable=missing-function-docstring
-        self.__docs_path = pathlib.Path(config.docs_dir).resolve()
-        wn_path = self.__docs_path / "support/wn/"
-        wn_glob = wn_path.glob("*-new.md")
-
-        md = Markdown(extensions=config.markdown_extensions)
-        for wn_page in wn_glob:
-            self.__wn_sections[wn_page] = md.convert(
-                wn_page.read_text(encoding="utf-8")
+        def handle_wn(wn_file):
+            self.__wn_sections[wn_file] = self.__md.convert(
+                wn_file.read_text(encoding="utf-8")
             )
             self._logger.info("What's new entries read from '%s'.",
-                              wn_page.relative_to(self.__docs_path))
+                wn_file.relative_to(pathlib.Path(config.docs_dir))
+            )
 
-    def on_page_markdown(self, markdown, page, **_): # pylint: disable=missing-function-docstring
+        self.__md = Markdown(extensions=config.markdown_extensions)
+
+        wn_path = pathlib.Path(config.docs_dir) / "support/wn/"
+        wn_glob = wn_path.glob("*-new.md")
+
+        for wn_file in wn_glob:
+            self._skip_if_clean(
+                wn_file,
+                functools.partial(handle_wn, wn_file)
+            )
+
+    def on_page_markdown(self, markdown, page, config, **_): # pylint: disable=missing-function-docstring
         if page.file.src_uri in ("index.md", "support/whats-new.md"):
             level, cutoff = ((3, 6)
                             if page.file.src_uri == "index.md"
                             else (2, None))
             reducer = self.__get_reducer(
-                self.__docs_path / page.file.src_uri,
+                pathlib.Path(config.docs_dir) / page.file.src_uri,
                 level=level,
                 cutoff=cutoff
             )

@@ -1,7 +1,7 @@
 import os
 
-from mkdocs.config import base, config_options as c, defaults as d
-from mkdocs.exceptions import PluginError
+from properdocs.config import base, config_options as c, defaults as d
+from properdocs.exceptions import PluginError
 
 from .apps import App, DocsApp, AppendixApp
 
@@ -42,7 +42,7 @@ class _DocSrc(c.BaseConfigOption):
         super().__init__(**kwargs)
         self.base_dir = base_dir
 
-    def run_validation(self, value):
+    def run_validation(self, value, /):
         error = False
         url_option = c.URL()
         file_option  = _File(exists=True,
@@ -65,6 +65,7 @@ class _DocSrc(c.BaseConfigOption):
             message = f"'{value}' is neither a valid URL nor a {file_option.name}."
             raise base.ValidationError(message)
 
+        return None
 
 class CatalogConfig:
     APP_PROPS = tuple(prop
@@ -75,21 +76,21 @@ class CatalogConfig:
                          ).items()
                        if isinstance(obj, property))
 
-    def __new__(cls, mkdocs_config: d.MkDocsConfig, config_dict: dict):
+    def __new__(cls, properdocs_config: d.ProperDocsConfig, config_dict: dict):
         class _AppendixItem(base.Config):
             name = c.Type(str)
             description = c.Type(str)
             disciplines = c.ListOfItems(c.Type(str))
-            doc = _DocSrc(base_dir=mkdocs_config.docs_dir)
+            doc = _DocSrc(base_dir=properdocs_config.docs_dir)
 
 
         class _CatalogConfig(base.Config):
             index_template = _File(exists=True,
                                    name="index template",
-                                   base_dir=mkdocs_config.theme.custom_dir)
+                                   base_dir=properdocs_config.theme.custom_dir)
             export_filepath = _File(exists=False,
                                     name="export file",
-                                    base_dir=mkdocs_config.site_dir,
+                                    base_dir=properdocs_config.site_dir,
                                     absolute=True)
             export_props = c.ListOfItems(c.Choice(cls.APP_PROPS))
             listing_order = c.SubConfig(_ListingOrder)
