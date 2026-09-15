@@ -92,6 +92,7 @@ plugins:
     links: false
     assets_exclude:
       - a3s.fi/*
+    cache: false
   tags:
     tags_allowed:
       - "Academic"
@@ -282,7 +283,7 @@ extra_javascript:
 # See https://properdocs.org/user-guide/configuration/#validation
 validation:
   nav:
-    omitted_files: ignore
+    omitted_files: warn
   links:
     absolute_links: relative_to_docs
     unrecognized_links: warn
@@ -691,3 +692,98 @@ nav:
   - Training material: support/training-material/index.md
   - Contact: support/contact.md
   - What's new: support/whats-new.md
+
+not_in_nav: |
+  # Accounts
+  /accounts/how-to-access-mahti-large-partition.md
+
+  # Computing
+  /computing/allas-in-roihu.md
+  /computing/lumi-vs-mahti.md
+  /computing/running/array-jobs.md
+  /computing/webinterface/job-composer.md
+
+  # Cloud Services
+  /cloud/pouta/ePouta-access.md
+
+  # Data
+  /data/Allas/allas-nextcloud.md
+  /data/Allas/allas-roihu.md
+  /data/Allas/allas_batchjobs.md
+  /data/Allas/allas_encryption.md
+  /data/Allas/allas_lumi.md
+  /data/Allas/allas_project_example.md
+  /data/Allas/using_allas/directory_object_error.md
+  /data/datasets/best-encryption-practices.md
+  /data/datasets/spatial-data-in-csc-computing-env.md
+  /data/kaivos/index.md
+
+  # Sensitive data
+  /data/sensitive-data/creating_containers.md
+  /data/sensitive-data/gatewaycertificatefinal.md
+  /data/sensitive-data/migration-to-ubuntu.md
+  /data/sensitive-data/r-in-sd-desktop.md
+  /data/sensitive-data/sd-connect-and-a-commands.md
+  /data/sensitive-data/sd-connect-conversion-tool-ui.md
+  /data/sensitive-data/sd-connect-introduction-to-data-encryption.md
+  /data/sensitive-data/sd-connect-share-read-to-sd-desktop.md
+  /data/sensitive-data/sd-connect-share-tranfer-data.md
+  /data/sensitive-data/sd-connect-share-workspace.md
+  /data/sensitive-data/sd-connect-sharing-for-import.md
+  /data/sensitive-data/sd-cookie-policy.md
+  /data/sensitive-data/sd-desktop-singularity.md
+  /data/sensitive-data/sd-desktop-volumes-billing.md
+  /data/sensitive-data/sequencing_center_tutorial.md
+  /data/sensitive-data/tutorials/*.md
+
+  # Applications
+  /apps/*.md
+  !/apps/index.md
+  !/apps/by_discipline.md
+  !/apps/by_availability.md
+  !/apps/by_license.md
+
+  # FAQ
+  /support/faq/*.md
+  !/support/faq/index.md
+
+  # Tutorials
+  /support/tutorials/*.md
+  /support/tutorials/env-guide/*.md
+  /support/tutorials/gis/*.md
+  !/support/tutorials/index.md
+
+  # Training material
+  /support/training-material/geocomputing-learning-materials.md
+  /support/training-material/geocomputing-seminars.md
+
+  # What's new
+  /support/wn/apps-new.md
+  /support/wn/cloud-new.md
+  /support/wn/comp-new.md
+  /support/wn/data-new.md
+  /support/wn/training-new.md
+
+  # Archives
+  /support/archives/asiakaskoulutus-customer-training.md
+  /support/archives/compute-server-announcements.md
+  /support/archives/lumi-users.md
+  /support/archives/mahti-users.md
+  /support/archives/pouta-users.md
+  /support/archives/puhti-users.md
+  /support/archives/rahti-users.md
+  /support/archives/sd-desktop-users.md
+  /support/archives/tutkimus-research.md
+
+  # Misc
+  /ref.md
+  /img/csc-quick-reference/README.md
+  /support/index.md
+  /support/accessibility.md
+  /support/glossary.md
+  /support/support-howto.md
+  /support/translation.md
+
+# This setting is ignored in preview and staging builds:
+exclude_docs: |
+  /ref.md
