@@ -48,7 +48,7 @@ Index the reference genome before aligning. Work in your project's `/scratch`
 directory rather than `$HOME`, which is often too small for complete genomes:
 
 ```bash
-minibwa index -t $SLURM_CPUS_PER_TASK ref.fa
+minibwa index -t 8 ref.fa
 ```
 
 This writes the index files `ref.fa.l2b` and `ref.fa.mbw` next to the reference.
@@ -58,13 +58,19 @@ This writes the index files `ref.fa.l2b` and `ref.fa.mbw` next to the reference.
 Paired-end reads are aligned with two read files, producing SAM on standard output:
 
 ```bash
-minibwa map -t $SLURM_CPUS_PER_TASK ref.fa read1.fq read2.fq > aln.sam
+minibwa map -t 8 ref.fa read1.fq read2.fq > aln.sam
 ```
 
-A single read file aligns single-end. Add `-f` to emit PAF instead of SAM:
+A single read file aligns single-end:
 
 ```bash
-minibwa map -t $SLURM_CPUS_PER_TASK ref.fa reads.fq > aln.sam
+minibwa map -t 8 ref.fa reads.fq > aln.sam
+```
+
+Add `-f` to emit PAF instead of SAM:
+
+```bash
+minibwa map -f -t 8 ref.fa reads.fq > aln.paf
 ```
 
 ### Example batch script
@@ -80,7 +86,7 @@ minibwa map -t $SLURM_CPUS_PER_TASK ref.fa reads.fq > aln.sam
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem-per-cpu=4G
+#SBATCH --mem-per-cpu=8G
 
 module load bio-apps/v202603
 module load minibwa/0.7
