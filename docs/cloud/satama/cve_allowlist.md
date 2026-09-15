@@ -16,3 +16,6 @@ You have two options:
 * **Project allowlist** uses defined custom CVEs specific to this project.
 
 You can click **ADD** to add CVE IDs manually. Click **COPY FROM SYSTEM** to copy global allowlist entries and set expiration date or choose "Never expires".
+
+!!! warning
+    Allowlisted CVEs are excluded from vulnerability scan results, so they will no longer block scans or appear as findings for this project. Only add vulnerabilities you have reviewed and accepted, and set an expiration date so the entry is reassessed instead of being ignored indefinitely.

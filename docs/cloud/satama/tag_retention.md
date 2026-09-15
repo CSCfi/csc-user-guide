@@ -23,3 +23,6 @@ For example,
 * Keep tags matching release- pattern*
 
 Once configured, Satama will automatically apply the policy according to the defined schedule.
+
+!!! warning
+    Tags removed by a retention policy are deleted automatically and permanently, without any further confirmation. Make sure your rules are correct before saving them, since deleted tags cannot be recovered.

@@ -8,91 +8,91 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # SAMtools
 
-
-
-SAMtools provides tools for using and manipulating SAM and BAM formatted alignments. 
-You can use SAMtools for example for indexing, variant calling and viewing alignments.
+SAMtools provides tools for using and manipulating SAM, BAM and CRAM formatted
+alignments. You can use SAMtools for example for format conversion, sorting,
+indexing and viewing alignments, and for basic variant-related processing.
 
 [TOC]
 
 ## License
 
-Free to use and open source under [MIT/Expat License](https://github.com/samtools/samtools/blob/develop/LICENSE).
+Free to use and open source under the
+[MIT/Expat License](https://github.com/samtools/samtools/blob/develop/LICENSE).
 
 ## Available
 
-
-
-Puhti: 1.9, 1.16, 1.18
-
+* Roihu: 1.21, via the `bio-apps` module.
 
 ## Usage
 
-To use SAMtools in Puhti you can use initialization command:
-```text
-module load biokit
+SAMtools is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the SAMtools module:
+
+```bash
+module load bio-apps/v202603
+module load samtools/1.21
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including SAMtools and Picard 
-(Note however that there are also bioinformatics tools in Puhti, that have a separate setup commands.)
+Check the available versions with:
 
-After this you can launch samtools
-```
-samtools
-```
-
-You can check the available samtools versions with command:
-
-```
+```bash
 module spider samtools
 ```
 
-And the activate the version you want to use. For example:
+After loading, you can run SAMtools:
+
+```bash
+samtools --version
 ```
-module load samtools/0.1.19
-```
 
-Loading SAMtools 1.x also loads BCFtools and HTSlib.
+Heavier SAMtools jobs should be run as batch jobs. Below is an example batch
+script that converts a SAM file to BAM, then sorts and indexes it:
 
-Heavier SAMtool jobs should be executed as batch jobs. Below is a sample batch job file, 
-for running a SAMtools job in Puhti:
-
-```text
-#!/bin/bash -l
+```bash
+#!/bin/bash
 #SBATCH --job-name=samtools
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
+#SBATCH --account=<project>
+#SBATCH --partition=small
 #SBATCH --time=04:00:00
-#SBATCH --mem=4000
-#SBATCH --account=project_1234567
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=4000M
 
-#Convert SAM file to BAM
+module load bio-apps/v202603
+module load samtools/1.21
+
+# Convert SAM to BAM
 samtools view -bS aln.sam > aln.bam
 
-#Sort the bam file
-samtools sort aln.bam aln-sorted
+# Sort the BAM file
+samtools sort aln.bam -o aln-sorted.bam
 
-#Index the bam file
+# Index the sorted BAM file
 samtools index aln-sorted.bam
 ```
-In the batch job example above one task (-n 1) is executed. The maximum duration of the job is four hours 
-(-t 04:00:00 ) and the reserved memory size is about 4 GB (--mem=4000). You must change the --account 
-setting, so that it defines the project from which the computing will be billed.
 
-You can submit the batch job file to the batch job system with command:
-```text
-sbatch batch_job_file.bash
+Replace `<project>` with your CSC project (for example `project_2001234`). Submit
+the job with:
+
+```bash
+sbatch batch_job_file.sh
 ```
-Check the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
 
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md)
+for more information about running batch jobs.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 
--    [SAMtools home page](http://www.htslib.org/)
-
+* [SAMtools home page](http://www.htslib.org/)
+* [SAMtools documentation](http://www.htslib.org/doc/samtools.html)

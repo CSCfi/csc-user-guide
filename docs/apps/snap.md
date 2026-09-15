@@ -194,7 +194,7 @@ SNAP 13.0 was installed with Singularity using installer provided by ESA, with p
 
 `wrap-container -w /usr/local/snap/bin,/usr/bin snap9_py.sif --prefix install_dir`
 
-[CSC SNAP Singularity definition files](https://raw.githubusercontent.com/CSCfi/singularity-recipes/main/snap).
+[CSC SNAP Singularity definition files](https://github.com/CSCfi/singularity-recipes/tree/main/snap).
 
 
 ## References

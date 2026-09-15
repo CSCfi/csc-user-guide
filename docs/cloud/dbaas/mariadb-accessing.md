@@ -143,7 +143,7 @@ The `--ssl` flag alone isn't enough, you need to supply the client `--ssl-verify
 ### Accessing your Pukki MariaDB database from Roihu
 
 !!! info Puhti compatible
-    The following instructions also apply to Puhti, but it will be decommissioned in summer 2026. Please use Roihu instead.
+    The following instructions also apply to Puhti, but its computing services have been decommissioned since summer 2026. Please use Roihu instead.
 
 1. Ensure your database instance allows [network traffic from Roihu.](firewalls.md#roihu)
 2. `ssh` onto Roihu and load the `mariadb` module
