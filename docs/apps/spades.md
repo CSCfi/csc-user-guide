@@ -43,7 +43,7 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-* Roihu: 4.2.0, via the `bio-apps` module.
+* Roihu-CPU: 4.2.0, 4.3.0, via the `bio-apps` module.
 
 ## Usage
 
@@ -52,7 +52,7 @@ bio-apps module tree and then the SPAdes module:
 
 ```bash
 module load bio-apps/v202603
-module load spades/4.2.0
+module load spades/4.3.0
 ```
 
 For usage help, use command:
@@ -80,7 +80,7 @@ Sample SPAdes batch job file:
 #SBATCH --mem=32G
 
 module load bio-apps/v202603
-module load spades/4.2.0
+module load spades/4.3.0
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK 
 srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPUS_PER_TASK -o SpadesResult

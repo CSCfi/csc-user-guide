@@ -30,8 +30,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available on CSC's servers
 
-* Roihu-CPU: 25.10.2-standalone (via the `bio-apps` module)
-* Roihu-GPU: 25.10.2-standalone (via the `bio-apps` module)
+* Roihu-CPU: 25.10.2-standalone, 26.04.6-standalone (via the `bio-apps` module)
+* Roihu-GPU: 25.10.2-standalone, 26.04.6-standalone (via the `bio-apps` module)
 * LUMI: 22.10.4
 
 !!! info "Pay attention to usage of Nextflow version"
@@ -53,7 +53,7 @@ on both CPU and GPU nodes. Load the bio-apps module tree and then the Nextflow m
 
 ```bash
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 ```
 
 On LUMI, Nextflow is available as a separate module. To access CSC modules on LUMI,
@@ -175,7 +175,7 @@ To run Nextflow in an [interactive session](../computing/running/interactive-usa
 ```bash
 sinteractive --account <project> --cores 2   # replace <project> with your project
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 nextflow run workflow.nf
 ```
 
@@ -197,7 +197,7 @@ allocation, create the batch job file:
 
 # Load Nextflow module
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 
 # Actual Nextflow command here
 nextflow run workflow.nf <options>
@@ -252,7 +252,7 @@ Create the batch job file, note the usage of a profile.
 
 # Load Nextflow module
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 
 # Actual Nextflow command here
 nextflow run workflow.nf -profile roihu
@@ -288,7 +288,7 @@ Here is a batch script for running a
 # Load the required modules
 module load hyperqueue
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 
 # Create a per job directory
 wrkdir=${PWD}/WRKDIR-${SLURM_JOB_ID}
