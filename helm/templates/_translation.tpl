@@ -1,16 +1,29 @@
+{{- define "translation.translatorName" -}}
+{{- printf "%s-translator" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- end -}}
+
+{{- define "translation.translatorSecretName" -}}
+{{- printf "%s-secret" (include "translation.translatorName" .) | trunc 63 | trimSuffix "-" }}
+{{- end -}}
+
+{{- define "translation.latestTranslatorImage" -}}
+{{- printf "%s/%s/%s:latest" .Values.localRegistry .Release.Namespace (include "translation.translatorName" .) }}
+{{- end -}}
+
 {{/*
-Used for passing translation from translator to site builder container.
+Volume for passing translation from translator to site builder container.
 */}}
-{{- define "translation.translationsVolumeName" -}}
+{{- define "translation.ephemeralVolumeName" -}}
 translations
 {{- end -}}
+
 {{- define "translation.translationsVolume" -}}
-- name: {{ include "translation.translationsVolumeName" . }}
+- name: {{ include "translation.ephemeralVolumeName" . }}
   emptyDir: {}
 {{- end -}}
 
 {{/*
-Used for serving the translated sites.
+Volume for serving the translated sites.
 */}}
 {{- define "translation.buildsVolumeName" -}}
 builds
@@ -18,150 +31,171 @@ builds
 {{- define "translation.buildsVolume" -}}
 - name: {{ include "translation.buildsVolumeName" . }}
   persistentVolumeClaim:
-    claimName: {{ include "docs-csc.volumeClaimName" . }}
+    claimName: {{ include "docs-csc.altVolumeClaimName" . }}
 {{- end -}}
 
-{{/*
-Helper template for volumes.
-*/}}
 {{- define "translation.volumes" -}}
 {{ include "translation.translationsVolume" . }}
 {{ include "translation.buildsVolume" . }}
 {{- end -}}
 
-{{/*
-Helper template for translator volume mounts.
-*/}}
 {{- define "translation.translatorMounts" -}}
-- name: {{ include "translation.translationsVolumeName" . }}
+- name: {{ include "translation.ephemeralVolumeName" . }}
   mountPath: /translations
 {{- end -}}
 
-{{/*
-Translator builds volume mounts.
-
-Expects a list where
-- [0] is the root context
-- [1] is a language code, e.g. "fi"
-
-*/}}
-{{- define "translation.buildMounts" -}}
-{{- $ := index . 0 -}}
-{{- $langcode := index . 1 -}}
-{{- $buildvolname := include "translation.buildsVolumeName" $ -}}
-- name: {{ include "translation.translationsVolumeName" $ }}
-  mountPath: /translations
-- name: {{ $buildvolname }}
-  mountPath: {{ $langcode | printf "/site/%s" }}
-  subPath: {{ $langcode | printf "/builds/%s" }}
-- name: {{ $buildvolname }}
-  mountPath: /work/.cache
-  subPath: /cache
+{{- define "translation.secretsFile" -}}
+{{- .Values.components.translator.secretsFile
+    | required "translator.secretsFile not provided!"
+    | .Files.Get -}}
 {{- end -}}
 
-{{/*
-Translator workload for single language. Translates source files and builds site.
+{{- define "translation.newTranslatorSecret" -}}
+{{- $secretsfile := include "translation.secretsFile" . | fromYaml -}}
+{{- $requiredkeys := list "openAiApiKey"
+                          "resticPassword"
+                          "osApplicationCredentialId"
+                          "osApplicationCredentialSecret" -}}
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ include "translation.translatorSecretName" $ }}
+  labels:
+{{ include "docs-csc.labels" $ | indent 4 }}
+{{ include "translation.translatorName" $ | list $ | include "docs-csc.componentLabels" | indent 4 }}
+type: Opaque
+data:
+{{- range $key := .Values.components.translator.restoreOnly
+                  | ternary ("openAiApiKey" | without $requiredkeys)
+                            $requiredkeys }}
+  {{ $key | get $secretsfile
+          | required (printf "%s not provided!" $key)
+          | b64enc
+          | printf "%s: %s" $key }}
+{{- end -}}
+{{- end -}}
 
-Expects a list where
-- [0] is the root context
-- [1] is a dict of type {
-  "code": <language code>,
-  (optional) "matomoId": <Matomo site id>
-}
-
-TODO:
-- Fix entrypoint.translator.bash so it doesn't require CONFIG_BRANCH to be set.
-
-*/}}
-{{- define "translation.jobSpec" -}}
+{{- define "translation.translatorContainer" -}}
 {{- $ := index . 0 -}}
-{{- $langcode := (1 | index .).code -}}
-{{- $matomourl := $.Values.site.matomoUrl -}}
-{{- $matomoid := (1 | index .).matomoId -}}
-{{- $translatorname := $ | include "docs-csc.translatorName" -}}
-{{- $buildername := $ | include "docs-csc.altBuilderName" -}}
-{{- $secretname := $ | include "docs-csc.translatorSecretName" -}}
-{{- $translator := $.Values.translator -}}
-{{- $host := $.Values.site.host | default ($ | include "networking.redundantHost") -}}
+{{- $args := index . 1 -}}
+{{- $secretname := include "translation.translatorSecretName" $ -}}
+- name: {{ $args.languageCode | printf "%s-%s" (include "translation.translatorName" $) }}
+  image: {{ include "translation.latestTranslatorImage" $ | squote }}
+  imagePullPolicy: Always
+  env:
+{{- if $args.configBranchOverride }}
+    - name: CONFIG_BRANCH
+      value: {{ $args.configBranchOverride | squote }}
+{{- end }}
+    - name: LANG_CODE
+      value: {{ $args.languageCode | squote }}
+    - name: LANG_NAME
+      value: {{ $args.languageName | squote }}
+    - name: RESTORE_ONLY
+      value: {{ $args.restoreOnly | toString | squote }}
+    - name: RESTIC_REPOSITORY
+      value: {{ $args.resticRepository | squote }}
+    - name: RESTIC_HOST
+      value: {{ $args.resticHost | squote }}
+    - name: RESTIC_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: {{ $secretname }}
+          key: resticPassword
+    - name: OS_AUTH_URL
+      value: {{ $args.osAuthUrl | squote }}
+    - name: OS_APPLICATION_CREDENTIAL_ID
+      valueFrom:
+        secretKeyRef:
+          name: {{ $secretname }}
+          key: osApplicationCredentialId
+    - name: OS_APPLICATION_CREDENTIAL_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: {{ $secretname }}
+          key: osApplicationCredentialSecret
+{{- if $.Values.components.translator.restoreOnly | default false | not }}
+    - name: OPENAI_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: {{ $secretname }}
+          key: openAiApiKey
+{{- end }}
+    - name: CACHE_CONTAINER
+      value: {{ $args.cacheContainer | squote }}
+    - name: CACHE_PREFIX
+      value: {{ $args.cachePrefix | squote }}
+  volumeMounts:
+{{ include "translation.translatorMounts" $ | indent 4 }}
+{{- end -}}
+
+{{- define "translation.buildContainer" -}}
+{{- $ := index . 0 -}}
+{{- $args := index . 1 -}}
+{{- $buildsvolumename := include "translation.buildsVolumeName" $ -}}
+- name: {{ $args.languageCode | printf "%s-%s" (include "docs-csc.altBuilderName" $) }}
+  image: {{ include "docs-csc.altBuilderName" $ | list $ | include "docs-csc.latestImageName" | squote }}
+  env:
+{{- if $args.configBranchOverride }}
+    - name: CONFIG_BRANCH
+      value: {{ $args.configBranchOverride | squote }}
+{{- end }}
+    - name: PROPERDOCS_ENV
+      value: {{ include "docs-csc.environment" $ | squote }}
+    - name: LANG_CODE
+      value: {{ $args.languageCode | squote }}
+    - name: SITE_URL
+      value: {{ dict "scheme" "https"
+                      "host" (include "networking.siteHost" $)
+                      "path" $args.languageCode
+                | urlJoin
+                | squote }}
+{{- if $args.matomoSiteId | and $args.matomoUrl }}
+    - name: MATOMO_URL
+      value: {{ $args.matomoUrl | squote }}
+    - name: MATOMO_SITE_ID
+      value: {{ $args.matomoSiteId | squote }}
+{{- end }}
+  volumeMounts:
+    - name: {{ $buildsvolumename }}
+      mountPath: {{ $args.languageCode | printf "/site/%s" }}
+      subPath: {{ $args.languageCode | printf "/builds/%s" }}
+    - name: {{ $buildsvolumename }}
+      mountPath: /work/.cache
+      subPath: /cached_assets
+{{ include "translation.translatorMounts" $ | indent 4 }}
+{{- end -}}
+
+{{- define "translation.jobTemplate" -}}
+{{- $ := index . 0 -}}
+{{- $args := index . 1 -}}
+{{- $translatorrestic := $.Values.components.translator.restic | default dict -}}
+{{- $translatorcache := $.Values.components.translator.cache | default dict -}}
 metadata:
   labels:
-{{ $ | include "docs-csc.labels" | indent 4 }}
-  annotations:
-{{ $ | include "docs-csc.annotations" | indent 4 }}
+{{ include "docs-csc.labels" $ | indent 4 }}
+{{ include "translation.translatorName" $ | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
   restartPolicy: Never
   volumes:
 {{ include "translation.volumes" $ | indent 4 }}
   initContainers:
-    - name: {{ $langcode | printf "%s-%s" $translatorname }}
-      image: {{ $ | include "docs-csc.latestTranslatorImage" | squote }}
-      imagePullPolicy: Always
-      env:
-        - name: CONFIG_BRANCH
-          value: {{ $translator.configBranchOverride | default $.Values.git.ref | squote }}
-        - name: LANG_CODE
-          value: {{ $langcode | squote }}
-        - name: RESTORE_ONLY
-          value: {{ $.Values.translator.restoreOnly | default false | squote }}
-{{- with $translator.restic }}
-        - name: RESTIC_REPOSITORY
-          value: {{ .repository | squote }}
-        - name: RESTIC_HOST
-          value: {{ .host | squote }}
-{{- end }}
-        - name: RESTIC_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ $secretname }}
-              key: resticPassword
-        - name: OS_AUTH_URL
-          value: {{ $translator.os.authUrl | squote }}
-        - name: OS_APPLICATION_CREDENTIAL_ID
-          valueFrom:
-            secretKeyRef:
-              name: {{ $secretname }}
-              key: osApplicationCredentialId
-        - name: OS_APPLICATION_CREDENTIAL_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: {{ $secretname }}
-              key: osApplicationCredentialSecret
-        - name: OPENAI_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: {{ $secretname }}
-              key: openAiApiKey
-{{- with $translator.cache }}
-        - name: CACHE_CONTAINER
-          value: {{ .container | squote }}
-        - name: CACHE_PREFIX
-          value: {{ .prefix | squote }}
-{{- end }}
-      volumeMounts:
-{{ include "translation.translatorMounts" $ | indent 8 }}
+{{ dict "languageCode" $args.language.code
+        "languageName" $args.language.name
+        "restoreOnly" $args.restoreOnly
+        "configBranchOverride" ($.Values.components.translator.configBranchOverride | default nil)
+        "resticRepository" ($translatorrestic.repository | required "translator.restic.repository not provided!")
+        "resticHost" ($translatorrestic.host | required "translator.restic.host not provided!")
+        "osAuthUrl" ($.Values.components.translator.osAuthUrl | required "translator.osAuthUrl not provided!")
+        "cacheContainer" ($translatorcache.container | required "translator.cache.container not provided!")
+        "cachePrefix" ($translatorcache.prefix | required "translator.cache.prefix not provided!")
+   | list $
+   | include "translation.translatorContainer" | indent 4 }}
   containers:
-    - name: {{ $langcode | printf "%s-%s" $buildername }}
-      image: {{ $ | include "docs-csc.latestAltBuilderImage" | squote }}
-      env:
-{{- if $.Values.site.configBranchOverride }}
-        - name: CONFIG_BRANCH
-          value: {{ $.Values.site.configBranchOverride | squote }}
-{{- end }}
-        - name: PROPERDOCS_ENV
-          value: {{ $ | include "docs-csc.environment" | squote }}
-        - name: LANG_CODE
-          value: {{ $langcode | squote }}
-        - name: SITE_URL
-          value: {{ dict "scheme" "https"
-                         "host" $host
-                         "path" $langcode
-                    | urlJoin | squote }}
-{{- if $matomoid | and $matomourl }}
-        - name: MATOMO_URL
-          value: {{ $matomourl | squote }}
-        - name: MATOMO_SITE_ID
-          value: {{ $matomoid | squote }}
-{{- end }}
-      volumeMounts:
-{{ include "translation.buildMounts" ($langcode | list $) | indent 8 }}
+{{ dict "languageCode" $args.language.code
+        "configBranchOverride" ($.Values.components.alternate.configBranchOverride | default nil)
+        "matomoUrl" ($.Values.site.matomoUrl | default nil)
+        "matomoSiteId" ($args.language.matomoSiteId | default nil)
+   | list $
+   | include "translation.buildContainer" | indent 4 }}
 {{- end -}}

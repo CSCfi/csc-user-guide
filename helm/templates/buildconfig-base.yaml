@@ -1,16 +1,18 @@
+{{- $resourcename := include "docs-csc.baseName" . -}}
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: {{ include "docs-csc.baseName" . }}
+  name: {{ $resourcename }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
-  annotations:
-{{ include "docs-csc.annotations" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
+  triggers:
+    - type: ConfigChange
   output:
     to:
       kind: ImageStreamTag
-      name: {{ "latest" | printf "%s:%s" (include "docs-csc.baseName" .) | squote }}
+      name: {{ $resourcename | list $ | include "docs-csc.latestImageName" | squote }}
   strategy:
     type: Docker
     dockerStrategy:
@@ -21,4 +23,4 @@ spec:
           value: {{ .tag | printf "%s:%s" .image | squote }}
 {{- end }}
   source:
-{{ include "docs-csc.gitSource" . | indent 4 -}}
+{{ include "docs-csc.gitSource" . | indent 4 }}

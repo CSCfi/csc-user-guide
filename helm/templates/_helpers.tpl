@@ -6,47 +6,38 @@ Expand the name of the chart.
 {{- end }}
 
 {{- define "docs-csc.environment" -}}
-{{ .Values.site.environment | default "preview" }}
+{{ .Values.environment | default "preview" }}
 {{- end }}
 
 {{/*
 Create names for resources.
 */}}
 {{- define "docs-csc.baseName" -}}
-{{- "base" | printf "%s-%s" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-base" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- define "docs-csc.origName" -}}
-{{- "original" | printf "%s-%s" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-original" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
-{{- define "docs-csc.origContainerName" -}}
-{{- "server" | printf "%s-%s" (include "docs-csc.origName" .) | trunc 63 | trimSuffix "-" }}
+{{- define "docs-csc.origServerName" -}}
+{{- printf "%s-server" (include "docs-csc.origName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- define "docs-csc.origBuilderName" -}}
-{{- "builder" | printf "%s-%s" (include "docs-csc.origName" .) | trunc 63 | trimSuffix "-" }}
-{{- end }}
-{{- define "docs-csc.origWebHookSecretName" -}}
-{{- "github-webhook" | printf "%s-%s" (include "docs-csc.origName" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-builder" (include "docs-csc.origName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- define "docs-csc.altName" -}}
-{{- "alternate" | printf "%s-%s" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-alternate" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- define "docs-csc.altConfigName" -}}
-{{- "nginx-location" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-nginx-location" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
-{{- define "docs-csc.altContainerName" -}}
-{{- "server" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
+{{- define "docs-csc.altServerName" -}}
+{{- printf "%s-server" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- define "docs-csc.altBuilderName" -}}
-{{- "builder" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-builder" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
-{{- define "docs-csc.translatorName" -}}
-{{- "translator" | printf "%s-%s" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
-{{- end }}
-{{- define "docs-csc.translatorSecretName" -}}
-{{- "secret" | printf "%s-%s" (include "docs-csc.translatorName" .) | trunc 63 | trimSuffix "-" }}
-{{- end }}
-{{- define "docs-csc.volumeClaimName" -}}
-{{- "cache" | printf "%s-%s" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
+{{- define "docs-csc.altVolumeClaimName" -}}
+{{- printf "%s-builds" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -66,37 +57,48 @@ helm.sh/chart: {{ include "docs-csc.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-environment: {{ include "docs-csc.environment" . }}
+{{- end }}
+
+{{/*
+Component labels
+*/}}
+{{- define "docs-csc.componentLabels" -}}
+{{- $ := index . 0 -}}
+{{- $resourcename := index . 1 -}}
+{{- $components := keys $.Values.components -}}
+{{- $rootname := include "docs-csc.name" $ -}}
+{{- $componentregex := printf "^%s-([^-]+)(?:$|-)" $rootname -}}
+{{- $componentname := regexReplaceAll $componentregex $resourcename "$1" -}}
+{{- $iscomponent := has $componentname $components -}}
+{{- $fullname := $iscomponent | ternary (printf "%s-%s" $rootname $componentname)
+                                $rootname -}}
+app.kubernetes.io/name: {{ $fullname }}
+{{- if $iscomponent }}
+app.kubernetes.io/component: {{ $componentname }}
+{{- end }}
 {{- end }}
 
 {{/*
 Selector labels
 */}}
 {{- define "docs-csc.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "docs-csc.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/part-of: {{ include "docs-csc.name" . }}
 {{- end }}
 
-{{- define "docs-csc.annotations" -}}
-meta.helm.sh/release-name: {{ .Release.Name }}
-meta.helm.sh/release-namespace: {{ .Release.Namespace }}
-{{- end }}
+{{- define "docs-csc.latestImageName" -}}
+{{- $ := index . 0 -}}
+{{- $resourcename := index . 1 -}}
+{{- printf "%s:latest" $resourcename }}
+{{- end -}}
 
-{{/*
-Image names for build_args
-*/}}
-{{- define "docs-csc.latestBaseImage" -}}
-{{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.baseName" .) }}
-{{- end }}
-{{- define "docs-csc.latestBuilderImage" -}}
-{{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.origBuilderName" .) }}
-{{- end }}
-{{- define "docs-csc.latestAltBuilderImage" -}}
-{{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.altBuilderName" .) }}
-{{- end }}
-{{- define "docs-csc.latestTranslatorImage" -}}
-{{- "latest" | printf "%s/%s/%s:%s" .Values.localRegistry .Release.Namespace (include "docs-csc.translatorName" .) }}
-{{- end }}
+{{- define "docs-csc.fullImageName" -}}
+{{- $ := index . 0 -}}
+{{- $resourcename := index . 1 -}}
+{{- $resourcename | list $
+                  | include "docs-csc.latestImageName"
+                  | printf "%s/%s/%s" $.Values.localRegistry $.Release.Namespace }}
+{{- end -}}
 
 {{/*
 GitBuildSource
@@ -123,7 +125,35 @@ Outputs key-value pairs used in buildArgs.
 */}}
 {{- define "docs-csc.repoOverride" -}}
 {{- range $name, $value := . }}
-- name: {{ $name | printf "repo_%s" }}
+- name: {{ printf "repo_%s" $name }}
   value: {{ $value | squote }}
 {{- end -}}
 {{- end }}
+
+{{/*
+Lookup resource(s) on the cluster.
+
+Expects a dict of named arguments to pass to the 'lookup' function.
+
+Outputs the resource(s) as yaml, if found.
+*/}}
+{{- define "docs-csc.resourceLookup" -}}
+{{- lookup .apiVersion .kind .namespace .name
+    | default nil
+    | required (printf "Lookup for '%s' '%s' '%s' '%s' failed!"
+                       .apiVersion .kind .namespace .name)
+    | toYaml }}
+{{- end -}}
+
+{{- define "docs-csc.deploymentTrigger" -}}
+{{- $imagename := index . 0 -}}
+{{- $containername := index . 1 -}}
+{{- $fieldpath := printf `spec.template.spec.containers[?(@name=="%s")].image` $containername -}}
+{{-
+  dict "from" (dict "kind" "ImageStreamTag"
+                           "name" $imagename)
+       "fieldPath" $fieldpath
+  | list
+  | toJson
+}}
+{{- end -}}
