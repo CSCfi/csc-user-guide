@@ -1,7 +1,9 @@
 #! /usr/bin/bash
 
-set -o errexit \
-    -o nounset
+set -o errexit
+
+# shellcheck source=SCRIPTDIR/../scripts/sparse-clone.bash
+source /sparse-clone.bash
 
 # Don't translate to source language
 if [[ ${LANG_CODE:?} == 'en' ]]
@@ -10,19 +12,20 @@ then
   exit 0
 fi
 
-export CLONE_PATH=/tmp/${REPO_NAME:?}
-declare -gr COMMIT_SHA_FILEPATH=/tmp/commit_sha.txt \
+declare -r CLONE_PATH=/tmp/${REPO_NAME:?} \
+            COMMIT_SHA_FILEPATH=/tmp/commit_sha.txt \
             CACHED_OBJS_FILEPATH=/tmp/cached_objects.json \
             TRANSLATION_WORKDIR=/tmp/translation \
             MOUNT_PREFIX=/translations \
             SNAPSHOT_PREFIX=/tmp/${DOCS_DIR:?}
-declare -gr SNAPSHOT_PATH=${SNAPSHOT_PREFIX}/${LANG_CODE:?}
-declare -gra CONFIG_FILES=(
+declare -r SNAPSHOT_PATH=${SNAPSHOT_PREFIX}/${LANG_CODE:?}
+declare -ra CONFIG_FILES=(
   translation/exclude.txt
   translation/force.yml
   translation/dictionary.yml
 )
-declare -gra SPARSE_PATTERNS=(
+# shellcheck disable=SC2034
+declare -ra SPARSE_PATTERNS=(
   "/${DOCS_DIR:?}/**/*.md"
   "${CONFIG_FILES[@]/#//}"
 )
@@ -43,27 +46,6 @@ restore_latest() {
                  --path "${SNAPSHOT_PATH}" \
                  --target ${TRANSLATION_WORKDIR} \
            latest
-}
-
-get_config() {
-  if [[ -n ${CONFIG_BRANCH:-} ]]
-  then
-    # Save values before modifying
-    local -r clone_path_orig=$CLONE_PATH \
-             repo_branch_orig=$REPO_BRANCH
-
-    export CLONE_PATH=${clone_path_orig}-config \
-           REPO_BRANCH=$CONFIG_BRANCH
-    /sparse-clone.bash "${CONFIG_FILES[@]/#//}"
-  fi
-
-  cp --no-dereference \
-    "${CONFIG_FILES[@]/#/${CLONE_PATH}/}" \
-    ./
-
-  # Restore values
-  [[ -n ${clone_path_orig:-} ]] && export CLONE_PATH=$clone_path_orig
-  [[ -n ${repo_branch_orig:-} ]] && export REPO_BRANCH=$repo_branch_orig
 }
 
 translate() {
@@ -108,9 +90,11 @@ pre_translation() {
   && \
   restore_latest \
   && \
-  /sparse-clone.bash "${SPARSE_PATTERNS[@]}" \
+  clone_repo "${REPO_HOST:?}" "${REPO_ORG:?}" "${REPO_NAME:?}" "${CLONE_PATH:?}" \
   && \
-  get_config
+  sparse_checkout "${REPO_BRANCH:?}" "${CLONE_PATH:?}" SPARSE_PATTERNS \
+  && \
+  get_config "${CONFIG_FILES[@]}"
 }
 
 post_translation() {
