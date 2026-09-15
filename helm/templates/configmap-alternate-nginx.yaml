@@ -4,10 +4,9 @@ metadata:
   name: {{ include "docs-csc.altConfigName" . }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
-  annotations:
-{{ include "docs-csc.annotations" . | indent 4 }}
+{{ include "docs-csc.altName" . | list $ | include "docs-csc.componentLabels" | indent 4 }}
 data:
-{{- range $lang := .Values.translator.languages }}
+{{- range $lang := .Values.components.translator.languages }}
   {{ $lang.code }}.conf: |
     location /{{ $lang.code }} {
       alias /opt/app-root/src/{{ $lang.code }};

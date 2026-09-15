@@ -1,16 +1,18 @@
+{{- $altname := include "docs-csc.altName" . -}}
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: {{ include "docs-csc.altName" . }}
+  name: {{ $altname }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
-  annotations:
-{{ include "docs-csc.annotations" . | indent 4 }}
+{{ $altname | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
+  triggers:
+    - type: ConfigChange
   output:
     to:
       kind: ImageStreamTag
-      name: {{ "latest" | printf "%s:%s" (include "docs-csc.altName" .) | squote }}
+      name: {{ $altname | list $ | include "docs-csc.latestImageName" | squote }}
   strategy:
     type: Docker
     dockerStrategy:

@@ -1,20 +1,21 @@
 {{- range list (include "docs-csc.origName" .)
                (include "docs-csc.altName" .) }}
+{{- $componentlabels := . | list $ | include "docs-csc.componentLabels" -}}
 ---
 kind: Service
 apiVersion: v1
 metadata:
   name: {{ . }}
   labels:
-{{ $ | include "docs-csc.labels" | indent 4 }}
-  annotations:
-{{ $ | include "docs-csc.annotations" | indent 4 }}
+{{ include "docs-csc.labels" $ | indent 4 }}
+{{ $componentlabels | indent 4 }}
 spec:
   selector:
-    deployment: {{ . }}
+{{ include "docs-csc.selectorLabels" $ | indent 4 }}
+{{ $componentlabels | indent 4 }}
   ports:
     - name: 8000-tcp
       protocol: TCP
       port: 8000
       targetPort: 8000
-{{- end -}}
+{{ end }}

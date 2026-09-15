@@ -1,0 +1,36 @@
+{{- $sitehost := include "networking.siteHost" . -}}
+{{- $redundanthost := include "networking.redundantHost" . -}}
+{{- $origservicename := include "docs-csc.origName" . }}
+{{- $altservicename := include "docs-csc.altName" . -}}
+{{- $languages := .Values.components.translator.languages -}}
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "networking.redundantIngressName" . }}
+{{ include "networking.ingressMetadata" . | indent 2}}
+spec:
+  rules:
+{{ dict "host" $redundanthost
+         "origServiceName" $origservicename
+         "altServiceName" $altservicename
+         "languages" $languages
+    | include "networking.ingressRules" | indent 4 -}}
+{{- if not ($sitehost | hasSuffix ".rahtiapp.fi") }}
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "networking.domainIngressName" . }}
+{{ include "networking.ingressMetadata" . | indent 2 }}
+spec:
+  rules:
+{{ dict "host" $sitehost
+         "origServiceName" $origservicename
+         "altServiceName" $altservicename
+         "languages" $languages
+    | include "networking.ingressRules" | indent 4 }}
+  tls:
+    - hosts:
+        - {{ $sitehost }}
+      secretName: {{ include "networking.domainTlsSecretName" . }}
+{{- end }}

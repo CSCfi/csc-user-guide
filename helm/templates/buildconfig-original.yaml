@@ -1,16 +1,27 @@
+{{- $resourcename := include "docs-csc.origName" . -}}
+{{- $buildername := include "docs-csc.origBuilderName" . -}}
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: {{ include "docs-csc.origName" . }}
+  name: {{ $resourcename }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
-  annotations:
-{{ include "docs-csc.annotations" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
+  triggers:
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: ImageStreamTag
+          name: {{ $buildername | list $ | include "docs-csc.latestImageName" | squote }}
+    - type: GitHub
+      github:
+        secretReference:
+          name: {{ include "networking.webHookSecretName" . }}
   output:
     to:
       kind: ImageStreamTag
-      name: {{ "latest" | printf "%s:%s" (include "docs-csc.origName" .) | squote }}
+      name: {{ $resourcename | list $ | include "docs-csc.latestImageName" | squote }}
   strategy:
     type: Docker
     dockerStrategy:
@@ -20,31 +31,23 @@ spec:
           value: {{ include "docs-csc.environment" . | squote }}
         - name: SITE_URL
           value: {{ dict "scheme" "https"
-                         "host" (.Values.site.host | default (include "networking.redundantHost" .))
-                         | urlJoin | squote }}
-{{- if .Values.site.matomoId | and .Values.site.matomoUrl }}
+                         "host" (include "networking.siteHost" .)
+                         "path" "/"
+                    | urlJoin
+                    | squote }}
+{{- if .Values.components.original.matomoId | and .Values.site.matomoUrl }}
         - name: MATOMO_URL
           value: {{ .Values.site.matomoUrl | squote }}
         - name: MATOMO_SITE_ID
-          value: {{ .Values.site.matomoId | squote }}
+          value: {{ .Values.components.original.matomoId | squote }}
 {{- end }}
       buildArgs:
         - name: builder_image
-          value: {{ include "docs-csc.latestBuilderImage" . | squote }}
+          value: {{ $buildername | list $ | include "docs-csc.fullImageName" | squote }}
         - name: server_image
 {{- with .Values.server }}
           value: {{ .tag | printf "%s:%s" .image | squote }}
-{{- end -}}
-{{ .Values.site.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
-  triggers:
-    - type: ImageChange
-      imageChange:
-        from:
-          kind: ImageStreamTag
-          name: {{ "latest" | printf "%s:%s" (include "docs-csc.origBuilderName" .) | squote }}
-    - type: GitHub
-      github:
-        secretReference:
-          name: {{ include "docs-csc.origWebHookSecretName" . }}
+{{- end }}
+{{- .Values.components.original.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
   source:
-{{ include "docs-csc.gitSource" . | indent 4 -}}
+{{ include "docs-csc.gitSource" . | indent 4 }}
