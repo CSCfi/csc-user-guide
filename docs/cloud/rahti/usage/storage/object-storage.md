@@ -1,20 +1,21 @@
-# Allas storage in Rahti
+# Using Allas object storage in Rahti
 
-More information about [Allas](../../../../data/Allas/index.md)
+Visit the [Allas](../../../../data/Allas/index.md) page for more information about the service itself.
 
 ## Backup to Allas
 
-There are different ways to backup to Allas from Rahti. We will show you two examples:
-  - The first one is using another pod to copy the content of your persistent volume to Allas.
+There are different ways to back up to Allas from Rahti. We will show you two examples:
+
+  - The first one uses another Pod to copy the content of your PersistentVolume to Allas.
   - The second one is a bash script that you have to execute from your local machine.
 
-For this first example, we will deploy a `nginx` deployment running with a `PersistentVolumeClaim`. We provide the files for testing purposes.
+For the first example, we will deploy an `nginx` deployment running with a `PersistentVolumeClaim`. We provide the files for testing purposes.
 
-### Preparing a NGINX deployment
+### Preparing an NGINX deployment
 
-First, for our tutorial, we will build and deploy a NGINX server.
+First, for our tutorial, we will build and deploy an NGINX server.
 
-We [build](../images/creating.md) our nginx image with this Dockerfile: (since it's not possible to use the regular `nginx` image in OpenShift)
+Since it is not possible to use the regular `nginx` image in Rahti, we [build](../images/creating.md) our own image with this Dockerfile:
 
 ```Dockerfile
 FROM nginx:stable
@@ -27,14 +28,15 @@ RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 # users are not allowed to listen on privileged ports
 RUN sed -i.bak "s/listen\(.*\)80;/listen ${LISTEN_PORT};/" /etc/nginx/conf.d/default.conf
 
-# comment user directive as master process is run as user in OpenShift anyhow
+# comment out the user directive, as the master process runs as an arbitrary user in OKD anyway
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 EXPOSE 8080
 ```
 
-If you build your image locally, don't forget to [push](../images/integrated-registry.md) it to your project.
-You can deploy this `nginx` server with this Deployment:
+If you build your image locally, don't forget to [push](../images/integrated-registry.md) it to your project, and to convert it to the `amd64` architecture if needed.
+
+Then, you can deploy and expose this `nginx` server with this Deployment:
 
 ```yaml
 apiVersion: apps/v1
@@ -55,7 +57,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <our_custom_nginx_image>
+        image: <custom_nginx_image>
         resources:
           limits:
             memory: "128Mi"
@@ -110,12 +112,11 @@ spec:
   storageClassName: standard-csi
 ```
 
-Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`
-The deployment is using a `PersistentVolumeClaim` for our example.
+The deployment uses a `PersistentVolumeClaim` for our example. Save the file and use this command to deploy it: `oc apply -f {name_of_yaml_file}`.
 
-Now we have our running `nginx` pod, we want to copy the content of the PVC to Allas. We will use a new deployment with a `rclone` Docker image.
+Now that we have our `nginx` Pod running, we want to copy the content of the PVC to Allas. We will use a new deployment with an `rclone` Docker image.
 
-### First example: using another pod
+### First example: using another Pod
 
 Create a `rclone.conf` with your `access_key_id` and `secret_access_key`.
 
@@ -138,9 +139,9 @@ endpoint = a3s.fi
 acl = private
 ```
 
-_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` by your own credentials._
+_Replace `{ACCESS_KEY_ID}` and `{SECRET_ACCESS_KEY}` with your own credentials._
 
-Create a `rclone.sh` script:
+Create an `rclone.sh` script:
 
 ```sh
 #!/bin/sh -e
@@ -150,7 +151,7 @@ rclone copy "/mnt/" "default:{BUCKET}"
 echo "Done!"
 ```
 
-_Replace `{BUCKET}` by the target bucket where you want to backup your files._
+_Replace `{BUCKET}` with the target bucket where you want to back up your files._
 
 Then, you have to create your own custom `rclone` Docker image:
 
@@ -162,10 +163,10 @@ COPY rclone.sh /usr/local/bin/
 RUN chmod 755 /.rclone.conf
 RUN chmod +x /usr/local/bin/rclone.sh
 ```
+
 If you create your image locally, don't forget to [push](../images/integrated-registry.md) it to your project.
 
-Once all this done, you can deploy your `rclone` pod.
-You can use this example:
+Once all of this is done, you can deploy your `rclone` Pod. You can use this example:
 
 ```yaml
 apiVersion: v1
@@ -187,35 +188,39 @@ spec:
   volumes:
   - name: vol-to-backup
     persistentVolumeClaim:
-      claimName: nginx-pvc # Must match the PVC name that you want to backup
+      claimName: nginx-pvc # Must match the PVC name that you want to back up
 ```
 
 Save the file and use this command: `oc apply -f {name_of_yaml_file}`.
 
-!!! Warning
-    If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the pod running rclone mount the volume.
-    Use this command to proceed: `oc scale --replicas=0 deploy/nginx`
-    If your `PersistentVolumeClaim` is `ReadWriteMany`, there is no need to scale down your deployment.
-    You can verify with this command: `oc get pvc`. You should see either `RWO` or `RWX`.
+!!! warning
 
-The pod will run and backup the content of your PVC to Allas. Don't forget to scale up your origin deployment (`oc scale --replicas=1 deploy/nginx`) after the copy finished.
+    If your `PersistentVolumeClaim` is `ReadWriteOnce`, you have to scale down the `nginx` deployment to let the Pod running rclone mount the volume. Use this command to proceed:
 
-There are PROS and CONS with this solution:  
-Pros: 
+    ```bash
+    oc scale --replicas=0 deploy/nginx
+    ```
 
-  - You run the pod in your Rahti project
+The Pod will run and back up the content of your PVC to Allas. Don't forget to scale your original deployment back up (`oc scale --replicas=1 deploy/nginx`) after the copy has finished.
 
-Cons: 
+This solution has pros and cons:
 
-  - The PVC is `ReadWriteOnce` hence a downtime is necessary.
+Pros:
 
-### Second example: using bash script
+  - You run the Pod in your Rahti project.
 
-For the following script to work, we assume that you have the `rclone` command-line program installed and Allas bucket name is created. The `rclone.conf` should be set on your local system like described above example. For example, `rclone.conf` path could be located in `~/.config/rclone/rclone.conf`. More information on creating [Allas bucket](../../../../data/Allas/using_allas/rclone.md). This script will backup an application deployed in Rahti. The application has, for example the name `/backup`, as the `volumeMounts` `mountPath`.
+Cons:
 
+  - If the PVC is `ReadWriteOnce`, downtime is necessary.
+
+### Second example: using a bash script
+
+For the following script to work, we assume that you have the `rclone` command-line program installed and that the Allas bucket has been created. The `rclone.conf` file should be set up on your local system as explained in [Configuring rclone](../../../../data/Allas/using_allas/allas-conf.md). An Allas bucket can also be created using rclone as described in [Using rclone with Allas](../../../../data/Allas/using_allas/rclone.md).
+
+This script backs up an application deployed in Rahti. The example assumes that the application mounts its data at `/backup`, that is, `/backup` is the `mountPath` of the `volumeMounts` entry.
 
 ```bash
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Set your pod name, source directory, and destination directory
 if [[ -z $1 ]];
@@ -266,51 +271,51 @@ if [ $? -ne 0 ]; then
 fi
 echo_task "Backup completed successfully. The archive is stored in $DEST_DIR."
 
-# Use Rclone to sync the tarball to S3
-echo_task "Syncing the tarball to S3..."
-rclone --config "$RCLONE_CONFIG_PATH" sync "$DEST_DIR" default:"$S3_BUCKET"
+# Use Rclone to copy the tarball to S3
+echo_task "Copying the tarball to S3..."
+rclone --config "$RCLONE_CONFIG_PATH" copy "$DEST_DIR" default:"$S3_BUCKET"
 if [ $? -ne 0 ]; then
   handle_error "Failed to upload tarball to S3"
 fi
-echo_task "Backup completed successfully. The archive is stored in $S3_BUCKET$DEST_DIR"
+echo_task "Backup completed successfully. The archive is stored in $S3_BUCKET/$(basename "$DEST_DIR")"
 
 exit 0
-
 ```
 
-If you need to clean up the tar archive files, you can add the following script after storing to Allas.
+If you need to clean up the tar archive files, you can add the following commands after storing the archive to Allas.
 
 ```bash
 # Clean up the tar archive in the pod
 oc exec "$POD_NAME" -- /bin/sh -c "rm /tmp/pvc_backup.tar.gz"
 
-# Clean up temporary files
+# Clean up the local temporary files, either every archive
 rm -rf /tmp/pvc_backup*
-or
-rm "$DEST_DIR"
 
+# or only the archive created by this run
+rm "$DEST_DIR"
 ```
+
 The script can be run as follows, assuming the script name is `push_to_allas.sh` and it is executable:
 
 ```bash
 ./push_to_allas.sh "mypod-vol"
 ```
 
-There are PROS and CONS with this solution:
+This solution has pros and cons:
 
 Pros:
 
-  - Simplicity: You're essentially treating the volume just like any other directory. It's straightforward to copy data from a directory to Allas.
-  - Flexibility: You can select specific files or directories within the mount to copy to Allas and ideal for small size files.
+  - Simplicity: you are essentially treating the volume just like any other directory. It is straightforward to copy data from a directory to Allas.
+  - Flexibility: you can select specific files or directories within the mount to copy to Allas, which is ideal for small files.
 
 Cons:
 
-  - Performance: This method can be slower, especially if the volume has a large number files.
+  - Performance: this method can be slower, especially if the volume has a large number of files.
 
-!!! Warning "Storage performance"
-    There are several things to take into account when using Allas regarding performance:
+!!! warning "Storage performance"
 
-    - Small io kill storage performance. Given the same total size, a single big file will be faster than a bunch of small ones. A solution might be to collect all the small files into one archive file, like a `tar` file.
+    There are several considerations to take into account when using Allas regarding performance:
+
+    - Small I/O operations can severely reduce storage performance. Given the same total size, a single large file will be faster than a lot of small ones. A simple solution might be to collect all the small files into one archive file, like a `tar` file.
     - As the storage pool is shared, latency might vary. Shared hardware means shared performance among different users.
-    - Single threaded io is slow, it is advisable to use multi threaded io when possible.
-
+    - Single-threaded I/O is slow; it is advisable to use multi-threaded I/O when possible.

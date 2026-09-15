@@ -9,8 +9,7 @@ catalog:
     - Physics
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
+    - Roihu
 ---
 
 # VASP
@@ -18,72 +17,52 @@ catalog:
 [VASP](https://www.vasp.at/) is an ab initio DFT program for computing
 electronic structures of up to few hundreds of atoms.
 
-This page briefly describes how to use VASP on mahti.csc.fi. Usage on
-puhti.csc.fi is very similar. That said, VASP is a program the usage of
-which requires some experience. It is advised that new VASP users start
+This page briefly describes how to use VASP on Roihu. That said, using
+VASP efficiently requires experience. It is advised that new VASP users start
 out with a supervisor or an experienced colleague.
 
-!!! Roihu support needs your feedback
-    Initial build instructions are available in
-    [GitHub](https://github.com/jlento/vasp-env). Please test, and
-    give feedback through [CSC's ServiceDesk](../support/contact.md).
+## License
 
-## Available
+Commercial, more info from [VASP Portal](https://vasp.at).
 
-See available VASP versions in with command
+## VASP executables
+
+There are two ways to get access to VASP executables. You can build your own executables,
+or you can get a personal license key and use CSC's pre-built executables.
+
+### Build your own VASP executables
+
+This is simple and documented in [GitHub](https://github.com/jlento/vasp-env). This
+is also the way if you want to develop VASP, build modified versions of VASP, or
+have acquired the license from Materials Desing Inc.
+
+If you run into any issues building VASP, please send feedback to
+[CSC's ServiceDesk](../support/contact.md).
+
+### Use CSC's pre-built executables
+
+You can see the available VASP versions with command
 
 ```console
 module avail vasp
 ```
 
-## License prior to version 6.5.1
+The use of the pre-built executables requires that each user gets a personal
+license key, and updates it when necessary. The license key is stored
+in the home directory in the file `~/.vasp/vasp_license`.
 
-The usage of VASP requires a license, which must be acquired directly
-from the developers of the software.
-
-VASP versions prior to 6.5.1 use unix groups 'vasp' and 'vasp6' to control access to
-pre-installed executables. After acquiring the license, or after your email address has been
-added to an existing license, please send an email to [CSC Service Desk](../support/contact.md),
-including your _username_ at CSC, and the _email address_ you have registered for the VASP
-license in the [VASP Portal](https://vasp.at).
-
-## License for version 6.5.1
-
-VASP version 6.5.1 is available in mahti.csc.fi.
-
-VASP versions from 6.5.1 onwards require license file '~/.vasp/vasp_license'. The license file
-is downloaded from the VASP portal with commands
+The license file is downloaded from the VASP portal with commands
 
 ```console
-module load vasp/6.5.1
+module load vasp
 request_license_key.sh
 ```
 
 The `request_license_key.sh` script will ask user's VASP Portal username and password.
 
-This license model is currently in beta stage. The license information in the beta stage license
-server is not necessarily in sync with the data in [VASP Portal](https://vasp.at). Until the
-new license schema is rolled out properly, the owner of the license can download the vasp
-source file vasp.6.5.1.tgz from the portal to `/projappl/<project name>` directory in
-mahti.csc.fi, and build the executables and run the tests with
+## VASP batch jobs
 
-```console
-export SLURM_ACCOUNT=<project name>
-bash /appl/soft/phys/vasp/6.5.1/gcc-11.2.0/README-no-license.sh
-```
-
-# Usage
-
-Precompiled VASP executables and pseudopotentials are available
-through the module environment. Use the command
-
-```console
-module show vasp
-```
-
-to see more detailed information.
-
-### An example batch job script for a small test
+An example batch job script for a small test:
 
 ```bash
 #!/bin/bash
@@ -97,35 +76,30 @@ module load vasp
 srun vasp_std
 ```
 
-For more options and details, see how to create batch job scripts for
-[Puhti](../computing/running/creating-job-scripts-puhti.md) and
-[Mahti](../computing/running/creating-job-scripts-mahti.md).
+## Performance optimisation
 
-### VASP tutorials in JupyterLab
+VASP performance depends crucially on the parameters in the INCAR file
+and that the correct version (std/gam/ncl) of the executable is used.
+The INCAR parameters control how the different k-points, bands and FFT
+coefficients are distributed among the MPI tasks, among many other things.
+Initial settings for the parameters can be found from the VASP documentation,
+but in most cases finding optimal parameters requires experience and
+experimentation, and depend on the studied system and the underlying computational
+platform.
+
+
+## VASP tutorials in JupyterLab
 
 [VASP tutorials](https://www.vasp.at/tutorials/latest/) can also be
 followed using JupyterLab from the
-[Mahti web interface](https://www.mahti.csc.fi). Open the *Jupyter* app,
+[Roihu web interface](https://www.roihu.csc.fi). Open the *Jupyter* app,
 and from *Settings* -> *Python*, select *Custom module* and type in
-*py4vasp*. When submitting jobs from the JupyterLab terminal window to
-compute nodes, first load module `vasp`, and then use a command similar to
+*py4vasp*. Launch vasp example runs from a separate login shell terminal
+using `srun` command, for example,
 
-```console
-srun -p test -A <project> -t 5 -n 2 vasp_std
+```bash
+module load vasp
+srun -A project_2001659 -p small -n 4 vasp_std
 ```
 
-instead of the `mpirun ...` command shown in the tutorial.
-
-### Performance optimization
-
-First, the performance of VASP depends crucially on the parameters in
-the INCAR file that control how the different k-points, bands and FFT
-coefficients are distributed among the MPI tasks, and that the correct
-version (std/gam/ncl) of the executable is used.
-
-Second, the provided prebuilt executables are built as "vanilla" as
-possible and provide a reasonable baseline. The performance
-optimization for large experiments should be done on a per case basis.
-The commands that created the prebuilt executables are in
-`$VASPDIR/README.sh`, and can be used as a starting point
-for building more optimized and/or otherwise modified executables.
+instead of `mpirun ...` commands as in the Vasp tutorial.

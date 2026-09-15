@@ -1,5 +1,5 @@
 !!! warning "Middle level"
-    You need a knowledge of OpenShift CLI tool [oc](../../get-started/cli.md) and OpenShift [Routes](../../usage/kubernetes-concepts.md#route) API as well as a 
+    You need a knowledge of OKD CLI tool [oc](../../get-started/cli.md) and [Routes](../../usage/kubernetes-concepts.md#route) API as well as a 
     knowledge of Kubernetes [Pods](../../usage/kubernetes-concepts.md#pod) and [Services](../../usage/kubernetes-concepts.md#service)
 
 # Introduction
@@ -119,14 +119,14 @@ the pods to be grouped and referred by e.g. _services_.
 The Kubernetes API objects are represented in the YAML format.
 [Short introduction to YAML](../basic/yaml-introduction.md).
 
-Pods and other Kubernetes/OpenShift API objects are created with the `oc`
+Pods and other Kubernetes/OKD API objects are created with the `oc`
 command line utility:
 
 ```bash
 oc create -f pod.yaml
 ```
 
-The pod should now appear in the "Overview" page in OpenShift's web console when
+The pod should now appear in the "Overview" page in Rahti's web console when
 the project is viewed.
 
 Pods can be deleted using the command `oc delete`:
@@ -135,7 +135,7 @@ Pods can be deleted using the command `oc delete`:
 oc delete pod mypod
 ```
 
-Consequently, the pod should disappear from the OpenShift web console, but let us
+Consequently, the pod should disappear from the Rahti web console, but let us
 keep this one running for now.
 
 ----
@@ -228,9 +228,9 @@ Address: 172.30.103.178
 
 ## Route
 
-The _route_ object is an OpenShift extension to Kubernetes that routes HTTP
-traffic from the internet (or whichever network the OpenShift cluster is
-connected to) to services in the OpenShift cluster.
+The _route_ object is an OKD extension to Kubernetes that routes HTTP
+traffic from the internet (or whichever network the OKD cluster is
+connected to) to services in the OKD cluster.
 
 *`route.yaml`*:
 
@@ -269,7 +269,7 @@ You can now go to your browser and type the address you set: `<myservice>.2.raht
 
 !!! warning
 
-    If the whitelist entry is malformed, OpenShift will discard the whitelist
+    If the whitelist entry is malformed, OKD will discard the whitelist
     and allow all traffic.
 
 By default, the hostname is `metadata.name` + `-` + `project name`
@@ -283,7 +283,7 @@ a mechanism that will, roughly speaking, do that for the user.
 ## ReplicationController
 
 !!! Warning "ReplicationControlers deprecated"
-    ReplicationControlers, alongside DeploymentConfigs are deprecated in current versions of OpenShift OKD. Follow [convert DeploymentConfig to Deployment](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
+    ReplicationControlers, alongside DeploymentConfigs are deprecated in current versions of OKD. Follow [convert DeploymentConfig to Deployment](https://developers.redhat.com/learning/learn:openshift:replace-deprecated-deploymentconfigs-deployments/resource/resources:convert-deploymentconfig-deployment).
 
 A ReplicationController ensures that there are `spec.replicas` number of pods
 whose labels match the `spec.selector` running in the cluster. If there are too many,
@@ -319,7 +319,7 @@ spec:
 ```
 
 The ReplicationControllers are functionally close to ReplicaSets, discussed
-in the chapter "[Kubernetes and OpenShiftconcepts](../../usage/kubernetes-concepts.md)".
+in the chapter "[Kubernetes and OKD concepts](../../usage/kubernetes-concepts.md)".
 A ReplicationController can be transformed into a ReplicaSet by
 changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`.
@@ -359,7 +359,7 @@ This will delete all objects with the label `app: serveapp`.
 
 In this tutorial, a static web page server was set up using YAML files
 representing the Kubernetes objects. The created objects can be further
-modified in the OpenShift web console where:
+modified in the Rahti web console where:
 
 * Routes can be modified to be secure ones encrypted by TLS.
 * Autoscalers, persistent storage, resource limits and health checks can be added to ReplicationControllers.

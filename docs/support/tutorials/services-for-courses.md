@@ -19,7 +19,7 @@ the services in scope of the CSC Course project type:
 
 * <a href="#allas">Allas</a>
 * <a href="#cpouta">cPouta</a>
-* <a href="#puhti-and-mahti">Puhti & Mahti</a>
+* <a href="#roihu">Roihu</a>
 * <a href="#pukki">Pukki</a>
 * <a href="#rahti">Rahti</a>
 * <a href="#sd-services">SD Services</a>
@@ -32,7 +32,7 @@ If you're unsure which services would be suitable for your course,
 
 ## Which services are suitable for my course?
 
-| My course needs ... | <a href="#allas">Allas</a> | <a href="#cpouta">cPouta</a> | <a href="#noppe">Noppe</a> | <a href="#puhti-and-mahti">Puhti & Mahti</a> | <a href="#pukki">Pukki</a> | <a href="#rahti">Rahti</a> | <a href="#sd-services">SD Services</a> |
+| My course needs ... | <a href="#allas">Allas</a> | <a href="#cpouta">cPouta</a> | <a href="#noppe">Noppe</a> | <a href="#roihu">Roihu</a> | <a href="#pukki">Pukki</a> | <a href="#rahti">Rahti</a> | <a href="#sd-services">SD Services</a> |
 |-|-|-|-|-|-|-|-|
 | Computing resources | &#10060; | &#9989; | &#9989; | &#9989; | &#10060; | &#9989; | &#9989; |
 | **Lots** of computing resources | &#10060; | &#10060; | &#10060; | &#9989; | &#10060; | &#10060; | &#10060; |
@@ -55,7 +55,7 @@ If you're unsure which services would be suitable for your course,
 
     [Allas](../../data/Allas/introduction.md) is a Ceph-based object storage
     system. It is designed for storing and sharing large volumes of data. Data
-    can be accessed from other CSC services, such as cPouta, Puhti and Mahti,
+    can be accessed from other CSC services, such as cPouta and Roihu,
     or directly via the [Allas web interface](https://allas.csc.fi).
 
     Data can be accessed using tools and programming languages based on S3 or
@@ -109,7 +109,7 @@ If you're unsure which services would be suitable for your course,
     machines to I/O-intensive or GPU-enabled ones. These virtual machines can
     be accessed from the internet via a public IPv4 address. If your course
     requires substantial computing resources, the HPC platforms
-    <a href="#puhti-and-mahti">Puhti and Mahti</a> are recommended instead.
+    <a href="#roihu">Roihu</a> is recommended instead.
 
     The OpenStack platform can be administered either through the web interface
     or using command-line tools.
@@ -189,17 +189,9 @@ If you're unsure which services would be suitable for your course,
     [Please see the guide for student](../../cloud/noppe/guide_for_students.md)
     for more detailed instructions.
 
-=== "Puhti and Mahti"
+=== "Roihu"
 
-    !!! info
-        Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu,
-        CSC's next-generation supercomputer offering enhanced performance and
-        capabilities. Please take this into account when planning courses for
-        2026.
-
-        [Learn more about Roihu :material-arrow-right:](../../computing/systems-roihu.md)
-
-    [CSC supercomputers Mahti and Puhti](../../computing/index.md) are ideal
+    [CSC supercomputer Roihu](../../computing/index.md) is an ideal
     platforms for organizing courses that benefit from HPC resources or aim to
     teach how to use and run computations on supercomputing platforms. This
     includes cases where the course participants need access to GPUs or larger
@@ -207,7 +199,7 @@ If you're unsure which services would be suitable for your course,
     [existing software stack](../../apps/index.md) is used for the course
     assignments.
 
-    The systems support both traditional command-line
+    The system support both traditional command-line
     [batch processing compute tasks](../../computing/running/getting-started.md),
     as well as web-based tools such as Jupyter Notebooks and RStudio via the
     [web interfaces](../../computing/webinterface/index.md). Course organizers
@@ -216,7 +208,7 @@ If you're unsure which services would be suitable for your course,
     [Jupyter for Courses](../../computing/webinterface/jupyter-for-courses.md)
     app.
 
-    Please note that courses using CSC supercomputers can have **at maximum 50
+    Please note that courses using Roihu can have **at maximum 50
     students**. Ideally, teachers should target a smaller number of around 25
     participants. For larger courses the free resources and allowed resource
     reservations may not support the requested amount of users.
@@ -236,7 +228,7 @@ If you're unsure which services would be suitable for your course,
 
     1. [Create a CSC user account](../../accounts/how-to-create-new-user-account.md).
     2. [Create a CSC Course project](../../accounts/how-to-create-new-project.md#course).
-    3. [Add Puhti and/or Mahti service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
+    3. [Add Roihu service access to the project](../../accounts/how-to-add-service-access-for-project.md#project-manager).
     4. Invite students to the project either by
         1. [using an invitation link](../../accounts/how-to-add-members-to-project.md#using-invitation-link)
            (recommended)
@@ -278,13 +270,12 @@ If you're unsure which services would be suitable for your course,
 
         | System | Approval | CPU limit | GPU limit | Max. daily time window | Max. course days in total |
         |--------|----------|-----------|-----------|------------------------|---------------------------|
-        | Puhti  | Automatic | 2 nodes (80 cores) | 0 | 08:00–17:00 | 5 |
-        |        | CSC Resource Allocation Group | 5 nodes (200 cores) | 4 nodes (16 GPUs) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
-        | Mahti  | Automatic | 2 nodes (256 cores) | 14 [GPU slices](../../computing/running/batch-job-partitions.md#mahti-gpu-slices) | 08:00–17:00 | 5 |
-        |        | CSC Resource Allocation Group | 8 nodes (1024 cores) | 56 [GPU slices](../../computing/running/batch-job-partitions.md#mahti-gpu-slices) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+        | Roihu  | Automatic | 1 node (384 cores) | 0 | 08:00–17:00 | 5 |
+        |        | CSC Resource Allocation Group   | 3 nodes (1152 cores) | 4 nodes (16 GPUs) | Up to 12 hrs (e.g., 08:00–20:00 or 12:00–24:00) | 10 |
+   
 
     A granted advance resource reservation will be visible in the form for
-    launching an interactive session in the Puhti and Mahti web interfaces.
+    launching an interactive session in the Roihu web interfaces.
     Note that the option will be greyed out until the start of the reservation.
 
     In batch job scripts, the advance resource reservation is activated using

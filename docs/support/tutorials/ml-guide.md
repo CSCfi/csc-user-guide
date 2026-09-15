@@ -18,6 +18,7 @@ In addition to this page, this guide contains the following subsections:
 - [**Hyperparameter search**](hyperparameter_search.md)
 - [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
 - [**Working with large language models on supercomputers**](ml-llm.md)
+- [**Extend CSC-based ML containers using sandbox**](ml-container-extend.md)
 
 ## What CSC service to use?
 
@@ -76,7 +77,7 @@ LUMI AI
 Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 All supercomputers also provide a [web user
-interface](https://docs.csc.fi/computing/webinterface/), through which
+interface](../../computing/webinterface/index.md), through which
 one can easily launch for example a Jupyter Notebook session with
 PyTorch. Note that GPUs access is more restricted for interactive
 sessions.

@@ -36,7 +36,7 @@ s3cmd -h
 ```
 ## Getting started with s3cmd
 
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
+If you use Allas on Roihu or Lumi, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
 
 To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
 
@@ -70,10 +70,10 @@ Additionally install [`allas-conf`](allas-conf.md#allas-conf-installation).
 
 ## Configuring S3 connection 
 
-To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
+To use _s3cmd_ in Roihu, you must first configure the connection:
 ```text
 module load allas
-allas-conf --mode S3
+allas-conf
 ```
 
 On local computer:
@@ -188,11 +188,11 @@ Public URL of the object is: https://a3s.fi/my_fishbucket/fishes/salmon.jpg
 
 ## Giving another project read access to a bucket
 
-You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Puhti and Mahti:
+You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Roihu:
 
 ```text
 module load allas
-allas-conf -k --mode s3cmd
+allas-conf -k 
 openstack project show $OS_PROJECT_NAME
 ```
 
