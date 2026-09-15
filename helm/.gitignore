@@ -1,2 +1,3 @@
-secrets.yaml
-tls.yaml
+acme.yaml
+iplist.yaml
+translator.yaml

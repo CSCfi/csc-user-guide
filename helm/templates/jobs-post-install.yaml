@@ -1,0 +1,15 @@
+{{- range $lang := .Values.components.translator.languages }}
+---
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: {{ $lang.code | printf "%s-restore-%s" (include "docs-csc.name" $) }}
+  labels:
+{{ include "docs-csc.labels" $ | indent 4 }}
+spec:
+  template:
+{{ dict "language" $lang
+        "restoreOnly" true
+   | list $
+   | include "translation.jobTemplate" | indent 4 }}
+{{- end -}}
