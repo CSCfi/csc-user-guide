@@ -2,10 +2,12 @@ ARG builder_image
 ARG server_image
 FROM ${builder_image} AS builder
 
+ARG repo_host=github.com
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
-ENV REPO_ORG=${repo_org} \
+ENV REPO_HOST=${repo_host} \
+    REPO_ORG=${repo_org} \
     REPO_NAME=${repo_name} \
     REPO_BRANCH=${repo_branch} \
     CLONE_PATH=/tmp/${repo_name}
