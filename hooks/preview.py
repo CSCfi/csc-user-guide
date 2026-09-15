@@ -1,6 +1,5 @@
-from os import getenv
+import os
 
 
-env = getenv("MKDOCS_ENV")
-if env is None or env == "preview":
+if os.getenv("PROPERDOCS_ENV") in [None, "preview"]:
     from preview import *

@@ -1,5 +1,5 @@
 from os import getenv
 
 
-if getenv("MKDOCS_ENV") == "test":
+if getenv("PROPERDOCS_ENV") == "test":
     from testing import *
