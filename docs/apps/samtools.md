@@ -26,7 +26,7 @@ Free to use and open source under the
 
 ## Available
 
-* Roihu: 1.21, via the `bio-apps` module.
+* Roihu-CPU: 1.21, 1.24, via the `bio-apps` module.
 
 ## Usage
 
@@ -35,7 +35,7 @@ bio-apps module tree and then the SAMtools module:
 
 ```bash
 module load bio-apps/v202603
-module load samtools/1.21
+module load samtools/1.24
 ```
 
 Check the available versions with:
@@ -66,7 +66,7 @@ script that converts a SAM file to BAM, then sorts and indexes it:
 #SBATCH --mem-per-cpu=4000M
 
 module load bio-apps/v202603
-module load samtools/1.21
+module load samtools/1.24
 
 # Convert SAM to BAM
 samtools view -bS aln.sam > aln.bam

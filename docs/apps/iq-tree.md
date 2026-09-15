@@ -25,24 +25,36 @@ Free to use and open source under [GNU GPLv2](https://github.com/iqtree/iqtree2/
 
 ## Available
 
-* Roihu: 2.4.0, via the `bio-apps` module.
+* Roihu-CPU: IQ-TREE 2 as `iq-tree/2.4.0` and IQ-TREE 3 as `iqtree3/3.1.4`, via the
+  `bio-apps` module. The two are separate modules with distinct commands
+  (`iqtree2` and `iqtree3`) and can be used side by side.
 
 ## Usage
 
 IQ-TREE is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
-bio-apps module tree and then the IQ-TREE module:
+bio-apps module tree and then the IQ-TREE module you want.
+
+IQ-TREE 2 is run with the `iqtree2` command:
 
 ```bash
 module load bio-apps/v202603
 module load iq-tree/2.4.0
-```
 
-IQ-TREE (version 2) is run with the `iqtree2` command. For example, a tree search with
-model selection and ultrafast bootstrap:
-
-```bash
 iqtree2 -s alignment.phy -m MFP -B 1000 -T AUTO
 ```
+
+IQ-TREE 3 is provided as a separate module and run with the `iqtree3` command;
+the options are the same:
+
+```bash
+module load bio-apps/v202603
+module load iqtree3/3.1.4
+
+iqtree3 -s alignment.phy -m MFP -B 1000 -T AUTO
+```
+
+The examples above perform a tree search with model selection (ModelFinder) and
+ultrafast bootstrap.
 
 ### Example batch script
 
