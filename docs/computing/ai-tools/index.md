@@ -38,13 +38,14 @@ understand the following:
     subscription before using Claude Code or Codex 
     with confidential material.
 
-TODO: Link to public repo?
 - **Security**: The agent has access to the directory you launch it from, all of its
-subdirectories, and the directories in the [How to configure agents](#how-to-configure-the-agents)
-section. `$HOME` itself is not accessible by default.
-TODO: Link to repo for tool permissions?
+subdirectories, and a few others for configurations. For the full list, see the
+[repository](https://github.com/CSCfi/roihu-agent-env/tree/main/config). `$HOME` itself
+is not accessible by default.
 - **Tool use**: By default, the agent can use many read-only tools
-without permission, but asks for confirmation for any write operations.
+without permission, but asks for confirmation for any write operations. Check the
+[repository](https://github.com/CSCfi/roihu-agent-env/tree/main/config) for the full
+list of permissions.
 - **Experimental status**: The agent environment is still experimental and may
 change without notice.
 
@@ -63,11 +64,12 @@ claude
 codex
 ```
 
-You can make additional directories visible in the environment by adding them to the
-`AGENT_BIND_PATHS` environment variable before launching the agents:
+You can make additional directories visible in the environment with the 
+`--roihu-bind` and `--roihu-ro-bind` flags when starting your agent. This works for all
+agents. `--roihu-ro-bind` only allows read-only access to the directory. An example:
 
 ```bash
-export AGENT_BIND_PATHS=/path/to/dir1,/path/to/dir2
+claude --roihu-bind /path/to/dir1,/path/to/dir2
 ```
 
 ### How to configure the agents
@@ -156,8 +158,8 @@ runs. By default the agent can call the read-only tools without asking, while
 ### CSC-docs
 
 The agents come preconfigured with the CSC-docs MCP server. You can read more about
-it in the TODO: Check if link exists: [CSC-docs MCP](docs-mcp.md) page. You can also
-add the MCP to any local client you are using.
+it in the [CSC-docs MCP](docs-mcp.md) page. You can also add the MCP to any local client
+you are using.
 
 ## Skills
 
