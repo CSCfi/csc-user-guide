@@ -7,7 +7,7 @@ search:
 
 !!! default "Documentation"
 
-    Docs CSC is based on [_MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-materialx/){ target=_blank }. Note that some features might not be available on Docs CSC ([see below](#available-features)).
+    Docs CSC is based on [_MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-materialx/){ target=_blank }. Note that some features might not be available on Docs CSC.
 
 !!! info "Pro tip"
 
@@ -16,7 +16,6 @@ search:
     - [Search for available icons and emojis](https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis/#search)
     - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://jaywhj.github.io/mkdocs-materialx/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
     - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_properdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/properdocs.yml) with the [documentation on enabling a feature](https://jaywhj.github.io/mkdocs-materialx/reference/content-tabs/#configuration)
-    { id=available-features }
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
@@ -149,7 +148,7 @@ No text this time.
 
 ###### Level 6
 
-More text coming up next in Text.
+The last one.
 ```
 
 <div class="result" markdown>
@@ -171,53 +170,116 @@ No text this time.
 
 ###### Level 6
 
-More text coming up next in Text.
+The last one.
 
 </div>
 
 
-## Text
+## Heading groups
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla ex, elementum ultrices
-tempor quis, commodo sit amet quam. Sed accumsan placerat nunc. Suspendisse elementum augue et est
-tempor lacinia. Pellentesque vel ante id nunc luctus euismod id non est. Vivamus porttitor dui et
-porta maximus. Sed quis orci finibus, feugiat orci vitae, luctus nisl. Praesent lorem turpis,
-tristique id lacus sed, sollicitudin ultricies velit. In maximus ante massa, in ullamcorper eros
-IaaS fermentum in. Nulla condimentum urna sit amet leo scelerisque, et iaculis odio iaculis. Donec
-quis tortor non metus tincidunt placerat. Curabitur rhoncus libero ut augue scelerisque varius.
-Nunc bibendum sit amet nisi in varius. Nullam eu eros elementum, pellentesque nisl non, laoreet
-felis. Ut et risus enim. Proin tempor tellus eu commodo blandit. Interdum et malesuada fames ac
-ante ipsum primis in faucibus.
+A subheading may be attached to a heading in a heading group (`<hgroup>`).
 
-Nam erat dui, ullamcorper sit amet erat nec, interdum posuere diam. Nam aliquet gravida hendrerit.
-Sed erat justo, feugiat sollicitudin scelerisque id, luctus sit amet velit. Sed suscipit at nisi eu
-ornare. Nam in mauris ex. In ut sagittis nibh, eleifend pharetra tortor PaaS. Integer sapien
-tortor, ullamcorper ac diam ut, vehicula mattis augue. Pellentesque a enim eget est ornare
-ullamcorper vitae nec mi. Quisque quis congue augue, eu aliquam tortor. In risus lectus, pharetra
-eu fermentum non, gravida volutpat magna. Morbi in congue erat.
+```markdown
+<hgroup markdown>
 
-Donec a est quis nulla scelerisque cursus ut vitae ligula. In risus felis, finibus et tortor eu,
-volutpat efficitur turpis. Praesent vitae vulputate dolor, at posuere urna. Aenean ullamcorper orci
-sit amet purus tincidunt, id vehicula lectus aliquet. Ut auctor dapibus magna at hendrerit. Nam
-lobortis convallis lacus blandit tempus. Proin et ex ut dolor vehicula suscipit a vitae nisi. Nam
-feugiat accumsan purus, sit amet efficitur felis. Integer vitae enim eu massa placerat faucibus
-eget vel ipsum. Nullam tincidunt, sapien at blandit pulvinar, lacus mauris finibus turpis, sit amet
-suscipit magna tortor sit amet tortor. Ut tortor neque, convallis non volutpat a, pharetra nec
-sapien. In in congue nisl, quis egestas nisi. Fusce ut orci luctus sem tincidunt malesuada.
-Pellentesque id consequat tortor, sed egestas metus. Phasellus sed venenatis purus, in dapibus
-magna SaaS. Cras interdum ornare risus, a condimentum magna lacinia eget. Morbi dapibus elementum
-massa et ultrices. Nulla vel lobortis ex. Ut egestas posuere odio, sit amet mollis lacus placerat
-at. Quisque ut laoreet purus. Etiam id consectetur ipsum. Phasellus lectus ante, scelerisque in
-nunc a, vulputate efficitur nunc. Suspendisse nec nisi ut massa mattis interdum vel eget orci.
-Aenean porttitor erat nulla. Vivamus ac urna et orci faucibus pharetra. Integer in urna tincidunt,
-tempor turpis nec PaaS, malesuada justo. Vivamus ornare sem ut mi ultricies fringilla. Ut in semper
-diam, vitae porta neque. Donec maximus tellus et orci bibendum hendrerit. Ut ut consectetur magna.
-Aliquam vel rhoncus elit. Praesent vitae tincidunt urna, et pulvinar orci. Phasellus auctor augue
-eu sagittis fermentum. Nullam tempus malesuada augue, nec volutpat mi sodales quis. Vivamus mollis
-commodo eros sed porta. Praesent ultrices elementum metus, sit amet fringilla turpis luctus vitae.
-Mauris turpis felis, molestie eget ipsum ac, fringilla euismod risus. Phasellus at arcu ante. Cras
-eu enim dui. Quisque eu hendrerit magna. Donec ac elit laoreet, mattis tortor et, feugiat nisl.
-Duis maximus ultrices elit, quis hendrerit orci.
+### Heading with a subheading
+
+This is the subheading
+
+<hgroup>
+```
+
+<div class="result" markdown>
+
+<hgroup markdown>
+
+### Heading with a subheading
+
+This is the subheading
+
+<hgroup>
+
+</div>
+
+Status badges (see [status-styled admonitions](#status-style)) listed inside a heading group are shown in a strip below the heading.
+
+```markdown
+<hgroup markdown>
+
+### Heading with status
+
+- !!! success status "Basic"
+- !!! warning status "Intermediate"
+- !!! error status "Advanced"
+
+<hgroup>
+```
+
+<div class="result" markdown>
+
+<hgroup markdown>
+
+### Heading with status
+
+- !!! success status "Basic"
+- !!! warning status "Intermediate"
+- !!! error status "Advanced"
+
+<hgroup>
+
+</div>
+
+```markdown
+<hgroup markdown>
+
+### Heading with both
+
+Subheading goes here
+
+- !!! default status "And"
+- !!! info status "status"
+- !!! training status "here"
+
+<hgroup>
+```
+
+<div class="result" markdown>
+
+<hgroup markdown>
+
+### Heading with both
+
+Subheading goes here
+
+- !!! default status "And"
+- !!! info status "status"
+- !!! training status "here"
+
+<hgroup>
+
+</div>
+
+
+## Annotations
+
+Text can contain annotations. (1) See [MaterialX documentation](https://jaywhj.github.io/mkdocs-materialx/reference/annotations.html) for more examples.
+{ .annotate }
+
+1.  This is an annotation.
+
+```markdown
+Click the :material-information-outline: icon to see the annotation: (1)
+{ .annotate }
+
+1.  The annotation.
+```
+
+<div class="result" markdown>
+Click the :material-information-outline: icon to see the annotation: (1)
+{ .annotate }
+
+1.  The annotation.
+</div>
 
 
 ## Links
@@ -378,16 +440,30 @@ Here is an unordered list:
 
 - It has an item
 - Another item
-- And yet another item
+   - And a nested item
 
 
 ### Ordered list
 
 Let's make an ordered list:
 
-1. An item on a list
-1. Another item
-1. Even a third item
+1. First item on the list
+    1. Nested item
+    1. Second nested item
+        1. Further nesting
+        1. The listings shall continue until nestings improve
+
+
+### Definition list
+
+The item in question
+:   The definition of item
+
+**Boldfaced item**
+:   Another definition
+
+`Monospaced item`
+:   Definition
 ```
 
 <div class="result" markdown>
@@ -398,16 +474,129 @@ Here is an unordered list:
 
 - It has an item
 - Another item
-- And yet another item
+   - And a nested item
 
 
 ### Ordered list
 
 Let's make an ordered list:
 
-1. An item on a list
-1. Another item
-1. Even a third item
+1. First item on the list
+    1. Nested item
+    1. Second nested item
+        1. Further nesting
+        1. The listings shall continue until nestings improve
+
+
+### Definition list
+
+The item in question
+:   The definition of item
+
+**Boldfaced item**
+:   Another definition
+
+`Monospaced item`
+:   Definition
+
+</div>
+
+
+## Steps
+
+You can illustrate a sequence of actions in a procedure with steps. Three types of steps are available. For more information, refer to [MaterialX documentation](https://jaywhj.github.io/mkdocs-materialx/reference/steps.html).
+
+```markdown
+<div class="steps" markdown>
+
+1. A for ABC
+1. B for the "B" in ABC
+1. C for the "C" in CSC (the second one)
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+1. Start with some JavaScript
+
+`[object Object]`
+
+1. Done with JavaScript
+
+And there we have it. Clean and simple.
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+### First step
+
+One.
+
+### Second step
+
+Two.
+
+### Third step
+
+Three.
+
+### And so on...
+
+Five.
+
+</div>
+```
+
+<div class="result" markdown>
+
+<div class="steps" markdown>
+
+1. A for ABC
+1. B for the "B" in ABC
+1. C for the "C" in CSC (the second one)
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+1. Start with some JavaScript
+
+`[object Object]`
+
+1. Done with JavaScript
+
+And there we have it. Clean and simple.
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+### First step
+
+One.
+
+### Second step
+
+Two.
+
+### Third step
+
+Three.
+
+### And so on...
+
+Five.
+
+</div>
 
 </div>
 
@@ -924,8 +1113,6 @@ then
     echo $a $b
 fi
 ```
-
-&nbsp;
 ````
 
 <div class="result" markdown>
@@ -955,11 +1142,29 @@ then
 fi
 ```
 
-&nbsp;
-
 </div>
 
-Try adding a `&nbsp;`, like on the last line of the example above, if inline admonitions give you trouble.
+The note admonition works pretty well at inline end with some text.
+
+```markdown
+#### "Sticky note" example
+
+!!! note inline end "Sticky note"
+    In porttitor orci arcu, sed varius...
+
+Lorem ipsum dolor sit amet, consectetur adipiscing...
+```
+
+<div class="result" markdown>
+
+#### "Sticky note" example
+
+!!! note inline end "Sticky note"
+    In porttitor orci arcu, sed varius augue mattis sed. Duis vestibulum vitae erat et laoreet. Praesent at urna quis tellus rhoncus molestie non ac ante.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo purus, luctus interdum lacinia at, sagittis id diam. Donec ultricies sem quis vulputate ultricies. Integer est libero, iaculis a lacus id, laoreet ultrices neque. Sed est ante, posuere a sodales et, accumsan vitae mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam varius erat nec sagittis elementum. Donec pulvinar risus quis erat rutrum, eget rhoncus sem maximus. Sed id urna erat. Nam sit amet finibus quam, et faucibus ante. Vivamus nec malesuada mi, sed fringilla lacus. Suspendisse potenti. Cras sapien ligula, gravida ut libero ac, molestie imperdiet ex. Phasellus rutrum euismod nunc, at consequat neque dapibus vitae. Integer tristique lectus sed lorem eleifend, eu venenatis purus cursus. Etiam sed varius leo. Sed non lobortis augue. Proin sed aliquet felis, eu vestibulum mauris. Vivamus facilisis luctus neque id gravida. Aliquam ullamcorper molestie felis ac elementum. Maecenas elit felis, finibus eu nunc at, faucibus condimentum lorem. Fusce vitae nunc nibh. Donec purus velit, aliquam condimentum consectetur quis, varius eu ante.
+
+</div>
 
 
 ## Images
