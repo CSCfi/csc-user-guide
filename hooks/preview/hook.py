@@ -1,57 +1,58 @@
-from pathlib import Path
-from collections import namedtuple
+import pathlib
+import collections
 
-from git import Repo
+import git
 
 from classes import DocsHook
 
 
 class PreviewHook(DocsHook):
-    PageStatus = namedtuple("PageStatus", "head, status")
+    PageStatus = collections.namedtuple("PageStatus", "head, status")
 
     def __init__(self, **kwargs):
         super().__init__(self, **kwargs)
 
-        self.docs_dir = None
-        self.cwd = Path.cwd()
-        self.repo = Repo(self.cwd)
+        self.__cwd = pathlib.Path.cwd()
 
-    def __get_status(self, page):
-        untracked = [(self.cwd / u) for u in self.repo.untracked_files]
-        modified = [(self.cwd / d.a_path) for d in self.repo.index.diff(None)]
-        page_src_path = self.docs_dir / page.file.src_uri
+        repo = git.Repo(self.__cwd)
+        self.__headsha = repo.head.commit.hexsha
+        self.__untracked = [(self.__cwd / u) for u in repo.untracked_files]
+        self.__modified = [(self.__cwd / d.a_path) for d in repo.index.diff(None)]
 
+    def __get_page_status(self, page_src_path):
         try:
-            if any([page_src_path.samefile(untracked_path) for untracked_path in untracked]):
+            if any(page_src_path.samefile(untracked_path)
+                   for untracked_path in self.__untracked):
                 return "untracked"
-            elif any([page_src_path.samefile(modified_path) for modified_path in modified]):
+            if any(page_src_path.samefile(modified_path)
+                   for modified_path in self.__modified):
                 return "modified"
         except FileNotFoundError:
             pass
 
         return None
 
-    def on_pre_build(self, **_):
-        self._logger.info(f"preview build, commit {self.repo.head.commit.hexsha}")
+    def on_pre_build(self, **_): # pylint: disable=missing-function-docstring
+        self._logger.info("preview build%s, commit %s",
+                          " (dirty)" if self._dirty else "",
+                          self.__headsha)
 
-    def on_startup(self, command, dirty):
-        self.startup_command = command
+    def on_config(self, config): # pylint: disable=missing-function-docstring
+        setattr(config, "exclude_docs", None)
 
-        return None
+        return config
 
-    def on_config(self, config):
-        self.docs_dir = Path(config.docs_dir)
-
-        return None
-
-    def on_page_context(self, context, page, config, nav):
+    def on_page_context(self, context, page, config, **_): # pylint: disable=missing-function-docstring
         if "page" in context:
+            page_src_path = pathlib.Path(config.docs_dir) / page.file.src_uri
+
             setattr(context["page"],
                     "git",
-                    self.PageStatus(head=self.repo.head.commit.hexsha,
-                                    status=(self.__get_status(page)
-                                            if self.startup_command == "serve"
+                    self.PageStatus(head=self.__headsha,
+                                    status=(self.__get_page_status(page_src_path)
+                                            if self._startup_command == "serve"
                                             else None)))
+
             return context
-        else:
-            return None
+
+        return None

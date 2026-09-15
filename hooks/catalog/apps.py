@@ -2,7 +2,7 @@ import re
 from string import Template
 from functools import reduce
 
-from mkdocs.exceptions import PluginError
+from properdocs.exceptions import PluginError
 
 
 class App:
