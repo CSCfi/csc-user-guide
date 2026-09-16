@@ -41,7 +41,7 @@ If you are unable to complete this preparatory step before the service break, do
 
 ### CSC Project- Secondary use type
 
-- **SD Desktop**: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September: [link]
+- **SD Desktop**: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September.
 
 ### Important dates and support
 
@@ -59,7 +59,11 @@ If you are unable to complete this preparatory step before the service break, do
 
 
 
+---
 
+Everything below this line contains previous announcements.
+
+---
 
 
 ## Sensitive Data (SD) Desktop service: billing changes and export process update, 05.2026
