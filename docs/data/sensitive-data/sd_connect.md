@@ -15,24 +15,35 @@ SD Connect also supports collaborative research, allowing data collection and sh
 
 You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
 
-## Key features
 
-- User-friendly interface compatible fully compatible with Chrome web browser.
-- Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
-- Files up to 100 GB are automatically encrypted and decrypted during upload and download via a web browser. For larger files, a programmatic tool (SD-lock/unlock) is available. Automated encryption key management.
-- Enhanced login security with multi-factor authentication (MFA).
-- Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, if additional space is required, [contact CSC Service Desk](../../support/contact.md)).
+<div class="grid cards" markdown>
 
-## Limitations
+- :material-check-circle:{ .lg .middle } **Key features**
+  { .csc-grid-card-success }
 
-Known temporary issues:
+    ---
 
-- Firefox in private mode is not supported.
-- Tagging files is not currently supported.
-- CSC projects created before 2013 are incompatible with the current user interface and will not be displayed. For assistance, please contact us.  
-- In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](./sd-connect-download.md))
+    - User-friendly interface compatible fully compatible with Chrome web browser.
+    - Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
+    - Files up to 100 GB are automatically encrypted and decrypted during upload and download via a web browser. For larger files, a programmatic tool (SD-lock/unlock) is available. Automated encryption key management.
+    - Enhanced login security with multi-factor authentication (MFA).
+    - Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, if additional space is required, [contact CSC Service Desk](../../support/contact.md)).
 
-General considerations:
+
+- :material-close-circle:{ .lg .middle } **Limitations**
+  { .csc-grid-card-error }
+
+
+    Known temporary issues:
+
+    - Firefox in private mode is not supported.
+    - Tagging files is not currently supported.
+    - CSC projects created before 2013 are incompatible with the current user interface and will not be displayed. For assistance, please contact us.  
+    - In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](./sd-connect-download.md))
+
+</div>
+
+### General considerations:
 
 - SD Connect is based on an object storage solution. Files are called objects, they are stored as file segments and can not be directly edited. All files (sensitive or non-sensitive, e.g. scripts) stored in SD Connect must be encrypted.
 - The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, accordingly to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
