@@ -57,11 +57,11 @@ If you are unable to complete this preparatory step before the service break, do
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
 - Step-by-step instructions for actions required after 28 September, link soon available here
 
+─────────────────────────────────────────────────────────────────────────
 
-
-============================================================
 Everything below this line contains previous announcements.
-============================================================
+
+─────────────────────────────────────────────────────────────────────────
 
 
 
