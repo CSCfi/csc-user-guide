@@ -9,11 +9,11 @@ nameOverride: null
 
 base:
   image: ubi9
-  tag: 9.8-1786985871
+  tag: 9.8-1789461287
 
 server:
   image: ubi9/nginx-126
-  tag: 9.8-1787043707
+  tag: 9.8-1789518899
 
 localRegistry: image-registry.openshift-image-registry.svc:5000
 
