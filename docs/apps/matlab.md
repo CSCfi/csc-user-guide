@@ -79,7 +79,7 @@ CSC provides the following licenses, shared between all users, for **academic** 
 
 We recommend using the [web interface](../computing/webinterface/index.md) to use MATLAB interactively.
 
-1. Start by logging into the web interface of the cluster you want to use: [www.roihu.csc.fi](https://www.roihu.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
+1. Start by logging into the web interface of the cluster you want to use: [www.roihu.csc.fi](https://www.roihu.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 
 2. Then press the MATLAB icon to choose the MATLAB web application.
     - ![MATLAB OOD pinned apps](https://a3s.fi/docs-files/apps/matlab-ood-pinned-apps.png){width=400}
