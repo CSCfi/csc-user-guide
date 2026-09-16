@@ -23,7 +23,7 @@ ADD docs/ docs/
 ADD hooks/ hooks/
 ADD includes/ includes/
 ADD overrides/ overrides/
-ADD properdocs.yml ./
+ADD properdocs.yml .git-revision-date-ignore-revs ./
 
 RUN properdocs build --site-dir=/tmp/site/
 
