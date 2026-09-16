@@ -25,8 +25,8 @@ sparse_checkout() {
 get_config() {
   local -ra config_files=("${@:?}")
 
-  shopt -s extglob
   local -r clone_path="${CLONE_PATH:?}"
+  shopt -s extglob
   local -r effective_path="${clone_path%%+(/)}${CONFIG_BRANCH:+-config}"
   shopt -u extglob
 

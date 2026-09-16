@@ -1,6 +1,6 @@
 <style scoped>
   .docs-announce {
-    height: 4em;
+    min-height: 4em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,6 +8,9 @@
     background-color: hsl(from currentColor h 97.5% 92.5%);
     font-size: 1.25em;
   }
+  .docs-announce:not(.announcement-urgent) > :not(.announcement-icon) {
+    max-width: calc(var(--csc-content-width) * 0.75);
+}
   .docs-announce:has(.announcement-container) {
     height: auto;
   }
