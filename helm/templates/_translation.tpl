@@ -162,10 +162,10 @@ data:
   volumeMounts:
     - name: {{ $buildsvolumename }}
       mountPath: {{ $args.languageCode | printf "/site/%s" }}
-      subPath: {{ $args.languageCode | printf "/builds/%s" }}
+      subPath: {{ $args.languageCode | printf "builds/%s" }}
     - name: {{ $buildsvolumename }}
       mountPath: /work/.cache
-      subPath: /cached_assets
+      subPath: cached_assets
 {{ include "translation.translatorMounts" $ | indent 4 }}
 {{- end -}}
 
