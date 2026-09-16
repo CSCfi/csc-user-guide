@@ -8,10 +8,9 @@ before_install:
   - curl -L https://git.io/misspell | BINDIR=~/.local/bin sh
 env:
   global:
-    - ENABLED_GIT_REVISION_DATE=false
     - PROPERDOCS_ENV=test
-    - ENABLED_MATERIALX_PRIVACY=false
     - ENABLED_GIT_REVISION_DATE=false
+    - ENABLED_MATERIALX_PRIVACY=false
 script:
 
   # Checks all files for commonly misspelled English words with client9's misspell
