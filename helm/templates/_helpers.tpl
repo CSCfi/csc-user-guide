@@ -67,11 +67,14 @@ Component labels
 {{- $resourcename := index . 1 -}}
 {{- $components := keys $.Values.components -}}
 {{- $rootname := include "docs-csc.name" $ -}}
-{{- $componentregex := printf "^%s-([^-]+)(?:$|-)" $rootname -}}
-{{- $componentname := regexReplaceAll $componentregex $resourcename "$1" -}}
-{{- $iscomponent := has $componentname $components -}}
+{{- $componentname := index (regexSplit "-"
+                                        (trimPrefix (printf "%s-" $rootname)
+                                                    $resourcename)
+                                        -1)
+                            0 -}}
+{{- $iscomponent := keys $.Values.components | has $componentname -}}
 {{- $fullname := $iscomponent | ternary (printf "%s-%s" $rootname $componentname)
-                                $rootname -}}
+                                        $rootname -}}
 app.kubernetes.io/name: {{ $fullname }}
 {{- if $iscomponent }}
 app.kubernetes.io/component: {{ $componentname }}
