@@ -48,7 +48,7 @@ module load ams/2026.104
 ### Example batch scripts
 
 !!! warning "Note"
-    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Puhti](../computing/running/creating-job-scripts-puhti.md#local-storage), [Mahti](../computing/running/example-job-scripts-mahti.md#local-disk-and-small-partition), or [Roihu](../computing/roihu-disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Roihu](../computing/roihu-disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
 === "Puhti"

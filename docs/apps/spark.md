@@ -34,7 +34,7 @@ Listed below are some of the variables that can be changed.
 
 !!! note 
 
-    The values for the CPU and Memory should only be changed (to avoid errors) after checking the project quota allocated to your Rahti project (from *Resources* - *Quota* view of project page left panel). Project quota can also be increased by admins, if needed. [Rahti projects and quota](../cloud/rahti/usage/projects_and_quota.md) The template assumes that the request and the limits are same for all the containers. If you wish to have different limits, it's recommended to edit the template (advanced users).
+    The values for the CPU and Memory should only be changed (to avoid errors) after checking the project quota allocated to your Rahti project (from *Resources* - *Quota* view of project page left panel). Project quota can also be increased by admins, if needed. [Rahti projects and quota](../cloud/rahti/get-started/projects.md) The template assumes that the request and the limits are same for all the containers. If you wish to have different limits, it's recommended to edit the template (advanced users).
 
 #### Mandatory Required Values:
 - **Cluster Name**: Unique identifier for your cluster

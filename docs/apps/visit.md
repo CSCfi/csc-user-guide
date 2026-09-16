@@ -11,25 +11,29 @@ catalog:
     - web_interfaces:
         - LUMI
         - Puhti
+        - Roihu
     - LUMI
     - Puhti
     - Mahti
+    - Roihu
 ---
 
 # VisIt
 
 VisIt is an open source, versatile software for scientific visualization.
-VisIt is available on Puhti, and we recommend
-[the Puhti web interface remote desktop](../computing/webinterface/desktop.md)
+VisIt is available on Roihu, and we recommend
+[the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Puhti and LUMI"
+!!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
     You can now also enable
     [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
     for much better performance. In this case, select the
-    _Accelerated Visualization_ app instead of _Desktop_ in the Puhti web
+    _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
     interface. On LUMI, select the regular _Desktop_ app and `lumid`
-    partition ([mode information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+
+[TOC]
 
 ## License
 
@@ -38,14 +42,15 @@ VisIt is free also for commercial use and has been released under
 
 ## Available
 
-Puhti: 3.1.3, 3.3.3
-Mahti: 3.1.3, 3.3.1
-LUMI: 3.2.2
+* Roihu-CPU: 3.5.0
+* Puhti: 3.1.3, 3.3.3
+* Mahti: 3.1.3, 3.3.1
+* LUMI: 3.2.2
 
 ## Parallel use
 
 VisIt can be run interactively in parallel configuration using several
-processors. Login to Puhti and submit the following to launch VisIt on a
+processors. Log in to Puhti and submit the following to launch VisIt on a
 compute node
 
 ```bash

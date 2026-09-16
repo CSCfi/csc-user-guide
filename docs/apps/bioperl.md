@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # BioPerl
@@ -33,34 +33,37 @@ BioPerl is licensed under the same terms as Perl itself which is dually-licensed
 
 ## Available
 
-- Puhti: Perl 5.36.0 with BioPerl 1.7.8
+* Roihu: BioPerl 1.7.8 (module `perl-bioperl`), via the `bio-apps` module.
 
 ## Usage
 
-On Puhti, BioPerl can be taken in use with the command:
+BioPerl is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the BioPerl module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load perl-bioperl/1.7.8
 ```
 
 After this, you can launch a BioPerl program with the command:
 
 ```bash
-perl my_bioperl_code.pm
+perl my_bioperl_code.pl
 ```
 
-Alternatively you can change the Perl definition in the first line of your code to
+Alternatively you can set the interpreter on the first line of your script to
+
+```perl
+#!/usr/bin/env perl
+```
+
+make it executable, and run it directly:
 
 ```bash
-#!/bin/env perl
+chmod +x my_bioperl_code.pl
+./my_bioperl_code.pl
 ```
 
-and execute the Perl program:
-
-```bash
-./my_bioperl_code.pm
-```
- 
 ## Support
 
 [CSC Service Desk](../support/contact.md)

@@ -1,5 +1,5 @@
 # Accelerated visualization
-The Accelerated visualization app enables using visualization applications with GPU acceleration on a compute node, and is available on Roihu and Puhti.
+The Accelerated visualization app enables using visualization applications with GPU acceleration on a compute node, and is available on Roihu.
 
 ## Available applications
 
@@ -9,17 +9,6 @@ The Accelerated visualization app enables using visualization applications with 
 * [CloudCompare](../../apps/cloudcompare.md)
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
-* [VisIt](../../apps/visit.md)
-
-### Puhti
-
-* [Abaqus CAE](../../apps/abaqus.md)
-* [Ansys Workbench](../../apps/ansys.md)
-* [Blender](../../apps/blender.md)
-* [COMSOL](../../apps/comsol.md)
-* [CloudCompare](../../apps/cloudcompare.md)
-* [ParaView](../../apps/paraview.md)
-* [VMD](../../apps/vmd.md)
 * [VisIt](../../apps/visit.md)
 
 
@@ -33,11 +22,11 @@ The Accelerated visualization app enables using visualization applications with 
 
 !!! Note
 
-    Considerations about GPU partitions on Puhti:
+    Considerations about accelerated visualization on Roihu:
 
-    * `gputest` has 15 minute time limit, but should usually be available immediately or very soon.
-    * `gpu` enables longer usage of application, but might have also longer wait time in the queue.
-    * In terms of Billing Units, GPU computing time is ~60x more expensive than CPU time (see [Billing](../hpc-billing.md)). Thus, please keep the accelerated visualization application open only when you are actually using it. Use the `Delete` button on `My interactive Sessions` page to finish working.
+    * Jobs launched from the accelerated visualization desktop on Roihu run on the `vizinteractive` partition, which has a maximum runtime of 12 hours.
+    * Keep the accelerated visualization application open only when you are actively using it. Use the `Delete` button on `My interactive Sessions` page to finish working.
+    * In terms of Billing Units, a single visualization GPU consumes GPU Billing Units at approximately the same rate as a full CPU node on Roihu consumes CPU Billing Units. For more information, see [Billing](../hpc-billing.md#gpu-partitions).
 
 ## Connecting
 There are two options for connecting to the Accelerated Visualization app:

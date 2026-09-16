@@ -28,7 +28,7 @@ includes following python packages:
 -   [contextily](https://contextily.readthedocs.io/en/latest/) -  to retrieve tile maps from the internet. 
 -   [copc-lib](https://github.com/RockRobotic/copc-lib) - reader and writer interface for [Cloud Optimized Point Clouds (COPC)](https://copc.io/) 
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
-    -   [Dask parallization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
+    -   [Dask parallelization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [dask-image](https://dask-image.readthedocs.io/) - image processing with Dask Arrays. 
 -   [datashader](https://datashader.org/) - for big data rendering. NEW 2026
@@ -185,6 +185,10 @@ There are two Python libraries installed in Python-geo that can interact with Al
 It is also possible to __read__ and __write__ files from and to Allas or other cloud object storage directly with GDAL-based packages such as `geopandas` and `rasterio`. Please check our [Using geospatial files directly from cloud, inc Allas tutorial](../support/tutorials/gis/gdal_cloud.md) for instructions and examples.
 
 With large quantities of raster data, consider using [virtual rasters](https://research.csc.fi/virtual_rasters).
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License
 

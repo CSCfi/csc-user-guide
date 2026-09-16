@@ -19,11 +19,13 @@ The COMSOL Multiphysics simulation environment facilitates
 all steps in the modeling process; defining your geometry, specifying
 your physics, meshing, solving and then post-processing your results.
 
-Setting up the model up is quick, thanks to a number of predefined modeling
+Setting up the model is quick, thanks to a number of predefined modeling
 interfaces for applications ranging from fluid flow and heat transfer to
 structural mechanics and electromagnetic analyses. Material properties,
 source terms and boundary conditions can all be arbitrary functions of
 the dependent variables.
+
+[TOC]
 
 ## Available
 COMSOL is available on CSC's [Roihu](../computing/available-systems.md) supercomputer on both the CPU and GPU (aarch64) partitions.
@@ -67,13 +69,15 @@ select `Desktop` from the `Apps` view and specify the required resources (cores,
 execution time and memory). Remember to add your billing project, too.
 
 Wait for a while as your interactive job sits in the queue and after that you can start
-COMSOL with double-clinking its icon (tick the box if you want to receive an email when your session starts).
+COMSOL with double-clicking its icon (tick the box if you want to receive an email when your session starts).
 
 !!! Note
     You can now also enable [interactive visualization with GPU
     acceleration](../computing/webinterface/accelerated-visualization.md) for better
     performance. In this case, select `Accelerated visualization` instead of `Desktop`
-    in the Puhti web interface.
+    in the Roihu web interface.
+
+    See the section below for details.
 
 Sometimes, you may encounter errors relating to OpenGL rendering during
 the launch. The solution is to force COMSOL to start with software
@@ -83,6 +87,22 @@ rendering from Desktop app `Terminal` using
 module load comsol
 comsol -3drend sw
 ```
+
+### Accelerated visualization in Roihu
+
+On Roihu's web interface, you can optionally choose to use the accelerated visualization desktop session to run COMSOL for more
+intensive visualization tasks.
+
+1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
+2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+   app of the web interface and specify the required resources.
+3. Click the *Launch* button. Your job is placed in the queue, and once it has
+   been allocated resources, click *Launch Accelerated Visualization*.
+4. Launch COMSOL from *Applications* > *Computational Engineering* > *COMSOL (Accelerated)* (or search
+   for it using the *Application Finder*). Launching the software may take a
+   few seconds, so be patient.
+
+![Launching COMSOL in Roihu web interface accelerated desktop](../img/comsol_interactive_roihu.png 'Launching COMSOL in Roihu web interface accelerated desktop')
 
 ## Support
 In case of issues, please [contact CSC Service Desk](../support/contact.md).

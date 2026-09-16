@@ -14,7 +14,7 @@ Version shortcuts:
 
 ## SD Connect v3.0.0 
 
-Upcoming, in testing phase. 
+Available from September 28, 2026. 
 
 
 ## Overview
@@ -22,13 +22,12 @@ Upcoming, in testing phase.
 Major upgrade required because of a technical change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
 
 
-!!! Note
-    More detailed documentation, support materials, guidance and webinars will be published closer to the official release.
-
 
 ## Key features and changes
 
 - **Web user interface**: In this version, the top-level folder is renamed bucket. Search function removed, tag function removed, last activity removed, number of objects in a bucket and bucket size removed from the main view but available inside the bucket view, sorting removed. Uploading folders inside a bucket not yet supported.
+
+- **CSC Project name**: now visible from project section downtown next to project number for improve usability
 
 - **Command Line tools**: SD Lock-unlock V3.0.0 provides same functionalities but the updated version needs to be installed locally. SD Lock-unlock V2 will no longer be functional. 
 
@@ -46,8 +45,6 @@ Buckets with incompatible names: Data stored in buckets with unsupported names w
 Buckets with compatible names: Data will remain accessible. However, some files may temporarily appear with a file size of “0” in the user interface. Running the conversion tool will correct the metadata and display the proper file sizes. This step is recommended but can be postponed until the full migration to the new storage solution at the end of 2026.
 
 Shared buckets: Shared buckets will no longer appear in the web interface after the transition. Running the conversion tool will restore the visibility of sharing permissions.
-
-
 
 
 

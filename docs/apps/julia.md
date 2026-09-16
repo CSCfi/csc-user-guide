@@ -37,7 +37,7 @@ To find the correct citation for a specific Julia package, you can use the `pkg>
 
 
 ## Available
-Julia language is available on Roihu, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
+Julia language is available on Roihu-CPU, Roihu-GPU, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
 It is also available on the web interface via [Jupyter](../computing/webinterface/julia-on-jupyter.md) and [VSCode](../computing/webinterface/vscode.md#julia-language).
 
 If you find issues in using Julia on the cluster, you should [contact the servicedesk](../support/contact.md).
@@ -47,9 +47,9 @@ If you find issues in using Julia on the cluster, you should [contact the servic
 ### Using the Julia module
 Julia language is available from the `julia` module.
 
-=== "Roihu and Mahti"
+=== "Roihu-CPU, Roihu-GPU and Mahti"
 
-    On Roihu and Mahti, we can load the module as follows:
+    On Roihu-CPU, Roihu-GPU and Mahti, we can load the module as follows:
 
     ```bash
     module load julia
@@ -122,7 +122,7 @@ We recommend reading the [multi-processing and distributed computing](https://do
 
 
 #### MPI.jl
-We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu, Mahti, and LUMI using the `MPI.jl` package.
+We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu-CPU, Roihu-GPU, Mahti, and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
 ```julia
@@ -141,7 +141,7 @@ For more information, we recommend reading the [MPI.jl documentation](https://ju
 
 ### GPU programming
 #### CUDA.jl
-The GPU nodes on Roihu and Mahti contain NVidia GPUs which can be programmed using CUDA.
+The GPU nodes on Roihu-GPU and Mahti contain NVidia GPUs which can be programmed using CUDA.
 We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
 
 ```julia
@@ -183,7 +183,7 @@ Finally, the [Julia on HPC Clusters](https://juliahpc.github.io) lists general n
 
 
 ## Running Julia batch jobs on CSC clusters
-This section contains examples for running various Julia batch jobs on Roihu, Mahti and LUMI clusters.
+This section contains examples for running various Julia batch jobs on Roihu-CPU, Roihu-GPU, Mahti and LUMI clusters.
 They demonstrate the usage of the Julia environment described [above](#usage) for various batch jobs.
 They are adapted from the general instructions of running jobs on [Roihu and Mahti](../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Note that we do not use `srun` to start processes in the batch script.
@@ -193,7 +193,7 @@ Before running the examples, we need to instantiate the Julia project on the log
 That is, run the following command in the directory with your Julia environment where `Project.toml` file is located.
 
 
-=== "Roihu"
+=== "Roihu-CPU and Roihu-GPU"
     ```bash
     module purge
     module load julia
@@ -230,7 +230,7 @@ We use the following directory structure and assume it is our working directory.
 println("Hello world!")
 ```
 
-=== "Roihu"
+=== "Roihu-CPU"
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
@@ -309,7 +309,7 @@ end
 println(ids)
 ```
 
-=== "Roihu"
+=== "Roihu-CPU"
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
@@ -409,7 +409,7 @@ println(task())
 println.(outputs)
 ```
 
-=== "Roihu"
+=== "Roihu-CPU"
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
@@ -510,14 +510,14 @@ println(task())
 println.(outputs)
 ```
 
-=== "Roihu"
+=== "Roihu-CPU"
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=large
+    #SBATCH --partition=medium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=2
+    #SBATCH --ntasks-per-node=384
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
@@ -598,14 +598,14 @@ println("Hello from rank $(rank) out of $(size) from host $(gethostname()) and p
 MPI.Barrier(comm)
 ```
 
-=== "Roihu"
+=== "Roihu-CPU"
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=2
+    #SBATCH --ntasks-per-node=384
     #SBATCH --cpus-per-task=1
     #SBATCH --mem-per-cpu=1000
 
@@ -659,7 +659,7 @@ We use the following directory structure and assume it is our working directory.
 └── script.jl     # Julia script
 ```
 
-=== "Roihu GPU"
+=== "Roihu-GPU"
     ```toml title="Project.toml"
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
@@ -771,7 +771,7 @@ using MPI
 mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
 ```
 
-=== "Roihu GPU"
+=== "Roihu-GPU"
     ```toml title="Project.toml"
     [deps]
     CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
@@ -818,7 +818,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
     #SBATCH --cpus-per-task=72
-    #SBATCH --gpus-per-node=4
+    #SBATCH --gres=gpu:gh200:4
 
     module purge
     module load julia

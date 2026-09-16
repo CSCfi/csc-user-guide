@@ -93,9 +93,10 @@ Accessing your Pukki database from login and compute nodes you can allow this:
 
 ### Puhti
 
-!!! warning "Puhti step-wise retirement during spring and summer 2026"
-    Puhti will be gradually decommissioned during spring and summer 2026 and
-    replaced by Roihu.
+!!! warning "Puhti retirement"
+    Puhti's computing services have been shut down (31 July 2026) and it is being
+    replaced by Roihu. Puhti's storage and login nodes are planned to remain
+    accessible until 15 October 2026.
 
 Accessing your Pukki database from login and compute nodes you can allow this:
 
@@ -110,8 +111,10 @@ puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
 
 ### Mahti
 
-!!! warning "Mahti retirement in August 2026"
-    Mahti will be decommissioned in August 2026 and replaced by Roihu.
+!!! warning "Mahti retirement"
+    Mahti's computing services have been shut down (31 August 2026) and it is
+    being replaced by Roihu. Mahti's storage and login nodes are planned to
+    remain accessible until 15 October 2026.
 
 Accessing your Pukki database from Roihu from both login nodes and compute node you can allow this:
 

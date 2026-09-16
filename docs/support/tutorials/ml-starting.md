@@ -227,7 +227,7 @@ To run a program in Slurm we need to define a batch job script. This is just a
 text file with a set of Slurm options defining the resources we need for our
 program and the actual commands needed to run it. You can read more about
 defining [batch job scripts in our separate documentation
-page](../../computing/running/creating-job-scripts-puhti.md).
+page](../../computing/running/creating-job-scripts-roihu.md).
 
 In the file `run-cifar10.sh` in our code directory, you can find an example
 batch job script:

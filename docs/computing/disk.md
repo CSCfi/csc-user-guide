@@ -4,6 +4,13 @@
      This page contains storage information on Puhti and Mahti.
      For information on Roihu's storage, see: [Roihu storage](roihu-disk.md)
 
+!!! warning "Puhti and Mahti retirement in 2026"
+    Puhti and Mahti are being retired in 2026, and their storage systems will
+    be fully unavailable 15 October 2026 at 12:00 EEST.
+     
+    Migrate any data that you wish to keep into Roihu.
+    See the [Roihu data migration tutorial](../support/tutorials/pukki_data_migration.md) for details.
+
 CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**.
 In addition to these disk areas visible to all compute and login nodes, each node has a
 **local temporary disk area** that is visible to the particular compute node during a batch
@@ -240,7 +247,7 @@ need to process large amounts (over 100 000) of small files. These directories a
 the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
 to preserve from these temporary disk areas to `scratch` directory or to Allas.
 
-For more information see [creating job scripts](running/creating-job-scripts-puhti.md#local-storage).
+For more information see [creating job scripts](running/creating-job-scripts-roihu.md#local-temporary-storage).
 
 ### Compute nodes without local SSD (NVMe) disks
 

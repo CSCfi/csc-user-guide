@@ -1,27 +1,26 @@
+!!! warning "Q20 Service in MyCSC"
+    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+
 # Technical details
 
 ## Architecture and Topology
 
-### Helmi (VTT Q5)
-Helmi is a 5-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
-The qubits are arranged in a **star shaped** topology, with the central qubit being Qubit 3 (QB3) connected to the other 4 qubits. 
-This means that any two-qubit gate will work between QB3 and any other qubit, 
-and one-qubit gates can be mapped to any of the qubits. 
+### Aalto Q20
+Aalto Q20 is a superconducting IQM quantum computer operated by Aalto University. Q20 contains 20 qubits in a **aquare latttice** topology where qubits are connected to their nearest neighbours in a 2D grid. Q20 has two broken couplers. The coupler between qubits 16 and 17 and the coupler between qubuts 9 and 14.
 
-<center>!["Helmi's node mapping"](../../img/Helmi_topology.png)</center>
+![Q20's node mapping](../../img/aalto-q20-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
 
 #### Native Gates
 
-Helmi's native are are the two-qubit controlled-z gate and the one-qubit phased rx gate.
+Q20's native are are the two-qubit controlled-z gate and the one-qubit phased rx gate.
 
 ### VTT Q50
 VTT Q50 is a 53-qubit quantum computer co-developed by VTT and IQM using superconducting qubits. 
 The qubits are arranged in a **Square lattice** topology, a 2D grid where each qubit interacts directly with its nearest neighbors. The device has one broken tunable coupler between qubits QB18 and QB10.
 
 
-<center>!["Q50's node mapping"](../../img/VTT_Q50_topology.png)</center>
-
+![Q50's node mapping](../../img/vtt-q50-layout.svg){ width=80% style="display: block; margin: 0 auto;" }
 
 ### Native Gates
 Q50's native gates are the Phased x-rotation gate (prx) and controlled-z gate (cz)

@@ -187,6 +187,8 @@ we now also use `${name}` in the output definition, the output file name will be
     command list, i.e. a file in which each line corresponds to an individual subtask to be
     executed. [See the HyperQueue page for more details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
 
+--8<-- "puhti-retirement-running-notice.md"
+
 In Puhti, you can use the command `sbatch_commandlist` to execute a list of commands as an
 array job. This command takes as an input a text file. The command list is split into several
 pieces that are executed as an independent sub-task of a array batch job, automatically
@@ -227,7 +229,7 @@ loop just to generate a list of `md5sum` commands, that can be processed with `s
 
 ```bash
 #!/bin/bash -l
-#SBATCH --job-name=workfow
+#SBATCH --job-name=workflow
 #SBATCH --output=workflow_out_%j.txt
 #SBATCH --error=workflow_err_%j.txt
 #SBATCH --account=<project>

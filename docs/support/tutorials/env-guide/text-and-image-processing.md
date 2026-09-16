@@ -50,8 +50,7 @@ is opened by pressing `Ctrl-g`.
 **Emacs** is a versatile editor that contains a large amount of
 commands, functions and extensions. Emacs can be used in two ways: as a
 character based editor like nano or through a graphical interface.
-Using the graphical interface requires that you have X-term
-connection to CSC or are using a
+Using the graphical interface on e.g. Roihu requires either X11 forwarding or the
 [web interface remote desktop](../../../computing/webinterface/desktop.md).
 In the character based mode Emacs commands are given
 using `Ctrl` and `Esc` keys much like in the case of nano commands. In
@@ -131,35 +130,23 @@ For more options, please refer to the Vim manual.
 
 ![Graphical interface of Vim editor with welcome screen](../../../img/vim.jpg "Graphical interface of vim editor with welcome screen.")
 
-## Image and PostScript viewers
+## Viewing images
 
-In some cases application programs executed at CSC, produce image files
-instead of text files. If you have a working X-term connection you can use
-**eog** (Eye of GNOME) and **Evince** programs to view image files. eog is a
-simple image viewing program that can display common image formats like png,
-bmp, jpg and tiff. However eog is not able to show PostScript (ps) or
-pdf files. For these file types you can use program Evince.
+In some cases, application programs executed at CSC, produce image files
+instead of text files. If you have a graphical session, you can use
+`feh` to view typical image files, such as PNG and JPG files. `feh` is a
+simple image viewing program that can display common image formats such as
+PNG, BMP, JPG and TIFF.
 
 To view a jpg file, type:
 
 ```bash
-eog image_name.jpg
+feh image_name.jpg
 ```
 
-and to view a PostScript file, type:
-
-```bash
-evince file_name.ps
-```
-
-PostScript files can be converted to pdf documents with command
-`ps2pdf`. This command reads a PostScript file and prints out
-corresponding pdf file. For example command:
-
-```bash
-ps2pdf file1.ps
-```
-
-produces a pdf-formatted file `file1.pdf`
+`feh` cannot be used to view PostScript (`.ps`) or
+PDF files. These files can
+be copied to your local computer for viewing, or opened in the
+[Roihu web interface Desktop app](../../../computing/webinterface/desktop.md)
 
 ![eog image viewing program](../../../img/eog.jpg  "eog image viewing program.")

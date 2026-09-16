@@ -43,6 +43,13 @@ The [FirecREST HPC API](../firecrest/index.md) provides a standardized RESTful i
 
 ## Using an SSH client
 
+!!! note ""
+    `** WARNING: connection is not using a post-quantum key exchange algorithm.`
+
+    Recent SSH clients issue the above warning when connecting to older SSH servers. This
+    is a non-urgent known issue, and will be fixed in the servers. For now, you can ignore
+    the warning.
+    
 Logging in to CSC supercomputers using an SSH client requires that you have
 
 1. [set up SSH keys](ssh-keys.md),
@@ -173,6 +180,23 @@ This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and
 then connect to a node using `ssh`.
 
+!!! warning "Direct SSH connection into compute nodes on Roihu has not yet been configured"
+     A direct SSH connection into compute nodes on Roihu is not yet configured.
+     For connecting onto compute nodes where you have a job running, use Slurm's overlap feature:
+
+     ```text
+     srun --jobid=<jobid> --overlap --pty bash
+     ```
+
+     Or for targeting a specific node in a multi-node run:
+     ```text
+     srun --jobid=<jobid> --overlap --nodelist=rcXXXX --pty bash
+     ```
+
+     Replace `<jobid>` and `rcXXXX` in the above with your job ID in Slurm and the specific node
+     you want to connect into.
+
+
 ```bash
 # The nodes hosting the job are
 # displayed in the "NODELIST(REASON)" column.
@@ -188,4 +212,3 @@ r07c01.bullx
 If you try to connect to a node where you have no active jobs, you will
 receive the following error message: `Access denied by pam_slurm_adopt: you
 have no active jobs on this node`.
-
