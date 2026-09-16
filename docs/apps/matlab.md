@@ -11,10 +11,8 @@ catalog:
     - web_interfaces:
         - LUMI
         - Roihu
-        - Mahti
     - LUMI
     - Roihu
-    - Mahti
 ---
 
 # MATLAB
@@ -43,26 +41,26 @@ The best choice depends on your needs.
 1. **MATLAB web application** is best for interactive use.
 It works like the desktop version and lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
-Available on Roihu, Mahti, and LUMI.
+Available on Roihu-CPU, and LUMI.
 
 2. **MATLAB command-line interface** is good for basic interactive and batch work.
 It lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
-Available on Roihu, Mahti, and LUMI.
+Available on Roihu-CPU, and LUMI.
 
 3. **MATLAB parallel server** is best for batch computing.
 You can send jobs from your local MATLAB to the supercomputer.
 Your local toolboxes work on the supercomputer too.
 The supercomputer workers use CSC's network license.
-Available on Roihu only.
+Available on Roihu-CPU only.
 
 All options support MATLAB versions R2023b to R2026a.
 
 CSC provides the following licenses, shared between all users, for **academic** use:
 
-=== "Roihu and Mahti"
+=== "Roihu"
 
-    A network license `1766@license4.csc.fi` provides the following academic licenses for Roihu and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
+    A network license `1766@license4.csc.fi` provides the following academic licenses for Roihu: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
     The academic license allows use only for affiliates, that is, staff and students, of Finnish higher education institutions.
 
 === "LUMI"
@@ -113,9 +111,9 @@ Then press Connect to MATLAB and the web application will open.
 
 ## MATLAB command-line interface
 
-=== "Roihu and Mahti"
+=== "Roihu-CPU"
 
-    On Roihu and Mahti, you can load the MATLAB module as follows:
+    On Roihu-CPU, you can load the MATLAB module as follows:
 
     ```bash
     module load matlab
