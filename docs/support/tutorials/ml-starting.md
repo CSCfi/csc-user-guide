@@ -19,7 +19,7 @@ guide](ml-guide.md).
 CSC has two supercomputers: [Roihu](../../computing/systems-roihu.md)
 and [LUMI](https://docs.lumi-supercomputer.eu/hardware/). In this
 guide we will focus on using Roihu as it has the widest selection of
-software, and has a web user interface, making it very easy to access.
+software and the easiest to access for a Finnish academic user.
 
 When you are moving your code from your laptop to the Roihu supercomputer, it's
 important to acknowledge that Roihu isn't just a "faster laptop". Because of the
@@ -49,7 +49,7 @@ For more information, and special cases, check our separate ["How to
 create new user account"
 documentation](../../accounts/how-to-create-new-user-account.md). Note
 that you will need to have [Multi-Factor Authentication enabled by your
-university, or set it up via CSC MFA](https://docs.csc.fi/accounts/mfa/).
+university, or set it up via CSC MFA](../../accounts/mfa/).
 
 ## Step 2: Join an existing project, or create a new one
 
@@ -95,7 +95,7 @@ would typically log in with Haka, the same as with MyCSC. You may be
 asked to also enter the Multi-Factor Authentication (MFA) code at this
 point.
 
-!!! warning "Roihu account activate is not immediate"
+!!! warning "Roihu account activation is not immediate"
 
     If you have just created your account minutes ago, it might be that it
     hasn't yet been activated on Roihu. Just go get a coffee, or beverage of
@@ -118,9 +118,9 @@ For now, the main things to check are:
 - The *Tools* → *Login node shell* to start a terminal session on Roihu. From
   here you can run Linux commands.
   
-!!! note "Roihu has separate CPU and GPU sides"
+!!! warning "Roihu has separate CPU and GPU sides"
 
-    Roihu there are separate CPU and GPU sides, called Roihu-CPU and
+    In Roihu there are separate CPU and GPU sides, called Roihu-CPU and
     Roihu-GPU. In addition to having GPUs, Roihu-GPU also has a different
     CPU architecture, which is why it is important to select the right
     login based on if you are going to use GPUs or not.
@@ -157,7 +157,7 @@ This should create a copy of the code from the given GitHub repository
 to the Roihu drive. You can now enter the newly created directory,
 either from the terminal, or via the Files browser.
 
-!!! note "CIFAR10 image dataset"
+!!! info "Example code"
 
     Here we have provided some example code for training a simple neural network on
     CIFAR10 data. You can of course replace that with your own code, for example
