@@ -150,7 +150,7 @@ Outputs the resource(s) as YAML.
 {{- define "docs-csc.deploymentTrigger" -}}
 {{- $imagename := index . 0 -}}
 {{- $containername := index . 1 -}}
-{{- $fieldpath := printf `spec.template.spec.containers[?(@name=="%s")].image` $containername -}}
+{{- $fieldpath := printf `spec.template.spec.containers[?(@.name=="%s")].image` $containername -}}
 {{-
   dict "from" (dict "kind" "ImageStreamTag"
                            "name" $imagename)
