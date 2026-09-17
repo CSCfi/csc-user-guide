@@ -18,13 +18,9 @@ The web interfaces of the Pouta clouds are available at following addresses:
 
 This _OpenStack Horizon_ based interface allows you do basic cloud computing management operations such as launch a new virtual machine and manage security settings.
 
-To use this service, you need a CSC account and a cPouta/ePouta project at CSC. Accounts can be linked at [MyCSC](https://my.csc.fi/).
-
-You can log in to ePouta only using your CSC account.
-
 ## Prerequisites
 
-Before creating a Virtual Machine you need these three prerequisites:
+Before creating a Virtual Machine you need these three:
 
 1. A **CSC account**. Accounts can be created following [How to create new CSC user account](../../accounts/how-to-create-new-user-account.md).
 
@@ -34,11 +30,11 @@ Before creating a Virtual Machine you need these three prerequisites:
 
     For more information, visit the [Multi-Factor Authentication (MFA) Guide](../../accounts/mfa.md).
 
-1. A **CSC project** with the **cPouta** or the **ePouta** service enabled. You can [Create a new project](../../accounts/how-to-create-new-project.md), or ask to be added to an existing one. The project needs to have the suitable service enabled. You can follow [Applying for cPouta access](../../accounts/how-to-add-service-access-for-project.md). **But** If you need to store or process **sensitive data**, you must use ePouta instead and [Apply for ePouta access](ePouta-access.md).
+1. A **CSC project** (created or managed via [MyCSC](https://my.csc.fi/)) with the **cPouta** or the **ePouta** service enabled. You can [Create a new project](../../accounts/how-to-create-new-project.md), or ask to be added to an existing one. The project needs to have the suitable service enabled. You can follow [Applying for cPouta access](../../accounts/how-to-add-service-access-for-project.md). **But** If you need to store or process **sensitive data**, you must use ePouta instead and [Apply for ePouta access](ePouta-access.md). You can log in to ePouta only using your CSC account.
 
 ## Selecting the CSC project
 
-![Pouta project selection](../../img/pouta_project_selection.png){ align=left }
+![Pouta project selection](../../img/pouta_project_selection.png)
 
 You may have more than one CSC project with access to Pouta. You can check this from [my.csc.fi](https://my.csc.fi){:target="_blank"}, where you will be able to see all the projects you have access and which ones have cPouta (or ePouta) activated as a service.
 
@@ -56,19 +52,7 @@ To open a connection to your virtual machines in cPouta/ePouta, you first need t
 
     `ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnxS30WAvQCCo2yU1orfgqr41mM70MB person@domain.name`
 
-If you have not used SSH keypairs before, you need to create one. The web interface can take care of this for you:
-
-1. Go to the **Compute > Key Pairs** section, and select **Create Key Pair**.
-
-    ![The Access & Security subpage in the cPouta web interface](../../img/pouta-user-guide-keypairs.png 'ssh key pairs')
-
-    **Figure** The _Access & Security_ subpage in the cPouta web interface
-
-1. Give your key a name and click in **Create Key Pair**. You will get a "_keyname.pem_" to save. Save it in your home directory. This will be the last time you will be able to download this **private key**, Pouta does not keep a copy in its servers.
-
-    ![Create key](../../img/pouta-create-key.png)
-
-Once you have downloaded the private key, you need to install it on your computer before you can use it to connect to a virtual machine. Step-by-step instructions for Linux, Mac, and Windows (PowerShell or Putty) are covered in the [SSH Key Pair tutorial](tutorials/ssh-key.md#linux-and-mac).
+If you have not used SSH keypairs before, you can create one by following the [instructions in the SSH Key Pair tutorial](tutorials/ssh-key.md#creating-an-ssh-key-in-openstack).
 
 ### Firewalls and security groups
 
@@ -149,15 +133,11 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     ![Launch the instance view](../img/pouta-launch-instance.png 'Launch cPouta instance')
 
-    **Figure** Launch the instance view
-
 1. On the **Details** tab of the _launch instance_ view, first write the **Instance Name** and select the number of instances you want to create ( _-x_ will be automatically added to the end of the name of the instance if you decide to set the **Count** > 1).
 
 1. Click **Next** and select your **Instance Boot Source**. Select "Image" in the drop down menu and click on the up arrow next to the available images.
 
     ![Select the instance source](../img/pouta-launch-instance-source.png 'Select the instance source')
-
-    **Figure** Select the instance source
 
     !!! info "Cloud-native"
 
@@ -173,9 +153,6 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 1. Select the **Flavour**, which is the "size" of the Virtual Machine that you will create, from the available flavours and by clicking the up arrow. See [Virtual machine flavors and Billing Unit rates](vm-flavors-and-billing.md) for a complete list and descriptions. You can also expand the flavour to check the impact on your quota.
 
     ![Select the instance flavour](../img/pouta-launch-instance-flavor.png 'Select the instance flavour')
-
-    **Figure** Select the instance flavour
-
 
     !!! info "Warning quota usage"
 
@@ -218,8 +195,6 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
     ![Floating IP association options](../../img/associate-floating-ip-menu.png 'Associate floating IP menu')
 
-    **Figure** Floating IP association options
-
 1. Select an IP address under **IP Address**. If "No floating IP addresses allocated" shows up, click in the plus to allocate a new IP to you project, you will need to add a description.
 
 1. Under **Port to be associated** select the virtual machine.
@@ -228,12 +203,8 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 ![Floating IP association dialog](../../img/pouta-assign-ip.png 'Assign IP')
 
-**Figure** Floating IP association dialog
-
 !!! warning "IP billing"
 
     Allocated floating IPs are billed at the rate of 0,2 Cloud BU/hr. See the [Virtual machine flavors and Billing Unit rates](./vm-flavors-and-billing.md) for more information.
 
 Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.
-
-!!! info "\* **Cloud BU**: Cloud Billing Units"
