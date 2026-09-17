@@ -477,14 +477,25 @@ LicenseName=mdcs
 ```
 -->
 
-## Extending the MATLAB enviroment
+## Extending the MATLAB environment
 
-It is possbile to extend the CSC's MATLAB container with your own software.
+CSC's MATLAB installation runs inside an [Apptainer container](../computing/containers/overview.md).
+If you need software that the installation does not provide, such as a Python interpreter, extra system libraries, or command-line tools that your MATLAB code calls, you can build your own container image on top of CSC's MATLAB image and use it with the `matlab` module.
 
-TODO: link to Apptainer container page
+Since MATLAB is available on Roihu-CPU, build the container on the Roihu-CPU login node or on a Roihu-CPU compute node.
+See [Building container images](../computing/containers/overview.md#building-container-images) for general instructions and best practices about building containers on CSC supercomputers.
 
-Here is an example of installing [MATLAB engine for Python](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html) on top of the matlab container.
-The MATLAB container is built on Rockylinux .
+### Writing the definition file
+
+We extend CSC's MATLAB image by using it as the base image of the container, that is, by bootstrapping from a local image.
+You can see the path of the image that a specific MATLAB version uses as follows:
+
+```bash
+module show matlab/r2026a
+```
+
+The MATLAB image is built on Rocky Linux, thus we install software into it with the DNF package manager.
+Here is an example of installing the [MATLAB engine for Python](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html) on top of the MATLAB image:
 
 ```sh title="matlab.def"
 Bootstrap: localimage
@@ -499,30 +510,62 @@ From: /appl/soft/manual/general/x86_64/matlab/r2026a/matlab.sif
     python3.11 -m venv venv
     . venv/bin/activate
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/matlab/bin/glnxa64
-    python3.11 -m pip install matlabengine 
+    python3.11 -m pip install matlabengine
 
 %environment
     PATH=/opt/venv/bin:$PATH
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/matlab/bin/glnxa64
 ```
 
-How to build
+The `matlabengine` package must match the MATLAB version of the base image.
+The `%environment` section makes the virtual environment and the MATLAB libraries available at runtime, so that `python3` resolves to the Python of the virtual environment and `import matlab.engine` finds the MATLAB libraries.
+
+### Building the container
+
+We build the container from the definition file (`matlab.def`) into a container image (`matlab.sif`) using fakeroot.
+The MATLAB image is large, so build it on scratch (replace `<project>` with your project) and keep an eye on your [quota](../computing/roihu-disk.md):
 
 ```bash
-cd /scratch/<project>/
-apptainer build --fakeroot matlab.sif matlab.def
+cd /scratch/<project>
+apptainer build --fakeroot --bind="$TMPDIR:/tmp" matlab.sif matlab.def
 ```
 
-How to run
+The build takes a while because Apptainer has to copy and recompress the whole base image.
+
+### Using the custom container
+
+Load the same MATLAB version that you used as the base image and point the `MATLAB_SIF_IMAGE` environment variable to your own image:
 
 ```bash
 module load matlab/r2026a
 export MATLAB_SIF_IMAGE=/scratch/<project>/matlab.sif
 ```
 
+The MATLAB commands provided by the module now run inside your own image:
+
 ```bash
-matlab
+matlab -nodisplay
+```
+
+We can also run other software that we installed into the image using the `matlab-apptainer-exec` command:
+
+```bash
+matlab-apptainer-exec python3 --version
+```
+
+For example, we can call MATLAB from Python using the MATLAB engine as follows:
+
+```python title="engine.py"
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
+print(eng.sqrt(16.0))
+eng.quit()
 ```
 
 ```bash
-matlab-apptainer-exec python3  # arguments ...
+matlab-apptainer-exec python3 engine.py
 ```
+
+Note that CSC updates the MATLAB images, for example, to apply patches to a MATLAB version.
+If the base image changes, you need to rebuild your own image to pick up the changes.
