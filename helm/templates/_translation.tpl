@@ -78,7 +78,7 @@ data:
 {{- $args := index . 1 -}}
 {{- $secretname := include "translation.translatorSecretName" $ -}}
 - name: {{ $args.languageCode | printf "%s-%s" (include "translation.translatorName" $) }}
-  image: {{ include "translation.latestTranslatorImage" $ | squote }}
+  image: {{ include "translation.translatorName" $ | list $ | include "docs-csc.latestImageName" | squote }}
   imagePullPolicy: Always
   env:
 {{- if $args.configBranchOverride }}
@@ -133,6 +133,7 @@ data:
 {{- $buildsvolumename := include "translation.buildsVolumeName" $ -}}
 - name: {{ $args.languageCode | printf "%s-%s" (include "docs-csc.altBuilderName" $) }}
   image: {{ include "docs-csc.altBuilderName" $ | list $ | include "docs-csc.latestImageName" | squote }}
+  imagePullPolicy: Always
   env:
 {{- if $args.configBranchOverride }}
     - name: CONFIG_BRANCH
