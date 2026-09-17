@@ -245,7 +245,7 @@
     >:is(h1,h2,h3,h4,h5,h6):first-child {
       margin-bottom: 0;
 
-      +p {
+      :where(+p) {
         font-weight: var(--docs-font-weight--bold);
         margin: 0;
       }
@@ -310,7 +310,8 @@
 
     :is(h1,h2,h3,h4,h5,h6) {
       font-size: large;
-      color: var(--md-type);
+      font-weight: var(--docs-font-weight--bold);
+      color: var(--md-typeset-color);
     }
   }
 
