@@ -197,4 +197,12 @@ spec:
         "matomoSiteId" ($args.language.matomoSiteId | default nil)
    | list $
    | include "translation.buildContainer" | indent 4 }}
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: kubernetes.io/hostname
+          labelSelector:
+            matchLabels:
+{{ include "docs-csc.selectorLabels" $ | indent 14 }}
+{{ include "docs-csc.altName" $ | list $ | include "docs-csc.componentLabels" | indent 14 }}
 {{- end -}}
