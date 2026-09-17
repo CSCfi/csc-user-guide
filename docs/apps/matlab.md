@@ -276,7 +276,8 @@ Install the user-side configuration files by running the following MATLAB script
 
 !!! Info "Integration scripts"
     The integration scripts `mps_roihu.zip` for Roihu-CPU are not yet available.
-    They will be available soon!
+    We will change this notice once they are available.
+    Sorry for the inconvenience, you will have to use the alternative way to run MATLAB in the meantime.
 
 ```matlab title="mps_roihu.m"
 % Define local MATLAB configuration directory.
@@ -475,3 +476,53 @@ LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
 -->
+
+### Extending the MATLAB enviroment
+
+It is possbile to extend the CSC's MATLAB container with your own software.
+
+TODO: link to Apptainer container page
+
+Here is an example of installing [MATLAB engine for Python](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html) on top of the matlab container.
+The MATLAB container is built on Rockylinux .
+
+```sh title="matlab-r2026a-custom.def"
+Bootstrap: localimage
+From: /appl/soft/manual/general/x86_64/matlab/r2026a/matlab.sif
+
+%post
+    # Install Python
+    dnf install -y python3.11 python3.11-pip
+
+    # Install MATLAB engine into a virtual environment
+    cd /opt
+    python3.11 -m venv venv
+    . venv/bin/activate
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/matlab/bin/glnxa64
+    python3.11 -m pip install matlabengine 
+
+%environment
+    PATH=/opt/venv/bin:$PATH
+```
+
+How to build
+
+```bash
+cd /scratch/<project>/
+apptainer build --fakeroot matlab-r2026a-custom.sif matlab-r2026a-custom.def
+```
+
+How to run
+
+```bash
+module load matlab/r2026a
+export MATLAB_SIF_IMAGE=/scratch/<project>/matlab-r2026a-custom.sif
+```
+
+```bash
+matlab
+```
+
+```bash
+matlab-apptainer-exec <command>
+```
