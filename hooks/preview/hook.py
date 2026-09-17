@@ -32,15 +32,16 @@ class PreviewHook(DocsHook):
 
         return None
 
-    def on_pre_build(self, **_): # pylint: disable=missing-function-docstring
-        self._logger.info("preview build%s, commit %s",
-                          " (dirty)" if self._dirty else "",
-                          self.__headsha)
-
     def on_config(self, config): # pylint: disable=missing-function-docstring
         setattr(config, "exclude_docs", None)
 
         return config
+
+    def on_pre_build(self, config): # pylint: disable=missing-function-docstring
+        self._logger.info("%s build%s, commit %s",
+                          config.extra.get("environment", "preview"),
+                          " (dirty)" if self._dirty else "",
+                          self.__headsha)
 
     def on_page_context(self, context, page, config, **_): # pylint: disable=missing-function-docstring
         if "page" in context:
