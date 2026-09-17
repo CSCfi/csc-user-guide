@@ -1,6 +1,6 @@
 # Data management
 
-## SD Connect and SD Desktop major service upgrade 09,2026
+## SD Connect and SD Desktop major service upgrade, 09.2026
 
 A new version of SD Connect and SD Desktop will be released and available from 28 September. The upgrade introduces significant improvements but also includes changes that are not compatible with the current version of the services.
 
@@ -41,7 +41,7 @@ If you are unable to complete this preparatory step before the service break, do
 
 ### CSC Project- Secondary use type
 
-- **SD Desktop**: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September: [link]
+- **SD Desktop**: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September.
 
 ### Important dates and support
 
@@ -57,7 +57,7 @@ If you are unable to complete this preparatory step before the service break, do
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
 - Step-by-step instructions for actions required after 28 September, link soon available here
 
-
+─────────────────────────────────────────────────────────────
 
 
 
