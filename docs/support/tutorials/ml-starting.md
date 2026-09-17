@@ -49,7 +49,7 @@ For more information, and special cases, check our separate ["How to
 create new user account"
 documentation](../../accounts/how-to-create-new-user-account.md). Note
 that you will need to have [Multi-Factor Authentication enabled by your
-university, or set it up via CSC MFA](../../accounts/mfa/).
+university, or set it up via CSC MFA](../../accounts/mfa.md).
 
 ## Step 2: Join an existing project, or create a new one
 
