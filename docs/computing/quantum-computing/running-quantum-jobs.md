@@ -86,38 +86,41 @@ The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or
 !!! info "Running on Q50"
     When submitting a job on Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
 
-### Qiskit
 
-To load the Qiskit module use `module load fiqci-vtt-qiskit`.
+### Loading Modules and Setting Backend
 
-In Qiskit python scripts you will need to include the following. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-on-q20-and-q50).
+=== "Qiskit"
 
-```python
-import os
+    To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
-from qiskit import QuantumCircuit, transpile
-from iqm.qiskit_iqm import IQMProvider
+    In Qiskit python scripts you will need to include the following. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-on-q20-and-q50).
 
-DEVICE_CORTEX_URL = os.getenv('<CORTEX_URL>')
+    ```python
+    import os
 
-provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
-backend = provider.get_backend()
-```
+    from qiskit import QuantumCircuit, transpile
+    from iqm.qiskit_iqm import IQMProvider
 
-### Cirq
+    DEVICE_CORTEX_URL = os.getenv('<CORTEX_URL>')
 
-To load the Cirq module use `module load fiqci-vtt-cirq`. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-on-q20-and-q50).
+    provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
+    backend = provider.get_backend()
+    ```
 
-```python
-import os
+=== "Cirq"
 
-import cirq
-from iqm.cirq_iqm.iqm_sampler import IQMSampler
+    To load the Cirq module use `module load fiqci-vtt-cirq`. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-on-q20-and-q50).
 
-DEVICE_CORTEX_URL = os.getenv('<CORTEX_URL>')
+    ```python
+    import os
 
-sampler = IQMSampler(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
-```
+    import cirq
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
+
+    DEVICE_CORTEX_URL = os.getenv('<CORTEX_URL>')
+
+    sampler = IQMSampler(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
+    ```
 
 See the section on [running your first quantum job](first-quantum-job.md#congratulations) for a complete python script.
 
@@ -176,21 +179,21 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
 
 === "Qiskit"
 
-```bash
-module use /appl/local/quantum/modulefiles
-module load fiqci-vtt-qiskit
-export DEVICES=("<DEVICE_VALUE>")
-source $RUN_SETUP
-```
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-qiskit
+    export DEVICES=("<DEVICE_VALUE>")
+    source $RUN_SETUP
+    ```
 
 === "Cirq"
 
-```bash
-module use /appl/local/quantum/modulefiles
-module load fiqci-vtt-cirq
-export DEVICES=("<DEVICE_VALUE>")
-source $RUN_SETUP
-```
+    ```bash
+    module use /appl/local/quantum/modulefiles
+    module load fiqci-vtt-cirq
+    export DEVICES=("<DEVICE_VALUE>")
+    source $RUN_SETUP
+    ```
 
 !["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
 
