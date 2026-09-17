@@ -486,7 +486,7 @@ TODO: link to Apptainer container page
 Here is an example of installing [MATLAB engine for Python](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html) on top of the matlab container.
 The MATLAB container is built on Rockylinux .
 
-```sh title="matlab-r2026a-custom.def"
+```sh title="matlab.def"
 Bootstrap: localimage
 From: /appl/soft/manual/general/x86_64/matlab/r2026a/matlab.sif
 
@@ -509,14 +509,14 @@ How to build
 
 ```bash
 cd /scratch/<project>/
-apptainer build --fakeroot matlab-r2026a-custom.sif matlab-r2026a-custom.def
+apptainer build --fakeroot matlab.sif matlab.def
 ```
 
 How to run
 
 ```bash
 module load matlab/r2026a
-export MATLAB_SIF_IMAGE=/scratch/<project>/matlab-r2026a-custom.sif
+export MATLAB_SIF_IMAGE=/scratch/<project>/matlab.sif
 ```
 
 ```bash
@@ -524,5 +524,5 @@ matlab
 ```
 
 ```bash
-matlab-apptainer-exec <command>
+matlab-apptainer-exec python3  # arguments ...
 ```
