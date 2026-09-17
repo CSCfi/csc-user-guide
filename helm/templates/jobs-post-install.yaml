@@ -6,6 +6,9 @@ metadata:
   name: {{ $lang.code | printf "%s-restore-%s" (include "docs-csc.name" $) }}
   labels:
 {{ include "docs-csc.labels" $ | indent 4 }}
+  annotations:
+    helm.sh/hook: post-install
+    helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
 spec:
   template:
 {{ dict "language" $lang
