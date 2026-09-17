@@ -1,11 +1,11 @@
-{{- if not (include "networking.siteHost" . | hasSuffix ".rahtiapp.fi") -}}
-{{- if .Values.site.acme.useResourceLookup | default false -}}
+{{- if not (include "networking.siteHost" . | hasSuffix ".rahtiapp.fi") }}
+{{- if .Values.site.acme.useResourceLookup | default false }}
 {{- dict "name" (include "networking.acmeIssuerName" .)
          "kind" "Issuer"
          "apiVersion" "cert-manager.io/v1"
          "namespace" .Release.Namespace
     | include "docs-csc.resourceLookup" }}
-{{- else -}}
-{{- include "networking.newIssuer" . }}
-{{- end -}}
-{{- end -}}
+{{- else }}
+{{ include "networking.newIssuer" . }}
+{{- end }}
+{{- end }}

@@ -1,12 +1,12 @@
 {{- $sitehost := .Values.site.host | default "" -}}
-{{- if not ($sitehost | hasSuffix ".rahtiapp.fi") | and $sitehost -}}
-{{- if .Values.site.acme.useResourceLookup | default false -}}
-{{- dict "name" (include "networking.domainIngressName" .)
-         "kind" "Certificate"
-         "apiVersion" "cert-manager.io/v1"
-         "namespace" .Release.Namespace
-    | include "docs-csc.resourceLookup" }}
-{{- else -}}
-{{- include "networking.newCertificate" . }}
-{{- end -}}
-{{- end -}}
+{{- if not ($sitehost | hasSuffix ".rahtiapp.fi") | and $sitehost }}
+{{- if .Values.site.acme.useResourceLookup | default false }}
+{{ dict "name" (include "networking.domainIngressName" .)
+        "kind" "Certificate"
+        "apiVersion" "cert-manager.io/v1"
+        "namespace" .Release.Namespace
+   | include "docs-csc.resourceLookup" }}
+{{- else }}
+{{ include "networking.newCertificate" . }}
+{{- end }}
+{{- end }}

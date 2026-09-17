@@ -6,12 +6,6 @@
 {{- printf "%s-secret" (include "translation.translatorName" .) | trunc 63 | trimSuffix "-" }}
 {{- end -}}
 
-{{- define "translation.latestTranslatorImage" -}}
-{{- printf "%s/%s/%s:latest" .Values.localRegistry
-                             .Release.Namespace
-                             (include "translation.translatorName" .) }}
-{{- end -}}
-
 {{/*
 Volume for passing translation from translator to site builder container.
 */}}
@@ -71,11 +65,12 @@ data:
 {{- range $key := .Values.components.translator.restoreOnly
                   | ternary ("openAiApiKey" | without $requiredkeys)
                             $requiredkeys }}
-  {{ $key | get $secretsfile
-          | required (printf "%s not provided!" $key)
-          | b64enc
-          | printf "%s: %s" $key }}
-{{- end -}}
+{{ $key | get $secretsfile
+        | required (printf "%s not provided!" $key)
+        | b64enc
+        | printf "%s: %s" $key
+        | indent 2 }}
+{{- end }}
 {{- end -}}
 
 {{- define "translation.translatorContainer" -}}
