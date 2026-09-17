@@ -12,4 +12,4 @@ spec:
         "restoreOnly" true
    | list $
    | include "translation.jobTemplate" | indent 4 }}
-{{- end -}}
+{{- end }}

@@ -111,8 +111,8 @@ type: Git
 git:
 {{- range $key, $value := .Values.git }}
   {{ $value | squote | printf "%s: %s" $key }}
-{{- end -}}
 {{- end }}
+{{- end -}}
 
 {{/*
 Allows for deploying forks and/or development branches.
@@ -129,8 +129,8 @@ Expects a dict of type {
 {{- range $name, $value := . }}
 - name: {{ printf "repo_%s" $name }}
   value: {{ $value | squote }}
-{{- end -}}
 {{- end }}
+{{- end -}}
 
 {{/*
 Lookup resource(s) on the cluster, fail if not found.
@@ -156,6 +156,6 @@ Outputs the resource(s) as YAML.
                            "name" $imagename)
        "fieldPath" $fieldpath
   | list
-  | toJson
+  | toPrettyJson
 }}
 {{- end -}}
