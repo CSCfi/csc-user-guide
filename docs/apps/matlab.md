@@ -477,7 +477,7 @@ LicenseName=mdcs
 ```
 -->
 
-### Extending the MATLAB enviroment
+## Extending the MATLAB enviroment
 
 It is possbile to extend the CSC's MATLAB container with your own software.
 
