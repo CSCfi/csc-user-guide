@@ -3,8 +3,7 @@
 !!! Warning
 
     You should familiarize yourself with the [security guidelines](security.md) and
-    terms of Pouta accounting before launching your first virtual
-    machine.
+    terms of Pouta accounting before launching your first virtual machine.
 
 
 You might also want to take a look at the [webinar](https://www.youtube.com/watch?v=CIO8KRbgDoI).
@@ -111,7 +110,7 @@ Give a name to your server group and select a policy. You will have the choice b
 
 - **Soft Anti-Affinity:** Soft anti-affinity is a variation of the anti-affinity policy. In a server group with a soft anti-affinity policy, the scheduler attempts to place instances on different hosts, but it is not a strict requirement. If constraints prevent the spread of instances across different hosts, the scheduler can still place them on the same host. Soft anti-affinity provides a more flexible approach compared to the strict anti-affinity policy.  
 
-To check if your instances are running on the same (or different) hosts, you can type this command:
+To check if your instances are running on the same (or different) hosts, you can type this command using the [OpenStack command line client](command-line-tools.md) (see [installation instructions](install-client.md) if you don't have it set up yet):
 ```sh
 openstack server show [INSTANCE_NAME | INSTANCE_ID] | grep HostId
 ```
@@ -203,8 +202,8 @@ When a virtual machine is launched, it only gets a **private IP** (`192.168.XXX.
 
 ![Floating IP association dialog](../../img/pouta-assign-ip.png 'Assign IP')
 
+Once associated, the floating IP will appear next to your instance in the **Compute > Instances** list — write it down, as you will need it to [connect to your virtual machine](connecting-to-vm.md).
+
 !!! warning "IP billing"
 
     Allocated floating IPs are billed at the rate of 0,2 Cloud BU/hr. See the [Virtual machine flavors and Billing Unit rates](./vm-flavors-and-billing.md) for more information.
-
-Now we can go to the [Connecting to your virtual machine](connecting-to-vm.md) section and log in to the new Virtual Machine.
