@@ -8,6 +8,21 @@
 
 With the SD Desktop service, you can create virtual computers for analysing sensitive data via web browser. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to six virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
 
+## Overview: 
+
+1. [Log in to SD Desktop](#1-log-in-to-sd-desktop)
+
+2. [Select correct options](#2-select)
+
+3. [Add an external volume](#3-add-an-external-volume-virtual-external-hard-drive)
+
+4. [Create virtual desktop](#4-create-virtual-desktop)
+
+5. [Make sure your CSC project has sufficient Billing Units](#5-make-sure-your-csc-project-has-sufficient-billing-units-bu)
+
+6. [Important considerations](#6-important-considerations)
+
+
 ## Step by step
 
 ### 1. Log in to SD Desktop
@@ -20,12 +35,10 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 ### 2. Select
 
 1. correct CSC project
-2. operating system. **Please select Default Ubuntu 22.04** as the operating system.
-Choosing another option will cause the virtual desktop to stop working. Other operating systems are only available after contacting the service desk and following specific instructions.
+2. operating system. **Please select Default Ubuntu 22.04** as the operating system. Other available operating systems are only available after contacting the service desk and following specific instructions.
 
 4. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
-5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options). Please note that running desktops are the main source of Billing Units consumption. When paused, consumption is significantly reduced, but ~3,200 BU per year are still charged until the virtual desktop is deleted.
-
+5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options).
 
 ![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
 
@@ -40,51 +53,61 @@ Choosing another option will cause the virtual desktop to stop working. Other op
 | **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details | 1 GPU | 195 Cloud Billing Units/h |  |
 
 !!! note
-    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. The medium GPU computation option has been deprecated in October 2024. 
-
+    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. 
 
 ### 3. Add an external volume (virtual external hard drive)
 
-When creating a desktop, you must also add a volume, where you will import the data for analysis. External volumes consume Cloud Billing Units continuously based on their size, regardless of whether they are attached to a desktop or if the associated desktop is paused. Charges continue until the volume is deleted.
+When creating a desktop, you must also add a volume, where you will import the data for analysis. 
 
-1. Choose a size that covers the combined size of your dataset and working files. If you are unsure about which volume size you should choose, send an email to [CSC Service Desk](../../support/contact.md).
+1. Choose a size that covers the combined size of your dataset and working files via the user interface, up to 200 GB. An empty volume can be extended with additional storage upon request to service desk, after desktop creation and if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop) and share your CSC project number, virtual desktop  and volume name. If you are unsure about which volume size you should choose for your project, contact us for support. 
 
 2. Name your volume. Note, that the volume name should not include special characters or spaces.
 
-* It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive. Please note that after the virtual desktop is set up, the volume can only be extended with additional storage if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop)*.
-
+* It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive.
+  
 * **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a USB stick to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
 
-
-| Volume Option | Cloud Billing Rate (units/TiB/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
-|----------------|---------------------------|--------------------------|------------------------|
-| 200 GB | 4.7 | 8 000 | Small package, once a year: 30 000 BUs assigned immediately| 
-| 1 TB | 4.7 | 41 000 | Small package, 2 times a year: 30 000 BUs assigned immediately  |
-| 10 TB | 4.7 | 402 000 | Medium package, 2 times a year: 300 000 BUs Processed on average within 1-3 days by a Resource Officer |
-
+*  Volumes consume 4.7 Cloud Billing units/TiB/hour until deleted. 
 
 ![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
 
-### 4. Create virtual desktop and verify if your project has sufficient Billing Units
+### 4. Create virtual desktop
 
-4. Finally, click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later.
+4. Click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later. 
 
 !!! Note
     After clicking "Create," please be aware that the confirmation notification may take up to 90 seconds to appear at the bottom of the page. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
 
-4.2 The virtual desktop and external volume will start consuming your CSC project resources (also referred to as Cloud Billing Units, BU). Please ensure that your project has sufficient Billing Units available. If needed, apply for additional BU in advance.
-
-**Important:**
-- If your project’s BU becomes negative, your CSC project will be suspended after 60 days.
-- After approximately 90 days, the project and all its content will be automatically deleted.
-You will receive automated email notifications to keep you informed and provide instructions throughout the process.
-
-
 ![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
 
-## Important considerations
 
-* Your virtual desktop is **accessible to all project members upon creation**. A running virtual desktop and a volume **consumes Cloud Billing Units type** from your CSC project until [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop)
+### 5. Make sure your CSC project has sufficient Billing Units (BU).
+
+Once created, your virtual desktop and any associated storage volumes begin consuming resources, measured in Cloud Billing Units (BU), from your project allocation.
+
+**Please review the following important information:**
+
+1. Ensure sufficient Billing Units (BU) are available in your project before creating a virtual desktop. If necessary, [apply for additional BU by following the step-by-step guide, which includes example estimates to help you determine your requirements.](sd-billing-units.md). 
+
+2. Virtual desktops consume Billing Units based on the selected option. When a virtual desktop is [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop), consumption is significantly reduced; however, approximately 3,200 BU per year will still be charged until the virtual desktop is deleted [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop).
+
+3. External volumes consume Billing Units continuously based on their allocated size. Charges apply regardless of whether the volume is attached to a virtual desktop or whether the desktop is running or paused. Billing continues until the volume is deleted.
+
+4. If your project's BU balance becomes negative:
+
+* All virtual desktops in the project will be automatically paused.
+
+* You will not be able to create new virtual desktops.
+
+* The CSC project will be scheduled for closure after 60 days. After approximately 90 days, the project and all associated content will be permanently deleted.
+
+You will receive automated email notifications throughout the process, including warnings, status updates, and instructions on any actions that may be required.
+
+
+
+## 6. Important considerations
+
+* Your virtual desktop is **accessible to all the CSC project members upon creation**. All project members can import file, install software, permanently delete the virtual desktop and its entire content. Only the CSC project manager can export files from the secure environment. 
 
 * Each CSC project supports up to 6 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 

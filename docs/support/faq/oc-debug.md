@@ -5,7 +5,7 @@ Sometimes when deploying your pod, after a few seconds, the status of it will be
 In this article, we will see how to debug a container with two methods:
 
 - The first one using the Rahti web interface
-- The second one using the [oc](../../cloud/rahti/usage/cli.md) command line tool.
+- The second one using the [oc](../../cloud/rahti/get-started/cli.md) command line tool.
 
 ## Deploying a failing pod
 

@@ -3,6 +3,7 @@
 Audit logs provide a record of all important activities performed in Satama. These logs help administrators track user actions and investigate security incidents.
 
 Audit logs typically record actions such as:
+
 * User login attempts
 * Image push or pull operations
 * Project creation or deletion

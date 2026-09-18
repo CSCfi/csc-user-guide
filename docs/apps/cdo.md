@@ -24,14 +24,10 @@ CDO is free to use and open source under the GNU General Public License, version
 
 CDO is available with following versions:
 
+* 2.6.0 - standalone executable with `module load cdo` command
 * 2.5.0 - in the 3.14.5 [python-geo](python-geo.md) module/container in Roihu
 
 
 ## Usage
 
-CDO is included in the module/container listed above, so it can be used when this module is loaded.
-
-
-## Installation 
-
-Users can install an optimised custom version of CDO relatively easily with [Spack](../support/tutorials/roihu-user-spack.md).
+CDO is included in the modules listed above. It can be used when the module is loaded.

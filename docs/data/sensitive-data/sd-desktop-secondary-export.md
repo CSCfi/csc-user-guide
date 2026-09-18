@@ -11,15 +11,15 @@ Please ensure you reserve enough time for the export process. It may take us a f
 
 **In order to export the results at the end of your analysis, you need to:**
 
-1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/) and familiarize yourself with the [risk based assessment for exported results](https://findata.fi/palvelut-ja-ohjeet/tulosten-tuominen-ulos-kayttoymparistosta/#Tulosten-tuominen-ulos-muusta-k%C3%A4ytt%C3%B6ymp%C3%A4rist%C3%B6st%C3%A4);
-2. Do the risk based assessment with [Findata's risk assessment form](https://findata.fi/palvelut-ja-ohjeet/tulosten-tuominen-ulos-kayttoymparistosta/#Riskiarviointilomake);
-3. Continue filling in the form and submit the information about the results to Findata; 
+1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/) and familiarize yourself with the [risk based assessment for exported results](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Exporting-results-from-other-processing-environment);
+2. Do the risk based assessment with [Findata's risk assessment form](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Risk-assessment-form);
+3. Continue filling in the notification form after the risk assessment to notify Findata of the results export; 
 4. Collect all the results into a folder on your Desktop and name it as **Results**;
 5. Place the **Results** folder into the **shared-directory** on your Desktop;
 7. **Send a request to [CSC Service Desk](../../support/contact.md)** to export your results;
 8. The content of the “Results” folder will be exported on the agreed time. During the export, you will not be able to access your virtual Desktop. All the project members have to be removed from the CSC project for the duration of the data export. Afterwards, you will be added back to the CSC project, if your project is still ongoing;
 9. You will receive instructions on how to create a new CSC project in SD Connect, after which the Sensitive Data Support -team will share the results to you via SD Connect;
-10. If required by the risk based assessment, deliver the results to Findata for scrutiny following [Findata's instructions](https://findata.fi/palvelut-ja-ohjeet/tulosten-tuominen-ulos-kayttoymparistosta/#Tulosten-tuominen-ulos-muusta-k%C3%A4ytt%C3%B6ymp%C3%A4rist%C3%B6st%C3%A4).
+10. If required by the risk based assessment, deliver the results to Findata for scrutiny following [Findata's instructions](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Exporting-results-from-other-processing-environment).
 
 !!! Note
     When requesting export, remember to agree on the export date with all project members, because the virtual desktops will be unavailable during the export. In addition, remember to save all your work before the export, because software and processes can be interrupted during the export.

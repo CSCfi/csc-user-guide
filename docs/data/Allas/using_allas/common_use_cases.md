@@ -35,13 +35,13 @@ There are several cases where you need to access data in several locations. In t
 
 ## Accessing the same data via multiple CSC platforms
 
-Since the data in the object storage is available anywhere, you can access the data via both the CSC supercomputers and cloud services. This makes the object storage a good place to store data as well as intermediate and final results in cases where the workflow requires the use of e.g. both cPouta and Puhti.
+Since the data in the object storage is available anywhere, you can access the data via both the CSC supercomputers and cloud services. This makes the object storage a good place to store data as well as intermediate and final results in cases where the workflow requires the use of e.g. both cPouta and Roihu.
 
 ## Collecting data from different sources
 
 It is easy to push data to the object storage from several different sources. This data can then later be processed as needed.
 
-For example, several data collectors may push data to be processed, e.g. scientific instruments, meters, or software that harvests social media streams for scientific analysis. They can push their data into the object storage, and later virtual machines and computing jobs on Puhti can process the data.
+For example, several data collectors may push data to be processed, e.g. scientific instruments, meters, or software that harvests social media streams for scientific analysis. They can push their data into the object storage, and later virtual machines and computing jobs on Roihu can process the data.
  
 ## Self-service backups of data
 

@@ -1,6 +1,6 @@
 # The Swift client
 
-The Python Swift client is a command line tool for using object storage systems such as Allas. If you use Allas on Puhti or Mahti, all required packages and software are already installed.
+The Python Swift client is a command line tool for using object storage systems such as Allas. If you use Allas on Roihu or Lumi, all required packages and software are already installed.
 ```text
 module load allas
 

@@ -41,7 +41,7 @@ module load cuda
 
 To profile a CUDA code, one then adds the command `nvprof` before the normal
 command to execute the code. Running is otherwise similar to that of any other
-CUDA job on [Puhti](../computing/running/example-job-scripts-puhti.md#single-gpu) or [Mahti](../computing/running/example-job-scripts-mahti.md#1-2-gpu-job-ie-gpusmall-partition).
+CUDA job.
 
 An example of usage and output of nvprof:
 ```

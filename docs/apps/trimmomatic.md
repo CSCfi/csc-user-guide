@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Trimmomatic
@@ -25,59 +25,64 @@ THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina a
 
 ## Available
 
-- Puhti: 0.39
-- [Chipster](https://chipster.csc.fi) graphical user interface
+* Roihu: 0.39, via the `bio-apps` module.
 
 ## Usage
 
-Trimmomatic is included in the `biokit` module:
+Trimmomatic is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Trimmomatic module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load trimmomatic/0.39
 ```
 
-It can also be loaded separately:
-
-```bash
-module load trimmomatic
-```
-
-Trimmomatic can be launched with command:
+Trimmomatic can be launched with the command:
 
 ```bash
 trimmomatic
 ```
 
-If you need to adjust Java settings you can use variable `$TMJAR`
+If you need to adjust Java settings, such as the maximum heap size, set the
+`_JAVA_OPTIONS` environment variable, which the Java runtime picks up automatically:
 
 ```bash
-java <java options> -jar $TMJAR <trimmomatic options>
+export _JAVA_OPTIONS="-Xmx8g"
 ```
 
-Included adapter sequences for ILLUMINACLIP can be used by specifying `$ADAPTERS`, e.g:
+Trimmomatic ships a set of standard Illumina adapter files. The module sets the
+`$TRIMMOMATIC_INSTROOT` environment variable, which points to the installation, and
+the bundled adapter files are located under `$TRIMMOMATIC_INSTROOT/share/adapters`.
+Give the path to the adapter file you need in the `ILLUMINACLIP` step, for example:
 
 ```bash
-ILLUMINACLIP:$ADAPTERS/TruSeq3-PE.fa:2:30:10
+ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10
 ```
 
-Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job.
+Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as a batch job.
 
 Example batch job script:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=trimmomatic
-#SBATCH --account=project_12345 # Substitute your project name
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --partition=small
 #SBATCH --time=00:15:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8000
 
-trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred64 \
+module load bio-apps/v202603
+module load trimmomatic/0.39
+
+trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 \
 forward.fq.gz reverse.fq.gz \
 out_fw_paired.fq.gz out_fw_unpaired.fq.gz out_rev_paired.fq.gz out_rev_unpaired.fq.gz \
-ILLUMINACLIP:$ADAPTERS/TruSeq3-PE.fa:2:30:10 \
+ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10 \
 LEADING:3 \
 TRAILING:3 \
 SLIDINGWINDOW:4:15 \
@@ -90,6 +95,10 @@ The batch job could be launched with command:
 sbatch trimmomatic_script
 ```
 
+## Support
+
+[CSC Service Desk](../support/contact.md)
+
 ## More information
 
-* [Trimmomatic home page](http://www.usadellab.org/cms/?page=trimmomatic)
+* [Trimmomatic home page](http://www.usadellab.org/cms/?page=trimmomatic)

@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # CD-HIT
@@ -25,17 +25,19 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-Puhti: 4.8.1 
+* Roihu: 4.8.1 (module `cdhit`), via the `bio-apps` module.
 
 ## Usage
 
-The setup command for CD-HIT on Puhti is:
+CD-HIT is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the CD-HIT module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load cdhit/4.8.1
 ```
 
-After the setup command, the server recognizes CD-HIT commands. The CD-HIT package has many programs. The most notable are:
+After loading, the CD-HIT commands are available. The CD-HIT package has many programs. The most notable are:
 
 | Program | Description |
 |---------|-------------|
@@ -44,17 +46,15 @@ After the setup command, the server recognizes CD-HIT commands. The CD-HIT packa
 |cd-hit-2d | Tool to compare two protein sequence sets |
 |cd-hit-est-2d | Tool to compare two nucleic sequence sets |
 |cd-hit-454 | A program to identify artificial duplicates from raw 454 sequencing reads |
-|cd-hit	| Cluster peptide sequences	|
 |psi-cd-hit	| Cluster proteins at less than 40% cutoff	|
 |cd-hit-lap	| Identify overlapping reads |
 |cd-hit-dup | Identify duplicates from single or paired Illumina reads |	
-|cd-hit-454 | Identify duplicates from 454 reads |
 |h-cd-hit | Hierarchical clustering |	
  
 
 A full list of programs can be found in the [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki).
 
-You can list the command line options of CD-HIT programs by using option `-help`. For example:
+You can list the command line options of CD-HIT programs by using the option `-help`. For example:
 
 ```bash
 cd-hit -help

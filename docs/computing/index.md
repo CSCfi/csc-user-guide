@@ -5,8 +5,8 @@
     next-generation supercomputer offering enhanced performance and
     capabilities.
 
-    * Puhti computing services will be shut down by 31 July 2026 at 12:00 EEST.
-    * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
+    * Puhti computing services have been shut down since 31 July 2026.
+    * Mahti computing services have been shut down since 31 August 2026.
     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
     * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
@@ -18,6 +18,8 @@ one of the pan-European pre-exascale supercomputers, located in CSC's data
 center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
 early 2022, and the full system with the large LUMI-G partition has been available since early 2023.
 
+Puhti and Mahti computing services have been shut down. Their login nodes and storage services are planned to remain accessible until 15 October 2026.
+
 Puhti contains CPU nodes with a range of memory sizes as well as a large GPU
 partition (Puhti AI), while Mahti contains homogeneous CPU nodes and is meant
 for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition
@@ -26,8 +28,7 @@ for details on the systems and [this page for an outline of differences between 
 Mahti](lumi-vs-mahti.md).
 
 Puhti and Mahti are being replaced in by CSC's next national supercomputer
-called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu is accessible as a service in MyCSC
-around end of June 2026.
+called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu has been accessible for CSC users since end of June 2026.
 
 Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
 and software environments.
@@ -173,8 +174,6 @@ csc-workspaces
   supercomputers
 * Installing and compiling your applications:
     * [Installing software](installing.md)
-    * [Compiling on Puhti](compiling-puhti.md)
-    * [Compiling on Mahti](compiling-mahti.md)
     * [Compiling on Roihu](compiling-roihu.md)
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of

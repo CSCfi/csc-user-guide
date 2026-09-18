@@ -44,7 +44,7 @@ FireWorks is easy to install. We recommend using [Tykky](../computing/containers
 
 Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loading modules. FireWorks requires at least Python 3.7, so make sure you're using at least this version. To this end, you can use the `--slim` flag of `pip-containerize` to utilize a pre-built minimal Python container with a much newer version of Python than the system default 3.6.8.
 
-The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12. Thus, you may need to separately specify the PyMongo version in the `req.txt` file when installing FireWorks. For example,
+The process of setting up and connecting to a MongoDB database in Rahti is detailed in a separate tutorial, see [Accessing databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/advanced/connect-database-hpc.md). Note that the OpenShift template in Rahti sets up MongoDB version 3.2, requiring that the PyMongo version used with FireWorks cannot be newer than 3.12. Thus, you may need to separately specify the PyMongo version in the `req.txt` file when installing FireWorks. For example,
 
 ```
 # req.txt
@@ -79,7 +79,7 @@ A FireWorker (e.g. your laptop or in this case either of CSC's supercomputers) f
 !!! Note
     This page focuses on the usage of YAML files and the FireWorks command-line interface to define and execute workflows. For instructions on using the FireWorks Python API, see the [official FireWorks documentation](https://materialsproject.github.io/fireworks/).
 
-Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using a LoadBalancer as outlined in [Accessing databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/connect-database-hpc.md#step-2-setup-a-loadbalancer-service-type-on-rahti). With the obtained target IP and port, database username and password, run `lpad init` to interactively configure the LaunchPad:
+Before configuring the LaunchPad, make sure that you have opened a connection to your MongoDB database in Rahti using a LoadBalancer as outlined in [Accessing databases on Rahti from CSC supercomputers](../cloud/rahti/tutorials/advanced/connect-database-hpc.md#step-2-setup-a-loadbalancer-service-type-on-rahti). With the obtained target IP and port, database username and password, run `lpad init` to interactively configure the LaunchPad:
 
 ```console
 $ lpad init
