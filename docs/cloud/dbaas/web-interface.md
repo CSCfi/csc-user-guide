@@ -49,7 +49,10 @@ You can add and remove databases from the `Database` tab of the database instanc
 
 ## How to access database logs
 
+!!! info "Note"
+    If the system does not return any log lines then that means there are no log entries within the 1 month retention period which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
+
 Go to `Database`, `Instances`, click the desired database under the `Instance Name` column and go to `Logs` tab.
 
 !!! info "Note"
-    If log lines are with same `timestamp` then log lines may be displayed in bit of a mixed order.
+    If log lines are with same `Timestamp` then log lines may be displayed in bit of a mixed order.

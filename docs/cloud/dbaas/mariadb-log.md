@@ -8,7 +8,7 @@ Server log in MariaDB gives important information from database's current health
 
 [Via Web UI](web-interface.md#how-to-access-database-logs)
 
-If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
+If the system does not return any log lines then that means there are no log entries within the 1 month retention period which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
 ## What to look for
 Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages related to DB's startup, shutdown, creation, upgrade or restore related operations.

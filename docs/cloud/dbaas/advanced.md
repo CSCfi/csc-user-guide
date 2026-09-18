@@ -67,7 +67,7 @@ your database instance.
 ## How to access database logs
 
 !!! info "Note"
-    If the system does not return any log lines in either methods then that means there are no log entries within the 1 month retention period which is common to MariaDBs.
+    If the system does not return any log lines then that means there are no log entries within the 1 month retention period which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
 [Prerequisites for CLI use](cli.md#getting-started)
 
