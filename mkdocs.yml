@@ -349,6 +349,7 @@ nav:
           - Connecting: computing/firecrest/connecting.md
           - Data transfer over S3: computing/firecrest/data-transfer-s3.md
           - Python SDK: computing/firecrest/pyfirecrest.md
+      - AI Tools: computing/ai-tools/docs-mcp.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
