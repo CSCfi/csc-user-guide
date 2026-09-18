@@ -63,6 +63,8 @@ If there is too much write load, then checkpoints will happen more requently and
 2026-03-06 15:07:27.231 UTC [10] LOG:  checkpoints are occurring too frequently (18 seconds apart)
 ```
 
+This can also happen under heavy load caused by upgrade process or when manually reindexing.
+
 !!! info "Note"
     In Pukki `max_wal_size` is tied to instance's flavor size. 
 
