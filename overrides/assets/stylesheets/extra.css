@@ -356,19 +356,23 @@
   }
 
   [data-md-toggle=search]:checked {
-    ~.md-header .md-search__form {
-      background-color: var(--c-white);
-      box-shadow: none;
-      border-radius: var(--docs-border-radius)
-                     var(--docs-border-radius)
-                     0
-                     0;
-    }
-    ~.md-search__output {
-      border-radius: 0
-                     0
-                     var(--docs-border-radius)
-                     var(--docs-border-radius);
+    ~.md-header {
+      .md-search__form {
+        background-color: var(--c-white);
+        box-shadow: none;
+        border-radius:
+          var(--docs-border-radius)
+          var(--docs-border-radius)
+          0
+          0;
+      }
+      .md-search__output {
+        border-radius:
+          0
+          0
+          var(--docs-border-radius)
+          var(--docs-border-radius);
+      }
     }
   }
 
@@ -408,6 +412,11 @@
 
     .md-search__form:hover {
       background-color: initial;
+    }
+
+    .md-header__source .md-source:hover {
+      opacity: 1.0;
+      color: var(--md-accent-fg-color);
     }
   }
 
