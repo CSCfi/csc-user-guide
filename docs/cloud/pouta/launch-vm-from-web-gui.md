@@ -1,6 +1,6 @@
 # Creating a virtual machine in Pouta
 
-!!! warning
+!!! Warning
 
     You should familiarize yourself with the [security guidelines](security.md) and
     terms of Pouta accounting before launching your first virtual
@@ -54,7 +54,7 @@ To open a connection to your virtual machines in cPouta/ePouta, you first need t
 
 If you have not used SSH keypairs before, you can create one by following the [instructions in the SSH Key Pair tutorial](tutorials/ssh-key.md#creating-an-ssh-key-in-openstack).
 
-### Firewalls and security groups
+## Firewalls and security groups
 
 Security groups are sets of firewall rules which limit access to your machines. A virtual machine can use one or more security groups. These firewall rules are made on the _OpenStack_ layer and you may have additional firewall rules within your virtual machine. In case of connectivity problems, you should make sure both the security group and the virtual machine's internal firewall are correctly configured. The "Default" security group comes with rules that allow internal communication between virtual machines that are members of the security group.
 
@@ -81,20 +81,20 @@ In order to create a new security group:
 !!! error
     You can also open ports to all possible IP addresses by using `0.0.0.0/0` as CIDR, but doing this is a bad security practise.
 
-!!! tip
+!!! Tip
     **Please note:**
 
     *   **Deleting the default egress rules (allow any protocol to 0.0.0.0/0 and ::/0) in cPouta will cause disruption in the metadata service responsible for SSH key injections. If you want to limit egress traffic, you should at least allow outbound traffic to IP 169.254.169.254, TCP port 80, for SSH key injections to work.**
     *   **Even though the ePouta virtual machines are only accessible via the customer's network, they also need to have security groups configured for them. Otherwise they can not be accessed.**
     *   **It is possible to add and remove security groups on a running instance. This is done from the instances page.**
 
-### Server Groups
+## Server Groups
 
 If you want a policy that allows your instances to run (or not) on the same host, you can set up server groups.
 
 ![Server Groups](../../img/pouta-server-groups.png)
 
-!!! warning  
+!!! Warning  
     You can only add an instance to a server group at instance creation time. Not afterwards!
 
 After clicking on **Create Server Group**, a window will open:  
@@ -116,7 +116,7 @@ To check if your instances are running on the same (or different) hosts, you can
 openstack server show [INSTANCE_NAME | INSTANCE_ID] | grep HostId
 ```
 
-!!! note  
+!!! Note  
     The "soft" variants allow for more flexibility in instance placement.  
     Affinity or anti-affinity policies may not always be possible due to resource constraints or other scheduling limitations.
 
@@ -139,11 +139,11 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     ![Select the instance source](../img/pouta-launch-instance-source.png 'Select the instance source')
 
-    !!! info "Cloud-native"
+    !!! Info "Cloud-native"
 
         In case you want to be more cloud-native, you can select the "Image" and set "Create a New Volume" to "Yes". This option creates a new persistent volume for your instance. In the event you accidentally delete your instance or it enters an unrecoverable state, the file system of your instance will be saved in this volume. You can later use this volume to boot up a new instance with the same filesystem state as the previous instance.
 
-    !!! warning "Please note"
+    !!! Warning "Please note"
 
         The option "Create New Volume" set to "Yes" creates an additional volume which is billed normally as mentioned on our [pricing](https://research.csc.fi/billing-units) page.
 
@@ -154,7 +154,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     ![Select the instance flavour](../img/pouta-launch-instance-flavor.png 'Select the instance flavour')
 
-    !!! info "Warning quota usage"
+    !!! Info "Warning quota usage"
 
         Pay attention that you can have a warning sign indicating if your quota is sufficient to run a specific flavour. If your quota is not enough, you can send a request to our [Service Desk](mailto:servicedesk@csc.fi) by specifying the amount you want.
 
@@ -172,7 +172,7 @@ Once the SSH keys and security groups are set, you can launch a new virtual mach
 
     ![Launch the instance key-pairs](../img/pouta-launch-instance-key-pairs.png 'Launch the instance key-pairs')
 
-    !!! warning "Key pairs cannot be added after creation"
+    !!! Warning "Key pairs cannot be added after creation"
         A public key is only added to the VM if it has been specified in this step.
         After clicking on **Launch Instance**, the VM will be created, and the configured key pairs cannot be changed. If no key pair is configured, the recommended solution is to delete the VM and start from scratch.
 
