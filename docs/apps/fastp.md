@@ -25,7 +25,7 @@ Free to use and open source under the [MIT License](https://github.com/OpenGene/
 
 ## Available
 
-* Roihu: 1.0.1, via the `bio-apps` module.
+* Roihu-CPU: 1.0.1, 1.3.6, via the `bio-apps` module.
 
 ## Usage
 
@@ -34,7 +34,7 @@ bio-apps module tree and then the fastp module:
 
 ```bash
 module load bio-apps/v202603
-module load fastp/1.0.1
+module load fastp/1.3.6
 ```
 
 For paired-end data:
@@ -59,7 +59,7 @@ fastp -i read1.fq.gz -I read2.fq.gz -o out1.fq.gz -O out2.fq.gz --thread 4
 #SBATCH --mem-per-cpu=2G
 
 module load bio-apps/v202603
-module load fastp/1.0.1
+module load fastp/1.3.6
 
 fastp -i read1.fq.gz -I read2.fq.gz -o out1.fq.gz -O out2.fq.gz --thread $SLURM_CPUS_PER_TASK
 ```

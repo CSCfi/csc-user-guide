@@ -144,11 +144,13 @@ eggnog-mapper/2.1.15
 emboss/6.6.0
 exonerate/2.4.0
 fastp/1.0.1
+fastp/1.3.6
 fastqc/0.12.1
 fastx-toolkit/0.0.14
 freebayes/1.3.6
 gapseq/2.1.0
 gatk/4.5.0.0
+gatk/4.7.0.0
 getorganelle/1.7.7.1
 hisat2/2.2.1
 hmmer/3.4
@@ -158,6 +160,7 @@ hybpiper/2.3.4
 hyphy/2.5.51hf
 igv/2.19.7
 iq-tree/2.4.0
+iqtree3/3.1.4
 jellyfish/2.2.7
 kraken2/2.17.1
 mafft/7.525
@@ -165,6 +168,7 @@ mash/2.3
 megahit/1.2.9
 meme/5.5.7
 metabat/2.15
+minibwa/0.7
 minimap2/2.30
 mmseqs2/18-8cc5c
 mothur/1.48.0
@@ -174,6 +178,7 @@ muscle/3.8.31
 muscle5/5.1.0
 ncbi-toolkit/28_0_12
 nextflow/25.10.2-standalone
+nextflow/26.04.6-standalone
 openmpi/5.0.10-gcc14.3.0
 perl-bioperl/1.7.8
 phylip/3.697
@@ -197,12 +202,15 @@ raxml/8.2.12
 raxml-ng/2.0.2
 roary/3.13.0
 samtools/1.21
+samtools/1.24
 seqkit/2.10.0
+seqkit/2.13.0
 seqtk/1.4
 snakemake/7.32.4
 snakemake/9.14.0
 sortmerna/7.0.0
 spades/4.2.0
+spades/4.3.0
 sra-tools/3.3.0
 star/2.7.11b
 strauto/1.0
@@ -223,8 +231,10 @@ GPU-accelerated tools:
 
 ```text
 dorado/2.1.1
+mhm2/2.2.2.0-20260904
 mmseqs2/18-8cc5c
 nextflow/25.10.2-standalone
+nextflow/26.04.6-standalone
 py-medaka/2.2.2
 snakemake/7.32.4
 snakemake/9.14.0

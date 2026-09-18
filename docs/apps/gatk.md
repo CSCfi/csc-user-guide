@@ -25,7 +25,7 @@ GATK4 is open source and free to use. See the
 
 ## Available
 
-* Roihu: 4.5.0.0, via the `bio-apps` module.
+* Roihu-CPU: 4.5.0.0, 4.7.0.0, via the `bio-apps` module.
 
 ## Usage
 
@@ -34,7 +34,7 @@ bio-apps module tree and then the GATK module:
 
 ```bash
 module load bio-apps/v202603
-module load gatk/4.5.0.0
+module load gatk/4.7.0.0
 ```
 
 GATK tools are run through the `gatk` wrapper, followed by the tool name. Java options
@@ -60,7 +60,7 @@ gatk --java-options "-Xmx8g" HaplotypeCaller -R reference.fa -I input.bam -O out
 #SBATCH --mem=10G
 
 module load bio-apps/v202603
-module load gatk/4.5.0.0
+module load gatk/4.7.0.0
 
 gatk --java-options "-Xmx8g" HaplotypeCaller -R reference.fa -I input.bam -O output.vcf.gz
 ```
