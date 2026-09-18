@@ -32,7 +32,7 @@
     <button class="md-header__button md-icon" aria-label="{{ lang.t('select.language') }}">
       <span style="font-size: small; vertical-align: center;">
         {{- (config.extra.alternate
-             | selectattr("lang", "equalto", lang.t("meta.lang_code"))
+             | selectattr("lang", "eq", lang.t("meta.lang_code"))
              | list
              | first).name -}}
       </span>
@@ -40,7 +40,7 @@
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
-        {% for alt in config.extra.alternate %}
+        {% for alt in config.extra.alternate | selectattr("lang", "ne", lang.t("meta.lang_code")) %}
           <li class="md-select__item">
             <a href="{{ alt_link(alt) }}" hreflang="{{ alt.lang }}" class="md-select__link">
               {{ alt.name }}
