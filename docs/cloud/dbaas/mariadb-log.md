@@ -8,7 +8,7 @@ Server log in MariaDB gives important information from database's current health
 
 [Via Web UI](web-interface.md#how-to-access-database-logs)
 
-If the system does not return any log lines then that means there are no log entries within the 1 month retention period which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
+If the system does not return any log lines, then that means there are no log entries within the 1 month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
 ## What to look for
 Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages related to DB's startup, shutdown, creation, upgrade or restore related operations.
@@ -21,21 +21,21 @@ User authentication, idle connections and networking issues are what should be k
 
 #### Incorrect password or user does not exists
 
-In this example the first attempt did not specify password when connecting and the second one used incorrect password.
-
-The log line looks same in case of incorrect password or trying to connect with user that does not exists.
+In this example the first attempt did not specify password when connecting and the second one used incorrect password;
 
 ```
 2026-09-04 13:45:54 10 [Warning] Access denied for user 'testuser'@'$random_container_id' (using password: NO)
 2026-09-04 13:46:04 13 [Warning] Access denied for user 'testuser'@'$random_container_id' (using password: YES)
 ```
 
+The log line looks same in case of incorrect password or trying to connect with user that does not exists.
+
 !!! info "Note"
     Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 #### Idle connections
 
-Session's `wait_timeout` or/and `interactive_timeout` is exceeded.
+Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
 
 ```
 2026-09-04 14:13:43 nn [Warning] Aborted connection nn to db: 'test' user: 'testuser' host: '$random_container_id' (Got timeout reading communication packets)
@@ -46,7 +46,7 @@ Session's `wait_timeout` or/and `interactive_timeout` is exceeded.
 
 #### Connection was not closed properly from the client side
 
-Session's `wait_timeout` or/and `interactive_timeout` is exceeded.
+Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
 
 ```
 2026-09-04 14:15:55 nn [Warning] Aborted connection nn to db: 'test' user: 'testuser' host: '$random_container_id' (Got an error reading communication packets)
@@ -113,7 +113,7 @@ These are from Pukki's database logging point of view just a shutdown and startu
 
 #### Database creation
 
-In reality it is a startup and shutdown of a temporary server, ending up to normal startup sequence.
+In reality it is a startup and shutdown of a temporary server, ending up to normal startup sequence;
 
 ```
 2026-07-31 11:13:27+00:00 [Note] [Entrypoint]: Entrypoint script for MariaDB Server 1:12.3.2+maria~ubu2404 started.
