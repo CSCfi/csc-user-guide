@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "gitSource": {
+      "description": "GitBuildSource for BuildConfigs.",
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "ref": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uri"
+      ]
+    },
+    "gitHubRepository": {
+      "description": "GitHub repository for sparse clones.",
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "default": "github.com",
+          "format": "uri"
+        },
+        "org": {
+          "type": "string",
+          "default": "CSCfi"
+        },
+        "name": {
+          "type": "string",
+          "default": "csc-user-guide"
+        },
+        "branch": {
+          "type": "string",
+          "default": "master"
+        }
+      }
+    },
+    "deploymentReplicas": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 1
+    },
+    "enableLookupFlag": {
+      "description": "Attempt to lookup existing resources on the cluster.",
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "default": false
+    },
+    "containerImage": {
+      "type": "string"
+    },
+    "containerImageTag": {
+      "type": "string"
+    },
+    "imageName": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/$defs/containerImage"
+        },
+        "tag": {
+          "$ref": "#/$defs/containerImageTag"
+        }
+      },
+      "required": [
+        "image",
+        "tag"
+      ]
+    },
+    "matomoSiteId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "lang": {
+      "description": "A target language to translate the site to.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "name": {
+          "description": "The name of the target language, e.g. 'Finnish'.",
+          "type": "string",
+          "minLength": 2
+        },
+        "matomoSiteId": {
+          "$ref": "#/$defs/matomoSiteId"
+        }
+      },
+      "required": [
+        "code",
+        "name"
+      ]
+    },
+    "configBranch": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resticConfig": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/$defs/containerImage"
+        },
+        "tag": {
+          "$ref": "#/$defs/containerImageTag"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "image",
+        "tag",
+        "repository",
+        "host"
+      ]
+    },
+    "cacheConfig": {
+      "type": "object",
+      "properties": {
+        "container": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "container",
+        "prefix"
+      ]
+    },
+    "siteConfig": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "hostname"
+        },
+        "matomoUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ipAllowlistFile": {
+          "description": "Optional YAML file with a list of IP addresses/ranges to allow traffix from.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "acme": {
+          "type": "object",
+          "properties": {
+            "useResourceLookup": {
+              "$ref": "#/$defs/enableLookupFlag"
+            },
+            "issuerName": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "acmeFile": {
+              "description": "YAML file with ACME details for TLS certificate.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "if": {
+              "properties": {
+                "useResourceLookup": {
+                  "const": false
+                }
+              },
+              "required": [
+                "useResourceLookup"
+              ]
+            },
+            "then": {
+              "required": [
+                "acmefile"
+              ],
+              "properties": {
+                "acmeFile": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": [
+            "issuerName"
+          ]
+        }
+      }
+    },
+    "originalConfig": {
+      "type": "object",
+      "properties": {
+        "repo": {
+          "$ref": "#/$defs/gitHubRepository"
+        },
+        "matomoSiteId": {
+          "$ref": "#/$defs/matomoSiteId"
+        },
+        "replicaCount": {
+          "$ref": "#/$defs/deploymentReplicas"
+        }
+      }
+    },
+    "translatorConfig": {
+      "type": "object",
+      "properties": {
+        "repo": {
+          "$ref": "#/$defs/gitHubRepository"
+        },
+        "configBranchOverride": {
+          "$ref": "#/$defs/configBranch"
+        },
+        "useResourceLookup": {
+          "$ref": "#/$defs/enableLookupFlag"
+        },
+        "secretsFile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "languages": {
+          "description": "Configuration for all of the languages the site is to be translated to from English.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lang"
+          },
+          "minItems": 1
+        },
+        "restoreOnly": {
+          "type": "boolean",
+          "default": false
+        },
+        "schedule": {
+          "description": "The translation schedule as cron expression.",
+          "type": "string",
+          "default": "0 0 * * 1-5"
+        },
+        "osAuthUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "restic": {
+          "$ref": "#/$defs/resticConfig"
+        },
+        "cache": {
+          "$ref": "#/$defs/cacheConfig"
+        },
+        "storageCapacity": {
+          "type": "string",
+          "default": "2Gi"
+        },
+        "if": {
+          "properties": {
+            "useResourceLookup": {
+              "const": false
+            }
+          },
+          "required": [
+            "useResourceLookup"
+          ]
+        },
+        "then": {
+          "required": [
+            "secretsFile"
+          ],
+          "properties": {
+            "secretsFile": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "languages",
+        "schedule",
+        "osAuthUrl",
+        "restic",
+        "cache"
+      ]
+    },
+    "alternateConfig": {
+      "repo": {
+        "$ref": "#/$defs/gitHubRepository"
+      },
+      "configBranchOverride": {
+        "$ref": "#/$defs/configBranch"
+      }
+    }
+  },
+  "properties": {
+    "git": {
+      "$ref": "#/$defs/gitSource"
+    },
+    "environment": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": "preview"
+    },
+    "nameOverride": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "base": {
+      "$ref": "#/$defs/imageName"
+    },
+    "server": {
+      "$ref": "#/$defs/imageName"
+    },
+    "localRegistry": {
+      "type": "string"
+    },
+    "site": {
+      "$ref": "#/$defs/siteConfig"
+    },
+    "components": {
+      "type": "object",
+      "properties": {
+        "original": {
+          "$ref": "#/$defs/originalConfig"
+        },
+        "translator": {
+          "$ref": "#/$defs/translatorConfig"
+        },
+        "alternate": {
+          "$ref": "#/$defs/alternateConfig"
+        }
+      },
+      "required": [
+        "original",
+        "translator",
+        "alternate"
+      ]
+    }
+  },
+  "required": [
+    "git",
+    "base",
+    "server",
+    "localRegistry",
+    "site",
+    "components"
+  ]
+}

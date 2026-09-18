@@ -1,0 +1,26 @@
+{{- $altname := include "docs-csc.altName" . -}}
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ $altname }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $altname | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  triggers:
+    - type: ConfigChange
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ $altname | list $ | include "docs-csc.latestImageName" | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: translation/Containerfile.alternate
+      buildArgs:
+        - name: server_image
+{{- with .Values.server }}
+          value: {{ .tag | printf "%s:%s" .image | squote }}
+{{- end }}
+  source:
+{{ include "docs-csc.gitSource" . | indent 4 -}}

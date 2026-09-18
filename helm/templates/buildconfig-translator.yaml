@@ -1,0 +1,33 @@
+{{- $resourcename := include "translation.translatorName" . -}}
+{{- $basename := include "docs-csc.baseName" . -}}
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  triggers:
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: ImageStreamTag
+          name: {{ $basename | list $ | include "docs-csc.latestImageName" | squote }}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ $resourcename | list $ | include "docs-csc.latestImageName" | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: translation/Containerfile.translator
+      buildArgs:
+        - name: base_image
+          value: {{ $basename | list $ | include "docs-csc.fullImageName" | squote }}
+        - name: restic_image
+          value: {{ printf "%s:%s" .Values.components.translator.restic.image
+                                   .Values.components.translator.restic.tag | squote }}
+{{- .Values.components.translator.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
+  source:
+{{ include "docs-csc.gitSource" . | indent 4 }}

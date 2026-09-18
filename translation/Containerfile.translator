@@ -3,8 +3,8 @@ FROM ${base_image} as base
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
-ARG restic_version
-COPY --from=ghcr.io/restic/restic:${restic_version} \
+ARG restic_image
+COPY --from=${restic_image} \
      /usr/bin/restic \
      /usr/bin/restic
 
@@ -12,9 +12,13 @@ ADD translation/requirements.txt ./
 
 ARG PIP_ROOT_USER_ACTION=ignore
 RUN \
-  pip3 install --upgrade pip \
+  pip3.12 install --upgrade pip \
 && \
-  pip3 install --requirement=requirements.txt
+  pip3.12 install \
+            --use-pep517 \
+            --no-cache-dir \
+            --no-deps \
+            --requirement=requirements.txt
 
 ADD translation/translator/ ./translator/
 ADD translation/refresh_translation.py \
@@ -25,10 +29,12 @@ ADD --chown=0:0 \
     --chmod=774 \
   translation/entrypoint.translator.bash /entrypoint.bash
 
+ARG repo_host=github.com
 ARG repo_org=CSCfi
 ARG repo_name=csc-user-guide
 ARG repo_branch=master
-ENV REPO_ORG=${repo_org} \
+ENV REPO_HOST=${repo_host} \
+    REPO_ORG=${repo_org} \
     REPO_NAME=${repo_name} \
     REPO_BRANCH=${repo_branch} \
     DOCS_DIR=docs \

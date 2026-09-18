@@ -1,7 +1,7 @@
 """Site content-related testing suite.
 """
 import humps
-from mkdocs.plugins import event_priority
+from properdocs.plugins import event_priority
 from markdown.extensions import Extension
 
 from classes import DocsHook
@@ -49,8 +49,9 @@ class TestingHook(DocsHook):
         self.extension = TestingExtension(
             AppLicenseHeadingProcessor(DocsTests.LICENSE_HEADING_LEVEL_RANGE)
         )
-
         config["markdown_extensions"].append(self.extension)
+
+        return config
 
     @event_priority(-100)
     def on_files(self, files, **_): # pylint: disable=missing-function-docstring

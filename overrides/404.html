@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block htmltitle %}
+<title>{{ lang.t("404.not_found") ~ " - " ~ config.site_name }}</title>
+{% endblock htmltitle %}
+{% block content %}
+<h1>{{ lang.t("404.error") ~ " 404: " ~ lang.t("404.not_found") }}</h1>
+<h2>{{ lang.t("404.sorry") }}</h2>
+<p>{{ lang.t("404.please") }} <a href="{{ base_url }}">{{ lang.t("404.link_text") }}</a>.</p>
+{% endblock content %}

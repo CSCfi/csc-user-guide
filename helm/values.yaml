@@ -1,0 +1,156 @@
+git:
+  uri: https://github.com/CSCfi/csc-user-guide.git
+  ref: master
+
+# Defaults to 'preview' if not set:
+environment: production
+
+nameOverride: null
+
+base:
+  image: ubi9
+  tag: 9.8-1789461287
+
+server:
+  image: ubi9/nginx-126
+  tag: 9.8-1789518899
+
+localRegistry: image-registry.openshift-image-registry.svc:5000
+
+site:
+  # The server hostname. Alternate languages will be available
+  # under subpaths /<lang code>. Defaults to <expanded chart name>.rahtiapp.fi:
+  host: docs.csc.fi
+
+  matomoUrl: https://mwa-acf.2.rahtiapp.fi/
+
+  # List of IP addresses/ranges to allow access from. Format is
+  #   ipAllowlist:
+  #     - 127.0.0.1
+  #     - 192.167.0.0/16
+  #
+  # Allow any if filename not defined or ipAllowlist is empty:
+  ipAllowlistFile: iplist.yaml
+
+  acme:
+    # Attempt to lookup existing ACME resources in the namespace.
+    useResourceLookup: false
+
+    # Required if a custom certificate is needed, i.e. site.host
+    # is set and does not end in '.rahtiapp.fi':
+    issuerName: null
+
+    # ACME details. Format is
+    #   email: recipient@example.org
+    #   server: https://acme.api.example.org
+    #   certificateDuration: 2160h
+    #   certificateRenewBefore: 720h
+    #   eabKeyID: <ACME account EAB key ID>
+    #   eabHmacKey: <ACME account EAB HMAC key>
+    #
+    # Has no effect if site.host is not set or ends in '.rahtiapp.fi',
+    # or if useResourceLookup is set:
+    acmeFile: acme.yaml
+
+components:
+  original:
+    # Git repo for the English site.
+    # (defaults are defined in /Containerfile):
+    repo:
+      host: github.com
+      org: CSCfi
+      name: csc-user-guide
+      branch: master
+
+    # Matomo site ID for the English site:
+    matomoSiteId: 1
+
+    # Number of replicas for English site deployment,
+    # Defaults to 1 if not set:
+    replicaCount: 3
+
+  translator:
+    # Git repo where Markdown files are cloned from for translation.
+    # (defaults are defined in /translation/Containerfile.translator):
+    repo:
+      host: github.com
+      org: CSCfi
+      name: csc-user-guide
+      branch: master
+
+    # Clone the translator config files
+    #   - /translation/exclude.txt
+    #   - /translation/force.yml
+    #   - /translation/dictionary.yml
+    #
+    # from this branch instead of repo.branch:
+    configBranchOverride: null
+
+    # Attempt to lookup existing translator secret in the namespace.
+    useResourceLookup: false
+
+    # Translator secrets. Format is
+    #   openAiApiKey: <string> (not needed if translator.restoreOnly is set)
+    #   resticPassword: <string>
+    #   osApplicationCredentialId: <string>
+    #   osApplicationCredentialSecret: <string>
+    #
+    # Keys are case-sensitive:
+    secretsFile: translator.yaml
+
+    languages:
+      - code: fi
+        name: Finnish
+        matomoSiteId: 24
+      # - code: se
+      #   name: Swedish
+      #   matomoSiteId: ??
+
+    # Allows for a deployment where pages are not translated,
+    # but only restored from the latest restic snapshot.
+    # If set to true, openAiApiKey is not needed in secretsFile.
+    # Defaults to false:
+    restoreOnly: false
+
+    # The translation schedule as cron expression.
+    # Defaults to '0 0 * * 1-5', i.e. weekday midnights:
+    schedule: 0 0 * * 1-5
+
+    osAuthUrl: https://pouta.csc.fi:5001/v3
+    restic:
+      image: ghcr.io/restic/restic
+      tag: 0.19.1
+      repository: swift:docs-restic:/translations
+
+      # This is not the server hostname. Only used as the hostname in restic snapshots:
+      host: docs.csc.fi
+
+    # This probably shouldn't be touched. Determines the path where
+    # the translated files are cached before they're saved into
+    # a restic snapshot. Used for continuing an errored translation
+    # without having to start over:
+    cache:
+      container: docs-restic
+      prefix: cache
+
+    # Defaults to 2Gi if not set:
+    storageCapacity: null
+
+  alternate:
+    # Git repo where non-Markdown files are cloned from for translated builds.
+    # (defaults are defined in /translation/Containerfile.alternate.builder):
+    repo:
+      host: github.com
+      org: CSCfi
+      name: csc-user-guide
+      branch: master
+
+    # Clone ProperDocs config files
+    #   - /properdocs.yml
+    #   - /properdocs_*.yml
+    # from this branch instead of repo.branch:
+    configBranchOverride: null
+
+    # Number of replicas for translated sites deployment,
+    # Defaults to 1 if not set:
+    replicaCount: 1

@@ -10,7 +10,7 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
 
 
-<div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
+<div class="grid cards docs-quick-links docs-quick-links--compact" markdown>
 
 - #### Research data: store and analyse
 
