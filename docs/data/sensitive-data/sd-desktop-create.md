@@ -160,9 +160,9 @@ You can create **up to five volumes** per CSC project. A volume works like a vir
 
 ### Attach volume to desktop:
 
-Once you have created a virtual desktop and a volume, you can attach it to the virtual desktop. It is possible to attach multiple volumes to the same virtual desktop created after 28 September 2026, but it is not possible to attach one volume to the multiple virtual desktops or to virtual desktops created before 28 September 2026. 
+Once you have created a virtual desktop and a volume, you can attach them. Desktops created after 28 September 2026 support multiple volumes, while earlier desktops support only one. Each volume can be attached to only one desktop at a time.
 
-Please continue to the next section to learn how to manage volumes and [attach](sd-desktop-manage.md#attaching-or-detaching-a-volume) it to your desktop.
+Continue to the next section to learn how to manage and [attach](sd-desktop-manage.md#attaching-or-detaching-a-volume) volumes. 
 
 
 
