@@ -77,6 +77,7 @@ hooks:
   - hooks/breadcrumbs.py
 
 plugins:
+  meta: {}
   tags: {}
   search:
     lang: en
