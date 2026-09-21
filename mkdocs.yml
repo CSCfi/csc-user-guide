@@ -600,7 +600,7 @@ nav:
               - Upload: data/sensitive-data/sd-connect-upload.md
               - Download: data/sensitive-data/sd-connect-download.md
               - Delete: data/sensitive-data/sd-connect-delete.md
-              - Share: data/sensitive-data/sd-connect-share.md
+              - Share buckets: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
               - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
               - Page under construction: data/sensitive-data/sd-connect-conversion.md
