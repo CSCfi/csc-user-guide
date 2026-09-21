@@ -11,7 +11,7 @@ SD Desktop lets you create a protected environment for both individual work and 
 3. [**Attach volume to deskto**p](#attach-volume-to-desktop):** learn how to attache volume to virtual desktop in the next section of the user guide. 
 
 
-## Create virtual desktop
+## 1. Create virtual desktop
 
 ![Virtual desktop and users](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_VM_members.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
@@ -78,7 +78,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 
 
-## Create volume
+## 2. Create volume
 
 
 <div class="grid cards" markdown>
@@ -158,7 +158,7 @@ You can create **up to five volumes** per CSC project. A volume works like a vir
 </div>
 
 
-### Attach volume to desktop:
+### 3. Attach volume to desktop:
 
 Once you have created a virtual desktop and a volume, you can attach them. Desktops created after 28 September 2026 support multiple volumes, while earlier desktops support only one. Each volume can be attached to only one desktop at a time.
 
