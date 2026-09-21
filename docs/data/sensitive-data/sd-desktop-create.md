@@ -6,9 +6,9 @@ SD Desktop lets you create a protected environment for both individual work and 
 
 ![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
-1. [**Create virtual desktop:**](#create-virtual-desktop) Create secure virtual desktops for analysing sensitive research data.
-2. [**Create volume:**](#create-volume) You need a volume to keep a copy of your data for analysis.
-3. **Attach volume to desktop:** After creating a volume, attach it to your virtual desktop.
+1. [**Create virtual desktop:**](#create-virtual-desktop): create secure virtual desktops for analysing sensitive research data.
+2. [**Create volume:**](#create-volume): you need a volume to import a copy of your data for analysis. 
+3. [**Attach volume to deskto**p](#attach-volume-to-desktop):** learn how to attache volume to virtual desktop in the next section of the user guide. 
 
 
 ## Create virtual desktop
@@ -122,8 +122,8 @@ You can create **up to five volumes** per CSC project. A volume works like a vir
 3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
 
 4. Click **Create**. The window will now close and volume creation will start.
-
-Back on the main page, you will see a list of your volumes in **Volumes tab**. You can now proceed to [attach](sd-desktop-manage.md#attaching-or-detaching-a-volume) it to your desktop.
+   
+5. Back on the main page, you will see a list of your volumes in **Volumes tab**. 
 
 
 <div class="grid cards" markdown>
@@ -156,6 +156,13 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
     If you're uncertain about which desktop or volume to choose or need support for your research, contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services".
 
 </div>
+
+
+### Attach volume to desktop:
+
+Once you have created a virtual desktop and a volume, you can attach it to the virtual desktop. It is possible to attach multiple volumes to the same virtual desktop created after 28 September 2026, but it is not possible to attach one volume to the multiple virtual desktops or to virtual desktops created before 28 September 2026. 
+
+Please continue to the next section to learn how to manage volumes and [attach](sd-desktop-manage.md#attaching-or-detaching-a-volume) it to your desktop.
 
 
 
