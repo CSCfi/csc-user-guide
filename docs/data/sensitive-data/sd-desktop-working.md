@@ -16,7 +16,7 @@ SD Desktop is a secure environment designed specifically for analysing sensitive
 
 ** [Where to save your data**](#where-to-save-your-data-in-virtual-desktop): explanation of Home directory, Volume, and Shared directory, including how and when to use them.
 
-** [Tip](#tips): how copy paste works  and how to fix resolution
+** [Tips](#tips): how copy paste works  and how to fix resolution
 
 
 
