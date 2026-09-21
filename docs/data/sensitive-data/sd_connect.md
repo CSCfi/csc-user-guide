@@ -2,9 +2,8 @@
 
 # Store and share with Sensitive Data Connect
 
-- [Overview](#overview)
-- [Key features](#key-features)
-- [Limitations](#limitations)
+- [Overview](#overview): key features and limitations
+- [General considerations](#general-considerations): what you should know before getting started
 - [Your next steps in this guide](#features-in-sd-connect)
 
 ## Overview
@@ -25,9 +24,10 @@ You can browse through the main topics of the manual using the navigation bar on
 
     - User-friendly interface compatible fully compatible with Chrome web browser.
     - Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
-    - Files up to 100 GB are automatically encrypted and decrypted during upload and download via a web browser. For larger files, a programmatic tool (SD-lock/unlock) is available. Automated encryption key management.
+    - Uploads up to 100 GB are automatically encrypted and decrypted during upload and download via a web browser. For larger files, a programmatic tool (SD-lock/unlock) is available. Automated encryption key management.
     - Enhanced login security with multi-factor authentication (MFA).
     - Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data (default space 10 TB, if additional space is required, [contact CSC Service Desk](../../support/contact.md)).
+ 
 
 
 - :material-close-circle:{ .lg .middle } **Limitations**
@@ -37,10 +37,9 @@ You can browse through the main topics of the manual using the navigation bar on
     Known temporary issues:
 
     - Firefox in private mode is not supported.
-    - Tagging files is not currently supported.
-    - CSC projects created before 2013 are incompatible with the current user interface and will not be displayed. For assistance, please contact us.  
+    - CSC projects created before 2013 are incompatible with the current user interface and will not be displayed. For assistance, please contact servciedesk@csc.fi (subject: SD Connect) 
     - In October 2024, SD Connect was updated. Files from the previous version are still compatible, but you may encounter issues due to file format changes. For step-by-step instructions on downloading files stored with the previous version, [please check this page](./sd-connect-download.md))
-
+    - In September 2026, SD Connect has been updated to a new version. Files from the previous version are still compatible, but you may encounter issues due to file format changes. 
 </div>
 
 ### General considerations:
