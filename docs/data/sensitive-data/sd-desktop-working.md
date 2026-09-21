@@ -12,14 +12,13 @@
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
-** [Introduction to virtual deskop](#introduction-to-virtual-desktop):learn the basic feature of an isolated analysis environment
+* [Introduction to virtual deskop](#introduction-to-virtual-desktop):learn the basic feature of an isolated analysis environment
 
-** [Where to save your data**](#where-to-save-your-data-in-virtual-desktop): explanation of Home directory, Volume, and Shared directory, including how and when to use them.
+* [Where to save your data**](#where-to-save-your-data-in-virtual-desktop): explanation of Home directory, Volume, and Shared directory, including how and when to use them.
 
-** [Tips](#tips): how copy paste works  and how to fix resolution
+* [Tips](#tips): how copy paste works  and how to fix resolution
 
-
-
+  
 ## Introduction to virtual desktop
 
 Below is an image showing the basic functions of a virtual desktop. Click the image to open it in a new window.
