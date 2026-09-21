@@ -247,6 +247,11 @@ t_threads = funcThreads(2)
 ```
 
 It is also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
+
+!!! info "GPUs on Roihu"
+    On Roihu, MATLAB runs currently only on Roihu-CPU (x86_64), so GPUs are currently available only on the [`vizinteractive` partition](../computing/running/creating-job-scripts-roihu.md#gpu-visualization-jobs), intended for visualization.
+    Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
+
 We can query the available GPU devices and perform computation on the GPU as follows:
 
 ```matlab title="funcGPU.m"
@@ -375,19 +380,19 @@ You can use the following examples; just replace `<project>` with your project, 
     j = batch(c, @funcThreads, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
     ```
 
-=== "GPU"
-
-    ```matlab title="gpu.m"
-    c = parcluster();
-    c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
-    c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
-    c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
-    c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
-    c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
-    c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode>
-    c.AdditionalProperties.GPUsPerNode = 1;
-    j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
-    ```
+<!-- === "GPU" -->
+<!---->
+<!--     ```matlab title="gpu.m" -->
+<!--     c = parcluster(); -->
+<!--     c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject> -->
+<!--     c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition> -->
+<!--     c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime> -->
+<!--     c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads> -->
+<!--     c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU> -->
+<!--     c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode> -->
+<!--     c.AdditionalProperties.GPUsPerNode = 1; -->
+<!--     j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false); -->
+<!--     ``` -->
 
 In the example, we set the working directory to the home directory in the cluster by setting `'CurrentFolder'` to `'.'`.
 Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
