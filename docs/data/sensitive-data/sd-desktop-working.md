@@ -12,48 +12,11 @@
 
 SD Desktop is a secure environment designed specifically for analysing sensitive data and some features may work differently than a regular computer. For each of these features, a specific step-by-step guide is available. If you are using the service for the first time, reviewing these guides will help you become familiar with how everything works.
 
+** [Introduction to virtual deskop](#introduction-to-virtual-desktop):learn the basic feature of an isolated analysis environment
 
-<div class="grid cards" markdown>
+** [Where to save your data**](#where-to-save-your-data-in-virtual-desktop): explanation of Home directory, Volume, and Shared directory, including how and when to use them.
 
-- :material-laptop:{ .lg .middle } **Introduction to virtual deskop**
-  { .csc-grid-card-info }
-
-    ---
-
-    Learn basics of your virtual desktop.
-
-    [Read more](#introduction-to-virtual-desktop)
-
-- :material-apps:{ .lg .middle } **Software**
-  { .csc-grid-card-info }
-  
-    ---
-
-    Learn about software available in the virtual desktop environment.
-
-    [Read more](sd-desktop-software.md)
-
-- :material-harddisk:{ .lg .middle } **Where to save your data**
-  { .csc-grid-card-info }
-
-    ---
-
-    Explanation of Home directory, Volume, and Shared directory, including how and when to use them.
-
-    [Read more](#where-to-save-your-data-in-virtual-desktop)
-
-- :material-lightbulb-on-outline:{ .lg .middle } **Tips**
-  { .csc-grid-card-info }
-
-    ---
-
-    Best practices for working efficiently in your virtual desktop.
-
-    [Read more](#tips)
-
-</div>
-
-
+** [Tip](#tips): how copy paste works  and how to fix resolution
 
 
 
