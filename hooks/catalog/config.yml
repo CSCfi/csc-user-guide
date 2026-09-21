@@ -78,23 +78,11 @@ appendix:
       - "Biosciences"
     doc: "support/tutorials/MaxQuant-tutorial.md"
 
-  - name: "eBay's tsv-tools"
-    description: "Utilities for manipulating large tabular data files"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-202006081"
-
   - name: "Finnish Tagtools"
     description: "Finnish Tagtools"
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201908161"
-
-  - name: "finnish-parse"
-    description: "Dependency Parser for Finnish"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2017030801"
 
   - name: "HFST"
     description: "Helsinki Finite-State Transducer Technology"
@@ -113,15 +101,3 @@ appendix:
     disciplines:
       - "Language Research and Other Digital Humanities and Social Sciences"
     doc: "http://urn.fi/urn:nbn:fi:lb-201509035"
-
-  - name: "Kaldi"
-    description: "Kaldi Speech Recognition Toolkit"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-2019121020"
-
-  - name: "UDPipe"
-    description: "UDPipe Kielipankki version"
-    disciplines:
-      - "Language Research and Other Digital Humanities and Social Sciences"
-    doc: "http://urn.fi/urn:nbn:fi:lb-201902131"

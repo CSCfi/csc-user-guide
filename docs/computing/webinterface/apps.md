@@ -4,9 +4,10 @@
 
   - [Accelerated visualization](accelerated-visualization.md)
   - [Desktop](desktop.md)
-  - [Jupyter](jupyter.md)
   - [Julia on Jupyter](julia-on-jupyter.md)
+  - [Jupyter](jupyter.md)
   - [Jupyter for courses](jupyter-for-courses.md)
+  - [marimo](marimo.md)
   - [MATLAB](matlab.md)
   - [MLflow](mlflow.md)
   - [R-Jupyter](r-jupyter.md)

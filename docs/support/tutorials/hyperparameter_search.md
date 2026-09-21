@@ -144,7 +144,7 @@ tune_search = TuneGridSearchCV( model, hyperparameter_grid, early_stopping = Tru
 tune_search.fit( Xtrain, ytrain )
 print( tune_search.best_params_ )
 ```
-It is recommended to have a lot of hyperparameter options on the grid to exploit Ray's parallelism. If you have only a small set of hyperparameters to try out then use the methods what are offered in scikit-learn.
+It is recommended to have a lot of hyperparameter options on the grid to exploit Ray's parallelism. If you have only a small set of hyperparameters to try out then use the methods that are offered in scikit-learn.
 
 **TuneSearchCV** function enables the use of Randomized and Adaptive Search. To switch to adaptive search, change the **search_optimization** argument. By default TuneSearchCV uses Randomized search. Instead of fixed set of hyperparameters, use suitable ranges using Numpy or Scipy functions. Note that different *search_optimization* arguments may have packages dependencies which you have to install if they are missing.
 

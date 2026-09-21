@@ -1,14 +1,22 @@
-# Hands-on batch jobs in Puhti tutorial
+# Hands-on batch jobs in Roihu tutorial
 
-The next few exercises take you through submitting your first batch jobs on Puhti.
+The next few exercises take you through submitting your first batch jobs on Roihu.
 We've used R and HMMER as examples, but the principles are the same for other
 applications as well. However, please always consult the [application specific
 page](../../apps/index.md) if it exists. It may have a tailored template for you.
 
 ## Get the exercise files
-### a) Log in to Puhti from a terminal
+### a) Log in to Roihu from a terminal
 
-`ssh your-username@puhti.csc.fi` or if you don't have an ssh client available, you can log in via the [Puhti web interface](../../computing/webinterface/index.md) using your web browser and open a terminal there.
+Before logging in with SSH, sign your public SSH key and download a certificate following these instructions: 
+[Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key).
+
+Then log in with 
+
+`ssh your-username@roihu-cpu.csc.fi`
+
+If you don't have an SSH client available, you can log in via the [web interface]
+(../../computing/webinterface/index.md) using your web browser and open a terminal there.
 
 ### b) Go to scratch directory and download the exercises file
 
@@ -42,8 +50,8 @@ tar xvf input-data.tar
 ``` 
 
 !!! Note
-    Text in *italics* is not a command and
-    you can choose what to put there (but you need to be consistent later).
+    Make sure to use the same project number in all the following steps where 
+    project or account is mentioned.
 
 ## A simple batch job script
 
@@ -55,10 +63,11 @@ Using nano editor (use whichever editor you like):
 nano test_hostname.sh
 ```
 
-Put this into the file.
+Put this into the file. Make sure to replace _project_20011234_ with your project 
+number at `--account`´.
 
 ```
-#!/bin/bash -l
+#!/bin/bash
 #SBATCH --job-name=print_hostname
 #SBATCH --time=00:01:00
 #SBATCH --partition=test
@@ -74,7 +83,7 @@ To exit from the nano editor:
 
 `CTRL+O (enter); CTRL+X (confirm save)`
 
-Submit the batch script to Puhti
+Submit the batch script to Roihu:
 
 ```
 sbatch test_hostname.sh
@@ -83,41 +92,46 @@ sbatch test_hostname.sh
 ### b) Check the job status.
 
 In the following command replace _<your username\>_ with your
-CSC username - or which ever you used to log in to Puhti. If
+CSC username - or which ever you used to log in to Roihu. If
 you are not sure which it is, you can check it with `whoami` or with
-this command `echo $USER`).
+this command: `echo $USER`.
 
 ```
-squeue -u your_username
+squeue -u <your_username>
 ```
 
 ### c) What and where did the job print out?
 
 !!! Note 
-    Here you need to replace the *JOBID* with the ID your job was given.
+    Here you need to replace the *JOBID* with the ID your job was given when 
+    you submitted the job.
 
 ```
-less slurm-JOBID.out (type q to quit)
+less slurm-JOBID.out #type q to quit
 ```
+
+The output should display the name (number and letter combination) of the node where the job ran. 
 
 If the job failed, please check which project you had in the batch script `--account=???`
 [Typical reasons for a failed batch in our FAQ](../faq/why-does-my-batch-job-fail.md)
 
-##Simple R job 
+## Simple R job 
 
 Run a simple R job from a script. The script will fit a straight line
 through a file containing some x,y value pairs. More info on
-[running R in the CSC environment](../../apps/r-env.md)
+[running R in the CSC environment](../../apps/r-env.md).
 
 ### a) Set up an interactive batch job and initialize R environment
 
 As we now plan to run an application interactively, we'll ask for an interactive
 batch job and work there, instead of the login node. The following
-command will set it up (use the same _project_ as in the batch script above):
+command will set it up (replace <project> with the same project as in the batch script above):
 
 ```
-sinteractive --account <project> --mem 4000 --tmp 10 --time 2:00:00
+sinteractive --account <project> --time 2:00:00
 ```
+By default, on Roihu this command reserves 2 cores with 1.875 GB of memory each. 
+More cores and therefore more memory can be reserved with `--cores`, for example `--cores 4`.
 
 Give `module load r-env` to initialize the R environment.
 
@@ -165,9 +179,7 @@ In the "r-job" directory, create an R script file (R
 commands to be executed) with the same commands as you pasted
 in the R command prompt. Name the file `fit.R`
 
-You can use e.g. `nano` editor, which you need to initialize first
-with `module load nano` (in the interactive node, in the login node,
-it is available without the module load command).
+You can use e.g. `nano` editor as above.
 
 Make sure the file is ok with:
 ```
@@ -178,10 +190,11 @@ You should see three lines with the R commands.
 ### c) Run the script interactively
 
 ```
-apptainer_wrapper exec Rscript --no-save --no-restore -f fit.R
+Rscript fit.R
 ```
 
-### d) Results
+### d) Check the results
+
 - **Did the job succeed?**
 - **What are the fit coefficients?**
 
@@ -195,14 +208,12 @@ Copy the *serial batch script* template from [CSC's R-env page](../../apps/r-env
 into a file called _batch.sh_
 
 In addition to setting up the computing requirements, this script
-also resets some additional R environment variables. These won't
-be necessary, if you run some other application. Always check first
-if there's a template batch script for your application, and use that
+may set for example additional, application-specific environment variables. 
+Always check first if there's a template batch script for your application, and use that
 as the base for your own script.
 
-For this example, you'll need to make three changes. Replace the _<project>_ 
-placeholder in the `--account` and `echo "TMPDIR=/scratch/...`
-lines with your own computing project. And finally, at the end of the script, 
+For this example, you'll need to replace the _<project>_ 
+placeholder in the `--account` with your own computing project. Finally, at the end of the script, 
 replace (`myscript.R`) i.e. the R-script to be executed to `fit.R`.
 
 ### b) Submit the batch script with
@@ -213,6 +224,8 @@ sbatch batch.sh
 
 ### c) Did the job succeed? Where are the fit constants?
 
+Hint: look for files called errors_JOBID.txt and output_JOBID.txt in the folder 
+where you submitted the batch job.
 
 ## Run tens of R batch jobs as an array job
 
@@ -234,7 +247,7 @@ ls
 ls > ../datanames.txt
 ```
 
-### b) Write the R script, that will do the fitting.
+### b) Write the R script that will do the fitting.
 
 Go back to the r-array folder, create a script named `modelscript.R`
 and put the following commands to it (you can copy the previous script
@@ -242,10 +255,10 @@ and edit that, or start from scratch).
 
 ```
 dataname <- commandArgs(trailingOnly = TRUE)
-mydata <- read.csv(paste0("data_dir/",dataname))
-fit <- lm(y~x,mydata)
+mydata <- read.csv(paste0("data_dir/", dataname))
+fit <- lm(y ~ x, mydata)
 write(fit$coefficients,
-file=paste0("result_dir/",dataname,"_result.txt"))
+file = paste0("result_dir/", dataname, "_result.txt"))
 ```
 
 The first line will extract from the batch command the name of the
@@ -273,7 +286,7 @@ files to go to their own *directories* and files by editing/adding
 
 Change the SLURM partition to be used (`--partition=`) from _test_ to _small_.
 
-Before the line with `srun apptainer_wrapper...`, add the following line
+Before the line with `srun Rscript...`, add the following line
 
 ```
 dataname=$(sed -n "$SLURM_ARRAY_TASK_ID"p datanames.txt)
@@ -282,7 +295,7 @@ dataname=$(sed -n "$SLURM_ARRAY_TASK_ID"p datanames.txt)
 and edit the line to run the R command into:
 
 ```
-srun apptainer_wrapper exec Rscript --no-save modelscript.R $dataname
+srun Rscript --no-save modelscript.R $dataname
 ```
 
 You should now have:
@@ -292,7 +305,7 @@ You should now have:
    1. `R_array.sh`, which is the batch script to submit the job
    1. (and the folders `out, err, data_dir, result_dir` which were there already)
 
-### d) run the batch script with
+### d) Run the batch script with
 
 ```
 sbatch R_array.sh
@@ -303,24 +316,20 @@ You should get the fit coefficients in separate files in the
 
 ### e) Collect the results and plot them.
 
-Note, plotting will work only if you have 
-[remote X11 forwarding](../../computing/connecting/index.md#graphical-connection).
-Actually, for R, there is even a tailored remote setup using 
-[RStudio Server](../../apps/r-env.md),
-and you're welcome to use that, but in this tutorial, the key point is to 
-demonstrate the general approach.
+The most convenient way to display graphical results with R is to 
+use [RStudio](../../computing/webinterface/rstudio.md) in the [web interface](../../computing/webinterface/index.md). 
 
-In the folder containing `analyse.R` start the interactive R shell with
-```
-start-x
-```
-
-In the R shell that opens, write `source("analyse.R")`. This will 
+Set working directory with `setwd()` to the directory containing `analyse.R`, for example
+`setwd("/scratch/project_20001234/r-array")`. In the RStudio 
+console, write `source("analyse.R")`. This will 
 run (source) the script contents. The original data was
 created by calculating the y values by y=2x + some random noise.
 The plot will appear in a separate window.
 
-### f) How do the fit coefficients match that?
+Another option would be to modify the `analyse.R` R script to save the plot into a file with 
+graphics devices or for example with `ggsave()` in `ggplot2`.
+
+### f) What is displayed on the plot?
 
 ## Batch job with thread parallelization
 
@@ -340,13 +349,12 @@ wget https://a3s.fi/docs-files/example.fasta
 
 Let's first run the job with just one core. Copy one of the old batch
 scripts to current directory, and change / add the following items in
-it (or take a look at [these examples](../../computing/running//example-job-scripts-puhti.md)):
+it (or take a look at [these examples](../../computing/running/example-job-scripts-roihu.md)):
 
 1. Output to `out_%j.txt`
 1. error to `err_%j.txt`
 1. run time 10 minutes
 1. load the `hmmer` -module
-1. remove the R specific environment settings
 1. run command:
 
 ```
@@ -390,7 +398,7 @@ script:
 #SBATCH --cpus-per-task=4
 ```
 
-Note that this only asks the _queuing_system_ for more resources. You need to tell it also
+Note that this only asks the _queuing system_ for more resources. You need to tell it also
 to the application you're running (how, depends on the application). Change the run command to:
 
 ```
@@ -403,7 +411,7 @@ you only need to change the number on the #SBATCH line if you want to try other
 numbers as well.
 
 Submit the job and check with the `sacct` command how long it took to
-run the hmmer job and how did the memory usage change and try to answer
+run the HMMER job and how did the memory usage change and try to answer
 these questions:
 
 - **Does it make sense to use 4 cores instead of 1?**
@@ -476,7 +484,8 @@ module load cp2k`
 cp $CP2K_DATA_DIR/tests/QS/benchmark/H2O-32.inp .
 ```
 
-Then create a batch script and submit it with `sbatch`
+Then create a batch script and submit it with `sbatch`  
+
 !!! Tip
     Remember to check the CSC software pages for [application specific
     examples for batch jobs:](../../apps/index.md)
@@ -499,8 +508,8 @@ cores/mpitasks (*e.g.* 2,4,8,16, ... this is the `--ntasks` or `--ntasks-per-nod
 and rerun
 the job. The output files will be named with the number of cores used to
 run them (`$SLURM_NPROCS`). Instead of the small partition you can
-also use the `test` partition. If you ask for more than 40 cores (in Puhti), you
-need to switch to `large` partition. In multinode jobs, always 
+also use the `test` partition. In Roihu, there are 348 cores available per node. 
+Jobs larger than that  need to switch to `large` partition. In multinode jobs, always 
 limit the number of *Nodes*, so that the job is not spread onto
 more nodes than necessary as it
 [creates unwanted communication overhead and fragments the allocations on the system](../../computing/running/performance-checklist.md).

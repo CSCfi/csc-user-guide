@@ -37,7 +37,7 @@ export C4GH_PASSPHRASE
 ```
 
 Find command can be used to list all files that end with
-_.c4gh_ in a given directory (_data1_) and its' subdirectories.
+_.c4gh_ in a given directory (_data1_) and its subdirectories.
 This list can be used as an input for a _for loop_.
 
 ```bash

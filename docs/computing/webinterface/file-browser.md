@@ -92,6 +92,7 @@ staging area to the frozen area, are only possible though the
 [IDA web interface](https://ida.fairdata.fi).
 
 To use IDA from the Puhti/Mahti web interfaces, it must first be configured for
+To use IDA from the Roihu, Puhti, or Mahti web interfaces, it must first be configured for
 use with Rclone in a login node shell as follows:
 
 ```
@@ -114,7 +115,7 @@ settings:
 6. Bearer token: Leave empty
 7. Advanced config: No
 
-After completing the Rclone configuration, restart the Puhti/Mahti web
+After completing the Rclone configuration, restart the Roihu/Puhti/Mahti web
 interface by clicking _Restart web server_ in the _Help_ menu in the top-right
 section of the navbar. IDA can now be accessed in the file browser, where you
 will be able to upload, download, transfer and edit files in the staging area,

@@ -2,6 +2,8 @@
 
 Briefly describe the changes you've made here. Remember to add a link to the [preview page](https://csc-guide-preview.2.rahtiapp.fi/origin/) of your branch.
 
+_Note that you may create a Draft Pull Request if your proposed changes are not ready to be merged yet._
+
 ## Checklist before requesting a review
 
 - [ ] I have followed the instructions in the [Contributing](https://github.com/CSCfi/csc-user-guide/blob/master/CONTRIBUTING.md) and [Styleguide](https://github.com/CSCfi/csc-user-guide/blob/master/STYLEGUIDE.md) documents.

@@ -8,7 +8,8 @@ catalog:
   disciplines:
     - Geosciences
   available_on:
-    - Puhti
+    - LUMI
+    - Roihu
 ---
 
 # WhiteboxTools
@@ -17,18 +18,22 @@ catalog:
 
 ## Available
 
-Only WhiteboxTools Open Core tools are available on Puhti. WhiteboxTools is available with following versions:
+Only WhiteboxTools Open Core tools are available. WhiteboxTools is available with following versions:
 
-* 2.4.0 in 3.14.3 **geoconda** module, includes also Whitebox Workflows for Python.
-* 2.3.5 in 3.11.9 **geoconda** module
-* 2.2.0 in 3.10.x **geoconda** modules
-* 2.1.0 in the **WhiteboxTools** module 
+* 2.4.0 in 3.14.5 **python-geo** module, includes also Whitebox Workflows for Python, in Roihu
+* 2.4.0 in 3.14.3 **geoconda** module, includes also Whitebox Workflows for Python, in LUMI.
+* 2.4.0 in 3.11.10 **geoconda** module, in LUMI.
+
 
 ## Usage
 
 Load a module, select module based on version:
 
 ```
+# Roihu
+module load python-geo
+
+# LUMI
 module load geoconda
 ```
 
@@ -58,9 +63,13 @@ whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.ti
 #SBATCH --time=00:10:00
 #SBATCH --mem=2G
 
-module load whiteboxtools
+module load python-geo
 whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
 ```
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License 
 
@@ -79,7 +88,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Whiteboxtools are part of [Geoconda installation](./geoconda.md#installation).
+Whiteboxtools are part of [Geoconda](./geoconda.md#installation) or  [Python-geo](./python-geo.md#installation) installation.
 
 
 ## References

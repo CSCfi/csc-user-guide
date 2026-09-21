@@ -5,36 +5,39 @@ search:
 
 # Technical details about Puhti
 
-!!! warning "Puhti step-wise retirement during spring and summer 2026"
-    Puhti will be gradually decommissioned during spring and summer 2026 and
+!!! warning "Puhti retirement in Fall 2026"
+    Puhti will be gradually decommissioned during summer 2026 and
     replaced by Roihu, CSC's next-generation supercomputer offering enhanced
     performance and capabilities.
 
-    * Puhti computing services will be shut down one month after Roihu general
-      availability in summer 2026.
-    * Puhti storage will remain accessible until August 2026.
+    Puhti computing services have been shut down 31 July 2026 at 12:00 EEST, and
+    no new jobs are accepted or executed on its compute nodes.
+
+    Storage and
+    login nodes are planned to remain accessible until midday 15 October 2026, but
+    users are strongly encouraged to move any required data from the system without delay.
 
     [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
 
 ## Compute
 
-**Puhti** has a total of **682 CPU nodes**, with a theoretical peak
+**Puhti** had a total of **682 CPU nodes**, with a theoretical peak
 performance of 1,8 petaflops. Each node is equipped with two Intel
 Xeon processors, code name _Cascade Lake_, with 20 cores each running
-at 2,1 GHz. The cores support AVX-512 vector instructions and VNNI
-instructions for AI _inference_ workloads. The interconnect is based
+at 2,1 GHz. The cores supported AVX-512 vector instructions and VNNI
+instructions for AI _inference_ workloads. The interconnect was based
 on Mellanox HDR InfiniBand. The
-nodes are connected with a 100 Gbps HDR100 link, and the topology is a
+nodes were connected with a 100 Gbps HDR100 link, and the topology was a
 fat tree with a blocking factor of approximately 2:1.
 
-The **Puhti AI** artificial intelligence partition has a total of **80 GPU
-nodes** with a total peak performance of 2,7 petaflops. Each node has
+The **Puhti AI** artificial intelligence partition had a total of **80 GPU
+nodes** with a total peak performance of 2,7 petaflops. Each node had
 two Intel Xeon processors, code name _Cascade Lake_,
-with 20 cores each running at 2,1 GHz. They also have four Nvidia
-Volta V100 GPUs with 32 GB of memory each. The nodes are equipped with
+with 20 cores each running at 2,1 GHz. They also had four Nvidia
+Volta V100 GPUs with 32 GB of memory each. The nodes were equipped with
 384 GB of main memory and 3,6 TB of fast local storage. This partition
-is engineered to allow GPU-intensive workloads to scale well across
-multiple nodes. The interconnect is based on a dual-rail HDR100
+was engineered to allow GPU-intensive workloads to scale well across
+multiple nodes. The interconnect was based on a dual-rail HDR100
 interconnect network connectivity providing 200 Gbps of aggregate
 bandwidth in a non-blocking fat-tree topology.
 

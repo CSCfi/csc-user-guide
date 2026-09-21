@@ -9,7 +9,7 @@
     cd /media/volume/psql
     ```
 
-3. Import Apptainer container containing PostreSQL
+3. Import Apptainer container containing PostgreSQL
 
     ```text
     cp $HOME/Projects/SD\ connect/*/tools-for-sd-desktop/apptainer/postgres_14.2-alpine3.15.sif ./

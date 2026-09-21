@@ -62,7 +62,7 @@ based on the capacity available under every Billing Unit type. So far, all
 Billing Unit applications have been processed based on whether they are S-, M-,
 or L-sized applications. However, 1 million BUs used in cPouta has a much
 larger impact on the service capacity compared to the same amount of BUs used
-on Mahti CPU nodes. Thus, the size limits for resource applications will be
+on Roihu CPU nodes. Thus, the size limits for resource applications will be
 based on the type of Billing Unit applied for.
 
 ## 6. Will I lose Billing Units to the new BU cutter even if my projects use Billing Units? <a id="cutter"></a>

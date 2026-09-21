@@ -64,17 +64,21 @@ If you need assistance, please [contact CSC Service Desk](../support/contact.md)
 
 ## Getting a machine-to-machine robot account
 
-If you are a registered CSC user and need another account for managing
-services that you run in the CSC services, we can create a
-machine-to-machine robot account for you. Please note that each service requires it's own unique robot account. Send the following
-information to servicedesk@csc.fi.
+If you are a registered CSC user and need another account for managing services that you run in the CSC services, we can create a machine-to-machine robot account for you. Please note that each service requires its own unique robot account.
+Send the following information to servicedesk@csc.fi:
+
 
 * Project identifier (e.g. 2001679, uef4713) of the project your
   service uses
 * The CSC service your service uses (e.g. cPouta, Rahti)
-* Your mobile number (to which the password are sent via SMS)
+* Your mobile number (to which the password is sent via SMS)
+* Purpose and use case
+* For Roihu robot accounts, also include a detailed description of how the [General Terms of Use](https://research.csc.fi/general-terms-of-use) and the [robot account policy](../computing/usage-policy.md#robot-accounts-on-roihu) are followed
 
-Once the account has been created, if you are using it with a CSC supercomputer, you also need to
+!!! Note
+    Roihu robot accounts can only access computing resources using [FirecREST HPC API](../computing/firecrest/connecting.md#connecting-with-a-robot-account). I.e ssh access to Roihu is not possible for robot accounts.  
+
+If you are using the robot account with LUMI, you also need to
 [generate a new SSH key pair](../computing/connecting/ssh-keys.md#generating-ssh-keys) for the robot
 account. Note that this cannot be set via MyCSC as with normal user accounts, as robot accounts
 cannot log in to MyCSC. Instead the project PI must log in to the supercomputer with the robot

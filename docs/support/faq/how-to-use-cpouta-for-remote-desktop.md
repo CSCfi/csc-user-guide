@@ -7,7 +7,7 @@ local installations needed. If you would like to have
 instructions on how to use a GPU instance for rendering look
 here: [How to use cPouta GPU for rendering](how-to-use-cpouta-gpu-for-rendering.md)
 
-First, we will show you how to install the different softwares needed manually. At the end of this article, 
+First, we will show you how to install the different software needed manually. At the end of this article, 
 we will show you how to do it automatically when creating an instance (post install scripts). If you want to 
 go directly to the post install script, click [here](#post-install-scripts)
 
@@ -27,7 +27,7 @@ We will utilize the following technologies to install the remote desktop:
 !!! Warning  
     Do not use the `standard.tiny` flavor. As this flavor has only 1Go of RAM, noVNC cannot be installed
 
-1. Launch a standard-flavor instance with the Alamlinux-9 image.
+1. Launch a standard-flavor instance with the Almalinux-9 image.
 2. Attach a floating IP to the instance.
 3. In the security rules allow ingress ssh (port 22).
 4. We will ssh into the instance with this command and create a ssh-tunnel.
@@ -96,7 +96,7 @@ exit
 ```
 
 Configure a resolution you would like to use. 1440x900 is a common resolution
-but this have been tested to work with an resolution as big as 3840x2160 .
+but this has been tested to work with an resolution as big as 3840x2160 .
 This can be configured globally for all the users.
 
 ```
@@ -272,7 +272,7 @@ exit
 ```
 
 Configure a resolution you would like to use. 1440x900 is a common resolution
-but this have been tested to work with an resolution as big as 3840x2160 .
+but this has been tested to work with an resolution as big as 3840x2160 .
 This can be configured globally for all the users.
 
 ```
@@ -353,7 +353,7 @@ same as the one you used with the ssh-command.
 ## Post install scripts
 When you create an instance in cPouta, it is possible to add a `Post-Creation` step.
 
-It allows you to run automatic tasks to install softwares and/or run updates.
+It allows you to run automatic tasks to install software and/or run updates.
 
 ![machine post creation](img/post-creation-pouta.png)
 

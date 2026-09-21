@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 is_valid_slurm_option(){
+    # This --option-name is used in docs as an example
+    if [[ "$1" == "--option-name" ]]; then
+        return 0
+    fi
 
     res=$(grep -- "$1" tests/slurm_options.txt)
     if [[ -z $res ]];then

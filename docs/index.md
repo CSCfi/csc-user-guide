@@ -21,13 +21,13 @@ template: home.html
 
     [Getting started with supercomputing :material-arrow-right:](support/tutorials/hpc-quick.md)
 
-    [Puhti and Mahti Overview :material-arrow-right:](computing/index.md)
+    [Getting started with Roihu :material-arrow-right:](support/tutorials/roihu.md)
+
+    [Getting started with LUMI :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
 
     [Cloud services Overview :material-arrow-right:](cloud/index.md)
 
     [What is DBaaS :material-arrow-right:](cloud/dbaas/what-is-dbaas.md)
-
-    [Getting started with LUMI :material-open-in-new:](https://docs.lumi-supercomputer.eu/firststeps/getstarted/){ target=_blank }
 
     [How to get support :material-arrow-right:](support/contact.md)
 

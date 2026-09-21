@@ -1,6 +1,14 @@
 # Cloud services
 
-## New Ubuntu cloud image Resolute Racoon 26.04, 11.05.2026
+## New database minor versions available in Pukki, 08.09.2026
+
+PostgreSQL 17.11 and 14.24 are now available in Pukki DBaaS. See [PostgreSQL's](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/) documentation for release notes.
+
+## MariaDB 12.3.2 available in Pukki, 30.7.2026
+
+A new LTS major version of MariaDB is now available in Pukki DBaaS, 12.3.2. See [MariaDB's documentation](https://mariadb.com/docs/release-notes/community-server) for release notes.
+
+## New Ubuntu cloud image Resolute Raccoon 26.04, 11.05.2026
 
 The newest LTS (Long-Term Support) Ubuntu cloud image, Ubuntu-26.04, has been added to Pouta.
 

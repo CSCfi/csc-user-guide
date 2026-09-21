@@ -36,7 +36,7 @@ s3cmd -h
 ```
 ## Getting started with s3cmd
 
-If you use Allas on Puhti or Mahti, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
+If you use Allas on Roihu or Lumi, all required packages and software are already installed. In this case you can skip this  chapter and proceed to the section [Configuring S3 connection in supercomputers](#configuring-s3-connection).
 
 To configure a s3cmd connection, you need to have _OpenStack_ and _s3cmd_ installed in your environment.
 
@@ -70,10 +70,10 @@ Additionally install [`allas-conf`](allas-conf.md#allas-conf-installation).
 
 ## Configuring S3 connection 
 
-To use _s3cmd_ in Puhti and Mahti, you must first configure the connection:
+To use _s3cmd_ in Roihu, you must first configure the connection:
 ```text
 module load allas
-allas-conf --mode S3
+allas-conf
 ```
 
 On local computer:
@@ -188,11 +188,11 @@ Public URL of the object is: https://a3s.fi/my_fishbucket/fishes/salmon.jpg
 
 ## Giving another project read access to a bucket
 
-You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Puhti and Mahti:
+You can control access rights using the command `s3cmd setacl `. This command requires the UUID (_universally unique identifier_) of the project you want to grant access to. Project members can check their project ID in <a href="https://pouta.csc.fi/dashboard/identity/" target="_blank">https://pouta.csc.fi/dashboard/identity/</a> or using the command ```openstack project show```. For example in Roihu:
 
 ```text
 module load allas
-allas-conf -k --mode s3cmd
+allas-conf -k 
 openstack project show $OS_PROJECT_NAME
 ```
 
@@ -342,7 +342,7 @@ https://fish-bucket.a3s.fi/zebrafish.tgz?AWSAccessKeyId=78e6021a086d52f092b3b2b2
 In order to delete/expire objects automatically, a lifecycle policy can be set-up to the Allas bucket. Objects in the bucket are treated per the lifecycle policy if matching conditions are found. Matching conditions can be set to a prefix and/or tag(s) within the object. Lifecycle policy is especially well suited for the cases where data needs to be removed as a "maintenance" measure after certain intervals.
 
 !!! warning
-    Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project. (Legal or regulatory constrains).
+    Before setting up the lifecycle policy, please check with your department/team that it correctly represents the retention policy for the data in the project. (Legal or regulatory constraints).
 
 In the following lifecycle policy we have two rules set. let's name it as `mypolicy.xml`.
 

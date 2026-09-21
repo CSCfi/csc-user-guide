@@ -24,7 +24,7 @@ When you open the connection, a virtual desktop will open in your browser. If yo
 ## Log out from virtual desktop
 
 1. Click **Power icon** in top right corner of the desktop. 
-2. Select **Power Off/Log out**, then select **Log Ou**t.
+2. Select **Power Off/Log out**, then select **Log Out**.
 3. Select **Log Out** in the new window.
 4. Select **Home** to return to SD Desktop home page. 
 

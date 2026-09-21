@@ -1,10 +1,11 @@
 # Visual Studio Code
-The Visual Studio Code interactive app can be used for editing and running code on Puhti or Mahti.
-Make sure to load the correct modules before launching the session for the debugger to work correctly.
+The Visual Studio Code interactive app can be used for editing and running code on Roihu or Mahti.
+Make sure to load the correct modules before launching the session for the debugger to work
+correctly.
 
 In the form, you will be able to select the VSCode version as well as any modules you would like to
 use:
-![VSCode settings](../../img/ood-vscode-settings.png).
+![VSCode settings](../../img/ood-vscode-settings.png){ width=60% }.
 
 
 ## Extensions
@@ -29,7 +30,7 @@ Most of the problems can be solved by removing the launch and build configuratio
 
 ## Julia Language
 We can use the [**Julia Language**](../../apps/julia.md) by loading a Julia module, such as `julia/1.8.5`, when starting the VSCode session.
-CSC has installed the [Julia for Visual Studio Code](https://www.julia-vscode.org/) extension to support Julia language features.
+The [Julia for Visual Studio Code](https://www.julia-vscode.org/) extension can be installed to support Julia language features.
 
 
 ## Manual installation of extensions
@@ -47,7 +48,7 @@ To install the extension:
    installed, the download option may not be available.  
 ![downloading cpptools VSIX](../../img/ood-vscode-cpptools-vsix.png).
 3. Select the *Linux x64* version in the menu that appears.
-4. Upload the extension package, e.g. `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Puhti or Mahti,
+4. Upload the extension package, e.g. `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Roihu or Mahti,
    for example using the file browser in the web interface.
 5. Open VSCode __in the web interface__ and navigate to the extensions tab.
 6. In the extensions tab in VS Code, click the three dots at the top to open a menu.

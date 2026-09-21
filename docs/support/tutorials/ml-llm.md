@@ -17,10 +17,8 @@ and here the size of the GPU memory becomes critical. You can refer to
 [our table of GPU stats](gpu-ml.md) for the full details, but our GPUs
 have VRAM memory as follows:
 
-- 32 GB on Puhti (NVIDIA V100)
-- 40 GB on Mahti (NVIDIA A100)
 - 64 GB on LUMI (single GCD of an AMD MI250x)
-- 96 GB on Roihu (NVIDIA GH200, available in May 2026)
+- 96 GB on Roihu-GPU (NVIDIA GH200)
 
 The model size in memory depends on how the weights are
 stored. Typically a regular floating point value in a computer is
@@ -60,43 +58,45 @@ solve this problem in the sections below. See the [Transformer Math
 ## Fine-tuning LLMs
 
 We have a [git repository with some example scripts for doing LLM
-fine-tuning on Puhti, Mahti or LUMI][2]. The example uses the [Hugging
-Face (HF) libraries][3] and in particular the HF Trainer to train a
-given model (taken from the HF model repositories) with the IMDb movie
+fine-tuning on Roihu or LUMI][2]. The example uses the [Hugging Face
+(HF) libraries][3] and in particular the HF Trainer to train a given
+model (taken from the HF model repositories) with the IMDb movie
 review dataset. The task itself might not make much sense, it's just
 used to demonstrate the technical task of fine-tuning a model with a
 given dataset.
 
 The examples, by default, use the [EleutherAI/gpt-neo-1.3B][4] model,
-as it will fit into the memory of a single GPU in Puhti. Given that
-it's a 1.37 billion parameter model with 32 bit weights, according to
-our rule-of-thumb, mentioned above, it might require up to 1.37x4x6 =
-32 GB of memory for training, so it should just fit into the 32 GB
-maximum of Puhti's V100 (if we're lucky).
+as it would fit into the memory of a single GPU in Puhti (CSC's
+previous supercomputer). Given that it's a 1.37 billion parameter
+model with 32 bit weights, according to our rule-of-thumb, mentioned
+above, it might require up to 1.37x4x6 = 32 GB of memory for training,
+so it would just fit into the 32 GB maximum of Puhti's V100 (if we're
+lucky).
 
-The repository has basic launch scripts for Puhti, Mahti and LUMI for
-a single GPU, a full node (4 GPUs or Puhti/Mahti and 8 GPUs on LUMI)
-and two full nodes (8 respectively 16 GPUs). The Slurm scripts are
-essentially the same as for any PyTorch DDP runs, see our [Multi-GPU
-and multi-node ML guide](ml-multi.md#pytorch-ddp) for examples, or
-just take a look at [the scripts in the GitHub repository][2]:
-
-- [`run-finetuning-puhti-gpu1.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu1.sh) - fine-tuning on Puhti with 1 GPU
-- [`run-finetuning-puhti-gpu4.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4.sh) - fine-tuning on Puhti with one full node (4 GPUs)
-- [`run-finetuning-puhti-gpu8.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8.sh) - fine-tuning on Puhti with two full nodes (8 GPUs in total)
-
-(The repository also has scripts for Mahti and LUMI if you check the
-[file listing][2].)
+The repository has basic launch scripts for Roihu and LUMI for a
+single GPU, a full node (4 GPUs on Roihu and 8 GPUs on LUMI) and two
+full nodes (8 respectively 16 GPUs). 
 
 The basic multi-GPU versions are all using PyTorch Distributed Data
 Parallel (DDP) mode, in which each GPU has a full copy of the
 model. Only the training data is distributed across the different
 GPUs. This means that the full model must fit into a single GPU.
 
-If your model doesn't fit into a single GPU on Puhti, it might work on
-Mahti or LUMI, but first check with the rule-of-thumb calculation
-mentioned above if there's even a chance of that! If not, read on for
-PEFT and FSDP approaches.
+### Reinforcement learning with LLMs
+
+Example scripts for reinforcement learning with LLMs are available in
+the [reinforcement learning fine-tuning repository][RL-EXAMPLES]. The
+examples use [`verl`][VERL], an open-source framework for reinforcement
+learning post-training of LLMs. `verl` supports many existing LLM
+frameworks and the examples use [FSDP2][FSDP2] or [Megatron][MEGATRON]
+for model training and [vLLM][12] for generating responses.
+
+The examples demonstrate reinforcement learning with verifiable rewards
+(RLVR) using the GRPO algorithm. They fine-tune [Qwen3-0.6B][QWEN3-0P6B]
+and [Qwen3-8B][QWEN3-8B] models on the [GSM8K mathematics dataset][GSM8K].
+The repository includes environment setup and Slurm scripts for running
+the examples on one and two LUMI nodes.
+
 
 ### Using PEFT and LoRA
 
@@ -137,13 +137,13 @@ Perhaps the easiest way to take FSDP into use for large language models
 is to use Hugging Face's Accelerate framework. No changes are needed
 to the PyTorch script, one only needs to change to the `accelerate`
 launcher. [Our GitHub repository][2] has example scripts for launching
-on one or two full nodes on Puhti:
+on one or two full nodes on Roihu:
 
-- [`run-finetuning-puhti-gpu4-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu4-accelerate.sh) - fine-tuning on Puhti with one full node using Accelerate
-- [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh) - fine-tuning on Puhti with two full nodes using Accelerate
+- [`run-finetuning-roihu-gpu4-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-roihu-gpu4-accelerate.sh) - fine-tuning on Roihu with one full node using Accelerate
+- [`run-finetuning-roihu-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-roihu-gpu8-accelerate.sh) - fine-tuning on Roihu with two full nodes using Accelerate
 
-(The repository also has scripts for Mahti and LUMI if you check the
-[file listing][2].)
+(The repository also has scripts for LUMI if you check the [file
+listing][2].)
 
 Our [Multi-GPU and multi-node ML guide](ml-multi.md#accelerate) also
 has Slurm script examples for using Accelerate with FSDP.
@@ -163,7 +163,7 @@ There are two things to note when using Accelerate:
    etc). We can use the `$SLURM_NODEID` variable to set this, but we
    need to use a shell trick so that it isn't evaluated until it
    actually runs in the specific node. (See the script
-   [`run-finetuning-puhti-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-puhti-gpu8-accelerate.sh)
+   [`run-finetuning-roihu-gpu8-accelerate.sh`](https://github.com/CSCfi/llm-fine-tuning-examples/blob/master/run-finetuning-roihu-gpu8-accelerate.sh)
    for an example of how this can be done.)
 
 You can also use PEFT (LoRA) with Accelerate with the `--peft` in our
@@ -180,6 +180,9 @@ fine-tuning guide from Hugging
 Face](https://huggingface.co/blog/mlabonne/sft-llama3), which also
 covers the [Unsloth library](https://github.com/unslothai/unsloth).
 
+### A fine-tuning example with climate data
+
+A practical fine-tuning example is provided in our [repository](https://github.com/CSCfi/climate-llm-finetuning). The example focuses on utilizing climate-related scientific articles from [Copernicus](https://publications.copernicus.org/open-access_journals/open_access_journals_a_z.html) to fine-tune smaller sized LLMs (in this case, Llama-3.1-8B-Instruct model).
 
 ## Quantization
 
@@ -210,7 +213,8 @@ model = AutoModelForCausalLM.from_pretrained(
    ...
 )
 ```
-You can use it in our fine-tuning LLMs example (see section above) with the `--4bit` argument. Alternatively, see our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/BitsAndBytes) for a full example to quantize a model using bitsandbytes on Puhti, Mahti or LUMI.
+
+You can use it in our fine-tuning LLMs example (see section above) with the `--4bit` argument. Alternatively, see our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/BitsAndBytes) for a full example to quantize a model using bitsandbytes on Roihu or LUMI.
 
 ### Using GPTQ quantization
 
@@ -237,7 +241,7 @@ model = AutoModelForCausalLM.from_pretrained(
 
 GPTQ supports different backends for faster inference such as Marlin (optimized for A100) and ExLlamaV2 (optimized for LLaMA models on consumer GPUs). To enable a specific backend, pass `backend="marlin"` or `exllama_config={"version": 2}` to `GPTQConfig`.
 
-A [blog post by Hugging Face](https://huggingface.co/blog/overview-quantization-transformers) compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. See also our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ) for a full example to quantize a model using GPTQ with Hugging Face Transformers on Puhti, Mahti or LUMI.
+A [blog post by Hugging Face](https://huggingface.co/blog/overview-quantization-transformers) compares bitsandbytes and GPTQ features which can be helpful in deciding which one is more suitable for your use case. See also our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ) for a full example to quantize a model using GPTQ with Hugging Face Transformers on Roihu or LUMI.
 
 ### Using GPTQ quantization via LLM Compressor
 
@@ -254,7 +258,7 @@ recipe = GPTQModifier(targets="Linear", scheme="W4A16", ignore=["lm_head"])
 # The dataset below ("HuggingFaceH4/ultrachat_200k") is only an example—replace with one suited to your model.
 oneshot(model=model, dataset="HuggingFaceH4/ultrachat_200k", recipe=recipe)
 ```
-See a full example to quantize a model using GPTQ via LLM Compressor on Puhti, Mahti or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ).
+See a full example to quantize a model using GPTQ via LLM Compressor on Roihu or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/GPTQ).
 
 ### Using AWQ quantization via LLM Compressor
 
@@ -275,7 +279,7 @@ oneshot(
     recipe=recipe,
 )
 ```
-See a full example to quantize a model using AWQ via LLM Compressor on Puhti, Mahti or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/AWQ).
+See a full example to quantize a model using AWQ via LLM Compressor on Roihu or LUMI in our [Github repository](https://github.com/CSCfi/llm-quantization-scripts/tree/main/AWQ).
 
 ## Retrieval-augmented generation (RAG)
 
@@ -298,7 +302,7 @@ models.
 
 Inference, that is using the model rather than training it, is usually
 much simpler. Our [example git repository][2] has an inference example
-in `inference-demo.py` and `run-inference-puhti.sh`. If your model
+in `inference-demo.py` and `run-inference-roihu.sh`. If your model
 doesn't fit into a single GPU, you can simple reserve more GPUs and
 then let Hugging Face sort it out by setting `device_map='auto'` when
 loading the model, for example:
@@ -346,7 +350,7 @@ download huge model files to your home directory.  See our [example
 Slurm script `run-ollama.sh` for running with Ollama][11].
 
 The [`ai-inference-examples`][14] repository also has some examples of
-running Ollama on a full node with 4 GPUs on Puhti and 8 GPUs on LUMI.
+running Ollama.
 
 ### Inference with vLLM
 
@@ -360,7 +364,7 @@ vLLM efficiently: <https://github.com/TurkuNLP/ECCO-ocr-large-run>.
 
 In some situations there's still a need for an OpenAI-compatible
 server, for example when interfacing with other programs. [Example
-scripts for running vLLM on Puhti, Mahti and LUMI can be found in our
+scripts for running vLLM on Roihu and LUMI can be found in our
 `ai-inference-examples` repository][14]. There's also an example of
 running on multiple nodes on LUMI (`run-vllm-lumi16.sh`).
 
@@ -381,3 +385,10 @@ running on multiple nodes on LUMI (`run-vllm-lumi16.sh`).
 [14]: https://github.com/CSCfi/ai-inference-examples
 [RAG]: https://en.wikipedia.org/wiki/Retrieval-augmented_generation
 [RAG-60K]: https://github.com/CSCfi/RAG-60K/tree/main
+[RL-EXAMPLES]: https://github.com/CSCfi/llm-rl-fine-tuning-examples
+[VERL]: https://verl.readthedocs.io/en/latest/
+[FSDP2]: https://docs.pytorch.org/tutorials/intermediate/FSDP_tutorial.html
+[MEGATRON]: https://docs.nvidia.com/megatron-core/developer-guide/latest/
+[QWEN3-0P6B]: https://huggingface.co/Qwen/Qwen3-0.6B
+[QWEN3-8B]: https://huggingface.co/Qwen/Qwen3-8B
+[GSM8K]: https://huggingface.co/datasets/openai/gsm8k

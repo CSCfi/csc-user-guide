@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](../../cloud/rahti/usage/cli.md) tool. Once done, to continue:
+Helm packages applications into Charts. A Helm chart is a collection of `YAML` templates. In order to create a chart, one must first [install the Helm](https://helm.sh/docs/intro/install/) command line tool and install the [oc command line](../../cloud/rahti/get-started/cli.md) tool. Once done, to continue:
 
 Make sure you are logged in:
 
@@ -60,7 +60,7 @@ Before we can start the process, we need to "clean up" the current Helm example 
 
 !!! info "helm lint"
 
-    The helm tool provides a `lint` command that will report any syntaxt issue with the current template.
+    The helm tool provides a `lint` command that will report any syntax issue with the current template.
     ```sh
     $ helm lint example
     ==> Linting example
@@ -618,7 +618,7 @@ If you type this command:
 ```sh
 helm repo list   
 ```
-You should see your newly added repostory.  
+You should see your newly added repository.  
 
 It also possible to check for updates (and update your `repo`) with this command:  
 ```sh

@@ -31,13 +31,13 @@
 * Hands-on/demo Puhti web interface
     * What is the [Puhti web interface](https://www.puhti.csc.fi/) and what can I use it for?
     * R usecase: RStudio
-        * [Using Paituli data and a basic batch job](https://github.com/csc-training/geocomputing/tree/master/R/puhti).
+        * [Using Paituli data and a basic batch job ](https://github.com/csc-training/geocomputing/tree/master/R/roihu).
         * [Using virtual rasters with R](https://github.com/csc-training/geocomputing/blob/master/R/virtual_rasters.R)
     * Python usecase: Jupyter
         * [Using data from STAC with Python](https://github.com/csc-training/geocomputing/tree/master/python/STAC)
 * [Archived questions and answers from the workshop](https://a3s.fi/gis-workshops/spatial_puhti_2022/HedgeDoc_spatialCSC22.html)
 
-## Earth observationin CSC computing environment (2022)
+## Earth observation in CSC computing environment (2022)
 
 * Eetu Jutila, SYKE: Samantha Wittke (CSC: [Getting started using EO data](https://a3s.fi/gis-workshops/22_EO_workshop/eo_workshop_intro.pdf)
 * Mwaba Hiltunen, FMI: [Access to Copernicus data from the Finnish Data Hub](https://a3s.fi/gis-workshops/22_EO_workshop/hiltunen_finhub.pdf)

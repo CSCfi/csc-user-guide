@@ -203,12 +203,12 @@ AlphaFold analysis consists of three stages:
   - Structure prediction (GPU enabled)
   - Optional: Chain relaxation (GPU enabled)
 
-Building the multiple sequen alignments takes a considerable amount of time, and in 
+Building the multiple sequence alignments takes a considerable amount of time, and in 
 case of short and simple sequences using GPU will only speed up the overall time a 
-litle. In these cases you will probably get better throughput using the CPU version, 
+little. In these cases you will probably get better throughput using the CPU version, 
 as there are more CPU resources available.
 
-In case of longer and more complex strutures GPU will speed up the process
+In case of longer and more complex structures GPU will speed up the process
 considerably. 
 
 It may be difficult to know beforehand, so do some testing. If the run is taking 

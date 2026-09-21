@@ -12,7 +12,7 @@ or read and write access with
 
 Another way of moving data between projects could be to first download the data
 from the original project and then uploading it to the new project. Please see
-[instructions for moving data between Puhti and Allas](how-to-move-data-between-puhti-and-allas.md).
+[instructions for moving data between Puhti and Allas](how-to-move-data-between-roihu-and-allas.md).
 Instead of Puhti, you could also use another supercomputer, cloud environment,
 virtual machine, or your local computer as the intermediate host. See
 [Accessing Allas](../../data/Allas/accessing_allas.md).

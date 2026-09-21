@@ -18,7 +18,7 @@ is removed from the project the user's credentials will stop working.
 
 1. Go to [Pukki's web-interface](https://pukki.dbaas.csc.fi/).
 2. Choose which project you want to use. (You will only see the projects that have DBaaS activated in [my.csc.fi](https://my.csc.fi).)
-3. Go to `Identitiy` -> `Application Credentials`.
+3. Go to `Identity` -> `Application Credentials`.
 4. Press `Create Application Credential`. A dialog will open.
 
     ![Create Application Credential](../../img/create-application-credential.png)

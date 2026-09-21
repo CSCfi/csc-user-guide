@@ -5,7 +5,7 @@ The `r-env` module can be used for parallel computing in several ways. These inc
 
 This page provides examples on how to run various kinds of parallel R batch jobs. To get started with parallel R and for further tips, please see the [introduction to parallel R jobs](../tutorials/parallel-r.md).  
 
-You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future) for further examples of parallel computing using the `raster` package.
+You may also wish to check the relevant R package manuals and [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/02_parallel_future) for further examples of parallel computing using the `raster` package.
 
 
 !!! info "Considerations for reserving multiple cores"
@@ -25,9 +25,9 @@ You may also wish to check the relevant R package manuals and [CSC's Geocomputin
 
 Array jobs can be used to handle [*embarrassingly parallel*](../../computing/running/array-jobs.md) tasks and to submit several concurrently running Slurm jobs. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 2 GB of memory.
 
-=== "Puhti"
+=== "Roihu-CPU"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array
     #SBATCH --account=<project>
     #SBATCH --output=output_%A_%a.txt
@@ -38,7 +38,27 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=2000
+    #SBATCH --mem-per-cpu=2000M
+    
+    # Load r-env
+    module load r-env
+    
+    # Run the R script
+    srun Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
+    ```
+=== "Mahti"    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_array
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%A_%a.txt
+    #SBATCH --error=errors_%A_%a.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:45:00
+    #SBATCH --array=1-10
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=1  # Each core gives 1.875 GB of memory
     
     # Load r-env
     module load r-env
@@ -55,34 +75,6 @@ Array jobs can be used to handle [*embarrassingly parallel*](../../computing/run
     srun apptainer_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
     ```
 
-=== "Mahti"    
-    ```bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_array
-    #SBATCH --account=<project>
-    #SBATCH --output=output_%A_%a.txt
-    #SBATCH --error=errors_%A_%a.txt
-    #SBATCH --partition=small
-    #SBATCH --time=00:45:00
-    #SBATCH --array=1-10
-    #SBATCH --ntasks=1
-    #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=1 # Each core gives 1.875 GB of memory
-    
-    # Load r-env
-    module load r-env
-    
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R $SLURM_ARRAY_TASK_ID
-    ```
 
 If we wanted to access the array number `$SLURM_ARRAY_TASK_ID` within our R script, we could use the `commandArgs` or `Sys.getenv`function.
 
@@ -95,16 +87,17 @@ arrays <- Sys.getenv("SLURM_ARRAY_TASK_ID")
 The array number `$SLURM_ARRAY_TASK_ID` could be used to specify for example which data set or parameter set should be analysed in each array.  
 
 Array jobs are best suited for cases where each subtask is longer
-than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [large scale array jobs with GNU parallel](#large-scale-array-jobs-with-gnu-parallel)
+than about 30 minutes and the number of subtasks is up to 400. For larger array set ups with shorter subtasks, see below for the example on [many small independent runs with xargs](#many-small-independent-runs-with-xargs).
 
 
 ## Multi-core jobs
 
-The following batch job file shows how to submit a job employing multiple cores on a single [node](https://a3s.fi/CSC_training/02_environment.html#/notes-on-vocabulary). The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000)`. The run time is limited to five minutes.
+The following batch job file shows how to submit a job employing multiple cores on a single [node](https://a3s.fi/CSC_training/02_environment.html#/notes-on-vocabulary). 
+The job reserves a single task (`--ntasks=1`), eight cores (`--cpus-per-task=8`) and a total of 8 GB of memory (`--mem-per-cpu=1000M)`. The run time is limited to five minutes.
 
-=== "Puhti"
+=== "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multicore
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -114,25 +107,17 @@ The following batch job file shows how to submit a job employing multiple cores 
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=8
-    #SBATCH --mem-per-cpu=1000
+    #SBATCH --mem-per-cpu=1000M
     
     # Load r-env
     module load r-env
     
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
     # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    srun Rscript --no-save myscript.R
     ```
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multicore
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -141,7 +126,7 @@ The following batch job file shows how to submit a job employing multiple cores 
     #SBATCH --time=00:05:00
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=8 # Each core gives 1.875 GB of memory
+    #SBATCH --cpus-per-task=8  # Each core gives 1.875 GB of memory
     
     # Load r-env
     module load r-env
@@ -192,7 +177,7 @@ toc()
 # multicore: 2.212 sec
 ```
 
-For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/puhti/02_parallel_future). 
+For practical examples of `future` jobs using `plan(multicore)` and `plan(cluster)` (as in [multi-node R jobs with MPI below](#multi-node-jobs-with-future)) with raster data, see [CSC's Geocomputing examples](https://github.com/csc-training/geocomputing/tree/master/R/roihu/02_parallel_future). 
 
 One advantage of `future` is that global variables are automatically exported and available to the parallel processes. When using the packages `parallel` or `snow` to set up parallel processing, one may have to re-load
 packages in the script section that is run in parallel and use `clusterExport` to make objects in the global environment available to the parallel processes.
@@ -201,15 +186,15 @@ packages in the script section that is run in parallel and use `clusterExport` t
 
 `r-env` has been compiled using the Intel® oneAPI Math Kernel Library (oneMKL), enabling the execution of data analysis tasks using multiple threads. For more information on threading, [see the Intel® website](https://www.intel.com/content/www/us/en/docs/onemkl/developer-guide-linux/2025-0/improving-performance-with-threading.html). 
 
-By default, `r-env` is single-threaded. Certain R packages, including [`data.table`](https://r-datatable.com/), [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf), offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. For example, multithreading can help speed up linear algebra routines. To find out whether multithreading benefits a specific analysis, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html).
+By default, `r-env` is single-threaded. Certain R packages, including [`data.table`](https://r-datatable.com/), [`mgcv`](https://stat.ethz.ch/R-manual/R-devel/library/mgcv/html/mgcv-parallel.html) and [`ranger`](https://cran.r-project.org/web/packages/ranger/ranger.pdf), offer direct support for multithreading. Jobs using other types of R packages could also benefit from multithreading, depending on the analysis. For example, multithreading can help speed up linear algebra routines. To find out whether multithreading benefits a specific analysis, we encourage experimenting with different thread numbers and benchmarking your code using a small example data set and, for example, the R package [`microbenchmark`](https://cran.r-project.org/web/packages/microbenchmark/index.html). 
 
-The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Because `r-env` is based on an Apptainer container, when specifying the number of OpenMP threads we need to use the environment variable `APPTAINERENV_OMP_NUM_THREADS`.
+The module uses OpenMP threading technology and the number of threads can be controlled using the environment variable `OMP_NUM_THREADS`. In practice, the number of threads is set to match the number of cores used for the job. Note that `OMP_NUM_THREADS` should not be used in all multicore R jobs but only in those using packages that support OpenMP threads. By default, `OMP_NUM_THREADS` is set to 1.
 
-An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `APPTAINERENV_OMP_PLACES=cores`, we bind each thread to a single core. We also use `APPTAINERENV_OMP_PROC_BIND=close` to ensure that threads are placed as closely as possible (to allow faster communication between threads). Note that [other options](https://theartofhpc.com/pcse/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
+An example batch job script can be found below. Here we submit a job using eight cores (and therefore eight threads) on a single node. Notice how we match the number of threads and cores using `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. By using `OMP_PLACES=cores`, we bind each thread to a single core. Note that [other options](https://theartofhpc.com/pcse/omp-affinity.html) for controlling thread affinity are also available, depending on your analysis.
 
-=== "Puhti"
+=== "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -219,33 +204,25 @@ An example batch job script can be found below. Here we submit a job using eight
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=8
-    #SBATCH --mem-per-cpu=2000
+    #SBATCH --mem-per-cpu=2000M
     
     # Load r-env
     module load r-env
     
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
     # Match thread and core numbers
-    export APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
     
-    # Thread affinity control
-    export APPTAINERENV_OMP_PLACES=cores
-    export APPTAINERENV_OMP_PROC_BIND=close
+    # Place and bind threads to single cores
+    # Comment the following lines if binding is not desired
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
     
     # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    srun Rscript --no-save myscript.R
     ```
-
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -254,7 +231,7 @@ An example batch job script can be found below. Here we submit a job using eight
     #SBATCH --time=00:05:00
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=8 # Each core gives 1.875 GB of memory
+    #SBATCH --cpus-per-task=8  # Each core gives 1.875 GB of memory
     
     # Load r-env
     module load r-env
@@ -276,7 +253,7 @@ An example batch job script can be found below. Here we submit a job using eight
     # Run the R script
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
-
+    
 In a multi-core interactive job, the number of threads can be automatically matched with the number of cores by running a multi-threaded version of the `start-r` or `start-rstudio-server` commands:
 
 ```bash
@@ -298,19 +275,26 @@ must specify one more task than the planned number of workers, as the master nee
 While otherwise the batch job file looks similar to that used for a multi-core job, we replace `--cpus-per-task=x` 
 with `--ntasks-per-node=x` and use `--nodes` to set the number of nodes. Number of workers generally equals `ntasks-per-node x nodes - 1`. In addition, we could modify the `srun` command at the end of the batch job file:
 
-=== "Puhti"
+=== "Roihu-CPU"
     ```bash
-    srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
+    # MPI jobs started with `snow`
+    srun RMPISNOW --no-save --slave myscript.R
+    
+    # MPI jobs started without `snow`
+    srun Rscript --no-save --slave myscript.R
     ```
-
 === "Mahti"
     ```bash
+    # MPI jobs started with `snow`
+    srun apptainer_wrapper exec RMPISNOW --no-save --slave myscript.R
+    
+    # MPI jobs started without `snow`
     srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
     ```
 
 The `--slave` argument is optional and will prevent different processes from printing out a welcome message, among other things.
 
-For more information, see the [general documentation on MPI jobs](../../computing/running/creating-job-scripts-puhti.md#mpi-based-batch-jobs). 
+For more information, see the [general documentation on MPI jobs](../../computing/running/creating-job-scripts-roihu.md#mpi-based-batch-jobs). 
 
 !!! note ""
     For jobs employing the `Rmpi` package, please use `snow` (which is built on top of `Rmpi`). Jobs using `Rmpi` alone are unavailable due to compatibility issues.
@@ -320,44 +304,59 @@ For more information, see the [general documentation on MPI jobs](../../computin
 To run multi-node analyses with `future`, we choose `plan(cluster)` and launch R using the command `RMPISNOW` from `snow`, instead of `Rscript`. We should specify enough tasks for both the master and worker processes.
 For example, for a job requiring as many workers as possible on two nodes, we could submit a `future` job as follows:
 
-=== "Puhti"
+=== "Roihu-CPU"
+    Multiple full nodes:
+    
     ```bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_future
-    #SBATCH --account=<project>
-    #SBATCH --output=output_%j.txt
-    #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=large
-    #SBATCH --time=01:00:00
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --nodes=2 # 2 x 40 - 1 = 79 workers
-    #SBATCH --mem-per-cpu=1000
-    
-    # Load r-env
-    module load r-env
-    
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
-    # Run the R script
-    srun apptainer_wrapper exec RMPISNOW --no-save --slave -f myscript.R
-    ```
-
-=== "Mahti"
-    ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_future
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
     #SBATCH --error=errors_%j.txt
     #SBATCH --partition=medium
     #SBATCH --time=01:00:00
-    #SBATCH --ntasks-per-node=128 # 2 x 128 - 1 = 255 workers
+    #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
+    #SBATCH --nodes=2  # 2 x 384 - 1 = 767 workers
+    #SBATCH --mem-per-cpu=1000M
+    
+    # Load r-env
+    module load r-env
+    
+    # Run the R script
+    srun RMPISNOW --no-save --slave -f myscript.R
+    ```
+    
+    Partial node MPI job:
+    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_future
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --ntasks=8  # 8 CPU cores, 7 workers
+    #SBATCH --nodes=1
+    #SBATCH --mem-per-cpu=1000M
+    #SBATCH --hint=nomultithread
+    
+    # Load r-env
+    module load r-env
+    
+    # Run the R script
+    srun RMPISNOW --no-save --slave -f myscript.R
+    ```
+=== "Mahti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_future
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --ntasks-per-node=128  # 2 x 128 - 1 = 255 workers
     #SBATCH --nodes=2
     
     # Load r-env
@@ -392,44 +391,58 @@ stopCluster(cl)
 
 To launch a multi-node R job directly using `snow` that requires as many workers as possible on two nodes, we could submit it as follows. R is launched with `RMPISNOW`, and we must specify one more task than the planned number of `snow` workers, as the master needs its own task.
 
-=== "Puhti"
+=== "Roihu-CPU"
+    Multiple full nodes:
+    
     ```bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_snow
-    #SBATCH --account=<project>
-    #SBATCH --output=output_%j.txt
-    #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=large
-    #SBATCH --time=01:00:00
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --nodes=2 # 2 x 40 - 1 = 79 workers
-    #SBATCH --mem-per-cpu=1000
-    
-    # Load r-env
-    module load r-env
-    
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
-    # Run the R script
-    srun apptainer_wrapper exec RMPISNOW --no-save --slave -f myscript.R
-    ```
-
-=== "Mahti"
-    ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_snow
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
     #SBATCH --error=errors_%j.txt
     #SBATCH --partition=medium
     #SBATCH --time=01:00:00
-    #SBATCH --ntasks-per-node=128 # 2 x 128 - 1 = 255 workers
+    #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
+    #SBATCH --nodes=2  # 2 x 384 - 1 = 767 workers
+    #SBATCH --mem-per-cpu=1000M
+    
+    # Load r-env
+    module load r-env
+    
+    # Run the R script
+    srun RMPISNOW --no-save --slave -f myscript.R
+    ```
+    
+    Partial node MPI job:
+    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_snow
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --ntasks=8  # 8 CPU cores, 7 workers
+    #SBATCH --nodes=1
+    #SBATCH --mem-per-cpu=1000M
+    
+    # Load r-env
+    module load r-env
+    
+    # Run the R script
+    srun RMPISNOW --no-save --slave -f myscript.R
+    ```
+=== "Mahti"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_snow
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=medium
+    #SBATCH --time=01:00:00
+    #SBATCH --ntasks-per-node=128  # 2 x 128 - 1 = 255 workers
     #SBATCH --nodes=2
     
     # Load r-env
@@ -449,7 +462,7 @@ To launch a multi-node R job directly using `snow` that requires as many workers
 
 Only the master process runs the R script. The R script must contain the call `getMPIcluster()` that is used to produce a reference to the cluster which can then be passed onto other functions. Upon completion of the analysis, the cluster is stopped using `stopCluster()`. For example:
 
-=== "Puhti"
+=== "Roihu-CPU"    
     ```r
     cl <- getMPIcluster()
     
@@ -457,12 +470,11 @@ Only the master process runs the R script. The R script must contain the call `g
       system.time(sort(runif(1e7)))
     }
     
-    system.time(a <- clusterApply(cl, 1:79, funtorun))
+    system.time(a <- clusterApply(cl, 1:767, funtorun))
     a
     
     stopCluster(cl)
     ```
-    
 === "Mahti"    
     ```r
     cl <- getMPIcluster()
@@ -483,7 +495,58 @@ The `foreach` package implements a for-loop that uses iterators and allows for p
 on multiple cores using many different adapters, such as `doParallel` for the built-in R package `parallel`and `doFuture` for `future`. Multi-node and MPI jobs with `foreach` can 
 be run with the parallel backend of the `doMPI` package. 
 
-Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved tasks that all begin to execute the given R script (here eight). It is important to 
+Unlike when using `snow`, jobs using `doMPI` launch a number of R sessions equal to the number of reserved tasks that all begin to execute the given R script (here eight). 
+
+=== "Roihu-CPU"
+
+    Partial node MPI job:
+    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_dompi
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=8
+    #SBATCH --nodes=1
+    #SBATCH --mem-per-cpu=1000M
+    
+    # Load r-env
+    module load r-env
+    
+    # Run the R script
+    srun Rscript --no-save --slave myscript.R
+    ```
+=== "Mahti"    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_dompi
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=8
+    #SBATCH --nodes=1
+    
+    # Load r-env
+    module load r-env
+    
+    # Clean up .Renviron file in home directory
+    if test -f ~/.Renviron; then
+        sed -i '/TMPDIR/d' ~/.Renviron
+    fi
+    
+    # Specify a temporary directory path (replace <project> with your project)
+    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
+    
+    # Run the R script
+    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    ```
+
+It is important to 
 include the `startMPIcluster()` call near the beginning of the R script as anything before it will be executed by all available processes (while only the master process continues 
 after it). Upon completion, the cluster is closed using `closeCluster()`. The `mpi.quit()` function can then be used to terminate the MPI execution environment and to quit R:
 
@@ -502,39 +565,32 @@ mpi.quit()
 
 ### Multi-node jobs using `pbdMPI`
 
-In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `srun apptainer_wrapper exec Rscript` command. For example, we could submit a job using all the cores of two nodes (with one half of the total tasks allocated to each node):
+In analyses using the `pbdMPI` package, each process runs the same copy of the program as every other process while operating on its own data. In other words, there is no separate master process as in `snow` or `doMPI`. Executing batch jobs using `pbdMPI` can be done using the `Rscript` command without `snow`. For example, we could submit a job using all the cores of two nodes (with one half of the total tasks allocated to each node):
 
-=== "Puhti"
+=== "Roihu-CPU"
+    Multiple full nodes:
+   
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_pbdmpi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
     #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=large
+    #SBATCH --partition=medium
     #SBATCH --time=00:05:00
-    #SBATCH --ntasks-per-node=40
+    #SBATCH --ntasks-per-node=384 --cpus-per-task=1  # The product should be 384
     #SBATCH --nodes=2
-    #SBATCH --mem-per-cpu=2000
+    #SBATCH --mem-per-cpu=2000M
     
     # Load r-env
     module load r-env
     
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
     # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save --slave myscript.R
+    srun Rscript --no-save --slave myscript.R
     ```
-
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_pbdmpi
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -574,7 +630,7 @@ finalize()
 
 ## OpenMP / MPI hybrid jobs
 
-Further to [executing multi-threaded R jobs on a single node](../tutorials/parallel-r-examples.md#improving-performance-using-threading), these can also be run on multiple nodes. In such cases, one must specify the number of:
+Further to [executing multi-threaded R jobs on a single node](#improving-performance-using-threading), these can also be run on multiple nodes. In such cases, one must specify the number of:
 
 - Nodes (`--nodes`) 
 
@@ -584,46 +640,39 @@ Further to [executing multi-threaded R jobs on a single node](../tutorials/paral
 
 When listing these in a batch job file, note that `--ntasks-per-node × --cpus-per-task` must be less than or equal to the maximum number of cores available on a single node. For large multi-node jobs, aim to use full nodes, i.e. use all cores in each node. Further to selecting a suitable number of OpenMP threads, identifying the optimal number and division of MPI processes will require experimentation due to these being job-specific. 
 
-As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing eight OpenMP threads. Overall, on Puhti the job would use 32 cores (`--cpus-per-task × --ntasks-per-node × --nodes`). As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK`. We also use the same variables for thread affinity control.
+As an example of an OpenMP / MPI hybrid job, the submission below would use a total of four MPI processes (two tasks per node with two nodes reserved), with each process employing multiple OpenMP threads (`--cpus-per-task`). Overall, the job would use `--cpus-per-task × --ntasks-per-node × --nodes` cores. As with multi-threaded jobs running on a single node, the number of threads and cores is matched using `OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}`. We also use the same variables for thread affinity control.
 
-=== "Puhti"
+=== "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread_multinode
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
     #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=test
+    #SBATCH --partition=medium
     #SBATCH --time=00:05:00
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=2
-    #SBATCH --cpus-per-task=8
-    #SBATCH --mem-per-cpu=2000
+    #SBATCH --cpus-per-task=25
+    #SBATCH --mem-per-cpu=2000M
     
     # Load r-env
     module load r-env
     
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-     sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-    
     # Match thread and core numbers
-    export APPTAINERENV_OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
     
-    # Thread affinity control
-    export APPTAINERENV_OMP_PLACES=cores
-    export APPTAINERENV_OMP_PROC_BIND=close
+    # Place and bind threads to single cores
+    # Comment the following lines if binding is not desired
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
     
     # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
+    srun Rscript --no-save myscript.R
     ```
 === "Mahti"    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_multithread_multinode
     #SBATCH --account=<project>
     #SBATCH --output=output_%j.txt
@@ -632,7 +681,7 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     #SBATCH --time=00:05:00
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=2 
-    #SBATCH --cpus-per-task=64 # ntasks-per-node x cpus-per-task should equal 128
+    #SBATCH --cpus-per-task=64  # ntasks-per-node x cpus-per-task should equal 128
     
     # Load r-env
     module load r-env
@@ -655,43 +704,70 @@ As an example of an OpenMP / MPI hybrid job, the submission below would use a to
     srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
-## Large-scale array jobs with GNU parallel
+## Many small independent runs with xargs
 
-For larger-scale array jobs involving [many small independent runs](../tutorials/many.md), we could consider the following example. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+When we want to run a large number of small, similar, independent tasks, it is better 
+to pack them into one or few Slurm jobs instead of submitting them as many individual jobs.
+A common case is running the same R script on a large number of files. If the 
+task for each file, or group of files, lasts 30 minutes or longer, array jobs introduced 
+above are a good choice. When the individual tasks are shorter, we could instead take 
+advantage of [xargs](https://www.gnu.org/software/findutils/).
+
+In the following example, `mylist.txt` contains the identifiers of N files to be processed. The list looks like this:
 
 ```bash
-set1
-set2
-set3
+file1
+file2
+file3
 (...)
-set1500
+fileN
 ```
 
-To perform our analysis efficiently, we could take advantage of a module including [GNU parallel](https://www.gnu.org/software/parallel/) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+We use `-n 1 -P $SLURM_CPUS_PER_TASK`  to tell `xargs` to read one line at a time from the input 
+`mylist.txt`. The number of simultaneous parallel applications is defined using `--cpus-per-task`, 
+and here we set 4 identifiers to be processed at once. 
 
-- The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array. 
+The identifier being processed can be accessed in the R script with `args = commandArgs(trailingOnly=TRUE)` 
+followed by `args[1]` that then points to the identifier.
 
-- We use `-j $SLURM_CPUS_PER_TASK -k`  to tell GNU parallel to keep running 4 applications in parallel, while ensuring that the job output order matches the input order.  The number of simultaneous parallel applications is defined using `--cpus-per-task`.
+For a real-life analysis, we would likely need much more time and memory (determined by 
+what we do within our R script).
 
-- For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
 
-=== "Puhti"
+=== "Roihu-CPU"
     ```bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_array_gnupara
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
     #SBATCH --account=<project>
-    #SBATCH --output=output_%j_%a.txt
-    #SBATCH --error=errors_%j_%a.txt
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
     #SBATCH --partition=small
     #SBATCH --time=00:05:00
-    #SBATCH --array=0-9
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
     #SBATCH --cpus-per-task=4
-    #SBATCH --mem-per-cpu=2000
+    #SBATCH --mem-per-cpu=2000M
     
-    # Load parallel and r-env
-    module load parallel
+    # Load r-env
+    module load r-env
+  
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            Rscript --no-save myscript.R < mylist.txt
+    ```
+=== "Mahti"    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j.txt
+    #SBATCH --error=errors_%j.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4  # Each core gives 1.875 GB of memory
+    
+    # Load r-env
     module load r-env
     
     # Clean up .Renviron file in home directory
@@ -702,19 +778,66 @@ To perform our analysis efficiently, we could take advantage of a module includi
     # Specify a temporary directory path (replace <project> with your project)
     echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
     
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            apptainer_wrapper exec Rscript --no-save myscript.R < mylist.txt 
+    ```
+
+## Large-scale array jobs with xargs or GNU parallel
+
+For very large numbers of small independent runs, we could [combine xargs with arrays](../tutorials/many.md).
+Here we provide a smaller example to demonstrate the approach with an R script. Let's assume that we have a total of 1500 runs that we would like to complete. We also have a list (`mylist.txt`) with unique identifiers for each run that we wish to use as part of an R script to retrieve the correct data set for analysis. The list is arranged row-by-row like this:
+
+```bash
+set1
+set2
+set3
+(...)
+set1500
+```
+
+To perform our analysis efficiently, we could take advantage of [xargs](https://www.gnu.org/software/findutils/) provided by the base operating system (or a module including [GNU Parallel](https://www.gnu.org/software/parallel/)) to "schedule" how the runs are completed within the array job. There are a couple of details we should notice about the batch job script below:
+
+- The way in which the runs are split into arrays is case-specific and requires manual calculation. In the current example, since `mylist.txt` contains 1500 identifiers and we are using 10 arrays, a decision has been made to allocate 150 runs per array. 
+
+- We use `-n 1 -P $SLURM_CPUS_PER_TASK`  to tell `xargs` to read one line at a time from the input (specific section of `mylist.txt`) and run 4 applications in parallel. The number of simultaneous parallel applications is defined using `--cpus-per-task`. When using GNU Parallel, the equivalent command is `parallel -j $SLURM_CPUS_PER_TASK -k`.
+
+- The identifiers in the list can be accessed in the R script with `args = commandArgs(trailingOnly=TRUE)` followed by `args[1]` for the array number (`$SLURM_ARRAY_TASK_ID`) and `args[2]` for the identifiers analysed in this array.
+
+- For a real-life analysis, we would likely need much more time and memory (determined by what we do within our R script).
+
+=== "Roihu-CPU"
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=r_array_xargs
+    #SBATCH --account=<project>
+    #SBATCH --output=output_%j_%a.txt
+    #SBATCH --error=errors_%j_%a.txt
+    #SBATCH --partition=small
+    #SBATCH --time=00:05:00
+    #SBATCH --array=0-9
+    #SBATCH --ntasks=1
+    #SBATCH --nodes=1
+    #SBATCH --cpus-per-task=4
+    #SBATCH --mem-per-cpu=2000M
+    
+    # Load r-env
+    module load r-env
+    
     # Split runs into arrays and run the R script
     (( from_run = SLURM_ARRAY_TASK_ID * 150 + 1 ))
     (( to_run = SLURM_ARRAY_TASK_ID * 150 + 150 ))
     
     sed -n "${from_run},${to_run}p" mylist.txt | \
-        parallel -j $SLURM_CPUS_PER_TASK -k \
-            apptainer_wrapper exec Rscript --no-save myscript.R \
+        xargs -n 1 -P $SLURM_CPUS_PER_TASK \
+            Rscript --no-save myscript.R \
                     $SLURM_ARRAY_TASK_ID
     ```
 
 === "Mahti"    
+    # Using GNU parallel:
+    
     ```bash
-    #!/bin/bash -l
+    #!/bin/bash
     #SBATCH --job-name=r_array_gnupara
     #SBATCH --account=<project>
     #SBATCH --output=output_%j_%a.txt
@@ -724,7 +847,7 @@ To perform our analysis efficiently, we could take advantage of a module includi
     #SBATCH --array=0-9
     #SBATCH --ntasks=1
     #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=4 # Each core gives 1.875 GB of memory
+    #SBATCH --cpus-per-task=4  # Each core gives 1.875 GB of memory
     
     # Load parallel and r-env
     module load parallel

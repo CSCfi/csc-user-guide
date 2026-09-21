@@ -66,7 +66,7 @@ bs download dataset -i dataset_id -o local_download_dir
 
 ## More information
 
-More detailed information about using Illumne BaseSpace client can be found form the links below:
+More detailed information about using Illumina BaseSpace client can be found form the links below:
 
 * [bs examples](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-examples)
 * [bs overview](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-overview)

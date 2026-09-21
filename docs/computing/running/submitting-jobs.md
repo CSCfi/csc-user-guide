@@ -67,8 +67,16 @@ parameters that can be used to select which data is displayed.
     sacct --starttime now-7days > sacct-output.txt
     ```
 
+!!! info "Submitting jobs across architectures on Roihu"
+    On Roihu, the CPU nodes are x86 and the GPU nodes are ARM, so normally you
+    should submit CPU jobs from `roihu-cpu.csc.fi` and GPU jobs from
+    `roihu-gpu.csc.fi`. Submitting across architectures is possible, but the job
+    inherits an environment built for the wrong architecture unless you take
+    extra care. See
+    [Submitting jobs across architectures](submitting-jobs-across-architectures.md).
+
 ## More information
 
-- [Creating Puhti batch jobs](creating-job-scripts-puhti.md)
-- [Creating Mahti batch jobs](creating-job-scripts-mahti.md)
+- [Creating Roihu batch jobs](creating-job-scripts-roihu.md)
 - [Available batch job partitions](batch-job-partitions.md)
+- [Submitting jobs across architectures](submitting-jobs-across-architectures.md)

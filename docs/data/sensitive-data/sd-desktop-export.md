@@ -96,7 +96,7 @@ CSC provides an application that simplifies encryption key generation and data d
 2. Select the correct CSC project in the top left corner.
 3. Click **Upload** in the top right corner.
 4. In the new window, name the destination folder for your files (e.g. **project_export**).
-5. Click **Select Files** to open a browser window and choose the public enycrption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
+5. Click **Select Files** to open a browser window and choose the public encryption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
 6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
 
 !!! info "Folder names"
@@ -105,7 +105,7 @@ CSC provides an application that simplifies encryption key generation and data d
     * Folder name should be between 3 and 63 characters long.
     * Use Latin alphabets (a-z), numbers (0-9) and dash (-). 
     * Uppercase letters, underscore  (_) and accent letters with diacritics or special marks (åäöe') are not allowed.
-    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include projec specific identifiers (e.g., project ID number or acronym) in the folder name.
+    * Folder names must be unique across all existing folders in all projects in SD Connect and Allas. If you can't create a new folder, another project may already use the name you have chosen. To avoid this situation, it is good practice to include project specific identifiers (e.g., project ID number or acronym) in the folder name.
     * Remember, all folder names are public; please do not include any confidential information.
     * Folder names can't be modified afterwards.
 
@@ -184,7 +184,7 @@ Once the file is encrypted, only the CSC project manager can export them via the
 2. Press **Enter** and enter your password when prompted.
 
 !!! Note:
-    If you attempt to upload an unencrypted file, the Data Gateway apploication or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
+    If you attempt to upload an unencrypted file, the Data Gateway application or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it.
 
 
 
@@ -234,7 +234,7 @@ The decrypted file will no longer display the `.c4gh` extension and will be save
     
 ## Advanced: Back-up copies
 
-If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilse to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
+If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members can utilise to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
 
 ## Your next steps in this guide
 

@@ -1,75 +1,35 @@
-# GNU Parallel workflow for many small, independent runs
+# GNU xargs and parallel workflows for many small, independent runs
 
-The goal is to have a workflow that is
+## Overview
 
-1. *simple* to understand,
-2. fits well into the *batch queue system*, and
-3. does not stress the *parallel file system*.
+This tutorial is one approach to
+high-throughput computing, where a large
+number of similar, independent tasks are packed into a small number of Slurm
+jobs instead of being submitted as individual jobs.
 
-There is a plethora of workflow tools. Whatever tool one chooses, it will
-unlikely match the particular workflow and underlying computing platform out of
-the box. Some amount of programming is needed in most cases. A very much related
-discussion is in [Array jobs](../../computing/running/array-jobs.md)
-chapter of <https://docs.csc.fi>.
+Both [xargs](https://www.gnu.org/software/findutils/) and
+[GNU Parallel](https://www.gnu.org/software/parallel/) are command-line tools
+for running a large number of tasks in parallel, and they work about the same
+for this purpose. In this tutorial we use `xargs`, as it is simple, lightweight,
+and usually provided by the base operating system, but the same workflow can be
+done with GNU Parallel's `parallel` command. Here we use the tool inside a single
+Slurm allocation to keep all the reserved cores busy: the names of the input
+files are fed to `xargs`, which keeps running tasks until they are all
+done, starting a new task as soon as a core becomes free.
 
-## Strengths of GNU Parallel
+`xargs` is a good fit for this purpose because it does not require a
+database or a persistent manager process, it makes efficient use of scheduler
+resources, and it scales easily to a large number of tasks and nodes. On the
+other hand, it only runs serial subtasks and has no support for dependencies
+between tasks or for error recovery. It also expects you to organize the input
+and output files carefully, and scaling up requires you to consider the I/O
+performance of the system. A modest familiarity with bash scripting is
+recommended.
 
-* Does not require a database or persistent manager process
-* Easily scales to a large number of tasks/nodes
-* Efficient use of scheduler resources
+If your tasks have dependencies, you need error recovery or you want to explore tools, see
+the [high-throughput computing and workflows](../../computing/running/throughput.md) page.
 
-## Disadvantages of GNU Parallel
-
-* User is required to do careful organization of input and output files
-* Scaling up requires consideration of system I/O performance
-* Modest familiarity with bash scripting recommended
-* Only serial subtasks
-* No support for dependencies or error recovery
-
-## System limits outline
-
-The maximum number of jobs that each user can submit per month should be kept
-below one thousand. Too many batch jobs will generate excess log data and slows
-down the job scheduler.
-[Array jobs](../../computing/running/array-jobs.md) are basically
-just a shorthand, so a single array job of 100 members counts the same as 100
-individual jobs from the batch queue system's perspective.
-
-The job maximum runtime is limited by the queue parameters. The minimum time is
-not limited, but if the job is too short, it is just generating proportionally
-large scheduling overhead in the batch system.
-
-!!! Tip
-      A good target is to write batch
-      jobs that finish somewhere between two hours and two days.
-
-Parallel file systems work poorly when a single client (application program)
-tries to perform too many file operations. Such cases can be e.g. applications
-installed with the Conda package manager directly on the shared file system. 
-One miniconda environment is easily over 20000 files and Anaconda distribution
-is much worse. Many of these files need to be opened every time a Conda application
-is launched. When running many, relatively short jobs, avoid running applications installed with Conda. However, if your application requires a complex environment,
-use applications packed into Singularity containers, which are single files from
-the perspective of the file system. To easily containerize a Conda environment,
-see the [Tykky container wrapper tool](../../computing/containers/tykky.md)
-
-"Too many files" issues are also often encountered with workflows consisting of
-thousands of small runs. As a general guide, keep the number of files in a
-single directory well below one thousand, and organize your data into multiple
-directories. Also, use command `csc-workspaces` to monitor that the total number
-of files in your projects stays well below the limits. If most of the files are
-temporary, or there simply is too many of them, using the fast local SSD disks
-in the
-[I/O nodes](../../computing/running/creating-job-scripts-puhti.md#local-storage)
-can solve the problem. You can pack small files into a bigger archive file with
-the `tar` command. Most importantly, if there are output files that you do not need,
-find out how to turn off writing those in the first place.
-
-Please contact <servicedesk@csc.fi> if your workflow needs help to fit into the
-limits given above.
-
-
-## An example case, 80000 independent runs
+## Example: Running 80000 independent single-core tasks
 
 In general, there are three pieces of input that are needed for designing the
 workflow:
@@ -124,8 +84,6 @@ Let's look at the job script for our example case:
 #SBATCH --gres=nvme:3600
 #SBATCH --array=0-24
 
-module load parallel
-
 cd /scratch/${SLURM_JOB_ACCOUNT}/many
 
 (( from_dir_index = SLURM_ARRAY_TASK_ID * 8 + 1 ))
@@ -134,7 +92,7 @@ cd /scratch/${SLURM_JOB_ACCOUNT}/many
 job_dirs=$(printf "%dir-%03d " $(seq $from_dir_index $to_dir_index))
 
 find $job_dirs -name 'input-*' | \
-    parallel -j $SLURM_CPUS_PER_TASK bash wrapper.sh {}
+    xargs -n 1 -P $SLURM_CPUS_PER_TASK bash wrapper.sh {}
 ```
 
 The batch job reserves a whole node for 40 hours. One task starts in the node,
@@ -145,21 +103,22 @@ system to execute 25 copies of this job, each job identified by a unique number
 in environment variable `SLURM_ARRAY_TASK_ID`. Depending on the queue situation,
 many of these jobs can run in parallel.
 
-Next we load a module providing
-[GNU parallel](https://www.gnu.org/software/parallel/). We use this tool
+The `xargs` command is usually provided by the base operating system. In HPC systems
+one often needs to load a module to make similar GNU Parallel `parallel` command
+available. We use xargs command (or GNU Parallel)
 within the node to "schedule" all 3200 runs in a job, so that at any point
 in time all 40 cores are busy, but not overloaded.
 
 Next lines calculate which directories belong to the current array job, using
-the `SLURM_ARRAY_TASK_ID` environment varible.
+the `SLURM_ARRAY_TASK_ID` environment variable.
 
-The main "loop" of the script is implemented with GNU parallel command
-`parallel`. With the option `-j $SLURM_CPUS_PER_TASK` we tell GNU parallel to
+The main "loop" of the script is implemented with `xargs` command (or GNU Parallel `parallel` command).
+With the option `-P $SLURM_CPUS_PER_TASK` we tell xargs to
 keep running 40 commands (applications) in parallel. Since we need to copy
 files into and out from the local SSD for each run, we wrap our application in a
 small shell script, `wrapper.sh`, which takes the input file name as an
-argument. The names of the input files are fed to GNU parallel through a pipe,
-and GNU parallel keeps on running the `bash wrapper.sh <input file>` command as
+argument. The names of the input files are fed to xargs through a pipe,
+and xargs keeps on running the `bash wrapper.sh <input file>` command as
 long as there are arguments in the pipe.
 
 Separating the wrapper script from the batch job script makes it possible to

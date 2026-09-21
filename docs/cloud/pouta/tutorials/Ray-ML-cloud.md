@@ -57,9 +57,9 @@ A [Ray Cluster](https://docs.ray.io/en/latest/cluster/getting-started.html) is a
 
 [Ray Dashboard](https://docs.ray.io/en/latest/ray-observability/getting-started.html) is a simple web page that shows what Ray is doing. It helps you see how many CPUs and GPUs are being used, which tasks are running, and whether the system is working smoothly. This is helpful when using multiple VMs because you can easily understand the system’s activity without checking logs or terminals. 
 
-You can see the dashboard by creating a SSH tunnel from your VM. If you are working on multiple VMs, you need to create tunnel form the head VM.
+You can see the dashboard by creating a SSH tunnel from your VM. If you are working on multiple VMs, you need to create tunnel from the head VM.
 
-On VM, if you have started using Ray without connecting with dashboard, you need to first stop Ray and then start it with `include-dashbord` by commands: 
+On VM, if you have started using Ray without connecting with dashboard, you need to first stop Ray and then start it with `include-dashboard` by commands: 
 
 ```bash
 ray stop --force
@@ -96,7 +96,7 @@ More information about installation is available [here](https://docs.ray.io/en/l
 
 ### On single VM
 
-If you have single VM with multiple cores, for example, 6 CPU and 1 GPU, Ray can use al of them automatically. You need to install ray on that machine and you can use that directly in your python code. You can check the difference in time taken by a code when running normally (sequential processing) and when using Ray (parallel processing). 
+If you have single VM with multiple cores, for example, 6 CPU and 1 GPU, Ray can use all of them automatically. You need to install ray on that machine and you can use that directly in your python code. You can check the difference in time taken by a code when running normally (sequential processing) and when using Ray (parallel processing). 
 
 When you are not using Ray, it will do sequential computation. Try this code
 ``` 

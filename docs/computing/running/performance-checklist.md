@@ -4,78 +4,21 @@ This page collects important information to enable maximum performance
 for your jobs and the system. If you know how to improve job performance,
 please contribute to the list!
 
-## Limit unnecessary spreading of parallel tasks in Puhti
-One of the limiting factors for strong scaling is the communication
-between tasks. Communication within a node is faster than between
-nodes. It is optimal to use as few nodes as possible.
 
-If resources are requested simply by:
-```
-#SBATCH --ntasks=200
-```
-the queuing system may spread them on tens of nodes (just a few cores each).
-This will be very bad for the performance of the job, and will cause a lot of
-(unnecessary) communication in the system interconnect. If the performance of
-your parallel jobs has decreased, this could be the reason.
-Overall, this should be avoided. This also
-fragments the system increasing queuing times for large jobs.
+## Check CPU Affinity
 
-The best performance (fastest communication) can be achieved by requesting
-full nodes:
-```
-#SBATCH --nodes=5
-#SBATCH --ntasks-per-node=40
-```
-Since Puhti is currently fragmented, requesting full nodes may mean longer queuing
-time, but it may be regained by faster execution. If queuing times this way seem
-unacceptable, you can still limit the maximum number of nodes the job can spread on.
-For example, limiting the 200 task job (which optimally fits on 5 nodes) to a maximum
-of 10 nodes, you could use:
+CPU affinity describes how a running program is placed on
+the available CPU cores of a supercomputer node.
+In high‑performance computing, setting affinity correctly is important for performance.
+It helps programs make better use of fast processor caches and memory,
+reduces unnecessary movement between cores, and leads to more stable and predictable runtimes.
 
-```
-#SBATCH --ntasks=200
-#SBATCH --nodes=5-10
-```
-Slurm will then allocate 200 cores from 5 to 10 nodes for your job.
-
-### How many nodes to allow?
-If full nodes or the minimum is not suitable, it is probably best to try
-and monitor job performance. Choosing too many nodes will deteriorate
-performance more than is gained by less queuing. Note also that overall this is lost
-computer capacity.
-
-Perhaps, a rule of thumb could be
-to set the upper limit to 2 or 3 times the number which would accommodate
-all tasks. With very large parallel jobs, even smaller is recommended as
-communication and the likelihood of one slow node in the allocation gets
-higher and poor load balancing gets more likely. Anyway, large parallel jobs
-should be run in Mahti.
-
-## Hybrid parallelization in Mahti
-
-Many HPC applications benefit from binding OpenMP threads to CPU cores
-which can be achieved by setting `export OMP_PLACES=cores` in the
-batch job script.
-
-When starting new production runs it is also good
-practice to ensure correct thread affinity by adding to batch job
-script
-```
-export OMP_AFFINITY_FORMAT="Process %P level %L thread %0.3n affinity %A"
-export OMP_DISPLAY_AFFINITY=true
-```
-The runtime affinity will be printed to the standard error of the batch
-job. If the output shows that several processes/threads are bound to
-the same core, *i.e.*
-```
-Process 164433 level 1 thread 000 affinity 0
-Process 164433 level 1 thread 001 affinity 0
-```
-the performance might be deteriorated and one should check the settings
-in the batch script.
+Please see the [CPU affinity tutorial](../../support/tutorials/affinity.md) for
+instructions how to inspect and control CPU affinity of the programs.
 
 
 ## Perform a scaling test
+
 It is important to make sure that your job can efficiently use
 all the allocated resources (cores). This needs to be verified for
 each new code and job type (different input) by a scaling test.
@@ -93,6 +36,7 @@ completes faster.
 Note, that not all codes or job types can be run in parallel. Confirm this first
 for your code.
 
+
 ## Mind your I/O - it can make a big difference
 
 If your workload writes or reads a large number of small files then you may
@@ -100,10 +44,10 @@ see poor I/O performance even if the total volume is not that big. Please
 consider the following items to mitigate potential bottlenecks:
 
 * Use local storage for especially AI workloads instead of scratch. Only some
-  nodes have [fast local disk](creating-job-scripts-puhti.md#local-storage),
+  nodes have [fast local disk](creating-job-scripts-roihu.md#local-temporary-storage),
   but we've seen 10-fold performance improvement by switching to use it. Check
   your performance: don't use the resource if it doesn't help.
-  [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive-puhti-and-mahti-only)
+  [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive)
 * Investigate if you can choose how your application does I/O (e.g. OpenFoam
   can use the collated file format) and don't write unnecessary information
   on disk or do it too often (e.g. GROMACS with the `-v` flag should not be
@@ -122,3 +66,5 @@ improved by proper Lustre settings:
 * Use collective parallel I/O if possible.
 * See also more extensive
   [I/O optimization hints](../../support/tutorials/lustre_performance.md).
+
+

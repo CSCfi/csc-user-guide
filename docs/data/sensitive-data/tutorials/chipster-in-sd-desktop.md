@@ -17,7 +17,7 @@ in Chipster require significant amount of memory the flavor of the SD Desktop vi
 machine should medium computation or heavy computation. In SD Desktop, the Chipster server
 is compatible only with SD Desktop Virtual Machines were **Podman** is available.
 
-Note that all the users of the SD Desktop machine can use the same Chipster server. In cases where several users use the same server, it is good practice ro assign one user as a _Chipster manager_ that installs and manages the Chipster server.
+Note that all the users of the SD Desktop machine can use the same Chipster server. In cases where several users use the same server, it is good practice to assign one user as a _Chipster manager_ that installs and manages the Chipster server.
 
 ## Installation
 
@@ -35,7 +35,7 @@ This command starts Chipster installation process that takes 1-2 hours and downl
 ```test
 start-chipster-server
 ```
-Once the Chipstwer server is running, all users of the SD Desktop VM can use the same Chipster server. Thus this launch command should be executed only by the user that is acting as the Chipster server manager. Running the command again closes the existing server and launches a new one. In normal use the _start-chipster-server_ command is used to start the service after reboot.
+Once the Chipster server is running, all users of the SD Desktop VM can use the same Chipster server. Thus this launch command should be executed only by the user that is acting as the Chipster server manager. Running the command again closes the existing server and launches a new one. In normal use the _start-chipster-server_ command is used to start the service after reboot.
 
 
 ## Using Chipster server

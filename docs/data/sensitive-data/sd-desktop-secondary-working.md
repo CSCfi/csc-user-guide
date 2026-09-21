@@ -67,7 +67,7 @@ The copy-paste function from your computer/laptop to your virtual desktop is lim
 3. Now you can copy text normally from your computer (Ctrl+C or mouse right click).
 4. Paste the text inside your virtual desktop (Ctrl+V).
 
-    Note: Don't close Clipboard panel with **Cntrl+Alt+Shift**, this might disable the copy-paste function. Please note you have to activate the copy-paste function again every time you use your virtual desktop.
+    Note: Don't close Clipboard panel with **Ctrl+Alt+Shift**, this might disable the copy-paste function. Please note you have to activate the copy-paste function again every time you use your virtual desktop.
 
     ![SD Desktop Clipboard screenshot](images/desktop/SD-Desktop-Clipboard.png)  
     *Appearance of the Clipboard (Guacamole tools) may vary a bit depending on browser and local operating system.*
@@ -121,7 +121,7 @@ Below you can find a list of tools available in our software package.
 
 ## Accessing RStudio from virtual desktop
 
-After contacting [CSC Service Desk](../../support/contact.md) and receiving specific guidance, you can access R Studio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](r-in-sd-desktop.md)
+After contacting [CSC Service Desk](../../support/contact.md) and receiving specific guidance, you can access RStudio by following this tutorial: [Adding RStudio and R libraries to SD Desktop](r-in-sd-desktop.md)
 
 
 Read next:

@@ -1,5 +1,22 @@
 # Applications
 
+## CPU versions of PyTorch and TensorFlow available on Roihu, 3.9.2026
+
+CPU editions of all installed [PyTorch](../../apps/pytorch.md) and
+[TensorFlow](../../apps/tensorflow.md) versions have been made
+available on Roihu. This is to better support interactive usage and
+hybrid workflows.
+
+## PyTorch 2.13.0 available on Roihu-GPU, 31.8.2026
+
+PyTorch 2.13.0 is now available on Roihu-GPU in the [python-pytorch
+module](../../apps/pytorch.md). It has been set to the default
+version.
+
+## R 4.6.1 in r-env, 18.8.2026
+
+R version 4.6.1 is now available in [r-env](../../apps/r-env.md) in Roihu and is set as the default version.
+
 ## CSC chemistry software stack on LUMI updated, 23.3.2026
 
 The chemistry software stack maintained by CSC on LUMI
@@ -149,7 +166,7 @@ more information](../../apps/pytorch.md#available).
 
 ## R in Mahti, 7.4.2025
 
-R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The [new small partition on Mahti](../../computing/running/batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation) is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
 
 ## Tykky 0.4.2, 27.2.2025
 
@@ -176,7 +193,7 @@ On LUMI, the 0.4.38 module fixes memory allocation instabilities that were prese
 
 ## Snakemake and Nextflow tutorials significantly improved
 
-Tutorials with major updates available for workflow tools: [Snakemake](../tutorials/snakemake-puhti.md) and [Nextflow](../tutorials/nextflow-tutorial.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
+Tutorials with major updates available for workflow tools: [Snakemake](../../apps/snakemake.md) and [Nextflow](../../apps/nextflow.md). The tutorial describe different options for the installing and running the tools. Note also the new [master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397).
 
 ## Schrödinger Maestro 2025.1, 6.2.2025
 
@@ -440,8 +457,8 @@ previously supported packages (e.g., DeepSpeed and Transformers).
 ## Snakemake, 23.2.2024
 
 An [application page for the Snakemake workflow tool](../../apps/snakemake.md)
-has been added to Docs CSC. Check it out, as well as the accompanying tutorial
-on [how to use Snakemake efficiently on Puhti](../tutorials/snakemake-puhti.md).
+has been added to Docs CSC. Check it out for details on
+[how to use Snakemake efficiently on Puhti](../../apps/snakemake.md).
 
 ## GROMACS 2024.0, 16.2.2024
 
@@ -652,7 +669,7 @@ instead.
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
 similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq-tool).
+details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
 
 ## PyTorch 1.13, 9.12.2022
 
@@ -748,7 +765,7 @@ expected.
 ## Python Data 3.9-3 and RAPIDS 22.04, 5.5.2022
 
 New versions of [Python Data](../../apps/python-data.md) and
-[RAPIDS](../../apps/rapids.md) are now available on both Puhti and Mahti. The
+RAPIDS are now available on both Puhti and Mahti. The
 default versions have been changed to these new versions.
 
 ## CP2K 9.1 linked to Gromacs 2022, 19.4.2022

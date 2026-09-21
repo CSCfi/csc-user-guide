@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # HMMER
@@ -25,27 +25,29 @@ Database searches with HMM profiles can require very long computing times in nor
 
 ## License
 
-Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
+Free to use and open source under the [BSD 3-Clause License](https://github.com/EddyRivasLab/hmmer/blob/master/LICENSE).
 
 ## Available
 
-* Puhti: 3.2.1, 3.3.2, 3.4
+* Roihu: 3.4, via the `bio-apps` module.
 
 ## Usage
 
-To use default version of HMMER on Puhti, load the biokit module:
+HMMER is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the HMMER module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load hmmer/3.4
 ```
 
-If you want to use some other version, load the particular version of the HMMER module. For example:
+Check the available versions with:
 
 ```bash
-module load hmmer/3.2.1
+module spider hmmer
 ```
 
-After this, the command line options of each `hmmer` command can be checked with option `-h`. For example:
+After this, the command line options of each `hmmer` command can be checked with the option `-h`. For example:
 
 ```bash
 hmmsearch -h
@@ -53,51 +55,66 @@ hmmsearch -h
 
 ### Pfam database
 
-On Puhti, you can use Pfam-A database with HMMER commands. You can also create your own HMM databases.
-For example, comparing a protein sequence against a Pfam-A HMM-database could be performed with the following commands.
+!!! info "Shared reference databases"
+    CSC plans to provide shared reference databases (such as Pfam-A) at a central
+    location on Roihu. This is still being set up. Until it is available, download
+    and use your own copy of the database.
 
-First, open an interactive batch job session and load biokit:
+You can search a protein sequence against a Pfam-A HMM database, or against your own HMM databases.
+After downloading a Pfam-A HMM file, prepare it for searching with `hmmpress`:
 
 ```bash
-sinteractive -m 4G -c 4
-module load biokit
+hmmpress Pfam-A.hmm
 ```
 
-With native HMMER, you can speed up the `hmmpfam` and `hmmserach` commands by using several
-processors. The number of processors, e.g. 4, to be used is indicated with option `--cpu 4`,
+With native HMMER, you can speed up the `hmmscan` and `hmmsearch` commands by using several
+processors. The number of processors, e.g. 4, to be used is indicated with the option `--cpu 4`,
 but the number is better replaced with an environment variable which already has it, *i.e.* 
-`$SLURM_CPUS_PER_TASK`, so it's always in sync with the batch script request:
+`$SLURM_CPUS_PER_TASK`, so it's always in sync with the batch script request.
+
+You can run the search in an [interactive session](../computing/running/interactive-usage.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours), so request enough cores for the memory you need, for example:
 
 ```bash
-hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
+sinteractive --account <project> --cores 4
+module load bio-apps/v202603
+module load hmmer/3.4
+hmmscan --cpu $SLURM_CPUS_PER_TASK Pfam-A.hmm protein.fasta > result.txt
 ```
 
-In Puhti, HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job file using 4 processor cores:
+HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job script using 4 processor cores:
 
 ```bash
 #!/bin/bash 
 #SBATCH --job-name=hmmer_job
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
 #SBATCH --time=04:00:00
 #SBATCH --partition=small
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --nodes=1  
 #SBATCH --cpus-per-task=4
-#SBATCH --account=project_123456
-#SBATCH --mem=8000
+#SBATCH --mem-per-cpu=2000M
 
-module load biokit
-hmmscan --cpu $SLURM_CPUS_PER_TASK $PFAMDB/pfam_a.hmm protein.fasta > result.txt
+module load bio-apps/v202603
+module load hmmer/3.4
+
+hmmscan --cpu $SLURM_CPUS_PER_TASK Pfam-A.hmm protein.fasta > result.txt
 ```
 
-The job is submitted with command (where *batch_job_file* is the name of your batch job file):
+Replace `<project>` with your CSC project (for example `project_2001234`).
+
+The job is submitted with the command (where *batch_job_file.sh* is the name of your batch job file):
 
 ```bash
-sbatch batch_job_file
+sbatch batch_job_file.sh
 ```
 
-For more information on running batch jobs, see the [Computing User Guide](../computing/running/getting-started.md).
+For more information on running batch jobs, see [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

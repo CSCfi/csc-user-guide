@@ -9,8 +9,8 @@ catalog:
     - Geosciences
   available_on:
     - web_interfaces:
-        - Puhti
-    - Puhti
+        - Roihu
+    - Roihu
 ---
 
 # Zonation
@@ -20,12 +20,9 @@ catalog:
 
 ## Available
 
-__Zonation__ including Graphical User Interface is available in Puhti with following versions:
+__Zonation__ including Graphical User Interface is available in Roihu with following versions:
 
-* 5.2.3
-* 5.2.1 
-* 5.2.0.2 
-* 5.1.0
+* 5.2.4
 
 
 ## Usage
@@ -39,15 +36,15 @@ z5 <command arguments>
 
 With version 5.2.1 you can also use `zonation5 <command arguments>`
 
-Zonation can be used in Puhti with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. In Puhti, it can use one node, which is max 40 cores.  
+Zonation can be used with command-line or graphical interface, as interactive job or with batch system. In any case reserve suitable amount of computing resources: cores and memory. Zonation 5 runs faster, if it can use several cores. It can use one node, which is max 384 in Roihu.  
 
 Before starting Zonation, move your data to your project's __scratch__ folder. For testing, [zonation5-tutorial data](https://github.com/zonationteam/Zonation5/releases/download/v1.0/manual_and_example_setups.zip) can be used.
 
 ### Zonation with Graphical User Interface
 
-Zonation Graphical User Interface (GUI) can be started in Puhti web interface:
+Zonation Graphical User Interface (GUI) can be started in Roihu web interface:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
+1. Log in to [Roihu web interface](https://roihu.csc.fi).
 2. Open [Desktop app](../computing/webinterface/desktop.md)
 3. After launching the Desktop, double-click Zonation icon.
 
@@ -61,7 +58,7 @@ z5 -w --mode=ABF minimal_settings.z5 /scratch/project_200xxxx/example1_out
 ```
 
 ### Using Zonation with batch job
-For longer analysis jobs, Puhti batch system should be used.
+For longer analysis jobs, batch system should be used.
 
 ```
 #!/bin/bash
@@ -76,6 +73,10 @@ cd /scratch/project_200xxxx/<location_of_your_data>
 srun z5 -w --mode=ABF minimal_settings.z5 /scratch/project_200xxxx/example1_out
 ```
 
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
+
 
 ## License 
 
@@ -84,7 +85,7 @@ Zonation 5 is distributed as is, freely under [GNU General Public License (GPL) 
 
 ## Citation
 
-`Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution`
+Moilanen, A., Lehtinen, P., Kohonen, I., Virtanen, E., Jalkanen, J. and Kujala, H. 2022. Novel methods for spatial prioritization with applications in conservation, land use planning and ecological impact avoidance. Methods in Ecology and Evolution
 
 
 ## Acknowledgement
@@ -95,7 +96,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Zonation was installed to Puhti with Apptainer using [Zonation Apptainer definition files](https://github.com/CSCfi/singularity-recipes/tree/main/zonation) written by Pauli Lehtinen from University of Helsinki with slight modifications. 
+Zonation was installed with Apptainer using [Zonation Apptainer definition files](https://github.com/CSCfi/singularity-recipes/tree/main/zonation) written by Pauli Lehtinen from University of Helsinki with slight modifications. 
 
 The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): 
 `wrap-container -w /squashfs-root/AppRun --prefix install_dir zonation5_v2.1.sif`
