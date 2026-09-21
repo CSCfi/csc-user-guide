@@ -347,7 +347,7 @@ cscWorkspaces(c);
     The PuTTY Private Key format (`.ppk`) will **not** work.
 
 
-### Single node serial, parallel and GPU jobs
+### Single node serial and parallel
 We define the resource reservation using [`parcluster`](https://www.mathworks.com/help/parallel-computing/parcluster.html) and submit the function or script to the cluster using [`batch`](http://www.mathworks.com/help/distcomp/batch.html).
 The `parcluster` object is stateful, thus we explicitly unset properties when they are unused, such as GPUs for CPU-only jobs.
 You can use the following examples; just replace `<project>` with your project, such as `project_2001234`, and modify the resource reservation to suit your needs.
@@ -389,7 +389,7 @@ You can use the following examples; just replace `<project>` with your project, 
 <!--     c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime> -->
 <!--     c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads> -->
 <!--     c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU> -->
-<!--     c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode> -->
+<!--     c.AdditionalProperties.GPUCard = 'gh200';                % --gres=gpu:<GPUCard>:<GPUsPerNode> -->
 <!--     c.AdditionalProperties.GPUsPerNode = 1; -->
 <!--     j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false); -->
 <!--     ``` -->
