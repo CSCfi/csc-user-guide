@@ -125,12 +125,6 @@ For security reasons, copy-pasting from your own computer to SD Desktop is limit
 
 
 
-
-
-
-
-
-
 ## Your next steps in this guide
 
 * [Customisation - software & tools](./sd-desktop-software.md)
