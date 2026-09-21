@@ -56,6 +56,9 @@ Available on Roihu-CPU only.
 
 All options support MATLAB versions R2023b to R2026a.
 
+!!! info Roihu-GPU
+    Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
+
 CSC provides the following licenses, shared between all users, for **academic** use:
 
 === "Roihu"
