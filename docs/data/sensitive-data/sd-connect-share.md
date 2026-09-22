@@ -4,65 +4,38 @@
 
 # Sharing buckets
 
-* [Sharing buckets to another CSC project: overview](#sharing-buckets-to-another-csc-project-overview)
-* [Share buckets to another CSC project: step-by-step](#share-buckets-to-another-csc-project-step-by-step)
-* [Change sharing permission](#change-sharing-permission)
-* [Delete sharing permission](#delete-sharing-permission)
+## On this page: 
+
+* [1. Sharing buckets to another CSC project: overview](#sharing-buckets-to-another-csc-project-overview)
+* [1.1 Share ID](#11-share-id)
+* [1.2 Permission levels](#12-permission-levels)
+* [2. Share buckets to another CSC project: step-by-step](#2-share-buckets-to-another-csc-project-step-by-step)
+* [3. Change sharing permission](#3-change-sharing-permission)
+* [4. Delete sharing permission](#4-delete-sharing-permission)
 
 
-## Sharing buckets to another CSC project: overview
+## 1. Sharing buckets to another CSC project: overview
 
 With SD Connect, you can share a bucket and all its contents with other CSC projects. A bucket can be shared with multiple projects, and you can assign a different permission level to each project.
 
 To share a bucket, the sender project uses **the recipient project's Share ID** and selects **the appropriate permission level** based on how the data should be accessed and used.
 
-### Share ID 
+### 1.1 Share ID 
 
 To share a bucket you need the **recipient project's Share ID**, a unique 32-digit identifier assigned to each CSC project. 
 
 
-### Permission levels
+### 1.2 Permission levels
 
 SD Connect provides three permission levels for shared buckets. **Before sharing,** review the available options and choose the permission level that best matches the intended use of the data.
 
 
-<div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
-
-- **Share for data transfer**
-  { .csc-grid-card-info }
-
-    ---
-    
-    Share one or more buckets with another CSC project so its members can copy and download the data. 
-    
-    Use this option when you want to transfer data to another project, research group, or organization. 
-    
-    [**Read more about the use case**](./sd-connect-share-tranfer-data.md)
+- **Share for data transfer**: Share one or more buckets with another CSC project so its members can copy and download the data. Use this option when you want to transfer data to another project, research group, or organization. [**Read more about the use case**](./sd-connect-share-tranfer-data.md)
 
 
--   **Share for collaboration and shared workspace**
-  { .csc-grid-card-info }
+- **Share for collaboration and shared workspace**: Share a bucket with another CSC project so both projects can work with the same data. Members of both projects can upload, download, copy and delete files in the shared bucket. Use this option when multiple teams need to collaborate on a dataset. [**Read more about the use case**](./sd-connect-share-workspace.md)
 
-    ---
-    
-    Share a bucket with another CSC project so both projects can work with the same data. Members of both projects can upload, download, copy and delete files in the shared bucket. 
-    
-    Use this option when multiple teams need to collaborate on a dataset. 
-    
-    [**Read more about the use case**](./sd-connect-share-workspace.md)
-
-
-
-- **Share for Read-only access**
-  { .csc-grid-card-info }
-
-    ---
-    
-    Allow another CSC project to access data via SD Desktop only. Members of the another project can only access data in a secure and isolated computing environment for analysis. 
-
-    Use this when you need maximum certainty that your files are not distributed further. **Note that you also have to be the project manager of the recipient project**.
-    
-    [**Read more about the use case**](./sd-connect-share-read-to-sd-desktop.md)
+- **Share for Read-only access**: Allow another CSC project to access data via SD Desktop only. Members of the another project can only access data in a secure and isolated computing environment for analysis. Use this when you need maximum certainty that your files are not distributed further. **Note that you also have to be the project manager of the recipient project**.[**Read more about the use case**](./sd-connect-share-read-to-sd-desktop.md)
 
 </div>
 
@@ -74,9 +47,7 @@ SD Connect provides three permission levels for shared buckets. **Before sharing
 ____
 
 
-
-
-### Share buckets to another CSC project: step-by-step 
+### 2. Share buckets to another CSC project: step-by-step 
 
 
 1. **Ask from recipient for their project Share ID**. They can find it in the SD Connect user interface by selecting the correct CSC project from the top-left corner and clicking **Copy Share ID **next to the project number. Ask them to send the Share ID to you by email.
@@ -91,7 +62,7 @@ ____
 ____
 
 
-### Change sharing permission
+### 3. Change sharing permission
 
 1. Select correct project from the top-left corner. Click **Share** button on the right side of the bucket.
 ![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
@@ -106,7 +77,7 @@ ____
 ____
 
 
-### Delete sharing permission
+### 4. Delete sharing permission
 
 1. Select correct project from the top-left corner. Click **Share** button on the right side of the bucket.
 ![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
