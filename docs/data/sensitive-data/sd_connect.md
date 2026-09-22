@@ -51,7 +51,7 @@ You can browse through the main topics of the manual using the navigation bar on
 - The storage space remains available as long as the CSC project is active. All data will be deleted 90 days after account termination or project closure, according to [CSC's General Terms of Use](https://research.csc.fi/general-terms-of-use).
 - CSC does not provide backups of the data stored in SD Connect. Therefore, we advise you to maintain **backups** of important datasets.
 - Only files encrypted using SD Connect are visible via SD Desktop services.
-  **Consider network connection when transferring large files. Transfer speed can vary significantly depending on the connection type, available bandwidth and network traffic**. For example, a 50 GB file upload takes approximately 1 hour and 30 minutes using a connection with measured speeds of 60 Mbps download and 80 Mbps upload.
+- **Consider network connection when transferring large files. Transfer speed can vary significantly depending on the connection type, available bandwidth and network traffic**. For example, a 50 GB file upload takes approximately 1 hour and 30 minutes using a connection with measured speeds of 60 Mbps download and 80 Mbps upload.
 
 
 !!! Note
