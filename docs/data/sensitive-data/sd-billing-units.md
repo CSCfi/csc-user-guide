@@ -187,7 +187,7 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 | 100 TB | 1 200 000 units | Large package, 1 time a year: 1 200 000 BUs Large resource applications are generally processed every two weeks by the CSC's Resource Allocation Group.  |
 
 
-### 3.4 Step 2: Apply for billing units via MyCSC portal
+### 3.2 Step 2: Apply for billing units via MyCSC portal
 
 You can apply for more BUs for your CSC project via MyCSC portal. 
 
