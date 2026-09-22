@@ -256,7 +256,7 @@ Many of our Python environments, including
 as well as deep learning modules like [`python-pytorch`](../../apps/pytorch.md)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
-[list of supported environments](../../computing/webinterface/jupyter.md#supported-python-environments-on-roihu).
+[list of supported environments](../../computing/webinterface/jupyter.md#supported-python-environments-in-the-roihu-web-interface).
 
 ### Visual Studio Code
 
