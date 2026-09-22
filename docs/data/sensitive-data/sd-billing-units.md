@@ -2,7 +2,7 @@
 
 ## On this page:
 
-- [1.What are Billing Units](#1-what-are-billing-units)
+- [1. What are Billing Units](#1-what-are-billing-units)
 - [1.1 Overview of SD Connect and Desktop resource consumption](#11-overview-of-resource-consumption)
 - [1.2 How to monitor Billing Units usage](#12-how-to-monitor-billing-units-usage)
 - [1.3. When your project runs out of Billing Units](#13-when-your-project-runs-out-of-billing-units)
