@@ -37,8 +37,6 @@ SD Connect provides three permission levels for shared buckets. **Before sharing
 
 - **Share for Read-only access**: Allow another CSC project to access data via SD Desktop only. Members of the another project can only access data in a secure and isolated computing environment for analysis. Use this when you need maximum certainty that your files are not distributed further. **Note that you also have to be the project manager of the recipient project**.[**Read more about the use case**](./sd-connect-share-read-to-sd-desktop.md)
 
-</div>
-
 
 !!! warning "Assigning the wrong sharing option may grant unintended access to your data. If you are new to SD services, contact [contact CSC Service Desk](../../support/contact.md) to discuss different sharing options before proceeding."
 
