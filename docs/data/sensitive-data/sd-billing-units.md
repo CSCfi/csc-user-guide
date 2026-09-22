@@ -20,6 +20,7 @@
     
 </div>
 
+## Inotroduction: 
 
 Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of Billing Units (BUs) and storage quota immediately. 
 
