@@ -1,5 +1,3 @@
-
-
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
 # Sharing buckets
@@ -39,7 +37,6 @@ SD Connect provides three permission levels for shared buckets. **Before sharing
 
 
 !!! warning "Assigning the wrong sharing option may grant unintended access to your data. If you are new to SD services, contact [contact CSC Service Desk](../../support/contact.md) to discuss different sharing options before proceeding."
-
 
 
 ____
