@@ -16,7 +16,7 @@
 
     When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
   
-    [**Read more**](#when-your-project-runs-out-of-billing-units)
+    [**Read more**](#13-when-your-project-runs-out-of-billing-units)
     
 </div>
 
@@ -25,10 +25,10 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 
 **Both the CSC project manager and all project members share responsibility for:**
 
-- Monitoring how many [**Billing Units**](#what-are-billing-units) the project has left.
-- Monitoring how much of the [**storage quota**](#what-is-storage-quota) is being used.
-- [**Planning 6 months ahead**](#step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage.
-- [**Applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) around 2-4 times a year.
+- Monitoring how many [**Billing Units**](#1-what-are-billing-units) the project has left.
+- Monitoring how much of the [**storage quota**](#2-what-is-storage-quota) is being used.
+- [**Planning 6 months ahead**](#31-step-1-estimate-the-appropriate-billing-units-packages-for-your-project) project's resource usage.
+- [**Applying for more Billing Units**](#32-step-2-apply-for-billing-units-via-mycsc-portal) around 2-4 times a year.
 
 
 ## 1. What are Billing Units 
