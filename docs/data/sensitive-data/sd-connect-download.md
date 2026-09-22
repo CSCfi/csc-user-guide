@@ -2,33 +2,26 @@
 
 # Downloading buckets and files
 
-Please select your download method below:
+## On this page
 
-* [Download and automated decryption](#download-and-automated-decryption): For files and folders uploaded using SD Connect user interface **after** October 1, 2024.
-
-* [Download and manual decryption](#download-and-manual-decryption): For files and folders uploaded using SD Connect user interface **before** October 1, 2024.
+* [1. Download and automated decryption](#1-download-and-automated-decryption)
+  * [1.1 Downloading bucket content](#11-downloading-bucket-content)
+  * [1.2 Downloading individual files](#12-downloading-individual-files)
+* [Download and manual decryption for files uploaded before October 2024](#2-download-and-manual-decryption-for-files-uploaded-before-october-2024)
 
 ___
 
-## Download and automated decryption
+## 1. Download and automated decryption
 
-You can download either [the entire bucket](#downloading-a-bucket) or [individual files](#downloading-individual-files). This method is available for files and folders uploaded using SD Connect user interface **after** October 1, 2024.
+You can download either [the entire bucket](#downloading-a-bucket) or [individual files](#downloading-individual-files).
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
-
-    If you encounter the message **"Some downloaded files need manual decryption."** while downloading, it indicates that some files in your bucket were uploaded with an older version of SD Connect, making automatic decryption unavailable. To resolve this, please follow these [instructions](#download-and-manual-decryption). For further assistance, [contact CSC Service Desk](../../support/contact.md).
-
-</div>
 
 ___
 
 
-### Downloading a bucket
+### 1.1 Downloading bucket content
 
 1. Find the correct bucket from **All buckets** tab.
 
@@ -49,7 +42,7 @@ ___
 
 ___
 
-### Downloading individual files
+### 1.2 Downloading individual files
 
 1. Find correct bucket from **All buckets tab** and click to open it.
    
@@ -70,13 +63,10 @@ ___
 ![SD Connect Download files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DownloadFiles.png)
 
 
-
 ___
 
+## 2. Download and manual decryption for files uploaded before October 2024
 
-## Download and manual decryption
-
-**Files uploaded before October 1, 2024** were encrypted manually using your encryption key and must be decrypted manually after download.
 
 If you see the message **"Requested files could not be decrypted"** during download, the file requires an extra decryption step. After downloading, use the **Crypt4GH application** on your laptop to decrypt the file by following the provided instructions.
 
