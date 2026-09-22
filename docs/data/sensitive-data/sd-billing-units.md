@@ -14,6 +14,18 @@
     
 </div>
 
+
+## On this page:
+
+- What are Billing Units 
+- Overview of SD Connect and Desktop resource consumption
+- How to monitor Billing Units usage
+- When your project runs out of Billing Units
+- What is Storage Quota 
+- How to monitor Storage Quota usage
+- When your project runs out of Storage Quota
+
+
 Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of Billing Units (BUs) and storage quota immediately. 
 
 **Both the CSC project manager and all project members share responsibility for:**
@@ -24,7 +36,7 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 - [**Applying for more Billing Units**](#step-2-apply-for-billing-units-via-mycsc-portal) around 2-4 times a year.
 
 
-## What are Billing Units 
+## 1. What are Billing Units 
    
 **Billing Units (BUs)** are used to track how much computing power and processing time your CSC project consumes. CSC uses different types of Billing Units to measure resource usage based on the service:
 
@@ -35,7 +47,7 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 - When you create a CSC project, **30 000 Cloud and Storage BUs** are usually enough for initial testing.
 
 
-### Overview of resource consumption
+### 1.1 Overview of resource consumption
 
 | Service      | Resource Type      | What Resources It Consumes                                                                 | What to Consider When Applying for BUs                                      | Billing Behavior                                                                 |
 |--------------|-------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
@@ -44,7 +56,7 @@ Every active CSC project consumes both Billing Units (BUs) and storage quota. Wh
 | **SD Connect** | **Data storage:** Your secure storage in CSC     | **Storage Billing Units:** Based on the amount of data stored in the service. | Estimate how much data will be uploaded and how long it will be stored.    | Storage Billing Units are consumed as long as data is stored. Charges continue until the data is deleted. | 
 |  |     |  **Storage Quota:** How much space is available for your project’s data               | Estimate how much data will be uploaded.    | Once you reach your quota limit, you can no longer upload additional files. |
 
-### How to monitor Billing Units usage
+### 1.2 How to monitor Billing Units usage
 
 You can monitor Billing Units usage in MyCSC portal. 
 
@@ -56,7 +68,7 @@ You can monitor Billing Units usage in MyCSC portal.
 ![Billing Units in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_BUs.png)
 
 
-### When your project runs out of Billing Units
+### 1.3 When your project runs out of Billing Units
 
 <div class="grid cards" markdown>
 
@@ -81,13 +93,13 @@ Until you apply for more BUs you will have a **limited access to the SD Desktop*
 
    
 
-## What is Storage Quota 
+## 2 What is Storage Quota 
 
-The storage quota defines how much space is available for your project’s data. It represents a capacity limit, not a consumable resource. 
+The storage quota defines how much space is available for storing your project’s data in SD Connect. It represents a capacity limit, not a consumable resource. 
 
 For CSC projects with SD Connect enabled, the default quota is 10 TB. If needed, this can be increased up to 200 TB by contacting the Service Desk (subject line: Increase Allas quota).
 
-### How to monitor Storage Quota usage
+### 2.1 How to monitor Storage Quota usage
 
 You can monitor Storage Quota in MyCSC portal. 
 
@@ -98,24 +110,24 @@ You can monitor Storage Quota in MyCSC portal.
 
 ![Storage Quota in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
 
-### When your project runs out of Storage Quota
+### 2.2 When your project runs out of Storage Quota for SD Connect
 
 - Data upload to SD Connect will no longer be possible.
-- Data import to SD Desktop will no longer be possible.
+- Data export from SD Desktop will no longer be possible.
     
 
 
-### How to increase Storage Quota
+### 2.3 How to increase Storage Quota
 
 If you have less Storage Quota available than is needed, apply for more:
 
-  - Send email to Service Desk (subject line: Increase Allas quota). It takes few days to process your application.
+  - Send email to Service Desk (subject line: Increase Allas quota). It takes few days to process your application. We recommend requesting a minimum of 5-10 TB at a time.
   - You will receive email when your quota is available.
 
 
-## Plan resource usage
+## 3 Plan resource usage
   
-### Step 1: Estimate the appropriate Billing Units packages for your project
+### 3.1 Step 1: Estimate the appropriate Billing Units packages for your project
 
 Estimate the Billing Units your project will consume over the next six months for SD Desktop (Cloud Billing Units) and SD Connect (Storage Billing Units) using the examples provided below. This will help you determine which package to apply for via MyCSC portal. Before you begin, please note:
 
@@ -132,7 +144,7 @@ Estimate the Billing Units your project will consume over the next six months fo
 </div>
 
 
-#### SD Desktop: Cloud Billing Units
+#### 3.2 SD Desktop: Cloud Billing Units
 
 **SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of external volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
 
@@ -145,7 +157,7 @@ If you are unsure where to find the information above, please contact us at serv
 
 Here’s a table summarizing the Cloud Billing Units required for using **virtual desktops** over **one year** for various options:
 
-| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
+| Desktop Option | Cloud Billing Rate (units/hour) |  Cloud Billing Units (approximated consumed in 1 year) | Select the correct BU Package in MyCSC and application frequency |
 |----------------|---------------------------|--------------------------|------------------------|
 | Small Computation | 5.2 | 48 000 |Small package, 2 times a year: 30 000 BUs assigned immediately| 
 | Medium Computation | 10.92 | 98 000 |Small package, 4 times a year: 30 000 BUs assigned immediately  |
@@ -165,7 +177,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 
 
 
-#### SD Connect: Storage Billing Units
+#### 3.3 SD Connect: Storage Billing Units
 
 SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.4 Storage BUs per TiB per hour**.
 
@@ -179,7 +191,7 @@ Here’s a table summarizing the Storage Billing Units required for storing data
 | 100 TB | 1 200 000 units | Large package, 1 time a year: 1 200 000 BUs Large resource applications are generally processed every two weeks by the CSC's Resource Allocation Group.  |
 
 
-### Step 2: Apply for billing units via MyCSC portal
+### 3.4 Step 2: Apply for billing units via MyCSC portal
 
 You can apply for more BUs for your CSC project via MyCSC portal. 
 
