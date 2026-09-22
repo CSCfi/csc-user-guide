@@ -3,18 +3,8 @@
 ## On this page:
 
 - [1. What are Billing Units](#1-what-are-billing-units)
-- [1.1 Overview of SD Connect and Desktop resource consumption](#11-overview-of-resource-consumption)
-- [1.2 How to monitor Billing Units usage](#12-how-to-monitor-billing-units-usage)
-- [1.3. When your project runs out of Billing Units](#13-when-your-project-runs-out-of-billing-units)
 - [2. What is Storage Quota](2-what-is-storage-quota)
-- [2.1 How to monitor Storage Quota usage](21-how-to-monitor-storage-quota-usage)
-- [2.2 When your project runs out of Storage Quota](#22-when-your-project-runs-out-of-storage-quota-for-sd-connect)
-- [2.3 How to increase storage quota](#23-how-to-increase-storage-quota)
-- [3. Plan your CSC project resource usage](#3-plan-resource-usage)
-- [3.1 Estimate the appropriate billing units packages](#31-step-1-estimate-the-appropriate-billing-units-packages-for-your-project)
-- [3.1.1 SD Desktop Cloud-type billign units](#311-sd-desktop-cloud-billing-units)
-- [3.1.2 SD Connect Storage-type Billing units](#312-sd-connect-storage-billing-units)
-- [3.2 Apply for billing units in the MYCSC portal](#32-step-2-apply-for-billing-units-via-mycsc-portal)
+- [3. Plan and apply for your CSC project resource usage](#3-plan-resource-usage)
 
 
 
