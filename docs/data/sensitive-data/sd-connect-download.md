@@ -7,7 +7,7 @@
 * [1. Download and automated decryption](#1-download-and-automated-decryption)
   * [1.1 Downloading bucket content](#11-downloading-bucket-content)
   * [1.2 Downloading individual files](#12-downloading-individual-files)
-* [Download and manual decryption for files uploaded before October 2024](#2-download-and-manual-decryption-for-files-uploaded-before-october-2024)
+* [2. Download and manual decryption for files uploaded before October 2024](#2-download-and-manual-decryption-for-files-uploaded-before-october-2024)
 
 ___
 
