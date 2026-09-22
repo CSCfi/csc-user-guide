@@ -1,5 +1,11 @@
 # Resource planning for your CSC Project
 
+## On this page:
+
+- [1. What are Billing Units](#1-what-are-billing-units)
+- [2. What is Storage Quota](2-what-is-storage-quota)
+- [3. Plan and apply for your CSC project resource usage](#3-plan-resource-usage)
+
 
 <div class="grid cards" markdown>
 
@@ -13,13 +19,6 @@
     [**Read more**](#when-your-project-runs-out-of-billing-units)
     
 </div>
-
-## On this page:
-
-- [1. What are Billing Units](#1-what-are-billing-units)
-- [2. What is Storage Quota](2-what-is-storage-quota)
-- [3. Plan and apply for your CSC project resource usage](#3-plan-resource-usage)
-
 
 
 Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of Billing Units (BUs) and storage quota immediately. 
