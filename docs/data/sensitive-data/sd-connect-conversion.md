@@ -1,12 +1,12 @@
 # SD Connect: bucket names conversion
 
 
-Existing SD Connect buckets need to be converted to work correctly with the updated version of SD Connect. The SD Connect Conversion Tool, available via graphical user interface or command line tool, converts these buckets while preserving the data and restoring their functionality.
+Existing buckets need to be converted to work correctly with the updated version of SD Connect available from September 2026.. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
 
 The action you need to take depends on the label displayed in the SD Connect user interface next to your bucket:
 
-- Urgent: convert the bucket as soon as possible to restore access to the data.
-- By the end of 2026: The data remains accessible, but the bucket should be converted by the end of 2026.
+- Urgent: convert the bucket as soon as possible to restore data access.
+- By the end of 2026: the data remains accessible, but the bucket name and file format should be converted by the end of 2026.
 
 If your project contains both types of buckets, convert the Urgent buckets first.
 
@@ -78,7 +78,29 @@ Choose the method based on bucket's tag and size. The SD Connect Conversion tool
 
 
 
-##4. Convert bucket names
+## 4. Convert bucket names
+
+
+During conversion, the tool makes bucket names compatible with the current SD Connect naming requirements.
+
+Depending on the bucket name, the tool may:
+
+- convert uppercase letters to lowercase and add teh suffic -conv
+- replace spaces with hyphens (`-`) and add teh suffix -conv
+- replace underscores (`_`) with hyphens (`-`) and add he suffic -conv
+- add a unique string if the resulting bucket name already exists.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Follow the instructions for the conversion method you selected. 
