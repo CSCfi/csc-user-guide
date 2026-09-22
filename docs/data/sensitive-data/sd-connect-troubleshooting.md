@@ -4,7 +4,7 @@
 # Troubleshooting
 
 !!! Note
-   Below you will find solutions to the most common issues encountered with SD Connect. If you need further assistance, please don't hesitate to contact servicedesk@csc.fi with the subject line "SD Services".
+    Below you will find solutions to the most common issues encountered with SD Connect. If you need further assistance, please don't hesitate to contact servicedesk@csc.fi with the subject line "SD Services".
 
 
 | Problem | Description | Solution |
