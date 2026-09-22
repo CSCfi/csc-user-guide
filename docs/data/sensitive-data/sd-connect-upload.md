@@ -7,13 +7,14 @@
 
 ## On this page: 
 
-* [Uploading and encrypting data: overview](#uploading-and-encrypting-data-overview)
-* [Uploading and encrypting data: step-by-step](#uploading-and-encrypting-data-step-by-step)
-* [1. Plan bucket names](#1-plan-bucket-names)
-* [2. Accept cookies](#1-plan-bucket-names)
-* [3. Upload and encrypt files to a new bucket](3-upload-and-encrypt-files-to-a-new-bucket)
-* [4. Interrupted upload](#4-interrupted-upload)
-* [5. Reporting an issue](#5-reporting-an-issue)
+* [1. Uploading and encrypting data: overview](#1-uploading-and-encrypting-data-overview)
+* [2. Uploading and encrypting data: step-by-step](#u2-ploading-and-encrypting-data-step-by-step)
+* [2.1 Plan bucket names](#21-plan-bucket-names)
+* [2.2 Accept cookies](#22-plan-bucket-names)
+* [2.3 Upload and encrypt files to a new bucket](#23-upload-and-encrypt-files-to-a-new-bucket)
+* [2.4 Create an empty bucket](#25-create-an-empty-bucket)
+* [3. Interrupted upload](#3-interrupted-upload)
+* [4. Reporting an issue](#4-reporting-an-issue)
 
 Files uploaded to SD Connect are automatically encrypted during upload and decrypted during download using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
@@ -30,7 +31,7 @@ Files uploaded to SD Connect are automatically encrypted during upload and decry
 
 ____
 
-## Uploading and encrypting data: overview
+## 1. Uploading and encrypting data: overview
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
@@ -46,9 +47,9 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 ____
 
-## Uploading and encrypting data: step-by-step
+## 2. Uploading and encrypting data: step-by-step
 
-### 1. Plan bucket names
+### 2.1 Plan bucket names
   
 When creating buckets in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. These rules apply only to buckets created in the service, not to folders or files uploaded from a local computer. 
 
@@ -79,13 +80,13 @@ When creating buckets in SD Connect, specific naming rules must be followed to e
 
 ___
 
-### 2. Accept cookies
+### 2.2 Accept cookies
 
 **This action is required only once:** File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. 
 
 ___
 
-### 3. Upload and encrypt files to a new bucket
+### 2.3 Upload and encrypt files to a new bucket
 
 1. Log in to SD Connect and select the correct CSC project in the top left corner.
 2. Click **Upload** in the top right corner.
@@ -103,7 +104,7 @@ Now the files are accessible for downloading and sharing via SD Connect or for a
 
 ___
 
-### 3.1 Upload and encrypt files to an existing bucket
+### 2.4 Upload and encrypt files to an existing bucket
 
 1. Select the correct project and bucket.
 ![SD Connect Select bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_UploadExistingBucket1.png)
@@ -116,7 +117,7 @@ ___
 
 ____
 
-### 3.2 Create an empty bucket
+### 2.5 Create an empty bucket
 
 You can create an empty bucket and upload files to it later.
 
@@ -127,7 +128,7 @@ You can create an empty bucket and upload files to it later.
 ![SD Connect Name empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket1.png)
 
 
-### 4. Interrupted upload
+### 3. Interrupted upload
 
 If you encounter issues with file uploads or downloads, try the following steps: 
 
@@ -140,7 +141,7 @@ If you encounter issues with file uploads or downloads, try the following steps:
 5. Find the service worker associated with SD Connect and select **Unregister**.
 6. Refresh the SD Connect page and try uploading or downloading the file again.
 
-### 5. Reporting an issue
+### 4. Reporting an issue
 
 If you experience problems when uploading or downloading files, you can export a log of your SD Connect session. The log contains technical information that can help investigate the issue.
 
