@@ -56,8 +56,11 @@ Available on Roihu-CPU only.
 
 All options support MATLAB versions R2023b to R2026a.
 
-!!! info Roihu-GPU
-    Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
+!!! warning "Availability on Roihu"
+    1. MATLAB Parallel Server is NOT yet available on Roihu!
+    2. MATLAB runs currently only on Roihu-CPU (x86_64).
+       GPUs are currently available only on the [`vizinteractive`](../computing/running/creating-job-scripts-roihu.md#gpu-visualization-jobs) partition which is intended for visualization.
+    3. Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
 
 CSC provides the following licenses, shared between all users, for **academic** use:
 
@@ -251,10 +254,6 @@ t_threads = funcThreads(2)
 
 It is also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
 
-!!! info "GPUs on Roihu"
-    On Roihu, MATLAB runs currently only on Roihu-CPU (x86_64), so GPUs are currently available only on the [`vizinteractive` partition](../computing/running/creating-job-scripts-roihu.md#gpu-visualization-jobs), intended for visualization.
-    Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
-
 We can query the available GPU devices and perform computation on the GPU as follows:
 
 ```matlab title="funcGPU.m"
@@ -281,11 +280,6 @@ C = funcGPU(1000);
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Roihu cluster's MATLAB workers.
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Roihu cluster, and a user-side configuration.
 Install the user-side configuration files by running the following MATLAB script:
-
-!!! Info "MATLAB Parallel Server is NOT yet available on Roihu!"
-    The integration scripts `mps_roihu.zip` for Roihu are not yet available.
-    We will change this notice once they are available.
-    Sorry for the inconvenience, you will have to use the alternative way to run MATLAB in the meantime.
 
 ```matlab title="mps_roihu.m"
 % Define local MATLAB configuration directory.
