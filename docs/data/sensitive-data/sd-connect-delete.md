@@ -5,8 +5,11 @@
 ## On this page: 
 
 [1. Deleting a file](#1-deleting-a-file)
+
 [2. Deleting multiple files](#2-deleting-multiple-files)
+
 [3. Deleting a subfolder](#3-deleting-subfolder)
+
 [4. Deleting a bucket](#4-deleting-a-bucket)
 
 Any project member can delete data from SD Connect, including individual files and subfolders. To prevent accidental data loss, deleting the contents of a bucket and deleting the bucket itself are separate steps. A bucket can be deleted only after all its contents have been removed.
