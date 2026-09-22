@@ -46,7 +46,7 @@ You will be notified before your CSC Project's Billing Units run out. When an ac
 Detailed information on how services are currently limiting the use when Billing Units run out:
 
 * [Roihu, Puhti and Mahti](../computing/usage-policy.md#running-out-of-billing-units)
-* [Sensitive Data Desktop](../data/sensitive-data/sd-billing-units.md#when-your-project-runs-out-of-billing-units)
+* [Sensitive Data Desktop](../data/sensitive-data/sd-billing-units.md#13-when-your-project-runs-out-of-billing-units)
 
 
 
