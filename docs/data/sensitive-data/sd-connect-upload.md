@@ -5,11 +5,17 @@
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+## On this page: 
+
 * [Uploading and encrypting data: overview](#uploading-and-encrypting-data-overview)
 * [Uploading and encrypting data: step-by-step](#uploading-and-encrypting-data-step-by-step)
+* [1. Plan bucket names](#1-plan-bucket-names)
+* [2. Accept cookies](#1-plan-bucket-names)
+* [3. Upload and encrypt files to a new bucket](3-upload-and-encrypt-files-to-a-new-bucket)
+* [4. Interrupted upload](#4-interrupted-upload)
+* [5. Reporting an issue](#5-reporting-an-issue)
 
-Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically.
-
+Files uploaded to SD Connect are automatically encrypted during upload and decrypted during download using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
 <div class="grid cards" markdown>
 
@@ -30,13 +36,13 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 - **Once files are uploaded to SD Connect, they cannot be edited or modified**. It is therefore important to plan the bucket structure in advance. To simplify data management and avoid issues, it is recommended to create a separate bucket for each dataset or experiment. Avoid placing too many files in a single bucket, each bucket can contain up to 500.000 segmented files.
 
-- **Uploading files into subfolders is not supported.** 
+- **Uploading files into folders is not supported.** 
 
 - **Upload duration**: Uploading large files or large batches may take several hours. Uploads are automatically stopped after 8 hours.
   
 -  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance.
     
-- The user interface might be slower when there are more than 2500 files for each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
+- The user interface might be slower when there are more than 2500 files in each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
 
 ____
 
@@ -44,7 +50,7 @@ ____
 
 ### 1. Plan bucket names
   
-When creating buckets in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. These rules apply only to buckets created in the service, not to subfolders or files uploaded from a local computer. 
+When creating buckets in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. These rules apply only to buckets created in the service, not to folders or files uploaded from a local computer. 
 
 
 <div class="grid cards" markdown>
@@ -83,7 +89,7 @@ ___
 
 1. Log in to SD Connect and select the correct CSC project in the top left corner.
 2. Click **Upload** in the top right corner.
-3. In the new window, name the destination bucket for your files taking into consideration that some charactes are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names)
+3. In the new window, name the destination bucket for your files taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names)
 4. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. 
 5. Click **Upload** to start automatic encryption and upload.
 6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination bucket.
@@ -121,6 +127,31 @@ You can create an empty bucket and upload files to it later.
 ![SD Connect Name empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket1.png)
 
 
+### 4. Interrupted upload
+
+If you encounter issues with file uploads or downloads, try the following steps: 
+
+1. Open **SD Connect** in Chrome.
+2. Open **Developer Tools**:
+    - **Windows/Linux:** press `F12` or `Ctrl + Shift + I`.
+    - **Mac:** press `Command + Option + I`.
+3. Select the **Application** tab. If it is not visible, select **`>>`** and then **Application**.
+4. From the left-hand menu, select **Service Workers**.
+5. Find the service worker associated with SD Connect and select **Unregister**.
+6. Refresh the SD Connect page and try uploading or downloading the file again.
+
+### 5. Reporting an issue
+
+If you experience problems when uploading or downloading files, you can export a log of your SD Connect session. The log contains technical information that can help investigate the issue.
+
+To export the session logs:
+
+- When the issue occurs, do not close your browser or log out from the service. 
+- Go to the SD Connect home page.
+- Select **Support** in the top-right corner.
+- From the drop-down menu, select **Export session logs.**
+- A file named sd-connect-log-[date].log will be downloaded to your computer.
+- Send the log file to servicedesk@csc.fi with the subject SD Connect and include a short description of the issue you encountered.
 
 
 
