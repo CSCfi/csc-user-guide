@@ -5,8 +5,6 @@
 ## On this page: 
 
 * [1. Sharing buckets to another CSC project: overview](#sharing-buckets-to-another-csc-project-overview)
-* [1.1 Share ID](#11-share-id)
-* [1.2 Permission levels](#12-permission-levels)
 * [2. Share buckets to another CSC project: step-by-step](#2-share-buckets-to-another-csc-project-step-by-step)
 * [3. Change sharing permission](#3-change-sharing-permission)
 * [4. Delete sharing permission](#4-delete-sharing-permission)
@@ -14,16 +12,8 @@
 
 ## 1. Sharing buckets to another CSC project: overview
 
-With SD Connect, you can share a bucket and all its contents with other CSC projects. A bucket can be shared with multiple projects, and you can assign a different permission level to each project.
+With SD Connect, you can share a bucket and all its contents with other CSC projects. A bucket can be shared with multiple projects, and you can assign a different permission level to each project. To share a bucket, the sender project uses **the recipient project's Share ID**, a unique 32-digit identifier assigned to each CSC project, and selects **the appropriate permission level** based on how the data should be accessed and used.
 
-To share a bucket, the sender project uses **the recipient project's Share ID** and selects **the appropriate permission level** based on how the data should be accessed and used.
-
-### 1.1 Share ID 
-
-To share a bucket you need the **recipient project's Share ID**, a unique 32-digit identifier assigned to each CSC project. 
-
-
-### 1.2 Permission levels
 
 SD Connect provides three permission levels for shared buckets. **Before sharing,** review the available options and choose the permission level that best matches the intended use of the data.
 
@@ -45,7 +35,7 @@ ____
 ### 2. Share buckets to another CSC project: step-by-step 
 
 
-1. **Ask from recipient for their project Share ID**. They can find it in the SD Connect user interface by selecting the correct CSC project from the top-left corner and clicking **Copy Share ID **next to the project number. Ask them to send the Share ID to you by email.
+1. **Ask from recipient for their project Share ID**. The recipient can find it by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, for example: 12fc7a798919457884ee38d5a2e91710. Do not use this example. Ask the recipient to send you the Share ID of their project by email.   
 ![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
 
 2. In your own project (Sender project) click **Share** button on the right side of the bucket you want to share.
