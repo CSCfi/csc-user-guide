@@ -1,5 +1,22 @@
 # Resource planning for your CSC Project
 
+## On this page:
+
+- [1.What are Billing Units](#1-what-are-billing-units)
+- [1.1 Overview of SD Connect and Desktop resource consumption](#11-overview-of-resource-consumption)
+- [1.2 How to monitor Billing Units usage](#12-how-to-monitor-billing-units-usage)
+- [1.3. When your project runs out of Billing Units](#13-when-your-project-runs-out-of-billing-units)
+- [2. What is Storage Quota](2-what-is-storage-quota)
+- [2.1 How to monitor Storage Quota usage](21-how-to-monitor-storage-quota-usage)
+- [2.2 When your project runs out of Storage Quota](#22-when-your-project-runs-out-of-storage-quota-for-sd-connect)
+- [2.3 How to increase storage quota](#23-how-to-increase-storage-quota)
+- [3. Plan your CSC project resource usage](#3-plan-resource-usage)
+- [3.1 Estimate the appropriate billing units packages](#31-step-1-estimate-the-appropriate-billing-units-packages-for-your-project)
+- [3.1.1 SD Desktop Cloud-type billign units](#311-sd-desktop-cloud-billing-units)
+- [3.1.2 SD Connect Storage-type Billing units](#312-sd-connect-storage-billing-units)
+- [3.2 Apply for billing units in the MYCSC portal](#32-step-2-apply-for-billing-units-via-mycsc-portal)
+
+
 
 <div class="grid cards" markdown>
 
@@ -15,15 +32,6 @@
 </div>
 
 
-## On this page:
-
-- What are Billing Units 
-- Overview of SD Connect and Desktop resource consumption
-- How to monitor Billing Units usage
-- When your project runs out of Billing Units
-- What is Storage Quota 
-- How to monitor Storage Quota usage
-- When your project runs out of Storage Quota
 
 
 Every active CSC project consumes both Billing Units (BUs) and storage quota. When you create a project, CSC grants a default amount of Billing Units (BUs) and storage quota immediately. 
@@ -144,7 +152,7 @@ Estimate the Billing Units your project will consume over the next six months fo
 </div>
 
 
-#### 3.2 SD Desktop: Cloud Billing Units
+#### 3.1.1 SD Desktop: Cloud Billing Units
 
 **SD Desktop** consumes **Cloud Billing Units** type, which reflect the type and number of virtual desktops running and the number of external volumes you've created. To estimate your Cloud Billing Unit consumption, you need to calculate:
 
@@ -177,7 +185,7 @@ Here’s a table summarizing the Cloud Billing Units required for using **volume
 
 
 
-#### 3.3 SD Connect: Storage Billing Units
+#### 3.1.2 SD Connect: Storage Billing Units
 
 SD Connect stores data into CSC's infrastructure Allas and provides additional automated encryption and encryption key management. SD Connect consumes Billing Units at a rate of **1.4 Storage BUs per TiB per hour**.
 
