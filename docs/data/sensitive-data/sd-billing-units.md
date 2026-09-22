@@ -3,7 +3,7 @@
 ## On this page:
 
 - [1. What are Billing Units](#1-what-are-billing-units)
-- [2. What is Storage Quota](2-what-is-storage-quota)
+- [2. What is Storage Quota](#2-what-is-storage-quota)
 - [3. Plan and apply for your CSC project resource usage](#3-plan-resource-usage)
 
 
