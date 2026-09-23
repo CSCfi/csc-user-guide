@@ -1,4 +1,4 @@
-## OpenStack command line client tools for Pouta
+# OpenStack command line client tools for Pouta
 
 This article describes using Pouta on the command line. If not done
 already, start by [installing the OpenStack tools](install-client.md).
@@ -16,13 +16,17 @@ The command line tools are used to control your use of the service, so
 they should be installed either on your local laptop/desktop or
 another server which you will use to manage the service.
 
-# Using Pouta from the command line
+## Using Pouta from the command line
 
 This article lists some basic commands for some of the most common
 operations in OpenStack. For each of the operations, we show a command
 that uses the common OpenStack command line tool.
 
-##### These recommended versions of the OpenStack commands should work with the current version of ePouta and cPouta (Yoga).
+### Recommended client versions
+
+These versions of the OpenStack client packages are known to work with
+the version of OpenStack currently running on ePouta and cPouta (Yoga):
+
 - [python-openstackclient](https://docs.openstack.org/releasenotes/python-openstackclient/)==5.8.1
 - [python-cinderclient](https://docs.openstack.org/releasenotes/python-cinderclient/)==8.3.0
 - [python-glanceclient](https://docs.openstack.org/releasenotes/python-glanceclient/)==3.6.0
@@ -32,13 +36,15 @@ that uses the common OpenStack command line tool.
 - [python-novaclient](https://docs.openstack.org/releasenotes/python-novaclient/)==17.7.0
 - [python-swiftclient](https://docs.openstack.org/releasenotes/python-swiftclient/)==3.13.1
 
-More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)  
+More information: [OpenStackClient pip module](https://pypi.org/project/python-openstackclient/)
 
 !!! info
 
-    You can install the latest versions of the OpenStackClient pip module since they are backwards compatible.
+    The latest release on PyPI is usually backwards compatible, but if
+    you run into issues, install one of the versions listed above
+    instead.
 
-##### Openstack commands and help
+### Openstack commands and help
 
     openstack -h
 
@@ -48,7 +54,7 @@ subcommand, add the command name after "help". For example:
 
     openstack help server create
 
-##### Adding a keypair
+### Adding a keypair
 
     openstack keypair create --public-key <file> <name>
 
@@ -56,27 +62,29 @@ subcommand, add the command name after "help". For example:
 generate a keypair. It will be used to access virtual machines. You
 can also optionally specify a public key you have previously generated,
 in which case the private key is the one you generated when the
-public key was generated.
+public key was generated. If you do not already have an SSH key pair,
+see [Creating an SSH key pair on a computer](tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer)
+for instructions on generating one with `ssh-keygen`.
 
 Generate a key named "test" with a private key stored in "test.pem":
 
     openstack keypair create test > test.pem
 
-##### List available images
+### List available images
 
     openstack image list
 
 This command lists the images that are available for the user. This
 includes public images and images that the user has added.
 
-##### List the available flavors
+### List the available flavors
 
     openstack flavor list
 
 The flavor of a virtual machine defines its virtual hardware: how many
 cores, how much memory, and so on.
 
-##### Launch a virtual machine
+### Launch a virtual machine
 
     openstack server create --flavor <flavor> --image <image id> --key-name <key name> <name for machine>
 
@@ -85,18 +93,18 @@ functioning virtual machine.
 
 !!! info
 
-    The output of the command "openstack server create" shows also a 
-    password called adminPass. You do not need to store this password as
-    is not used when connecting to the virtual machine. The virtual 
-    machine allows access to a user only if the user uses SSH keys.
+    The output of the command "openstack server create" also shows a
+    password called adminPass. You do not need to store this password, as
+    it is not used when connecting to the virtual machine. The virtual
+    machine only allows access to a user if the user uses SSH keys.
 
-##### Customize the virtual machine before launch
+### Customize the virtual machine before launch
 
     openstack server create --flavor <flavor> --image <image id> --key-name <key name> --user-data user-data.sh <name for machine>
 
 The `user-data.sh` file can have extra commands to be executed automatically after the instance has been launched.
 
-Below is an example content of the script file that would add a custom user in to the flavor and giving it the `sudo` rights:
+Below is an example of the script file's content, which would add a custom user to the instance and give it `sudo` rights:
 
 ``` bash
 #!/bin/sh
@@ -113,21 +121,21 @@ The script file can contain any arbitrary command, so some caution is recommende
 !!! Note
     Please note that the example does not contain addition of user authentication (public SSH key).
 
-##### List instances
+### List instances
 
     openstack server list
 
 This will give a list of the user's instances and information related
 to them.
 
-##### Terminate instances
+### Terminate instances
 
     openstack server delete <server>
 
 This command shuts down and removes the machine. The running virtual
 machine is removed and cannot be recovered.
 
-##### Associate public address
+### Associate public address
 
     openstack floating ip create public
 
@@ -145,9 +153,9 @@ public pool by deleting it.
     openstack floating ip delete <address>
 
 By doing this, you save Cloud Billing Units and maintain an efficient use of
-public IPs. 
+public IPs.
 
-##### Authorization to connect to virtual machines
+### Authorization to connect to virtual machines
 
 Create a new security group:
 
@@ -169,7 +177,7 @@ Assign the newly created security group to your virtual server:
 By default, all connections to virtual machines are blocked. This command
 allows ping and SSH access.
 
-##### Server groups and affinity
+### Server groups and affinity
 
 Openstack has the option to create so-called server groups with
 specific affinity and anti-affinity rules. You specify if you want to

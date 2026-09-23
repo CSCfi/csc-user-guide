@@ -27,10 +27,10 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * The **Power State** must be `Running`
 
-* It must have a `Floating IP` attached, write it down.
+* It must have a `Floating IP` attached which you can find under **IP address** column, write it down.
 
 !!! info
-    To access an ePouta instance, you can ssh on the private IP (ssh cloud-user@private-ip).
+    To access an ePouta instance, you can ssh to the private IP (ssh cloud-user@private-ip).
 
 * Check the name of the key under **Key Pair**. You will need the corresponding SSH secret key installed in your computer.
 
@@ -44,7 +44,7 @@ Find, under **Instance name**, the Virtual Machine that you want to connect to.
 
 * Click in the machine name and check that there is a security group that allow SSH connections from your current IP. See the [security group](launch-vm-from-web-gui.md#firewalls-and-security-groups) article for more information on how to create a SSH security group.
 
-* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair to log in. **Different distributions/images have different user names** (for example in Ubuntu images, the user is `ubuntu`). Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, the default upstream username is kept, as we try to provide images as similar as possible to the upstream official ones.
+* Now you need to know which user name is configured in the Virtual Machine to let your SSH keypair log in. **Different distributions/images have different user names** (for example in Ubuntu images, the user is `ubuntu`). Third-party images can use any user name, please check the respective documentation. For the default images provided by Pouta CSC, the default upstream username is kept, as we try to provide images as similar as possible to the upstream official ones.
 
 !!! Info "List of usernames and images"
     For an updated list of users and images, please have a look to the [Images](./images.md#images) documentation article. 
@@ -70,7 +70,7 @@ ssh <user_name>@<floating-ip> -i <secretkey>
 
 #### ssh_config
 
-Instead of specifying the path, IP and user name each time you want to connect to the same Virtual Machine, you can write this formation in your ssh config file. Edit (or create if it is not there) the `~/.ssh/config` file, and add this content:
+Instead of specifying the path, IP and user name each time you want to connect to the same Virtual Machine, you can write this information in your ssh config file. Edit (or create if it is not there) the `~/.ssh/config` file, and add this content:
 
 ```ini
 Host <machine_name>
@@ -81,7 +81,7 @@ IdentityFile <private_key_with_path>
 
 * In **Host** you should write the machine name (to later use it to connect using `ssh machine_name`).
 
-* In **Hostname** write the floating of the Virtual Machine.
+* In **Hostname** write the floating IP of the Virtual Machine.
 
 * In **User** the user name must be specified.
 
@@ -96,25 +96,25 @@ Check the manual page of [ssh_config](https://linux.die.net/man/5/ssh_config) fo
 
 By enabling agent forwarding, you enable the ssh agent running on the remote Virtual Machine to make use of the keys which are loaded in the ssh agent of your local workstation. You can use this feature to use the "Bastion host model", where only one single machine, the bastion host, in the cluster has Floating IP and outside access, and the rest of the machines are accessed through the bastion.
 
-    1. Assign a floating IP to one of your instances
-    1. ssh to the instance enabling agent forwarding
-    1. ssh from this instance to the other instances in the network using their private IP
+1. Assign a floating IP to one of your instances
+1. ssh to the instance enabling agent forwarding
+1. ssh from this instance to the other instances in the network using their private IP
 
-    Using these steps, you need only a single public IP instead of one public IP for each of the instances.
+Using these steps, you need only a single public IP instead of one public IP for each of the instances.
 
-    **Warning**: using agent forwarding has some [security implications](https://wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#the-vulnerability)
+**Warning**: using agent forwarding has some [security implications](https://wizardsoftheweb.pro/ssh-agent-forwarding-vulnerability-and-alternative/#the-vulnerability)
 
 ### Putty
 
-Open Putty, after following the instructions at [windows-putty](./launch-vm-from-web-gui.md#windows-putty) you should have a saved session with the private key stored on it.
+Open Putty, after following the instructions at [windows-putty](tutorials/ssh-key.md#windows-putty) you should have a saved session with the private key stored on it.
 
 * Load the saved session.
 
-* Under **Host Name (or IP address)**, write the user name an `@` symbol and the floating IP of the instance like: `cloud@89.14.89.14`
+* Under **Host Name (or IP address)**, write the user name, followed by an `@` symbol and the floating IP of the instance like: `cloud@89.14.89.14`
 
 * Write a new name (like the machine name) under **Saved Sessions** and click save.
 
-* Click **Open**, a new window to the instance will be opened
+* Click **Open** — a new window to the instance will open
 
 Next time you need to use Putty to connect this instance, you will just need to **Load** the corresponding saved session and click **Open**.
 
@@ -140,7 +140,7 @@ In order to be able to use the console, **you need to set up a password-based us
 
 * Connected through SSH to your Virtual Machine instance
 * You can use [useradd](https://linux.die.net/man/8/useradd) and or [passwd](https://linux.die.net/man/1/passwd) to set up the account.
-* As indicated in our [security guidelines](security.md#be-mindful-about-the-user-accounts-in-the-vm), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance though the console.
+* As indicated in our [security guidelines](security.md#be-mindful-about-the-user-accounts-in-the-vm), please **do not enable remote login** for this **password-based account**, but rather use it only in case you need to access the instance through the console.
 
 Once there is a password based account, with no remote login allowed:
 
