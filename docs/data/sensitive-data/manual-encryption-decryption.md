@@ -1,8 +1,6 @@
 # Manual encryption and decryption
 
 
-* [2. Download and manual decryption for files uploaded before October 2024](#2-download-and-manual-decryption-for-files-uploaded-before-october-2024)
-
 
 ## 1. Download and manual decryption for files uploaded before October 2024
 
