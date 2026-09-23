@@ -28,15 +28,12 @@ You can create, access, and manage both the virtual desktop and storage volume t
 
 ## 1. Create virtual desktop
 
-![Virtual desktop and users](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD_VM_members.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
 You can create **up to three virtual desktops** within a single CSC project, with **up to 10 project members** allowed to connect simultaneously to each desktop. Your virtual desktop is accessible to all project members upon creation.
 
 All desktops come with **pre‑installed open‑source software** managed by CSC. More information about software and customization options is available [here](./sd-desktop-software.md).
 
 Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
-
-
 
 
 <div class="grid cards" markdown>
