@@ -38,6 +38,7 @@ Having trouble finding an email or a newsletter sent to you by CSC? Browse the a
 
 ### Mailing lists
 
+* [roihu-users](archives/roihu-users.md)
 * [puhti-users](archives/puhti-users.md)
 * [mahti-users](archives/mahti-users.md)
 * [lumi-users](archives/lumi-users.md)

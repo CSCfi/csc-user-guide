@@ -8,6 +8,7 @@ The desktop enables using graphical applications on a Roihu compute node.
 The Desktop app is only available on the CPU partitions, with the following
 applications:
 
+* Avogadro
 * [ccViewer](../../apps/cloudcompare.md)
 * [CloudCompare](../../apps/cloudcompare.md)
 * [GRASS GIS](../../apps/grass.md)
@@ -16,6 +17,7 @@ applications:
 * [QGIS](../../apps/qgis.md)
 * [SAGA GIS](../../apps/saga-gis.md)
 * [SNAP](../../apps/snap.md)
+* [VMD](../../apps/vmd.md)
 
 
 ## Launching

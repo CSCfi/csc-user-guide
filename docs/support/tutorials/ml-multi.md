@@ -15,10 +15,10 @@ Lightning with DDP](#pytorch-lightning-with-ddp),
 ## Multiple GPUs and multiple nodes
 
 Each separate GPU node (i.e., a single computer in the cluster), has a
-fixed number of GPUs. Puhti, Mahti and Roihu have 4 GPUs per node, and
-LUMI has 8 GPUs per node.  (Technically a LUMI node has 4 dual-chip
-GPU cards, but from the software point-of-view this looks the same as 8
-GPUs.) The entire supercomputer may have tens or even thousands of GPU
+fixed number of GPUs. Roihu-GPU has 4 GPUs per node, and LUMI has 8
+GPUs per node.  (Technically a LUMI node has 4 dual-chip GPU cards,
+but from the software point-of-view this looks the same as 8 GPUs.)
+The entire supercomputer may have tens or even thousands of GPU
 nodes. See [GPU-accelerated machine learning](gpu-ml.md) for more
 details.
 
@@ -29,9 +29,9 @@ to reserve, e.g., two GPUs in one node and two in another, this is not
 recommended except for testing purposes, as the communication across
 nodes is always slower than inside one node.
 
-To reserve a single node with N=1-4 GPUs on Puhti, Mahti or Roihu or
-1-8 GPUs on LUMI you need the following options (**change N for the
-actual number of GPUs**):
+To reserve a single node with N=1-4 GPUs on Roihu-GPU or 1-8 GPUs on
+LUMI you need the following options (**change N for the actual number
+of GPUs**):
 
 === "Roihu-GPU"
 
@@ -39,23 +39,6 @@ actual number of GPUs**):
     #SBATCH --partition=gpumedium
     #SBATCH --gres=gpu:gh200:N
     ```
-
-=== "Puhti"
-
-    ```bash
-    #SBATCH --partition=gpu
-    #SBATCH --gres=gpu:v100:N
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #SBATCH --partition=gpusmall 
-    #SBATCH --gres=gpu:a100:N
-    ```
-
-    Note: on Mahti use `gpusmall` partition for 1 or 2 GPUs, `gpumedium`
-    for 3 or 4 GPUs.
 
 === "LUMI"
 
@@ -81,23 +64,6 @@ Roihu, you'll have 2*4=8 GPUs.
 
     Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
 
-
-=== "Puhti"
-
-    ```bash
-    #SBATCH --partition=gpu
-    #SBATCH --gres=gpu:v100:4
-    #SBATCH --nodes=2
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #SBATCH --partition=gpumedium
-    #SBATCH --gres=gpu:a100:4
-    #SBATCH --nodes=2
-    ```
-
 === "LUMI"
 
     ```bash
@@ -119,11 +85,6 @@ according to the proportion of GPUs reserved in the node. For example
 if you reserve 1 GPU out of 4, the other resources should be reserved
 (at most) to 1/4 of the total resource of the node.
 
-In Puhti this amounts to 10 CPU cores and roughly 95G of memory (for
-memory we round down a bit as the units are not so exact). On Mahti
-the maximum is 32 CPU cores, the memory should be automatically
-allocated.
-
 On Roihu each GH200 GPU is actually a superchip containing a GPU, CPU
 and the CPU memory in a single tightly integrated unit. On Roihu you
 will automatically get the full memory of the GH200 superchip (95 GiB
@@ -133,7 +94,6 @@ superchip).
 
 On [LUMI use a maximum of 7 CPU cores and 60GB per reserved
 GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/Update-202308/responsible-use/#core-and-memory-use-on-small-g-and-dev-g).
-
 
 Note that the GPU memory (or VRAM) is fixed according to the number of
 GPUs, you cannot allocate more (or less) of this.
@@ -215,7 +175,7 @@ are running a single- or multi-node job.
 
 All frameworks should use
 [NCCL](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html)
-on Puhti, Mahti and Roihu (NVIDIA) or
+on Roihu-GPU (NVIDIA) or
 [RCCL](https://github.com/ROCmSoftwarePlatform/rccl) (AMD) on LUMI for
 fast inter-GPU communication, even if MPI is used to set up the
 connections.
@@ -253,41 +213,6 @@ Example Slurm batch job for running PyTorch DDP on a single full node:
     module purge
     module load python-pytorch
     
-    srun torchrun --standalone --nnodes=1 --nproc_per_node=4 myprog.py <options>
-    ```
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-    
-    srun torchrun --standalone --nnodes=1 --nproc_per_node=4 myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    module purge
-    module load pytorch
-
     srun torchrun --standalone --nnodes=1 --nproc_per_node=4 myprog.py <options>
     ```
 
@@ -344,61 +269,6 @@ Example of running PyTorch DDP on 2 full nodes:
     ```
 
     Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-
-    export RDZV_HOST=$(hostname)
-    export RDZV_PORT=29400
-    
-    srun torchrun \
-        --nnodes=$SLURM_JOB_NUM_NODES \
-        --nproc_per_node=4 \
-        --rdzv_id=$SLURM_JOB_ID \
-        --rdzv_backend=c10d \
-        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
-        myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    module purge
-    module load pytorch
-
-    export RDZV_HOST=$(hostname)
-    export RDZV_PORT=29400
-    
-    srun torchrun \
-        --nnodes=$SLURM_JOB_NUM_NODES \
-        --nproc_per_node=4 \
-        --rdzv_id=$SLURM_JOB_ID \
-        --rdzv_backend=c10d \
-        --rdzv_endpoint="$RDZV_HOST:$RDZV_PORT" \
-        myprog.py <options>
-    ```
 
 === "LUMI"
 
@@ -545,43 +415,6 @@ PyTorch Lightning Slurm script for single node using all GPUs:
     srun python3 myprog.py --gpus=4 --nodes=1 <options>
     ```
 
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-
-    srun python3 myprog.py --gpus=4 --nodes=1 <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-
-    module purge
-    module load pytorch
-    
-    srun python3 myprog.py --gpus=4 --nodes=1 <options>
-    ```
-
 === "LUMI"
 
     ```bash
@@ -627,43 +460,6 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
     ```
 
     Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-    
-    srun python3 myprog.py --gpus=4 --nodes=2 <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    module purge
-    module load pytorch
-
-    srun python3 myprog.py --gpus=4 --nodes=2 <options>
-    ```
 
 === "LUMI"
 
@@ -722,51 +518,6 @@ Example using Accelerate on all GPUs on a single node:
     
     module purge
     module load python-pytorch
-
-    srun accelerate launch \
-     --config_file=accelerate_config.yaml \
-     --num_processes=4 \
-     --num_machines=1 \
-     --machine_rank=0 \
-     myprog.py <options>
-    ```
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-
-    srun accelerate launch \
-     --config_file=accelerate_config.yaml \
-     --num_processes=4 \
-     --num_machines=1 \
-     --machine_rank=0 \
-     myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    module purge
-    module load pytorch
 
     srun accelerate launch \
      --config_file=accelerate_config.yaml \
@@ -835,67 +586,6 @@ Example of running Accelerate on 2 full nodes (8 GPUs).
     ```
 
     Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-
-    GPUS_PER_NODE=4
-    NUM_PROCESSES=$(expr $SLURM_NNODES \* $GPUS_PER_NODE)
-    MAIN_PROCESS_IP=$(hostname -i)
-    
-    RUN_CMD="accelerate launch \
-                        --config_file=accelerate_config.yaml \
-                        --num_processes=$NUM_PROCESSES \
-                        --num_machines=$SLURM_NNODES \
-                        --machine_rank=\$SLURM_NODEID \
-                        --main_process_ip=$MAIN_PROCESS_IP \
-                        myprog.py <options>"
-    
-    srun bash -c "$RUN_CMD"
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    module purge
-    module load pytorch
-
-    GPUS_PER_NODE=4
-    NUM_PROCESSES=$(expr $SLURM_NNODES \* $GPUS_PER_NODE)
-    MAIN_PROCESS_IP=$(hostname -i)
-    
-    RUN_CMD="accelerate launch \
-                        --config_file=accelerate_config.yaml \
-                        --num_processes=$NUM_PROCESSES \
-                        --num_machines=$SLURM_NNODES \
-                        --machine_rank=\$SLURM_NODEID \
-                        --main_process_ip=$MAIN_PROCESS_IP \
-                        myprog.py <options>"
-    
-    srun bash -c "$RUN_CMD"
-    ```
 
 === "LUMI"
 
@@ -1026,45 +716,6 @@ Example of running DeepSpeed on a single full node using the
         <further options>
     ```
 
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=40
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-    
-    srun apptainer_wrapper exec deepspeed myprog.py \
-        --deepspeed --deepspeed_config my_ds_config.json \
-        <further options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-
-    module purge
-    module load pytorch
-
-    srun apptainer_wrapper exec deepspeed myprog.py \
-        --deepspeed --deepspeed_config my_ds_config.json \
-        <further options>
-    ```
-
 === "LUMI"
 
     ```bash
@@ -1116,47 +767,6 @@ separate task for each GPU:
     ```
 
     Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=10
-    #SBATCH --mem=320G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:4
-    
-    module purge
-    module load pytorch
-
-    srun python3 myprog.py \
-        --deepspeed --deepspeed_config my_ds_config.json \
-        <further options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=4
-    #SBATCH --cpus-per-task=32
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:4
-    
-    module purge
-    module load pytorch
-
-    srun python3 myprog.py \
-        --deepspeed --deepspeed_config my_ds_config.json \
-        <further options>
-    ```
 
 === "LUMI"
 

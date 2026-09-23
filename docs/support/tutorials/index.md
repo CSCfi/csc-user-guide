@@ -3,7 +3,7 @@
 ## General
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
-* [Getting started with Quantum computers](../../computing/quantum-computing/access.md)
+* [Getting started with Quantum computers](../../computing/quantum-computing/overview.md)
 * [Managing data on supercomputer scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
