@@ -29,6 +29,7 @@ Plan the conversion with the other members of your CSC project.
 - Do not upload new files while the conversion is in progress.
 - If possible, delete files and buckets that you no longer need before starting the conversion.
 - Check the labels and sizes of the buckets that need to be converted.
+- If you need support for planning or during the conversion, please contact servicedesk@csc.fi or join one of the on line support sessions (register [in English ](https://ssl.eventilla.com/event/Gl0Wb/EN) or in [Finnish](https://ssl.eventilla.com/support_sessions_for_sensitive_data_2026/FI)
 
 !!! warning "Projects with more than 5 TB" If your project contains more than 5 TB of data in Urgent buckets, contact the CSC Service Desk before starting the conversion. Converting these buckets is network intensive and may require additional planning.
 
