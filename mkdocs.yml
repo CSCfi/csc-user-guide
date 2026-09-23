@@ -347,7 +347,16 @@ nav:
             - VTT Q50: computing/quantum-computing/devices/q50.md
             - LUMI-Q VLQ: computing/quantum-computing/devices/vlq.md
           - First quantum job: computing/quantum-computing/first-quantum-job.md
-          - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
+          - Running quantum jobs old: computing/quantum-computing/running-quantum-jobs.md
+          - Running quantum jobs: 
+            - computing/quantum-computing/running-quantum-jobs/overview.md
+            - Access models: 
+              - Batch script: computing/quantum-computing/running-quantum-jobs/access-models/batch.md
+              - Interactive job: computing/quantum-computing/running-quantum-jobs/access-models/srun.md
+              - Jupyter notebook: computing/quantum-computing/running-quantum-jobs/access-models/jupyter-notebook.md
+            - Circuit level job: computing/quantum-computing/running-quantum-jobs/circuit-job.md
+            - Pulse level job: computing/quantum-computing/running-quantum-jobs/pulse-job.md
+
           - Pulse level access: computing/quantum-computing/pulse-level-access.md
           - FiQCI partition: computing/quantum-computing/fiqci-partition.md
       - FirecREST HPC API:
