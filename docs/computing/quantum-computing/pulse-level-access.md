@@ -3,10 +3,10 @@
 
 # Pulse level access
 
-Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to both VTT Q50 and Aalto Q20 is enabled through the IQM Pulla python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
+Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to both VTT Q50, Aalto Q20, and VLQ is enabled through the IQM Pulla python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
 
 !!! info "Device-specific values"
-    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page.
+    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](./devices/vlq.md).
 
 ## Load the environment
 
@@ -92,4 +92,4 @@ print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 
 ## Running through LUMI
 
-For instructions on running the job on LUMI, see the [example batch scripts](../quantum-computing/running-quantum-jobs.md#submitting-a-job) or use the [Lumi web Interface](../quantum-computing/running-quantum-jobs.md#quantum-job-on-lumi-web-interface)
+For instructions on running the job on LUMI, see the [example batch scripts](../quantum-computing/running-quantum-jobs.md#submitting-a-job) (for VLQ see the [VLQ instructions](./devices/vlq.md)) or use the [Lumi web Interface](../quantum-computing/running-quantum-jobs.md#quantum-job-on-lumi-web-interface)
