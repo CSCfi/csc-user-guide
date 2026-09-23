@@ -1,7 +1,7 @@
 # SD Connect: bucket names conversion
 
 
-Existing buckets need to be converted to work correctly with the updated version of SD Connect available from September 2026.. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
+Existing buckets need to be converted to work correctly with the updated version of SD Connect available from September 2026. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
 
 The action you need to take depends on the label displayed in the SD Connect user interface next to your bucket:
 
@@ -29,7 +29,7 @@ Plan the conversion with the other members of your CSC project.
 - Do not upload new files while the conversion is in progress.
 - If possible, delete files and buckets that you no longer need before starting the conversion.
 - Check the labels and sizes of the buckets that need to be converted.
-- **If you need support for planning or during the conversion, please contact servicedesk@csc.fi or join one of the on line support sessions (register [in English ](https://ssl.eventilla.com/event/Gl0Wb/EN) or in [Finnish](https://ssl.eventilla.com/support_sessions_for_sensitive_data_2026/FI)**
+- **If you need support for planning or during the conversion, please contact servicedesk@csc.fi or join one of the online support sessions (register [in English ](https://ssl.eventilla.com/event/Gl0Wb/EN) or in [Finnish](https://ssl.eventilla.com/support_sessions_for_sensitive_data_2026/FI)**
 
 !!! warning "Projects with more than 5 TB" If your project contains more than 5 TB of data in Urgent buckets, contact the CSC Service Desk before starting the conversion. Converting these buckets is network intensive and may require additional planning.
 
@@ -47,7 +47,7 @@ Before conversion:
 
 The conversion creates a new bucket with compatible name adding the suffix -conv and copies the files to it. It also restores the bucket size and sharing permissions.
 
-This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. If your project's data size exceeds 5 TB**, please contact us for support before starting the conversion. Buckets labelled **Urgent** are given priority in Helpdesk support queues. 
+This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. **If your project's data size exceeds 5 TB**, please contact us for support before starting the conversion. Buckets labelled **Urgent** are given priority in Helpdesk support queues. 
 
 https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png
 
@@ -80,25 +80,25 @@ The tool applies the following rules as needed:
 
 | Label| Why conversion is needed | Example (Old name -> New bucket name) | Name Changes | 
 |----------|----------|----------|----------|
-| Urgent| Regain data access| `non-compatible name with space` → `non-compatible-namewith-space-conv` |  Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
-| Urgent|Regain data access|`non-compatible-name-longer-than-sixty-three-characters-for-conversion-example` → `non-compatible-name-longer-than-sixty-three-characters-for-c-conv` | Name shortened to 63 caracters. Suffix `-conv`is added to the end. |
+| Urgent| Regain data access| `non-compatible name with space` → `non-compatible-name-with-space-conv` |  Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| Urgent|Regain data access|`non-compatible-name-longer-than-sixty-three-characters-for-conversion-example` → `non-compatible-name-longer-than-sixty-three-characters-for-c-conv` | Name shortened to 63 characters. Suffix `-conv`is added to the end. |
 | Urgent|Regain data access |In case of similar bucket names, for example: `Non-compatible name` and `non-compatible name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |
-| By the end of 2026| Fix bucket and files size, ensure compatibility with future version so f service| `Partially_compatible_name` → `partially-comatible-name-conv` | ('P') Uppercase letters are replace with lower case ('p') (`_`) are replaced with hyphens (`-`).  Suffix `-conv`is added to the end. |
-| By the end of 2026| Fix bucket and files size, ensure compatibility with future version so f service|cscproecjt-200346-fully-comaptible-name |cscproecjt-200346-fully-comaptible-name  | No changes are applied to the bucket name |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future versions| `Partially_compatible_name` → `partially-compatible-name-conv` | ('P') Uppercase letters are replace with lower case ('p') (`_`) are replaced with hyphens (`-`).  Suffix `-conv`is added to the end. |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future versions |cscproject-200346-fully-compatible-name |cscproecjt-200346-fully-comaptible-name  | No changes are applied to the bucket name |
 
 
 
 
 ## 4. Choose the appropriate conversion method
 
-Choose the method based on bucket's tag and size. The SD Connect Conversion tool is available for download via graphical user interface (for files up to 10 GB), or as poart of the SD Command lien tools on Roihu for large conversions. 
+Choose the method based on bucket's label and size. The SD Connect Conversion tool is available for download via graphical user interface (for files up to 10 GB), or as part of the SD Command lien tools on Roihu for large conversions. 
 
 | Bucket Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
 | Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. This is a network-intensive operation. On a standard home internet connection, converting 25 GB may take around 2 hours. | [Link](sd-connect-conversion-tool-ui.md) |
 | Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Roihu. | [Link](sd-connect-conversion-cli.md) |
-| Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with compatible name.  Use th SD Connect Conversion CLI on Roihu and convert a few buckets at a time.This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion.  | Link |
-| Urgent | More than 50 TB | Contact CSC support to plan the conversion. | Contact us |
+| Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with compatible name.  Use the SD Connect Conversion CLI on Roihu and convert a few buckets at a time. This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion.  | Link |
+| Urgent | More than 50 TB | Contact CSC support to plan the conversion. | servciedesk@csc.fi (subject:SD Connect)|
 | By End of 2026 | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | Link |
 | By End of 2026 | More than 1 TB | Use the SD Connect Conversion CLI on Roihu.| Link |
 
