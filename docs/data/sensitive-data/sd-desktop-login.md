@@ -1,27 +1,27 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Login to SD Desktop
+# Login to SD Connect
 
 ## Prerequisites
+
 * [Access SD Connect and SD Desktop for the first time](sd-store-and-analyze-research-data.md)
 
 ## Step by step
 
-1. Go to login page: **[https://sd-desktop.csc.fi](https://sd-desktop.csc.fi){ target="_blank" }**.
-2. Log in with CSC credentials or Haka. Enter your username and password.
-3. You need to verify your identity with a second verification step (i.e. Multi-factor Authentication, MFA). Enter the verification code provided via your MFA mobile application (e.g. Google Authenticator)
-4. Press *Continue*.
+1. **Navigate to [SD Connect](https://sd-connect.csc.fi)**. We recommend using Google Chrome for the best experience.
+2. **Choose your login method**. Select CSC Login, Haka, Virtu or Life Science login then click Login.
+3. **Enter your details**. Type in your username and password, then click Login.
+4. **Verify your identity**. As a second verification step, enter the temporary code from your mobile authenticator app and click Continue. If prompted, please accept cookies to proceed.
+5. You should now have access to SD Connect. If you see an additional message about identity verification, click Proceed to continue.
+6. **Troubleshooting tip**. If you run into any issues, try clearing your browser history and cookies before logging in again. Note that Firefox private mode is not supported.
 
-[![Authentication](images/desktop/desktop_login-mfa1.png)](images/desktop/desktop_login-mfa1.png)
+![SD Connect login](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SDConnect_Login.png)
 
-## Your next steps in this guide
+## Your next steps in this guide 
 
-* [Create virtual desktops](./sd-desktop-create.md)
-* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
-* [Accessing virtual desktop](./sd-desktop-access-vm.md)
-* [Working with your desktop: tips and essentials](./sd-desktop-working.md)
-* [Customisation - software & tools](./sd-desktop-software.md)
-* [Importing data ](./sd-desktop-access.md)
-* [Exporting data  via user interface](./sd-desktop-export.md)
-* [Export data programmatically](./sd-desktop-export-commandline.md)
-* [Troubleshooting](./sd-desktop-troubleshooting.md)
+* [Upload](./sd-connect-upload.md)
+* [Download](./sd-connect-download.md)
+* [Delete](./sd-connect-delete.md)
+* [Share](./sd-connect-share.md)
+* [Command line interface](./sd-connect-command-line-interface.md)
+* [Troubleshooting](./sd-connect-troubleshooting.md)
