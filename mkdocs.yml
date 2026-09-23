@@ -345,6 +345,7 @@ nav:
             - computing/quantum-computing/devices/overview.md
             - Aalto Q20: computing/quantum-computing/devices/q20.md
             - VTT Q50: computing/quantum-computing/devices/q50.md
+            - LUMI-Q VLQ: computing/quantum-computing/devices/vlq.md
           - First quantum job: computing/quantum-computing/first-quantum-job.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
           - Pulse level access: computing/quantum-computing/pulse-level-access.md
