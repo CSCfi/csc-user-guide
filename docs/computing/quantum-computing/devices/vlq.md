@@ -109,7 +109,7 @@ PROJECT = "YOUR-VLQ-PROJECT-NAME"
 RESOURCE = "YOUR-VLQ-RESOURCE-NAME"
 ```
 
-Now you can fetch the VLQ backend.
+Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is not accessible with Cirq.
 
 === "Qiskit"
 
