@@ -51,9 +51,8 @@ ____
 
 ## 4. Deleting a bucket
 
-
 1. Select the correct project and bucket.
-2. Delete all files inside the bucket, [see instructions](#deleting-multiple-files). Bucket must be empty before it can be deleted.
+2. Delete all files inside the bucket. Bucket must be empty before it can be deleted.
 3. Return to All buckets view. Select **Options**, then **Delete**, on right side of the bucket.
 ![SD Connect Delete bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteBucket.png)
 
