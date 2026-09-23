@@ -1,7 +1,7 @@
 # SD Connect: bucket names conversion
 
 
-Existing buckets need to be converted to work correctly with the updated version of SD Connect available from September 2026. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
+Buckets (main folders) created with SD Connect before 28 September 2026 need to be converted to work correctly with the updated version of the services. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
 
 The action you need to take depends on the label displayed in the SD Connect user interface next to your bucket:
 
@@ -67,7 +67,7 @@ https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png
 
 ## 3. Converted bucket names
 
-During conversion, bucket names are automatically adjusted to meet the current SD Connect naming requirements. When a bucket name contains unsupported characters or does not meet the naming requirements, the tool modifies the name and adds the suffix -conv.
+During conversion, bucket (main folders) names are automatically adjusted to meet the current SD Connect naming requirements. When a bucket name contains unsupported characters or does not meet the naming requirements, the tool modifies the name and adds the suffix -conv.
 
 The tool applies the following rules as needed:
 
@@ -76,6 +76,8 @@ The tool applies the following rules as needed:
 - Uppercase letters are converted to lowercase.
 - Underscores (_) are replaced with hyphens (-).
 - If the resulting name already exists, a unique string is added to avoid duplicate bucket names.
+
+**Note, these naming rules apply only to bucket names (main level folders created with SD Connect), it does not apply to files or folders stored inside the buckets.**
 
 
 | Label| Why conversion is needed | Example (Old name -> New bucket name) | Name Changes | 
