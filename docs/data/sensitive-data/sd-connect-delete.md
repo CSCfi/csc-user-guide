@@ -44,7 +44,7 @@ _____
 
 1. Select the correct project and bucket.
 2. Find correct subfolder and open it.
-3. Delete all files inside the subfolder, [see instructions](#deleting-multiple-files). Subfolder is deleted automatically when all files in it are deleted.
+3. Delete all files inside the subfolder, [see instructions](#2-deleting-multiple-files). Subfolder is deleted automatically when all files in it are deleted.
 
 
 ____
