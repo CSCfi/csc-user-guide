@@ -3,10 +3,19 @@
 
 # Troubleshooting
 
+## On this page: 
+
+
+- [1. Reporting an issue](#1-reporting-an-issue)
+- [2. List of most comment problems](#2-list-of-most-comment-problems)
+- [3. Interrupted upload workaround](#3-interrupted-upload-workaround)
+
+
+
 !!! Note
     Below you will find solutions to the most common issues encountered with SD Connect. If you need further assistance, please don't hesitate to contact servicedesk@csc.fi with the subject line "SD Services".
 
-##1. Reporting an issue
+## 1. Reporting an issue
 
 If you experience problems when uploading or downloading files, you can export a log of your SD Connect session. The log contains technical information that can help investigate the issue.
 
@@ -20,7 +29,7 @@ To export the session logs:
 - Send the log file to servicedesk@csc.fi with the subject SD Connect and include a short description of the issue you encountered.
 
 
-2. List of most comment problems
+## 2. List of most comment problems
 
 
 | Problem | Description | Solution |
@@ -42,7 +51,7 @@ To export the session logs:
 
 
 
-### 3. Interrupted upload workaround
+## 3. Interrupted upload workaround
 
 If you encounter issues with file uploads or downloads, try the following steps: 
 
