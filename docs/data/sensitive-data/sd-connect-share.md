@@ -4,7 +4,7 @@
 
 ## On this page: 
 
-* [1. Sharing buckets to another CSC project: overview](#sharing-buckets-to-another-csc-project-overview)
+* [1. Sharing buckets to another CSC project: overview](#1-sharing-buckets-to-another-csc-project-overview)
 * [2. Share buckets to another CSC project: step-by-step](#2-share-buckets-to-another-csc-project-step-by-step)
 * [3. Change sharing permission](#3-change-sharing-permission)
 * [4. Delete sharing permission](#4-delete-sharing-permission)
