@@ -89,7 +89,7 @@ ___
 
 1. Log in to SD Connect and select the correct CSC project in the top left corner.
 2. Click **Upload** in the top right corner.
-3. In the new window, name the destination bucket for your files taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names)
+3. In the new window, name the destination bucket for your files taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [Detailed instructions are available in the previous paragraph](#21-plan-bucket-names)
 4. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. 
 5. Click **Upload** to start automatic encryption and upload.
 6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination bucket.
