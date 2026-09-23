@@ -49,7 +49,8 @@ The conversion creates a new bucket with compatible name adding the suffix -conv
 
 This is a network-intensive operation. Large conversions should be planned in advance to avoid overloading CSC storage infrastructure. **If your project's data size exceeds 5 TB**, please contact us for support before starting the conversion. Buckets labelled **Urgent** are given priority in Helpdesk support queues. 
 
-https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png
+![SD Connect urgent label](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png)
+
 
 ### 2.2 By the end of 2026
 
@@ -63,7 +64,7 @@ Before conversion:
 
 If a bucket name contains uppercase letters or underscores, the conversion creates a compatible name and adds the suffix -conv. If the name is already fully compatible, it remains unchanged. All buckets can be converted to restore the correct file and bucket sizes and ensure compatibility with future versions of the service. This conversion is not network intensive.
 
-https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png
+![SD Connect By the end of 2026 label](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png)
 
 ## 3. Converted bucket names
 
