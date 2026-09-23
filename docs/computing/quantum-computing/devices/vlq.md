@@ -123,7 +123,7 @@ Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is
 
     ```python
     # Initialize backend
-    provider = QProvider(token, PROJECT)
+    provider = QProvider(PROJECT, token)
     pulla = provider.get_pulla(RESOURCE)
     ```
 
