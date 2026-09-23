@@ -1,13 +1,13 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Managing virtual desktops and volumes
+# Managing volumes
 
-With the SD Desktop service, you can easily manage your virtual desktops and volumes. 
 
-* [Attaching or detaching a volume](#attaching-or-detaching-a-volume)
-* [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
-* [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
-* [Deleting a virtual desktop](#deleting-a-virtual-desktop)
+## On this page:
+
+* [Introduction](#attaching-or-detaching-a-volume)
+* [Attaching a volume](#attach-a-volume-to-a-virtual-desktop)
+* [Setting correct permissions and detaching a volume](#detach-a-volume-from-a-virtual-desktop)
 * [Deleting a volume](#deleting-a-volume)
 
 <div class="grid cards" markdown>
@@ -15,8 +15,7 @@ With the SD Desktop service, you can easily manage your virtual desktops and vol
 - :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
-
+    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. Multiple volumes can be attached to a virtual desktop only if the desktop was created after September 28, 2026. A single volume cannot be attached to multiple virtual desktops.
 </div>
 
 ___
@@ -148,113 +147,7 @@ ___
 
 ![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DetachVolume.png)
 
-___
 
-## Pausing or unpausing a virtual desktop
-
-**Desktops consume Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, ensure you [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
-
-**Volumes consume Cloud Billing Units** starting from the moment they are created - whether or not they’re attached to a virtual desktop and whether or not the desktop a volume is attached to is paused.
-
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Pausing is not intended as a long‑term method for storing data**
-  { .csc-grid-card-warning }
-
-    ---
-    
-     CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
-
-</div>
-
-
-
-
-### Pausing a virtual desktop
-
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop from the homepage.
-
-2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
-
-3. On the SD Desktop homepage, click **Manage desktop**.
-
-4. Click **Pause**. 
-
-5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
-
-![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_PauseDesktop.png)
-
-### Unpausing a virtual desktop
-
-You can unpause a virtual desktop if the CSC project is active and Cloud Billing Units balance is positive.
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop.
-
-2. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
-
-3. Click **Unpause**. 
-
-4. Confirm the operation via the notification.
-
-![Unpause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_UnpauseDesktop.png)
-
-___
-
-## Restarting a virtual desktop
-
-If your virtual desktop or software becomes unresponsive, you can restart it. All files and software saved on the virtual desktop will remain accessible.
-
-<div class="grid cards" markdown>
-
-- :material-information:{ .lg .middle } **Info**
-  { .csc-grid-card-info }
-    
-    ---
-  
-    **If the Data Gateway application becomes unresponsive** due to old sessions running in the background, there's no need to restart your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
-
-</div>
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop from the homepage.
-
-2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
-    
-3. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
-
-4. Click **Restart**. 
-    
-5. Confirm the operation via the notification. Restarting a desktop may take up to 30 minutes.
-
-![Restart desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_RestartDesktop.png)
-
-___
-
-
-## Deleting a virtual desktop
-
-At the end of your analysis, you can delete entire virtual desktop, and all files saved to it by you or other project members. 
-
-<div class="grid cards" markdown>
-
-- :material-close-circle:{ .lg .middle } **Warning**
-  { .csc-grid-card-error }
-    
-    You cannot undo this action. Please contact all the project members before deleting a virtual desktop.
-    
-</div>
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop.
-
-2. On the SD Desktop homepage, click **Manage desktop** on the right side of the correct desktop.
-
-3. Click **Delete**. 
-
-4. Confirm the operation via the notification. 
-
-![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_DeleteDesktop.png)
-
-___
 
 ## Deleting a volume
 
