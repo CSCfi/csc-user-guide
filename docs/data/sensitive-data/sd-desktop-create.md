@@ -4,15 +4,15 @@
 
 ## On this page:
 
-1. [Create virtual desktop](#1-create-virtual-desktop)
-1.1 [Step by step]
-1.2 [Virtual desktop options]
-2. [Create volume]
-2.1 [Step by step]
-2.2 [Volume options]
+- 1 [Create virtual desktop](#1-create-virtual-desktop)
+- 1.1 [Step by step](#11-step-by-step)
+- 1.2 [Virtual desktop options](#12-virtual-desktop-options)
+- 2 [Create volume](#2-create-volume)
+- 2.1 [Step by step](#21-step-by-step)
+- 2.2 [Volume options](#22-volume-options)
 
 
-
+![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
 SD Desktop lets you create a secure virtual workspace for working with sensitive data, either individually or with other members of your CSC project. Everything can be set up directly through your web browser, and no technical expertise is required.
 
@@ -21,9 +21,7 @@ To start working with data, you create:
 1. a virtual desktop, which provides the computing environment where you analyse your data; and
 2. a storage volume, which provides additional storage space that can be attached to the virtual desktop. You can import data from SD Connect to this volume for analysis.
 
-You can create, access, and manage both the virtual desktop and storage volume through the SD Desktop user interface.
-
-![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
+You can create, access and manage both the virtual desktop and storage volume through the SD Desktop user interface.
 
 
 ## 1. Create virtual desktop
@@ -68,7 +66,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 ![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
 
-#### 1.2 Virtual desktop options
+### 1.2 Virtual desktop options
 
 | Use | Description | Technical specifications | Correspondent Pouta flavor | Cloud Billing Units consumption per hour | Cloud Billing Units consumption per year |
 |---|---|---|---|---|---|
@@ -151,7 +149,7 @@ You can create **up to five volumes** per CSC project. A volume works like a vir
 
 ![Volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Volumes.png)
 
-#### 2.2 Volume options
+### 2.2 Volume options
 
 | Name   | Size (GB) | Cost (BU/TiB/h) |
 |--------|-----------|-------------|
