@@ -5,7 +5,7 @@
 
 -  [1.Download and install SD Connect Conversion tool](#1-download-and-install-sd-connect-conversion-tool)
 -  [2. Using SD Connect Conversion tool](#2-using-sd-connect-conversion-tool)
--  [2.1 Login to Conversion tool](#-21-login-to-conversopn-tool)
+-  [2.1 Login to Conversion tool](#21-login-to-conversopn-tool)
 -  [2.2 Select project](#22-select-project)
 -  [2.3 Add project's temporary API key](#23-add-projects-temporary-api-key)
 -  [2.4 Select buckets to convert](#24-select-buckets-to-convert)
