@@ -1,208 +1,78 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Managing volumes and virtual desktops
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/rYpuUwm8LhQ" title="Manage virtual desktops in the SD Desktop service" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+# Analyze and compute with Sensitive Data Desktop
 
-With the SD Desktop service, you can easily manage volumes and pause, reboot or delete your virtual desktops. Managing desktops and volumes happens via **SD Desktop management** page.
+On this page: 
 
-* [Detaching a volume](#detaching-a-volume)
-* [Attaching a volume](#attach-a-volume-to-a-new-virtual-desktop)
-* [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
-* [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
-* [Deleting a virtual desktop](#deleting-a-virtual-desktop)
-
-!!! Note
-    These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
-
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
-
-___
-
-## Detaching a volume 
-
-Detaching a volume can be compared to disconnecting a USB stick from your laptop. The volume and its content will be stored in the same CSC project where it was initially created. 
-
-### Step 1: Set access permissions of the volume to read and write
+- [1. Overview](#1-overview)
+- [2. Key features and limitations](#2-key-features-and-limitations)
+- [2. Your next steps in this guide](#3-your-next-steps-in-this-guide)
 
 <div class="grid cards" markdown>
 
-- :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
+- :material-alert:{ .lg .middle } 
+  { .csc-grid-card-warning }
+
+    Data under the Secondary Use of Health and Social Data Act can't be processed in the standard SD Desktop service. For processing secondary use health and social data, please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
+
+</div>
+
+## 1. Overview
+
+![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_internet.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
+
+
+Sensitive Data (SD) Desktop allows you to analyze sensitive research data from your web browser securely isolated from internet. With this user interface, you can easily manage (create, use, delete) virtual computers (here called a virtual desktop, technically defined as virtual machine) and external volumes. 
+
+ In addition, SD Desktop provides a secure workspace for collaborative research projects. Once a virtual desktop has been created, all members of your CSC project can access it. Import and copy your data via Data Gateway application to a volume for analysis and you can start your research.
+
+
+## 2. Key features and limitations
+
+<div class="grid cards" markdown>
+
+- :material-check-circle:{ .lg .middle } **Key features**
+  { .csc-grid-card-success }
+
+    ---
+
+    * Accessible from any operating system (Mac, Linux or Windows) via a web browser (e.g., Google Chrome, Firefox) from the public internet (without the need to install a client or use a VPN).
+
+    * Only members of the same CSC project can access the virtual desktop. One CSC project can create up to three desktops. 
+
+    * Four pre-built computing options (Linux Ubuntu OS) are available (for simple statistical analysis and machine learning).  Supports analysis of any data type: text files, images, audio files, video, and genetic data. Further customization is possible by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data);
+
+    * The secure analysis environment is isolated from the internet: the only way to import and export data is via the SD Connect service.
+
+
+- :material-alert:{ .lg .middle } **Limitations**
   { .csc-grid-card-warning }
 
     ---
-    Before detaching a volume, make sure all files and folders have read and write access for all project members. This is due to fact that in the new virtual machine, where the volume will be used afterwards, the mappings between machine specific user ID numbers and user accounts may be different than in the original virtual machine. In practice this means that the user account that owns of the data may change on the way.
+
+    * The project manager or group leader should regularly check project members in MyCSC and verify who can access SD Desktop or SD Connect. Remove members who no longer need access to the data.
+
+    * Only open-source software is available.
+
+    * We do not provide virtual desktops with GPUs or Windows operating systems. 
 
 </div>
 
 
-??? default "Method 1: Use CSC Tools to set access permissions"
 
-    1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
-    2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
-    3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
-    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
+## 3. Your next steps in this guide
 
-    4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
-    ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
-    6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
-    7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
-    8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
+If you have already created a CSC account and are part of a CSC project, you can proceed with the following steps:
 
-
-??? default "Method 2: Set access permissions manually"
-
-    By default, permissions are limited to your access only (orange lock icon).
-
-    1. Right-click the folder and select **Properties**.
-    2. Open the **Permissions** tab.
-    3. Set permissions to **Create and Delete Files**:
-       
-        * Owner -> Access -> Select “Create and delete files”.
-        * Group -> Access -> Select “Create and delete files”.
-        * Others -> Access -> Select “Create and delete files”.
-            
-        ![Set folder permissions](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions2.png)
-
-    * Next select **Change Permissions for Enclosed Files** button to adjust file permissions inside the folder.
-    * Set permissions to **Create and Delete files**:
-
-        * Owner -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        * Group -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        * Others -> Files -> Select “Read and write”. Folders -> Select “Create and delete files”.
-        * Click **Change**.
-
-        ![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_FolderPermissions3.png)
-
-    5. Close the permission tab (top right corner).
-    
-    The orange lock icon will no longer be visible next to folders and files and they can now be edited by all project members.     
-        
-    **Note:** If you open the enclosed file permission settings again, it looks like the settings haven't changed even though the permissions have been set correctly.
-
-
-### Step 2: Detach a volume 
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
-
-2. Save and close all the files on the volume to prevent data corruption and log out from the virtual desktop.
-
-3. On the homepage, click **SD Desktop management**.
-
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Detach volume**.
-Confirm the operation through the notification.
-
-![Detach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Detach_volume.png)
-
-___
-
-## Attach a volume to a new virtual desktop
-
-When you want to access the data saved in the detached volume, you can attach it to a new virtual desktop. You can also attach the volume when creating a new virtual desktop to move data from the old desktop to the new one.
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the homepage, click **SD Desktop management**.
-
-2. At the bottom of the page, under Desktop selection choose the necessary options (CSC project, operating system etc.). Follow steps 1-2 in these [instructions](./sd-desktop-create.md).
-
-3. Under **Add External Volume (optional)** click **Choose from existing volumes**. Dropdown will show available volumes stored in the same CSC project. Leave fields **Volume size** and **Volume name** empty. 
-
-4. Click on **Create desktop**.
-
-
-!!! Note
-    - A detached volume can not be attached to an existing virtual desktop, only to new virtual desktops during creation phase. 
-    - The content of a detached volume can not be accessed or deleted.
-    - If you want to access or delete content on the detached volume, you need to create a new desktop that uses same operating system as the volume and attach volume to it at the creation phase.
-    - Volumes can not be moved or transferred between CSC projects for security reasons.
-
-![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Attach_volume.png)
-
-___
-
-## Pausing or unpausing a virtual desktop
-
-Virtual desktops should be paused when not actively used for analysis, to reduce the use of CSC computing resources and prevent unnecessary consumption of Cloud Billing Units. Pausing is not intended as a long‑term method for storing data. Volume usage continues to consume Billing Units even while the desktop is paused.
-
-!!! Note 
-    CSC cannot guarantee the functionality of desktops paused for extended periods or not updated after service upgrades, including situations where required actions have not been performed.
-
-
-### Pausing a virtual desktop
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
-
-2. Close all the programs, save or close all the files, and log out from the virtual desktop to prevent data corruption. 
-
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-4. At the bottom of the page, under **Available desktops** choose the correct virtual desktop, and in the same row, on the right side, click **Pause desktop**. 
-
-5. Confirm the operation via the notification. Pausing a desktop may take up to 30 minutes.
-
-!!! note
-    You can't access or detach a volume while a desktop is paused.
-
-![Pause desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Pause_desktop.png)
-
-### Resuming a paused virtual desktop
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Resume**.
-
-!!! note
-    Resuming a paused desktop is only possible for active CSC projects with available Cloud Billing Units.
-
-![Resume desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Resume_desktop.png)
-
-___
-
-## Rebooting a virtual desktop
-
-If your virtual desktop or software becomes unresponsive, you can reboot it. After the reboot, all files and software saved on the virtual desktop will remain accessible.
-
-!!! Note
-    If the Data Gateway application becomes unresponsive due to old sessions running in the background, there's no need to reboot your desktop. Instead, you can utilize the terminal to identify and halt the process. For assistance, please [contact CSC Service Desk](../../support/contact.md), subject "Sensitive data."
-
-To reboot a desktop:
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. Access the correct virtual desktop on the homepage under **All connections**.
-
-2. Close all programs and ensure you save or close any files to prevent data corruption.
-    
-3. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-    
-4. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Reboot**.
-    
-5. Confirm the operation via the notification. Rebooting a desktop may take up to 30 minutes.
-
-![Reboot desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Reboot_desktop.png)
-
-___
-
-
-## Deleting a virtual desktop
-
-At the end of your analysis, you can delete your virtual desktop, including the external volume and all files saved in it. You cannot undo this action:
-
-1. [Log in](./sd-desktop-login.md) to SD Desktop. On the SD Desktop homepage, click **Go To SD Desktop Management**.
-
-2. At the bottom of the page, under **Available desktops**, select the correct virtual desktop. In the same row, click **Options** on the right, then choose **Delete**.
-
-!!! Note
-    Please contact all the project members before deleting a virtual desktop. With this action, you will delete the entire workspace, including all files saved in the virtual desktop or external volume by other project members. 
-
-![Delete desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Delete_desktop.png)
-
-
-## Your next steps in this guide
-
+* [Login to SD Desktop](./sd-desktop-login.md)
+* [Create virtual desktops](./sd-desktop-create.md)
+* [Managing volumes and virtual desktops](./sd-desktop-manage.md)
 * [Accessing virtual desktop](./sd-desktop-access-vm.md)
 * [Working with your desktop: tips and essentials](./sd-desktop-working.md)
 * [Customisation - software & tools](./sd-desktop-software.md)
 * [Importing data ](./sd-desktop-access.md)
 * [Exporting data  via user interface](./sd-desktop-export.md)
 * [Export data programmatically](./sd-desktop-export-commandline.md)
+* [Using HPC resources for sensitive data](./tutorials/sdsi.md)
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
-
-
