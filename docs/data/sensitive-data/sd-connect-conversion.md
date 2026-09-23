@@ -87,7 +87,7 @@ The tool applies the following naming rules as needed:
 | Urgent|Regain data access|`non-compatible-name-longer-than-sixty-three-characters-for-conversion-example` → `non-compatible-name-longer-than-sixty-three-characters-for-c-conv` | Name shortened to 63 characters. Suffix `-conv`is added to the end. |
 | Urgent|Regain data access |In case of similar bucket names, for example: `Non-compatible name` and `non-compatible name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |
 | By the end of 2026| Fix bucket and files size, ensure compatibility with future versions| `Partially_compatible_name` → `partially-compatible-name-conv` | ('P') Uppercase letters are replace with lower case ('p') (`_`) are replaced with hyphens (`-`).  Suffix `-conv`is added to the end. |
-| By the end of 2026| Fix bucket and files size, ensure compatibility with future versions |cscproject-200346-fully-compatible-name |cscproecjt-200346-fully-comaptible-name  | No changes are applied to the bucket name |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future versions |cscproject-200346-fully-compatible-name |cscproecjt-200346-fully-compatible-name  | No changes are applied to the bucket name |
 
 
 
