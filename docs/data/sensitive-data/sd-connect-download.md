@@ -18,7 +18,7 @@ ___
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-Via the SD Connect user interface you can download either [the entire bucket contents](#downloading-a-bucket), folders stored in it or [individual files](#downloading-individual-files). The user interface automatically decrypts the data during the download process, so the downloaded files are ready to use.
+Via the SD Connect user interface you can download either [the entire bucket contents](#downloading-a-bucket), folders stored in it or [individual files](#2-downloading-individual-files). The user interface automatically decrypts the data during the download process, so the downloaded files are ready to use.
 
 ### 1.1 Download size 
 
