@@ -19,7 +19,7 @@ ___
 ![SD Connect Select bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_UploadExistingBucket1.png)
 
 2. Click **Delete** on right side of each file you want to delete.
-![(Delete a file)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Delete.png)
+![Delete a file](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Delete.png)
 
 3. Confirm by clicking **Delete items** from the notification.
 ![SD Connect Confirm delete](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteConfirm.png)
