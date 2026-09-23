@@ -27,9 +27,9 @@ The user interface supports downloads of up to 100 GB. For larger downloads, we 
 
 **Download performance through the user interface depends largely on your internet connection speed and network availability**. Even with a fast fiber-optic connection, Wi-Fi performance between your router and computer can limit the overall download speed. As an example, downloading a single 20 GB file takes approximately 2 hours (observed download speed 40 Mbps). As actual download times depend on network conditions, Wi-Fi performance, browser overhead and other network traffic, for large downloads we  recommend connecting your computer to the network with an Ethernet cable whenever possible. 
 
-### 1.2 Using a work laptop?
+### 1.2 Using a work laptop
 
-If your laptop is managed by your organization, security settings may sometimes interrupt large downloads. To help avoid this, we recommend creating a dedicated local folder for your SD Connect downloads instead of using the default Downloads or Documents folder. Make sure the location you choose is permitted by your organization.
+If your laptop is managed by your organization, security settings may sometimes interrupt large downloads to the default Downloads or Documents folder. To avoid this, we recommend creating a dedicated folder.
 
 
 
