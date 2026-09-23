@@ -123,7 +123,7 @@ You can create an empty bucket and upload files to it later.
 1. Select the correct project. Click **Create bucket**.
 ![SD Connect Create empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket.png)
 
-2. Name your bucket taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names). Finally click **Save**.
+2. Name your bucket taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#21-plan-bucket-names). Finally click **Save**.
 ![SD Connect Name empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket1.png)
 
 
