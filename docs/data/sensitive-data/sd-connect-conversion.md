@@ -33,7 +33,7 @@ Plan the conversion with the other members of your CSC project.
 
 ## 2. Check bucket label
 
-### 2.1 Urgent
+### 2.1 Label: urgent
 
 Buckets labelled Urgent should be converted as soon as possible.
 
@@ -48,9 +48,9 @@ This is a network-intensive operation. Large conversions should be planned in ad
 
 https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png
 
-## 2.2 By the end of 2026
+## 2.2 By the end of 2026:
 
-Buckets labelled By the end of 2026 must be converted by the end of 2026.
+It is advised to convert Buckets labelled by the end of the year.
 
 Before conversion:
 
@@ -58,12 +58,35 @@ Before conversion:
 - Sharing permissions are not visible.
 - The bucket and file size are displayed as zero.
 
-The conversion might create a new bucket with compatible name adding the suffix -conv in case the name contained capital letters and underscore, otherwise the bucket name remains unchanged. The conversion is not network intensive.
+If a bucket name contains uppercase letters or underscores, the conversion creates a compatible name and adds the suffix -conv. If the name is already fully compatible, it remains unchanged. All buckets can be converted to restore the correct file and bucket sizes and ensure compatibility with future versions of the service. This conversion is not network intensive.
 
 https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Bytheend2026.png
 
+## 3. Converted bucket names
 
-## 3. Choose the appropriate conversion method
+During conversion, bucket names are automatically adjusted to meet the current SD Connect naming requirements. When a bucket name contains unsupported characters or does not meet the naming requirements, the tool modifies the name and adds the suffix -conv.
+
+The tool applies the following rules as needed:
+
+- Spaces are replaced with hyphens (-).
+- Names longer than 63 characters are shortened.
+- Uppercase letters are converted to lowercase.
+- Underscores (_) are replaced with hyphens (-).
+- If the resulting name already exists, a unique string is added to avoid duplicate bucket names.
+
+
+| Label| Why conversion is needed | Example (Old name -> New bucket name) | Name Changes | 
+|----------|----------|----------|----------|
+| Urgent| Regain data access| `non-compatible name with space` → `non-compatible-namewith-space-conv` |  Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| Urgent|Regain data access|`non-compatible-name-longer-than-sixty-three-characters-for-conversion-example` → `non-compatible-name-longer-than-sixty-three-characters-for-c-conv` | Name shortened to 63 caracters. Suffix `-conv`is added to the end. |
+| Urgent|Regain data access |In case of similar bucket names, for example: `Non-compatible name` and `non-compatible name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future version so f service| `Partially_compatible_name` → `partially-comatible-name-conv` | ('P') Uppercase letters are replace with lower case ('p') (`_`) are replaced with hyphens (`-`).  Suffix `-conv`is added to the end. |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future version so f service|cscproecjt-200346-fully-comaptible-name |cscproecjt-200346-fully-comaptible-name  | No changes are applied to the bucket name |
+
+
+
+
+## 4. Choose the appropriate conversion method
 
 Choose the method based on bucket's tag and size. The SD Connect Conversion tool is available for download via graphical user interface (for files up to 10 GB), or as poart of the SD Command lien tools on Roihu for large conversions. 
 
@@ -78,27 +101,50 @@ Choose the method based on bucket's tag and size. The SD Connect Conversion tool
 
 
 
-## 4. Convert bucket names
+
+## 5. After conversion
+
+After the conversion is complete, a migration report (`file.json`) will appear in the bucket. If you encounter any issues, download the report from SD Connect and send it to servicedesk@csc.fi (subject: **SD Connect**) for troubleshooting.
+
+Next, the conversion tool asks you to verify that the **bucket size and number of files are correct**. After verification, the tool asks you to confirm the deletion of the original bucket.
+
+The cleanup depends on the bucket label:
+
+- **Urgent:** The original bucket is deleted and only the new `-conv` bucket is kept. This frees the storage space used by the original bucket.
+
+- **By the end of 2026:** The files remain in the existing bucket. The conversion tool removes only the obsolete technical information associated with the bucket.
+
+<br>
+
+!!! warning
+    Always verify that the converted data is complete and accessible before confirming the deletion of the original bucket. Deleting a bucket permanently removes all data it contains.
+
+<br>
+
+When conversion creates both an original and a converted bucket, keeping both consumes additional CSC storage space.
 
 
-During conversion, the tool makes bucket names compatible with the current SD Connect naming requirements.
 
-Depending on the bucket name, the tool may:
+## 4. Converted bucket names
 
-- convert uppercase letters to lowercase and add teh suffic -conv
-- replace spaces with hyphens (`-`) and add teh suffix -conv
-- replace underscores (`_`) with hyphens (`-`) and add he suffic -conv
-- add a unique string if the resulting bucket name already exists.
+During conversion, bucket names are automatically adjusted to meet the current SD Connect naming requirements. When a bucket name contains unsupported characters or does not meet the naming requirements, the tool modifies the name and adds the suffix -conv.
 
+The tool applies the following rules as needed:
 
-
-
-
-
+- Spaces are replaced with hyphens (-).
+- Names longer than 63 characters are shortened.
+- Uppercase letters are converted to lowercase.
+- Underscores (_) are replaced with hyphens (-).
+- If the resulting name already exists, a unique string is added to avoid duplicate bucket names.
 
 
-
-
+| Label| Why conversion is needed | Example (Old name -> New bucket name) | Name Changes | 
+|----------|----------|----------|----------|
+| Urgent| Regain data access| `non-compatible name with space` → `non-compatible-namewith-space-conv` |  Spaces are replaced with hyphens (`-`). Suffix `-conv`is added to the end. |
+| Urgent|Regain data access|`non-compatible-name-longer-than-sixty-three-characters-for-conversion-example` → `non-compatible-name-longer-than-sixty-three-characters-for-c-conv` | Name shortened to 63 caracters. Suffix `-conv`is added to the end. |
+| Urgent|Regain data access |In case of similar bucket names, for example: `Non-compatible name` and `non-compatible name` → `non-compatible-name-conv` and `non-compatible-name-234-conv` | Two buckets can't have the same name. Tool adds random string to other's bucket name. |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future version so f service| `Partially_compatible_name` → `partially-comatible-name-conv` | ('P') Uppercase letters are replace with lower case ('p') (`_`) are replaced with hyphens (`-`).  Suffix `-conv`is added to the end. |
+| By the end of 2026| Fix bucket and files size, ensure compatibility with future version so f service|cscproecjt-200346-fully-comaptible-name |cscproecjt-200346-fully-comaptible-name  | No changes are applied to the bucket name |
 
 
 
