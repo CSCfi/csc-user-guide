@@ -23,7 +23,7 @@ Via the SD Connect user interface you can download either [the entire bucket con
 
 The user interface supports downloads of up to 100 GB. For larger downloads, we recommend using the command-line tools. If you need assistance, contact the CSC Service Desk at servicedesk@csc.fi.
 
-### 1.2 Download performs
+### 1.2 Download performance
 
 **Download performance through the user interface depends largely on your internet connection speed and network availability**. Even with a fast fiber-optic connection, Wi-Fi performance between your router and computer can limit the overall download speed. As an example, downloading a single 20 GB file takes approximately 2 hours (observed download speed 40 Mbps). As actual download times depend on network conditions, Wi-Fi performance, browser overhead and other network traffic, for large downloads we  recommend connecting your computer to the network with an Ethernet cable whenever possible. 
 
