@@ -4,11 +4,14 @@
 
 ## On this page
 
-* [1. Download and automated decryption](#1-download-and-automated-decryption)
+[* [1. Download and automated decryption](#1-download-and-automated-decryption)
+* [1.1 Download size](#11-download-size)
+* [1.2 Download performance](#12-download-performance)
+* [1.2 Using a work laptop](#12-using-a-work-laptop)
 * [2. Downloading bucket content](#2-downloading-bucket-content)
 * [3. Downloading individual files](#3-downloading-individual-files)
 * [4. Problems downloading or opening files](#4-problems-downloading-or-opening-files)
-
+](https://github.com/CSCfi/csc-user-guide/edit/fm-connect-v3fix/docs/data/sensitive-data/sd-connect-download.md#12-using-a-work-laptop)
 
 ___
 
@@ -30,7 +33,7 @@ The user interface supports downloads of up to 100 GB. For larger downloads, we 
 
 ### 1.2 Using a work laptop
 
-If your laptop is managed by your organization, security settings may sometimes interrupt large downloads to the default Downloads or Documents folder. To avoid this, we recommend creating a dedicated folder.
+If your laptop is managed by your organization’s IT department, **security settings may interrupt large downloads to the default Downloads or Documents folders**. To avoid this, we recommend creating a dedicated download folder.
 
 
 
