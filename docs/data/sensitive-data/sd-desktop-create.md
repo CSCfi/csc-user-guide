@@ -101,7 +101,6 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 
 </div>
 
-![Detach and attach volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Move_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
 You can create **up to five volumes** per CSC project. A volume works like a virtual USB stick: it can be attached to one virtual desktop at a time or moved between desktops within the same CSC project. The volume also acts as a backup if a virtual desktop becomes unresponsive.
 
