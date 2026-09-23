@@ -3,7 +3,7 @@
 
 # Analyze and compute with Sensitive Data Desktop
 
-On this page: 
+## On this page: 
 
 - [1. Overview](#1-overview)
 - [2. Key features and limitations](#2-key-features-and-limitations)
