@@ -8,7 +8,7 @@
 ## On this page: 
 
 * [1. Uploading and encrypting data: overview](#1-uploading-and-encrypting-data-overview)
-* [2. Uploading and encrypting data: step-by-step](#u2-ploading-and-encrypting-data-step-by-step)
+* [2. Uploading and encrypting data: step-by-step](#2-ploading-and-encrypting-data-step-by-step)
 * [2.1 Plan bucket names](#21-plan-bucket-names)
 * [2.2 Accept cookies](#22-accept-cookies)
 * [2.3 Upload and encrypt files to a new bucket](#23-upload-and-encrypt-files-to-a-new-bucket)
