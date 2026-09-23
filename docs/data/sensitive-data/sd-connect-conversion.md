@@ -13,11 +13,11 @@ If your project contains both types of buckets, convert the Urgent buckets first
 
 ## On this page:
 
-- 1. [Before you start](#1-before-you-start)
-- 2. [Check bucket label](#2-check-bucket-label)
-- 3. [Converted bucket names](#3-converted-bucket-names)
-- 4. [Choose the appropriate conversion method](#4-choose-the-appropriate-conversion-method)
-- 5. [After conversion](#5-after-conversion)
+- [1. Before you start](#1-before-you-start)
+- [2. Check bucket label](#2-check-bucket-label)
+- [3. Converted bucket names](#3-converted-bucket-names)
+- [4. Choose the appropriate conversion method](#4-choose-the-appropriate-conversion-method)
+- [5. After conversion](#5-after-conversion)
 
 
 
