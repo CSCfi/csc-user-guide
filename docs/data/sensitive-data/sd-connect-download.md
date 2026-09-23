@@ -82,7 +82,7 @@ ___
 
 If you see this message during the download: "Some downloaded files need manual decryption." the files were either uploaded before October 2024  or were exported via SD Desktop before October 2026 and and require an additional decryption step.
 
-Please refer to [this documentation for guidance](./manual-encryption-and-decryption.md).
+Please refer to [this documentation for guidance](./manual-encryption-decryption.md).
 
 
    ![Some requested files could not be decrypted.](https://a3s.fi/docs-files/sensitive-data/SD_Connect/Old_download_1.png)
