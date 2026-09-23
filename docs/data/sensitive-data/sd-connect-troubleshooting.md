@@ -6,6 +6,22 @@
 !!! Note
     Below you will find solutions to the most common issues encountered with SD Connect. If you need further assistance, please don't hesitate to contact servicedesk@csc.fi with the subject line "SD Services".
 
+##1. Reporting an issue
+
+If you experience problems when uploading or downloading files, you can export a log of your SD Connect session. The log contains technical information that can help investigate the issue.
+
+To export the session logs:
+
+- When the issue occurs, do not close your browser or log out from the service. 
+- Go to the SD Connect home page.
+- Select **Support** in the top-right corner.
+- From the drop-down menu, select **Export session logs.**
+- A file named sd-connect-log-[date].log will be downloaded to your computer.
+- Send the log file to servicedesk@csc.fi with the subject SD Connect and include a short description of the issue you encountered.
+
+
+2. List of most comment problems
+
 
 | Problem | Description | Solution |
 |---------|-------------|----------|
@@ -23,6 +39,27 @@
 ||Low upload speed (programmatically)|Upload and download speed depends on the local network.|
 |Shared bucket|I cannot upload data into a shared bucket|Only folders shared with 'collaborate' permissions allow data uploads.|
 ||I cannot download the content of a shared bucket|Only folders shared with 'transfer' or 'collaborate' permissions allows you to download a copy of the content.|
+
+
+
+### 3. Interrupted upload workaround
+
+If you encounter issues with file uploads or downloads, try the following steps: 
+
+1. Open **SD Connect** in Chrome.
+2. Open **Developer Tools**:
+    - **Windows/Linux:** press `F12` or `Ctrl + Shift + I`.
+    - **Mac:** press `Command + Option + I`.
+3. Select the **Application** tab. If it is not visible, select **`>>`** and then **Application**.
+4. From the left-hand menu, select **Service Workers**.
+5. Find the service worker associated with SD Connect and select **Unregister**.
+6. Refresh the SD Connect page and try uploading or downloading the file again.
+
+
+
+
+
+
 
 
 ## Features in SD Connect
