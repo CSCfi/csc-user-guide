@@ -37,3 +37,6 @@ docker login satama.csc.fi -u robot@test-project+test
 
 ## Use the Robot Account in Automation
 Robot accounts are especially useful for continuous integration pipelines that automatically build and publish container images, since they enable secure, auditable, and controlled access without requiring a human user. By using robot accounts, consistent automation workflows can be maintained while keeping individual user credentials private and ensuring compliance with least-privilege principles.
+
+!!! warning
+    If you lose the secret or it needs to be rotated, you can generate a new one instead of creating a new robot account. Go to the **Robot Accounts** tab, select the robot account, click **ACTION**, and select **Refresh secret** to generate a new secret. Note that this invalidates the old secret, so any automation using it must be updated with the new one.

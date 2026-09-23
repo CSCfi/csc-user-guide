@@ -6,7 +6,7 @@
     capabilities.
 
     * Puhti computing services have been shut down since 31 July 2026.
-    * Mahti computing services will be shut down by 31 August 2026 at 12:00 EEST.
+    * Mahti computing services have been shut down since 31 August 2026.
     * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
     * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
 
@@ -17,6 +17,8 @@ since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI i
 one of the pan-European pre-exascale supercomputers, located in CSC's data
 center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
 early 2022, and the full system with the large LUMI-G partition has been available since early 2023.
+
+Puhti and Mahti computing services have been shut down. Their login nodes and storage services are planned to remain accessible until 15 October 2026.
 
 Puhti contains CPU nodes with a range of memory sizes as well as a large GPU
 partition (Puhti AI), while Mahti contains homogeneous CPU nodes and is meant
@@ -172,8 +174,6 @@ csc-workspaces
   supercomputers
 * Installing and compiling your applications:
     * [Installing software](installing.md)
-    * [Compiling on Puhti](compiling-puhti.md)
-    * [Compiling on Mahti](compiling-mahti.md)
     * [Compiling on Roihu](compiling-roihu.md)
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of

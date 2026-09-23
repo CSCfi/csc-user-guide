@@ -9,17 +9,20 @@ modules listed on the Python app page are not guaranteed to work with the
 marimo interactive app. Additionally, installation of Python packages works
 differently from the general instructions in the usage guide.
 
-### Supported Python environments on Roihu
+### Supported Python environments in the Roihu web interface
 
 CPU partitions:
 
  - python-data
  - python-geo
+ - python-pytorch
+ - python-tensorflow
 
 GPU partitions:
 
 - python-data
 - python-pytorch
+- python-tensorflow
 
 Note that the Python module dropdown will only show the modules available on the currently selected
 partition.

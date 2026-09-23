@@ -9,7 +9,6 @@ catalog:
     - Geosciences
   available_on:
     - LUMI
-    - Puhti
     - Mahti
     - Roihu
 ---
@@ -24,13 +23,9 @@ PDAL is available in the following versions:
 
 * 2.10.1 - [QGIS-3.44.9 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Roihu
 * 2.10.0 - [geoconda-3.14.5 module](geoconda.md) with pdal Python library, in Roihu
-* 2.8.0 - [geoconda-3.11.10 module](geoconda.md) with pdal Python library, in Puhti
-* 2.7.2 - [QGIS-3.38 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Puhti
-* 2.7.2 - [geoconda-3.11.9 module](geoconda.md) with pdal Python library, in Puhti and Mahti
-* 2.6.2 - [QGIS-3.34 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Puhti
-* 2.5.2 - [geoconda-3.10.9 module](geoconda.md) with pdal Python library, in Puhti
-* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Puhti and Mahti
-* 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python library, in Puhti and LUMI
+* 2.7.2 - [geoconda-3.11.9 module](geoconda.md) with pdal Python library, in Mahti
+* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Mahti
+* 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python library, in LUMI
 
 ## Usage
 
@@ -42,7 +37,11 @@ You can test if pdal loaded successfully with following
 
 `pdal --help`
 
-[Examples for using PDAL in Puhti](https://github.com/csc-training/geocomputing/tree/master/pdal).
+[Examples for using PDAL in Roihu](https://github.com/csc-training/geocomputing/tree/master/pdal).
+
+### Finnish National Land Survey's lidar data in Roihu
+
+The Finnish national [lidar data](https://www.maanmittauslaitos.fi/en/maps-and-spatial-data/expert-users/product-descriptions/laser-scanning-data) is already stored in Roihu, both the older stereo-classified version (`/dataset/project_2019680/mml/laserkeilaus/`) and the new automatically classified data (`/dataset/project_2019679/`). More info about [locally stored spatial datasets](https://research.csc.fi/gis_data_in_csc_computing_env).
 
 ## License 
 
@@ -58,7 +57,6 @@ PDAL is licensed with the BSD open source license. [The full PDAL licence](https
 
 Please acknowledge CSC and Geoportti in your publications, it is important for project continuation and funding reports.
 As an example, you can write "The authors wish to thank CSC - IT Center for Science, Finland (urn:nbn:fi:research-infras-2016072531) and the Open Geospatial Information Infrastructure for Research (Geoportti, urn:nbn:fi:research-infras-2016072513) for computational resources and support".
-
 
 ## Installation
 

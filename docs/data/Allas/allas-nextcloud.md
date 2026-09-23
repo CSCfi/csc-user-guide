@@ -94,13 +94,13 @@ chmod +x clean_nextcloud_snap
 
 To be able to link Allas to your Nextcloud server, you must have a valid S3 key pair and a ready made data bucket in Allas. The bucket can be empty or it can already contain some data objects.
 
-You can do this things for example in puhti.csc.fi with commands:
+You can do this things for example in roihu.csc.fi with commands:
 
 ### a. Setting up the connection:
 
 ```bash
 module load allas
-allas-conf --mode s3cmd
+allas-conf
 ```
 
 ### b. Creating a new empty bucket

@@ -1,5 +1,5 @@
 !!! error "Advanced level"
-    You need a good knowledge of Kubernetes/OpenShift environment as well as the tool used. Here, [oc](../../get-started/cli.md)
+    You need a good knowledge of Kubernetes and OKD environment as well as the tool used. Here, [oc](../../get-started/cli.md)
 
     [Network](../../usage/networking.md) knowledge is a plus for this tutorial
 
@@ -47,7 +47,7 @@ oc create route edge sidecar --service=python-and-sidecar --insecure-policy='Red
 oc get route sidecar
 ```
 
-The first command will create the route, and the second will give you the DNS name chosen by OpenShift for it.
+The first command will create the route, and the second will give you the DNS name chosen by OKD for it.
 
 ## Test
 
