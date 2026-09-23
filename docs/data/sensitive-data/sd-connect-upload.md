@@ -13,8 +13,7 @@
 * [2.2 Accept cookies](#22-accept-cookies)
 * [2.3 Upload and encrypt files to a new bucket](#23-upload-and-encrypt-files-to-a-new-bucket)
 * [2.4 Create an empty bucket](#25-create-an-empty-bucket)
-* [3. Interrupted upload](#3-interrupted-upload)
-* [4. Reporting an issue](#4-reporting-an-issue)
+
 
 Files uploaded to SD Connect are automatically encrypted during upload and decrypted during download using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
@@ -126,8 +125,6 @@ You can create an empty bucket and upload files to it later.
 
 2. Name your bucket taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names). Finally click **Save**.
 ![SD Connect Name empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket1.png)
-
-
 
 
 
