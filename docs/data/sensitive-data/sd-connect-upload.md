@@ -128,31 +128,6 @@ You can create an empty bucket and upload files to it later.
 ![SD Connect Name empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket1.png)
 
 
-### 3. Interrupted upload
-
-If you encounter issues with file uploads or downloads, try the following steps: 
-
-1. Open **SD Connect** in Chrome.
-2. Open **Developer Tools**:
-    - **Windows/Linux:** press `F12` or `Ctrl + Shift + I`.
-    - **Mac:** press `Command + Option + I`.
-3. Select the **Application** tab. If it is not visible, select **`>>`** and then **Application**.
-4. From the left-hand menu, select **Service Workers**.
-5. Find the service worker associated with SD Connect and select **Unregister**.
-6. Refresh the SD Connect page and try uploading or downloading the file again.
-
-### 4. Reporting an issue
-
-If you experience problems when uploading or downloading files, you can export a log of your SD Connect session. The log contains technical information that can help investigate the issue.
-
-To export the session logs:
-
-- When the issue occurs, do not close your browser or log out from the service. 
-- Go to the SD Connect home page.
-- Select **Support** in the top-right corner.
-- From the drop-down menu, select **Export session logs.**
-- A file named sd-connect-log-[date].log will be downloaded to your computer.
-- Send the log file to servicedesk@csc.fi with the subject SD Connect and include a short description of the issue you encountered.
 
 
 
