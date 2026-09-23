@@ -17,7 +17,7 @@ The LUMI-Q VLQ is a superconducting star IQM quantum computer deployed as a join
 
 For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).
 
-## Runtime idnetifiers
+## Runtime identifiers
 
 Due to the differing access method of VLQ you do not need to (and should not) specify runtime identifiers when running quantum jobs on VLQ from LUMI. Below is an example batch script you can use for VLQ.
 
