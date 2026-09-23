@@ -36,7 +36,7 @@ Plan the conversion with the other members of your CSC project.
 
 ## 2. Check bucket label
 
-### 2.1 Label: urgent
+### 2.1 Urgent
 
 Buckets labelled Urgent should be converted as soon as possible.
 
@@ -51,7 +51,7 @@ This is a network-intensive operation. Large conversions should be planned in ad
 
 https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Urgent.png
 
-## 2.2 Label: By the end of 2026
+### 2.2 By the end of 2026
 
 It is advised to convert Buckets labelled by the end of the year.
 
