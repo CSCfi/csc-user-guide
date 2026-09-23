@@ -3,11 +3,11 @@
 
 ## On this page: 
 
-- 1. [Overview] (#1-overview)
-- 2. [Pausing a virtual desktop](#2-pausing-a-virtual-desktop)
-- 3. [Unpausing a virtual desktop](#3-unpausing-a-virtual-desktop)
-- 4. [Restarting a virtual desktop](#4-restarting-a-virtual-desktop)
-- 5. [Deleting a virtual desktop](#5-deleting-a-virtual-desktop)
+- [1.Overview](#1-overview)
+- [2. Pausing a virtual desktop](#2-pausing-a-virtual-desktop)
+- [3. Unpausing a virtual desktop](#3-unpausing-a-virtual-desktop)
+- [4. Restarting a virtual desktop](#4-restarting-a-virtual-desktop)
+- [5. Deleting a virtual desktop](#5-deleting-a-virtual-desktop)
 
 ## 1. Overview
 
