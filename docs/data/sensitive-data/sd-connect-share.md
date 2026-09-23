@@ -41,7 +41,10 @@ ____
 2. In your own project (Sender project) click **Share** button on the right side of the bucket you want to share.
 ![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
 
-3. Paste the recipient project's **Share ID** to the field, then select suitable sharing permission, [see options](#sharing-buckets-to-another-csc-project-overview). Finally click **Share**.
+3. Paste the recipient project's **Share ID** to the field, then select suitable sharing permission: **transfer, collaborate or read only via SD Desktop**. A detailed explanation of each option is available on the [previous paragraph](#1-sharing-buckets-to-another-csc-project-overview).
+   
+5. Finally click **Share**.
+   
 ![Add share ID, select permissions and Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share2.png)
 
 ____
