@@ -59,7 +59,7 @@ This opens the **Gedit text editor**. Make sure the editor view is active by cli
 
 ### Step 4
  
- Press **Ctrl + Alt + Shift** to activate the copy-paste function in the virtual desktop. Choose **Text Input**. A new input field will appear at the bottom of the screen.
+ Press **Ctrl + Alt + Shift** to activate the copy-paste function in the virtual desktop. 
 
 ![Choose text input](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-6.png)
 
@@ -165,6 +165,8 @@ echo "'csc-update' to install the latest Data Gateway again if a new version is 
 
 ### Step 6 
 
+Paste the script into the clipboard. Move to the virtual desktop and click inside the empty document and right click paste. 
+
 The script will appear in the document. Click **Save** in the top-right corner of document, then close the editor. A file named `csc-update` will appear on your desktop.
 
 ![Gedit](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-8.png)
@@ -178,7 +180,7 @@ The script will appear in the document. Click **Save** in the top-right corner o
 In the terminal, type or copy the following command and press Enter:
 
 ```bash
-csc-update
+source csc-update
 ```
 
 The **New Data Gateway** icon will appear on the virtual desktop. 
