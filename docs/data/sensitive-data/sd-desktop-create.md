@@ -5,8 +5,8 @@
 On this page: 
 
 - [1. Create volume](#1-create-volume)
-- [2. Create virtual desktop](#2-create-virtual-desktops)
-- [3. Attach volume and virtual desktops](#3-attach-volume-and-virtual-desktop)
+- [2. Create virtual desktop](#2-create-virtual-desktop)
+- [3. Attach volume and virtual desktop](#3-attach-the-volume-to-the-virtual-desktop)
 - [4. Make sure your CSC project has sufficient Billing Units](#4-make-sure-your-csc-project-has-sufficient-billing-units-bu)
 - [5. Important considerations](#5-important-considerations)
 ___
@@ -98,7 +98,7 @@ Here:
 
 
 
-## 2. Create a virtual desktop
+## 2. Create virtual desktop
 
 A virtual desktop is a secure computer that you access through your web browser. Like a regular computer, it has an operating system, applications, memory and storage, but it runs remotely in the SD Desktop service rather than on your own computer. You use the virtual desktop to access and analyse your sensitive research data in a secure environment. 
 
