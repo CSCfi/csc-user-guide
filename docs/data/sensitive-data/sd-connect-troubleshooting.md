@@ -64,7 +64,7 @@ If you encounter issues with file uploads or downloads in Firefox, try the follo
 6. From the left-hand menu, select **Service Workers**.
 7. Find the service worker associated with **SD Connect** and select **Unregister**.
 8. Close Developer Tools and refresh the **SD Connect** page.
-9. Try uploading or downlaoding the file again.
+9. Try uploading or downloading the file again.
 
 
 
