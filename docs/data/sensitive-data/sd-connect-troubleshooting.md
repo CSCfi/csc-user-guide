@@ -8,7 +8,7 @@
 
 - [1. Reporting an issue](#1-reporting-an-issue)
 - [2. List of most comment problems](#2-list-of-most-comment-problems)
-- [3. Interrupted upload workaround](#3-interrupted-upload-workaround)
+- [3. Firefox: Interrupted upload workaround](#3-firefox-interrupted-upload-workaround)
 
 
 
@@ -51,19 +51,20 @@ To export the session logs:
 
 
 
-## 3. Interrupted upload workaround
+## 3. Firefox: Interrupted upload workaround
 
-If you encounter issues with file uploads or downloads, try the following steps: 
+If you encounter issues with file uploads or downloads in Firefox, try the following steps: 
 
-1. Open **SD Connect** in Chrome.
-2. Open **Developer Tools**:
-    - **Windows/Linux:** press `F12` or `Ctrl + Shift + I`.
-    - **Mac:** press `Command + Option + I`.
-3. Select the **Application** tab. If it is not visible, select **`>>`** and then **Application**.
-4. From the left-hand menu, select **Service Workers**.
-5. Find the service worker associated with SD Connect and select **Unregister**.
-6. Refresh the SD Connect page and try uploading or downloading the file again.
-
+1. Open **SD Connect** in Firefox.
+2. Click the **☰ menu** in the top-right corner of Firefox.
+3. Select **More tools**.
+4. Select **Web Developer Tools**.
+5. Select the **Application** tab.
+    - If **Application** is not visible, select **`>>`** and then **Application**.
+6. From the left-hand menu, select **Service Workers**.
+7. Find the service worker associated with **SD Connect** and select **Unregister**.
+8. Close Developer Tools and refresh the **SD Connect** page.
+9. Try uploading or downlaoding the file again.
 
 
 
