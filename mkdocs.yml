@@ -615,6 +615,7 @@ nav:
               - Import data: data/sensitive-data/sd-desktop-access.md
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
+              - Restore import export functions: data/sensitive-data/sd-desktop-major-upgrade.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Research data - Publish and reuse:
           - Publish with Federated EGA:

@@ -146,7 +146,7 @@ Estimate the Billing Units your project will consume over the next six months fo
 
 1. How many virtual desktops you have running in the CSC project and their type (based on the option chosen during virtual desktop creation). Note running desktops are the main source of billing consumption and when a virtual desktop is paused, consumption is significantly reduced. However, approximately 3 200 Billing Units per year are still charged until the desktop is deleted
    
-2. How many external volumes your CSC project has and their sizes (how many GBs). For example you could have one 100 GB volume. Here you can find [step-by-step guidance to check if the virtual desktop has a volume and its size](./sd-desktop-volumes-billing.md#step-1-check-if-your-virtual-desktop-has-an-external-volume). External volumes always consume Billing Units based on size. This applies even if: the virtual desktop is paused, the volume is detached. Charges continue until the volume is deleted.
+2. How many external volumes your CSC project has and their sizes (how many GBs). External volumes always consume Billing Units based on size. This applies even if: the virtual desktop is paused, the volume is detached. Charges continue until the volume is deleted.
 
 If you are unsure where to find the information above, please contact us at servicedesk@csc.fi (subject: SD Desktop). Be sure to include your CSC project number and virtual desktop name in your message so we can assist you.
 
