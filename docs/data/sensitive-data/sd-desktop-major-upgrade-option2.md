@@ -127,7 +127,7 @@ After saving files to volume, adjust permissions for folders and files to enable
 
 1. **Select a name** for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
 2. **Select operating system.** We recommend to choose **Linux Ubuntu22**. If you want to create a GPU desktop, please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further instructions.
-3. **Select a pre-built desktop option** based on your needs. [See options below](#virtual-desktop-options)
+3. **Select a pre-built desktop option** based on your needs.
 4. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
 5. Click **Create**. The window will now close and desktop creation will start.
 
