@@ -2,7 +2,7 @@
 
 # Create virtual desktop and volume
 
-On this page: 
+## On this page: 
 
 - [1. Create volume](#1-create-volume)
 - [2. Create virtual desktop](#2-create-virtual-desktop)
@@ -11,28 +11,17 @@ On this page:
 - [5. Important considerations](#5-important-considerations)
 ___
 
-<div class="grid cards" markdown>
-
-- :material-information:{ .lg .middle } **Info**
-  { .csc-grid-card-info }
-    
-  If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". We can provide general introduciton to the service, guidance and, if needed, arrange an online support session.
-
-</div>
+!!! Note
+   If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". We can provide general introduciton to the service, guidance and, if needed, arrange an online support session.
 
 
+___
 
 In this section, you will start preparing your secure working environment by creating a volume to store a working copy of your data and a virtual desktop where you will analyse it. You will then connect them so your environment is ready for data import form SC Connect.
 
 
 ![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
-
-You can create **up to three desktops** within a single CSC project, with **up to 10 project members** allowed to connect simultaneously to each desktop. Your virtual desktop is accessible to all project members upon creation.
-
-All desktops come with **pre‑installed open‑source software** managed by CSC. More information about software and customization options is available [here](./sd-desktop-software.md).
-
-Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
 
 
