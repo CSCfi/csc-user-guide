@@ -7,9 +7,9 @@ environment: production
 
 nameOverride: null
 
-base:
-  image: ubi9
-  tag: 9.8-1789461287
+builder:
+  image: ubi9/python-312
+  tag: 9.8-1789950416
 
 server:
   image: ubi9/nginx-126

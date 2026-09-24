@@ -7,12 +7,12 @@ shopt -s dotglob
 # shellcheck source=SCRIPTDIR/../scripts/sparse-clone.bash
 source /sparse-clone.bash
 
-declare -r CLONE_PATH=/tmp/${REPO_NAME:?} \
-            TRANSLATION_MOUNT_PREFIX=/translations \
-            BUILD_WORKDIR=/tmp/site \
-            BUILD_MOUNT_PREFIX=/site
+declare -r CLONE_PATH=${APP_ROOT}/${REPO_NAME:?} \
+           TRANSLATION_MOUNT_PREFIX=/translations \
+           BUILD_WORKDIR=${APP_ROOT}/site \
+           BUILD_MOUNT_PREFIX=/site
 declare -r SOURCE_DIR=${TRANSLATION_MOUNT_PREFIX}/${LANG_CODE:?} \
-            TARGET_DIR=${BUILD_MOUNT_PREFIX}/${LANG_CODE:?}
+           TARGET_DIR=${BUILD_MOUNT_PREFIX}/${LANG_CODE:?}
 declare -ra CONFIG_FILES=(
   properdocs.yml
   "properdocs_${LANG_CODE:?}.yml"

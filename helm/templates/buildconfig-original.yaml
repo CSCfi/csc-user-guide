@@ -44,10 +44,7 @@ spec:
       buildArgs:
         - name: builder_image
           value: {{ $buildername | list $ | include "docs-csc.fullImageName" | squote }}
-        - name: server_image
-{{- with .Values.server }}
-          value: {{ .tag | printf "%s:%s" .image | squote }}
-{{- end }}
+{{ list .Values "server" | include "docs-csc.imageBuildArg" | indent 8 }}
 {{- .Values.components.original.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
   source:
 {{ include "docs-csc.gitSource" . | indent 4 }}

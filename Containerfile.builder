@@ -1,16 +1,19 @@
-ARG base_image
-FROM ${base_image}
+ARG python_image
+FROM ${python_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
 ADD requirements.txt ./
 
-ARG PIP_ROOT_USER_ACTION=ignore
 RUN \
-  pip3.12 install --upgrade pip \
+  pip install --upgrade pip \
 && \
-  pip3.12 install \
-            --use-pep517 \
-            --no-cache-dir \
-            --no-deps \
-            --requirement=requirements.txt
+  pip install \
+        --use-pep517 \
+        --no-cache-dir \
+        --no-deps \
+        --requirement=requirements.txt
+
+ADD --chown=0:0 \
+    --chmod=774 \
+  scripts/sparse-clone.bash /sparse-clone.bash

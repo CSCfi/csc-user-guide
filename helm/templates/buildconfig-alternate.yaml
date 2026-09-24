@@ -18,9 +18,6 @@ spec:
     dockerStrategy:
       dockerfilePath: translation/Containerfile.alternate
       buildArgs:
-        - name: server_image
-{{- with .Values.server }}
-          value: {{ .tag | printf "%s:%s" .image | squote }}
-{{- end }}
+{{ list .Values "server" | include "docs-csc.imageBuildArg" | indent 8 }}
   source:
 {{ include "docs-csc.gitSource" . | indent 4 -}}
