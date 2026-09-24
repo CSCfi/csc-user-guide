@@ -1,6 +1,19 @@
 {{- $resourcename := include "docs-csc.altName" . -}}
 {{- $servername := include "docs-csc.altServerName" . -}}
-{{- $imagename := $resourcename | list $ | include "docs-csc.latestImageName" -}}
+{{- $imagename := $resourcename | list $ | include "docs-csc.fullImageName" -}}
+{{- $containerimage := $imagename -}}
+{{- $existingcontainers := lookup "apps/v1"
+                                  "Deployment"
+                                  .Release.Namespace
+                                  $resourcename
+                           | dig "spec" "template" "spec" "containers" list -}}
+{{- if $existingcontainers -}}
+{{- range $container := $existingcontainers -}}
+{{- if $container.name | eq $servername -}}
+{{- $containerimage = $container.image -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
 {{- $componentlabels := $resourcename | list $ | include "docs-csc.componentLabels" -}}
 kind: Deployment
 apiVersion: apps/v1
@@ -32,7 +45,7 @@ spec:
             defaultMode: 420
       containers:
         - name: {{ $servername }}
-          image: {{ $imagename | squote }}
+          image: {{ $containerimage | squote }}
           ports:
             - containerPort: 8000
               protocol: TCP
