@@ -17,7 +17,7 @@ declare -r CLONE_PATH=${APP_ROOT}/${REPO_NAME:?} \
            CACHED_OBJS_FILEPATH=${APP_ROOT}/cached_objects.json \
            TRANSLATION_WORKDIR=${APP_ROOT}/translation \
            MOUNT_PREFIX=/translations \
-           SNAPSHOT_PREFIX=${APP_ROOT}/${DOCS_DIR:?}
+           SNAPSHOT_PREFIX=/tmp/${DOCS_DIR:?}
 declare -r SNAPSHOT_PATH=${SNAPSHOT_PREFIX}/${LANG_CODE:?}
 declare -ra CONFIG_FILES=(
   translation/exclude.txt
