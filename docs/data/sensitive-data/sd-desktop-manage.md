@@ -79,7 +79,7 @@ ___
 
 ??? default "Method 1: Use CSC Tools to set access permissions"
 
-    If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions](sd-desktop-software.md#21-install-sd-software-installer).
+    If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions](sd-desktop-software.md#step-1-send-a-request).
 
     1. Keep the **Data Gateway** connection open or launch Data Gateway:
         - Select **SD Connect**.
