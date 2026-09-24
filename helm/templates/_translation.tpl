@@ -47,8 +47,10 @@ builds
     | .Files.Get -}}
 {{- end -}}
 
-{{- define "translation.newTranslatorSecret" -}}
-{{- $secretsfile := include "translation.secretsFile" . | fromYaml -}}
+{{- define "translation.translatorSecret" -}}
+{{- $ := index . 0 -}}
+{{- $data := index . 1 -}}
+{{- $resourcename := include "translation.translatorSecretName" $ -}}
 {{- $requiredkeys := list "openAiApiKey"
                           "resticPassword"
                           "osApplicationCredentialId"
@@ -56,21 +58,28 @@ builds
 kind: Secret
 apiVersion: v1
 metadata:
-  name: {{ include "translation.translatorSecretName" $ }}
+  name: {{ $resourcename }}
   labels:
 {{ include "docs-csc.labels" $ | indent 4 }}
-{{ include "translation.translatorName" $ | list $ | include "docs-csc.componentLabels" | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
 type: Opaque
 data:
-{{- range $key := .Values.components.translator.restoreOnly
-                  | ternary ("openAiApiKey" | without $requiredkeys)
+{{- range $key := $.Values.components.translator.restoreOnly
+                  | default false
+                  | ternary (without $requiredkeys "openAiApiKey")
                             $requiredkeys }}
-{{ $key | get $secretsfile
+{{ $key | get $data
         | required (printf "%s not provided!" $key)
-        | b64enc
         | printf "%s: %s" $key
         | indent 2 }}
 {{- end }}
+{{- end -}}
+
+{{- define "translation.newTranslatorSecret" -}}
+{{ include "translation.secretsFile" .
+   | fromYaml
+   | list $
+   | include "translation.translatorSecret" }}
 {{- end -}}
 
 {{- define "translation.translatorContainer" -}}
