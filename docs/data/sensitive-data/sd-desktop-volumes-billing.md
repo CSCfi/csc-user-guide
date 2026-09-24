@@ -65,7 +65,7 @@ Volumes consume 4.7 Cloud Billing Units/Tib/ Hour. Below is a table summarizing 
 2. Navigate to your project's view. 
 3. Scroll down to **Resources** window.
 4. You can see **Cloud Billing Units** usage under its tab.
-5. If your project doesn't have enough Cloud Billing Units, [**apply for additional units**](sd-billing-units.md#step-2-apply-for-billing-units-via-mycsc-portal).
+5. If your project doesn't have enough Cloud Billing Units, [**apply for additional units**](sd-billing-units.md#32-step-2-apply-for-billing-units-via-mycsc-portal).
 6. If you had received email notifications about Billing Units are running low, you need to extend the project’s lifetime via MyCSC. This action can only be performed by the CSC project manager.
    
 ![Billing Units in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_BUs.png)
