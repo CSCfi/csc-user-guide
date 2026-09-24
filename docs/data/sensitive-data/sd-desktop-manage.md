@@ -11,7 +11,7 @@ With the SD Desktop service, you can easily manage your virtual desktops and vol
 
 * [Attaching or detaching a volume](#attaching-or-detaching-a-volume)
 * [Pausing or resuming a virtual desktop](#pausing-or-unpausing-a-virtual-desktop)
-* [Rebooting a virtual desktop](#rebooting-a-virtual-desktop)
+* [Restarting a virtual desktop](#restarting-a-virtual-desktop)
 * [Deleting a virtual desktop](#deleting-a-virtual-desktop)
 * [Deleting a volume](#deleting-a-volume)
 
