@@ -12,7 +12,7 @@
 ___
 
 !!! Note
-   If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". We can provide general introduciton to the service, guidance and, if needed, arrange an online support session.
+   If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". **We can provide general introduction to the service, guidance and, if needed, arrange an online support session**.
 
 
 ___
