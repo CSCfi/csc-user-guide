@@ -165,41 +165,40 @@ echo "'csc-update' to install the latest Data Gateway again if a new version is 
 
 #### Step 6 
 
-The script will appear in the Gedit document.
+The script will appear in the document. Click **Save** in the top-right corner of document, then close the editor. A file named `csc-update` will appear on your desktop.
+
+![Gedit](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-8.png)
+
+![dg-fix file](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-9.png)
 
 
-* Return on the virtual desktop window and on your keyboard Press **Ctrl + Alt + Shift** to open the **Clipboard panel.** Select **Text input** to enable copy-paste. Clipboard panel will close automatically and move to an input panel on the lower part your desktop. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
 
-![Open Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard2.png)
+#### Step 7
 
-*  Move your mouse over the black bar (the input panel) in the bottom of the screen.
-    * Right-click and **Paste** the command you copied. 
-    * Command will appear in the terminal. Presss **Enter**. Update will start.
+In the terminal, type or copy the following command and press Enter:
 
-![Use Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard3.png)
+```bash
+csc-update
+```
 
-* When the script has run:
+The **New Data Gateway** icon will appear on the virtual desktop. 
 
-  - close the terminal window
-  - on the top right cornet of the virtual desktop, select the power button
-  - on the drop down menu select on click on **power of /log out**
-  - in the new window click on **log out**
-  - in the new window click on **home**
 
-    Now you have return to the main SD Desktop page, on the top right cornet, next to your user name, click on log out.
+#### Step 8
 
-Next, log in again to the SD Desktop service
-Access the virtual desktop
+When the script has finished running:
+
+- Close the terminal window.
+- In the top-right corner of the virtual desktop, select the Power button.
+- From the drop-down menu, select Power Off / Log Out.
+- In the window that opens, select Log Out.
+- Select Home to return to the main SD Desktop page.
+- In the top-right corner, next to your username, select Log out.
+
+
+Log in to SD Desktop again and access the virtual desktop. The Data Gateway icon should now work.
 
 
     
-
-    
-*
-*
-*
-*
-* an icon called **New Data Gateway** will appear on your desktop. Use this icon to launch Data Gateway.
-
 
 
