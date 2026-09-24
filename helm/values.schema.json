@@ -335,7 +335,7 @@
         "null"
       ]
     },
-    "base": {
+    "builder": {
       "$ref": "#/$defs/imageName"
     },
     "server": {
@@ -369,7 +369,7 @@
   },
   "required": [
     "git",
-    "base",
+    "builder",
     "server",
     "localRegistry",
     "site",

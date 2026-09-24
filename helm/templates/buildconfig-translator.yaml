@@ -1,5 +1,4 @@
 {{- $resourcename := include "translation.translatorName" . -}}
-{{- $basename := include "docs-csc.baseName" . -}}
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
@@ -9,11 +8,7 @@ metadata:
 {{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
   triggers:
-    - type: ImageChange
-      imageChange:
-        from:
-          kind: ImageStreamTag
-          name: {{ $basename | list $ | include "docs-csc.latestImageName" | squote }}
+    - type: ConfigChange
   output:
     to:
       kind: ImageStreamTag
@@ -23,11 +18,8 @@ spec:
     dockerStrategy:
       dockerfilePath: translation/Containerfile.translator
       buildArgs:
-        - name: base_image
-          value: {{ $basename | list $ | include "docs-csc.fullImageName" | squote }}
-        - name: restic_image
-          value: {{ printf "%s:%s" .Values.components.translator.restic.image
-                                   .Values.components.translator.restic.tag | squote }}
+{{ list .Values.components.translator "restic" | include "docs-csc.imageBuildArg" | indent 8 }}
+{{ list .Values "builder" | include "docs-csc.imageBuildArg" | indent 8 }}
 {{- .Values.components.translator.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
   source:
 {{ include "docs-csc.gitSource" . | indent 4 }}

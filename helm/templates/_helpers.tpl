@@ -12,9 +12,6 @@ Expand the name of the chart.
 {{/*
 Create names for resources.
 */}}
-{{- define "docs-csc.baseName" -}}
-{{- printf "%s-base" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
-{{- end }}
 {{- define "docs-csc.origName" -}}
 {{- printf "%s-original" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
@@ -111,6 +108,13 @@ type: Git
 git:
 {{- range $key, $value := .Values.git }}
   {{ $value | squote | printf "%s: %s" $key }}
+{{- end }}
+{{- end -}}
+
+{{- define "docs-csc.imageBuildArg" -}}
+- name: {{ index . 1 | printf "%s_image" }}
+{{- with index . 1 | get (index . 0) }}
+  value: {{ printf "%s:%s" .image .tag | squote }}
 {{- end }}
 {{- end -}}
 

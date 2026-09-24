@@ -12,12 +12,12 @@ then
   exit 0
 fi
 
-declare -r CLONE_PATH=/tmp/${REPO_NAME:?} \
-            COMMIT_SHA_FILEPATH=/tmp/commit_sha.txt \
-            CACHED_OBJS_FILEPATH=/tmp/cached_objects.json \
-            TRANSLATION_WORKDIR=/tmp/translation \
-            MOUNT_PREFIX=/translations \
-            SNAPSHOT_PREFIX=/tmp/${DOCS_DIR:?}
+declare -r CLONE_PATH=${APP_ROOT}/${REPO_NAME:?} \
+           COMMIT_SHA_FILEPATH=${APP_ROOT}/commit_sha.txt \
+           CACHED_OBJS_FILEPATH=${APP_ROOT}/cached_objects.json \
+           TRANSLATION_WORKDIR=${APP_ROOT}/translation \
+           MOUNT_PREFIX=/translations \
+           SNAPSHOT_PREFIX=${APP_ROOT}/${DOCS_DIR:?}
 declare -r SNAPSHOT_PATH=${SNAPSHOT_PREFIX}/${LANG_CODE:?}
 declare -ra CONFIG_FILES=(
   translation/exclude.txt
@@ -44,15 +44,15 @@ get_snapshots() {
 restore_latest() {
   restic restore --exclude-xattr '*' \
                  --path "${SNAPSHOT_PATH}" \
-                 --target ${TRANSLATION_WORKDIR} \
+                 --target "${TRANSLATION_WORKDIR}" \
            latest
 }
 
 translate() {
-  python3 refresh_translation.py \
-            $TRANSLATION_WORKDIR \
-            $COMMIT_SHA_FILEPATH \
-            $CACHED_OBJS_FILEPATH
+  python refresh_translation.py \
+           "$TRANSLATION_WORKDIR" \
+           "$COMMIT_SHA_FILEPATH" \
+           "$CACHED_OBJS_FILEPATH"
 }
 
 new_snapshot() {
@@ -60,7 +60,7 @@ new_snapshot() {
 
   cp --recursive \
      --no-dereference \
-    ${TRANSLATION_WORKDIR}/ \
+    "${TRANSLATION_WORKDIR}/" \
     "$SNAPSHOT_PATH"
 
   if [[ -d $SNAPSHOT_PATH ]] && \
@@ -68,7 +68,7 @@ new_snapshot() {
   then
     cd "$SNAPSHOT_PATH" \
     && \
-    restic backup --tag "$(cat ${COMMIT_SHA_FILEPATH})" \
+    restic backup --tag "$(cat "${COMMIT_SHA_FILEPATH}")" \
                   --exclude '.*' \
                   --iexclude '* !*.md' \
                   --skip-if-unchanged \
@@ -81,7 +81,7 @@ new_snapshot() {
 copy_translation() {
   cp --recursive \
      --no-dereference \
-    ${TRANSLATION_WORKDIR}/ \
+    "${TRANSLATION_WORKDIR}/" \
     "${MOUNT_PREFIX}/${LANG_CODE:?}"
 }
 
@@ -104,7 +104,7 @@ post_translation() {
   && \
   if dryrun_disabled
   then
-    python3 clear_cache.py $CACHED_OBJS_FILEPATH
+    python clear_cache.py "$CACHED_OBJS_FILEPATH"
   fi
 }
 
