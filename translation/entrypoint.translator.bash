@@ -1,7 +1,9 @@
 #! /usr/bin/bash
 
-set -o errexit \
-    -o nounset
+set -o errexit
+
+# shellcheck source=SCRIPTDIR/../scripts/sparse-clone.bash
+source /sparse-clone.bash
 
 # Don't translate to source language
 if [[ ${LANG_CODE:?} == 'en' ]]
@@ -10,23 +12,29 @@ then
   exit 0
 fi
 
-export CLONE_PATH=/tmp/${REPO_NAME:?}
-declare -gr COMMIT_SHA_FILEPATH=/tmp/commit_sha.txt \
-            CACHED_OBJS_FILEPATH=/tmp/cached_objects.json \
-            TRANSLATION_WORKDIR=/tmp/translation \
-            MOUNT_PREFIX=/translations \
-            SNAPSHOT_PREFIX=/tmp/${DOCS_DIR:?}
-declare -gr SNAPSHOT_PATH=${SNAPSHOT_PREFIX}/${LANG_CODE:?}
-declare -gra CONFIG_FILES=(
+declare -r CLONE_PATH=${APP_ROOT}/${REPO_NAME:?} \
+           COMMIT_SHA_FILEPATH=${APP_ROOT}/commit_sha.txt \
+           CACHED_OBJS_FILEPATH=${APP_ROOT}/cached_objects.json \
+           TRANSLATION_WORKDIR=${APP_ROOT}/translation \
+           MOUNT_PREFIX=/translations \
+           SNAPSHOT_PREFIX=${APP_ROOT}/${DOCS_DIR:?}
+declare -r SNAPSHOT_PATH=${SNAPSHOT_PREFIX}/${LANG_CODE:?}
+declare -ra CONFIG_FILES=(
   translation/exclude.txt
   translation/force.yml
   translation/dictionary.yml
 )
-declare -gra SPARSE_PATTERNS=(
+# shellcheck disable=SC2034
+declare -ra SPARSE_PATTERNS=(
   "/${DOCS_DIR:?}/**/*.md"
   "${CONFIG_FILES[@]/#//}"
 )
 
+dryrun_disabled() {
+  [[ -z ${RESTORE_ONLY:-} \
+    || ${RESTORE_ONLY,,} =~ ^false$ \
+    || ($RESTORE_ONLY =~ ^[0-9]+$ && $RESTORE_ONLY -eq 0) ]]
+}
 
 get_snapshots() {
   restic --json snapshots --path "${SNAPSHOT_PATH}" \
@@ -36,36 +44,15 @@ get_snapshots() {
 restore_latest() {
   restic restore --exclude-xattr '*' \
                  --path "${SNAPSHOT_PATH}" \
-                 --target ${TRANSLATION_WORKDIR} \
+                 --target "${TRANSLATION_WORKDIR}" \
            latest
 }
 
-get_config() {
-  if [[ -n ${CONFIG_BRANCH:-} ]]
-  then
-    # Save values before modifying
-    local -r clone_path_orig=$CLONE_PATH \
-             repo_branch_orig=$REPO_BRANCH
-
-    export CLONE_PATH=${clone_path_orig}-config \
-           REPO_BRANCH=$CONFIG_BRANCH
-    /sparse-clone.bash "${CONFIG_FILES[@]/#//}"
-  fi
-
-  cp --no-dereference \
-    "${CONFIG_FILES[@]/#/${CLONE_PATH}/}" \
-    ./
-
-  # Restore values
-  [[ -n ${clone_path_orig:-} ]] && export CLONE_PATH=$clone_path_orig
-  [[ -n ${repo_branch_orig:-} ]] && export REPO_BRANCH=$repo_branch_orig
-}
-
 translate() {
-  python3 refresh_translation.py \
-            $TRANSLATION_WORKDIR \
-            $COMMIT_SHA_FILEPATH \
-            $CACHED_OBJS_FILEPATH
+  python refresh_translation.py \
+           "$TRANSLATION_WORKDIR" \
+           "$COMMIT_SHA_FILEPATH" \
+           "$CACHED_OBJS_FILEPATH"
 }
 
 new_snapshot() {
@@ -73,7 +60,7 @@ new_snapshot() {
 
   cp --recursive \
      --no-dereference \
-    ${TRANSLATION_WORKDIR}/ \
+    "${TRANSLATION_WORKDIR}/" \
     "$SNAPSHOT_PATH"
 
   if [[ -d $SNAPSHOT_PATH ]] && \
@@ -81,7 +68,7 @@ new_snapshot() {
   then
     cd "$SNAPSHOT_PATH" \
     && \
-    restic backup --tag "$(cat ${COMMIT_SHA_FILEPATH})" \
+    restic backup --tag "$(cat "${COMMIT_SHA_FILEPATH}")" \
                   --exclude '.*' \
                   --iexclude '* !*.md' \
                   --skip-if-unchanged \
@@ -94,7 +81,7 @@ new_snapshot() {
 copy_translation() {
   cp --recursive \
      --no-dereference \
-    ${TRANSLATION_WORKDIR}/ \
+    "${TRANSLATION_WORKDIR}/" \
     "${MOUNT_PREFIX}/${LANG_CODE:?}"
 }
 
@@ -103,9 +90,11 @@ pre_translation() {
   && \
   restore_latest \
   && \
-  /sparse-clone.bash "${SPARSE_PATTERNS[@]}" \
+  clone_repo "${REPO_HOST:?}" "${REPO_ORG:?}" "${REPO_NAME:?}" "${CLONE_PATH:?}" \
   && \
-  get_config
+  sparse_checkout "${REPO_BRANCH:?}" "${CLONE_PATH:?}" SPARSE_PATTERNS \
+  && \
+  get_config "${CONFIG_FILES[@]}"
 }
 
 post_translation() {
@@ -113,13 +102,19 @@ post_translation() {
   && \
   copy_translation \
   && \
-  python3 clear_cache.py $CACHED_OBJS_FILEPATH
+  if dryrun_disabled
+  then
+    python clear_cache.py "$CACHED_OBJS_FILEPATH"
+  fi
 }
 
 main() {
   pre_translation \
   && \
-  translate \
+  if dryrun_disabled
+  then
+    translate
+  fi \
   && \
   post_translation
 }

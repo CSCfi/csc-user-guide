@@ -1,0 +1,22 @@
+{{- range $lang := .Values.components.translator.languages }}
+---
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: {{ $lang.code | printf "%s-translate-%s" (include "docs-csc.name" $) }}
+  labels:
+{{ include "docs-csc.labels" $ | indent 4 }}
+{{ include "docs-csc.altName" $ | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  schedule: {{ $.Values.components.translator.schedule | default "0 0 * * 1-5" | squote }}
+  timeZone: {{ $.Values.components.translator.timeZone | default "Etc/UTC" | squote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      podReplacementPolicy: Failed
+      template:
+{{ dict "language" $lang
+        "restoreOnly" ($.Values.components.translator.restoreOnly | default false)
+   | list $
+   | include "translation.jobTemplate" | indent 8 }}
+{{- end }}

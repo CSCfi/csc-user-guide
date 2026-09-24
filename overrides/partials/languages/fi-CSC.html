@@ -1,0 +1,51 @@
+<!-- Import translations for language and fallback -->
+{% import "partials/languages/fi.html" as language %}
+{% import "partials/languages/en-CSC.html" as fallback %} 
+
+<!-- Define custom translations -->
+{% macro override(key) %}{{ {
+  "meta.lang_code": "fi",
+
+  "contact_information": "Yhteystiedot",
+  "contact_form": "Yhteydenottolomake",
+  "customer_service": "Asiakaspalvelu",
+  "maintenance_breaks": "Huoltokatkot (englanniksi)",
+  "switchboard": "vaihde",
+  "accessibility_statement": "Saavutettavuusseloste",
+  "user_communications_archives": "Käyttäjätiedotearkisto (englanniksi)",
+
+  "pre-header.research": "Palvelut tutkijalle",
+  "pre-header.user_guides": "Käyttöohjeet ja oppaat",
+  "pre-header.user_portal": "Asiakasportaali (englanniksi)",
+  "pre-header.company_site": "Yrityssivusto",
+
+  "apps.available_on": "Sovellukset saatavilla järjestelmässä",
+  "apps.available_on_web": "Interaktiiviset web-sovellukset saatavilla järjestelmässä",
+  "apps.web_interface": "web-käyttöliittymä",
+
+  "csc.full_name": "CSC &ndash; Tieteen tietotekniikan keskus oy",
+  "csc.mail_address": "PL 405, 02101 Espoo",
+  "csc.email": "asiakaspalvelu@csc.fi",
+  "csc.open_hours": "Päivystys ma&ndash;pe klo 8.30&ndash;16",
+  "csc.info_at": "Tarkemmat yhteystiedot sivustolla",
+  "csc.info_path":  "tietoa-meista/yhteystiedot/",
+
+  "feedback.please": "Kerro meille miten voisimme parantaa tätä sivua",
+  "feedback.contacting_us": "ottamalla meihin yhteyttä",
+
+  "disclaimer.translation": "Suomenkielinen tekoälykäännös",
+  "disclaimer.content": "Sisällössä voi esiintyä virheellistä tietoa tekoälykäännöksestä johtuen",
+  "disclaimer.feedback_click": "Klikkaa tästä antaaksesi palautetta",
+  "disclaimer.i_understand": "Ymmärrän",
+
+  "404.not_found": "Sivua ei löydy",
+  "404.error": "Virhe",
+  "404.sorry": "Pahoittelumme, mutta etsimääsi sisältöä ei löytynyt",
+  "404.please": "Kokeile etsiä sisältöä hakutoiminnon avulla tai palata takaisin",
+  "404.link_text": "etusivulle",
+}[key] }}{% endmacro %}
+
+<!-- Re-export translations -->
+{% macro t(key) %}{{
+  override(key) or language.t(key) or fallback.t(key)
+}}{% endmacro %}

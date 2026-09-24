@@ -164,7 +164,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **After your project is closed**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ___
 

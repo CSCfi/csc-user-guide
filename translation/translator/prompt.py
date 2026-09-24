@@ -1,10 +1,22 @@
 """Provides a prompt with translation instructions.
 """
+import os
 import string
+import logging
 
 from .constants import DEFAULTS
-from .utils import get_dictionary, get_language
+from .utils import get_dictionary, check_environment
 
+
+logger = logging.getLogger(__name__)
+
+try:
+    check_environment("LANG_CODE", "LANG_NAME")
+    lang_code = os.getenv("LANG_CODE")
+    lang_name = os.getenv("LANG_NAME")
+except:
+    logger.error("Failed to initialize prompt.")
+    raise
 
 _entry_template = string.Template('    - "${src_term}": "${tgt_term}"')
 _dictionary_template = string.Template("""
@@ -49,10 +61,10 @@ ${dictionary}
 """)
 
 
-def get_prompt(target_lang_code):
+def get_prompt():
     """Returns translation instructions as string.
     """
-    dictionary_entries = get_dictionary(target_lang_code)
+    dictionary_entries = get_dictionary(lang_code)
     dictionary_lines = "\n".join(_entry_template.substitute(src_term=s,
                                                             tgt_term=t)
                                  for s, t
@@ -61,6 +73,6 @@ def get_prompt(target_lang_code):
 
     return _prompt_template.substitute(
         source=DEFAULTS.source_language,
-        target=get_language(target_lang_code),
+        target=lang_name,
         dictionary=dictionary if len(dictionary_entries) > 0 else ""
     )

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+  {% include "partials/pre-header.html" %}
+  {{ super() }}
+{% endblock header %}
+
+{# Using the hero block to render announcement right under the header. #}
+{% block hero %}
+{% if config.extra.announcement is defined or
+      config.extra.announcement_urgent is defined %}
+{% include "partials/docs-announce.html" %}
+{% endif %}
+{{ super() }}
+{% endblock hero %}
+
+{% block footer %}
+  {% include "partials/pre-footer.html" %}
+  {{ super() }}
+{% endblock footer %}

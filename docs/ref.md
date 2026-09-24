@@ -7,16 +7,15 @@ search:
 
 !!! default "Documentation"
 
-    Docs CSC is based on [_Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/){ target=_blank }. Note that some features might not be available on Docs CSC ([see below](#available-features)).
+    Docs CSC is based on [_MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-materialx/){ target=_blank }. Note that some features might not be available on Docs CSC.
 
 !!! info "Pro tip"
 
-    As the [reference documentation of Material for MkDocs](https://squidfunk.github.io/mkdocs-material/reference/){ target=_blank } is itself implemented using Material for MkDocs, you can browse it for ideas on how to present your documentation on Docs CSC. To view the Markdown source for a particular page of the documentation, click the "view" icon :material-file-eye-outline: in the top-right corner of a page (the same goes for Docs CSC, except here we currently only have the "edit" icon :material-pencil:). Additionally, you can, for example
+    As the [reference documentation of MaterialX for MkDocs](https://jaywhj.github.io/mkdocs-materialx/reference/){ target=_blank } is itself implemented using MaterialX for MkDocs, you can browse it for ideas on how to present your documentation on Docs CSC. To view the Markdown source for a particular page of the documentation, click the "view" icon :material-file-eye-outline: in the top-right corner of a page (the same goes for Docs CSC, except here we currently only have the "edit" icon :material-pencil:). Additionally, you can, for example
 
-    - [Search for available icons and emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
-    - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://squidfunk.github.io/mkdocs-material/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
-    - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_mkdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/mkdocs.yml) with the [documentation on enabling a feature](https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#configuration)
-    { id=available-features }
+    - [Search for available icons and emojis](https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis/#search)
+    - See how they present the result of using a feature or a piece of configuration. For example, a [tabbed comparison of the result when changing the `align` property for images](https://jaywhj.github.io/mkdocs-materialx/reference/images/#image-alignment) (click on :material-file-eye-outline: to see the source)
+    - Get an idea whether some feature is available on Docs CSC by comparing the current configuration in [_properdocs.yml_](https://github.com/CSCfi/csc-user-guide/blob/master/properdocs.yml) with the [documentation on enabling a feature](https://jaywhj.github.io/mkdocs-materialx/reference/content-tabs/#configuration)
 
 This page contains some elements that are available in Docs CSC. For example, here we have some
 body text [with an external link](https://example.com){ target=_blank }. **Some of it is
@@ -45,7 +44,7 @@ Then&mdash;as a rule&mdash;a horizontal rule:
 
 ## Banners
 
-The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _mkdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
+The front page can be fitted with a banner to promote a course for example. The banner is controlled via the `extra.landing_banner` mapping in _properdocs.yml_. The image file named in `extra.landing_banner.image` should be placed in the _docs-files_ Allas bucket, under _banners/_.
 
 - `path:` _Don't touch!_
 - `image:` The image filename in _docs-files/banners/_ Allas bucket.
@@ -54,7 +53,7 @@ The front page can be fitted with a banner to promote a course for example. The 
 - `description:` A short description of the banner rendered as alternative text. Provided mainly for accessibility, i.e. screen readers.
 - `visible:` Set to `true` or `false` to show or hide the banner.
 
-=== "mkdocs.yml"
+=== "properdocs.yml"
 
     ```yaml
     extra:
@@ -98,7 +97,7 @@ The front page can be fitted with a banner to promote a course for example. The 
 
 There is a glossary of HPC-related acronyms that get highlighted automatically. For example: CPU,
 GPU, QPU, etc. The acronyms are defined in the markdown file
-_csc-overrides/assets/snippets/glossaries/hpc.md_. More acronyms (case-sensitive) can be added there or into another
+_includes/snippets/glossaries/hpc.md_. More acronyms (case-sensitive) can be added there or into another
 markdown file, like so:
 
 === "another_glossary.md"
@@ -108,13 +107,13 @@ markdown file, like so:
     *[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory
     ```
 
-=== "mkdocs.yml"
+=== "properdocs.yml"
 
     ```yaml
     markdown_extensions:
     - ...
     - pymdownx.snippets:
-        base_path: csc-overrides/assets/snippets
+        base_path: includes/snippets
         auto_append:
         - glossaries/hpc.md
         - glossaries/another_glossary.md
@@ -149,7 +148,7 @@ No text this time.
 
 ###### Level 6
 
-More text coming up next in Text.
+The last one.
 ```
 
 <div class="result" markdown>
@@ -171,53 +170,116 @@ No text this time.
 
 ###### Level 6
 
-More text coming up next in Text.
+The last one.
 
 </div>
 
 
-## Text
+## Heading groups
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla ex, elementum ultrices
-tempor quis, commodo sit amet quam. Sed accumsan placerat nunc. Suspendisse elementum augue et est
-tempor lacinia. Pellentesque vel ante id nunc luctus euismod id non est. Vivamus porttitor dui et
-porta maximus. Sed quis orci finibus, feugiat orci vitae, luctus nisl. Praesent lorem turpis,
-tristique id lacus sed, sollicitudin ultricies velit. In maximus ante massa, in ullamcorper eros
-IaaS fermentum in. Nulla condimentum urna sit amet leo scelerisque, et iaculis odio iaculis. Donec
-quis tortor non metus tincidunt placerat. Curabitur rhoncus libero ut augue scelerisque varius.
-Nunc bibendum sit amet nisi in varius. Nullam eu eros elementum, pellentesque nisl non, laoreet
-felis. Ut et risus enim. Proin tempor tellus eu commodo blandit. Interdum et malesuada fames ac
-ante ipsum primis in faucibus.
+A subheading may be attached to a heading in a heading group (`<hgroup>`).
 
-Nam erat dui, ullamcorper sit amet erat nec, interdum posuere diam. Nam aliquet gravida hendrerit.
-Sed erat justo, feugiat sollicitudin scelerisque id, luctus sit amet velit. Sed suscipit at nisi eu
-ornare. Nam in mauris ex. In ut sagittis nibh, eleifend pharetra tortor PaaS. Integer sapien
-tortor, ullamcorper ac diam ut, vehicula mattis augue. Pellentesque a enim eget est ornare
-ullamcorper vitae nec mi. Quisque quis congue augue, eu aliquam tortor. In risus lectus, pharetra
-eu fermentum non, gravida volutpat magna. Morbi in congue erat.
+```markdown
+<hgroup markdown>
 
-Donec a est quis nulla scelerisque cursus ut vitae ligula. In risus felis, finibus et tortor eu,
-volutpat efficitur turpis. Praesent vitae vulputate dolor, at posuere urna. Aenean ullamcorper orci
-sit amet purus tincidunt, id vehicula lectus aliquet. Ut auctor dapibus magna at hendrerit. Nam
-lobortis convallis lacus blandit tempus. Proin et ex ut dolor vehicula suscipit a vitae nisi. Nam
-feugiat accumsan purus, sit amet efficitur felis. Integer vitae enim eu massa placerat faucibus
-eget vel ipsum. Nullam tincidunt, sapien at blandit pulvinar, lacus mauris finibus turpis, sit amet
-suscipit magna tortor sit amet tortor. Ut tortor neque, convallis non volutpat a, pharetra nec
-sapien. In in congue nisl, quis egestas nisi. Fusce ut orci luctus sem tincidunt malesuada.
-Pellentesque id consequat tortor, sed egestas metus. Phasellus sed venenatis purus, in dapibus
-magna SaaS. Cras interdum ornare risus, a condimentum magna lacinia eget. Morbi dapibus elementum
-massa et ultrices. Nulla vel lobortis ex. Ut egestas posuere odio, sit amet mollis lacus placerat
-at. Quisque ut laoreet purus. Etiam id consectetur ipsum. Phasellus lectus ante, scelerisque in
-nunc a, vulputate efficitur nunc. Suspendisse nec nisi ut massa mattis interdum vel eget orci.
-Aenean porttitor erat nulla. Vivamus ac urna et orci faucibus pharetra. Integer in urna tincidunt,
-tempor turpis nec PaaS, malesuada justo. Vivamus ornare sem ut mi ultricies fringilla. Ut in semper
-diam, vitae porta neque. Donec maximus tellus et orci bibendum hendrerit. Ut ut consectetur magna.
-Aliquam vel rhoncus elit. Praesent vitae tincidunt urna, et pulvinar orci. Phasellus auctor augue
-eu sagittis fermentum. Nullam tempus malesuada augue, nec volutpat mi sodales quis. Vivamus mollis
-commodo eros sed porta. Praesent ultrices elementum metus, sit amet fringilla turpis luctus vitae.
-Mauris turpis felis, molestie eget ipsum ac, fringilla euismod risus. Phasellus at arcu ante. Cras
-eu enim dui. Quisque eu hendrerit magna. Donec ac elit laoreet, mattis tortor et, feugiat nisl.
-Duis maximus ultrices elit, quis hendrerit orci.
+### Heading with a subheading
+
+This is the subheading
+
+<hgroup>
+```
+
+<div class="result" markdown>
+
+<hgroup markdown>
+
+### Heading with a subheading
+
+This is the subheading
+
+<hgroup>
+
+</div>
+
+Status badges (see [status-styled admonitions](#status-style)) listed inside a heading group are shown in a strip below the heading.
+
+```markdown
+<hgroup markdown>
+
+### Heading with status
+
+- !!! success status "Basic"
+- !!! warning status "Intermediate"
+- !!! error status "Advanced"
+
+<hgroup>
+```
+
+<div class="result" markdown>
+
+<hgroup markdown>
+
+### Heading with status
+
+- !!! success status "Basic"
+- !!! warning status "Intermediate"
+- !!! error status "Advanced"
+
+<hgroup>
+
+</div>
+
+```markdown
+<hgroup markdown>
+
+### Heading with both
+
+Subheading goes here
+
+- !!! default status "And"
+- !!! info status "status"
+- !!! training status "here"
+
+<hgroup>
+```
+
+<div class="result" markdown>
+
+<hgroup markdown>
+
+### Heading with both
+
+Subheading goes here
+
+- !!! default status "And"
+- !!! info status "status"
+- !!! training status "here"
+
+<hgroup>
+
+</div>
+
+
+## Annotations
+
+Text can contain annotations. (1) See [MaterialX documentation](https://jaywhj.github.io/mkdocs-materialx/reference/annotations.html) for more examples.
+{ .annotate }
+
+1.  This is an annotation.
+
+```markdown
+Click the :material-information-outline: icon to see the annotation: (1)
+{ .annotate }
+
+1.  The annotation.
+```
+
+<div class="result" markdown>
+Click the :material-information-outline: icon to see the annotation: (1)
+{ .annotate }
+
+1.  The annotation.
+</div>
 
 
 ## Links
@@ -378,16 +440,30 @@ Here is an unordered list:
 
 - It has an item
 - Another item
-- And yet another item
+   - And a nested item
 
 
 ### Ordered list
 
 Let's make an ordered list:
 
-1. An item on a list
-1. Another item
-1. Even a third item
+1. First item on the list
+    1. Nested item
+    1. Second nested item
+        1. Further nesting
+        1. The listings shall continue until nestings improve
+
+
+### Definition list
+
+The item in question
+:   The definition of item
+
+**Boldfaced item**
+:   Another definition
+
+`Monospaced item`
+:   Definition
 ```
 
 <div class="result" markdown>
@@ -398,16 +474,129 @@ Here is an unordered list:
 
 - It has an item
 - Another item
-- And yet another item
+   - And a nested item
 
 
 ### Ordered list
 
 Let's make an ordered list:
 
-1. An item on a list
-1. Another item
-1. Even a third item
+1. First item on the list
+    1. Nested item
+    1. Second nested item
+        1. Further nesting
+        1. The listings shall continue until nestings improve
+
+
+### Definition list
+
+The item in question
+:   The definition of item
+
+**Boldfaced item**
+:   Another definition
+
+`Monospaced item`
+:   Definition
+
+</div>
+
+
+## Steps
+
+You can illustrate a sequence of actions in a procedure with steps. Three types of steps are available. For more information, refer to [MaterialX documentation](https://jaywhj.github.io/mkdocs-materialx/reference/steps.html).
+
+```markdown
+<div class="steps" markdown>
+
+1. A for ABC
+1. B for the "B" in ABC
+1. C for the "C" in CSC (the second one)
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+1. Start with some JavaScript
+
+`[object Object]`
+
+1. Done with JavaScript
+
+And there we have it. Clean and simple.
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+### First step
+
+One.
+
+### Second step
+
+Two.
+
+### Third step
+
+Three.
+
+### And so on...
+
+Five.
+
+</div>
+```
+
+<div class="result" markdown>
+
+<div class="steps" markdown>
+
+1. A for ABC
+1. B for the "B" in ABC
+1. C for the "C" in CSC (the second one)
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+1. Start with some JavaScript
+
+`[object Object]`
+
+1. Done with JavaScript
+
+And there we have it. Clean and simple.
+
+</div>
+
+---
+
+<div class="steps" markdown>
+
+### First step
+
+One.
+
+### Second step
+
+Two.
+
+### Third step
+
+Three.
+
+### And so on...
+
+Five.
+
+</div>
 
 </div>
 
@@ -568,123 +757,56 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 
 ## Admonitions
 
-### The fallback style
-
-```markdown
-!!! note "Here we have an important announcement"
-
-    Make sure you read this note inside this very important-looking
-    box as this is the fallback for unknown type qualifiers.
-
-    Type qualifier can be anything, as long as it's not
-    `default`,
-    `default-label`,
-    `info`,
-    `info-label`,
-    `warning`,
-    `warning-label`,
-    `error`,
-    `error-label`,
-    `success`,
-    `success-label`,
-    `training` or
-    `training-label`.
-    Perhaps a suitable one would just simply be: `note`.
-
-!!! note ""
-
-    Title may be removed with `note ""`.
-```
-
-<div class="result" markdown>
-
-!!! note "Here we have an important announcement"
-
-    Make sure you read this note inside this very important-looking
-    box as this is the fallback for unknown type qualifiers.
-
-    Type qualifier can be anything, as long as it's not
-    `default`,
-    `default-label`,
-    `info`,
-    `info-label`,
-    `warning`,
-    `warning-label`,
-    `error`,
-    `error-label`,
-    `success`,
-    `success-label`,
-    `training` or
-    `training-label`.
-    Perhaps a suitable one would just simply be: `note`.
-
-!!! note ""
-
-    Title may be removed with `note ""`.
-
-</div>
-
-
-### Styles available with type qualifiers
-
-#### Alert style
+### Alert style
 
 ```markdown
 !!! default "Nothing special"
 
-    Type qualifier: `default`.
-
-    !!! default-label
-
-        This isn't the actual default (fallback) admonition for legacy reasons.
+    - Type qualifier: `default`.
 
 !!! info "Information available"
 
-    Type qualifier: `info`
+    - Type qualifier: `info`
 
 !!! success "You've got it!"
 
-    Type qualifier: `success`
+    - Type qualifier: `success`
 
 !!! warning "You're on thin ice!"
 
-    Type qualifier: `warning`
+    - Type qualifier: `warning`
 
 !!! error "Oopsie!"
 
-    Type qualifier: `error`
+    - Type qualifier: `error`
 ```
 
 <div class="result" markdown>
 
 !!! default "Nothing special"
 
-    Type qualifier: `default`.
-    
-    !!! default-label
-    
-        This isn't the actual default (fallback) admonition for legacy reasons.
+    - Type qualifier: `default`.
 
 !!! info "Information available"
 
-    Type qualifier: `info`
+    - Type qualifier: `info`
 
 !!! success "You've got it!"
 
-    Type qualifier: `success`
+    - Type qualifier: `success`
 
 !!! warning "You're on thin ice!"
 
-    Type qualifier: `warning`
+    - Type qualifier: `warning`
 
 !!! error "Oopsie!"
 
-    Type qualifier: `error`
+    - Type qualifier: `error`
 
 </div>
 
 
-#### Collapsible
+### Collapsible
 
 ```markdown
 ???+ default "Collapsible default"
@@ -741,138 +863,194 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 </div>
 
 
-#### With the title removed
+### Without title
 
 ```markdown
 !!! default ""
 
-    Type qualifier: `default ""`
+    - Type qualifier: `default`
+    - Blank title
 
 !!! info ""
 
-    Type qualifier: `info ""`
+    - Type qualifier: `info`
+    - Blank title
 
 !!! success ""
 
-    Type qualifier: `success ""`
+    - Type qualifier: `success`
+    - Blank title
 
 !!! warning ""
 
-    Type qualifier: `warning ""`
+    - Type qualifier: `warning`
+    - Blank title
 
 !!! error ""
 
-    Type qualifier: `error ""`
+    - Type qualifier: `error`
+    - Blank title
 ```
 
 <div class="result" markdown>
 
 !!! default ""
 
-    Type qualifier: `default ""`
+    - Type qualifier: `default`
+    - Blank title
 
 !!! info ""
 
-    Type qualifier: `info ""`
+    - Type qualifier: `info`
+    - Blank title
 
 !!! success ""
 
-    Type qualifier: `success ""`
+    - Type qualifier: `success`
+    - Blank title
 
 !!! warning ""
 
-    Type qualifier: `warning ""`
+    - Type qualifier: `warning`
+    - Blank title
 
 !!! error ""
 
-    Type qualifier: `error ""`
+    - Type qualifier: `error`
+    - Blank title
 
 </div>
 
 
-#### Label style
+### Status style
 
 ```markdown
-!!! default-label
+!!! default status "Unknown"
 
-    Label type available with type qualifier `default-label`.
+!!! info status "Cool"
 
-!!! info-label
+!!! success status "Fine"
 
-    Label type available with type qualifier `info-label`.
+!!! warning status "Orange"
 
-!!! success-label
-
-    Label type available with type qualifier `success-label`.
-
-!!! warning-label
-
-    Label type available with type qualifier `warning-label`.
-
-!!! error-label
-
-    Label type available with type qualifier `error-label`.
+!!! error status "Transcended"
 ```
 
 <div class="result" markdown>
 
-!!! default-label
+!!! default status "Unknown"
 
-    Label type available with type qualifier `default-label`.
+!!! info status "Cool"
 
-!!! info-label
+!!! success status "Fine"
 
-    Label type available with type qualifier `info-label`.
+!!! warning status "Orange"
 
-!!! success-label
-
-    Label type available with type qualifier `success-label`.
-
-!!! warning-label
-
-    Label type available with type qualifier `warning-label`.
-
-!!! error-label
-
-    Label type available with type qualifier `error-label`.
+!!! error status "Transcended"
 
 </div>
 
 
-### Special admonition to denote external training material
+### Variations
+
+#### Note style
 
 ```markdown
-!!! training "External training material available"
+!!! note "An admonition styled as a note"
 
-    Type qualifier: `training`
+    - Type qualifier: `note`
 ```
 
 <div class="result" markdown>
 
-!!! training "External training material available"
+!!! note "An admonition styled as a note"
 
-    Type qualifier: `training`
+    - Type qualifier: `note`
 
 </div>
 
+```markdown
+!!! note ""
 
-#### Variations
+    - Type qualifier: `note`
+    - Blank title
+```
+
+<div class="result" markdown>
+
+!!! note ""
+
+    - Type qualifier: `note`
+    - Blank title
+
+</div>
 
 ```markdown
-???+ training "Collapsible training"
+???+ note "Collapsible note"
+
+    Some content shown by default (click on title to hide).
+```
+
+<div class="result" markdown>
+
+???+ note "Collapsible note"
 
     Some content shown by default (click on title to hide).
 
-??? training "Collapsible training (click to reveal content)"
+</div>
+
+```markdown
+??? note "Collapsible note (click to reveal content)"
 
     Some content hidden by default.
 ```
 
 <div class="result" markdown>
 
+??? note "Collapsible note (click to reveal content)"
+
+    Some content hidden by default.
+
+</div>
+
+
+#### Special admonition to denote external training material
+
+```markdown
+!!! training "External training material available"
+
+    - Type qualifier: `training`
+```
+
+<div class="result" markdown>
+
+!!! training "External training material available"
+
+    - Type qualifier: `training`
+
+</div>
+
+```markdown
 ???+ training "Collapsible training"
 
     Some content shown by default (click on title to hide).
+```
+
+<div class="result" markdown>
+
+???+ training "Collapsible training"
+
+    Some content shown by default (click on title to hide).
+
+</div>
+
+```markdown
+??? training "Collapsible training (click to reveal content)"
+
+    Some content hidden by default.
+```
+
+<div class="result" markdown>
 
 ??? training "Collapsible training (click to reveal content)"
 
@@ -883,7 +1061,8 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 ```markdown
 !!! training ""
 
-    Type qualifier: `training ""`
+    - Type qualifier: `training`
+    - Blank title
 
 ```
 
@@ -891,21 +1070,18 @@ See [Languages at pygments.org](https://pygments.org/languages/) for a complete 
 
 !!! training ""
 
-    Type qualifier: `training ""`
+    - Type qualifier: `training`
+    - Blank title
 
 </div>
 
 ```markdown
-!!! training-label
-
-    Label type available with type qualifier `training-label`.
+!!! training status "Learning at an accelerated rate"
 ```
 
 <div class="result" markdown>
 
-!!! training-label
-
-    Label type available with type qualifier `training-label`.
+!!! training status "Learning at an accelerated rate"
 
 </div>
 
@@ -937,8 +1113,6 @@ then
     echo $a $b
 fi
 ```
-
-&nbsp;
 ````
 
 <div class="result" markdown>
@@ -968,11 +1142,29 @@ then
 fi
 ```
 
-&nbsp;
-
 </div>
 
-Try adding a `&nbsp;`, like on the last line of the example above, if inline admonitions give you trouble.
+The note admonition works pretty well at inline end with some text.
+
+```markdown
+#### "Sticky note" example
+
+!!! note inline end "Sticky note"
+    In porttitor orci arcu, sed varius...
+
+Lorem ipsum dolor sit amet, consectetur adipiscing...
+```
+
+<div class="result" markdown>
+
+#### "Sticky note" example
+
+!!! note inline end "Sticky note"
+    In porttitor orci arcu, sed varius augue mattis sed. Duis vestibulum vitae erat et laoreet. Praesent at urna quis tellus rhoncus molestie non ac ante.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo purus, luctus interdum lacinia at, sagittis id diam. Donec ultricies sem quis vulputate ultricies. Integer est libero, iaculis a lacus id, laoreet ultrices neque. Sed est ante, posuere a sodales et, accumsan vitae mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam varius erat nec sagittis elementum. Donec pulvinar risus quis erat rutrum, eget rhoncus sem maximus. Sed id urna erat. Nam sit amet finibus quam, et faucibus ante. Vivamus nec malesuada mi, sed fringilla lacus. Suspendisse potenti. Cras sapien ligula, gravida ut libero ac, molestie imperdiet ex. Phasellus rutrum euismod nunc, at consequat neque dapibus vitae. Integer tristique lectus sed lorem eleifend, eu venenatis purus cursus. Etiam sed varius leo. Sed non lobortis augue. Proin sed aliquet felis, eu vestibulum mauris. Vivamus facilisis luctus neque id gravida. Aliquam ullamcorper molestie felis ac elementum. Maecenas elit felis, finibus eu nunc at, faucibus condimentum lorem. Fusce vitae nunc nibh. Donec purus velit, aliquam condimentum consectetur quis, varius eu ante.
+
+</div>
 
 
 ## Images
@@ -1173,7 +1365,7 @@ width and _px_ for height. Here's an example with a width of 100 percent and a h
 
 ## Snippets
 
-Files under _csc-overrides/assets/snippets/_ may be added as snippets on the current page.
+Files under _includes/snippets/_ may be added as snippets on the current page.
 
 Suppose we have two Markdown files, _a.md_ and _b.md_ with the content
 
@@ -1281,7 +1473,7 @@ The table of contents may also be inserted arbitrarily on the page by simply add
 
 ## Grids
 
-The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdocs-material/reference/grids/) is available in Docs CSC.
+The [Grids feature from _MaterialX for MkDocs_](https://jaywhj.github.io/mkdocs-materialx/reference/grids/) is available in Docs CSC.
 
 ```html title="Grid"
 <div class="grid cards" markdown>
@@ -1326,35 +1518,35 @@ The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdoc
 <div class="grid cards" markdown>
 
 - :material-dna:{ .lg .middle } **Accent**
-  { .csc-grid-card-accent }
+  { .accent-card }
 
     ---
 
     Science!
 
 - :material-information:{ .lg .middle } **Info**
-  { .csc-grid-card-info }
+  { .info-card }
 
     ---
 
     This.
 
 - :material-check-circle:{ .lg .middle } **Success**
-  { .csc-grid-card-success }
+  { .success-card }
 
     ---
 
     Do!
 
 - :material-alert:{ .lg .middle } **Warning**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
 
     Don't!
 
 - :material-close-circle:{ .lg .middle } **Error**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ---
 
@@ -1367,35 +1559,35 @@ The [Grids feature from _Material for MkDocs_](https://squidfunk.github.io/mkdoc
   <div class="grid cards" markdown>
 
   - :material-dna:{ .lg .middle } **Accent**
-    { .csc-grid-card-accent }
+    { .accent-card }
 
       ---
 
       Science!
 
   - :material-information:{ .lg .middle } **Info**
-    { .csc-grid-card-info }
+    { .info-card }
 
       ---
 
       This.
 
   - :material-check-circle:{ .lg .middle } **Success**
-    { .csc-grid-card-success }
+    { .success-card }
 
       ---
 
       Do!
 
   - :material-alert:{ .lg .middle } **Warning**
-    { .csc-grid-card-warning }
+    { .warning-card }
 
       ---
 
       Don't!
 
   - :material-close-circle:{ .lg .middle } **Error**
-    { .csc-grid-card-error }
+    { .error-card }
 
       ---
 
