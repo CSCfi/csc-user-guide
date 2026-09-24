@@ -136,21 +136,6 @@ Expects a dict of type {
 {{- end }}
 {{- end -}}
 
-{{/*
-Lookup resource(s) on the cluster, fail if not found.
-
-Expects a dict of named arguments to pass to the 'lookup' function.
-
-Outputs the resource(s) as YAML.
-*/}}
-{{- define "docs-csc.resourceLookup" -}}
-{{- lookup .apiVersion .kind .namespace .name
-    | default nil
-    | required (printf "Lookup for '%s' '%s' '%s' '%s' failed!"
-                       .apiVersion .kind .namespace .name)
-    | toYaml }}
-{{- end -}}
-
 {{- define "docs-csc.deploymentTrigger" -}}
 {{- $imagename := index . 0 -}}
 {{- $containername := index . 1 -}}
