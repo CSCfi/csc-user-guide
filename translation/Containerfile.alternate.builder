@@ -17,4 +17,6 @@ ENV REPO_HOST=${repo_host} \
     REPO_BRANCH=${repo_branch} \
     DOCS_DIR=docs
 
+RUN git config --global --add safe.directory "${HOME}"
+
 ENTRYPOINT ["/entrypoint.bash"]
