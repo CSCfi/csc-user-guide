@@ -17,6 +17,8 @@
 
 This guide helps you to install and use SD Connect Conversion tool to convert bucket names in a compatible format. 
 
+In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
+
 
 ___
 
@@ -32,8 +34,6 @@ ___
 
         ![Find Home folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_1.png)
       
-In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
-
     3. Right-click **Applications** folder. Select **New Terminal at Folder**.
 
         ![New Terminal](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_2.png)
