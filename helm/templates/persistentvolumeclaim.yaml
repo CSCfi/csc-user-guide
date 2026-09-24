@@ -1,10 +1,11 @@
+{{- $resourcename := include "docs-csc.altVolumeClaimName" . -}}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "docs-csc.altVolumeClaimName" . }}
+  name: {{ $resourcename }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
-{{ include "docs-csc.altName" . | list $ | include "docs-csc.componentLabels" | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
   accessModes:
     - ReadWriteOnce

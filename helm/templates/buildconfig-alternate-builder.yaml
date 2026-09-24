@@ -1,12 +1,12 @@
-{{- $altbuildername := include "docs-csc.altBuilderName" . -}}
+{{- $resourcename := include "docs-csc.altBuilderName" . -}}
 {{- $origbuildername := include "docs-csc.origBuilderName" . -}}
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: {{ $altbuildername }}
+  name: {{ $resourcename }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
-{{ include "docs-csc.altName" . | list $ | include "docs-csc.componentLabels" | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
   triggers:
     - type: ImageChange
@@ -17,7 +17,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: {{ $altbuildername | list $ | include "docs-csc.latestImageName" | squote }}
+      name: {{ $resourcename | list $ | include "docs-csc.latestImageName" | squote }}
   strategy:
     type: Docker
     dockerStrategy:
