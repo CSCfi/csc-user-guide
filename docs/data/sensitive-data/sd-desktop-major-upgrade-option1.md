@@ -20,7 +20,7 @@ When you open the connection, a virtual desktop will open in your browser in a n
 
 ### Step 2: Save all important data to the volume
 
-All project members should save data they want to keep to the volume. 
+As a safety step, all project members should save data they want to keep to the volume. 
 
 * Open **Volume**.
 * Save data you want to keep to the volume. 
@@ -35,12 +35,12 @@ All project members who **plan to import data** to SD Connect need to update Dat
 Project manager needs to update update Data Gateway application to **export data**.
 
 
-* Open terminal.
+* In the virtual desktop, right click on a empty space and click on **Open terminal**.
 
 ![Open terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard1.png)
 
 
-* Copy this command:
+* On this document, copy the entire script below by clicking on the icon on the top right corner:
 
 ```bash
 mkdir -p ~/.local/bin
@@ -140,17 +140,38 @@ echo "'csc-update' to install the latest Data Gateway again if a new version is 
 
 
 
-* Press **Ctrl + Alt + Shift** to open the **Clipboard panel.** Select **Text input** to enable copy-paste. Clipboard panel will close automatically. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
+* Return on the virtual desktop window and on your keyboard Press **Ctrl + Alt + Shift** to open the **Clipboard panel.** Select **Text input** to enable copy-paste. Clipboard panel will close automatically and move to an input panel on the lower part your desktop. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
 
 ![Open Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard2.png)
 
-*  Move your mouse over the black bar in the bottom of the screen.
+*  Move your mouse over the black bar (the input panel) in the bottom of the screen.
     * Right-click and **Paste** the command you copied. 
     * Command will appear in the terminal. Presss **Enter**. Update will start.
 
 ![Use Clipboardß](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard3.png)
 
-* When update is finished, an icon called **New Data Gateway** will appear on your desktop. Use this icon to launch Data Gateway.
+* When the script has run:
+
+  - close the terminal window
+  - on the top right cornet of the virtual desktop, select the power button
+  - on the drop down menu select on click on **power of /log out**
+  - in the new window click on **log out**
+  - in the new window click on **home**
+
+    Now you have return to the main SD Desktop page, on the top right cornet, next to your user name, click on log out.
+
+Next, log in again to the SD Desktop service
+Access the virtual desktop
+
+
+    
+
+    
+*
+*
+*
+*
+* an icon called **New Data Gateway** will appear on your desktop. Use this icon to launch Data Gateway.
 
 
 
