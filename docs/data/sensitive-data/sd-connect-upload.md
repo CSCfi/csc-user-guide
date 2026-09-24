@@ -5,11 +5,17 @@
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/SMnEkcS_HJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-* [Uploading and encrypting data: overview](#uploading-and-encrypting-data-overview)
-* [Uploading and encrypting data: step-by-step](#uploading-and-encrypting-data-step-by-step)
+## On this page: 
 
-Files uploaded to SD Connect are automatically encrypted and decrypted during download, using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum file size of 100 GB. Larger files or folders can be uploaded programmatically.
+* [1. Uploading and encrypting data: overview](#1-uploading-and-encrypting-data-overview)
+* [2. Uploading and encrypting data: step-by-step](#2-uploading-and-encrypting-data-step-by-step)
+* [2.1 Plan bucket names](#21-plan-bucket-names)
+* [2.2 Accept cookies](#22-accept-cookies)
+* [2.3 Upload and encrypt files to a new bucket](#23-upload-and-encrypt-files-to-a-new-bucket)
+* [2.4 Create an empty bucket](#25-create-an-empty-bucket)
 
+
+Files uploaded to SD Connect are automatically encrypted during upload and decrypted during download using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
 <div class="grid cards" markdown>
 
@@ -24,27 +30,27 @@ Files uploaded to SD Connect are automatically encrypted and decrypted during do
 
 ____
 
-## Uploading and encrypting data: overview
+## 1. Uploading and encrypting data: overview
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
 - **Once files are uploaded to SD Connect, they cannot be edited or modified**. It is therefore important to plan the bucket structure in advance. To simplify data management and avoid issues, it is recommended to create a separate bucket for each dataset or experiment. Avoid placing too many files in a single bucket, each bucket can contain up to 500.000 segmented files.
 
-- **Uploading files into subfolders is not supported.** 
+- **Uploading files into folders is not supported.** 
 
 - **Upload duration**: Uploading large files or large batches may take several hours. Uploads are automatically stopped after 8 hours.
   
 -  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance.
     
-- The user interface might be slower when there are more than 2500 files for each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
+- The user interface might be slower when there are more than 2500 files in each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md). 
 
 ____
 
-## Uploading and encrypting data: step-by-step
+## 2. Uploading and encrypting data: step-by-step
 
-### 1. Plan bucket names
+### 2.1 Plan bucket names
   
-When creating buckets in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. These rules apply only to buckets created in the service, not to subfolders or files uploaded from a local computer. 
+When creating buckets in SD Connect, specific naming rules must be followed to ensure compatibility, which requires some planning. These rules apply only to buckets created in the service, not to folders or files uploaded from a local computer. 
 
 
 <div class="grid cards" markdown>
@@ -73,17 +79,17 @@ When creating buckets in SD Connect, specific naming rules must be followed to e
 
 ___
 
-### 2. Accept cookies
+### 2.2 Accept cookies
 
 **This action is required only once:** File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. 
 
 ___
 
-### 3. Upload and encrypt files to a new bucket
+### 2.3 Upload and encrypt files to a new bucket
 
 1. Log in to SD Connect and select the correct CSC project in the top left corner.
 2. Click **Upload** in the top right corner.
-3. In the new window, name the destination bucket for your files taking into consideration that some charactes are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names)
+3. In the new window, name the destination bucket for your files taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [Detailed instructions are available in the previous paragraph](#21-plan-bucket-names)
 4. Click **Select Files** to open a browser window and choose files for upload. If you want to upload folders, drag and drop them into the window. 
 5. Click **Upload** to start automatic encryption and upload.
 6. Notification about the status of upload will appear and be visible until the upload is completed. Notification also includes a link to the destination bucket.
@@ -97,7 +103,7 @@ Now the files are accessible for downloading and sharing via SD Connect or for a
 
 ___
 
-### 3.1 Upload and encrypt files to an existing bucket
+### 2.4 Upload and encrypt files to an existing bucket
 
 1. Select the correct project and bucket.
 ![SD Connect Select bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_UploadExistingBucket1.png)
@@ -110,17 +116,15 @@ ___
 
 ____
 
-### 3.2 Create an empty bucket
+### 2.5 Create an empty bucket
 
 You can create an empty bucket and upload files to it later.
 
 1. Select the correct project. Click **Create bucket**.
 ![SD Connect Create empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket.png)
 
-2. Name your bucket taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#1-plan-bucket-names). Finally click **Save**.
+2. Name your bucket taking into consideration that some characters are not allowed: uppercase letters, underscores (_), and letters with diacritics or special marks (e.g., å, ä, ö, é). [See detailed instructions](#21-plan-bucket-names). Finally click **Save**.
 ![SD Connect Name empty bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_NewBucket1.png)
-
-
 
 
 
