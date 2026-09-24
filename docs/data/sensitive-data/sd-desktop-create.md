@@ -4,13 +4,12 @@
 
 On this page: 
 
-
-- 1. [Log in to SD Desktop](#1-log-in-to-sd-desktop)
-- 2. [Select correct options](#2-select)
-- 3. [Add an external volume](#3-add-an-external-volume-virtual-external-hard-drive)
-- 4. [Create virtual desktop](#4-create-virtual-desktop)
-- 5. [Make sure your CSC project has sufficient Billing Units](#5-make-sure-your-csc-project-has-sufficient-billing-units-bu)
-- 6. [Important considerations](#6-important-considerations)
+- 1. [Create volume](#1-create-volume)
+- 2. [Create virtual desktop](#2-create-virtual-desktops)
+- 3. [Attach volume and virtual desktops](#3-attach-volume-and-virtual-desktop)
+- 4. [Make sure your CSC project has sufficient Billing Units](#4-make-sure-your-csc-project-has-sufficient-billing-units-bu)
+- 5. [Important considerations](#5-important-considerations)
+___
 
 <div class="grid cards" markdown>
 
@@ -107,7 +106,8 @@ Desktops have only 80 GB of storage by default. If you save more than 80 GB of d
 
 You can create up to three desktops within a single CSC project, with up to 10 project members allowed to connect simultaneously to each desktop. As the storage volume, your virtual desktop is accessible to all project members upon creation.
 
-You can choose between different virtual desktops options based on your needs. If you need support, do not hesitate to conatc us at serviucedesk2csc.fi
+You can choose between different virtual desktops options based on your needs. Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
+
 
 
 #### Virtual desktop options
@@ -125,7 +125,7 @@ You can choose between different virtual desktops options based on your needs. I
 
 
 
-### Step by step
+## Step by step
 
 1. In the main Select correct CSC project from dropdown on the left side.
 
@@ -164,9 +164,55 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 </div>
 
 
+## 3. Attach the volume to the virtual desktop
+
+!!! Note
+    **This option is only available for virtual desktops created after 25 September 2026.**
+
+Once you have created a virtual desktop and a volume, you can connect them. Each volume can be attached to only one desktop at a time but you can attach multiple volumes to the same virtual desktop when needed. 
 
 
-## 6. Important considerations
+1. On the SD Desktop homepage, locate the virtual desktop you want to attach the volume to.
+
+2. On the right side of the virtual desktop, click **Manage volumes**. The **Manage volumes window opens**.
+
+3. Here, locate the volume you want to attach.
+
+4. Click **Attach** on the right side of the volume.
+
+5. Once the volume is attached, close the Manage volumes window.
+
+ 
+![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
+
+![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
+
+___
+
+### 4. Make sure your CSC project has sufficient Billing Units (BU).
+
+Once created, your virtual desktop and any associated storage volumes begin consuming resources, measured in Cloud Billing Units (BU), from your project allocation.
+
+**Please review the following important information:**
+
+1. Ensure sufficient Billing Units (BU) are available in your project before creating a virtual desktop. If necessary, [apply for additional BU by following the step-by-step guide, which includes example estimates to help you determine your requirements.](sd-billing-units.md). 
+
+2. Virtual desktops consume Billing Units based on the selected option. When a virtual desktop is [paused](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop), consumption is significantly reduced; however, approximately 3,200 BU per year will still be charged until the virtual desktop is deleted [deleted](./sd-desktop-manage.md#deleting-a-virtual-desktop).
+
+3. External volumes consume Billing Units continuously based on their allocated size. Charges apply regardless of whether the volume is attached to a virtual desktop or whether the desktop is running or paused. Billing continues until the volume is deleted.
+
+4. If your project's BU balance becomes negative:
+
+* All virtual desktops in the project will be automatically paused.
+
+* You will not be able to create new virtual desktops.
+
+* The CSC project will be scheduled for closure after 60 days. After approximately 90 days, the project and all associated content will be permanently deleted.
+
+You will receive automated email notifications throughout the process, including warnings, status updates, and instructions on any actions that may be required.
+
+
+## 5. Important considerations
 
 * Your virtual desktop is **accessible to all the CSC project members upon creation**. All project members can import file, install software, permanently delete the virtual desktop and its entire content. Only the CSC project manager can export files from the secure environment. 
 
