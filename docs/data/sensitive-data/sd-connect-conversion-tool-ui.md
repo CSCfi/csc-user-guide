@@ -1,19 +1,23 @@
-# SD Connect Conversion tool
+# SD Connect bucket name Conversion tool
 
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Page is under construction**
-  { .csc-grid-card-warning }
-
-    ---
-    
-    This page and content is under construction and development.
-
-</div>
+## On this page:
 
 
+-  [1.Download and install SD Connect Conversion tool](#1-download-and-install-sd-connect-conversion-tool)
+-  [2. Using SD Connect Conversion tool](#2-using-sd-connect-conversion-tool)
+-  [2.1 Login to Conversion tool](#21-login-to-conversion-tool)
+-  [2.2 Select project](#22-select-project)
+-  [2.3 Add project's temporary API key](#23-add-projects-temporary-api-key)
+-  [2.4 Select buckets to convert](#24-select-buckets-to-convert)
+-  [2.5 During conversion](#25-during-conversion)
+-  [2.6 If conversion is interrupted](#26-if-conversion-is-interrupted)
+-  [2.7 Finish conversion](#27-finish-conversion)
 
-This guide helps you to install and use SD Connect Conversion tool.
+
+
+This guide helps you to install and use SD Connect Conversion tool to convert bucket names in a compatible format. 
+
+In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
 
 
 ___
@@ -30,8 +34,6 @@ ___
 
         ![Find Home folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_1.png)
       
-In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
-
     3. Right-click **Applications** folder. Select **New Terminal at Folder**.
 
         ![New Terminal](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_2.png)
@@ -95,9 +97,9 @@ In SD Connect UI you will see buckets marked with **Urgent** label. These bucket
 
 ___
 
-## 2. Using SD Connect Converter tool
+## 2. Using SD Connect Conversion tool
 
-### 2.1 Login to Converter tool
+### 2.1 Login to Conversion tool
 
 - Launch SD Connect Conversion tool and login with your CSC credentials.
 
@@ -114,7 +116,7 @@ ___
 
 ### 2.3 Add project's temporary API key
 
-- Next Converter tool will ask to add project's temporary API key. Follow instructions below.
+- Next Conversion tool will ask to add project's temporary API key. Follow instructions below.
 
     1. Log in to [SD Connect](https://sd-connect.csc.fi).
     2. Select project you want to convert from dropdown.
@@ -154,7 +156,7 @@ ___
 Conversion pauses if your laptop runs out of power or loses internet connection. You can continue conversion easily.
 
 1. Launch SD Connect Conversion tool and login with your CSC credentials.
-2. Converter tool will show you that conversion has been interrupted.
+2. Conversion tool will show you that conversion has been interrupted.
     - If a new API key is needed, it will be shown in the tool. Follow these instructions.
 3. Continue by clicking **Continue conversion**.
 
