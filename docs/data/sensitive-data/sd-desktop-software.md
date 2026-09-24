@@ -76,8 +76,7 @@ SD Software installer provides an easy-to-use tool to add some commonly used sof
 
 * Log in to [SD Desktop service](https://sd-desktop.csc.fi) and access your virtual desktop. Here open the **Data Gateway** application, select SD Connect and enter your CSC username and password. Next click on Open. Do not close the Data Gateway application.
 * If the software installation help tools are enabled for your project, then you should have folder `tools-for-sd-desktop` included in the directory that Data Gateway created (in `Projects/SD-Connect/your-project-name`).
-* Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer-centos7.desktop` or `sd-installer-ubuntu22.desktop` to your desktop.
-Select the version that matches the operating system of your SD Desktop (e.g. Ubuntu).
+* Open `tools-for-sd-desktop` folder and from there, drag/copy file `sd-installer-ubuntu24.desktop` or (`sd-installer-ubuntu22.desktop` for desktops created before 25 September 22026) to your desktop. Select the version that matches the operating system of your SD Desktop (e.g. Ubuntu).
 
     [![Installing-sd-installer](images/desktop/sd-installer1.png)](images/desktop/sd-installer1.png)  
     **Figure 1.** Copying `sd-installer.desktop` file to SD desktop.
