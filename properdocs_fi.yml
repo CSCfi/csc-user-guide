@@ -29,9 +29,6 @@ extra:
 plugins:
   git-revision-date-localized:
     enabled: false
-  privacy:
-    cache: true
-    cache_dir: .cache
 
 theme:
   language: fi-CSC

@@ -87,12 +87,6 @@ watch:
   - overrides
 
 plugins:
-  privacy:
-    enabled: !ENV [ENABLED_MATERIALX_PRIVACY, false]
-    links: false
-    assets_exclude:
-      - a3s.fi/*
-    cache: false
   tags:
     tags_allowed:
       - "Academic"
