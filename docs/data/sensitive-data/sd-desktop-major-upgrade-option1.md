@@ -5,7 +5,7 @@ Choose this if your analysis is short-term or almost finished, and you prefer to
 
 ## Step-by-step
 
-### Step 1: Access desktop
+###  1: Access desktop
 
 1. [Login](./sd-desktop-login.md) to SD Desktop. Select the correct CSC project in the top left corner. Now you can see all desktops in this project.
 
@@ -18,7 +18,7 @@ When you open the connection, a virtual desktop will open in your browser in a n
 ![Access virtual desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM2.png)
 
 
-### Step 2: Save all important data to the volume
+###  2: Save all important data to the volume
 
 As a safety step, all project members should save data they want to keep to the volume. 
 
@@ -28,14 +28,14 @@ As a safety step, all project members should save data they want to keep to the 
 ![Open volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_Volume.png)
 
 
-### Step 3: Update Data Gateway application
+###  3: Update Data Gateway application
 
 All project members who **plan to import data** to SD Connect need to update Data Gateway application.
 
 Project manager needs to update update Data Gateway application to **export data**.
 
 
-#### Step 1
+### Step 1
 
 In the virtual desktop, right click on a empty space right-click and select **Open in Terminal**.
 
@@ -43,7 +43,7 @@ In the virtual desktop, right click on a empty space right-click and select **Op
 
 ![Open terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard1.png)
 
-#### Step 2
+### Step 2
 
 Type the following command and press Enter:
 
@@ -51,19 +51,19 @@ Type the following command and press Enter:
 gedit csc-update
 ```
 
-#### Step 3
+### Step 3
 
 This opens the **Gedit text editor**. Make sure the editor view is active by clicking inside it.
 
 ![Open Gedit text editor](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-5.png)
 
-#### Step 4
+### Step 4
  
  Press **Ctrl + Alt + Shift** to activate the copy-paste function in the virtual desktop. Choose **Text Input**. A new input field will appear at the bottom of the screen.
 
 ![Choose text input](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-6.png)
 
-#### Step 5
+### Step 5
  
 Copy the entire script below by clicking on the icon on the top right corner and paste the following script into the virtual desktop input field:
 
@@ -163,7 +163,7 @@ echo "'csc-update' to install the latest Data Gateway again if a new version is 
 
 ![Copy and paste into the inout field](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-7.png)
 
-#### Step 6 
+### Step 6 
 
 The script will appear in the document. Click **Save** in the top-right corner of document, then close the editor. A file named `csc-update` will appear on your desktop.
 
@@ -173,7 +173,7 @@ The script will appear in the document. Click **Save** in the top-right corner o
 
 
 
-#### Step 7
+### Step 7
 
 In the terminal, type or copy the following command and press Enter:
 
