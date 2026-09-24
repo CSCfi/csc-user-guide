@@ -132,7 +132,7 @@ Here:
    
 7. Click **Create**. The window will now close and desktop creation will start.
 
-After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 15 minutes, during which the status label **Creating** will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready for the next step and for beeing accessed. 
+After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 15 minutes, during which the status label **Creating** will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready for the next step and for being accessed. 
 
 
 
@@ -207,7 +207,7 @@ You will receive automated email notifications throughout the process, including
 
 * Each CSC project supports up to 6 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
-* All desktops come with a set of pre-installed open-source software managed by CSC. Read more about [pre-installed software and customisation.](./sd-desktop-software.md).
+* All desktops come with a set of pre-installed open-source software managed by CSC. Read more about [pre-installed software and customization.](./sd-desktop-software.md).
 
 * **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. You will receive email notifications after 14 days of inactivity.
   
