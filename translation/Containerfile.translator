@@ -1,5 +1,5 @@
 ARG builder_image
-FROM ${builder_image} as builder
+FROM ${builder_image}
 
 LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
 
