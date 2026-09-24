@@ -1,10 +1,5 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Managing volumes and virtual desktops
-
-
-[Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
-
 # Managing virtual desktops and volumes
 
 With the SD Desktop service, you can easily manage your virtual desktops and volumes. 
