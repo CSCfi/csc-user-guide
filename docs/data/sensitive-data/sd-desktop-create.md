@@ -4,11 +4,11 @@
 
 On this page: 
 
-- 1. [Create volume](#1-create-volume)
-- 2. [Create virtual desktop](#2-create-virtual-desktops)
-- 3. [Attach volume and virtual desktops](#3-attach-volume-and-virtual-desktop)
-- 4. [Make sure your CSC project has sufficient Billing Units](#4-make-sure-your-csc-project-has-sufficient-billing-units-bu)
-- 5. [Important considerations](#5-important-considerations)
+- [1. Create volume](#1-create-volume)
+- [2. Create virtual desktop](#2-create-virtual-desktops)
+- [3. Attach volume and virtual desktops](#3-attach-volume-and-virtual-desktop)
+- [4. Make sure your CSC project has sufficient Billing Units](#4-make-sure-your-csc-project-has-sufficient-billing-units-bu)
+- [5. Important considerations](#5-important-considerations)
 ___
 
 <div class="grid cards" markdown>
