@@ -115,7 +115,7 @@ In this case the Data Gateway connection is not needed.
 * Right-click on the desktop and select “Open Terminal”
 * Press Ctrl + Alt + Shift to activate copy-paste function
 * Choose Text Input
-* Copy the command `/shared-directory/sd-dash-tools/bin/use-sd-tools`
+* Copy the command `/shared-directory/sd-tools/bin/use-sd-tools`
 * And paste it into the input bar in the lower part of the screen and press Enter
 
 In this case as well, the icon will be added to the desktop and the terminal environment will be updated.
