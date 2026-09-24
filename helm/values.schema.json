@@ -266,6 +266,10 @@
           "type": "string",
           "default": "0 0 * * 1-5"
         },
+        "timeZone": {
+          "type": ["string", "null"],
+          "default": "Etc/UTC"
+        },
         "osAuthUrl": {
           "type": "string",
           "format": "uri"

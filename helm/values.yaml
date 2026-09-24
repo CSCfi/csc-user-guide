@@ -115,6 +115,8 @@ components:
     # The translation schedule as cron expression.
     # Defaults to '0 0 * * 1-5', i.e. weekday midnights:
     schedule: 0 0 * * 1-5
+    # Defaults to Etc/UTC:
+    timeZone: Europe/Helsinki
 
     osAuthUrl: https://pouta.csc.fi:5001/v3
     restic:

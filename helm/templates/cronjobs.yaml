@@ -9,6 +9,7 @@ metadata:
 {{ include "docs-csc.altName" $ | list $ | include "docs-csc.componentLabels" | indent 4 }}
 spec:
   schedule: {{ $.Values.components.translator.schedule | default "0 0 * * 1-5" | squote }}
+  timeZone: {{ $.Values.components.translator.timeZone | default "Etc/UTC" | squote }}
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
