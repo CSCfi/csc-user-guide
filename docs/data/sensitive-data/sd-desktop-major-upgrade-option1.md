@@ -35,12 +35,38 @@ All project members who **plan to import data** to SD Connect need to update Dat
 Project manager needs to update update Data Gateway application to **export data**.
 
 
-* In the virtual desktop, right click on a empty space and click on **Open terminal**.
+#### Step 1
+
+In the virtual desktop, right click on a empty space right-click and select **Open in Terminal**.
+
+![Open in terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-2.png)
 
 ![Open terminal](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Clipboard1.png)
 
+#### Step 2
 
-* On this document, copy the entire script below by clicking on the icon on the top right corner:
+Type the following command and press Enter:
+
+```bash
+gedit csc-update
+```
+
+#### Step 3
+
+This opens the **Gedit text editor**. Make sure the editor view is active by clicking inside it.
+
+![Open Gedit text editor](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-5.png)
+
+#### Step 4
+ 
+ Press **Ctrl + Alt + Shift** to activate the copy-paste function in the virtual desktop. Choose **Text Input**. A new input field will appear at the bottom of the screen.
+
+![Choose text input](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-6.png)
+
+#### Step 5
+ 
+Copy the entire script below by clicking on the icon on the top right corner and paste the following script into the virtual desktop input field:
+
 
 ```bash
 mkdir -p ~/.local/bin
@@ -135,9 +161,11 @@ echo "'data-gateway-cli' to run Data Gateway in the terminal'"
 echo "'csc-update' to install the latest Data Gateway again if a new version is available"
 ```
 
+![Copy and paste into the inout field](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Gateway-fix-7.png)
 
+#### Step 6 
 
-
+The script will appear in the Gedit document.
 
 
 * Return on the virtual desktop window and on your keyboard Press **Ctrl + Alt + Shift** to open the **Clipboard panel.** Select **Text input** to enable copy-paste. Clipboard panel will close automatically and move to an input panel on the lower part your desktop. Do not close the Clipboard panel with Ctrl + Alt + Shift, as this may disable copy-paste.
