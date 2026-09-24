@@ -728,6 +728,10 @@ not_in_nav: |
   /data/sensitive-data/sd-desktop-singularity.md
   /data/sensitive-data/sd-desktop-volumes-billing.md
   /data/sensitive-data/sequencing_center_tutorial.md
+  /data/sensitive-data/manual-encryption-decryption.md
+  /data/sensitive-data/sd-connect-conversion-cli.md
+
+  # Sensitive data tutorials
   /data/sensitive-data/tutorials/*.md
 
   # Applications
