@@ -31,14 +31,13 @@ Please review the following information:
 
 - **SD Desktop**: import and export functionality need to be restored.
 
-  1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
+- 1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
+- 2. If you have followed the instructions provided by email before the 21st of September, please follow these steps:
 
-  2. If you have followed the instructions provided by email before the 21st of September, please follow these steps:
-
-   2.1 login to your virtual desktop
-   2.2 right click, open the terminal, write csc-update-ubuntu2024 pres enter. This will install the icon called: new data gateway. 
-   2.3 log out from the virtual desktop, log out from the SD Desktop service.
-   2.4 when you log in again, the New Data Gateway icon will work.
+  2.1 login to your virtual desktop
+  2.2 right click, open the terminal, write csc-update-ubuntu2024 pres enter. This will install the icon called: new data gateway.
+  2.3 log out from the virtual desktop, log out from the SD Desktop service.
+  2.4 when you log in again, the New Data Gateway icon will work.
  
  
 
