@@ -52,12 +52,14 @@
 {% import ".icons/" ~ config.extra.announcement.icon.name | default("material/information") ~ ".svg" as icon %}
   <div class="announcement-icon">{{ icon }}</div>
     {{ render_content(config.extra.announcement.content) }}
-  <div class="announcement-icon" {{ "mirrored" if config.extra.announcement.icon.mirror else ""}}>{{ icon }}</div>
+  <div class="announcement-icon" {{ {"mirrored": config.extra.announcement.icon.mirror or none}|xmlattr }}>{{ icon }}</div>
 </div>
 {% endif %}
 {% if config.extra.announcement_urgent is defined %}
 {% set color = config.extra.announcement_urgent.color_scheme | default("error") %}
+{% set style_prop = "color: var(--c-" ~ color ~ "-800); background-color: var(--c-" ~ color ~ "-200);" %}
 <div class="docs-announce announcement-urgent"
+     {{ {"style": style_prop}|xmlattr }}
      style="color: var(--c-{{ color }}-800);
             background-color: var(--c-{{ color }}-200);">
   <div class="announcement-container">
