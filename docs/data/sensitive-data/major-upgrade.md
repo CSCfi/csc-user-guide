@@ -5,7 +5,6 @@ A new version of SD Connect and SD Desktop is now available. The upgrade introdu
 Please review the following information:
 
 - [1. Important dates and support](#important-dates-and-support)
-
 - [1. CSC Project- Academic type: video overview and required actions](#csc-project-academic-type-video-overview-and-required-actions)
 - [2. CSC Project- Secondary use type: if you are processing register data]
 
@@ -34,14 +33,15 @@ Please review the following information:
 1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
 2. If you followed the preparation instructions sent by email before September 21, complete the following steps:
 
-    1. Log in to your virtual desktop.
-    2. Right-click the desktop and select **Open in Terminal**.
+    1. Log in to the service and access your virtual desktop.
+    2. Right-click and select **Open in Terminal**.
     3. In the terminal, enter:
        ```
-       csc-update-ubuntu2024
+       csc-update-ubuntu22.04
        ```
        Press **Enter**. The script installs the **New Data Gateway** icon.
-    4. When the script has finished, log out of the virtual desktop and then log out of SD Desktop.
+    4. Log out from the virtual desktop: Click Power icon in top right corner of the desktop and select Log Out.
+       In the new window, select Home to return to SD Desktop home page. There, on the top right corner next to your username, log out form the service. 
     5. Log in to SD Desktop again and access your virtual desktop. The **New Data Gateway** icon should now work.
  
 
@@ -50,16 +50,7 @@ Please review the following information:
 You can now access again SD Desktop for analysis. Importing and exporting data or adding software is temporarily unavailable. We will provide new information soon. 
 
 
-### Important dates and support
-
-- **21.9.2026 09:00 – 25.9.2026 17:00 EEST**: Service break. SD services will not be available during this period.
-
-- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
-  
-- **30 September at 14:00**: Webinar introducing the upgrade, key changes and required actions at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)
-  
-
-### Materials and instructions:
+### Materials:
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
 
