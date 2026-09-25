@@ -14,9 +14,9 @@ Please review the following information:
 
 ### 1. Important dates and support
 
-- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
+- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI).
   
-- **30 September at 14:00**: Webinar introducing the upgrade, key changes and required actions at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)
+- **30 September at 14:00**: Webinar at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)introducing the upgrade, key changes and required actions.
 
 
 
@@ -27,12 +27,12 @@ Please review the following information:
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ClH2FroTMA8" title="Sensitive Data (SD) -palveluiden päivitys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available [here](sd-connect-conversion.md)
+- **SD Connect**: Access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available [here](sd-connect-conversion.md)
 
-- **SD Desktop**: import and export functionality need to be restored.
+- **SD Desktop**: The import and export functionality needs to be restored.
 
-1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
-2. If you followed the preparation instructions sent by email before September 21, complete the following steps:
+1. **If you did not complete the preparation steps before the upgrade [follow these instructions](sd-desktop-major-upgrade.md)
+2. **If you followed the preparation instructions sent by email before September 21**, complete the following steps:
 
     1. Log in to the service and access your virtual desktop.
     2. Right-click and select **Open in Terminal**.
@@ -41,9 +41,9 @@ Please review the following information:
        csc-update-ubuntu22.04
        ```
        Press **Enter**. The script installs the **New Data Gateway** icon.
-    4. Log out from the virtual desktop: Click Power icon in top right corner of the desktop and select Log Out.
-       In the new window, select Home to return to SD Desktop home page. There, on the top right corner next to your username, log out form the service. 
-    5. Log in to SD Desktop again and access your virtual desktop. The **New Data Gateway** icon should now work.
+    4. Log out from the virtual desktop: click **Power icon** in top right corner of the desktop and select **Log Out**.
+    5. In the new window, select **Home** to return to SD Desktop home page. There, on the top right corner next to your username, log out form the service. 
+    6. Log in to SD Desktop again and access your virtual desktop. The **New Data Gateway** icon should now work.
  
 
 ### 3. CSC Project-Secondary use type: register data
@@ -53,7 +53,21 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 
 ### 4. Known issues
 
+#### Known issue: black screen when accessing the Virtual Desktop
 
+When accessing the **virtual desktop in your browser**, you may see a black screen for up to one minute while the virtual fesktop loads.
+
+If the virtual desktop does not appear and you see an **X on the black screen**:
+
+1. Move your mouse pointer to the **left side of the black screen**.
+2. Click anywhere in that area.
+3. This should wake up the display, and the **virtual desktop should become visible in your browser**.
+
+
+
+
+
+#####
 
 
 ### 5. Materials
