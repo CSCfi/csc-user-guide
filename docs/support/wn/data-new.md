@@ -2,60 +2,99 @@
 
 ## SD Connect and SD Desktop major service upgrade, 09.2026
 
-A new version of SD Connect and SD Desktop will be released and available from 28 September. The upgrade introduces significant improvements but also includes changes that are not compatible with the current version of the services.
+A new version of SD Connect and SD Desktop is now available. The upgrade introduces significant improvements, but some changes require users to take action to continue using certain features.
 
-To help you prepare for the upgrade, please review the following information:
+Please review the following information:
 
-- [1. CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
-- [2. CSC Project- Secondary use type](#important-dates-and-support)
-- [3. Important dates and support](#important-dates-and-support)
-- [4. Materials and instructions](#materials-and-instructions)
+- [1. Important dates and support](#1-important-dates-and-support)
+- [2. CSC Project- Academic type: video overview and required actions](#2-csc-project-academic-type-video-overview-and-required-actions)
+- [3. CSC Project- Secondary use type: register data](#3-csc-project-secondary-use-type-register-data)
+- [4. Known issues](#4-known-issues)
+- [5. Materials](#5-materials)
 
 
-### CSC Project-Academic type: video overview and required preliminary actions
+
+### 1. Important dates and support
+
+- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI).
+  
+- **30 September at 14:00**: Webinar at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)introducing the upgrade, key changes and required actions.
+
+
+
+### 2. CSC Project-Academic type: video overview and required actions
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608" title="CSC Academic project type: SD Connect and SD Desktop major upgrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ClH2FroTMA8" title="Sensitive Data (SD) -palveluiden päivitys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available here from 28 September.
+- **SD Connect**: Access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available [here](sd-connect-conversion.md)
 
-- **SD Desktop**: import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. To simplify the installation of the new Data Gateway after the service break, **we recommend completing the following preparatory step before 21 September**.
+- **SD Desktop**: The import and export functionality needs to be restored.
+
+1. **If you did not complete the preparation steps before the upgrade [follow these instructions](sd-desktop-major-upgrade.md)
+2. **If you followed the preparation instructions sent by email before September 21**, complete the following steps:
+
+    1. Log in to the service and access your virtual desktop.
+    2. Right-click and select **Open in Terminal**.
+    3. In the terminal, enter:
+       ```
+       csc-update-ubuntu22.04
+       ```
+       Press **Enter**. The script installs the **New Data Gateway** icon.
+    4. Log out from the virtual desktop: click **Power icon** in top right corner of the desktop and select **Log Out**.
+    5. In the new window, select **Home** to return to SD Desktop home page. There, on the top right corner next to your username, log out form the service. 
+    6. Log in to SD Desktop again and access your virtual desktop. The **New Data Gateway** icon should now work.
+ 
+
+### 3. CSC Project-Secondary use type: register data
+
+You can now access again SD Desktop for analysis. Importing and exporting data or adding software is temporarily unavailable. We will provide new information soon. 
 
 
-#### Step-by-step: 
+### 4. Known issues
 
-Important: this preparation only needs to be completed once per virtual desktop by one project member.
+#### SD Connect knows issues
 
-1. Access your virtual desktop.
-2. Open Data Gateway.
-3. Open SD Software Installer. If the application is not installed, first follow these [instructions](../../data/sensitive-data/sd-desktop-software.md#step-1-send-a-request)
-4. In the SD Software Installer, select CSC Tools.
-5. Wait approximately 30 seconds until you receive a confirmation that the installation has completed successfully.
-6. You can then close the Data Gateway and log out of the virtual desktop.
-7. Final instructions that must be completed by all users will be provided after the service break.
+##### White page in SD Connect
 
-If you are unable to complete this preparatory step before the service break, don't worry. You will still be able to complete all required via different workflow after September 28. 
+When accessing SD Connect, you may see a **blank white page**. Clear your browser history and cookies, restart the browser and access SD Connect again.
 
 
-### CSC Project- Secondary use type
+#### SD Desktop known issues
 
-- **SD Desktop**: Import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. No action is currently required. Instructions for restoring the functionality will be available from 28 September.
+##### Black screen when accessing the virtual desktop
 
-### Important dates and support
+When accessing the **virtual desktop in your browser**, you may see a black screen for up to one minute while the virtual desktop loads.
 
-- **21.9.2026 09:00 – 25.9.2026 17:00 EEST**: Service break. SD services will not be available during this period.
+If the virtual desktop does not appear and you see an **X on the black screen**:
 
-- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available from September 28 via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
-  
-- **30 September at 14:00**: Webinar introducing the upgrade, key changes and required actions at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)
-  
+1. Move your mouse pointer to the **left side of the black screen**.
+2. Click anywhere in that area.
+3. This should wake up the display, and the **virtual desktop should become visible in your browser**.
 
-### Materials and instructions:
+
+##### Data Gateway connection needs to be refreshed
+
+If you see a message indicating that the Data Gateway connection needs to be refreshed, follow these steps:
+   
+   1. Log out from the virtual desktop: click **Power icon** in top right corner of the desktop and select **Log Out**.
+   2. In the new window, select **Home** to return to SD Desktop home page. There, on the top right corner next to your username, log out form the service.
+   3. Wait a few minutes.
+   4. Log in to SD Desktop service again and access your virtual desktop. The **New Data Gateway** icon should now work.
+
+
+##### SD Apply access from Data Gateway
+
+Accessing **SD Apply from Data Gateway** is currently not working. You may see an **empty folder** instead of the expected content, with no error message displayed.
+
+
+### 5. Materials
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
-- Step-by-step instructions for actions required after 28 September, link soon available here
+  
+
 
 ─────────────────────────────────────────────────────────────
 
