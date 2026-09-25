@@ -4,7 +4,7 @@
 <br>
 
 !!! working "New versions of SD Connect and SD Desktop"
-    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Click here for [guidance and support](major-upgrade.md).
+    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
 <br>
 
 
