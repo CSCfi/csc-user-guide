@@ -8,8 +8,8 @@
     position: fixed;
     right: 1rem;
     bottom: 1rem;
-    margin: 0 auto;
-    max-width: calc(100vw / 3);
+    margin-left: 1rem;
+    max-width: 500px;
     z-index: 1;
   }
   #disclaimer-container > :not(:first-child) {
@@ -105,6 +105,26 @@
     color: var(--c-primary-600);
     font-weight: var(--docs-font-weight--bold);
     text-decoration: none;
+  }
+
+  @media screen and (max-width: calc(1rem + 500px)) {
+    #disclaimer-container {
+      right: 0;
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    #disclaimer-container {
+      bottom: 0;
+      width: 100vw;
+
+      >.disclaimer {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-left-width: 2px;
+      }
+    }
   }
 </style>
 <div id="disclaimer-container">
