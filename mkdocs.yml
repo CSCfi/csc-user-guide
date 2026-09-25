@@ -587,6 +587,9 @@ nav:
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
       - data/sensitive-data/index.md
+      - New versions of SD Connect and SD Desktop available: data/sensitive-data/major-upgrade.md
+          - Bucket name conversion: data/sensitive-data/sd-connect-conversion.md
+          - Restore import export functions: data/sensitive-data/sd-desktop-major-upgrade.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
       - Research data - Store and analyse:
           - Start here:
@@ -602,8 +605,7 @@ nav:
               - Delete: data/sensitive-data/sd-connect-delete.md
               - Share buckets: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
-              - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
-              - Page under construction: data/sensitive-data/sd-connect-conversion.md
+              - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md      
           - Analyse with SD Desktop:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
@@ -615,7 +617,6 @@ nav:
               - Import data: data/sensitive-data/sd-desktop-access.md
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
               - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
-              - Restore import export functions: data/sensitive-data/sd-desktop-major-upgrade.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Research data - Publish and reuse:
           - Publish with Federated EGA:
