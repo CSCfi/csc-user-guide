@@ -31,10 +31,8 @@ Please review the following information:
 
 - **SD Desktop**: import and export functionality need to be restored.
 
-- 1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
-- 2. if you have not completed any preparation, follow [these instructions](sd-desktop-major-upgrade.md).
-
-2. **If you followed the preparation instructions sent by email before September 21**, complete the following steps:
+1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
+2. If you followed the preparation instructions sent by email before September 21, complete the following steps:
 
     1. Log in to your virtual desktop.
     2. Right-click the desktop and select **Open in Terminal**.
