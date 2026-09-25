@@ -5,9 +5,8 @@ A new version of SD Connect and SD Desktop is now available. The upgrade introdu
 Please review the following information:
 
 - [1. Important dates and support](#important-dates-and-support)
-- [1. CSC Project- Academic type: video overview and required actions](#csc-project-academic-type-video-overview-and-required-actions)
-- [2. CSC Project- Secondary use type: if you are processing register data]
-
+- [2. CSC Project- Academic type: video overview and required actions](#csc-project-academic-type-video-overview-and-required-actions)
+- [3. CSC Project- Secondary use type: if you are processing register data](#csc-project--secondary-use-type-if-you-are-processing-register-data)
 - [4. Materials and instructions](#materials-and-instructions)
 
 
@@ -53,5 +52,4 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 ### Materials:
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
-
 
