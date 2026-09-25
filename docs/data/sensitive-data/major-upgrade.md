@@ -4,13 +4,23 @@ A new version of SD Connect and SD Desktop is now available. The upgrade introdu
 
 Please review the following information:
 
-- [1. CSC Project- Academic type: video overview and required preliminary actions](#csc-project-academic-type-video-overview-and-required-preliminary-actions)
-- [2. CSC Project- Secondary use type](#important-dates-and-support)
-- [3. Important dates and support](#important-dates-and-support)
+- [1. Important dates and support](#important-dates-and-support)
+
+- [1. CSC Project- Academic type: video overview and required actions](#csc-project-academic-type-video-overview-and-required-actions)
+- [2. CSC Project- Secondary use type: if you are processing register data]
+
 - [4. Materials and instructions](#materials-and-instructions)
 
 
-### CSC Project-Academic type: video overview of changes
+### Important dates and support
+
+- **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
+  
+- **30 September at 14:00**: Webinar introducing the upgrade, key changes and required actions at the [CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/)
+
+
+
+### CSC Project-Academic type: video overview and required actions
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608" title="CSC Academic project type: SD Connect and SD Desktop major upgrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -21,16 +31,16 @@ Please review the following information:
 
 - **SD Desktop**: import and export functionality need to be restored.
 
-  1. If you have followed the instructions provided before the 21st of September, please follow these steps:
+  1. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
 
-  - login to your virtual desktop
-  - right click, open the terminal, write csc-update-ubuntu2024 pres enter. This will install the icon called: new data gateway. 
-  - log out from the virtual desktop, log out from the SD Desktop service.
-  - When you log in again, the New Data Gateway icon will work.
+  2. If you have followed the instructions provided by email before the 21st of September, please follow these steps:
+
+   2.1 login to your virtual desktop
+   2.2 right click, open the terminal, write csc-update-ubuntu2024 pres enter. This will install the icon called: new data gateway. 
+   2.3 log out from the virtual desktop, log out from the SD Desktop service.
+   2.4 when you log in again, the New Data Gateway icon will work.
  
-  2. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
  
-  
 
 ### CSC Project- Secondary use type: if you are processing register data
 
@@ -49,5 +59,5 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 ### Materials and instructions:
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
-- Step-by-step instructions for actions required after 28 September, link soon available here
+
 
