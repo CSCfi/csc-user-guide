@@ -1,10 +1,14 @@
-{% from "partials/icons.css.jinja" import icon_prop %}
+{# Hacky icon rip from research.csc.fi #}
+{%- set icon_svg -%}
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.77778 20C5.28889 20 4.87022 19.8261 4.52178 19.4782C4.17393 19.1298 4 18.7111 4 18.2222V5.77778C4 5.28889 4.17393 4.87022 4.52178 4.52178C4.87022 4.17393 5.28889 4 5.77778 4H12V5.77778H5.77778V18.2222H18.2222V12H20V18.2222C20 18.7111 19.8261 19.1298 19.4782 19.4782C19.1298 19.8261 18.7111 20 18.2222 20H5.77778ZM9.95556 15.2889L8.71111 14.0444L16.9778 5.77778H13.7778V4H20V10.2222H18.2222V7.02222L9.95556 15.2889Z" fill="#006778"/>
+</svg>
+{%- endset -%}
 <style scoped>
   #pre-header {
-    {{ icon_prop("open-in-new", "material/open-in-new") }}
+    --open-in-new-icon: url('data:image/svg+xml;charset=utf-8,{{ icon_svg | urlencode }}');
     background-color: var(--c-primary-200);
     color: var(--c-tertiary-700);
-    font-size: small;
     z-index: 5;
   }
   .md-toggle:checked ~ #pre-header {
@@ -14,39 +18,41 @@
     display: flex;
     position: relative;
     box-sizing: border-box;
-    max-width: var(--docs-content-width);
+    max-width: 1536px;
     list-style: none;
-    justify-content: center;
+    justify-content: stretch;
+    font-size: 12px;
+    line-height: 16px;
     margin: 0 auto;
     padding: 0;
   }
   #pre-header > ul > li {
     display: flex;
     align-items: center;
-    box-sizing: border-box;
+    height: 42px;
   }
   #pre-header > ul > li.current-site {
     background-color: var(--c-white);
   }
   #pre-header > ul > li > a {
     display: block;
-    padding: .5em;
+    padding: 8px;
   }
   #pre-header > ul > li > a .hidden {
     display: none;
   }
   #pre-header > ul > li > a[target="_blank"]::after {
     content: "";
-    mask-image: var(--open-in-new-icon);
-    mask-size: 1.5em;
-    mask-repeat: no-repeat;
-    background-color: var(--c-primary-600);
+    mask: var(--open-in-new-icon) no-repeat;
+    -webkit-mask: var(--open-in-new-icon) no-repeat;
+    background-color: var(--md-primary-fg-color);
     display: inline-block;
-    line-height: 1;
     vertical-align: middle;
-    margin-left: .125rem;
-    width: 1.5em;
-    height: 1.5em;
+    margin-left: 2px;
+    font-size: 12px;
+    line-height: 12px;
+    width: 24px;
+    height: 26px;
   }
   @media screen and (min-width: 76.25em) {
     #pre-header > ul > li:last-child {
@@ -55,16 +61,26 @@
     }
   }
   @media screen and (min-width: 60em) {
-    #pre-header > ul > li > a > .hidden {
-      display: inline;
+    #pre-header {
+      >ul {
+        font-size: 14px;
+        line-height: 20px;
+        justify-content: center;
+      }
+
+      >ul>li>a .hidden {
+        display: inline;
+      }
     }
   }
   @media screen and (min-width: 40em) {
-    #pre-header > ul > li > a {
-      padding: .5em 1em;
-    }
-    #pre-header > ul > li > a[target="_blank"]::after {
-      margin-left: .5rem;
+    #pre-header > ul > li {
+      >a {
+        padding: 8px 16px;
+      }
+      >a[target="_blank"]::after {
+        margin-left: 2px;
+      }
     }
   }
 </style>
