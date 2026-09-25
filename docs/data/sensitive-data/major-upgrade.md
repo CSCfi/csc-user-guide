@@ -53,9 +53,18 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 
 ### 4. Known issues
 
-#### Known issue: black screen when accessing the Virtual Desktop
+#### SD Connect knows issues
 
-When accessing the **virtual desktop in your browser**, you may see a black screen for up to one minute while the virtual fesktop loads.
+##### White page in SD Connect
+
+When accessing SD Connect, you may see a **blank white page**. Clear your browser history and cookies, restart the browser and access SD Connect again.
+
+
+#### SD Desktop known issues
+
+##### Black screen when accessing the virtual desktop
+
+When accessing the **virtual desktop in your browser**, you may see a black screen for up to one minute while the virtual desktop loads.
 
 If the virtual desktop does not appear and you see an **X on the black screen**:
 
@@ -64,13 +73,26 @@ If the virtual desktop does not appear and you see an **X on the black screen**:
 3. This should wake up the display, and the **virtual desktop should become visible in your browser**.
 
 
+##### Data Gateway connection needs to be refreshed
+
+If you see a message indicating that the Data Gateway connection needs to be refreshed, follow these steps:
+   
+   1. Log out from the virtual desktop: click **Power icon** in top right corner of the desktop and select **Log Out**.
+   2. In the new window, select **Home** to return to SD Desktop home page. There, on the top right corner next to your username, log out form the service.
+   3. Wait a few minutes.
+   4. Log in to SD Desktop service again and access your virtual desktop. The **New Data Gateway** icon should now work.
 
 
 
-#####
+##### SD Apply access from Data Gateway
+
+Accessing **SD Apply from Data Gateway** is currently not working. You may see an **empty folder** instead of the expected content, with no error message displayed.
+
+
 
 
 ### 5. Materials
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
+  
 
