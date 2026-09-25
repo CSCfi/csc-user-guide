@@ -71,7 +71,7 @@ If the virtual desktop does not appear and you see an **X on the black screen**:
 3. This should wake up the display, and the **virtual desktop should become visible in your browser**.
 
 
-### 4.3 SD Desktop: Data Gateway connection needs to be refreshed
+#### 4.3 SD Desktop: Data Gateway connection needs to be refreshed
 
 If you see a message indicating that the Data Gateway connection needs to be refreshed, follow these steps:
    
@@ -82,7 +82,7 @@ If you see a message indicating that the Data Gateway connection needs to be ref
 
 
 
-### 4.4 SD Desktop: SD Apply access from Data Gateway not working
+#### 4.4 SD Desktop: SD Apply access from Data Gateway not working
 
 Accessing **SD Apply from Data Gateway** is currently not working. You may see an **empty folder** instead of the expected content, with no error message displayed.
 
