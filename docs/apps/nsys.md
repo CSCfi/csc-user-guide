@@ -50,14 +50,6 @@ For collecting data, run your application normally via Slurm and prepend your ex
 
 srun nsys profile -t nvtx,cuda ./my_executable
 ```
-**Note for Roihu**:
-An extra option `--argos=no` needs to be provided for `srun`:
-```bash
-#SBATCH ...
-...
-
-srun --argos=no nsys profile -t nvtx,cuda ./my_executable
-```
 
 `nsys` supports many useful options. For more details please check the [NVIDIA documentation](https://docs.nvidia.com/nsight-systems/).
 
