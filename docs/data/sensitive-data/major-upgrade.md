@@ -1,4 +1,4 @@
-## SD Connect and SD Desktop major service upgrade, 28 September2026
+## SD Connect and SD Desktop major service upgrade, 28 September 2026
 
 A new version of SD Connect and SD Desktop is now available. The upgrade introduces significant improvements, but some changes require users to take action to continue using certain features.
 
