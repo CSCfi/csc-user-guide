@@ -55,16 +55,12 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 
 ### 4. Known issues
 
-#### SD Connect knows issues
-
-##### White page in SD Connect
+#### 4.1 SD Connect: white page 
 
 When accessing SD Connect, you may see a **blank white page**. Clear your browser history and cookies, restart the browser and access SD Connect again.
 
 
-#### SD Desktop known issues
-
-##### Black screen when accessing the virtual desktop
+#### 4.2 SD Desktop: black screen when accessing the virtual desktop
 
 When accessing the **virtual desktop in your browser**, you may see a black screen for up to one minute while the virtual desktop loads.
 
@@ -75,7 +71,7 @@ If the virtual desktop does not appear and you see an **X on the black screen**:
 3. This should wake up the display, and the **virtual desktop should become visible in your browser**.
 
 
-##### Data Gateway connection needs to be refreshed
+### 4.3 SD Desktop: Data Gateway connection needs to be refreshed
 
 If you see a message indicating that the Data Gateway connection needs to be refreshed, follow these steps:
    
@@ -85,9 +81,11 @@ If you see a message indicating that the Data Gateway connection needs to be ref
    4. Log in to SD Desktop service again and access your virtual desktop. The **New Data Gateway** icon should now work.
 
 
-##### SD Apply access from Data Gateway
+
+### 4.4 SD Desktop: SD Apply access from Data Gateway not working
 
 Accessing **SD Apply from Data Gateway** is currently not working. You may see an **empty folder** instead of the expected content, with no error message displayed.
+
 
 
 ### 5. Materials
