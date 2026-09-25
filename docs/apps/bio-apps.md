@@ -126,6 +126,7 @@ blast-plus/2.17.0
 boost/1.86.0
 bowtie/1.3.1
 bowtie2/2.5.4
+bracken/2.8
 bracken/2.9
 braker4/0.5.0-beta
 busco/5.4.3
@@ -139,6 +140,7 @@ clumpp/1.1.2
 clustal-omega/1.2.4
 clustalw/2.1
 cufflinks/2.2.1
+demix-check/1.0.20250120
 diamond/2.1.10
 eggnog-mapper/2.1.15
 emboss/6.6.0
@@ -163,6 +165,7 @@ iq-tree/2.4.0
 iqtree3/3.1.4
 jellyfish/2.2.7
 kraken2/2.17.1
+kraken2/2.17.2
 mafft/7.525
 mash/2.3
 megahit/1.2.9
