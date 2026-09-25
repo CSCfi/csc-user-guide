@@ -1,5 +1,14 @@
 # Sensitive Data (SD) services for research: user guide
 
+
+<br>
+
+!!! working "New versions of SD Connect and SD Desktop"
+    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Click here for [guidance and support](major-upgrade.md).
+<br>
+
+
+
 Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
