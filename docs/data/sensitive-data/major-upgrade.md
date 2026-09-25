@@ -10,7 +10,7 @@ Please review the following information:
 - [4. Materials and instructions](#materials-and-instructions)
 
 
-### CSC Project-Academic type: video overview of chnages
+### CSC Project-Academic type: video overview of changes
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608" title="CSC Academic project type: SD Connect and SD Desktop major upgrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -19,22 +19,20 @@ Please review the following information:
 
 - **SD Connect**: access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters, or exceeds 63 characters. Access can be restored after the upgrade by following the step-by-step instructions available [here](sd-connect-conversion.md)
 
-- **SD Desktop**: import and export functionality from virtual desktops will be temporarily unavailable after the upgrade. To simplify the installation of the new Data Gateway after the service break, **we recommend completing the following preparatory step before 21 September**.
+- **SD Desktop**: import and export functionality need to be restored.
+
+  1. If you have followed the instructions provided before the 21st of September, please follow these steps:
+
+  - login to your virtual desktop
+  - right click, open the terminal, write csc-update-ubuntu2024 pres enter. This will install the icon called: new data gateway. 
+  - log out from the virtual desktop, log out from the SD Desktop service.
+  - When you log in again, the New Data Gateway icon will work.
+ 
+  2. if you have not done any preparation, please follow [these instructions](sd-desktop-major-upgrade.md)
+ 
+  
 
 
-#### Step-by-step: 
-
-Important: this preparation only needs to be completed once per virtual desktop by one project member.
-
-1. Access your virtual desktop.
-2. Open Data Gateway.
-3. Open SD Software Installer. If the application is not installed, first follow these [instructions](../../data/sensitive-data/sd-desktop-software.md#step-1-send-a-request)
-4. In the SD Software Installer, select CSC Tools.
-5. Wait approximately 30 seconds until you receive a confirmation that the installation has completed successfully.
-6. You can then close the Data Gateway and log out of the virtual desktop.
-7. Final instructions that must be completed by all users will be provided after the service break.
-
-If you are unable to complete this preparatory step before the service break, don't worry. You will still be able to complete all required via different workflow after September 28. 
 
 
 ### CSC Project- Secondary use type
