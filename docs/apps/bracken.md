@@ -26,7 +26,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/jenniferlu717/B
 
 ## Available
 
-* Roihu: 2.9, via the `bio-apps` module.
+* Roihu-CPU: 2.8, 2.9, via the `bio-apps` module.
 
 ## Usage
 
