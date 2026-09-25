@@ -1,16 +1,18 @@
-## SD Connect and SD Desktop major service upgrade, 28.09.2026
+## SD Connect and SD Desktop major service upgrade, 28 September2026
 
-A new version of SD Connect and SD Desktop is now available. The upgrade introduces significant improvements but also includes changes that are not compatible with the previous version of the services.
+A new version of SD Connect and SD Desktop is now available. The upgrade introduces significant improvements, but some changes require users to take action to continue using certain features.
 
 Please review the following information:
 
-- [1. Important dates and support](#important-dates-and-support)
-- [2. CSC Project- Academic type: video overview and required actions](#csc-project-academic-type-video-overview-and-required-actions)
-- [3. CSC Project- Secondary use type: register data](#csc-project-secondary-use-type-register-data)
-- [4. Materials and instructions](#materials)
+- [1. Important dates and support](#1-important-dates-and-support)
+- [2. CSC Project- Academic type: video overview and required actions](#2-csc-project-academic-type-video-overview-and-required-actions)
+- [3. CSC Project- Secondary use type: register data](#3-csc-project-secondary-use-type-register-data)
+- [4. Known issues](#4-known-issues)
+- [5. Materials](#5-materials)
 
 
-### Important dates and support
+
+### 1. Important dates and support
 
 - **Mondays at 12:00 and Thursdays at 10:00**: online support sessions with step-by-step guidance and opportunities to ask questions about the upgrade. Registration available via this link in [English](https://ssl.eventilla.com/event/Gl0Wb/EN) or [Finnish](https://ssl.eventilla.com/event/Gl0Wb/FI)
   
@@ -18,7 +20,7 @@ Please review the following information:
 
 
 
-### CSC Project-Academic type: video overview and required actions
+### 2. CSC Project-Academic type: video overview and required actions
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/s4yPO45j608" title="CSC Academic project type: SD Connect and SD Desktop major upgrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -44,12 +46,17 @@ Please review the following information:
     5. Log in to SD Desktop again and access your virtual desktop. The **New Data Gateway** icon should now work.
  
 
-### CSC Project-Secondary use type: register data
+### 3. CSC Project-Secondary use type: register data
 
 You can now access again SD Desktop for analysis. Importing and exporting data or adding software is temporarily unavailable. We will provide new information soon. 
 
 
-### Materials
+### 4. Known issues
+
+
+
+
+### 5. Materials
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
 
