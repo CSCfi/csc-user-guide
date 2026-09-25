@@ -2,14 +2,12 @@
 
 <div class="grid cards" markdown>
 
-- :material-dna:{ .lg .middle } **New versions of SD Connect and SD Desktop**
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
 
-  { .csc-grid-card-accent }
-
-    ---New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
-
+    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
+  
 </div>
-
 
 
 Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
