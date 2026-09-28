@@ -80,8 +80,6 @@ ___
 
 
 
-
-
 [](
 ??? default "Installation guide for Windows"
 
