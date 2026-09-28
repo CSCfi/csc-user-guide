@@ -367,6 +367,10 @@ nav:
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitiivinen data:
       - data/sensitive-data/index.md
+      - Uudet SD Connect ja SD Desktop -versiot saatavilla:
+          - data/sensitive-data/major-upgrade.md
+          - Muunna SD Connect -sankoja: data/sensitive-data/sd-connect-conversion.md
+          - Palauta SD Desktopin tuonti-/vientitoiminnallisuus: data/sensitive-data/sd-desktop-major-upgrade.md
       - Sisällysluettelo: data/sensitive-data/sd-services-toc.md
       - Tutkimusdata - Tallenna ja analysoi:
           - Aloita tästä:
@@ -383,7 +387,6 @@ nav:
               - Jakaminen: data/sensitive-data/sd-connect-share.md
               - Komentorivikäyttöliittymä: data/sensitive-data/sd-connect-command-line-interface.md
               - Vianetsintä: data/sensitive-data/sd-connect-troubleshooting.md
-              - Keskeneräinen sivu: data/sensitive-data/sd-connect-conversion.md
           - Analysoi SD Desktopilla:
               - data/sensitive-data/sd_desktop.md
               - Kirjautuminen SD Desktopiin: data/sensitive-data/sd-desktop-login.md
@@ -395,7 +398,6 @@ nav:
               - Datan tuonti: data/sensitive-data/sd-desktop-access.md
               - Datan vienti käyttöliittymän kautta: data/sensitive-data/sd-desktop-export.md
               - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
-              - Palauta tuonti-/vientitoiminnallisuus: data/sensitive-data/sd-desktop-major-upgrade.md
               - Vianetsintä: data/sensitive-data/sd-desktop-troubleshooting.md
       - Tutkimusdata - Julkaise ja uudelleenkäytä:
           - Julkaise Federated EGA:lla:
