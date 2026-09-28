@@ -38,8 +38,6 @@ Please review the following information:
 </div>
 
 
-
-
 - **SD Desktop**: The import and export functionality needs to be restored.
 
 1. **If you did not complete the preparation steps before the upgrade [follow these instructions](sd-desktop-major-upgrade.md)
