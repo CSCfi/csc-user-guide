@@ -587,7 +587,7 @@ nav:
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
       - data/sensitive-data/index.md
-      - New versions of SD Connect and SD Desktop available: 
+      - New versions of SD Connect and SD Desktop available:
           - data/sensitive-data/major-upgrade.md
           - Convert SD Connect buckets: data/sensitive-data/sd-connect-conversion.md
           - Restore SD Desktop import and export: data/sensitive-data/sd-desktop-major-upgrade.md
