@@ -66,7 +66,7 @@ isolate_3   SC2      path/to/isolate_3.fasta
 ```
 
 Setup mode writes the themisto index, Mash sketches and cluster thresholds into the
-reference directory, so it must be writable (for example under your project's
+reference directory (for example under your project's
 `/scratch`):
 
 ```bash
