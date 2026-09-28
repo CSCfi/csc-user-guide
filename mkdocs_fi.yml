@@ -121,13 +121,15 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Kvanttilaskenta:
           - computing/quantum-computing/overview.md
-          - Projektit: computing/quantum-computing/projects.md
           - Käyttö LUMIn kautta: computing/quantum-computing/access.md
+          - Laitteistot:
+              - computing/quantum-computing/devices/overview.md
+              - Aalto Q20: computing/quantum-computing/devices/q20.md
+              - VTT Q50: computing/quantum-computing/devices/q50.md
           - Ensimmäinen kvanttityö: computing/quantum-computing/first-quantum-job.md
-          - Tekniset tiedot: computing/quantum-computing/specs.md
-          - FiQCI-osio: computing/quantum-computing/fiqci-partition.md
           - Kvanttitöiden ajaminen: computing/quantum-computing/running-quantum-jobs.md
           - Pulssitason käyttöoikeus: computing/quantum-computing/pulse-level-access.md
+          - FiQCI-osio: computing/quantum-computing/fiqci-partition.md
       - FirecREST HPC API:
           - computing/firecrest/index.md
           - Yhteyden muodostaminen: computing/firecrest/connecting.md
@@ -193,7 +195,7 @@ nav:
               - NFS-palvelimen asennus: cloud/pouta/tutorials/nfs-server.md
               - Kuvaputken asennus: cloud/pouta/tutorials/picture-pipeline.md
               - SSH-avainpari: cloud/pouta/tutorials/ssh-key.md
-
+              - Kuinka ottaa käyttöön korkean saatavuuden sovellus Poudassa: cloud/pouta/tutorials/high-availability.md
       - Pukki:
           - cloud/dbaas/index.md
           - Mikä on DBaaS: cloud/dbaas/what-is-dbaas.md
@@ -393,6 +395,7 @@ nav:
               - Datan tuonti: data/sensitive-data/sd-desktop-access.md
               - Datan vienti käyttöliittymän kautta: data/sensitive-data/sd-desktop-export.md
               - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
+              - Palauta tuonti-/vientitoiminnallisuus: data/sensitive-data/sd-desktop-major-upgrade.md
               - Vianetsintä: data/sensitive-data/sd-desktop-troubleshooting.md
       - Tutkimusdata - Julkaise ja uudelleenkäytä:
           - Julkaise Federated EGA:lla:
