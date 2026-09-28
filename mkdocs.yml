@@ -12,7 +12,7 @@ extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
   announcement: # An announcement shown below the header
     icon:
-      name: material/power-plug-off # Choose one (emojis not supported) from here https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search
+      name: material/alert-circle # Choose one (emojis not supported) from here https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search
       mirror: false # Toggle mirrored right-hand side icon
     color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |-
