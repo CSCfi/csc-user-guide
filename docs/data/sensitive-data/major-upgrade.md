@@ -87,6 +87,10 @@ Accessing **SD Apply from Data Gateway** is currently not working. You may see a
 
 
 ### 5. Materials
+
+- [SD Desktop: updated virtual desktop and volume creation guide](../../data/sensitive-data/sd-desktop-create.md)
+- [SD Desktop: updated virtual desktop and volume management guide](../../data/sensitive-data/sd-desktop-manage.md)
+- [SD Desktop: updated virtual desktop export guide](../../data/sensitive-data/sd-desktop-export.md)
 - [SD Connect: New features](../../data/sensitive-data/releases-sd-connect.md)
 - [SD Desktop: New features](../../data/sensitive-data/releases-sd-desktop.md)
   
