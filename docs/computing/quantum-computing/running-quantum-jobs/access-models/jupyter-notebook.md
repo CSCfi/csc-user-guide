@@ -30,7 +30,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
 !!! info "Courses"
     If you are using the quantum computers during a course, a custom environment may have been prepared for it. In that case use the **Jupyter for courses** app instead.
 
-    !["Quantum jobs with Jupyter for courses"](../../../img/helmi_with_jupyter_for_courses_gui.png)
+    !["Quantum jobs with Jupyter for courses"](../../../../img/helmi_with_jupyter_for_courses_gui.png)
 
 See [Circuit job](../circuit-job.md) for an example circuit level job python script and [Pulse job](../pulse-job.md) for a Pulse level job example.
 

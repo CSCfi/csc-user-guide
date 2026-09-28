@@ -129,12 +129,12 @@ Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is
 
 ## Running quantum jobs
 
-Once you have successfully obtained an access token and fetched the VLQ backend you are ready to run quantum jobs. For info on running quantum jobs see [Running quantum jobs](../running-quantum-jobs.md).
+Once you have successfully obtained an access token and fetched the VLQ backend you are ready to run quantum jobs. For info on running quantum jobs see [Running quantum jobs](../running-quantum-jobs/overview.md).
 
 
 ## Further Reading
-* [Running quantum jobs](../running-quantum-jobs.md)
-* [Pulse level access](../pulse-level-access.md)
+* [Running quantum jobs](../running-quantum-jobs/overview.md)
+* [Pulse level access](../running-quantum-jobs/pulse-job.md)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank }
 * [Cirq adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }

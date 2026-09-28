@@ -43,13 +43,13 @@ module load custom_python_module
 
 There are multiple ways to reach the quantum computers from LUMI:
 
-- [Batch jobs](./access-models/batch-and-srun.md): the standard way, for scripts submitted through SLURM.
+- [Batch jobs](./access-models/batch.md): the standard way, for scripts submitted through SLURM.
 - [Interactive jobs](./access-models/srun.md): interactive terminal session.
 - [Jupyter notebook](./access-models/jupyter-notebook.md): interactive work through the LUMI web interface.
 
 ## Example job
 
-See [Example job](./example-job.md) for a complete Qiskit and Cirq script, or [Running your first quantum job](../first-quantum-job.md) for a step-by-step walkthrough.
+See [Circuit level job](./circuit-job.md) for a complete Qiskit and Cirq script, or [Pulse level job](./pulse-job.md) for a pulse level example.
 
 !!! warning "Save your Job ID!"
     There is currently no way to list previous job IDs, so always print your job ID after submission and save it somewhere. The same applies to the calibration set ID.
