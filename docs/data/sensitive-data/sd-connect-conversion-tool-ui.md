@@ -85,7 +85,7 @@ ___
 [](
 ??? default "Installation guide for Windows"
 
-    1. Download the [SD Connect Conversion Tool for Windows](https://github.com/CSCfi/sd-connect-s3-migrate/releases/download/2026.9.5/sd_connect_s3_migrate_gui-linux-x64-2026.9.5.zip)
+    1. Download the [SD Connect Conversion Tool for Windows](https://github.com/CSCfi/sd-connect-s3-migrate/releases/download/2026.9.5/sd_connect_s3_migrate_gui-win32-x64-2026.9.5.zip)
 
     2. Open your **Downloads** folder and **extract** the folder you just downloaded.
 
