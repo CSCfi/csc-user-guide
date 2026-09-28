@@ -10,14 +10,13 @@ docs_dir: docs/
 
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
-  announcement_visible: true # Show/hide announcement bar (does not affect urgent announcement below)
-  announcement_urgent: # An urgent announcement shown below the regular one; comment/uncomment to toggle
-    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color
+  announcement: # An announcement shown below the header
+    icon:
+      name: material/alert-circle # Choose one (emojis not supported) from here https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis.html#search
+      mirror: true # Toggle mirrored right-hand side icon
+    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |-
-      <p>Warning!</p>
-      <div>
-        <p><strong>Puhti and Mahti computing services have been decommissioned</strong> and no new jobs are accepted or executed on its compute nodes. Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions on transferring your data to Roihu.</p></p>
-      </div>
+      <p><strong>Puhti and Mahti computing services have been decommissioned</strong> and no new jobs are accepted or executed on its compute nodes. Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions on transferring your data to Roihu.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
