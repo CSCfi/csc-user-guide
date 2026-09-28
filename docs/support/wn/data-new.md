@@ -4,7 +4,7 @@
 
 A new version of SD Connect and SD Desktop is now available. The upgrade introduces significant improvements, but some changes require users to take action to continue using certain features.
 
-Please review the following [information and guides](../../data/sensitive-data/sd-desktop-major-upgrade.md). 
+Please review the following [information and guides](../../data/sensitive-data/major-upgrade.md). 
 
 
 ─────────────────────────────────────────────────────────────
