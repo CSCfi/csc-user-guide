@@ -19,13 +19,15 @@ This guide helps you to install and use SD Connect Conversion tool to convert bu
 
 In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
 
+<div class="grid cards" markdown>
+
 - :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
     We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
+ 
   
 </div>
-
 
 
 ___
