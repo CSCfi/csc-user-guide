@@ -10,8 +10,6 @@ catalog:
     - Biosciences
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -56,45 +54,9 @@ with plenty of analysis scripts.
     |2026.0   |`gromacs/2026.0`<br>`gromacs/2026.0-gpu`|GPU-enabled module available
     |2026.1   |`gromacs/2026.1`<br>`gromacs/2026.1-gpu`<br>`gromacs/2026.1-heffte`|GPU-enabled module available<br>Module with heFFTe available for [GPU PME decomposition](#gpu-pme-decomposition)
 
-=== "Puhti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
-    |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
-    |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
-    |2023.2   |`gromacs/2023.2`
-    |2023.3   |`gromacs/2023.3`
-    |2024.0   |`gromacs/2024`
-    |2024.1   |`gromacs/2024.1`
-    |2024.2   |`gromacs/2024.2`
-    |2024.3   |`gromacs/2024.3`
-    |2024.4   |`gromacs/2024.4`
-    |2025.1   |`gromacs/2025.1`
-    |2025.2   |`gromacs/2025.2`
-    |2025.4   |`gromacs/2025.4`
-
-=== "Mahti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |2022.1   |`gromacs/2022.1`<br>`gromacs/2022.1-cp2k`|Module with CP2K available for QM/MM
-    |2022.2   |`gromacs/2022.2`<br>`gromacs/2022.2-cuda`|GPU-enabled module available
-    |2022.3   |`gromacs/2022.3`<br>`gromacs/2022.3-cuda`|GPU-enabled module available
-    |2022.4   |`gromacs/2022.4`<br>`gromacs/2022.4-cuda`|GPU-enabled module available
-    |2023.1   |`gromacs/2023.1`
-    |2023.2   |`gromacs/2023.2`
-    |2023.3   |`gromacs/2023.3`
-    |2024.0   |`gromacs/2024`
-    |2024.1   |`gromacs/2024.1`
-    |2024.2   |`gromacs/2024.2`
-    |2024.3   |`gromacs/2024.3`
-    |2024.4   |`gromacs/2024.4`
-    |2025.1   |`gromacs/2025.1`
-    |2025.2   |`gromacs/2025.2`
-    |2025.4   |`gromacs/2025.4`
-
 !!! info "Notes"
-    - Roihu, Puhti and Mahti have also `gromacs-env/<year>` modules for loading
-      the latest minor version from each year (replace `<year>` accordingly).
+    - Roihu also has `gromacs-env/<year>` modules for loading the latest minor
+      version from each year (replace `<year>` accordingly).
     - To access modules on LUMI, first load the CSC module tree into use with:
 
         ```bash
@@ -103,9 +65,9 @@ with plenty of analysis scripts.
     
     - Versions 2025.0 and later should support PLUMED by default. If you want
       to use PLUMED, also load the [PLUMED module](plumed.md).
-    - We only provide the MPI version `gmx_mpi`, but it can be used for `grompp`,
-      `editconf` etc. similarly to the serial version. Instead of `gmx grompp`,
-      give `gmx_mpi grompp`.
+    - We only provide the MPI version `gmx_mpi`, but it can be used for
+      `grompp`, `editconf` etc. similarly to the serial version. Instead of
+      `gmx grompp`, give `gmx_mpi grompp`.
 
 ## License
 
@@ -113,7 +75,7 @@ GROMACS is a free software available under LGPL, version 2.1.
 
 ## Usage
 
-Initialize recommended version of GROMACS on Roihu, Puhti or Mahti like this:
+Initialize recommended version of GROMACS on Roihu like this:
 
 ```bash
 module purge
