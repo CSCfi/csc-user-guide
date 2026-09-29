@@ -3,7 +3,7 @@ tags:
   - Free
 catalog:
   name: Chipster_genomes
-  description: Tool to download aligner indexes used by Chipster to Puhti
+  description: Tool to download aligner indexes used by Chipster to Roihu
   license_type: Free
   disciplines:
     - Biosciences
@@ -13,42 +13,42 @@ catalog:
 
 # Chipster_genomes
 
-Chipster_genomes is a help tool to download genome indexes used in [Chipster software](https://chipster.csc.fi/index.shtml) to Puhti.
-CSC is maintaining several short read aligners (e.g. BWA, Bowtie2, STAR) in Puhti, but not the pre-calculated 
-indexes for reference genomes. By default, users need to import and index themselves the reference genomes they are using.
+Chipster_genomes is a help tool to download genome indexes used in [Chipster software](https://chipster.csc.fi/index.shtml) to Roihu.
+CSC is maintaining several short read aligners (e.g. BWA, Bowtie2, STAR) on Roihu, but not the pre-calculated
+indexes for reference genomes. By default, users need to import and index the reference genomes they are using themselves.
 
 The Chipster server, however, contains indexes for a set of commonly used reference organisms for several aligners.
 
-The genome data and indexes used in Chipster are based on the data available in Ensembl and Ensembl genomes databases. 
-However, in Chipster, only those sequences (chromosomes) that have been assigned to a karyotype, are included. 
+The genome data and indexes used in Chipster are based on the data available in Ensembl and Ensembl Genomes databases.
+However, in Chipster, only those sequences (chromosomes) that have been assigned to a karyotype are included.
 Further, in GTF files negative location values are removed.
 
-Thus, the data downloaded from Chipster server may, in some cases, differ from the data obtained directly from Ensembl.
+Thus, the data downloaded from the Chipster server may, in some cases, differ from the data obtained directly from Ensembl.
 
 [TOC]
 
 ## License
 
 Free to use and open source.
- 
+
 ## Available
 
 Available in Roihu.
 
 ## Usage
 
-Tho use the `chipster_genomes` tool you must first run the set-up command:
+To use the `chipster_genomes` tool you must first run the set-up command:
 
 ```bash
 module load chipster_genomes
 ```
 
-After that, you can use `chipster_genomes` command. This command needs two parameters:
+After that, you can use the `chipster_genomes` command. This command needs two parameters:
 
 * File or index type (bed, gtf, fasta, bowtie, bowtie2, BWA, Hisat2, TopHat2)
 * Species name
 
-If the command is launched without any arguments, it first lists the available data types and asks to select one of them.
+If the command is launched without any arguments, it first lists the available data types and asks you to select one of them.
 Then the species available for the given datatype are listed, and the tool asks the user to select one of them.
 
 ```bash
