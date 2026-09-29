@@ -6,3 +6,5 @@ site/
 .DS_Store
 .idea/
 __pycache__/
+.python-version
+.cache

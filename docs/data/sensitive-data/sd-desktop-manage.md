@@ -63,7 +63,7 @@ ___
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ___
     

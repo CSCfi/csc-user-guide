@@ -1,0 +1,13 @@
+{{- if not (include "networking.siteHost" . | hasSuffix ".rahtiapp.fi") }}
+{{- if .Values.site.acme.useResourceLookup | default false }}
+{{ lookup "cert-manager.io/v1"
+          "Issuer"
+          .Release.Namespace
+          (include "networking.acmeIssuerName" .)
+   | dig "spec" "acme" dict
+   | list $
+   | include "networking.issuer" }}
+{{- else }}
+{{ include "networking.newIssuer" . }}
+{{- end }}
+{{- end }}

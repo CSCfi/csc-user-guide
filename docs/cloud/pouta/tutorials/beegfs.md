@@ -232,7 +232,7 @@ It is highly recommended to secure your BeeGFS installation by enabling connecti
 
 For our case, we will distribute a shared secret to all nodes and setting the `connAuthFile` parameter for each service/client configuration. By default, services and clients expect the secret at `/etc/beegfs/conn.auth`
 
-!!! important "Authentication disable - NOT RECOMMENDED"  
+!!! note "Authentication disable - NOT RECOMMENDED"
     You can disable the authentication by setting `connDisableAuthentication=true` in all service and configuration files (located in `/etc/beegfs/*.conf`) and setting `auth-disable=true` in the Management Service configuration (`etc/beegfs/beegfs-mgmtd.toml`). The services need to be restarted for the changes to take effect.
 
 1. Create a file which contains a shared secret
@@ -380,7 +380,7 @@ rsync -aHAX --numeric-ids /data/beegfs/beegfs_meta/ /mnt/beegfs_meta/
 systemctl start beegfs-meta
 ```
 
-!!! important  
+!!! note "Important"
     **DO NOT** re-register the metadata service with `/opt/beegfs/sbin/beegfs-setup-meta -p /data/beegfs/beegfs_meta -s 2 -m IP_ADDRESS_MGMT_NODE` The management service will be confused because it will generate a new registration token and won't be able to start the service
 
 ## [Benchmark](https://doc.beegfs.io/latest/advanced_topics/benchmark.html)

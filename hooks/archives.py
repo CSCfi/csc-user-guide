@@ -1,5 +1,5 @@
-from os import getenv
+import os
 
 
-if getenv("MKDOCS_ENV") == "production":
+if os.getenv("PROPERDOCS_ENV") in ["production", "staging"]:
     from archives import *

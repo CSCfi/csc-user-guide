@@ -33,7 +33,7 @@
  - The main user guide should document only what is specific to CSC environment, for general usage instructions link to the real manuals of the tool
    - Lengthier tutorials can be written under Support->Tutorials.
  - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
- - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
+ - Don't refer to the same page twice in properdocs.yml -> sitemap breaks + weird menu action
  - If possible, try to keep your markdown lines shorter than 100 columns to improve readability
    and reviewability of the source material
    - Note that, for example, tables and preformatted code blocks cannot be split,
@@ -98,7 +98,7 @@
 
 If there's a URL that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made by either
 
-1. Adding an entry of the form `'page/to/link-from.md': 'target/page/to/link-to.md'` into _redirect\_maps_ under _plugins.redirects_ in _mkdocs.yaml_:
+1. Adding an entry of the form `'page/to/link-from.md': 'target/page/to/link-to.md'` into _redirect\_maps_ under _plugins.redirects_ in _properdocs.yaml_:
 
     ```yaml
     plugins:

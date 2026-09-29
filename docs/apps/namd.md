@@ -105,10 +105,9 @@ The data also shows the following things:
 
 #### Multi-GPU performance
 
-!!! warning-label
-    Given the scarcity of GPUs on Puhti and Mahti, and the absence of NAMD on Roihu-GPU, we currently recommend running
+!!! warning inline end ""
+    Given the scarcity of GPUs on Puhti and Mahti, we highly recommend running
     multi-GPU NAMD simulations on LUMI-G.
-
 
 The plot below shows the scalability of NAMD 3.0 on Puhti, Mahti and LUMI-G. To
 run on multiple GPUs efficiently, you typically need a rather large system

@@ -1,7 +1,7 @@
 from typing import Optional, Callable
 
 from .ordering import OrderedValue
-from .apps import App, DocsApp, AppendixApp
+from .apps import App, AppendixApp
 from .config import CatalogConfig
 
 
@@ -15,7 +15,7 @@ class Catalog:
 
     def __init__(self, config: CatalogConfig):
         self.__ordered = {key: (values
-                                if all(type(value) is str for value in values)
+                                if all(isinstance(value, str) for value in values)
                                 else [value.get("name", "")
                                       for value
                                       in values

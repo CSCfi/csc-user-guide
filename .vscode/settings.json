@@ -6,18 +6,19 @@
         * Codium: https://open-vsx.org/extension/redhat/vscode-yaml
 
     */
-    "yaml.schemas": {
-        "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
-    },
-    "yaml.customTags": [
-        "!ENV scalar",
-        "!ENV sequence",
-        "!relative scalar",
-        "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
-        "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
-        "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
-    ],
-    /* All of the .html files under 'csc-overrides' are actually Jinja templates.
+  "yaml.schemas": {
+    "https://jaywhj.github.io/mkdocs-materialx/schema.json": "properdocs.yml"
+  },
+  "yaml.customTags": [ 
+    "!ENV scalar",
+    "!ENV sequence",
+    "!relative scalar",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+    "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
+  ],
+    /* All of the .html files under 'overrides' are actually Jinja templates.
        For syntax highlighting or snippets and such, install e.g. the 'Better Jinja' extension
 
        * VS Code: https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml
@@ -26,7 +27,8 @@
 
     */
     "files.associations": {
-        "**/csc-overrides/**/*.html": "jinja-html",
+        "**/overrides/**/*.html": "jinja-html",
+        "**/overrides/**/*.jinja.css": "jinja-css",
     },
     // Set line endings for new files explicitly to LF ("\n") instead of CRLF ("\r\n").
     "files.eol": "\n",
