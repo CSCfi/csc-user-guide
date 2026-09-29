@@ -7,10 +7,11 @@ catalog:
   license_type: Free
   disciplines:
     - Biosciences
+    - Chemistry
   available_on:
     - web_interfaces:
-        - Puhti
-    - Puhti
+        - Roihu
+    - Roihu
 ---
 
 # Grace
@@ -20,7 +21,7 @@ it, but Grace can also be used for some numerical analyses.
 
 ## Available
 
-* Puhti: 5.1.25
+* Roihu-CPU: 5.1.25
 
 ## License
 
@@ -37,7 +38,7 @@ module load grace
 And start with `xmgrace` or show a plot directly with `xmgrace input.xvg`.
 
 Note, that you need remote graphics to work with Grace. An easy way is through the
-[Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+[Roihu web interface remote desktop](../computing/webinterface/desktop.md).
 
 ## More information
 
