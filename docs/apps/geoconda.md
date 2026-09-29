@@ -9,7 +9,6 @@ catalog:
     - Geosciences
   available_on:
     - LUMI
-    - Mahti
 ---
 
 # Geoconda
@@ -138,10 +137,7 @@ If you think that some important GIS package for Python is missing from here, yo
 The `geoconda` module is available:
 
 * 3.14.4 (Python 3.14.4, PDAL 2.10.0, GDAL 3.12.2, created May 2026), in LUMI
-* 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created March 2026), in Mahti
 * 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in LUMI.
-* 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Mahti.
-* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Mahti.
 
 Version number is the same as the Python version.
 
