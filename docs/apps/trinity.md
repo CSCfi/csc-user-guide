@@ -88,8 +88,8 @@ Look here for [more information about running batch jobs](../computing/running/g
 
 Please also check the [Trinity website](https://github.com/trinityrnaseq/trinityrnaseq/wiki) to get hints for estimating the required resources.
 
-!!! note "AutoTrinotate not currently available in Roihu"
-AutoTrinotate is not currently available on Roihu. We are looking into adding it.
+!!! note ""
+    AutoTrinotate is currently not available on Roihu. We are looking into adding it.
 
 
 ## More information
