@@ -15,7 +15,7 @@ extra:
       name: material/alert-circle # Choose one (emojis not supported) from here https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search
       mirror: false # Toggle mirrored right-hand side icon
     color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
-    content: |-
+    content: |- # Make sure to also update the translation in mkdocs_fi.yml
       <p>Puhti and Mahti computing services have been decommissioned. Puhti and Mahti login nodes and storage services will remain available until 15 October 2026, but are no longer covered by service contracts. <strong>Please clean up and migrate your data to Roihu ASAP.</strong> See <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
