@@ -27,6 +27,8 @@ Contents:
 
 ## Limitations
 
+* Each secondary use dataset must have its own CSC project, so same environment can't be used for different datasets. Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller.
+
 * SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to any HPC platform.
 
 * **Data export from SD Desktop is restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
