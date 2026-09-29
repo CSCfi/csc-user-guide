@@ -117,7 +117,7 @@ includes following python packages:
     
 Additionally geoconda includes:
 
--   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [Mahti web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
+-   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). Not in 3.14.3.
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
@@ -174,21 +174,19 @@ You can add more Python packages to `geoconda` by following the instructions in 
 
 You can edit your Python code with:
 
-* [Visual Studio Code in Mahti or LUMI web interface](../computing/webinterface/vscode.md)
-* Jupyter Notebook or Lab in [Mahti](../computing/webinterface/jupyter.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
-* Spyder in [Mahti](../computing/webinterface/desktop.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
+* [Visual Studio Code in LUMI web interface](../computing/webinterface/vscode.md)
+* Jupyter Notebook or Lab in [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
+* Spyder in [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
 
-To open Spyder in Mahti or LUMI web interface with remote desktop:
+To open Spyder in LUMI web interface with remote desktop:
 
-1. Log in to [Mahti](https://mahti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
+1. Log in to [LUMI](https://www.lumi.csc.fi/) web interface.
 2. Open Remote desktop: Apps -> Desktop.
-3. After launching the remote desktop:
-    * on Mahti, open `Terminal` (Desktop icon)
-    * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
+3. After launching the remote desktop, open `Terminal Emulator` from the Menu in the bottom left corner
 4. Start spyder:
-    * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
 
 ```bash
+module use /appl/local/csc/modulefiles
 module load geoconda
 spyder
 ```
@@ -223,13 +221,13 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Geoconda was installed to Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
 conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools geoconda_3.11.10.yml
 ```
 
-Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Mahti using `list-packages` command after loading the `geoconda` module.
+Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked using `list-packages` command after loading the `geoconda` module.
 
 
 ## References
