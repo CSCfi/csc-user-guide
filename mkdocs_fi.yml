@@ -3,6 +3,9 @@ site_url: !ENV [SITE_URL, "https://docs.csc.fi/fi"]
 site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalveluille, tallennusratkaisuille ja ohjelmistoille, mukaan lukien UKK ja tutoriaalit
 
 extra:
+  announcement:
+    content: |-
+      <p>Puhdin ja Mahdin laskentapalvelut ovat poistuneet käytöstä. Puhdin ja Mahdin kirjautumisnoodit sekä tallennustila ovat saatavilla 15. lokakuuta 2026 asti, mutta ne eivät enää ole palvelusopimusten piirissä. <strong>Ryhdythän toimiin datan siirtämiseksi Roihuun välittömästi.</strong> Ohjeita löydät sivulta <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihun datan siirto-opas</a>.</p>
   analytics:
     feedback:
       title: Onko tämä sivu hyödyllinen?
