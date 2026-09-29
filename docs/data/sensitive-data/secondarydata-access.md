@@ -6,7 +6,7 @@
 
 Using CSC services is based on CSC projects managed in MyCSC customer portal. Every CSC project has a primary user i.e. **project manager** who creates the project and manages its resources and lifetime. A project manager is usually the leader of the research team. He also acts as a contact person between CSC and the research team.
 
-When a project processes dataset for which a data permit has been granted by Findata or any other data controller from public registers, a specific **Secondary Use type project** is needed, for which **CSC approves the project members and allows data access based on the data permit**. Sensitive Data (SD) Desktop and Sensitive Data (SD) Connect form a registered environment for secondary use of health and social data (register data) when accessed under this project type.
+When a project processes dataset for which a data permit has been granted by Findata or by any other data controller from public registers, a specific **Secondary Use type project** is needed, for which **CSC approves the project members and allows data access based on the data permit**. Sensitive Data (SD) Desktop and Sensitive Data (SD) Connect form a registered environment for secondary use of health and social data (register data) when accessed under this project type.
 
 Contents:
 
