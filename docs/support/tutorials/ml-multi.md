@@ -88,7 +88,7 @@ if you reserve 1 GPU out of 4, the other resources should be reserved
 On Roihu each GH200 GPU is actually a superchip containing a GPU, CPU
 and the CPU memory in a single tightly integrated unit. On Roihu you
 will automatically get the full memory of the GH200 superchip (95 GiB
-of HBM3 memory + 122 GiB of LPDDR5 memory = 217 GiB). For the CPU
+of HBM3 memory + 117 GiB of LPDDR5 memory = 212 GiB). For the CPU
 cores you can allocate up to 72 cores (the entire ARM CPU of the
 superchip).
 

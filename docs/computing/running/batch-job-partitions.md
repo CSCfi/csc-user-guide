@@ -73,12 +73,12 @@ Roihu provides the following partitions for submitting jobs to GPU nodes:
 
 | Partition        | Allocation type | Time limit | Nodes  | Min GPUs | Max GPUs      | [Node types](../systems-roihu.md#nodes) | Max memory       | Requirements       |
 |------------------|-----------------|------------|--------|----------|---------------|-----------------------------------------|------------------|--------------------|
-| `gputest`        | G               | 15 minutes | 1 - 2  | 1        | 4 per node    | GPU                                     | 217 GiB per reserved GPU |                    |
-| `gpumedium`      | G               | 36 hours   | 1 - 4  | 1        | 4 per job     | GPU                                     | 217 GiB per reserved GPU |                    |
-| `gpularge`       | G               | 36 hours   | 1 - 10 | 4        | 4 per node    | GPU                                     | 217 GiB per reserved GPU | [scalability test](../../accounts/how-to-access-roihu-large-partition.md) |
+| `gputest`        | G               | 15 minutes | 1 - 2  | 1        | 4 per node    | GPU                                     | 212 GiB per reserved GPU |                    |
+| `gpumedium`      | G               | 36 hours   | 1      | 1        | 4 per job     | GPU                                     | 212 GiB per reserved GPU |                    |
+| `gpularge`       | G               | 36 hours   | 1 - 10 | 4        | 4 per node    | GPU                                     | 212 GiB per reserved GPU | [scalability test](../../accounts/how-to-access-roihu-large-partition.md) |
 
 Each full GPU node has 4 GH200 GPUs. Each reserved GPU grants access to up to **72 CPU cores**, and
-95 GiB of HBM3 memory + 122 GiB of LPDDR5 memory, for a total of **217G available memory** per reserved GPU.
+95 GiB of HBM3 memory + 117 GiB of LPDDR5 memory, for a total of **212GiB available memory** per reserved GPU.
 
 The memory amounts listed here are the allocatable amounts available to jobs;
 some memory is reserved for system use.

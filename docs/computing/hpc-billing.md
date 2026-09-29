@@ -97,7 +97,7 @@ or the total amount of local storage reserved via the `gres` Slurm option on the
      = 2000 GPU BU
      ```
 
-     CPU cores (72 per GPU) and memory (217G per GPU) are not billed separately.
+     CPU cores (72 per GPU) and memory (212G per GPU) are not billed separately.
 
 ### Storage
 
