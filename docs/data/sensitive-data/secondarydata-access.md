@@ -6,7 +6,7 @@
 
 Using CSC services is based on CSC projects managed in MyCSC customer portal. Every CSC project has a primary user i.e. **project manager** who creates the project and manages its resources and lifetime. A project manager is usually the leader of the research team. He also acts as a contact person between CSC and the research team.
 
-When a project processes dataset for which a data permit has been granted by Findata or a data controller from some other public register, a specific **Secondary Use type project** is needed, for which **CSC approves the project members and allows data access based on the data permit**. Sensitive Data (SD) Desktop and Sensitive Data (SD) Connect form a registered environment for secondary use of health and social data (register data) when accessed under this project type.
+When a project processes dataset for which a data permit has been granted by Findata or any other data controller from public registers, a specific **Secondary Use type project** is needed, for which **CSC approves the project members and allows data access based on the data permit**. Sensitive Data (SD) Desktop and Sensitive Data (SD) Connect form a registered environment for secondary use of health and social data (register data) when accessed under this project type.
 
 Contents:
 
@@ -19,22 +19,20 @@ Contents:
     
 ## Key features
 
-* Audited against Findata regulation.
+* SD Desktop and SD Connect are audited against Findata regulation.
 
-* To comply with the regulation, virtual desktops for secondary use are completely isolated from the internet and other services: you can only access the data you have requested from the data controller;
+* To comply with the regulation, the CSC Secondary use project type must be used, and the data controllers must transfer their data in collaboration with CSC.
+
+* Secondary use data from the registers can only be accessed on SD Desktop.
 
 ## Limitations
 
-* To comply with the regulation, SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to any HPC platform.
+* SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to any HPC platform.
 
-* **The import of data and software is restricted in SD Desktop**. You cannot import any data or software yourself for security reasons. If you are working with a dataset for which you have received a permit from the data controller, the only way to access the data for analysis is by utilizing a specific application called **Data Gateway**. 
-
-* **Data export from SD Desktop is also restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
+* **Data export from SD Desktop is restricted**. Only *non-sensitive* results can be exported from the workspace, and those can only be exported by the CSC project manager. Instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
 
 ## Before you start
 
-* You need to have a data permit issued by Findata or a single register before starting the service access process at CSC. This is required already in the project creation form.
+* You need to have a data permit issued by Findata or another register before starting the service access process at CSC. This is required for the project creation.
 
-* The audited secondary use enviroment has few important limitations: the CSC project will be managed by the service desk and the register data will be accessible only on SD Desktop.
-
-* After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to request to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
+* After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
