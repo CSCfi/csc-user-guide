@@ -27,7 +27,7 @@ Contents:
 
 ## Limitations
 
-* Each secondary use dataset must have its own CSC project, so same environment can't be used for different datasets. Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller.
+* Each secondary use dataset must have its own CSC project, so same environment can't be used for different datasets. Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller in accordance with the secondary use act.
 
 * SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to any HPC platform.
 
