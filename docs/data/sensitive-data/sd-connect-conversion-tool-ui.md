@@ -1,19 +1,31 @@
-# SD Connect Conversion tool
+# SD Connect bucket name Conversion tool
 
-<div class="grid cards" markdown>
+## On this page:
 
-- :material-alert:{ .lg .middle } **Page is under construction**
+
+-  [1.Download and install SD Connect Conversion tool](#1-download-and-install-sd-connect-conversion-tool)
+-  [2. Using SD Connect Conversion tool](#2-using-sd-connect-conversion-tool)
+-  [2.1 Login to Conversion tool](#21-login-to-conversion-tool)
+-  [2.2 Select project](#22-select-project)
+-  [2.3 Add project's temporary API key](#23-add-projects-temporary-api-key)
+-  [2.4 Select buckets to convert](#24-select-buckets-to-convert)
+-  [2.5 During conversion](#25-during-conversion)
+-  [2.6 If conversion is interrupted](#26-if-conversion-is-interrupted)
+-  [2.7 Finish conversion](#27-finish-conversion)
+
+
+
+This guide helps you to install and use SD Connect Conversion tool to convert bucket names in a compatible format. 
+
+In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
+
+- :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
-    ---
-    
-    This page and content is under construction and development.
-
+    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
+  
 </div>
 
-
-
-This guide helps you to install and use SD Connect Conversion tool.
 
 
 ___
@@ -24,14 +36,12 @@ ___
 
 ??? default "Installation guide for macOS"
 
-    1. Download the SD Connect Conversion Tool.
+    1. Download the SD Connect Conversion Tool for mac
 
     2. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. (If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this **Settings** window select **Sidebar** tab and then select **Home folder** to make it visible in the sidebar.)
 
         ![Find Home folder](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_1.png)
       
-In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
-
     3. Right-click **Applications** folder. Select **New Terminal at Folder**.
 
         ![New Terminal](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_mac_2.png)
@@ -68,11 +78,19 @@ In SD Connect UI you will see buckets marked with **Urgent** label. These bucket
 
 ??? default "Installation guide for Linux"
 
+    1. Download the SD Connect Conversion Tool for Linux
+
+    2. **GUI fails to start due to a sandbox permission error**. The GUI uses Chromium internally. On Linux, Chromium normally starts with a security feature called the sandbox         enabled. You do not need to enable this yourself. On some Linux systems, the GUI may fail to start because Chromium does not have the permissions required to initialize the         sandbox.
+    If you encounter this error, there are two possible solutions:
+    2.1 Recommended: Correct the ownership and permissions of the required sandbox file. This requires sudo access. Instructions are provided below.
+    If you do not have sudo access: The GUI can be started with --no-sandbox.
+    2.2 --no-sandbox disables Chromium's sandboxing protections, so this workaround should only be used in a trusted environment.
+
 
 
 ??? default "Installation guide for Windows"
 
-    1. Download the SD Connect Conversion Tool.
+    1. Download the SD Connect Conversion Tool for Windows
 
     2. Open your **Downloads** folder and **extract** the folder you just downloaded.
 
@@ -93,11 +111,16 @@ In SD Connect UI you will see buckets marked with **Urgent** label. These bucket
         ![Run anyway](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_5.png)
 
 
+### Download the application for other operating systems
+
+The available versions of SD Connect S3 Migrate can be found on the GitHub Releases page
+
+
 ___
 
-## 2. Using SD Connect Converter tool
+## 2. Using SD Connect Conversion tool
 
-### 2.1 Login to Converter tool
+### 2.1 Login to Conversion tool
 
 - Launch SD Connect Conversion tool and login with your CSC credentials.
 
@@ -114,7 +137,7 @@ ___
 
 ### 2.3 Add project's temporary API key
 
-- Next Converter tool will ask to add project's temporary API key. Follow instructions below.
+- Next Conversion tool will ask to add project's temporary API key. Follow instructions below.
 
     1. Log in to [SD Connect](https://sd-connect.csc.fi).
     2. Select project you want to convert from dropdown.
@@ -154,7 +177,7 @@ ___
 Conversion pauses if your laptop runs out of power or loses internet connection. You can continue conversion easily.
 
 1. Launch SD Connect Conversion tool and login with your CSC credentials.
-2. Converter tool will show you that conversion has been interrupted.
+2. Conversion tool will show you that conversion has been interrupted.
     - If a new API key is needed, it will be shown in the tool. Follow these instructions.
 3. Continue by clicking **Continue conversion**.
 
@@ -174,3 +197,10 @@ In this final step if the converted bucket has -conv suffix the original incompa
 * Finally, re-login to SD Connect. Labels should have been removed. In your buckets you should now see bucket size, item size and also the sharing information.
 
 
+### 2.8 Any issues
+
+If you have problems during conversion, please follow these steps:
+
+- On your laptop open Documents > SD-Connect-S3-Migrate folder. There you will find a file called **migration-logfile.log**.
+  
+- Please share this file with us via servciedesk@csc.fi (subject SD Connect) and describe shortly the problem you encountered. 
