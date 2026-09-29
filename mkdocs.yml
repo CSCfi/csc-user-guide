@@ -356,6 +356,8 @@ nav:
           - Python SDK: computing/firecrest/pyfirecrest.md
       - AI Tools:
           - computing/ai-tools/index.md
+          - Agent Environment: computing/ai-tools/agent-env.md
+          - Docs MCP Server: computing/ai-tools/docs-mcp.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
