@@ -8,7 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # TopHat
@@ -23,34 +23,36 @@ Free to use and open source under [Boost Software License 1.0](https://github.co
 
 ## Available
 
--   Puhti: 2.1.1
--   [Chipster](https://chipster.csc.fi) graphical user interface
+* Roihu: 2.1.2, via the `bio-apps` module.
 
 ## Usage
 
-On Puhti, TopHat is initialized with the command:
+TopHat is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the TopHat module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load tophat/2.1.2
 ```
 
-The biokit module sets up a set of commonly used bioinformatics tools, including Bowtie2, TopHat2 and Cufflinks.
-
-Tophat jobs should be run as batch jobs. Below is a sample batch job file for running a TopHat job on Puhti:
+Tophat jobs should be run as batch jobs. Below is a sample batch job file for running a TopHat job on Roihu:
 
 ```bash
-!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=tophat
+#SBATCH --account=<project>
 #SBATCH --output=out_%j.txt
 #SBATCH --error=err_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G
-#SBATCH --time=24:00:00
-#SBATCH --partition=small
-#SBATCH --account=project_1234567
 
-module load biokit
+module load bio-apps/v202603
+module load tophat/2.1.2
+
 tophat -p $SLURM_CPUS_PER_TASK -o tophat_results Homo.sapiens_bwt2_index reads1.fq reads2.fq 
 ```
 
@@ -58,7 +60,7 @@ In the batch job example above, one task (`--ntasks=1`) is executed. The job use
 
 Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat, this is done with the `-p` command-line argument. We can use system variable `$SLURM_CPUS_PER_TASK` to automatically match the reservation made with `--cpus-per-task`. This way we don't need to change the command-line if we change the reservation.
 
-See the [Puhti user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

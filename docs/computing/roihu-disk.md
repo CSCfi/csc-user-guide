@@ -24,7 +24,7 @@ See [a more technical description of the Lustre filesystem on CSC supercomputers
 |-------------|--------|--------------------|----------------------|---------------------|----------------|
 |**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
 |**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
-|**scratch**  |Project |Not defined         |`/scratch/<project>`  |180 days             |No              |
+|**scratch**  |Project |Not defined         |`/scratch/<project>`  |90 or 180 days       |No              |
 |**dataset**  |Project |Not defined         |`/dataset/<project>`  |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
@@ -47,7 +47,7 @@ These disk areas have quotas for both the amount of data and total number of fil
     recommend that you always first ensure that the data you have stored on the
     shared file system is really needed and in active use. Unused data should be
     deleted or moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
-    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
+    and cleaning data on supercomputer disks](../support/tutorials/clean-up-data.md)
     is also available.
 
 ## Home directory
@@ -79,7 +79,9 @@ You should aim to run your jobs on the supercomputer in this `scratch` directory
 The scratch directory is **not intended for long-term storage**. Files that have not 
 been accessed for a long time may be automatically removed to free up space.
 The current policy on Roihu is to remove files that have not been accessed for
-more than 180 days.
+more than 180 days (scratch quota less than 5 TiB) or 90 days (scratch quota
+5 TiB or more). See the [Usage policy](usage-policy.md#disk-cleaning) page for
+details on the current policy.
 
 Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
@@ -110,7 +112,8 @@ csc-workspaces
 ```
 
 The above command displays all `scratch` and `projappl` directories you have access to.
-It also displays which of your projects are subject to the 180 day `scratch` cleaning cycle.
+It also displays which of your projects are subject to the 90 day `scratch` cleaning
+cycle and which to the 180 day `scratch` cleaning cycle.
 
 For example, if you are a member in two projects, with unix groups `project_2000123`
 and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
@@ -132,7 +135,7 @@ Project: project_2000123 "Project X"
 Project: project_2001234 "Project Y"
 
 /projappl/project_2001234        25G/100G       282K/1.0M       n/a
-/scratch/project_2001234         7.2/10TB       2.1M/2.5M       180d
+/scratch/project_2001234         7.2/10TB       2.1M/2.5M       90d
 ----------------------------------------------------------------------
 ```
 
@@ -295,7 +298,7 @@ For example, to reserve the maximum amount of 13 TB, use:
 ```
 
 Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
-you can use in `/local_scrach/${USER}/${SLURM_JOB_ID}/`.
+you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
 
 ??? info "Example Slurm script for using local scratch memory in hugemem nodes"
      ```
@@ -330,8 +333,6 @@ local scratch usage consumes.
 
 ## Disaggregated storage
 
-!!! warning "Disaggregated storage is currently unavailable"
-
 It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
 This fast storage capacity is provided over the network and will appear as local scratch from 
 within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
@@ -339,15 +340,15 @@ to get larger capacity fast storage for your jobs.
 
 ### Requesting storage from slurm
 
-<!---
 !!! warning "Disaggregated storage is currently only available on full node jobs"
     
     At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
-    if you are submitting to the `medium` and `large` partitions on the cpu side. 
+    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
+    nodes with the `--exclusive` flag on the GPU partitions.
+
     Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
-    without producing standard output or error logs. 
+    without producing standard output or error logs.
     Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
---->
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:
@@ -371,6 +372,13 @@ Alternatively you can pass the request in a file using the `--bbf` flag, for exa
 
 ```bash
 srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
+```
+
+For reserving disaggregated storage on the GPU partitions, include the `--exclusive` flag. Note that you will be
+billed for the full node regardless of how many GPUs you reserve.
+
+```bash
+srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --exclusive --bbf bb.spec --pty bash -i
 ```
 
 !!! warning "Steps must use `srun`!"

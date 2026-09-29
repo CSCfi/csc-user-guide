@@ -1,6 +1,6 @@
 !!! error "Advanced level"
     You need to have Docker and Python knowledge.  
-    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../../cloud/rahti/usage/cli.md)
+    Regarding Rahti, we will privilege the use of OpenShift CLI tool [oc](../../cloud/rahti/get-started/cli.md)
 
 # Monitor Pukki DBaaS instance sizes from a Rahti CronJob using application credentials
 
@@ -95,7 +95,7 @@ Push the image:
 sudo docker push image-registry.apps.2.rahti.csc.fi/<replace me>/db-monitor:latest
 ```
 
-For more info about Rahti registry [read here](../../cloud/rahti/images/Using_Rahti_integrated_registry.md)
+For more info about Rahti registry [read here](../../cloud/rahti/usage/images/integrated-registry.md)
 
 # 5. Configure the CronJob
 

@@ -31,31 +31,38 @@ Examples of application areas of EMBOSS tools are given below.
 * Presentation tools for publication
 * RNA secondary structure prediction
 
+[TOC]
+
 ## License
 
 Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 
 ## Available
 
-- Roihu: 6.6.0
-- [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSS tools.
+* Roihu-CPU: 6.6.0, via the `bio-apps` module.
+* [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSS tools.
 
 ## Usage
 
-EMBOSS can be taken in use by first loading the bio-apps module:
+EMBOSS is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the EMBOSS module:
 
 ```bash
-module load bio-apps
-module load emboss
+module load bio-apps/v202603
+module load emboss/6.6.0
 ```
 
-After loading the modules, you can start any of the EMBOSS programs by typing its name. For example:
+After loading, you can start any of the EMBOSS programs by typing its name. For example:
 
 ```bash
 wossname
 ```
 
 The `wossname` command is a help tool that you can use to see what EMBOSS commands are available. You can also use it to search EMBOSS tools using keywords.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

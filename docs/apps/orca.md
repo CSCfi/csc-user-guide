@@ -15,7 +15,7 @@ catalog:
 
 # ORCA
 
-[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) is an ab initio quantum chemistry
+[ORCA](https://orcaforum.kofo.mpg.de/) is an ab initio quantum chemistry
 program package that contains modern electronic structure methods including density functional
 theory, many-body perturbation, coupled cluster, multireference methods, and semi-empirical
 quantum chemistry methods. Its main field of application is larger molecules, transition metal
@@ -34,7 +34,7 @@ Note that due to licensing issues every user has to install their own copy of th
 ## License
 
 ORCA users should register, agree to the EULA, download and install a private copy of the
-program (via [the ORCA forum website](https://orcaforum.kofo.mpg.de/app.php/portal)). The
+program (via [the ORCA forum website](https://orcaforum.kofo.mpg.de/)). The
 free version is available only for academic use at academic institutions.
 
 ## Usage
@@ -271,7 +271,7 @@ used in your studies!
 
 ## More information
 
-- [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/app.php/portal)
+- [ORCA Forum (login with the same credentials as you used for downloading)](https://orcaforum.kofo.mpg.de/)
 - [ORCA 6 Changes](https://www.faccts.de/docs/orca/6.0/manual/contents/changes.html)
 - [ORCA 6 Manual](https://www.faccts.de/docs/orca/6.0/manual/)
 - [ORCA 6 Tutorials](https://www.faccts.de/docs/orca/6.0/tutorials/)

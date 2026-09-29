@@ -8,54 +8,54 @@ applications on CSC's supercomputers. It is part of our
 
 CSC's supercomputers have three types of shared disk areas: **home**,
 **projappl** and **scratch**. You can
-[read more about the disk areas here](../../computing/disk.md). For
+[read more about the disk areas for Roihu here](../../computing/roihu-disk.md). For
 [LUMI check the data storage section here](https://docs.lumi-supercomputer.eu/storage/).
 In general, keep your code and software in **projappl** and datasets,
 logs and calculation outputs in **scratch**. The **home** directory is
 not intended for data analysis and computing, and you should only
 store small personal files there.
 
-In addition,
-[LUMI has a shared **flash** storage area](https://docs.lumi-supercomputer.eu/storage/)
-which is faster to access than scratch. Flash is meant only for temporary
-storing the data for processing, and the
-[flash area has higher cost than using normal scratch storage](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#flash-storage-lumi-f-billing).
+In addition, [LUMI has a shared **flash** storage area
+LUMI-F](https://docs.lumi-supercomputer.eu/storage/#__tabbed_1_4)
+which is faster to access than scratch. Note that [LUMI-F has higher
+cost than using normal scratch
+storage](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#flash-storage-lumi-f-billing).
 
-It is recommended to store big datasets in the
-[Allas object store](../../data/Allas/index.md), and download them to your
-project's scratch directory prior to starting your computation. For example:
+It is recommended to store datasets in the [Allas object
+store](../../data/Allas/index.md), and download them to your project's
+scratch directory prior to starting your computation. For example:
 
 ```bash
 module load allas
 allas-conf
 cd /scratch/<your-project>
-swift download <bucket-name> your-dataset.tar
+s3cmd get s3://<bucket-name>/<your-dataset>.tar
 ```
 
-Anything that needs to be stored for a longer time (project life-time)
-should be copied back to Allas. The
-[scratch disk area will be regularly cleaned of old files](clean-up-data.md),
-and should not be used to store anything important long-term.
+Anything that needs to be stored for a longer time than 180 days
+should be copied back to Allas. The [scratch disk area will be
+regularly cleaned of old
+files](clean-up-data.md#automatic-removal-of-files), and should not be
+used to store anything important long-term.
 
-Some CPU nodes and all GPU nodes on Puhti and Mahti (but *not* LUMI)
-also have fast local NVMe drives with at least 3.6 TB disk space. This
-space is available only during the execution of the Slurm job, and is
-cleaned up afterwards. For data intensive jobs it is often worthwhile
-to copy the data to the NVMe at the start of the job and then to store
-the final results on the scratch drive at the end of the job.
-[See below for more information on how to use the fast local NVMe drive](#fast-local-drive-puhti-and-mahti-only).
+Finally, if you are working with other projects that all need access
+to the same common data, you might consider applying for a [dataset
+project in Roihu](../../computing/roihu-dataset-project.md). A dataset
+project is a good way to host data that is read from often but not
+written often.
 
 ## Using the shared file system efficiently
 
-The training data for machine learning models often consists of a huge number of
-files. A typical example is training a neural network with tens of thousands of
-relatively small JPEG image files. Unfortunately the Lustre file system used in
-`/scratch`, `/projappl` and users' home directories does not perform
-well with random access of a lot of files or when performing many
-small reads. In addition to slowing down the computation it may also
-in extreme cases **cause noticeable slowdowns for all users of the
+The training data for machine learning models often consists of a huge
+number of files. A typical example is training a neural network with
+hundreds of thousands of relatively small image or text
+files. Unfortunately the Lustre file system used in `/scratch`,
+`/projappl` and users' home directories **does not perform well with
+random access of a lot of files or when performing many small
+reads**. In addition to slowing down the computation it may also in
+extreme cases cause noticeable slowdowns for all users of the
 supercomputer, sometimes making the entire supercomputer unusable for
-hours**.
+hours.
 
 !!! note
     Please **do not read a huge number of files from the shared file system**.
@@ -92,53 +92,51 @@ to access your data more efficiently.
 [LUMI-AI-data]: https://github.com/Lumi-supercomputer/LUMI-AI-Guide/tree/main/03-file-formats#readme
 [tfrecord-example]: https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb
 
-### Fast local drive (Puhti and Mahti only)
+### Fast local drive
 
 If you really need to access the individual small files, you can use
-the fast NVMe local drive that is present in GPU nodes on Puhti and
-Mahti. In brief, you just need to add `nvme:<number-of-GB>` to the
-`--gres` flag in your submission script, and then the fast local
-storage will be available in the location specified by the environment
-variable `$LOCAL_SCRATCH`. Here is an example run that reserves 100 GB
-of the fast local drive and extracts the dataset tar-package on that
-drive before launching the computation:
+the [fast NVMe local drive that is present in all compute nodes on
+Roihu](../../computing/roihu-disk.md#compute-nodes). This area can be
+accessed in the location specified by the environment variable
+`$TMPDIR`, and for GPU jobs it has a maximum capacity of 150 GiB.
+
+Here is an example run for Roihu that extracts the dataset tar-package
+to `$TMPDIR` before launching the computation:
 
 ```bash
 #!/bin/bash
 #SBATCH --account=<project>
-#SBATCH --partition=gpu
+#SBATCH --partition=gpumedium
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=64G
+#SBATCH --cpus-per-task=72
 #SBATCH --time=1:00:00
-#SBATCH --gres=gpu:v100:1,nvme:100
+#SBATCH --gres=gpu:gh200:1
 
-tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
+tar xf /scratch/<your-project>/your-dataset.tar -C $TMPDIR
 
-srun python3 myprog.py --input_data=$LOCAL_SCRATCH <options>
+srun python3 myprog.py --input_data=$TMPDIR <options>
 ```
 
-Note that you need to communicate somehow to your own program where to find the
-dataset, for example with a command line argument. Also see our
-[general instructions on how to take the fast local storage into use](../../computing/running/creating-job-scripts-puhti.md#local-storage).
+Note that you need to communicate to your own program where to find
+the dataset, for example with a command line argument. Also see our
+[general instructions on how to take the fast local storage into
+use](../../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
 
 If you are running a [multi-node job](ml-multi.md), you need to modify the `tar`
 line so that it is performed on each node separately:
 
 ```bash
 srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
-    tar xf /scratch/<your-project>/your-dataset.tar -C $LOCAL_SCRATCH
+    tar xf /scratch/<your-project>/your-dataset.tar -C $TMPDIR
 ```
 
-### Roihu dataset project
 
-If you are working with other projects that all need access to the same common data, you might
-consider applying for a dataset project in Roihu.
+### Disaggregated NVMe
 
-A dataset project provides storage and access management but no computing
-resources. One designated project maintains the dataset, while
-read access can be granted to selected users, projects, or organisations, or alternatively to all Roihu users.
-
-A dataset project is a good way to host data that is read from often but not written often, to avoid duplicate copies of common input or reference data.
-
-Read more about [Roihu Dataset Projects](../../computing/roihu-dataset-project.md).
+Finally, if 150 GiB is not enough, [Roihu also supports disaggregated
+NVMe](../../computing/roihu-disk.md#disaggregated-storage). This fast
+storage capacity is provided over the network and will appear as local
+scratch from within a Slurm job. The total capacity of the
+disaggregated NVMe resource is 307.2 TB. Disaggregated NVMe is still
+considered an experimental feature on Roihu, and is currently
+available only on full node jobs.

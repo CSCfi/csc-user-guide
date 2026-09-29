@@ -23,35 +23,31 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Roihu: 1.48.0
-- [Chipster](https://chipster.csc.fi) graphical user interface
+* Roihu-CPU: 1.48.0, via the `bio-apps` module.
+* [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
-To initialize the default version of Mothur on Roihu, use:
+Mothur is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Mothur module:
 
 ```bash
-module load bio-apps
-module load mothur
+module load bio-apps/v202603
+module load mothur/1.48.0
 ```
 
-To see all the available versions:
+To see the available versions:
 
 ```bash
 module spider mothur
 ```
 
-To load a specific version:
+To run Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours):
 
 ```bash
+sinteractive --account <project> --cores 5
+module load bio-apps/v202603
 module load mothur/1.48.0
-```
-
-To run Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md).
-
-```bash
-sinteractive --account=project_1234567 --cores 4
-module load mothur
 mothur
 ```
 
@@ -65,30 +61,24 @@ Below is a sample Mothur batch job file. In this example, we assume that the Mot
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_1234567
+#SBATCH --account=<project>
 #SBATCH --job-name=mothur
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=48:00:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=32G
-#SBATCH --time=48:00:00
-#SBATCH --partition=small
 
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+module load bio-apps/v202603
+module load mothur/1.48.0
 
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-module load bio-apps
-module load mothur
 mothur my_mothur_task.txt
 ```
 
-If you want to use multiple cores, adjust parameter `--cpus_per_task`. You must also adjust the `processors` parameter for each command in the Mothur command file accordingly. Note that only some [Mothur commands](https://mothur.org/wiki/tags/#commands) can use multiple cores. Check the 
+If you want to use multiple cores, adjust the parameter `--cpus-per-task`. You must also adjust the `processors` parameter for each command in the Mothur command file accordingly. Note that only some [Mothur commands](https://mothur.org/wiki/tags/#commands) can use multiple cores. Check the 
 documentation to check if the options for the command include `processors`.
 
 Mothur jobs need to run inside a single node. You should check the scalability before submitting large jobs. Many Mothur tasks won't scale well beyond a few cores. Using too many cores may even make your job run slower.
@@ -100,7 +90,7 @@ with the command:
 sbatch mothur_batch_job.sh
 ```
 
-See the [Roihu user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

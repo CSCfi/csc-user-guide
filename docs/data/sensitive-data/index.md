@@ -1,5 +1,15 @@
 # Sensitive Data (SD) services for research: user guide
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
+    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
+  
+</div>
+
+
 Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -68,6 +78,7 @@ For convenient access to SD services, visit and bookmark the [Quick access webpa
        - [Contact us](../../support/contact.md), subject: *Sensitive Data services*
        - Join the [CSC Research User Support Coffee - Every Wednesday at 14:00](https://ssl.eventilla.com/usersupportcoffee){ target="_blank" }.
        - We offer on demand training and online meetings to guide you step by step when setting up a project or accessing the service for the first time.
-
+!!! Note
+    When contacting our team, please **do not include sensitive or confidential information, or any personal data that should not be shared** in your message. Before sending screenshots or other attachments, please review them carefully to ensure they do not contain such information. 
 
 Sensitive Data (SD) Services - [Cookie policy](sd-cookie-policy.md)

@@ -291,10 +291,6 @@ the outputs and errors. This can be done adding options `--output` and
 #SBATCH --error=errors_%j.txt
 ```
 
-There are also other available options. For a more detailed
-explanation, please see the User Guide: [Creating a batch job script
-for Puhti](../../computing/running/creating-job-scripts-puhti.md)
-
 When you have written the batch job script, you can submit the job to the queue:
 ```text
 sbatch myjobscript
@@ -381,8 +377,7 @@ Most important things to check are the CPU efficiency and memory utilization.
 
 There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
-you should consider using a node with fast local disk.  For details, please see the User Guide: 
-[Creating a batch job script for Puhti](../../computing/running/creating-job-scripts-puhti.md)
+you should consider using a node with fast local disk.
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,

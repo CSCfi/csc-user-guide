@@ -43,15 +43,16 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-- Roihu: 4.2.0
+* Roihu-CPU: 4.2.0, 4.3.0, via the `bio-apps` module.
 
 ## Usage
 
-SPAdes can be taken in use by first loading the bio-apps module:
+SPAdes is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the SPAdes module:
 
 ```bash
-module load bio-apps
-module load spades
+module load bio-apps/v202603
+module load spades/4.3.0
 ```
 
 For usage help, use command:
@@ -60,7 +61,7 @@ For usage help, use command:
 spades.py -h
 ```
 
-Assembly tasks can be very resource demanding and, therefore, you should never run real SPAdes jobs on the login nodes of Roihu.
+Assembly tasks can be very resource demanding and, therefore, you should never run real SPAdes jobs on the login nodes.
 For any real analysis task, we recommend running SPAdes as a batch job.
 
 Sample SPAdes batch job file:
@@ -69,25 +70,17 @@ Sample SPAdes batch job file:
 #!/bin/bash
 #SBATCH --job-name=SPAdes
 #SBATCH --account=<project>
-#SBATCH --output==spades_out
-#SBATCH --error=sprdes_err
+#SBATCH --output=spades_out_%j
+#SBATCH --error=spades_err_%j
+#SBATCH --partition=small
 #SBATCH --time=12:00:00
-#SBATCH --ntasks=1
 #SBATCH --nodes=1
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --partition=small
-
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
-
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
 
 module load bio-apps/v202603
-module load spades/4.2.0 
+module load spades/4.3.0
 
 srun spades.py --pe1-1 reads_R1.fastq.gz --pe1-2 reads_R2.fastq.gz -t $SLURM_CPUS_PER_TASK -o SpadesResult
 ```
@@ -104,7 +97,11 @@ file is named `spades_job.sh`, then the submission command is:
 sbatch spades_job.sh 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

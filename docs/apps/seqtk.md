@@ -23,15 +23,16 @@ Free to use and open source under [MIT License](https://github.com/lh3/seqtk/blo
 
 ## Available
 
-* Roihu: 1.4
+* Roihu-CPU: 1.4, via the `bio-apps` module.
 
 ## Usage
 
-Seqtk can be taken in use by first loading the bio-apps module:
+Seqtk is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Seqtk module:
 
 ```bash
-module load bio-apps
-module load seqtk
+module load bio-apps/v202603
+module load seqtk/1.4
 ```
 
 `seqtk` command syntax is:
@@ -82,8 +83,11 @@ Extract sequences in regions contained in file `reg.bed`:
 seqtk subseq in.fa reg.bed > out.fa
 ```
 
-All seqtk jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+Run seqtk in an [interactive session](../computing/running/interactive-usage.md) or as a batch job, not on the login node. See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

@@ -23,15 +23,16 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Roihu: 0.9.102
+* Roihu-CPU: 0.9.102 (module `py-ipyrad`), via the `bio-apps` module.
 
 ## Usage
 
-On Roihu iPyrad can be taken in use by first loading the bio-apps module:
+iPyrad is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the iPyrad module:
 
 ```bash
-module load bio-apps
-module load py-ipyrad
+module load bio-apps/v202603
+module load py-ipyrad/0.9.102
 ```
 
 !!! info "Note"
@@ -41,38 +42,31 @@ For iPyrad tasks that are not computationally heavy, an
 [interactive batch job](../computing/running/interactive-usage.md) provides 
 a good environment without queuing in between tasks.
 
-You can open an interactive batch job session with the command:
+You can open an interactive batch job session with the command below. On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours), so request enough cores for the memory you need — here 9 cores (about 17 GB):
 
 ```bash
-sinteractive --core 8
+sinteractive --account <project> --cores 9
 ```
 
 iPyrad processing can now be started with the command:
 
 ```bash
-ipyrad -n taskname
-```
-
-This creates a new parameter file (`params-taskname.txt`) that should be edited according to your analysis case.
-
-For example, in the case of job called `run1`:
-
-```bash
 ipyrad -n run1
-module load nano
-nano params-run1.txt
 ```
 
-Once the parameter file is ready, you can start the actual iPyrad analysis. You can set the number of cores
-with the `-c` option:
+This creates a new parameter file (`params-run1.txt`) that should be edited according to your analysis case, for example with a text editor such as `nano`.
+
+Once the parameter file is ready, you can start the actual iPyrad analysis. In interactive batch
+jobs you can run small tasks that use just one computing core. Thus, you should add
+definition `-c 1` to the `ipyrad` command:
 
 ```bash
-ipyrad -p params-run1.txt -s 1234567 -c 8
+ipyrad -p params-run1.txt -s 1234567 -c 1
 ```
 
-## Running heavy iPyrad jobs in Roihu
+## Running heavy iPyrad jobs on Roihu
 
-If you are analyzing large datasets, it is recommended that you run the iPyrad process is several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing, you could run these analysis steps as normal batch jobs.
+If you are analyzing large datasets, it is recommended that you run the iPyrad process in several phases. Some steps of the iPyrad analysis can utilize parallel computing. To speed up the processing, you could run these analysis steps as normal batch jobs.
 
 The first two steps are typically executed rather quickly, and you can run them in an interactive batch job environment (see above). 
 For example, in the case of job `run1`:
@@ -81,7 +75,7 @@ For example, in the case of job `run1`:
 ipyrad -p params-run1.txt -s 12 -c 1
 ```
 
-The third step of the iPyrad analysis runs a clustering for each sample set. Before starting this step, study first the content of the `jobname_edits` directory created by step 2. To check how many samples will be analyzed, you can, for example, count the rows in the file `s2_rawedit_stats.txt`.
+The third step of the iPyrad analysis runs a clustering for each sample set. Before starting this step, study first the content of the `run1_edits` directory created by step 2. To check how many samples will be analyzed, you can, for example, count the rows in the file `s2_rawedit_stats.txt`.
 
 For example:
 
@@ -97,31 +91,24 @@ The parallelization implementation of iPyrad requires that you always have only 
 
 This number of cores (`--ntasks` * `--cpus-per-task`) is then given to the iPyrad command with option `-c`. This is critical, as otherwise iPyrad will only use one core, even if it is requested from Slurm with `--cpus-per-task=8`. Further, if you are using more than one node you should define that MPI is in use (`--MPI`) and that the commands of the pipeline are executed using only one computing core (`-t`).
 
-In the sample case here, we will use 20 cores in one node. If the run time is expected to be more than 3 days, the job should be submitted to longrun partition (`#SBATCH --partition=longrun`). In this case, we reserve 72 hours (3 days). Further, in step 3, the clustering commands are executed using 20 cores (`-c 20`), each running one thread (`-t 1`).
+In the sample case here, we will use 20 cores in one node. On Roihu, a single-node job in the `small` partition can run for up to 3 days; if the run time is expected to be longer, submit the job to the `longrun` partition (`#SBATCH --partition=longrun`, up to 10 days). Here we reserve 72 hours (3 days). Further, in step 3, the clustering commands are executed using 20 cores (`-c 20`), each running one thread (`-t 1`).
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=ipyrad_s3
-#SBATCH --error=ipyrad_err_%j
-#SBATCH --output=put=ipyrad_output_%j
-#SBATCH --mem=128G
 #SBATCH --account=<project>
+#SBATCH --error=ipyrad_err_%j
+#SBATCH --output=ipyrad_output_%j
+#SBATCH --partition=small
 #SBATCH --time=72:00:00
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=20
-#SBATCH --partition=small
+#SBATCH --mem=128G
 
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+module load bio-apps/v202603
+module load py-ipyrad/0.9.102
 
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-module load bio-apps
-module load py-ipyrad
 ipyrad -p params-run1.txt -s 3 -c 20 -t 1 
 ```
 
@@ -138,35 +125,32 @@ For the setups 4-7, a maximum of 8 cores is recommended. Thread assigning option
 ```bash
 #!/bin/bash
 #SBATCH --job-name=ipyrad_s4567
-#SBATCH --error=ipyrad_err_%j
-#SBATCH --output=put=ipyrad_output_%j
-#SBATCH --mem=128G
 #SBATCH --account=<project>
+#SBATCH --error=ipyrad_err_%j
+#SBATCH --output=ipyrad_output_%j
+#SBATCH --partition=small
 #SBATCH --time=72:00:00
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --partition=small
+#SBATCH --mem=128G
 
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+module load bio-apps/v202603
+module load py-ipyrad/0.9.102
 
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-module load bio-apps
-module load py-ipyrad
-ipyrad -p ipyrad-run1.txt -s 4567 -c 8 -t 1 
+ipyrad -p params-run1.txt -s 4567 -c 8 -t 1 
 ```
 
-More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
 
 ## Using cPouta for very long iPyrad jobs
 
-The maximum run time on Roihu is 10 days. In some cases, running the iPyrad analysis step 3 may take even longer time. In those cases, you can use the
+The maximum run time on Roihu is 10 days (the `longrun` partition). In some cases, running the iPyrad analysis step 3 may take even longer. In those cases, you can use the
 [cPouta cloud service](../cloud/pouta/index.md) to set up your own virtual machine.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

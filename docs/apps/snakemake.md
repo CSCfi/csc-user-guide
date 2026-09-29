@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -26,9 +25,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available at CSC:
 
-* Roihu-CPU: 9.11.6, 7.17.1
-* Roihu-GPU: not available
-* Puhti: 7.15.2, 7.17.1, 8.4.6
+* Roihu-CPU: 7.32.4, 9.14.0 (via the `bio-apps` module)
+* Roihu-GPU: 7.32.4, 9.14.0 (via the `bio-apps` module)
 
 ## License
 
@@ -37,24 +35,25 @@ Snakemake is released under the
 
 ## Installation
 
-Snakemake is available as a module in Puhti supercomputer. This options suits well, if the workflow includes commandline-tools from other modules or Apptainer containers. If the workflow includes Python scripts that require custom Python packages, make own Snakemake installation with Tykky.
+On Roihu, Snakemake is part of the [bio-apps](bio-apps.md) collection and is available
+on both CPU and GPU nodes. This option suits well, if the workflow includes commandline-tools from other modules or Apptainer containers. If the workflow includes Python scripts that require custom Python packages, make your own Snakemake installation with Tykky.
 
 ### Snakemake module
 
-Snakemake module is the easiest option. The available version are listed [above](#available).
+The Snakemake module is the easiest option. Load the bio-apps module tree and then the Snakemake module. The available versions are listed [above](#available).
 
 ```bash
-module load snakemake
+module load bio-apps/v202603
+module load snakemake/9.14.0
 snakemake --help   #  to get information on more options.
 ```
 
-Example of loading `snakemake` module with a specific version:
+To load a specific version, for example Snakemake 7:
 
 ```bash
-module load snakemake/8.4.6
+module load bio-apps/v202603
+module load snakemake/7.32.4
 ```
-
-The latest version of snakemake (v8.4.6) was installed on Puhti using virtual environment *via* pip3. See a [list of the python packages used in this module](https://github.com/yetulaxman/containers-workflows/blob/master/snakemake_pip_hpc.yaml).
 
 !!! info "Note"
     Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the syntax might be different.
@@ -63,7 +62,7 @@ The latest version of snakemake (v8.4.6) was installed on Puhti using virtual en
 
 The tools used in the workflow can be installed in following ways:
 
-1. Tools available in other [Puhti modules](../apps/by_discipline.md) or [own custom module](../computing/modules.md#using-your-own-module-files).
+1. Tools available in other [modules](../apps/by_discipline.md) or [own custom module](../computing/modules.md#using-your-own-module-files).
     * If all Snakemake rules use the same module(s), load it before running snakemake commands.
     * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
 2. Own custom installations as Apptainer containers:
@@ -73,7 +72,7 @@ The tools used in the workflow can be installed in following ways:
     * Sometimes it might be necessary to [define the shell inside the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#handling-shell-executable).
 
 ```
-# If your Apptainer tutorial.sif image is stored locally in Puhti in folder "image":
+# If your Apptainer tutorial.sif image is stored locally in folder "image":
 container: "image/tutorial.sif"
 # If you would like to convert a Docker image to Apptainer container image on-the-fly:
 container: "docker://<repository>/<image_name>"
@@ -98,7 +97,7 @@ sed -i 's@#!.*@#!/projappl/project_200xxx/tykky_installation_folder/bin/python@g
 conda-containerize update <path to installation> --post-install post.sh
 ```
 
-If you use own Tykky installation, then in the examples below, replace `module load snakemake` with the export command printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
+If you use own Tykky installation, then in the examples below, replace the `module load` commands with the export command printed out by Tykky, something like: `export PATH="/projappl/project_xxxx/$USER/snakemake_tykky/bin:$PATH"`
 
 !!! info "Note"
     Please note, create one Tykky installation for the whole workflow, not individual installations for each Snakemake rule.
@@ -147,11 +146,12 @@ For more complicated workflows, you can do argument parsing and transformations 
 
 ### Running Snakemake workflow with local executor interactively
 
-The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for [interactive partition](../computing/running/batch-job-partitions.md).
+The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for the [interactive partition](../computing/running/batch-job-partitions.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours).
 
-```
-sinteractive --cores 4 --mem 10000 # start an interactive session with 2 CPU cores and 10 Gb of memory
-module load snakemake
+```bash
+sinteractive --account <project> --cores 6   # ~11 GB of memory
+module load bio-apps/v202603
+module load snakemake/9.14.0
 cd <to_folder_with_snakefile>
 snakemake -s Snakefile --jobs 4
 ```
@@ -160,18 +160,20 @@ snakemake -s Snakefile --jobs 4
 
 ### Running Snakemake workflow with local executor and batch job
 
-The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of supercomputer. The number of cores can be extended depending on the system - 40 in Puhti and 128 in Mahti.
+The resources are reserved in advance, both for Snakemake and the workflow as **one batch job**. The job will run as long as the snakemake command is running and stop automatically when it finishes. Local executor is limited to one node of the supercomputer.
 
 ```bash title="snakemake-local-executor.sh"
 #!/bin/bash
 #SBATCH --job-name=myTest
-#SBATCH --account=project_xxxxx
+#SBATCH --account=<project>
 #SBATCH --time=00:10:00
-#SBATCH --mem-per-cpu=2G
 #SBATCH --partition=small
 #SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=2G
 
-module load snakemake
+module load bio-apps/v202603
+module load snakemake/9.14.0
+
 snakemake -s Snakefile --jobs 4
 ```
 
@@ -183,23 +185,25 @@ sbatch snakemake-local-executor.sh
 
 ### Running Snakemake workflow with SLURM executor
 
-The first batch job file reserves resources only for Snakemake itself. Snakemake then creates further SLURM jobs for workflow's rules. The SLURM jobs created by Snakemake may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise the it could overload SLURM.
+The first batch job file reserves resources only for Snakemake itself. Snakemake then creates further SLURM jobs for workflow's rules. The SLURM jobs created by Snakemake may be distributed to several nodes of a supercomputer and also to use different partitions for different workflow rules, for example CPU and GPU. SLURM executor should be used only, if the job steps are at least 20-30 minutes long, otherwise it could overload SLURM.
 
 Here is a bash script for running the above toy example with SLURM executor:
 
 ```bash title="snakemake-slurm-executor.sh"
 #!/bin/bash
 #SBATCH --job-name=snakemake_slurm
-#SBATCH --account=project_2008498
+#SBATCH --account=<project>
 #SBATCH --time=00:20:00
-#SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=2GB
 #SBATCH --partition=small
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2G
 #SBATCH --output=slurm-%j.out
 #SBATCH --error=slurm-%j.err
 
-module load snakemake
-snakemake --jobs 4  -s Snakefile --executor slurm --default-resources slurm_account=project_xxxx slurm_partition=small
+module load bio-apps/v202603
+module load snakemake/9.14.0
+
+snakemake --jobs 4  -s Snakefile --executor slurm --default-resources slurm_account=<project> slurm_partition=small
 ```
 
 !!! info "Note"
@@ -240,15 +244,18 @@ The resources are reserved in advance, both for Snakemake and the workflow as **
 ```bash title="snakemake-hyperqueue.sh"
 #!/bin/bash
 #SBATCH --job-name=snakemake_hq
-#SBATCH --account=project_2008498
+#SBATCH --account=<project>
 #SBATCH --time=00:20:00
-#SBATCH --cpus-per-task=4
-#SBATCH --mem-per-cpu=40GB
 #SBATCH --partition=small
+#SBATCH --cpus-per-task=4
+#SBATCH --mem-per-cpu=4G
 #SBATCH --output=slurm-%j.out
 #SBATCH --error=slurm-%j.err
 
 module load hyperqueue
+module load bio-apps/v202603
+module load snakemake/9.14.0
+
 export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
 mkdir -p "$HQ_SERVER_DIR"
 hq server start & until hq job list &> /dev/null ; do sleep 1 ; done
@@ -258,7 +265,7 @@ srun --overlap --cpu-bind=none --mpi=none hq worker start \
     --on-server-lost finish-running \
     --cpus="$SLURM_CPUS_PER_TASK" & hq worker wait 1
 
-# snakemake version 8.x.x.x
+# snakemake version 8.x.x and 9.x.x
 snakemake --keep-going -s Snakefile --jobs 4 --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 1"
 
 # snakemake version 7.xx.x

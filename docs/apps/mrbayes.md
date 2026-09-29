@@ -13,8 +13,6 @@ catalog:
 
 # MrBayes
 
-
-
 MrBayes is a program for Bayesian inference on phylogenies.
 
 [TOC]
@@ -25,24 +23,25 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-- Roihu: 3.2.7a
+* Roihu-CPU: 3.2.7a, via the `bio-apps` module.
 
 ## Usage
 
-MrBayes can be taken in use by first loading the bio-apps module:
+MrBayes is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the MrBayes module:
 
 ```bash
-module load bio-apps
-module load mrbayes
+module load bio-apps/v202603
+module load mrbayes/3.2.7a
 ```
 
-After loading the module MrBayes starts with the command:
+MrBayes is started with the `mb` command. The same MPI-enabled binary runs serially when started directly:
 
 ```bash
 mb
 ```
 
-When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
+and in parallel when launched with `srun` in a batch job. When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
 
 ## Batch jobs
 
@@ -77,30 +76,29 @@ Below is an example batch job script for Roihu using 8 cores. We are using 8 cor
 #SBATCH --job-name=my_mrbjob
 #SBATCH --error=my_mrbjob_err%j
 #SBATCH --output=my_mrbjob_out%j
+#SBATCH --partition=small
+#SBATCH --time=01:00:00
 #SBATCH --ntasks=8
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=4000
-#SBATCH --time=01:00:00
-#SBATCH --partition=small
 
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+module load bio-apps/v202603
+module load mrbayes/3.2.7a
 
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-module load bio-apps
-module load mrbayes
 srun mb mb_com.nex >log.txt
 ```
 
-To submit the job on Roihu:
+To submit the job:
 
 ```bash
 sbatch mb_batch 
 ```
+
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

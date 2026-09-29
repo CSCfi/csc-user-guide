@@ -10,5 +10,6 @@
 * [Set up a NFS server](nfs-server.md)
 * [Setting up a pipeline for pictures](picture-pipeline.md)
 * [SSH Key-pair](ssh-key.md)
+* [How to deploy a High Available application in Pouta](high-availability.md)
 
 We also have an [FAQ](../../../support/faq/index.md#pouta) for Pouta. Take a look at it.

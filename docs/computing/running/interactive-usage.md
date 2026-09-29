@@ -51,10 +51,16 @@ Roihu and Mahti due to differences in hardware.
 There are two interactive partitions available on Roihu; `interactive` for CPU 
 resources and `gpuinteractive` for GPU resources. See the
 [Roihu `interactive` partition details](./batch-job-partitions.md#roihu-partitions)
-for information on the available resources. The Roihu `gpuinteractive` partition 
-features GH200 superchips that are divided into a total of 48 smaller slices that 
-have one-seventh of the compute capacity and one-eighth of the GPU memory capacity 
-(12 GiB) of a full GH200 superchip. `sinteractive` will select the correct partition
+for information on the available resources.
+
+Once GPU slicing is implemented, the GH200 GPUs in the `gpuinteractive` partition
+will be divided into smaller Multi-Instance GPU (MIG) slices. Each slice will provide
+one-seventh of the GPU compute capacity and one-eighth of the GPU memory capacity
+of a full GH200 GPU, giving each slice 12 GiB of GPU memory. With two nodes, four
+GPUs per node, and up to seven slices per GPU, the partition can provide up to
+56 GPU slices in total.
+
+`sinteractive` will select the correct partition
 based on your resource request, and will automatically provide you with a GPU if
 run from the GPU login node without additional parameters.
 
@@ -71,24 +77,6 @@ run from the GPU login node without additional parameters.
 
 To see the command options available on Roihu, run the following while
 logged into the system:
-
-```bash
-sinteractive --help
-```
-
-### `sinteractive` on Mahti
-
-On Mahti, each user can have up to 8 active sessions on the `interactive`
-partition. See the
-[Mahti `interactive` partition details](batch-job-partitions.md#mahti-cpu-partitions-with-core-based-allocation)
-for information on the available resources. It is also possible to request a
-a [GPU slice](./batch-job-partitions.md#mahti-gpu-slices) for interactive work by
-using the `-g` flag, which submits the job to the `gpusmall` partition. Note
-that using a GPU slice restricts the amount of CPU cores and memory that is
-available for your job.
-
-As with Roihu, you can see the Mahti-specific command options by running the
-following while logged into the system:
 
 ```bash
 sinteractive --help

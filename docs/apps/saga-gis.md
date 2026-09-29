@@ -10,10 +10,8 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
         - Roihu
     - LUMI
-    - Puhti
     - Roihu
 ---
 
@@ -26,8 +24,7 @@ catalog:
 __SAGA GIS__ is available:
 
 * 9.10.2 in [r-env module](r-env-for-gis.md) with SagaGIS R packages, **in Roihu**
-* [r-env module with different versions](r-env-for-gis.md) with SagaGIS R packages, only **in Puhti**
-* 7.3.0 - [qgis module](qgis.md) without SagaGIS R packages, **in Puhti and LUMI**
+* 7.3.0 - [qgis module](qgis.md) without SagaGIS R packages, **in LUMI**
 
 ## Usage 
 
@@ -47,12 +44,8 @@ You can test that SAGA GIS loaded successfully and print the command line tools 
 
 ```
 module load r-env
-
-# In Roihu
 saga_cmd -h
 
-# In Puhti
-apptainer_wrapper exec saga_cmd -h
 ```
 
 #### SAGA GIS command line interface in LUMI
@@ -67,22 +60,18 @@ saga_cmd -h
 
 ### SAGA GIS Graphical User Interface
 
-#### SAGA GIS Graphical User Interface in Puhti
+#### SAGA GIS Graphical User Interface in Roihu
 
-To use SAGA GIS, open it in Puhti web interface:
+To use SAGA GIS, open it in Roihu web interface:
 
-1. Log in to [Puhti web interface](https://puhti.csc.fi).
+1. Log in to [Roihu web interface](https://roihu.csc.fi).
 2. Open [Desktop app](../computing/webinterface/desktop.md). 
 3. After launching the Desktop, double-click SAGA GIS icon OR open `Terminal` (Desktop icon) and start SAGA GIS:
 
 ```
 module load r-env
-
-# In Roihu
 saga_gui
 
-# In Puhti
-apptainer_wrapper exec saga_gui
 ```
 
 #### SAGA GIS Graphical User Interface in LUMI
@@ -101,6 +90,10 @@ module load qgis
 saga_gui
 saga_cmd
 ```
+
+## Spatial datasets at CSC computing environment
+
+Roihu has hundreds of Finnish spatial datasets available locally, additionally there is more in Allas and cPouta. More info under [Spatial data in CSC computing environment](../data/datasets/spatial-data-in-csc-computing-env.md)
 
 ## License
 

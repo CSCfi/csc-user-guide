@@ -67,11 +67,16 @@ parameters that can be used to select which data is displayed.
     sacct --starttime now-7days > sacct-output.txt
     ```
 
-!!! warning "Do not mix CPU and GPU architectures on Roihu"
-    Although the scheduler allows submitting jobs from CPU login nodes (x86_64) to GPU queue (aarch64) and vice versa, this is **strongly discouraged**: binaries are not portable across architectures and jobs may fail unpredictably. Always submit from a login node matching your target compute nodes.
+!!! info "Submitting jobs across architectures on Roihu"
+    On Roihu, the CPU nodes are x86 and the GPU nodes are ARM, so normally you
+    should submit CPU jobs from `roihu-cpu.csc.fi` and GPU jobs from
+    `roihu-gpu.csc.fi`. Submitting across architectures is possible, but the job
+    inherits an environment built for the wrong architecture unless you take
+    extra care. See
+    [Submitting jobs across architectures](submitting-jobs-across-architectures.md).
 
 ## More information
 
 - [Creating Roihu batch jobs](creating-job-scripts-roihu.md)
-- [Creating Mahti batch jobs](creating-job-scripts-mahti.md)
 - [Available batch job partitions](batch-job-partitions.md)
+- [Submitting jobs across architectures](submitting-jobs-across-architectures.md)

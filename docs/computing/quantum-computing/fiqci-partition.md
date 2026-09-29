@@ -1,22 +1,16 @@
-!!! warning "Q20 Service in MyCSC"
-    There are currently some issues with the Aalto-Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
-
 # Specific instructions for the FiQCI partition on LUMI
 
 The FiQCI partition within LUMI provides access to quantum processing units (QPUs) for users belonging to projects with allocated QPU resources. In addition to executing quantum workloads via LUMI, users can leverage the full LUMI infrastructure, including its software stack and quantum simulators, for development, testing, and hybrid quantum-classical workflows.
-
-!!! info "View status of the quantum computers"
-	You can check the status of the connection here: [https://fiqci.fi/status](https://fiqci.fi/status)
 
 
 ## LUMI Quantum Computing projects vs. regular LUMI projects
 
 Quantum computing projects are slightly different from standard LUMI projects. The main difference is, that you need to apply for quantum resources in addition to CPU, GPU, and storage.
-More information about applying for quantum computing projects can be found from [here](./projects.md).
+More information about applying for quantum computing projects can be found from [here](./access.md).
 
 ## The FiQCI partition `q_fiqci`
 
-While submitting quantum jobs is possible from any LUMI partition, for smaller jobs with low classical resource needs the dedicated quantum `q_fiqci` partition on LUMI may offer shorter queue times on LUMI.
+While submitting quantum jobs is possible from any LUMI partition, for smaller jobs with low classical resource the `q_fiqci` partition on LUMI may offer shorter queue times.
 
 * [Further details on LUMI nodes](https://docs.lumi-supercomputer.eu/hardware/)
 
@@ -30,7 +24,7 @@ Currently, the maximum run time of a quantum job is 2 hours.
 
 ## Storage areas
 
-The `q_fiqci` partition uses the same storage policies as LUMI. You can find [further details on LUMI Storage here](https://docs.lumi-supercomputer.eu/storage/).
+The `q_fiqci` partition uses the same storage policies as LUMI. You can find [further details on LUMI Storage here](https://docs.lumi-supercomputer.eu/storage/){ target=_blank }.
 
 ## Usage and Billing
 

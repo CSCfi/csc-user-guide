@@ -61,7 +61,7 @@ size information. Run `man lfs-find` for further instructions and information on
 There is a [policy](../../computing/usage-policy.md#disk-cleaning) of removing files
 older than **180 days** (`scratch` quota less than 5 TiB) or **90 days** (`scratch` quota
 5 TiB or more) from `scratch` (not `projappl`) to ensure that only actively used data
-resides on the disk (currently implemented only on Puhti).
+resides on the disk.
 
 Files that will be deleted in the next clean up are listed in so called "purge lists" files.
 These are split up by project, and can be found on Lustre at one of the locations below.
@@ -107,7 +107,7 @@ Total size: 798343125192 bytes = 743.515 GiB = 0.726 TiB
 ```
 
 With this information, you are able to estimate how much time might be required to back up the
-data elsewhere, if you want to keep everything on the purge list outside of Puhti's `scratch` file
+data elsewhere, if you want to keep everything on the purge list outside of the `scratch` file
 system.
 The file system tools which CSC uses to generate the list of files to remove will output files
 which are quite verbose and difficult to read. By using the LCleaner tool described in the next section,

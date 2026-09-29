@@ -114,13 +114,13 @@ At the end of the upload process, the command reports:
 
 ```text
 -------------------------------------------------------------------------------
-1 files from Danio_rerio.GRCz10.fa uploaded to bucket 2001659-mahti-SCRATCH in Allas as one file: 
-2001659-mahti-SCRATCH/genomes/zebrafish/Danio_rerio.GRCz10.fa
+1 files from Danio_rerio.GRCz10.fa uploaded to bucket 2001659-roihu-scratch in Allas as one file: 
+2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
 -----------------------------------------------------------------
 
 Upload summary:
               Date                      Name  Files Size(kB)         Location in allas
- 12.10.20 12:10:50     Danio_rerio.GRCz10.fa      1  1330852 2001659-mahti-SCRATCH/genomes/zebrafish
+ 12.10.20 12:10:50     Danio_rerio.GRCz10.fa      1  1330852 2001659-roihu-scratch/genomes/zebrafish
 -----------------------------------------------------------------
 OK
 ```
@@ -261,7 +261,7 @@ Total of 3 hits were found in 2 objects
 ```
 
 The `a-find` report above shows, for example, that the object
-`2001659-mahti-SCRATCH/genomes/zebrafish.tar` contains two files whose names
+`2001659-roihu-scratch/genomes/zebrafish.tar` contains two files whose names
 match `Danio_rerio.GRCz10.fa` (the other file is `Danio_rerio.GRCz10.fa.fai`).
 Note that `a-find` finds matches only among objects that were uploaded with
 `a-put`. Further, `a-find` searches objects with object name only. Don't include the bucket name to the search term.

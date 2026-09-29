@@ -1,6 +1,6 @@
 # Visual Studio Code
-The Visual Studio Code interactive app can be used for editing and running code on Roihu, Puhti, or
-Mahti. Make sure to load the correct modules before launching the session for the debugger to work
+The Visual Studio Code interactive app can be used for editing and running code on Roihu or Mahti.
+Make sure to load the correct modules before launching the session for the debugger to work
 correctly.
 
 In the form, you will be able to select the VSCode version as well as any modules you would like to
@@ -48,7 +48,7 @@ To install the extension:
    installed, the download option may not be available.  
 ![downloading cpptools VSIX](../../img/ood-vscode-cpptools-vsix.png).
 3. Select the *Linux x64* version in the menu that appears.
-4. Upload the extension package, e.g. `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Puhti or Mahti,
+4. Upload the extension package, e.g. `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Roihu or Mahti,
    for example using the file browser in the web interface.
 5. Open VSCode __in the web interface__ and navigate to the extensions tab.
 6. In the extensions tab in VS Code, click the three dots at the top to open a menu.

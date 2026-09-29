@@ -30,5 +30,5 @@ oc annotate route test-rates haproxy.router.openshift.io/rate-limit-connections=
 
 This activates a limit of 10 connections per source IP in a 3 second period.
 
-* See our main [Route](../../cloud/rahti/concepts.md#route) documentation.
+* See our main [Route](../../cloud/rahti/usage/kubernetes-concepts.md#route) documentation.
 * See here the upstream documentation about [Route-specific Annotations](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/ingress_and_load_balancing/routes#nw-configuring-routes)

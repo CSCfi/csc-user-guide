@@ -1,11 +1,15 @@
 .announcement-banner {
-  height: 4em;
+  min-height: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--csc-admonition--bg);
   color: var(--csc-admonition--fg);
   font-size: 1.25em;
+}
+
+.announcement-banner:not(.announcement-urgent) > :not(.announcement-icon) {
+  max-width: calc(var(--csc-content-width) * 0.75);
 }
 
 .announcement-banner:has(.announcement-container) {
@@ -44,6 +48,6 @@
   fill: var(--csc-admonition--fg);
 }
 
-.announcement-banner > .announcement-icon-end {
+.announcement-banner > .announcement-icon[mirror] {
   transform: rotateY(180deg);
 }

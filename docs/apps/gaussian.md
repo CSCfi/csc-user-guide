@@ -159,9 +159,7 @@ memory needs.
 
 For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
 **CCSD(T)**, and property calculations like **vibrational frequency
-calculations**, using the fast **NVMe local disk** on
-[Puhti](../computing/running/creating-job-scripts-puhti.md#local-storage) or
-[Mahti](../computing/running/creating-job-scripts-mahti.md#local-storage) can
+calculations**, using the fast **NVMe local disk** can
 significantly improve performance. Using local disk for such jobs will also
 reduce the overall load on the Lustre parallel file system.
 

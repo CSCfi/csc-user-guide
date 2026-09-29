@@ -13,11 +13,8 @@ catalog:
 
 # Picard Tools
 
-
-
 Picard is a set of command line tools for manipulating high-throughput
 sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
-
 
 [TOC]
 
@@ -27,40 +24,47 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 
 ## Available
 
-
-- Roihu:  3.3.0
+* Roihu-CPU: 3.3.0, via the `bio-apps` module.
 
 ## Usage
 
-To load Picard, load module:
+Picard is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Picard module:
+
 ```bash
-module load bio-apps
-module load picard
+module load bio-apps/v202603
+module load picard/3.3.0
 ```
 
 To get a summary of available tools:
+
 ```bash
 picard
 ```
 
-Please note that in the Picard manual commands start with "java -jar
-picard.jar". In Roihu it is easiest to run Picard through a wrapper script,
-so substitute that with just `picard`.
+Please note that in the Picard manual commands start with `java -jar
+picard.jar`. On Roihu it is easiest to run Picard through the `picard`
+wrapper, so substitute that with just `picard`.
 
 Example:
+
 ```bash
-picard SamToFASTQ I=input.bam FASTQ=output.fastq
+picard SamToFastq I=input.bam FASTQ=output.fastq
 ```
 
-If you need to specify Java options for Picard you can use `java -jar $PICARD`.
+If you need to specify Java options for Picard (for example to control the
+Java heap size), you can run the jar directly with `java` — the module sets
+the `$PICARD` environment variable to the Picard jar file.
 
 Example:
+
 ```bash
-java -Xmx128g -jar $PICARD  SamToFASTQ I=input.bam FASTQ=output.fastq
+java -Xmx16g -jar $PICARD SamToFastq I=input.bam FASTQ=output.fastq
 ```
 
-All Picard jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+## Support
 
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

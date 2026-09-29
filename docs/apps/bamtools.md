@@ -20,25 +20,32 @@ BAM files.
 
 ## License
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE)
+Free to use and open source under the
+[MIT License](https://raw.githubusercontent.com/pezmaster31/bamtools/master/LICENSE).
 
 ## Available
 
--   Roihu: 2.5.2
--   Chipster graphical user interface
+* Roihu-CPU: 2.5.2, via the `bio-apps` module.
 
 ## Usage
 
-On Roihu, BamTools can be taken in use by first loading the bio-apps module:
+BamTools is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the BamTools module:
 
 ```bash
-module load bio-apps
-module load bamtools
+module load bio-apps/v202603
+module load bamtools/2.5.2
+```
+
+Check the available versions with:
+
+```bash
+module spider bamtools
 ```
 
 The syntax of BamTools is:
 
-```
+```text
 bamtools COMMAND ARGUMENTS
 ```
 
@@ -58,9 +65,9 @@ Available bamtools commands:
 - `split`           Splits a BAM file on user-specified property, creating a new BAM output file for each value found
 - `stats`           Prints some basic statistics from input BAM file(s)
 
-For more information on a specific command, run command:
+For more information on a specific command, run:
 
-```
+```text
 bamtools help COMMAND
 ```
 
@@ -70,4 +77,4 @@ bamtools help COMMAND
 
 ## More information
 
-- [BamTools home page](https://github.com/pezmaster31/bamtools).
+* [BamTools home page](https://github.com/pezmaster31/bamtools)

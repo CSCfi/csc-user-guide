@@ -25,18 +25,19 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-Roihu: 4.8.1 
+* Roihu-CPU: 4.8.1 (module `cdhit`), via the `bio-apps` module.
 
 ## Usage
 
-The setup command for CD-HIT on Rohu is:
+CD-HIT is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the CD-HIT module:
 
 ```bash
-module load bio-apps
-module load cdhit
+module load bio-apps/v202603
+module load cdhit/4.8.1
 ```
 
-After the setup command, the server recognizes CD-HIT commands. The CD-HIT package has many programs. The most notable are:
+After loading, the CD-HIT commands are available. The CD-HIT package has many programs. The most notable are:
 
 | Program | Description |
 |---------|-------------|
@@ -45,17 +46,15 @@ After the setup command, the server recognizes CD-HIT commands. The CD-HIT packa
 |cd-hit-2d | Tool to compare two protein sequence sets |
 |cd-hit-est-2d | Tool to compare two nucleic sequence sets |
 |cd-hit-454 | A program to identify artificial duplicates from raw 454 sequencing reads |
-|cd-hit	| Cluster peptide sequences	|
 |psi-cd-hit	| Cluster proteins at less than 40% cutoff	|
 |cd-hit-lap	| Identify overlapping reads |
 |cd-hit-dup | Identify duplicates from single or paired Illumina reads |	
-|cd-hit-454 | Identify duplicates from 454 reads |
 |h-cd-hit | Hierarchical clustering |	
  
 
 A full list of programs can be found in the [CD-HIT user guide](https://github.com/weizhongli/cdhit/wiki).
 
-You can list the command line options of CD-HIT programs by using option `-help`. For example:
+You can list the command line options of CD-HIT programs by using the option `-help`. For example:
 
 ```bash
 cd-hit -help
@@ -72,7 +71,7 @@ The sample command above produces two result files:
 * `reduced_set.fasta` contains a pruned sequence set. In this case, if two sequences are more than 95% identical, only the longer one is included in the results.
 * `reduced_set.fasta.clstr` contains information about the clustering of the sequences that share higher similarity than the given threshold value (in this case 95%).
 
-All CD-HIT jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+Run CD-HIT in an [interactive session](../computing/running/interactive-usage.md) or as a batch job, not on the login node. See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

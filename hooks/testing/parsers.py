@@ -1,27 +1,51 @@
+"""Parsers for handing test cases.
+"""
 from html.parser import HTMLParser
+from urllib.parse import urlsplit
 
 
-class LicenseParser(HTMLParser):
-    heading_levels = ("h2", "h3",)
+class SiteUrlLinkChecker(HTMLParser):
+    """Exposes the list 'hits' holding the link text for
+       each link found in 'markup' that points to 'site_url'.
+    """
+    def __init__(self, site_url, markup):
+        if (netloc := self.__parse_url(site_url)) is None:
+            raise ValueError("Could not determine site url.")
 
-    def __init__(self):
+        self.netloc = netloc
+        self.hits = []
+        self.__stack = []
+        self.__buffer = []
+
         super().__init__()
-        self.__heading_stack = []
-        self.__heading_found = False
+        super().feed(markup)
 
-    def handle_starttag(self, tag, _):
-        self.__heading_stack.append(tag)
+    def __parse_url(self, url):
+        try:
+            netloc = urlsplit(url).netloc
 
-    def handle_endtag(self, tag):
-        self.__heading_stack.pop()
+            return None if netloc == "" else netloc
+        except ValueError:
+            return None
+
+    def handle_starttag(self, tag, attrs):
+        match tag, dict(attrs):
+            case "a", {"href": href} if self.__parse_url(href) == self.netloc:
+                self.__stack.append(tag)
+            case _:
+                pass
 
     def handle_data(self, data):
-        if self.__heading_stack \
-            and self.__heading_stack[-1] in self.heading_levels \
-            and data.startswith("License"):
+        try:
+            if self.__stack[-1] == "a":
+                self.__buffer.append(data.replace("\n", " ").strip())
+        except IndexError:
+            pass
 
-            self.__heading_found = True
-
-    @property
-    def valid(self):
-        return self.__heading_found
+    def handle_endtag(self, tag):
+        try:
+            if self.__stack[-1] == tag:
+                self.hits.append(" ".join(self.__buffer))
+                self.__stack.pop()
+        except IndexError:
+            pass

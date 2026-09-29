@@ -134,8 +134,8 @@ compiler environments for building C/C++ and Fortran applications under the foll
 
 | Compiler suite               | Modules                                                  |
 | :--------------------------- | :------------------------------------------------------- |
-| GNU 14.3.0 + CUDA 12.9.1     | `gcc/14.3.0 cuda/12.9.1 openmpi/5.0.8 openblas/0.3.30`   |
-| GNU 15.2.0 + CUDA 13.1.1     | `gcc/15.2.0 cuda/13.1.1 openmpi/5.0.8 openblas/0.3.30`   |
+| GNU 14.3.0 + CUDA 12.9.1     | `gcc/14.3.0 cuda/12.9.1 openmpi/5.0.10 openblas/0.3.30`  |
+| GNU 15.2.0 + CUDA 13.1.1     | `gcc/15.2.0 cuda/13.1.1 openmpi/5.0.10 openblas/0.3.30`  |
 | NVIDIA HPC 26.3              | `nvhpc/26.3`                                             |
 
 The first compiler suite is loaded by default.

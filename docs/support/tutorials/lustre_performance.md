@@ -5,6 +5,10 @@ and provide examples for achieving higher performance. Please note also
 the [Technical description about Lustre filesystem](../../computing/lustre.md)
 used in CSC supercomputers.
 
+!!! warning "This tutorial is being updated"
+    This tutorial was written for Mahti and is currently being updated for Roihu.
+    Some information in this tutorial may therefore be outdated.
+
 ## MPI I/O
 
 When performing parallel I/O with MPI (or with libraries using MPI-IO

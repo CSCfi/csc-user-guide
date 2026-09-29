@@ -74,7 +74,3 @@ done for a function:
         2    0.003    0.002    0.003    0.002 {method 'copy' of 'numpy.ndarray' objects}
         1    0.020    0.020    0.028    0.028 {mkl_fft._pydfti.irfftn_numpy}
 ```
-
-Keep in mind that running the profiler has to be done in the same way as
-running a ([puhti](../computing/running/example-job-scripts-puhti.md)  or [mahti](../computing/running/example-job-scripts-mahti.md)) batch or
-[interactive](../computing/running/interactive-usage.md) job.

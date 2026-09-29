@@ -50,8 +50,6 @@ You can view and revoke your active tokens at [CSC IdP federated personal profil
 
 ## Connecting with a robot account
 
-!!! Note 
-    Robot accounts are not yet supported, support coming in Q3 2026.
 
 [Machine-to-machine robot accounts](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) can access computing resources on Roihu using FirecREST HPC API.
 

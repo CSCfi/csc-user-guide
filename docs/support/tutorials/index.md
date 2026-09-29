@@ -3,7 +3,7 @@
 ## General
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
-* [Getting started with Quantum computers](../../computing/quantum-computing/access.md)
+* [Getting started with Quantum computers](../../computing/quantum-computing/overview.md)
 * [Managing data on supercomputer scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
@@ -96,7 +96,7 @@
 * [Hyperparameter search](hyperparameter_search.md)
 * [Managing machine learning workflows on CSC's supercomputers](ml-workflows.md)
 * [Working with large language models on supercomputers](ml-llm.md)
-
+* [Extend CSC-based ML containers using sandbox](ml-container-extend.md)
 
 ## Pouta - cloud
 
@@ -118,3 +118,7 @@ You can find Rahti tutorials in [Cloud Services > Rahti > Tutorials](../../cloud
 ## Visualisation
 
 * [Blender tutorial](blender-tutorial.md)
+
+## FirecREST
+
+* [Using PyFireCREST in a Python script or Jupyter notebook](./pyfirecrest.md)

@@ -129,6 +129,8 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](support/glossa
 The heading for Headings is a heading of a heading level 2. Remember to only use one heading level
 1 heading on your page and to keep the heading hierarchy intact. So no skipping levels.
 
+Headings can also be directly linked to (see [Anchors](#anchors) below).
+
 ```markdown
 ### This is a heading level 3 heading
 
@@ -216,6 +218,155 @@ commodo eros sed porta. Praesent ultrices elementum metus, sit amet fringilla tu
 Mauris turpis felis, molestie eget ipsum ac, fringilla euismod risus. Phasellus at arcu ante. Cras
 eu enim dui. Quisque eu hendrerit magna. Donec ac elit laoreet, mattis tortor et, feugiat nisl.
 Duis maximus ultrices elit, quis hendrerit orci.
+
+
+## Links
+
+Ordinary Markdown link syntax works for hyperlinks. Add `{ target=_blank }` to open a link in a new browser tab
+(recommended for external links). Link to other pages in the documentation using their _relative_ Markdown file path,
+and to a specific section by appending their heading's anchor (e.g. `#some-heading`).
+
+```markdown
+- An [external link](https://example.com){ target=_blank } (opens in a new tab)
+- A link to [another page](support/glossary.md)
+- A link to a [section on this page](#buttons)
+- A link to a [section on another page](support/glossary.md#glossary)
+```
+
+<div class="result" markdown>
+
+- An [external link](https://example.com){ target=_blank } (opens in a new tab)
+- A link to [another page](support/glossary.md)
+- A link to a [section on this page](#buttons)
+- A link to a [section on another page](support/glossary.md#glossary)
+
+</div>
+
+
+### Anchors
+
+Every heading automatically gets an anchor derived from its text, so `## Tables` can be linked to as `#tables`. You can also define a custom anchor with the `{ #your-anchor }` attribute (from the `attr_list` extension) and
+attach it to a heading or a block of text:
+
+```markdown
+This paragraph has a custom anchor, so it can be linked to
+[from elsewhere on the page](#a-custom-anchor).
+{ #a-custom-anchor }
+```
+
+<div class="result" markdown>
+
+This paragraph has a custom anchor, so it can be linked to
+[from elsewhere on the page](#a-custom-anchor).
+{ #a-custom-anchor }
+
+</div>
+
+If there are multiple headings with the same text (even with different heading levels), their anchors will have a `_n` suffixed to them.
+
+For example, the headings
+
+```markdown
+#### This here heading
+
+### This here heading
+
+## This here heading
+```
+
+would have the anchors
+
+- `#this-here-heading`
+- `#this-here-heading_1`
+- `#this-here-heading_2`
+
+respectively.
+
+
+### Paths
+
+!!! note inline end ""
+    <small markdown>
+
+    - `./` &ndash; the current directory
+    - `.` &ndash; same as above, but without explicitly specifying "directory"
+    - `./page.md` &ndash; a file in the current directory
+    - `page.md` &ndash; same as above, but without explicitly specifying "in the current directory"
+    - `.page.md` &ndash; a file named _.page.md_ (in the current directory)
+    - `../` &ndash; the parent of the current directory
+    - `../page.md` &ndash; a file in the parent directory
+    - `../../` &ndash; the parent directory of the parent of the current directory
+    - `../../../` &ndash; and so on...
+    - `/` &ndash; the root directory of a filesystem, in this case the _docs/_ directory
+    - `/page.md` &ndash; a file in the root directory
+
+    !!! error ""
+        Paths starting with `/`, i.e. _absolute paths_ are **not to be used** in links.
+
+    </small>
+
+Links from pages nested inside the directory (aka "Folder") tree need to "climb" up their branch, using a number of `../`
+references, in order to reach their target page.
+
+For example, a link on the page _docs/data/sensitive-data/tutorials/vscode.md_
+pointing to the page _docs/computing/webinterface/vscode.md_ would need to first climb three steps up to reach _docs/_, and then descend down to _computing/webinterface/vscode.md_ from there:
+
+1. Climb up to _docs/_ from _docs/data/sensitive-data/tutorials/_ with
+    - `../` = _docs/data/sensitive-data/_
+    - `../../` = _docs/data/_
+    - `../../../` = _docs/_
+1. Descend down to the target page
+    - `../../../computing/webinterface/vscode.md`
+
+```markdown title="docs/data/sensitive-data/tutorials/vscode.md"
+[VSCode in interactive web apps](../../../computing/webinterface/vscode.md)
+```
+
+!!! warning "Attempts to climb above _docs/_ will just result in _docs/_"
+    That is, for the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
+
+For pages where the common ancestor directory is not as far up the tree as in the example above, there is no need to climb all the way up to _docs/_ (although it's perfectly fine to do so).
+
+To get from _docs/data/sensitive-data/tutorials/vscode.md_ to _docs/data/moving/web-interface.md_, climb two steps to _docs/data/_ and descend from there:
+
+1. Climb up to _docs/data/_ from _docs/data/sensitive-data/tutorials/_ with
+    - `../` = _docs/data/sensitive-data/_
+    - `../../` = _docs/data/_
+1. Descend down to the target page
+    - `../../moving/web-interface.md`
+
+```markdown title="docs/data/sensitive-data/tutorials/vscode.md"
+[Moving files using the HPC web interfaces](../../moving/web-interface.md)
+```
+
+
+### Buttons
+
+Markdown links may have the classes `.md-button` and `.md-button--primary` added to them to produce links that look like buttons. In the following example, the buttons have their corresponding headings/anchors (`#button` for `### Button` and `#primary-button` for `### Primary button`) as the link target.
+
+```markdown
+#### Button
+
+[Button](#button){ .md-button }
+
+
+#### Primary button
+
+[Primary](#primary-button){ .md-button .md-button--primary }
+```
+
+<div class="result" markdown>
+
+#### Button
+
+[Button](#button){ .md-button }
+
+
+#### Primary button
+
+[Primary](#primary-button){ .md-button .md-button--primary }
+
+</div>
 
 
 ## Lists
@@ -965,35 +1116,6 @@ The size can be controlled by changing the value of the _style_ attribute. Note 
 width and _px_ for height. Here's an example with a width of 100 percent and a height of 500 pixels:
 
 <iframe frameborder="0" style="width:100%;height:500px;" srcdoc="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22ftzXAFIqJNWyvfU7Nhta%22%3E7Zpbc9o4FMc%2FDY%2FxGN9wHgMk6UN2lllmJ7tPHWELW8W2WFmOIZ9%2BJUsy8gUwKWnSaZtkgo4uls7%2Fp%2BMjpSN7lu4eCdjGf%2BAQJiPLDHcjez6yrLFp2uwXt%2ByF5dZxhCEiKJSNDoYleoWqp7QWKIR5oyHFOKFo2zQGOMtgQBs2QAgum83WOGk%2BdQsi2DEsA5B0rc8opLGw%2Bq55sH%2BBKIrVk9mKRU0KVGNpyGMQ4lIz2fcje0YwpuJTupvBhDtP%2BUX0ezhSW0%2BMwIz2dPg7h%2BTP1TfuE8tMwIrpUjUS3RKUbUQ5ppS78o53tB5CHORGkAfGGrFSgNNtQVEW8RqUb6o2doxTeBMiwobGZC%2FGU7Pal%2BvNX8%2Fea%2Fa4%2BM83X2dP4fL5ZuzWy62XkdO9cjHBRRZCPsB4ZE%2FLGFG43IKA15YMKmaLaZrI6hS%2FgFXVk5cIzNGrXsYUUK3MaIR6GYZILyY42FQPNllBEqRVdz0snf4CCYU7zSTX9giZayj3ialqbam%2BxN9R5VKDSZpijaOafyD5jeqhDxKzD9KfqqiJfhKCRRFTxGcBV1y8jEKy5h4%2FyUZZlsaWd6wBOau8dVL4fANpEEv3axqDfCu28hrtuDzTnBK8gTOcYMKsGc4gN6r9xHuvUZKoeoaoPfXnD3worhRiu%2FkuQVHG6ijmPFWeWOAcUYS5NYDcA1rzp1aDFaYUp%2BKhWz77dBfxeGdEwdYyogSv4NcSExZbvh8ZxxqAjGOogXVq%2FHeFZrac8UCOgyJlqwOVa4YHk7Os2CdZ0fA4KxKQYteyVouYgmATVbFGA2Vd%2FTsKigBPBX6rg2II16BIaJvGEORxHVfayCCcTwzEok1uKF8yl023GFUf5iN3yr5NgwXNGdN4Zsofyx65c%2F59lcDktShz3S5lrmtMbruUeVehrPNC64XCk%2BsCSQH199exKIILymhk%2BqhsoAoOOKOa5uzrgU9hyvQIETzUycDSiiVV8%2FmxKNSQ%2BiyZ%2FZR1eNVg53OXWdHYUmW5eLMvVlYcQXL%2FIriqBmkjCMrcMYq8etZVIpZXhyOJk9eD08TvsqRsF7A0DJxJhxMYssROFjGhMY5wBpL7g3V6SEQqlOo2T5jLVHnyG6R0L%2FUABcVNsZgLyf4f3t9w7Yky%2FMtrDctV5flOPkGU9nppAQliDuDKVMaj6uS4IAE8v3MoIBGk517Rlsm9c1JrAhMW8l%2BaafHVZRt7H6rbWNeMh%2BDTkr1dHX%2BgOiJ1%2FjTy%2BBeG46HR6cirU5OoN%2Fi%2BPY8bGIhbrwLTHPv%2BvC%2BgvhYEGuK4xDp%2Bf0itUzn1evZ7Xs895wbHfSflbz86njai6ecMpf4P2qvHj%2FZelYuyM50X8Q%2FL5RdlY0PU5guy9sYVgDwhi8KAjH6sr7%2Bb0nM%2FPYnZN05%2F7U3Y3qspCkPBl3b6NzspdH%2BifAruzvasr5XkQ0b6zU3ftr0xDdN37cbWlfddg0WXgy%2F4Yg6j3DjNHni9zhmMbUjqKV01C1eXEZ9%2F97ND0odtf%2Fva279FgmTMHTdfDd5t6zwmFiR76TeIrYE812kO5LQGEivuDHRHCNhrzeS2Ozphz%2FF7J3zgVow4kOKByFoXpirXzUxaiYNr8q93yFh6z7udCNpOV1jwQAE0QvjCfuVGDEj4tbrf%2FfnuV93WZZljd%2FIkpydPclvh9HoHGPs3d78gd3VQ%2FjDunN%2Fc%2FYrcTVzD%2FWDyJj3ktQ4iC0BAklR%2FGmakwHyfU5geP5pozDK%2F0Av5k6bh54i%2BPzk2s9efjRKnlSL23MZ6PYzYb7rZP%2FwJWyRvh%2F8IYN%2F%2FDw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe>
-
-
-## Buttons
-
-Markdown links may have the classes `.md-button` and `.md-button--primary` added to them to produce links that look like buttons. In the following example, the buttons have their corresponding headings/anchors (`#button` for `### Button` and `#primary-button` for `### Primary button`) as the link target.
-
-```markdown
-### Button
-
-[Button](#button){ .md-button }
-
-
-### Primary button
-
-[Primary](#primary-button){ .md-button .md-button--primary }
-```
-
-<div class="result" markdown>
-
-### Button
-
-[Button](#button){ .md-button }
-
-
-### Primary button
-
-[Primary](#primary-button){ .md-button .md-button--primary }
-
-</div>
 
 
 ## Tabbed content

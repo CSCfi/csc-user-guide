@@ -6,4 +6,4 @@ So if the DNS name of your service is under the subdomain `rahtiapp.fi`, simply 
 
 If the DNS name is not under the subdomain `rahtiapp.fi`, you need to provide your own certificate. You need to take care of obtaining the certificate, adding it to the `Route` object, and afterwards renew it before it expires.
 
-You can read more about this in our [Custom domain names and secure transport](../../cloud/rahti/tutorials/custom-domain.md) tutorial.
+You can read more about this in our [Custom domain names and secure transport](../../cloud/rahti/tutorials/intermediate/custom-domain.md) tutorial.

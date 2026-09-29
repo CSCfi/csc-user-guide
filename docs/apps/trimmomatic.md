@@ -25,60 +25,62 @@ THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina a
 
 ## Available
 
-- Roihu: 0.39
-- [Chipster](https://chipster.csc.fi) graphical user interface
+* Roihu-CPU: 0.39, via the `bio-apps` module.
+* [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
-Trimmomatic can be taken in use by first loading the bio-apps module:
+Trimmomatic is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Trimmomatic module:
 
 ```bash
-module load bio-apps
-module load trimmomatic
+module load bio-apps/v202603
+module load trimmomatic/0.39
 ```
 
-Trimmomatic can be launched with command:
+Trimmomatic can be launched with the command:
 
 ```bash
 trimmomatic
 ```
 
-If you need to adjust Java settings you can use path `$TRIMMOMATIC_INSTROOT/bin`
+If you need to adjust Java settings, such as the maximum heap size, set the
+`_JAVA_OPTIONS` environment variable, which the Java runtime picks up automatically:
 
 ```bash
-java <java options> -jar $TRIMMOMATIC_INSTROOT/bin/trimmomatic-0.39.jar <trimmomatic options>
+export _JAVA_OPTIONS="-Xmx8g"
 ```
 
-Included adapter sequences for ILLUMINACLIP can be used by specifying `$TRIMMOMATIC_INSTROOT/share/adapters`, e.g:
+Trimmomatic ships a set of standard Illumina adapter files. The module sets the
+`$TRIMMOMATIC_INSTROOT` environment variable, which points to the installation, and
+the bundled adapter files are located under `$TRIMMOMATIC_INSTROOT/share/adapters`.
+Give the path to the adapter file you need in the `ILLUMINACLIP` step, for example:
 
 ```bash
 ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10
 ```
 
-Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as batch job. More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
-
+Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as a batch job.
 
 Example batch job script:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=trimmomatic
-#SBATCH --account=project_12345 # Substitute your project name
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
 #SBATCH --partition=small
 #SBATCH --time=00:15:00
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8000
 
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+module load bio-apps/v202603
+module load trimmomatic/0.39
 
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred64 \
+trimmomatic PE -threads $SLURM_CPUS_PER_TASK -phred33 \
 forward.fq.gz reverse.fq.gz \
 out_fw_paired.fq.gz out_fw_unpaired.fq.gz out_rev_paired.fq.gz out_rev_unpaired.fq.gz \
 ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10 \
@@ -94,6 +96,10 @@ The batch job could be launched with command:
 sbatch trimmomatic_script
 ```
 
+## Support
+
+[CSC Service Desk](../support/contact.md)
+
 ## More information
 
-* [Trimmomatic home page](http://www.usadellab.org/cms/?page=trimmomatic)
+* [Trimmomatic home page](http://www.usadellab.org/cms/?page=trimmomatic)
