@@ -10,11 +10,15 @@ The action you need to take depends on the label displayed in the SD Connect use
 
 If your project contains both types of buckets, convert the Urgent buckets first.
 
+<div class="grid cards" markdown>
+ 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
-
-    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
-  
+{ .csc-grid-card-warning }
+ 
+---
+ 
+We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
+ 
 </div>
 
 
