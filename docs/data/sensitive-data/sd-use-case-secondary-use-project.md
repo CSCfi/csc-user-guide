@@ -69,7 +69,13 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Click **Next**.
 
 ---
-#### 2.3 Confirmation
+#### 2.3 Confirm the services for the project
+- SD Desktop and SD Connect are automatically selected for the project.
+- Other services are not available.
+- Click **Next**
+
+---
+#### 2.4 Confirmation
 
 - Under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
 - Read and accept the terms of use.
