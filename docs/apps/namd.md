@@ -9,8 +9,6 @@ catalog:
     - Chemistry
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -25,9 +23,8 @@ Beckman Institute of the University of Illinois.
 
 The following versions are available:
 
-* Roihu-CPU: 3.0.2
-* Puhti: 2.14, 2.14-cuda, 3.0, 3.0-cuda
-* Mahti: 2.14, 3.0, 3.0-cuda
+* Roihu-CPU: 3.0.2, 3.0.3
+* Roihu-GPU: 3.0.3
 * LUMI: 3.0.2-cpu, 3.0.2-gpu
 
 ## License
@@ -42,18 +39,22 @@ usage for non-commercial research. For commercial use, contact
 NAMD can be run either with CPUs or with GPUs + CPUs. GPU versions support
 single-node jobs only.
 
-On Roihu, NAMD is currently only supported on Roihu-CPU.
-
 See available NAMD versions on your system with:
 
 ```bash
 module spider namd
 ```
 
-And load the version you want (e.g. on Roihu-CPU):
+To make the modules visible on LUMI, run first:
 
 ```bash
-module load namd/3.0.2
+module use /appl/local/csc/modulefiles
+```
+
+Load the version you want:
+
+```bash
+module load namd/3.0.3
 ```
 
 ### Performance considerations
@@ -69,15 +70,16 @@ This is also recommended by the
 [NAMD manual](https://www.ks.uiuc.edu/Research/namd/3.0/ug/node96.html).
 Please test with your input.
 
-Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 384 (Roihu-CPU), 40 (Puhti)
-or 128 (Mahti), i.e. all cores in a node. Try different ratios and select the
-optimal one.
+Make sure `--ntasks-per-node` multiplied by `--cpus-per-task` equals 384
+(Roihu-CPU) or 128 (LUMI-C), i.e. all cores in a node. Try different ratios and
+select the optimal one.
 
-The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on Mahti
-with ns/day as a function of allocated nodes and varying the number of
-`namd_threads` as set in the [Mahti script below](#batch-script-examples).
+The data below shows the ApoA1 benchmark (92k atoms, 2 fs timestep) on
+Roihu-CPU with ns/day as a function of allocated nodes and varying the number
+of `namd_threads` as set in the
+[Roihu-CPU script below](#batch-script-examples).
 
-![NAMD Scaling on Mahti](../img/namd_scaling_with_roihu.svg 'NAMD Scaling on Mahti')
+![NAMD Scaling on Roihu](../img/namd_scaling_with_roihu.svg 'NAMD Scaling on Roihu')
 
 The data also shows the following things:
 
@@ -85,9 +87,6 @@ The data also shows the following things:
   run parameters. For this system, as the amount of resources are increased,
   the optimum performance shifts from more threads per task (15) towards fewer
   threads per task (3).
-* 1 full Roihu node gives similar performance as three to four full Mahti
-  nodes. Each Roihu node has exactly three times the amount of cores as a
-  single Mahti node.
 * Remember that using more resources to get results faster is also more
   expensive in terms of consumed Billing Units. To avoid wasting resources,
   ensure that your job actually benefits from increasing the number of cores.
@@ -96,21 +95,9 @@ The data also shows the following things:
 * To test your own system, run e.g. 10 000 steps of dynamics and search for the
   `Benchmark time:` line in the output.
 
-!!! info "NAMD 3.0"
-    NAMD3 shows a 2-3 times improved GPU performance over NAMD2, e.g. 160
-    ns/day vs. 55 ns/day for the ApoA1 system on Puhti. Please consider using
-    NAMD3 if you intend to run on GPUs. Running on LUMI-G is recommended for
-    large-scale simulations due to the better availability of GPUs compared to
-    Puhti and Mahti.
-
 #### Multi-GPU performance
 
-!!! warning-label
-    Given the scarcity of GPUs on Puhti and Mahti, and the absence of NAMD on Roihu-GPU, we currently recommend running
-    multi-GPU NAMD simulations on LUMI-G.
-
-
-The plot below shows the scalability of NAMD 3.0 on Puhti, Mahti and LUMI-G. To
+The plot below shows the scalability of NAMD 3.0 on LUMI-G. To
 run on multiple GPUs efficiently, you typically need a rather large system
 composed of at least several hundred thousand atoms, such as the STMV case
 below. Check with your system and see the
@@ -123,14 +110,9 @@ file option `GPUresident on` is extremely beneficial.
 
 ### Batch script examples
 
-!!! info ""
-    NAMD2 and NAMD3 come with differently named executables, `namd2` and
-    `namd3`. If you intend to use NAMD2, please edit the batch script examples
-    below accordingly.
-
-=== "Roihu CPU"
-    The script below requests  tasks per node and 8 threads per task on two
-    full Puhti nodes (80 cores). One thread per task is reserved for
+=== "Roihu-CPU"
+    The script below requests tasks per node and 16 threads per task on one
+    full Roihu node (384 cores). One thread per task is reserved for
     communication.
 
     ```bash
@@ -156,77 +138,9 @@ file option `GPUresident on` is extremely beneficial.
     # srun namd3 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
     ```
 
-=== "Puhti CPU"
-    The script below requests 5 tasks per node and 8 threads per task on two
-    full Puhti nodes (80 cores). One thread per task is reserved for
-    communication.
+=== "Roihu-GPU (1 GPU)"
 
-    ```bash
-    #!/bin/bash 
-    #SBATCH --account=<project>
-    #SBATCH --partition=test
-    #SBATCH --time=0:10:00
-    #SBATCH --nodes=2             
-    #SBATCH --ntasks-per-node=4   # test to find the optimum number
-    #SBATCH --cpus-per-task=10    # 40/(ntasks-per-node)
-
-    module purge
-    module load gcc/11.3.0
-    module load openmpi/4.1.4
-    module load namd/3.0
-
-    # leave one core per process for communication
-    (( namd_threads = SLURM_CPUS_PER_TASK - 1 ))
-
-    srun namd3 +ppn ${namd_threads} apoa1.namd > apoa1.out
-
-    # while NAMD suggests using 1 thread per task for communication
-    # (as above), all cores for computing can be tested with:
-    # srun namd3 +ppn ${SLURM_CPUS_PER_TASK} apoa1.namd > apoa1.out
-    ```
-
-=== "Puhti GPU"
-    Note, NAMD3 runs efficiently on GPUs, and this is usually more
-    cost-efficient than running on multiple CPU-only nodes.
-
-    ```bash
-    #!/bin/bash 
-    #SBATCH --account=<project>
-    #SBATCH --partition=gputest
-    #SBATCH --time=0:10:00
-    #SBATCH --ntasks=1     
-    #SBATCH --cpus-per-task=10    # use at most 10 CPU cores per GPU
-    #SBATCH --gres=gpu:v100:1
-
-    module load namd/3.0-cuda
-
-    srun namd3 +p ${SLURM_CPUS_PER_TASK} +setcpuaffinity +devices 0 apoa1.namd > apoa1.out
-    ```
-
-=== "Mahti CPU"
-    The script below requests 8 tasks per node and 16 threads per task on two
-    full Mahti nodes (256 cores). One thread per task is reserved for
-    communication.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=test
-    #SBATCH --time=0:10:00 
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=8   # test to find the optimum number
-    #SBATCH --cpus-per-task=16    # 128/(ntasks-per-node)
-
-    module purge
-    module load gcc/11.2.0
-    module load openmpi/4.1.2
-    module load namd/3.0
-
-    # leave one core per process for communication
-    (( namd_threads = SLURM_CPUS_PER_TASK - 1))
-
-    srun namd3 +ppn ${namd_threads} apoa1.namd > apoa1.out
-    ```
+=== "Roihu-GPU (full node)"
 
 === "LUMI-G (1 GCD)"
     The script below requests 1 GCD and 7 CPU cores. Note that each GPU node
