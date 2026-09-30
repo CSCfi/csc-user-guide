@@ -255,7 +255,7 @@ The Roihu-GPU base images are the following:
 
 For hands-on usage, see the examples of building and running a [Roihu-CPU base container with OSU micro benchmarks](./examples.md#example-roihu-cpu-base-container-with-osu-micro-benchmarks) and a [Roihu-GPU base container with NCCL tests](./examples.md#example-roihu-gpu-base-container-with-nccl-tests).
 
-### Machine learning-specific base images for Roihu {#ml-containers}
+### Machine learning-specific base images for Roihu-GPU {#ml-containers}
 
 In addition to the general base images described above, which aim to
 replicate Roihu's environment as far as possible, there is also an
@@ -263,7 +263,7 @@ alternative set of base images based on Rocky Linux 9 with Python 3,
 MPI and CUDA installed via normal Rocky Linux RPM packages rather than
 Spack. This approach produces a container that is not identical to
 Roihu's host system, but may be easier to extend in some cases than
-the general containers.
+the general containers. Note that these images are for Roihu-GPU only.
 
 The images have been created especially with the needs of commonly
 used machine learning frameworks in mind. In particular the CSC
@@ -273,7 +273,7 @@ installations of [PyTorch](../../apps/pytorch.md),
 
 First, there are a set of `ml-base` images which are used as the basis
 for all the other images. It includes Python 3, MPI and CUDA in a
-configuration compatible with Roihu.
+configuration compatible with Roihu-GPU.
 
 For example:
 
@@ -287,7 +287,9 @@ of relevant packages installed via [the Python Package Index
 Pandas, Scikit-learn and Transformers. The `pytorch` image adds more
 complex installations such as xFormers, OpenCV, ffcv, PyTorch
 geometric, DeepSpeed, FAISS, Flash attention and Transformer
-Engine. This is the image used for CSC's PyTorch installation.
+Engine. The `pytorch` image is the one used for CSC's PyTorch
+installation, while `pytorch-base` can be useful as a lighter base
+image for own installations.
 
 - `satama.csc.fi/r_installation_aida/pytorch-base:2.13_cuda13_roihu`
 - `satama.csc.fi/r_installation_aida/pytorch:2.13_cuda13_roihu`
