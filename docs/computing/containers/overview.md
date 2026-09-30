@@ -255,6 +255,74 @@ The Roihu-GPU base images are the following:
 
 For hands-on usage, see the examples of building and running a [Roihu-CPU base container with OSU micro benchmarks](./examples.md#example-roihu-cpu-base-container-with-osu-micro-benchmarks) and a [Roihu-GPU base container with NCCL tests](./examples.md#example-roihu-gpu-base-container-with-nccl-tests).
 
+### Machine learning-specific base images for Roihu {#ml-containers}
+
+In addition to the general base images described above, which aim to
+replicate Roihu's environment as far as possible, there is also an
+alternative set of base images based on Rocky Linux 9 with Python 3,
+MPI and CUDA installed via normal Rocky Linux RPM packages rather than
+Spack. This approach produces a container that is not identical to
+Roihu's host system, but may be easier to extend in some cases than
+the general containers.
+
+The images have been created especially with the needs of commonly
+used machine learning frameworks in mind. In particular the CSC
+installations of [PyTorch](../../apps/pytorch.md),
+[TensorFlow](../../apps/tensorflow.md), [JAX](../../apps/jax.md) and
+[vLLM](../../apps/vllm.md) have been made using these images.
+
+First, there are a set of `ml-base` images which are used as the basis
+for all the other images. It includes Python 3, MPI and CUDA in a
+configuration compatible with Roihu.
+
+For example:
+
+- `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda12.9` - using CUDA 12.9
+- `satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13` - using CUDA 13.0
+    
+PyTorch has two image types: `pytorch-base` and `pytorch`. The
+`pytorch-base` image has a basic PyTorch installation plus a big set
+of relevant packages installed via [the Python Package Index
+(PyPI)](https://pypi.org/), including Accelerate, Dask, JupyterLab,
+Pandas, Scikit-learn and Transformers. The `pytorch` image adds more
+complex installations such as xFormers, OpenCV, ffcv, PyTorch
+geometric, DeepSpeed, FAISS, Flash attention and Transformer
+Engine. This is the image used for CSC's PyTorch installation.
+
+- `satama.csc.fi/r_installation_aida/pytorch-base:2.13_cuda13_roihu`
+- `satama.csc.fi/r_installation_aida/pytorch:2.13_cuda13_roihu`
+    
+Finally, also TensorFlow, JAX and vLLM installations have their
+corresponding containers in Satama:
+    
+- `satama.csc.fi/r_installation_aida/tensorflow:2.21_cuda12.9_roihu`
+- `satama.csc.fi/r_installation_aida/jax:0.10_cuda13_roihu`
+- `satama.csc.fi/r_installation_aida/vllm:0.29.0_cuda13_roihu`
+
+All images can be found in the [`r_installation_aida` repository on
+Satama](https://satama.csc.fi/harbor/projects/144/repositories). The
+images have been built with Podman, and all the [Podman recipes to
+build them can be found in
+GitHub](https://github.com/CSCfi/ml-podman-recipes).
+
+You can build your own images based on these in the same way as any
+other base images, the [process is described earlier on this
+page](#building-container-images). An example definition file when
+building on top of the `ml-base` image using CUDA 13.0:
+
+```sh title="container.def"
+Bootstrap: docker
+From: satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13
+%post
+    # Build your application here with normal Linux commands, for example:
+    dnf install some_useful_rpm_package
+    pip install some_useful_python_package
+```
+
+Our machine learning guide also contains a [tutorial on how to extend
+our `ml-base` container using a sandbox](../../support/tutorials/ml-container-extend.md).
+
+
 ## Reading datasets from SquashFS file
 
 We can also avoid I/O bottlenecks with datasets that consist of large amounts of small files by reducing them to a single SquashFS file.
