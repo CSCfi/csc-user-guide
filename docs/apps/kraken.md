@@ -28,7 +28,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Roihu: 2.17.1 (module `kraken2`), via the `bio-apps` module.
+* Roihu-CPU: 2.17.1, 2.17.2 (module `kraken2`), via the `bio-apps` module.
 
 ## Usage
 
@@ -37,7 +37,7 @@ bio-apps module tree and then the Kraken 2 module:
 
 ```bash
 module load bio-apps/v202603
-module load kraken2/2.17.1
+module load kraken2/2.17.2
 ```
 
 This loads the Kraken 2 package, which can be started with the command `kraken2`. For example:
@@ -81,7 +81,7 @@ Using Kraken 2 with a large reference database requires plenty of memory. For ex
 #SBATCH --mem-per-cpu=10000M
 
 module load bio-apps/v202603
-module load kraken2/2.17.1
+module load kraken2/2.17.2
 
 kraken2 --db /scratch/<project>/kraken_db --threads $SLURM_CPUS_PER_TASK input.fasta --output results.txt
 ```

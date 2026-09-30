@@ -10,6 +10,7 @@ The Accelerated visualization app enables using visualization applications with 
 * [COMSOL](../../apps/comsol.md)
 * [ParaView](../../apps/paraview.md)
 * [VisIt](../../apps/visit.md)
+* [VMD](../../apps/vmd.md)
 
 
 ## Launching
