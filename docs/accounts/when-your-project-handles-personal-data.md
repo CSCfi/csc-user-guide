@@ -46,6 +46,7 @@ to find more detailed information on how we as a data processor protect your per
 | **University**  | **Contact information**  |
 |---|---|
 | Aalto University  | tietosuojavastaava@aalto.fi <br />[Data Protection Policy](https://www.aalto.fi/en/services/aalto-university-data-protection-policy) |
+|Hanken School of Economics | dpo@hanken.fi <br />[Data protection policy](https://www.hanken.fi/en/about/privacy-and-data-protection)  |
 | LUT University  | dataprotection@lut.fi <br />tietosuoja@lut.fi <br />[Data protection policy](https://www.lut.fi/en/data-protection)  |
 | University of Eastern Finland  | tietosuoja@uef.fi <br />[Data protection policy](https://www.uef.fi/en/data-protection)  |
 | University of Helsinki  | tietosuoja@helsinki.fi <br />[Data protection policy](https://www.helsinki.fi/en/about-us/processing-data-university/data-protection) |
