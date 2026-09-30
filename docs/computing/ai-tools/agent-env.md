@@ -110,7 +110,7 @@ codex mcp add <server-name> --env VAR1=VALUE1 --env VAR2=VALUE2 -- <stdio server
 
 Any skills you want to add should be placed in the `$HOME/roihu-codex/skills` directory.
 
-# MCP servers
+## MCP servers
 
 Model Context Protocol (MCP) is a standardized way for AI agents to access many
 different tools. See the [MCP documentation](https://modelcontextprotocol.io/docs/getting-started/intro)
@@ -119,7 +119,7 @@ for a general introduction.
 The agent environment includes two MCP servers: one to run Slurm commands, and CSC-docs
 to search the CSC User Guide. You are free to add more.
 
-## Slurm
+### Slurm
 
 The agents are not able to run Slurm commands from within the container, the
 Slurm MCP server is the only route. It exposes a fixed set of commands and caches
@@ -140,12 +140,12 @@ runs. By default the agent can call the read-only tools without asking, while
 | `launch_job` | `sbatch` | Yes |
 | `cancel_job` | `scancel` | Yes |
 
-## CSC-docs
+### CSC-docs
 
 The agents come preconfigured with the CSC-docs MCP server. You can read more about
 it in the [CSC-docs MCP](docs-mcp.md) page.
 
-# Skills
+## Skills
 
 Agent skills are markdown files which give an agent more context. They can provide
 the agents with workflows to follow, additional information, or ready-made scripts.
@@ -159,24 +159,24 @@ prompt for both OpenCode and Claude Code. You can read more about agent skills i
 The Roihu agent environment contains three skills by default: `job-efficiency`,
 `software-environments`, and `batch-scripts`. You can read more about them below.
 
-## Job efficiency
+### Job efficiency
 
 Fetches efficiency metrics for a job. If you don't give a Job ID, the agent works
 out which job you mean.
 
-## Software environments
+### Software environments
 
 Helps with installing or using software on Roihu. Checks whether something is already
 installed on Roihu, how to access it if it is, and what options for installation there
 are if it is not.
 
-## Batch scripts
+### Batch scripts
 
 Helps with batch/Slurm script creation, debugging, and optimization. Makes sure
 the script contains the necessary parts, takes into account some common cases
 (High I/O, MPI jobs, etc.) and what changes they require in the batch/Slurm script.
 
-## Adding your own skills
+### Adding your own skills
 
 You can add your own skills for the agents. Create a skill according to the standards
 in the [agent skills documentation](https://agentskills.io/home), and add it to
