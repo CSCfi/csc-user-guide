@@ -33,7 +33,7 @@ Contents:
 
 * SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to HPC platforms.
 
-* **Data export from SD Desktop is restricted**. The CSC project manager is the only one who can export data from SD Desktop to SD Connect, and **the project manager is responsible of making sure that only *anonymous* results are exported from the workspace, in accordance with [Findata's insctructions](https://findata.fi/en/services-and-instructions/producing-anonymous-results/)**. More detailed instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
+* Data export from SD Desktop is restricted. Only the CSC project manager can export data from SD Desktop to SD Connect, and **the project manager is responsible of making sure that only *anonymous results* are exported from the workspace, in accordance with [Findata's insctructions](https://findata.fi/en/services-and-instructions/producing-anonymous-results/)**. More detailed instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
 
 ## Before you start
 
