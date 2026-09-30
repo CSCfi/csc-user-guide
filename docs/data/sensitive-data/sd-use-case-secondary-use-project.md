@@ -1,13 +1,13 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# How to get access to SD Desktop with a Findata permit
+# How to get access to SD services with a secondary use data permit
 
 !!! Note
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
 
 ## Use case
 
-You need to access SD Desktop. You have a permit from Findata.
+You need to access secondary use data (register data) on SD Desktop. You have a permit from Findata or from any other datata controller of the health and social data registers.
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/C5n92UiUbPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -18,9 +18,8 @@ You need to access SD Desktop. You have a permit from Findata.
 3. [Fill GDPR document](#3-fill-gdpr-document)
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
-6. CSC activates SD Desktop for your project, please wait
-7. [CSC project is ready](#7-your-csc-project-is-ready)
-8. [Apply for Billing Units](#8-apply-for-billing-units)
+6. [CSC project is ready](#7-your-csc-project-is-ready)
+7. [Apply for Billing Units](#8-apply-for-billing-units)
 
 
 ### 1. Create a CSC account
@@ -106,13 +105,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
     - Please wait that Sensitive Data Support -team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
 
-!!! Note ""
-    ### 6. CSC activates SD Desktop -service for your project
-    - Please wait that Sensitive Data Support -team activates SD Desktop -service for your project.
-    - You will receive an email notification, when everything is ready.
-
-
-### 7. Your CSC project is ready!
+### 6. Your CSC project is ready!
 
 !!! warning-label
     Team manager
@@ -122,7 +115,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md).
 
-### 8. Apply for Billing Units
+### 7. Apply for Billing Units
 
 SD Desktop consumes Cloud Billing Units type (BU). You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
 
