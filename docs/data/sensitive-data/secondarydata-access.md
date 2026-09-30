@@ -43,4 +43,4 @@ Contents:
 
 ## Your next steps in this guide
 
-- project creation
+- [Accessing SD services with CSC Secondary use project](./sd-use-case-secondary-use-project.md)
