@@ -106,7 +106,7 @@ for available features that allow you to maximize the performance
 of multi-GPU runs. Importantly, enabling GPU-resident mode using configuration
 file option `GPUresident on` is extremely beneficial.
 
-![NAMD Scaling on GPUs](../img/namd-gpu.svg 'NAMD Scaling on GPUs')
+![NAMD Scaling on GPUs](https://a3s.fi/docs-files/namd-gpu.svg 'NAMD Scaling on GPUs')
 
 ### Batch script examples
 
