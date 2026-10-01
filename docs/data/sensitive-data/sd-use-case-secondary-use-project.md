@@ -119,7 +119,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
     Team member
 
 - Write down your project number, you might need it later (e.g. *project_1234567*).
-- Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md).
+- Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-secondary-login.md) and [login and upload materials to SD Connect](sd-connect-login.md).
 
 ### 7. Apply for Billing Units
 
