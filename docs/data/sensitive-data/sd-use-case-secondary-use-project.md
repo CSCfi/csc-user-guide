@@ -132,8 +132,8 @@ You can apply (for free) for billing units in the MyCSC portal:
 - Scroll down and under Resources, on the right corner, click on Apply for resources
 - In the new window you will see the services you have active in the project (in gray). Press Next.
 - In the second view, click on the Billing Units package you need (e.g. M) for:
-- Cloud Billing Unit type (used by SD Desktop)
-- Storage Billing Unit type (used by SD Connect)
+   - Cloud Billing Unit type (used by SD Desktop)
+   - Storage Billing Unit type (used by SD Connect)
 - Click Next.
 - you will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
 - In the last view, you can review the project description and field of science. Finally, you can click Submit.
