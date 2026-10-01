@@ -92,7 +92,7 @@ In a project using secondary use health and social data, all the data processed 
 
 ## How can I export my results from SD Desktop?
 
-Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. All exported results must be reported to the data permit authority Findata for risk assessment and scrutiny. Guidance in the [specific user guide](../../data/sensitive-data/sd-desktop-secondary-export.md)
+Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. All exported results must be reported to the data permit authority Findata for risk assessment and scrutiny. Guidance in the [specific user guide](../../data/sensitive-data/sd-desktop-secondary-export.md).
 
 ## What will happen to my data after the secondary use data permit expires?
 
