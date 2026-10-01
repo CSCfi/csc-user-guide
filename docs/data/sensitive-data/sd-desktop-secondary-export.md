@@ -12,7 +12,7 @@ Your virtual desktop is completely isolated from the internet and data export is
 1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/) and familiarize yourself with the [risk based assessment for exported results](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Exporting-results-from-other-processing-environment);
 2. Do the risk based assessment with [Findata's risk assessment form](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Risk-assessment-form);
 3. Continue filling in the notification form after the risk assessment to notify Findata of the results export; 
-4. Request your CSC project manager to export the results from the desktop to SD Connect;
+4. Request your CSC project manager to [export the results from the desktop to SD Connect](sd-desktop-export.md);
 5. If required by the risk based assessment, deliver the results to Findata for scrutiny following [Findata's instructions](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Exporting-results-from-other-processing-environment).
 
 ## End of data access and data deletion policies
