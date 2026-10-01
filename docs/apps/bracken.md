@@ -40,14 +40,21 @@ module load bracken/2.9
 
 ### Databases
 
-Bracken works with a [Kraken 2](kraken.md) database, which additionally needs a Bracken
-database built from it (with `bracken-build`). These reference databases are not bundled
-with the module.
+Bracken works with a [Kraken 2](kraken.md) database, which additionally needs Bracken
+k-mer distribution files (`database<read length>mers.kmer_distrib`) built from it with
+`bracken-build`. The [prebuilt Kraken 2 databases](kraken.md#databases) on Roihu include
+these files for the following read lengths:
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, build or download your own in a
-    writable location (for example your project's `/scratch`).
+* `k2_pluspf_20260226`: 50, 75, 100, 150, 200, 250 and 300
+* `k2_NCBI_reference_20251007`: 50, 150 and 200
+
+The Bracken module also loads Kraken 2, which sets `KRAKEN2_DB_PATH` to the database
+directory (`/dataset/project_2020345/kraken2`). Unlike `kraken2`, Bracken does not look
+databases up by name, so give the path in `-d`, for example
+`-d $KRAKEN2_DB_PATH/k2_pluspf_20260226`. Use the same database you used for the
+Kraken 2 classification, and a read length (`-r`) that has a matching `kmer_distrib`
+file. For your own Kraken 2 database, build the Bracken files with `bracken-build` in a
+writable location (for example your project's `/scratch`).
 
 ### Running Bracken
 
@@ -55,7 +62,7 @@ After classifying reads with Kraken 2, estimate abundances at a given taxonomic 
 (for example species, `-l S`) with:
 
 ```bash
-bracken -d /scratch/<project>/kraken_db -i sample.kreport -o sample.bracken -r 150 -l S
+bracken -d $KRAKEN2_DB_PATH/k2_pluspf_20260226 -i sample.kreport -o sample.bracken -r 150 -l S
 ```
 
 where `-r` is the read length and `-d` points to the Kraken 2 / Bracken database.
@@ -78,7 +85,7 @@ where `-r` is the read length and `-d` points to the Kraken 2 / Bracken database
 module load bio-apps/v202603
 module load bracken/2.9
 
-bracken -d /scratch/<project>/kraken_db -i sample.kreport -o sample.bracken -r 150 -l S
+bracken -d $KRAKEN2_DB_PATH/k2_pluspf_20260226 -i sample.kreport -o sample.bracken -r 150 -l S
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
