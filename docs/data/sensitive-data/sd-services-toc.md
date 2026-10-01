@@ -67,25 +67,13 @@ hide:
 
 ## 2 Secondary use of health and social data (register data)
 
-### 2.1 Start here: Accessing secondary use health or social data via Sensitive Data services and a CSC project Findata type
+### 2.1 Start here: Accessing secondary use health or social data via Sensitive Data services and a CSC project Secondary Use type
 
 * [Start here: Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
-    * [Access with Findata permit](findata-permit.md)
-    * [Access with register permit](single-register-permit.md)
-
-### 2.2 Analyze with SD Desktop for secondary use
-
-* [Analyze with SD Desktop for secondary use ](sd-desktop-audited.md)
-    * [Login to SD Desktop](sd-desktop-secondary-login.md)
-    * [Create virtual desktop](sd-desktop-secondary-create.md)
-    * [Manage virtual desktop](sd-desktop-secondary-manage.md)
-    * [Access virtual desktop](sd-desktop-secondary-access-vm.md)
-    * [Work with your desktop and software](sd-desktop-secondary-working.md)
-    * [Import data](sd-desktop-secondary-access.md)  
-    * [Export data](sd-desktop-secondary-export.md)  
-    * [Troubleshooting](sd-desktop-secondary-troubleshooting.md)
+    * [Create a Secondary Use project](sd-use-case-secondary-use-project.md)
+    * [Instructions for exporting results](sd-desktop-secondary-export.md)
  
-### 3. Additional Resources
+## 3. Additional Resources
 
 * [What's new with Sensitive Data services :material-arrow-right:](../../support/wn/data-new.md)
 * [Frequently Asked Questions (FAQ) :material-arrow-right:](../../support/faq/index.md)
@@ -109,6 +97,6 @@ Please note: some of this tutorials require prior knowledge of SD services or ad
 * [Running temporary PostgreSQL database in SD Desktop](./tutorials/postgresql.md)
 * [Using Allas storage service to receive sensitive research data](./sequencing_center_tutorial.md)
 
-## 4. Misc
+## 5. Misc
 * [Useful terminology: services and technical aspects](sd-terminology.md)
 * [SD Desktop: Cent0S7 migration to Ubuntu](./migration-to-ubuntu.md)
