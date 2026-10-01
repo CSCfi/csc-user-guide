@@ -65,9 +65,7 @@ hide:
     * [Approve access to FEGA data](sd-apply-approval.md)
     * [Enable reuse of FEGA data](sd-apply-dac.md)
 
-## 2 Secondary use of health and social data (register data)
-
-### 2.1 Start here: Accessing secondary use health or social data via Sensitive Data services and a CSC project Secondary Use type
+## 2 Secondary use of health and social data (register data) with via CSC project Secondary Use type
 
 * [Start here: Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
     * [Create a Secondary Use project](sd-use-case-secondary-use-project.md)
