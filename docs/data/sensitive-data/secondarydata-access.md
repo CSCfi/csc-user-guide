@@ -23,7 +23,10 @@ Contents:
 
 * SD Desktop and SD Connect are audited against Findata regulation.
 
-* To comply with the regulation, the CSC Secondary use project type must be used, and the data controllers must transfer their data in collaboration with CSC.
+* To comply with the regulation, the CSC Secondary use project type must be used.
+
+* The data controllers must transfer their data to SD Desktop in collaboration with CSC.
+   * Note! Secondary use data must never be uploaded directly to the CSC Secondary Use project.
 
 * Secondary use data from the registers can only be accessed on SD Desktop.
 
