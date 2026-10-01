@@ -24,7 +24,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 2.1 
+* Roihu-CPU: 2.1 
 
 ## Usage
 
@@ -81,7 +81,7 @@ sbatch script
 
 In many cases BayeScan will not benefit from using more than 8 cores, so check performance if using more.
 
-More instructions for running batch jobs can be found form [CSC batch job instructions](../computing/running/getting-started.md)
+More instructions for running batch jobs can be found in [CSC batch job instructions](../computing/running/getting-started.md)
 
 ## More information
 

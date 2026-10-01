@@ -29,7 +29,7 @@ Free to use and open source under [Broad Institute License](https://github.com/g
 
 ## Available
 
-Roihu: 2.15.2
+Roihu-CPU: 2.15.2
 
 ## Usage
 
@@ -74,7 +74,7 @@ In the actual `Trinity` command the number of computing cores to be used (`--CPU
 This variable contains the value set by the `--cpus-per-task` Slurm option.
 
 !!! note "Option --grid-exec not currently available in Roihu"
-The --grid-exec option is not currently available onRoihu.
+The `--grid-exec` option is not currently available on Roihu.
 
 
 

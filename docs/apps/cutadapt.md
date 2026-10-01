@@ -24,7 +24,7 @@ Free to use and open source under [MIT License](https://github.com/marcelm/cutad
 
 ## Available
 
-- Roihu: 5.1.0
+- Roihu-CPU: 5.1.0
 
 ## Usage
 

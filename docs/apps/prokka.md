@@ -23,7 +23,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 1.15.6
+* Roihu-CPU: 1.15.6
 
 ## Usage
 

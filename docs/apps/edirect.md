@@ -37,7 +37,7 @@ Free to use for all users. [Public Domain notice](https://www.ncbi.nlm.nih.gov/b
 
 ## Available
 
-Roihu: 26.0
+Roihu-CPU: 26.0
 
 ## Usage
 

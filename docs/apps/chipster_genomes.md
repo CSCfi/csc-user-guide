@@ -33,7 +33,7 @@ Free to use and open source.
 
 ## Available
 
-Available in Roihu.
+Available in Roihu-CPU.
 
 ## Usage
 

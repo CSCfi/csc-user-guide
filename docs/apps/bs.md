@@ -23,7 +23,7 @@ Software is free to use.
 
 ## Available
 
-* Roihu: 1.7.0 
+* Roihu-CPU: 1.7.0 
 
 ## Usage
 
@@ -33,7 +33,7 @@ First load the basespace module:
 module load basespace
 ```
 
-When module is loaded, the Illumina BaseSpace command line client starts with the command:
+When the module is loaded, the Illumina BaseSpace command line client starts with the command:
 
 ```bash
 bs
@@ -48,7 +48,7 @@ This is done by running the command:
 bs auth
 ```
 
-The authentication information is stored to your home directory on Roihu
+The authentication information is stored in your home directory on Roihu
 (`$HOME/.basespace/default.cfg`). Thus, the authentication needs to be done only
 once.
 

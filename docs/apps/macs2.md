@@ -20,7 +20,7 @@ MACS empirically models the length of the sequenced ChIP fragments and uses it t
 the spatial resolution of predicted binding sites.
 
 MACS also uses a dynamic Poisson distribution to effectively capture local biases in the
-genome sequence, allowing for more sensitive and robust prediction. MACS compares can be
+genome sequence, allowing for more sensitive and robust prediction. MACS can be
 used for ChIP-Seq with or without control samples.
 
 [TOC]
@@ -33,7 +33,7 @@ Free to use and open source under [BSD 3-Clause License](https://raw.githubuserc
 
 
 
--  Roihu: 2.2.9.1, 3.0.4
+-  Roihu-CPU: 2.2.9.1, 3.0.4
 -  Chipster graphical user interface
 
 ## Usage

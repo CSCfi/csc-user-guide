@@ -30,7 +30,7 @@ Free to use and open source under [BSD 3-Clause License](https://github.com/qiim
 
 ## Available
 
-- Roihu: 2026.4, 2026.7
+- Roihu-CPU: 2026.4, 2026.7
 
 ## Usage
 
