@@ -80,8 +80,13 @@ manager](./python-usage-guide.md#installing-python-packages-to-existing-modules)
 
 For more complex software requirements, we recommend using
 [tykky](../../computing/containers/tykky.md) or [creating your own
-Apptainer container](../../computing/containers/overview.md#building-container-images).
-
+Apptainer
+container](../../computing/containers/overview.md#building-container-images). For
+Roihu we have provided a set of [base Apptainer
+images](../../computing/containers/overview.md#ml-containers) that you
+can build on when creating your own containers. Also see our [tutorial
+on how to extend our `ml-base` container using a
+sandbox](ml-container-extend.md).
 
 ## Running GPU jobs
 
