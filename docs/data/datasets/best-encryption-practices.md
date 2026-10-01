@@ -13,7 +13,7 @@ EU legislations.[^1] Some guidelines can be found from
 Note that the topics discussed here are not applicable to such data that is
 controlled by law of secondary use of health and social data. More information
 about using CSC with secondary use data can be found
-[here](../sensitive-data/sd-desktop-audited.md).
+[here](../sensitive-data/secondarydata-access.md).
 
 The **data controller** — meaning the customer, i.e. usually the
 research project or a researcher — is responsible for knowing if the data
