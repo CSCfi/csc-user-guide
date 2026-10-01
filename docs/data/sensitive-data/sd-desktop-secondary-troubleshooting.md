@@ -1,1 +1,0 @@
-sd-desktop-troubleshooting.md
