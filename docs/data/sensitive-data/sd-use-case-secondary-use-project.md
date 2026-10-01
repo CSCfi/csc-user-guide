@@ -135,7 +135,7 @@ You can apply (for free) for billing units in the MyCSC portal:
    - Cloud Billing Unit type (used by SD Desktop)
    - Storage Billing Unit type (used by SD Connect)
 - Click Next.
-- you will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
+   - You will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
 - In the last view, you can review the project description and field of science. Finally, you can click Submit.
 
 Small BU applications (s) are automatically approved.
