@@ -18,8 +18,8 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 3. [Fill GDPR document](#3-fill-gdpr-document)
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
-6. [CSC project is ready](#7-your-csc-project-is-ready)
-7. [Apply for Billing Units](#8-apply-for-billing-units)
+6. [CSC project is ready](#6-your-csc-project-is-ready)
+7. [Apply for Billing Units](#7-apply-for-billing-units)
 
 
 ### 1. Create a CSC account
