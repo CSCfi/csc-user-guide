@@ -123,19 +123,19 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 ### 7. Apply for Billing Units
 
-SD Desktop consumes Cloud type Billing Units (BU) and SD Connect consumes Storage type BUs. You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
+SD Desktop consumes Cloud type Billing Units (BUs) and SD Connect consumes Storage type BUs. You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
 
 You can apply (for free) for billing units in the MyCSC portal:
 
-- Log in to MyCSC
-- On the left navigation bar select Projects and in the new view click on your CSC project
-- Scroll down and under Resources, on the right corner, click on Apply for resources
-- In the new window you will see the services you have active in the project (in gray). Press Next.
+- Log in to MyCSC.
+- On the left navigation bar select **Projects** and in the new view click on your CSC project.
+- Scroll down and under Resources, on the right corner, click on **Apply for resources**.
+- In the new window you will see the services you have active in the project (in gray). Press **Next**.
 - In the second view, click on the Billing Units package you need (e.g. M) for:
    - Cloud Billing Unit type (used by SD Desktop)
    - Storage Billing Unit type (used by SD Connect)
-- Click Next.
+- Click **Next**.
    - You will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
-- In the last view, you can review the project description and field of science. Finally, you can click Submit.
+- In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
-Small BU applications (s) are automatically approved.
+Small BU applications (S) are automatically approved.
