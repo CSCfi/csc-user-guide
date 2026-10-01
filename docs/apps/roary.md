@@ -24,16 +24,10 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 3.13.0, via the `bio-apps` module.
+* Roihu-CPU: 3.13.0, via the `bio-apps` module.
 
 ## Usage
 
-Roary should be executed as a batch job. An interactive batch job for running Roary can be started with the command:
-
-```bash
-sinteractive -i 
-```
- 
 Roary is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
 bio-apps module tree and then the Roary module:
 
@@ -47,6 +41,15 @@ After that, you can launch Roary with the command `roary`. For example:
 ```bash
 roary -f ./demo -e -n -v ./gff/*.gff
 ```
+
+Run Roary in an [interactive session](../computing/running/interactive-usage.md) or as a
+batch job, not on the login node. An interactive session can be started with:
+
+```bash
+sinteractive -i
+```
+
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

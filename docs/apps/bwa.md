@@ -25,7 +25,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 0.7.19, via the `bio-apps` module.
+* Roihu-CPU: 0.7.19, via the `bio-apps` module.
 
 ## Usage
 
@@ -45,7 +45,16 @@ bwa <command> [options]
 
 ### BWA indexes
 
-The first step in aligning with BWA is downloading the reference genome and indexing it. Note that your `$HOME` directory is often too small for working with complete genomes; you should do the analysis in the scratch directory of your project instead.
+CSC does not maintain pre-compiled BWA indexes for reference genomes on Roihu, but you
+can check whether the genomes used in Chipster provide a ready-made index for the genome
+you want to use. This is done with the [chipster_genomes](chipster_genomes.md) tool:
+
+```bash
+module load chipster_genomes
+chipster_genomes bwa
+```
+
+If a suitable index is not found, the first step in aligning with BWA is downloading the reference genome and indexing it. Note that your `$HOME` directory is often too small for working with complete genomes; you should do the analysis in the scratch directory of your project instead.
 
 Download a reference genome (for example with `wget`) to your scratch directory, then calculate the BWA indexes for it:
 

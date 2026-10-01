@@ -25,7 +25,8 @@ THE ILLUMINA sequences (adapters) etc REMAIN COPYRIGHTED and owned by Illumina a
 
 ## Available
 
-* Roihu: 0.39, via the `bio-apps` module.
+* Roihu-CPU: 0.39, via the `bio-apps` module.
+* [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
