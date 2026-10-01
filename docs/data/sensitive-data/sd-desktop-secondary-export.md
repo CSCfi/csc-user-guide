@@ -1,13 +1,13 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Data export from virtual desktop
+# Exporting results from the virtual desktop in secondary use projects
 
 Your virtual desktop is completely isolated from the internet and data export is restricted for information security reasons. Only the CSC project manager can export *anonymous results* from the secure workspace when processing secondary use data. All exported results must be reported to the data permit authority Findata for risk assessment and scrutiny.
 
 !!! Note
     Researchers are obliged to do a risk based assessment on Findata's website before exporting results and inform Findata about all exports. Findata requests researchers to deliver their results for scrutiny if the risk of identifying individuals is high.
 
-**In order to export the results at the end of your analysis, you need to:**
+**In order to export results, you need to:**
 
 1. Make sure your results **do not contain any sensitive data**. Read more about producing anonymous results from [Findata's website](https://findata.fi/en/services-and-instructions/producing-anonymous-results/) and familiarize yourself with the [risk based assessment for exported results](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Exporting-results-from-other-processing-environment);
 2. Do the risk based assessment with [Findata's risk assessment form](https://findata.fi/en/services-and-instructions/exporting-results-from-the-processing-environment/#Risk-assessment-form);
