@@ -43,10 +43,10 @@ module load bracken/2.9
 Bracken works with a [Kraken 2](kraken.md) database, which additionally needs Bracken
 k-mer distribution files (`database<read length>mers.kmer_distrib`) built from it with
 `bracken-build`. The [prebuilt Kraken 2 databases](kraken.md#databases) on Roihu include
-these files for the following read lengths:
+these files for read lengths 50, 75, 100, 150, 200, 250 and 300:
 
-* `k2_pluspf_20260226`: 50, 75, 100, 150, 200, 250 and 300
-* `k2_NCBI_reference_20251007`: 50, 150 and 200
+* `k2_pluspf_20260226`
+* `k2_NCBI_reference_20251007`
 
 The Bracken module also loads Kraken 2, which sets `KRAKEN2_DB_PATH` to the database
 directory (`/dataset/project_2020345/kraken2`). Unlike `kraken2`, Bracken does not look
@@ -58,8 +58,9 @@ writable location (for example your project's `/scratch`).
 
 ### Running Bracken
 
-After classifying reads with Kraken 2, estimate abundances at a given taxonomic level
-(for example species, `-l S`) with:
+After classifying reads with Kraken 2 and writing a report with `--report sample.kreport`
+(see the [Kraken 2 batch example](kraken.md#example-batch-script)), estimate abundances
+at a given taxonomic level (for example species, `-l S`) with:
 
 ```bash
 bracken -d $KRAKEN2_DB_PATH/k2_pluspf_20260226 -i sample.kreport -o sample.bracken -r 150 -l S
