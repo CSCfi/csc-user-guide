@@ -10,8 +10,7 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
-        - Mahti
+        - Roihu
     - LUMI
 ---
 
@@ -27,8 +26,7 @@ Free
 
 Julia-Jupyter is available as an interactive application via the web interface for
 
-- Mahti
-- Puhti
+- Roihu
 - LUMI
 
 ## More information
