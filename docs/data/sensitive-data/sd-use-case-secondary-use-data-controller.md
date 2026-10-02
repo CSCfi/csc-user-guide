@@ -16,6 +16,8 @@ Your organisation has issued a data permit for a reaserch group to process healt
 1. Create or apply for a CSC account
 2. Join to CSC project
 
+---
+
 ### 1. Create or apply for a CSC account
 
 Creating a CSC account is possible only if you have a Haka or Virtu account. If you do not have one, contact CSC in order to apply for an account. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
