@@ -15,6 +15,8 @@ Your organisation has issued a data permit for a reaserch group to process healt
 
 1. [Create or apply for a CSC account](#1-create-or-apply-for-a-csc-account)
 2. [Join to CSC project](#2-join-to-csc-project)
+3. [Login to SD Connect](#3-login-to-sd-connect)
+4. [Upload each dataset to a dedicated bucket](#4-upload-each-dataset-to-a-dedicated-bucket)
 
 ---
 
@@ -38,3 +40,15 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 
 ---
 
+### 3. Login to SD Connect
+
+Now all the preparations are ready and you can start using SD Connect service. Below you'll find links to related user guide:
+
+- [SD Connect overview and key features](./sd_connect.md)
+- [SD Connect login instructions](./sd-connect-login.md)
+
+---
+
+### 4. Upload each dataset to a dedicated bucket
+
+The SD services team will create a bucket in SD Connect for each dataset, share the bucketname with you and share the bucket with Read to SD Desktop rights to the corresponding user project.
