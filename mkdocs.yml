@@ -145,6 +145,7 @@ plugins:
       "computing/nvprof.md": "apps/nvprof.md"
       "computing/pdb.md": "apps/pdb.md"
       "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
+      "data/sensitive-data/single-register-submission.md": "data/sensitive-data/sd-use-case-secondary-use-data-controller.md"
       # files moved to Allas:
       # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
       "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -635,6 +636,7 @@ nav:
               - data/sensitive-data/secondarydata-access.md
               - Access with a Secondary Use project: data/sensitive-data/sd-use-case-secondary-use-project.md
               - Export anonymous results: data/sensitive-data/sd-desktop-secondary-export.md
+          - Instructions for data controllers: data/sensitive-data/sd-use-case-secondary-use-data-controller.md
       - Terminology: data/sensitive-data/sd-terminology.md
       - SD Services – Version history:
           - SD Connect releases: data/sensitive-data/releases-sd-connect.md
