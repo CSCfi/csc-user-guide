@@ -51,4 +51,8 @@ Now all the preparations are ready and you can start using SD Connect service. B
 
 ### 4. Upload each dataset to a dedicated bucket
 
-The SD services team will create a bucket in SD Connect for each dataset, share the bucketname with you and share the bucket with Read to SD Desktop rights to the corresponding user project.
+The SD services team will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the user's project. Each bucket will contain only one dataset, i.e. all data under the same data permit, and a bucket will be created for each dataset based on the data permit. Users creare projects based on data permits and can access the data only on the SD Desktop virtual machines under that project.
+
+Follow these instructions to upload data to the bucket:
+
+- [Upload and encrypt files to an existing bucket](sd-connect-upload.md#24-upload-and-encrypt-files-to-an-existing-bucket.md)
