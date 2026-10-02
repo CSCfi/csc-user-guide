@@ -19,6 +19,16 @@ This guide helps you to install and use SD Connect Conversion tool to convert bu
 
 In SD Connect UI you will see buckets marked with **Urgent** label. These buckets seem empty because bucket names are incompatible with new version of SD Connect and they **must be converted** to regain access to the files. We recommend that you don’t upload files to this bucket to ensure smooth conversion process. 
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
+    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
+ 
+  
+</div>
+
 
 ___
 
@@ -28,7 +38,7 @@ ___
 
 ??? default "Installation guide for macOS"
 
-    1. Download the SD Connect Conversion Tool.
+    1. Download the SD Connect Conversion Tool for mac
 
     2. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. (If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this **Settings** window select **Sidebar** tab and then select **Home folder** to make it visible in the sidebar.)
 
@@ -70,11 +80,19 @@ ___
 
 ??? default "Installation guide for Linux"
 
+    1. Download the SD Connect Conversion Tool for Linux
+
+    2. **GUI fails to start due to a sandbox permission error**. The GUI uses Chromium internally. On Linux, Chromium normally starts with a security feature called the sandbox         enabled. You do not need to enable this yourself. On some Linux systems, the GUI may fail to start because Chromium does not have the permissions required to initialize the         sandbox.
+    If you encounter this error, there are two possible solutions:
+    2.1 Recommended: Correct the ownership and permissions of the required sandbox file. This requires sudo access. Instructions are provided below.
+    If you do not have sudo access: The GUI can be started with --no-sandbox.
+    2.2 --no-sandbox disables Chromium's sandboxing protections, so this workaround should only be used in a trusted environment.
+
 
 
 ??? default "Installation guide for Windows"
 
-    1. Download the SD Connect Conversion Tool.
+    1. Download the SD Connect Conversion Tool for Windows
 
     2. Open your **Downloads** folder and **extract** the folder you just downloaded.
 
@@ -93,6 +111,11 @@ ___
         ![More info](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_4.png)
 
         ![Run anyway](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD_Connect_Conversion_install_win_5.png)
+
+
+### Download the application for other operating systems
+
+The available versions of SD Connect S3 Migrate can be found on the GitHub Releases page
 
 
 ___
@@ -176,3 +199,10 @@ In this final step if the converted bucket has -conv suffix the original incompa
 * Finally, re-login to SD Connect. Labels should have been removed. In your buckets you should now see bucket size, item size and also the sharing information.
 
 
+### 2.8 Any issues
+
+If you have problems during conversion, please follow these steps:
+
+- On your laptop open Documents > SD-Connect-S3-Migrate folder. There you will find a file called **migration-logfile.log**.
+  
+- Please share this file with us via servciedesk@csc.fi (subject SD Connect) and describe shortly the problem you encountered. 

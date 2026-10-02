@@ -29,7 +29,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Roihu: 2.30, via the `bio-apps` module.
+* Roihu-CPU: 2.30, via the `bio-apps` module.
 
 ## Usage
 
@@ -47,7 +47,7 @@ Once the module is loaded, Minimap2 starts with the command:
 minimap2
 ```
 
-Without any options, `minimap2` takes a reference database and a query sequence file as input and produce approximate mapping, without base-level alignment (i.e. no CIGAR), in the PAF format:
+Without any options, `minimap2` takes a reference database and a query sequence file as input and produces approximate mapping, without base-level alignment (i.e. no CIGAR), in the PAF format:
 
 ```bash
 minimap2 ref.fa query.fq > approx-mapping.paf
@@ -128,7 +128,7 @@ minimap2 -ax sr ref.fa reads-se.fq > aln.sam
 minimap2 -ax sr ref.fa read1.fq read2.fq > aln.sam
 ```
 
-* paired-end alignment
+* interleaved paired-end alignment
 
 ```bash
 minimap2 -ax sr ref.fa reads-interleaved.fq > aln.sam 
@@ -188,4 +188,4 @@ See [creating a batch job script for Roihu](../computing/running/creating-job-sc
 
 ## More information
 
-* More information about Minimap2 can be found from the [Minimap2 home page](https://lh3.github.io/minimap2/).
+* [Minimap2 home page](https://lh3.github.io/minimap2/)

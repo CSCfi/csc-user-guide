@@ -29,7 +29,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 2.5.4, via the `bio-apps` module.
+* Roihu-CPU: 2.5.4, via the `bio-apps` module.
 
 ## Usage
 
@@ -111,4 +111,4 @@ When you use Bowtie2, please cite:
 
 ## More information
 
-More information about Bowtie2 can be found from the [Bowtie2 home page](https://github.com/BenLangmead/bowtie2/blob/master/README.md).
+* [Bowtie2 home page](https://github.com/BenLangmead/bowtie2/blob/master/README.md)
