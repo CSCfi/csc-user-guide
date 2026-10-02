@@ -4,7 +4,7 @@
 
 ## Use case
 
-Your organisation has issued a data permit for a reaserch group to process health and social data under the Secondary Use Act. You need to deliver the dataset to SD Desktop environment for the users.
+Your organisation has issued a data permit for a research group to process health and social data under the Secondary Use Act. You need to deliver the dataset to SD Desktop environment for the users.
 
 !!! Note 
     - Before any data can be made available for researchers in the Sensitive Data services, you need to confirm that the necessary legal agreements are in place between the data controller and CSC.
