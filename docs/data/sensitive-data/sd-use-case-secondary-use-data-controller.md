@@ -17,6 +17,7 @@ Your organisation has issued a data permit for a reaserch group to process healt
 2. [Join to CSC project](#2-join-to-csc-project)
 3. [Login to SD Connect](#3-login-to-sd-connect)
 4. [Upload each dataset to a dedicated bucket](#4-upload-each-dataset-to-a-dedicated-bucket)
+5. [Manage datasets](5-manage-datasets)
 
 ---
 
@@ -51,8 +52,15 @@ Now all the preparations are ready and you can start using SD Connect service. B
 
 ### 4. Upload each dataset to a dedicated bucket
 
-The SD services team will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the user's project. Each bucket will contain only one dataset, i.e. all data under the same data permit, and a bucket will be created for each dataset based on the data permit. Users creare projects based on data permits and can access the data only on the SD Desktop virtual machines under that project.
+The SD services team will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the user's project. Each bucket will contain only one dataset, i.e. all data under the same data permit, and a bucket will be created for each dataset based on the data permit. Users create their projects based on data permits and can access the data only on the isolated virtual machines under that project.
 
 Follow these instructions to upload data to the bucket:
 
 - [Upload and encrypt files to an existing bucket](sd-connect-upload.md#24-upload-and-encrypt-files-to-an-existing-bucket.md)
+- [SD Connect command line tool for large datasets (over 50 GB)](sd-connect-command-line-interface.md)
+
+---
+
+### 5. Manage datasets
+
+The datasets will remain in your control after they are uploaded to the buckets and shared to the users' projects. You can upload more data, remove files, and also remove the sharing for the user.
