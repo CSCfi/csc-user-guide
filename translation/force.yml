@@ -2,7 +2,7 @@
 # latest translation, then pages are translated for listed languages. If language
 # list is empty, page is translated for every supported language.
 
-- 98ede753858203e6e89eeade6dbeb0b3f8435ba8:
+- 607e776547f5190a0b4c022ad4d5b040cd8fb353:
     "cloud/rahti/tutorials/basic/http-redirector.md": [fi]
     "cloud/rahti/tutorials/basic/webhooks.md": [fi]
 
