@@ -33,9 +33,9 @@ access to WebCSD from institutional IP (Internet Protocol) address ranges. Curre
 following universities have access to CSD: Aalto, Helsinki, Oulu,
 Eastern-Finland, Jyväskylä, Turku, Åbo Akademi, Lappeenranta University
 of Technology, Finnish Defence Forces University. If you want your
-university or research institute added, fill in the [License agreement](https://docs.csc.fi/img/CSDLicenseAgreementTemplateNAC.pdf) and [contact us via Service Desk](../support/contact.md)
+university or research institute added, fill in the [License agreement](../img/CSDLicenseAgreementTemplateNAC.pdf) and [contact us via Service Desk](../support/contact.md)
 
-Using the CSD components requires adhering [to these conditions](https://docs.csc.fi/img/CSDLicenseAgreementTemplateNAC.pdf).
+Using the CSD components requires adhering [to these conditions](../img/CSDLicenseAgreementTemplateNAC.pdf).
 
 ## Usage
 
