@@ -45,8 +45,8 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 
 Now all the preparations are ready and you can start using SD Connect service. Below you'll find links to related user guide:
 
-- [SD Connect overview and key features](./sd_connect.md)
-- [SD Connect login instructions](./sd-connect-login.md)
+- [SD Connect overview and key features](sd_connect.md)
+- [SD Connect login instructions](sd-connect-login.md)
 
 ---
 
@@ -56,7 +56,7 @@ The SD services team will create a bucket in SD Connect for each dataset, share 
 
 Follow these instructions to upload data to the bucket:
 
-- [Upload and encrypt files to an existing bucket](sd-connect-upload.md#24-upload-and-encrypt-files-to-an-existing-bucket.md)
+- [Upload and encrypt files to an existing bucket](sd-connect-upload.md#24-upload-and-encrypt-files-to-an-existing-bucket)
 - [SD Connect command line tool for large datasets (over 50 GB)](sd-connect-command-line-interface.md)
 
 ---
