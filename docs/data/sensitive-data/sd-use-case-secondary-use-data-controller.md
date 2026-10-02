@@ -14,11 +14,11 @@ Your organisation has issued a data permit for a reaserch group to process healt
 ## Solution
 
 1. Create or apply for a CSC account
-2. 
+2. Join to CSC project
 
 ### 1. Create or apply for a CSC account
 
-Creating a CSC account is possible only if you have a Haka or Virtu account. If you do not have one, contact CSC for applying an account. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
+Creating a CSC account is possible only if you have a Haka or Virtu account. If you do not have one, contact CSC in order to apply for an account. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account with Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
@@ -29,4 +29,10 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 
 ---
 
-### 2. 
+### 2. Join to CSC project
+
+- The SD services team adds you to a CSC project that is created specifically for data transfers from your organisation.
+- Check your email for a notification and log in to MyCSC to find the project.
+
+---
+
