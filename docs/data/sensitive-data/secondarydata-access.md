@@ -31,7 +31,7 @@ Contents:
 
 * Each secondary use dataset must have its own CSC project, i.e. its own environment. Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller in accordance with the Secondary Use Act.
 
-* The data controllers must transfer their data to SD Desktop in collaboration with CSC, following a process described [here](sd-use-case-secondary-use-data-controller.md). Secondary use data must never be uploaded directly to the CSC Secondary Use project.
+* The data controllers must transfer their data to SD Desktop in collaboration with CSC, following the process described [here](sd-use-case-secondary-use-data-controller.md). Secondary use data must never be uploaded directly to the CSC Secondary Use project.
 
 * SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to HPC platforms.
 
