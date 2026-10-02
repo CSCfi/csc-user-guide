@@ -55,7 +55,7 @@ in `/dataset/project_2020345/kraken2`:
 | Database | Contents | Index size |
 |----------|----------|------------|
 | `k2_pluspf_20260226` | PlusPF (February 2026): RefSeq archaea, bacteria, viral, plasmid, protozoa and fungi, plus human and UniVec_Core | 103 GB |
-| `k2_NCBI_reference_20251007` | One reference assembly per species for NCBI bacteria, archaea, protists and fungi (October 2025), plus human, RefSeq viral and UniVec_Core | 456 GB |
+| `k2_NCBI_reference_20251007` | One reference assembly per species for NCBI bacteria, archaea, protists and fungi (October 2025), plus human, RefSeq viral and UniVec_Core | 466 GiB |
 
 The `kraken2` module sets `KRAKEN2_DB_PATH` to this directory, so you can give the
 database by name:
