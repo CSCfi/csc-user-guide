@@ -121,6 +121,9 @@ plugins:
       "data/kaivos/kaivos_perl.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_remote.md": "data/kaivos/index.md"
       "data/kaivos/overview.md": "data/kaivos/index.md"
+      "data/sensitive-data/findata-permit.md": "data/sensitive-data/sd-use-case-secondary-use-project.md"
+      "data/sensitive-data/single-register-permit.md": "data/sensitive-data/sd-use-case-secondary-use-project.md"
+      "data/sensitive-data/sd-desktop-audited.md": "data/sensitive-data/secondarydata-access.md"
       # renamed files:
       "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
       "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -630,20 +633,8 @@ nav:
       - Secondary use of health and social data:
           - Start here:
               - data/sensitive-data/secondarydata-access.md
-              - Access with Findata permit: data/sensitive-data/findata-permit.md
-              - Access with register permit: data/sensitive-data/single-register-permit.md
-              - Resource planning for your CSC Project: data/sensitive-data/sd-secondaryuse-billing-units.md
-          - Analyse with SD Desktop for secondary use:
-              - data/sensitive-data/sd-desktop-audited.md
-              - Login to SD Desktop: data/sensitive-data/sd-desktop-secondary-login.md
-              - Create virtual desktop: data/sensitive-data/sd-desktop-secondary-create.md
-              - Manage virtual desktop: data/sensitive-data/sd-desktop-secondary-manage.md
-              - Access virtual desktop: data/sensitive-data/sd-desktop-secondary-access-vm.md
-              - Work with your desktop and software: data/sensitive-data/sd-desktop-secondary-working.md
-              - Import data: data/sensitive-data/sd-desktop-secondary-access.md
-              - Export data: data/sensitive-data/sd-desktop-secondary-export.md
-              - Troubleshooting: data/sensitive-data/sd-desktop-secondary-troubleshooting.md
-          - Instructions for registers: data/sensitive-data/single-register-submission.md
+              - Access with a Secondary Use project: data/sensitive-data/sd-use-case-secondary-use-project.md
+              - Export anonymous results: data/sensitive-data/sd-desktop-secondary-export.md
       - Terminology: data/sensitive-data/sd-terminology.md
       - SD Services – Version history:
           - SD Connect releases: data/sensitive-data/releases-sd-connect.md
