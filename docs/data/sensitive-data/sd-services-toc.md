@@ -69,7 +69,8 @@ hide:
 
 * [Start here: Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
     * [Create a Secondary Use project](sd-use-case-secondary-use-project.md)
-    * [Instructions for exporting results](sd-desktop-secondary-export.md)
+    * [Export anonymous results](sd-desktop-secondary-export.md)
+* [Instructions for data controllers](sd-use-case-secondary-use-data-controller.md) 
  
 ## 3. Additional Resources
 
