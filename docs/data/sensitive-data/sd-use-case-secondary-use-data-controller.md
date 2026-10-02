@@ -13,7 +13,7 @@ Your organisation has issued a data permit for a reaserch group to process healt
 
 ## Solution
 
-1. Create or apply for a CSC account
+1. [Create or apply for a CSC account](sd-use-case-secondary-use-data-controller.md#1.-Create-or-apply-for-a-CSC-account)
 2. Join to CSC project
 
 ---
