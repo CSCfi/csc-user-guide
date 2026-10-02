@@ -52,7 +52,7 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
     [Create an account and a secondary use project :material-arrow-right:](sd-use-case-secondary-use-project.md)
 
-    [Submit secondary use data :material-arrow-right:](single-register-submission.md)
+    [How to transfer secondary use data to SD Desktop? :material-arrow-right:](sd-use-case-secondary-use-data-controller.md)
 
 </div>
 
