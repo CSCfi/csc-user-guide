@@ -33,7 +33,7 @@ Quantum computing projects work similarly to the regular LUMI system. The main d
 1. The dedicated quantum computing partition of LUMI is `q_fiqci`.
 2. The maximum job walltime is **2 hours**.
 3. Usage is billed as QPU seconds **QPUs**.
-4. The LUMI-Fiqci computing environment has to be loaded separately. See [Running on quantum jobs](./running-quantum-jobs.md) for details.
+4. The LUMI-Fiqci computing environment has to be loaded separately. See [Running on quantum jobs](./running-quantum-jobs/overview.md) for details.
 
 
 Support can be reached via the [CSC Service Desk](../../support/contact.md) for LUMI related issues or at [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) for FiQCI and quantum computing services related issues.
