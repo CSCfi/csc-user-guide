@@ -33,7 +33,7 @@ Due to the differing access method of VLQ you do not need to (and should not) sp
 #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
 module use /appl/local/quantum/modulefiles
-module load vlq-module-QTODO
+module load lumi-iq-qiskit/vlq
 
 python your_python_script.py
 ```
@@ -58,7 +58,7 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
     ```bash
     module use /appl/local/quantum/modulefiles    
-    module load vlq-module-QTODO
+    module load lumi-iq-qiskit/vlq
     ```
 
 === "Local"
