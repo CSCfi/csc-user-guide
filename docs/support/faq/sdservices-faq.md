@@ -82,7 +82,7 @@ SD Connect is a service for storing and sharing sensitive research data that use
 
 ## How can I access register data via SD services?
 
-With register data, there are some restrictions to the service and data access compared to the standard use of SD services. The restrictions are necessary to comply with the regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC and other CSC services, like HPC platforms, are not available. Read more in [SD services user guide for secondary use data access](secondarydata-access.md).
+With register data, there are some restrictions to the service and data access compared to the standard use of SD services. The restrictions are necessary to comply with the regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC and other CSC services, like HPC platforms, are not available. Read more in [SD services user guide for secondary use data access](./data/sensitive-data/secondarydata-access.md).
 
 
 ## Can I combine my own data with register data on SD Desktop?
