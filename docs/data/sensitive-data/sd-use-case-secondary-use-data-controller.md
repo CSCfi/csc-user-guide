@@ -70,4 +70,4 @@ The datasets will remain in your control after they are uploaded to the buckets 
 4. **Cancelling the data access**: You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md).
 
 !!! Note 
-    CSC will remove the datasets from SD Connect after the data permit has expired. The data will be removed from your project after 90 days from the user's project's closing date in accordance with the regulations and CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)).
+    CSC will remove the datasets from SD Connect after the data permit has expired. The data will be removed from your project after 90 days from the user's project's closing date in accordance with the legislation and CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)).
