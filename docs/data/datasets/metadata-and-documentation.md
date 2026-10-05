@@ -154,7 +154,7 @@ It is important to take some time to plan file and folder structures and naming.
 - Indicate version number by using 'V' or 'version' and number (and subversions with more digits if minor changes)
 
 !!! note "Additional readings"
-    - [The UK Data Service: Format your data](https://www.ukdataservice.ac.uk/manage-data/format)
+    - [The UK Data Service: Format your data FIXME](https://www.ukdataservice.ac.uk/manage-data/format)
     - [RDMkit: Data Organisation](https://rdmkit.elixir-europe.org/data_organisation.html#what-is-the-best-way-to-name-a-file)
 
 <iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" srcdoc="https://www.youtube.com/embed/Xkqkg1oiUOQ" title="Manage well and get preserved – 6. Managing files and file naming" width="560"></iframe>
