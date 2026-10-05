@@ -82,21 +82,18 @@ SD Connect is a service for storing and sharing sensitive research data that use
 
 ## How can I access register data via SD services?
 
-With register data, there are some restrictions to the service compared to the standard use of SD Desktop. The restrictions are necessary to comply with the  regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC instead of the user and other services (for example SD Connect) are not available. Read more in [SD Desktop service description](https://research.csc.fi/-/sd-desktop).
+With register data, there are some restrictions to the service and data access compared to the standard use of SD services. The restrictions are necessary to comply with the regulation of the Health and Social Data Permit Authority (Findata). Most important limitations include: the service and data access is managed by CSC instead of the user and other CSC services are not available. Read more in [SD services user guide for secondary use data access](secondarydata-access.md).
 
 
 ## Can I combine my own data with register data on SD Desktop?
 
-In a project using secondary use health and social data, all the data processed on SD Desktop must be provided by the data controller (Findata or a single register). If you want to combine your own findings with register data, you need to specify it in your application for the data permit. 
+Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller in accordance with the Secondary Use Act. You can upload additional materials to SD Desktop via SD Connect, but significant additional datasets should be included in the data permit application for the data controller.
 
 
 ## How can I export my results from SD Desktop?
 
-Your virtual desktop is completely isolated from the internet and other services for information security reasons. Data export is also restricted: only CSC can export non-sensitive results from the secure workspace when processing secondary use data. All exported results must be reported to the data permit authority Findata for risk assessment and scrutiny. Guidance in the [specific user guide](../../data/sensitive-data/sd-desktop-secondary-export.md).
+Your SD services workspace is completely isolated from the internet and other services for information security reasons. Data export from your virtual desktop is also restricted: only the CSC project manager can export anonymous results from the secure workspace in accordance with the secondary use legislation. All exported results must be reported to the data permit authority Findata for risk assessment and scrutiny. Guidance in the [specific user guide](../../data/sensitive-data/sd-desktop-secondary-export.md).
 
 ## What will happen to my data after the secondary use data permit expires?
 
-You will not be able to access your virtual desktop after the validity period of your data permit ends. If you do not apply for extension for the data permit from the data controller and request us to extend the duration of your CSC project, your project will close automatically after the expiration of the data permit. All data from a closed project will be deleted after 90 days, according to CSC’s data retention policy. You need to have all your results exported from the virtual desktop before the data permit expires – otherwise you cannot access them when the permit is no longer valid.
-
-
-
+You will no longer be able to access your virtual desktop or SD Connect files after the validity period of your data permit ends. If you do not apply for extension for the data permit from the data controller and request us to extend the duration of your CSC project, your project will close automatically after the expiration of the data permit. All data from a closed project will be deleted after 90 days, according to CSC’s data retention policy. You need to have all your results exported from the virtual desktop and downloaded from SD Connect before the data permit expires – otherwise you cannot access them when the permit is no longer valid.
