@@ -19,6 +19,8 @@ Do **not** use ephemeral storage for user data, databases, or anything that must
 
 You can find additional information on the [Ephemeral storage](./ephemeral.md) page.
 
+Data written by a container outside of a mounted volume is also ephemeral. It is stored in the container’s writable layer on the node’s local disk and is lost when the container is restarted or removed.
+
 ## Persistent storage
 
 Persistent storage survives Pod restarts, failures, and rescheduling. Kubernetes provides PersistentVolumes (PVs) and PersistentVolumeClaims (PVCs) to manage persistent data independently of Pods, so applications can reliably store and retrieve data even when Pods move between nodes. This makes persistent storage essential for stateful applications. Use persistent storage when your application must retain data even when Pods are recreated or deleted:
