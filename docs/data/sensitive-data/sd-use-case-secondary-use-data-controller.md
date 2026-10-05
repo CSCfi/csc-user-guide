@@ -66,7 +66,7 @@ Follow these instructions to upload data to the bucket:
 The datasets will remain in your control after they are uploaded to the buckets and shared to the users' projects. You can upload more data, remove files, and also remove the data access from the users anytime during the project lifetime.
 
 1. **Delivering additional data**: You can add data for a project by [uploading new files to the bucket](#4-upload-each-dataset-to-a-dedicated-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
-2. **Removing corrupted or incorrect files**: You can remove data from the bucket by [deleting the files](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible copies of the files from their SD Desktop environment.
+2. **Removing corrupted or incorrect files**: You can remove data from the bucket by [deleting the files](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
 4. **Cancelling the data access**: You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md).
 
 !!! Note 
