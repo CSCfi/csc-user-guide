@@ -16,7 +16,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 1. [Create a CSC account](#1-create-a-csc-account) 
 2. [Create new CSC project](#2-create-new-csc-project)
 3. [Fill GDPR document](#3-fill-gdpr-document)
-4. [Retrieve your project's Share ID from SD Connect](#
+4. [Retrieve your project's Share ID from SD Connect](#4-retrieve-your-projects-share-id-from-sd-connect)
 5. [Contact CSC service desk](#5-contact-csc-service-desk)
 6. CSC adds members to your project, please wait
 7. [CSC project is ready](#7-your-csc-project-is-ready)
@@ -98,6 +98,11 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 ### 4. Retrieve your project's Share ID from SD Connect
 
+!!! warning-label
+    Team manager
+
+Login to SD Connect service and copy your Share ID, which you need to deliver to to the Sensitive Data support team in the next step.
+
 ### 5. Contact CSC service desk
 
 !!! warning-label
@@ -105,6 +110,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
+- Copy your project's Share ID to the email (see step 4.).
 - Attach a copy of your **data permit** to the email.
 - Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
 - Put your research team as cc.
