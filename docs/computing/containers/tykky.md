@@ -1,5 +1,7 @@
 # Tykky
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Intro
 
 Tykky is a set of tools which make software installations on HPC systems easier and

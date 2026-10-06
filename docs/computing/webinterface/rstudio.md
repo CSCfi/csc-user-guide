@@ -1,5 +1,7 @@
 # RStudio
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 The RStudio application will launch an RStudio session with the specified resources using the
 selected [R environment (module `r-env`) version](../../apps/r-env.md#available).
 

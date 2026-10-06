@@ -1,5 +1,7 @@
 # High-performance libraries
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Various high-performance libraries for dense linear algebra, fast
 Fourier transforms, *etc.* are available via the module system. Many
 libraries are provided both as single-threaded and multithreaded

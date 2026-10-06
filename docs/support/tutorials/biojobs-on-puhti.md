@@ -41,8 +41,7 @@ or write a batch jobs script and use command **sbatch**. We will
 discuss this in more detail later.
 
 To check what kind of compute nodes are available in Puhti, see the
-User Guide: [Technical details about
-Puhti](../../computing/systems-puhti.md).
+User Guide: Technical details about Puhti.
 
 
 ## Software environment

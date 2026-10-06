@@ -1,5 +1,7 @@
 # Billing
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 CSC resource usage is measured in Billing Units (BU). Billing Units are granted
 to CSC projects and are consumed when you use CSC services.
 

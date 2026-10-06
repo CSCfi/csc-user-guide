@@ -1,5 +1,7 @@
 # Available batch job partitions
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 On CSC supercomputers, programs are run by submitting them to partitions,
 which are logical sets of nodes managed by the Slurm workload manager.
 This page lists the available Slurm partitions on the Roihu, Puhti, and Mahti
@@ -170,7 +172,7 @@ The amount of local storage available to a single user depends on the [partition
     Reserving local scratch on the visualization nodes is not yet
     implemented; use `$TMPDIR` on these nodes until this feature is added.
 
-Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
+Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 
 <!-- Links -->
 [LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/

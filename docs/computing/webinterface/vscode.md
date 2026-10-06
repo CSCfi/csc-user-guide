@@ -1,4 +1,7 @@
 # Visual Studio Code
+
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 The Visual Studio Code interactive app can be used for editing and running code on Roihu or Mahti.
 Make sure to load the correct modules before launching the session for the debugger to work
 correctly.

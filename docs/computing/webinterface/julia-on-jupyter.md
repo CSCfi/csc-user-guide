@@ -1,5 +1,7 @@
 # Julia Jupyter
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Selecting the Julia-Jupyter application
 
 ![ood application menu](../../img/julia-jupyter/ood-application-menu.png)

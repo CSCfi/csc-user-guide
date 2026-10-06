@@ -34,7 +34,7 @@ So for Roihu, consider also how different tools support updating the SSH certifi
 | Cyberduck        |    :ok: with OpenSSH key, difficult with PuTTY key    |       :ok:|
 
 
-For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it can not be used from transferring data from Puhti or Mahti to Roihu.
+For initial use and light usage, Roihu's [web interface](../webinterface/index.md) might be the easiest starting option as it provides access to login and compute node shells as well as a [graphical file moving tool](../../data/moving/web-interface.md). But it cannot be used for transferring data directly between supercomputers.
 
 ## Generating SSH keys
 
@@ -120,7 +120,7 @@ supercomputer.
 
     ```bash
     # Replace <username> with the name of your CSC user account and
-    # <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
+    # <host> with "roihu-cpu" or "roihu-gpu"
 
     ssh <username>@<host>.csc.fi
     ```
@@ -144,7 +144,7 @@ supercomputer.
 
     | Option | Value |
     |-|-|
-    | **Host Name** | `puhti.csc.fi`, `mahti.csc.fi`, `roihu-cpu.csc.fi` or `roihu-gpu.csc.fi` |
+    | **Host Name** | `roihu-cpu.csc.fi` or `roihu-gpu.csc.fi` |
     | **Port** | `22` |
     | **Connection type** | `SSH` |
 	| Connection -> Data -> Auto-login username | `csc_username` |
@@ -164,7 +164,7 @@ supercomputer.
 
     ```bash
     # Replace <username> with the name of your CSC user account and
-    # <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
+    # <host> with "roihu-cpu" or "roihu-gpu"
 
     ssh <username>@<host>.csc.fi
     ```
@@ -197,7 +197,7 @@ follows:
 
 ```bash
 # Replace <username> with the name of your CSC user account,
-# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu", and
+# <host> with "roihu-cpu" or "roihu-gpu", and
 # <path-to-private-key> with the path to your SSH private key
 
 ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
@@ -257,9 +257,9 @@ Different authentication agents work with different tools:
 * Window ssh-agent: PowerShell, Cyberduck, MobaXterm
 * MobAgent: MobaXterm
 
-### Authentication agents with Puhti, Mahti and LUMI
+### Authentication agents with LUMI
 
-Puhti, Mahti and LUMI do not use SSH certificates, so adding keys to SSH authentication agents is done once and can be used for longer time. Below are the instructions for adding SSH keys to SSH agent manually.
+LUMI does not use SSH certificates, so adding keys to SSH authentication agents is done once and can be used for a longer time. Below are the instructions for adding SSH keys to SSH agent manually.
 
 === "Pageant"
 
@@ -345,10 +345,6 @@ Option 1 requires some extra steps for adding the SSH certificate to the SSH age
 	   successfully combined key and certificate will show up as `Ed25519
 	   cert` in Pageant/MobAgent.
 
-!!! warning "Data transfer from Puhti/Mahti to Roihu"
-
-     To transfer data from Puhti/Mahti to Roihu, add to Pageant or MobAgent two keys: the signed SSH key for Roihu and unsigned SSH key for Puhti and Mahti. This is needed even if the keys have the same public key in my.csc.fi. 
-
 === "Windows ssh-agent"
 
 	Users of Windows `ssh-agent` **must** make sure to store their manually
@@ -372,7 +368,7 @@ Option 1 requires some extra steps for adding the SSH certificate to the SSH age
 data from another CSC server to Roihu), also the SSH certificate **must**
 be added to the SSH agent so that it can be properly forwarded.
 * Alternatively, you may connect to Roihu and **pull data** from servers
-that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
+that do not require a SSH certificate (e.g. LUMI). In this case
 it is enough to forward only your SSH keys.
 * [Read more about SSH agent forwarding below](#ssh-agent-forwarding).
 

@@ -156,7 +156,7 @@ directly between the systems.
 
 You can add Roihu as a service to each project individually.
 Data transfer can be done on a project-by-project basis, so the answer really depends on your workflow.
-If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk.md#dataset-directory),
+If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/disk.md#dataset-directory),
 where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
 
 ### 12. I uploaded data from Puhti/Mahti to Allas. Now I'm downloading it to Roihu and get an error saying `corrupted on transfer: md5 hashes differ`.
@@ -240,7 +240,7 @@ Any existing job scripts using local NVMe storage on Puhti and Mahti will need t
 
 The available capacity depends on the node type, and additional temporary NVMe storage can be requested for some jobs.
 
-See the [Roihu temporary local storage documentation](../../computing/roihu-disk.md#temporary-local-disk-areas) for capacities and usage instructions.
+See the [Roihu temporary local storage documentation](../../computing/disk.md#temporary-local-disk-areas) for capacities and usage instructions.
 
 ### 21. My application or institution needs an IP address to enable access to Roihu. What should I use?
 

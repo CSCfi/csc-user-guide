@@ -48,7 +48,7 @@ module load ams/2026.104
 ### Example batch scripts
 
 !!! warning "Note"
-    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Roihu](../computing/roihu-disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Roihu](../computing/disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
 
 === "Puhti"
@@ -194,7 +194,7 @@ module load ams/2026.104
         Maximum amount of local NVMe disk available in `$TMPDIR` depends on the Slurm partition and node type.
         On shared nodes (e.g. on the `small` and `longrun` partitions), you have access to 20 GiB of tmp storage.
         On full nodes (`medium` and `large` partitions), you have access to 600 GiB of local storage.
-        See [Roihu storage documentation](../computing/roihu-disk.md#automatic-local-temporary-storage) for more details.
+        See [Roihu storage documentation](../computing/disk.md#automatic-local-temporary-storage) for more details.
 
 === "Roihu-CPU, disaggregated NVMe"
 
@@ -204,7 +204,7 @@ module load ams/2026.104
         Lustre scratch and node-local `$TMPDIR`. It requires a full-node partition
         (`medium` or `large`) and a `#BB_LUA` burst-buffer directive — shared-node
         support is not yet available. See
-        [Roihu disk areas](../computing/roihu-disk.md#disaggregated-storage)
+        [Roihu disk areas](../computing/disk.md#disaggregated-storage)
         for full details.
 
     ```bash

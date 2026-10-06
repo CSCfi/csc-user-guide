@@ -1,5 +1,7 @@
 # Interactive usage
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 When you log into a CSC supercomputer, you are connected to one of its login
 nodes. Login nodes are shared by all users and are **not** to be used for
 heavy processing. [See our usage policy for details](../usage-policy.md). If

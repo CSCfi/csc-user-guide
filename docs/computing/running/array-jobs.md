@@ -1,5 +1,7 @@
 # Array jobs
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Array jobs are the native Slurm mechanism for submitting a number of similar, independent
 subtasks with a single command, for example analyzing several datasets the same way or running
 the same simulation with a number of different parameters.

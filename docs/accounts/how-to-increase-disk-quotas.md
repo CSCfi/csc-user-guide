@@ -1,15 +1,15 @@
 # How to increase disk quotas
 
-## Increasing the storage capacity in Roihu and Mahti
+## Increasing the storage capacity in Roihu
 
-The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Roihu and Mahti servers can be
+The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Roihu can be
 increased if needed.
 
 You can use MyCSC to manage these quotas.
 
 1. Login to [MyCSC](https://my.csc.fi) and **select the project** you want to
    modify.
-1. In the Services list, click Configuration for **Roihu** or **Mahti** service as needed. This opens a page where the **project manager** can modify the quotas.
+1. In the Services list, click Configuration for the **Roihu** service. This opens a page where the **project manager** can modify the quotas.
 
 You can check the default limits of scratch and projappl areas from the table below. Values in parenthesis indicate automatically approved limits. Applications with higher values will be determined in the resource allocation meetings every two weeks.
   
@@ -17,8 +17,6 @@ You can check the default limits of scratch and projappl areas from the table be
 |-----------|--------------|--------------|---------------------------|---------------------------|
 | projappl&nbsp;(Roihu)  |   15 GiB     |  250&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 150 000                   | 2 500 000&nbsp;(<&nbsp;1&nbsp;000&nbsp;000)                 |
 | scratch&nbsp;(Roihu)   |   250 GiB      |  100&nbsp;TiB&nbsp;(<&nbsp;10&nbsp;TiB)    | 500 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;2&nbsp;500&nbsp;000)               |
-| projappl&nbsp;(Mahti)  |   50 GiB     |  200&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 100 000                   | 2 000 000 (<&nbsp;500&nbsp;000)                 |
-| scratch&nbsp;(Mahti)   |   1 TiB      |  200&nbsp;TiB&nbsp;(<&nbsp;40&nbsp;TiB)    | 1 000 000                 | 20&nbsp;000&nbsp;000&nbsp;(<&nbsp;10&nbsp;000&nbsp;000)               |
 
 Note that the extended quota consumes your Storage Billing Units regardless of how
 much data you actually have in the directory. [See billing](billing.md) for

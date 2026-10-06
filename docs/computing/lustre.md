@@ -1,5 +1,7 @@
 # Lustre file system
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 CSC supercomputers use [Lustre](https://www.lustre.org/) as the parallel distributed file system.
 This article provides a brief technical description of Lustre.
 

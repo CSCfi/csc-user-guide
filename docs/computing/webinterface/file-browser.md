@@ -1,5 +1,7 @@
 # File browser and accessing storage services from the web interfaces
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 The file browser can be opened from the _Files_ section on the top navbar
 (this displays a list of all project disk areas), or using the shortcut to your
 home folder in the _Pinned Apps_ view on the landing page (dashboard). In the

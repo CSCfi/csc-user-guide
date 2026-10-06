@@ -1,4 +1,7 @@
 # Jupyter for courses
+
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 The Jupyter for courses app is a version of the [Jupyter app](jupyter.md) that makes using a custom
 Python environment simple when hosting or participating in courses.
 

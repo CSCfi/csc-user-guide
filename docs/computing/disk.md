@@ -1,44 +1,40 @@
-# Disk areas
+# Roihu disk areas
 
-!!! warning "Roihu documentation on a separate docs page"
-     This page contains storage information on Puhti and Mahti.
-     For information on Roihu's storage, see: [Roihu storage](roihu-disk.md)
+Roihu provides three main shared disk areas: **home**, **projappl**, and **scratch**.
+In addition, each compute node provides a local temporary disk area that
+is available only during a job or interactive session on that node.
+Please familiarize yourself with the areas and their specific
+purposes.
 
-!!! warning "Puhti and Mahti retirement in 2026"
-    Puhti and Mahti are being retired in 2026, and their storage systems will
-    be fully unavailable 15 October 2026 at 12:00 EEST.
-     
-    Migrate any data that you wish to keep into Roihu.
-    See the [Roihu data migration tutorial](../support/tutorials/pukki_data_migration.md) for details.
+Roihu users can also apply for separate dataset projects.
+These provide access to a dedicated disk area, **dataset**, intended for sharing
+datasets between multiple projects. Unlike computational projects, dataset projects
+do not include `scratch` or `projappl` directories.
 
-CSC supercomputers have three main disk areas: **home**, **projappl** and **scratch**.
-In addition to these disk areas visible to all compute and login nodes, each node has a
-**local temporary disk area** that is visible to the particular compute node during a batch
-job or shell session, only. Please familiarize yourself with the areas and their specific
-purposes. The disk areas for different supercomputers are separate, *i.e.* **home**,
-**projappl** and **scratch** in Puhti cannot be directly accessed from Mahti. Also
-[a more technical description of the Lustre filesystem](lustre.md) used in these directories
-is available.
+These directories are shared across the login and compute nodes on the system, and are based on the Lustre filesystem.
+See [a more technical description of the Lustre filesystem on CSC supercomputers](lustre.md).
 
 !!! warning "CSC does not backup your data!"
-    None of the disk areas are automatically backed up by CSC! This means that data accidentally
-    deleted by the user cannot be recovered in any way. To avoid unintended data loss, make sure
+    None of the disk areas are automatically backed up by CSC! 
+    Deleted files **cannot be recovered**. To avoid unintended data loss, make sure
     to perform regular backups to, for example, [Allas](../data/Allas/index.md). See also the
     [allas-backup tool](../data/Allas/using_allas/a_backup.md).
 
-|            |Owner   |Environment variable|Path                 |Cleaning                 |Automatic backup|
-|------------|--------|--------------------|---------------------|-------------------------|----------------|
-|**home**    |Personal|`${HOME}`           |`/users/<user-name>` |No                       |No              |
-|**projappl**|Project |Not available       |`/projappl/<project>`|No                       |No              |
-|**scratch** |Project |Not available       |`/scratch/<project>` |180 days on Puhti        |No              |
+|             |Owner   |Environment variable|Path                  |Cleaning             |Automatic backup|
+|-------------|--------|--------------------|----------------------|---------------------|----------------|
+|**home**     |Personal|`${HOME}`           |`/users/<user-name>`  |No                   |No              |
+|**projappl** |Project |Not defined         |`/projappl/<project>` |No                   |No              |
+|**scratch**  |Project |Not defined         |`/scratch/<project>`  |90 or 180 days       |No              |
+|**dataset**  |Project |Not defined         |`/dataset/<project>`  |No                   |No              |
 
 These disk areas have quotas for both the amount of data and total number of files:
 
-|            |Capacity|Number of files|
-|------------|--------|---------------|
-|**home**    |10 GiB  |100 000 files  |
-|**projappl**|50 GiB  |100 000 files  |
-|**scratch** |1 TiB   |1 000 000 files|
+|            |Capacity|Number of files|Notes                         |
+|------------|--------|---------------|------------------------------|
+|**home**    |15 GiB  |150 000 files  |                              |
+|**projappl**|15 GiB  |150 000 files  |                              |
+|**scratch** |250 GiB |500 000 files  |                              |
+|**dataset** |0 GiB   |0 files        |Must be applied for separately|
 
 !!! info "LUE"
     To easily check the amount of data and number of files within a given folder on
@@ -50,57 +46,61 @@ These disk areas have quotas for both the amount of data and total number of fil
     While it is possible to [apply for increased quotas](#increasing-quotas), we
     recommend that you always first ensure that the data you have stored on the
     shared file system is really needed and in active use. Unused data should be
-    moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
-    and cleaning data on Puhti and Mahti disks](../support/tutorials/clean-up-data.md)
+    deleted or moved to e.g. [Allas](../data/Allas/index.md). A general tutorial on [managing
+    and cleaning data on supercomputer disks](../support/tutorials/clean-up-data.md)
     is also available.
 
 ## Home directory
 
-Each user on Mahti and Puhti has a home directory (`$HOME`) that can contain up to 10 GB of data.
+Each user has a home directory (`$HOME`) that can contain up to 15 GB of data on Roihu.
 
-The home directory is the default directory where you begin after logging in to CSC supercomputers.
-However, typically you should change to your project's `scratch` directory when working because
-the **home directory is not intended for data analysis or computing**. Its purpose is to store
-configuration files and other minor personal data. A home directory exceeding its capacity
-causes various account problems.
+The home directory is the default location after logging in.
+However, it is not intended for data analysis or running jobs.
+Its purpose is to store configuration files and other minor personal data.
+Be wary of the remaining quota in your home directory,
+a home directory exceeding its capacity can cause various account problems.
 
 The home directory is the only user-specific directory in supercomputers. All other directories
 are project-specific. If you are a member of several projects, you also have access to several
 `scratch` or `projappl` directories, but still have only one home directory.
 
+For all computing work, you should use your project's `scratch` directory.
+
 ## Scratch directory
 
-Each project on Mahti and Puhti has, by default, 1 TiB of scratch disk space in the
+Each project on Roihu has, by default, 250 GiB of scratch disk space in the
 directory `/scratch/<project>`.
 
-This fast parallel scratch space is intended as temporary storage space for the
-data that is used in the supercomputer. The scratch directory is not intended
-for long-term data storage. To ensure that the disks do not fill up CSC will
-regularly delete files that have not been accessed in a long time. In Puhti the
-current policy is to remove files that have not been accessed for more than 180
-days (scratch quota less than 5 TiB) or 90 days (scratch quota 5 TiB or more).
-In Mahti a similar cleaning procedure will be introduced, but is not yet
-active. See [Usage policy](usage-policy.md#disk-cleaning) page for details on
-the current policy.
+The scratch directory is a fast parallel filesystem intended temporary storage of
+data used in computation, and should contain i.e. any input and output files of your
+programs. 
+You should aim to run your jobs on the supercomputer in this `scratch` directory.
+
+The scratch directory is **not intended for long-term storage**. Files that have not 
+been accessed for a long time may be automatically removed to free up space.
+The current policy on Roihu is to remove files that have not been accessed for
+more than 180 days (scratch quota less than 5 TiB) or 90 days (scratch quota
+5 TiB or more). See the [Usage policy](usage-policy.md#disk-cleaning) page for
+details on the current policy.
 
 Make sure to consult our tutorial for [tips and guidelines on how to
 manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 ## Projappl directory
 
-Each project on Mahti and Puhti also has 50 GB project application disk space
+Each project on Roihu has also a 15 GB project application disk space
 in the directory `/projappl/<project>`.
 
-It is intended for storing compiled software binaries, source code, libraries, scripts
+Use the projappl area for storing compiled software binaries, source code, libraries, scripts
 and small-scale reference data that are shared within a project. It is not a
-personal storage space, but it is shared with all members of a project. Note
-that no files in this folder will be removed automatically.
+personal storage space, as it is shared with all members of a project.
+Files in projappl are not automatically removed, but the quota is limited.
 
-Please note that `projappl` quota is limited, and the disk area is not meant
-for storing active research data. Thus, please do not submit jobs from or write
+Please do not submit jobs from or write
 large-scale data to your project's `projappl` directory, but use `scratch`
-instead for this purpose. Note that the self-installed applications you run
+instead for this purpose. Note that any self-installed applications you run
 can and should still be stored in `projappl`.
+
 
 ## Using scratch and projappl directories
 
@@ -118,25 +118,24 @@ cycle and which to the 180 day `scratch` cleaning cycle.
 For example, if you are a member in two projects, with unix groups `project_2000123`
 and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
 
-
 ```text
-[kkayttaj@puhti-login11 ~]$ csc-workspaces 
+[kkayttaj@roihu-login11 ~]$ csc-workspaces 
 
 Disk area               Capacity(used/max)  Files(used/max)  Cleanup
 ----------------------------------------------------------------------
 Personal home folder
 
-/users/kkayttaj                 4.4G/10G         24K/100K        n/a
+/users/kkayttaj                 4.4G/15G         24K/150K        n/a
 ----------------------------------------------------------------------
 Project: project_2000123 "Project X"
 
-/projappl/project_2000123        24G/50G         36K/100K        n/a
-/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
+/projappl/project_2000123        24G/15G         36K/150K        n/a
+/scratch/project_2000123        103G/250G       389K/500k        180d
 ----------------------------------------------------------------------
 Project: project_2001234 "Project Y"
 
-/projappl/project_2001234        85G/100G       282K/600K        n/a
-/scratch/project_2001234        7.2T/8.0T       2.7M/5.0M        90d
+/projappl/project_2001234        25G/100G       282K/1.0M       n/a
+/scratch/project_2001234         7.2/10TB       2.1M/2.5M       90d
 ----------------------------------------------------------------------
 ```
 
@@ -146,43 +145,61 @@ Moving to the scratch directory of `project_2000123`:
 cd /scratch/project_2000123
 ```
 
-Please note that not all CSC projects have Puhti/Mahti access, so you may not
+Note that not all CSC projects have Roihu access, so you may not
 necessarily find a `scratch` or `projappl` directory for all your CSC projects.
 
 !!! Note
     The `scratch` and `projappl` directories are shared by all the members of the
     project. All new files and directories are also fully accessible for other
-    group members (including read, write and execution permissions).
+    group members (including read, write and execution permissions) by default.
 
-If you want to restrict access from your group members, you can reset the permissions
-with the `chmod` command. Setting read-only permissions for your group members for
-the directory `my_directory`:
+If you need to restrict access from your group members, you can reset the permissions
+with the `chmod` command as usual. In general, we recommend that you allow the group
+members the access, but use a subdirectory with your username for your data, for example
 
-```bash
-chmod -R g-w my_directory
 ```
+/scratch/project_2000123/$USER
+```
+
+This way the data is accessible to other group members in case of long vacations, etc,
+but the ownership is still clear and organized. Note, some programs change the file permissions
+from the defaults, which may restrict the access from group members.
 
 As mentioned earlier, the `scratch` directory is only intended for processing data.
 Any data that should be preserved for a longer time should be copied to the *Allas*
 object storage server. Instructions for backing up files from CSC supercomputers to
 Allas can be found in the [Allas guide](../data/Allas/index.md).
 
+## Dataset directory
+
+Roihu users can apply for separate dataset projects, which provide access to a shared disk
+area under `/dataset/<project>`, but no computational resources.
+
+!!! note "Dataset project access begins in early August" 
+     You can already apply for a dataset project in MyCSC.
+     Based on the applications, the first dataset projects will be approved and granted access in early August 2026.
+
+Unlike normal computational projects, dataset projects do not include scratch or projappl
+directories. Instead, they are designed specifically for sharing data between multiple
+projects.
+
+Write access to a dataset directory is restricted to a single project, while multiple
+other projects can be granted read access to this disk area.
+
+See details about [dataset projects](roihu-dataset-project.md) and
+[how to apply for a dataset project](../accounts/how-to-create-new-project.md#dataset-project) in MyCSC.
+
+!!! note
+     Dataset projects are intended for data sharing and active use, not long-term storage.</br>
+     For long term storage, consider using [Allas](../data/Allas/index.md).
+
 ## Moving data between supercomputers
 
-Data can be moved between supercomputers via Allas by first uploading the data in
-one supercomputer and then downloading in another supercomputer. This is the
-recommended approach if the data should also be preserved for a longer time.
+Data can be moved directly between supercomputers using
+[rsync](../data/moving/rsync.md) command.
 
-Data can also be moved directly between the supercomputers with the `rsync` command.
-For example, in order to copy `my_results` (which can be either file or directory)
-from Puhti to the directory `/scratch/project_2002291` in Mahti, one can issue in
-Puhti the command:
-
-```bash
-rsync -azP my_results yourcscusername@mahti.csc.fi:/scratch/project_2002291
-```
-
-See [Using rsync](../data/moving/rsync.md) for more detailed instructions for `rsync`.
+See our [data migration guide](../support/tutorials/roihu-data.md) for migrating data
+from Puhti/Mahti to Roihu.
 
 ## Increasing quotas
 
@@ -193,9 +210,9 @@ Remember that even after the quota is increased, the planned automatic cleaning 
 will continue removing idle files from the `scratch` directory. Data that is not under
 active computing should be stored in the Allas storage service.
 
-Remember also that you can increase these values only to some extent. Especially regarding
-the number of files, you should reconsider your data workflow if it requires that tens
-of millions of files are stored in the `scratch` area.
+Quota increases are limited. If your workflow requires storing very large
+numbers of files (e.g. millions), you should reconsider your data workflow,
+as this can lead to performance issues on the whole filesystem.
 
 !!! info
     To find out how much data/files you have on the disk, please use our [LUE
@@ -204,63 +221,171 @@ of millions of files are stored in the `scratch` area.
 
 ## Temporary local disk areas
 
-If the application depends on the use of temporary files, the suitability of
-the filesystem may have a large effect on the performance of the application,
-see section *Mind your I/O - it can make a big difference* in the [Performance
-checklist](running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
+Roihu compute nodes provide fast local disk storage that can significantly improve 
+performance for I/O-intensive workloads.
 
-Please note that some applications use temporary files "behind the scenes". Usually these
-applications read some environment variable that points to a suitable disk area, such as
-`$TMPDIR`.
+This storage is available via the environment variable `$TMPDIR`, which many
+applications use automatically for temporary files.
 
-Some nodes have local disks that can be used to speed up your work when the temporary files
-are only needed within a single login- or compute node.
+Local disk is node-specific and available on the login node, as well as in a job
+or interactive session. It is intended for temporary files that do not need to be
+shared between nodes.
 
 ### Login nodes
 
-Each of the login nodes have 2900 GiB of fast local storage. The storage is located under
-`$TMPDIR` and is separate for each login node.
+Each login node on both Roihu-CPU and Roihu-GPU provides 80 GB of local storage under `$TMPDIR`.
 
-The local storage is good for compiling applications and performing pre- and post-processing
+The local storage is intended for compiling applications and performing pre- and post-processing
 that require heavy I/O operations, for example packing and unpacking archive files.
 
 !!! Note
     The local storage is meant for **temporary** storage and is cleaned frequently.
     Remember to move your data to a shared disk area after completing your task.
 
+### Compute nodes
 
-### Compute nodes with local SSD (NVMe) disks
-
-Jobs running in the I/O- and GPU-nodes in Puhti and Mahti have local fast storage
-available. In interactive batch jobs launched with [sinteractive](running/interactive-usage.md),
-this local disk area is defined with environment variable `$TMPDIR` and in normal batch jobs
-with `$LOCAL_SCRATCH`. The size of this storage space is defined in the batch job resource request.
-Different nodes have different amounts of disks, see [Puhti technical details](systems-puhti.md)
-for a detailed list of all node types in Puhti. In normal compute nodes, there are 1490 GiB and 3600 GiB
-disks. In big memory nodes there are 1490 GiB and 5960 GiB disks, and in GPU-nodes there are
-3600 GiB disks. To save resources, and to ensure your jobs do not queue for resources for too
-long, it is a good idea to only reserve what you actually need. In Mahti there are 60 CPU nodes with 3500 GiB
-local disks in the `small` and `interactive` partitions. The GPU nodes have 3600 GiB local disks.
+All compute nodes in Roihu provide fast NVMe local storage.
 
 These local disk areas are designed to support I/O intensive computing tasks and cases where you
-need to process large amounts (over 100 000) of small files. These directories are cleaned once
-the batch job finishes. Thus, in the end of a batch job you must copy all the data that you want
-to preserve from these temporary disk areas to `scratch` directory or to Allas.
+need to process large amounts (over 100 000) of small files.
 
-For more information see [creating job scripts](running/creating-job-scripts-roihu.md#local-temporary-storage).
+Data in local storage is removed when the job finishes. You must copy any results you want to
+keep to `scratch` or Allas before the job ends.
 
-### Compute nodes without local SSD (NVMe) disks
+Based on your [Slurm job reservation](running/batch-job-partitions.md#roihu-partitions) type, you will have access
+to the following amount of local disk space:
 
-In Puhti we simply recommend using compute nodes with NVMe disks (`$LOCAL_SCRATCH`) for the
-applications that require temporary local storage.
+#### Automatic local temporary storage
 
-In Mahti, where only some compute nodes have local NVMe disks, it is also possible to store a relatively
-small amount of temporary files in memory. In practice, the applications can use the directory
-`/dev/shm` for this, for example by setting `export TMPDIR=/dev/shm`. Please note that the use
-of `/dev/shm` consumes memory, so less is left available for the applications. This may lead to
-applications running out of memory sooner than expected and failing in the compute node, but
-this usually does no other harm. The plus side is that if it works, it should be fast.
+For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
 
-However, in Puhti, as well as Mahti `small`, `interactive` and GPU partitions, where applications
-from multiple users can share the same node, running out of memory by filling up `/dev/shm` will
-crash other users applications, too! **In these cases it is not recommended to use `/dev/shm` at all.**
+| Allocation type           | Path      | Available temporary storage |
+|:--------------------------|-----------|----------------------------:|
+| R (Shared nodes)          | `$TMPDIR` | 20 GiB                      |
+| N (Full nodes)            | `$TMPDIR` | 600 GiB                     |
+| G (GPU nodes)             | `$TMPDIR` | 150 GiB                     |
+| XL (Hugemem nodes)        | `$TMPDIR` | 578 GiB                     |
+| VIZ (Visualization nodes) | `$TMPDIR` | 14 TiB                      |
+
+The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
+your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
+
+The reported capacity may be shared with other jobs or users on the same node and may therefore not always be fully available to a single job.
+
+#### Reserved local scratch storage
+
+Roihu's hugemem (XL) and visualization (Viz) nodes provide some local disk storage under `$TMPDIR`.
+On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for larger temporary storage needs.
+
+This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
+Reserved `$LOCAL_SCRATCH` storage consumes billing units.
+
+| Allocation type           | Path             | Maximum reservable local scratch |
+|:--------------------------|------------------|---------------------------------:|
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GB                         |
+| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
+
+Reserve local storage by including the following flag in your Slurm script:
+
+```text
+--gres=nvme:<amount-in-GB>
+```
+
+For example, to reserve the maximum amount of 13 TB, use:
+
+```text
+--gres=nvme:13000
+```
+
+Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
+you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
+
+??? info "Example Slurm script for using local scratch memory in hugemem nodes"
+     ```
+     #!/bin/bash
+     #SBATCH --job-name=example
+     #SBATCH --account=<project>
+     #SBATCH --partition=hugemem
+     #SBATCH --time=00:30:00
+     #SBATCH --nodes=1
+     #SBATCH --ntasks-per-node=1
+     #SBATCH --cpus-per-task=1
+     #SBATCH --gres=nvme:100 # Reserves 100 GB local scratch memory
+
+     # Go to the local scratch directory
+     cd "$LOCAL_SCRATCH"
+     
+     # Run the program
+     srun myprog <options>
+
+     # Copy any required data back to persistent storage before job finishes
+     cp "$LOCAL_SCRATCH"/output.dat /scratch/project_200XXXX/$USER/
+     ```
+
+     Modify the commands and file paths according to your workflow.
+
+!!! note "Local scratch support for visualization nodes will be added later"
+     The local scratch feature on visualization nodes is not yet
+     implemented. Use `$TMPDIR` on visualization nodes for your local storage needs until this feature is added.
+
+Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
+local scratch usage consumes.
+
+## Disaggregated storage
+
+It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
+This fast storage capacity is provided over the network and will appear as local scratch from 
+within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
+to get larger capacity fast storage for your jobs.
+
+### Requesting storage from slurm
+
+!!! warning "Disaggregated storage is currently only available on full node jobs"
+    
+    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
+    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
+    nodes with the `--exclusive` flag on the GPU partitions.
+
+    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
+    without producing standard output or error logs.
+    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+
+To request flash storage to be mounted in an sbatch job you must add the following to the resource
+request block of your script:
+
+```bash
+#BB_LUA SBF storagesize=20GB path=/run/sbb/$USER
+```
+
+Where `storagesize` specifies the amount of storage you need and `path` the location that the 
+storage will be mounted.
+
+Use the path `/run/sbb/$USER` when mounting disaggregated storage.
+
+You can also request resources directly on the command line with the `--bb` flag:
+
+```bash
+srun -p medium --nodes 1 --account <project> --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/$USER" --pty bash -i
+```
+
+Alternatively you can pass the request in a file using the `--bbf` flag, for example:
+
+```bash
+srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
+```
+
+For reserving disaggregated storage on the GPU partitions, include the `--exclusive` flag. Note that you will be
+billed for the full node regardless of how many GPUs you reserve.
+
+```bash
+srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --exclusive --bbf bb.spec --pty bash -i
+```
+
+!!! warning "Steps must use `srun`!"
+    When running a multinode job with sbatch, if each step is expected to run with the disaggregated
+    disk, then the steps must be started with srun. Otherwise, only the compute node that runs the 
+    sbatch script will be able to use the storage.
+
+!!! warning "Remember to move your data!"
+    Move any data you need off the flash storage before your job completes, i.e. within
+    your sbatch script.

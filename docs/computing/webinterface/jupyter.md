@@ -9,8 +9,8 @@ In the app launch form you can define the Python environment,
 Jupyter interface type (Jupyter Notebook or JupyterLab),
 working directory as well as some more advanced settings.
 
-For more information about working with different Python environments on Roihu
-and Mahti, see our [Python application page](../../apps/python.md) and [Python
+For more information about working with different Python environments on Roihu,
+see our [Python application page](../../apps/python.md) and [Python
 usage guide](../../support/tutorials/python-usage-guide.md). Note that all the
 modules listed on the Python app page are not guaranteed to work with the
 Jupyter interactive app. Additionally, installation of Python packages works
@@ -35,14 +35,6 @@ Note that the Python module dropdown will only show the modules available on the
 partition.
 
 
-### Supported Python environments on Mahti
-
- - geoconda
- - python-data
- - pytorch
- - qiskit
- - tensorflow
-
 ## Installing packages
 
 It is possible to install Python packages with `pip` inside an interactive Jupyter session. To do
@@ -51,7 +43,7 @@ this, you must enable either the *User packages* or the *Virtual environment* op
 options are shown after enabling the *Enable advanced settings* option at the end of the form.
 
 If you do not define an installation path, the packages will be installed under
-`$HOME/.local/lib` on Mahti, and `$HOME/.local/x86_64/lib` or `$HOME/.local/aarch64/lib/`
+`$HOME/.local/x86_64/lib` or `$HOME/.local/aarch64/lib/`
 on Roihu. However, **this is not recommended** as the home directory
 storage quota is limited.
 
@@ -85,7 +77,7 @@ requires using virtual environments.
 
 To use a Tykky installation with Jupyter, first [include Jupyter packages in your Tykky
 installation](../containers/tykky.md#using-jupyter-with-a-tykky-installation). Then, open the Roihu
-or Mahti web interface and navigate to the Jupyter app page. In the form, select the `Custom path`
+web interface and navigate to the Jupyter app page. In the form, select the `Custom path`
 option from the Python dropdown. Then, enter the full path to the Python interpreter of your Tykky
 installation. So, if you created an installation with the command `conda-containerize new
 --prefix=/scratch/proj/myInst env.yml` then the path to enter would be

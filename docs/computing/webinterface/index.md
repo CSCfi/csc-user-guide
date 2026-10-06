@@ -1,5 +1,7 @@
 # Web interfaces for Roihu, Puhti and Mahti
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Intro
 
 The web interfaces for Roihu, Puhti, and Mahti at
