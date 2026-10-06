@@ -2,9 +2,6 @@
 
 # How to get access to SD services with a secondary use data permit
 
-!!! Note
-    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
-
 ## Use case
 
 You need to access secondary use data (register data) on SD Desktop. You have a permit from Findata or from any other datata controller of the health and social data registers, which provide the data under the Secondary Use Act.
@@ -151,3 +148,6 @@ You can apply (for free) for billing units in the MyCSC portal:
 - In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
 Small BU applications (S) are automatically approved.
+
+!!! Note
+    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
