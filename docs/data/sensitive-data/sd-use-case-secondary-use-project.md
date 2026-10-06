@@ -101,7 +101,10 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 !!! warning-label
     Team manager
 
-Login to SD Connect service and copy your Share ID, which you need to deliver to to the Sensitive Data support team in the next step.
+Login to [SD Connect service](https://sd-connect.csc.fi/) and copy your Share ID, which you need to deliver to to the Sensitive Data support team in the next step.
+
+You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier.
+![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
 
 ### 5. Contact CSC service desk
 
