@@ -11,7 +11,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 ## Solution
 
 1. [Create a CSC account](#1-create-a-csc-account) 
-2. [Create new CSC project](#2-create-new-csc-project)
+2. [Create a new CSC project](#2-create-new-csc-project)
 3. [Fill GDPR document](#3-fill-gdpr-document)
 4. [Retrieve your project's Share ID from SD Connect](#4-retrieve-your-projects-share-id-from-sd-connect)
 5. [Contact CSC service desk](#5-contact-csc-service-desk)
@@ -38,7 +38,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 ---
 
-### 2. Create new CSC project
+### 2. Create a new CSC project
 
 !!! warning-label
     Team manager
