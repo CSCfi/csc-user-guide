@@ -3,7 +3,10 @@
 !!! warning "Access tokens are secrets"
     Access tokens issued for FirecREST HPC API allow the token holder to interact with Slurm jobs, and read, manipulate and transfer data with your privileges. Don't share your access token with anyone.
 
+    If you suspect that your personal access token might have been compromised, [the token should be revoked](#revoke-a-personal-access-token) as soon as possible.
+
 FirecREST HPC API endpoints can be found under the following URLs:
+
 - LUMI: [https://api.lumi.csc.fi](https://api.lumi.csc.fi).
 - Roihu: [https://api.roihu.csc.fi](https://api.roihu.csc.fi).
 
@@ -60,7 +63,11 @@ As the name suggests, personal access tokens are intended for personal use. A [p
 
 A personal access token can be retrieved from the [MyCSC FirecREST token service](https://my.csc.fi/firecrest-token). Note that there's no direct link to the token service from the MyCSC portal itself yet. Personal access tokens are valid for 24 hours at a time.
 
-You can view and revoke your active tokens at [CSC IdP federated personal profile page](https://user-auth.csc.fi/idp/profile/userprofile), under *Connected organizations* -> *Firecrest-access-tokens*.
+### Revoke a personal access token
+
+In an event where a personal access token is suspected to have been compromised (e.g. was accidentally commited to a public source repository, accidentally pasted in a chat or email), it is best to revoke the potentinally compromised token and generate a new one.
+
+You can view and revoke your active tokens at [CSC IdP federated personal profile page](https://user-auth.csc.fi/idp/profile/userprofile), under *Connected organizations* -> *Firecrest-access-tokens*. All unexpired, revocable tokens will show a red `Revoke now` button when the `Firecrest-access-tokens` view is expanded.
 
 ## Connecting with a robot account
 
