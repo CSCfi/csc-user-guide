@@ -16,10 +16,11 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 1. [Create a CSC account](#1-create-a-csc-account) 
 2. [Create new CSC project](#2-create-new-csc-project)
 3. [Fill GDPR document](#3-fill-gdpr-document)
-4. [Contact CSC service desk](#4-contact-csc-service-desk)
-5. CSC adds members to your project, please wait
-6. [CSC project is ready](#6-your-csc-project-is-ready)
-7. [Apply for Billing Units](#7-apply-for-billing-units)
+4. [Retrieve your project's Share ID from SD Connect](#
+5. [Contact CSC service desk](#5-contact-csc-service-desk)
+6. CSC adds members to your project, please wait
+7. [CSC project is ready](#7-your-csc-project-is-ready)
+8. [Apply for Billing Units](#8-apply-for-billing-units)
 
 
 ### 1. Create a CSC account
@@ -95,7 +96,9 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
   
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
-### 4. Contact CSC service desk
+### 4. Retrieve your project's Share ID from SD Connect
+
+### 5. Contact CSC service desk
 
 !!! warning-label
     Team manager
@@ -107,11 +110,11 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Put your research team as cc.
 
 !!! Note ""
-    ### 5. CSC adds members to your project
+    ### 6. CSC adds members to your project
     - Please wait that Sensitive Data Support -team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
 
-### 6. Your CSC project is ready!
+### 7. Your CSC project is ready!
 
 !!! warning-label
     Team manager
@@ -121,7 +124,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-login.md) and [login and upload materials to SD Connect](sd-connect-login.md).
 
-### 7. Apply for Billing Units
+### 8. Apply for Billing Units
 
 SD Desktop consumes Cloud type Billing Units (BUs) and SD Connect consumes Storage type BUs. You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
 
