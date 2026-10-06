@@ -86,17 +86,10 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/part-of: {{ include "docs-csc.name" . }}
 {{- end }}
 
-{{- define "docs-csc.latestImageName" -}}
-{{- $ := index . 0 -}}
-{{- $resourcename := index . 1 -}}
-{{- printf "%s:latest" $resourcename }}
-{{- end -}}
-
 {{- define "docs-csc.fullImageName" -}}
 {{- $ := index . 0 -}}
 {{- $resourcename := index . 1 -}}
-{{- $resourcename | list $
-                  | include "docs-csc.latestImageName"
+{{- $resourcename | printf "%s:latest"
                   | printf "%s/%s/%s" $.Values.localRegistry $.Release.Namespace }}
 {{- end -}}
 
@@ -137,12 +130,12 @@ Expects a dict of type {
 {{- end -}}
 
 {{- define "docs-csc.deploymentTrigger" -}}
-{{- $imagename := index . 0 -}}
+{{- $imagestreamname := index . 0 -}}
 {{- $containername := index . 1 -}}
 {{- $fieldpath := printf `spec.template.spec.containers[?(@.name=="%s")].image` $containername -}}
 {{-
   dict "from" (dict "kind" "ImageStreamTag"
-                           "name" $imagename)
+                           "name" ($imagestreamname | printf "%s:latest"))
        "fieldPath" $fieldpath
   | list
   | toPrettyJson

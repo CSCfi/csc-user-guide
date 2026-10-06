@@ -13,11 +13,11 @@ spec:
       imageChange:
         from:
           kind: ImageStreamTag
-          name: {{ $origbuildername | list $ | include "docs-csc.latestImageName" | squote }}
+          name: {{ $origbuildername | printf "%s:latest" | squote }}
   output:
     to:
       kind: ImageStreamTag
-      name: {{ $resourcename | list $ | include "docs-csc.latestImageName" | squote }}
+      name: {{ $resourcename | printf "%s:latest" | squote }}
   strategy:
     type: Docker
     dockerStrategy:

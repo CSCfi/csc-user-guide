@@ -12,7 +12,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: {{ $resourcename | list $ | include "docs-csc.latestImageName" | squote }}
+      name: {{ $resourcename | printf "%s:latest" | squote }}
   strategy:
     type: Docker
     dockerStrategy:

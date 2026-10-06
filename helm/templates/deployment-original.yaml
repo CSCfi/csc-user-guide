@@ -1,12 +1,11 @@
 {{- $resourcename := include "docs-csc.origName" . -}}
 {{- $servername := include "docs-csc.origServerName" . -}}
-{{- $imagename := $resourcename | list $ | include "docs-csc.fullImageName" -}}
-{{- $containerimage := $imagename -}}
 {{- $existingcontainers := lookup "apps/v1"
                                   "Deployment"
                                   .Release.Namespace
                                   $resourcename
                            | dig "spec" "template" "spec" "containers" list -}}
+{{- $containerimage := $resourcename | list $ | include "docs-csc.fullImageName" -}}
 {{- if $existingcontainers -}}
 {{- range $container := $existingcontainers -}}
 {{- if $container.name | eq $servername -}}
@@ -24,7 +23,7 @@ metadata:
 {{ $componentlabels | indent 4 }}
   annotations:
     image.openshift.io/triggers: |-
-{{ list $imagename $servername | include "docs-csc.deploymentTrigger" | indent 6 }}
+{{ list $resourcename $servername | include "docs-csc.deploymentTrigger" | indent 6 }}
 spec:
   selector:
     matchLabels:
