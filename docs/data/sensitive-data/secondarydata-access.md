@@ -21,7 +21,7 @@ Contents:
     
 ## Key features
 
-* SD Desktop is a secure processing environment audited against the Findata regulation.
+* SD Desktop is a computing environment audited against the Findata regulation.
 
 * To comply with the regulation, the CSC Secondary use project type must be used.
 
