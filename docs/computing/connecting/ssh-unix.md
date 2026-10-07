@@ -85,22 +85,8 @@ these files. Use option `-i` as follows:
 ssh <username>@<host>.csc.fi -i <path-to-private-key> -i <path-to-certificate>
 ```
 
-Alternatively, you may specify the key location in the `~/.ssh/config` file:
-
-```bash
-Host <host>
-  HostName <host>.csc.fi
-  User <csc-username>
-  IdentityFile <path-to-private-key>
-  CertificateFile <path-to-certificate>
-```
-
-The `~/.ssh/config` file above would allow you to log in to `<host>` simply
-using:
-
-```bash
-ssh <host>
-```
+Alternatively, you may specify the key location in the SSH configuration file
+as described in the section on [configuring SSH client](#configuring-ssh-client).
 
 ## Graphical connection
 
@@ -219,16 +205,61 @@ You can save yourself some time by adding host-specific options for CSC
 supercomputers in an [SSH config file](https://www.ssh.com/academy/ssh/config)
 (e.g. `~/.ssh/config`).
 
+An example config for Roihu:
+
 ```bash
-Host <host>  # e.g. "roihu-cpu"
-    HostName <host>.csc.fi
+Host roihu*
     User <csc-username>
     IdentityFile <path-to-private-key>
     CertificateFile <path-to-certificate>  # Required for Roihu only
+    IdentitiesOnly yes
+
+Host roihu-cpu
+    HostName roihu-cpu.csc.f1
+
+Host roihu-gpu
+    HostName roihu-gpu.csc.fi
 ```
 
-Now you can connect to the host simply by running:
+Now you can connect to the Roihu by running:
 
 ```bash
-ssh <host>
+ssh roihu-cpu
 ```
+
+or:
+
+```bash
+ssh roihu-gpu
+```
+
+### Automating certificate update
+
+The ssh config can be further extended to run
+the [CSC certificate helper tool](ssh-keys.md#option-2-certificate-helper-tool)
+automatically when the certificate has expired.
+
+This can be achieved by extending the ssh config
+with the following `Match` pattern:
+
+```bash
+Host roihu*
+    User <csc-username>
+    IdentityFile <path-to-private-key>
+    CertificateFile <path-to-certificate>  # Required for Roihu only
+    IdentitiesOnly yes
+
+Host roihu-cpu
+    HostName roihu-cpu.csc.f1
+
+Host roihu-gpu
+    HostName roihu-gpu.csc.fi
+
+Match originalhost roihu* exec "python3 <path-to-certificate-helper-tool>/csc_cert.py -s -a none -u %r <path-to-public-key>"
+```
+
+This config means that the certificate tool is executed
+every time when `ssh roihu-cpu` or `ssh roihu-gpu` is done, and
+the tool requests certificate renewal only when the current certificate has expired.
+
+Note that the agent handling is disabled (`-a none`), assuming that the agent already has the keys.
