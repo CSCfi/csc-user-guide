@@ -56,19 +56,46 @@ subcommand, add the command name after "help". For example:
 
 ### Adding a keypair
 
+**The first thing you should do** is add a keypair. It is used to access
+your virtual machines over SSH, and the name you give it here is the
+`<key name>` you will pass to `openstack server create --key-name` later
+on. There are two ways to add one.
+
+**Use a public key you already have.** 
+
+If you already have an SSH key
+pair, upload its public key instead, so OpenStack never generates or
+sees a private key:
+
     openstack keypair create --public-key <file> <name>
 
-**The first thing you should do** is to
-generate a keypair. It will be used to access virtual machines. You
-can also optionally specify a public key you have previously generated,
-in which case the private key is the one you generated when the
-public key was generated. If you do not already have an SSH key pair,
-see [Creating an SSH key pair on a computer](tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer)
+Here `<file>` is the path to your existing public key, and `<name>` is
+the name you want to give this keypair in OpenStack — they are not the
+same thing. For example, to upload the public key `~/.ssh/id_rsa.pub`
+and name it "test" in OpenStack:
+
+    openstack keypair create --public-key ~/.ssh/id_rsa.pub test
+
+If you do not already have an SSH key pair, see
+[Creating an SSH key pair on a computer](tutorials/ssh-key.md#creating-an-ssh-key-pair-on-a-computer)
 for instructions on generating one with `ssh-keygen`.
 
-Generate a key named "test" with a private key stored in "test.pem":
+**Or let OpenStack generate a new key pair for you.** 
+
+This creates both a
+public and a private key and prints the private key to your terminal, so
+redirect the output straight to a file:
+
+    openstack keypair create <name> > <name>.pem
+
+For example, the following creates a keypair named "test" and saves its
+private key to "test.pem" (use names of your own choosing instead of
+"test"):
 
     openstack keypair create test > test.pem
+
+Keep this private key file safe, and restrict its permissions, e.g.
+`chmod 600 test.pem`.
 
 ### List available images
 
