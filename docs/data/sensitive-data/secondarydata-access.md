@@ -21,11 +21,13 @@ Contents:
     
 ## Key features
 
-* SD Desktop and SD Connect are audited against Findata regulation.
+* SD Desktop is a secure processing environment audited against the Findata regulation.
 
 * To comply with the regulation, the CSC Secondary use project type must be used.
 
 * Secondary use data from the registers can only be accessed on SD Desktop.
+
+* SD Connect can be used to upload additional software and data to the environment.
 
 ## Limitations
 
