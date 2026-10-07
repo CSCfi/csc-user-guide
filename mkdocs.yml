@@ -103,6 +103,7 @@ plugins:
       "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
       "computing/allas.md": "data/Allas/allas-roihu.md"
+      "computing/roihu-disk.md": "computing/disk.md"
       "computing/containers/creating.md": "computing/containers/overview.md"
       "computing/containers/run-existing.md": "computing/containers/overview.md"
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
@@ -273,15 +274,12 @@ nav:
       - Billing: accounts/billing.md
       - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
-      - FMI: accounts/fmi.md
   - Computing:
       - computing/index.md
       - Usage policy: computing/usage-policy.md
       - Billing: computing/hpc-billing.md
       - Systems:
           - computing/available-systems.md
-          - Puhti: computing/systems-puhti.md
-          - Mahti: computing/systems-mahti.md
           - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
@@ -291,7 +289,6 @@ nav:
           - SSH client on Windows: computing/connecting/ssh-windows.md
       - Supercomputer storage:
           - computing/disk.md
-          - Roihu disk areas: computing/roihu-disk.md
           - Roihu dataset projects: computing/roihu-dataset-project.md
           - Lustre filesystem: computing/lustre.md
       - Module environment: computing/modules.md

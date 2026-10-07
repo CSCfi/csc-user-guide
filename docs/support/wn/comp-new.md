@@ -478,7 +478,7 @@ Fast local NVMe disks can be used to speed up single node workloads that do a lo
 read and write operations on data sets that fit on the disks. Especially small reads
 and writes, and operations on a large amount of files are much faster on the local disks
 than on the parallel file system. Now also the 6 nodes with 1.5 TiB of memory have been
-upgraded with 5960 GiB local disks. See [Puhti technical details](../../computing/systems-puhti.md)
+upgraded with 5960 GiB local disks. See Puhti technical details
 for a detailed list of all nodes.
 
 ## Puhti web interface beta updated to release 9 5.7.2022
@@ -508,7 +508,7 @@ your data](../tutorials/clean-up-data.md).
 
 ## Puhti has been updated with additional local disks, 13.5.2022
 
-Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../computing/systems-puhti.md) for a detailed list of all nodes.
+Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See Puhti technical details for a detailed list of all nodes.
 
 ## Mahti operating system updated to RHEL8, 4.5.2022
 

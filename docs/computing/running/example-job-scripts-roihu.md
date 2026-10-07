@@ -256,4 +256,4 @@ srun myprog <options>
     Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
 
 
-See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).
+See [detailed usage instructions](../disk.md#disaggregated-storage).

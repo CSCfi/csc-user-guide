@@ -42,7 +42,7 @@ GB). A directory exceeding its capacity causes various problems (see
 disk area to store your active research data (default quota 250 GB on Roihu), while
 projappl is intended, for example, for project-wide installations of custom
 software and libraries (default quota 15 GB on Roihu). See
-[more information about the disk areas](../../computing/roihu-disk.md).
+[more information about the disk areas](../../computing/disk.md).
 
 !!! note "CSC does not back up your data!"
     None of the disk areas are automatically backed up by CSC. This means that

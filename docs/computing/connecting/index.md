@@ -91,14 +91,10 @@ to connect over SSH:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
-# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
+# <host> with "roihu-cpu" or "roihu-gpu"
 
 ssh <username>@<host>.csc.fi
 ```
-
-!!! note
-    It might take up to one hour for your new key to become active on Puhti or Mahti after adding
-    it to MyCSC. Roihu has no such delay since it is based on SSH certificates.
 
 Once the SSH connection to the supercomputer is open, you can interact with it
 by issuing Linux commands using the Bash shell program. An introduction to
@@ -113,8 +109,8 @@ may notify you that the host is unknown, and ask you to confirm the connection.
 With the OpenSSH client, the message looks like this:
 
 ```text
-The authenticity of host 'puhti.csc.fi' can't be established.
-ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
+The authenticity of host 'roihu-cpu.csc.fi' can't be established.
+ECDSA key fingerprint is SHA256:h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
@@ -125,26 +121,11 @@ should again verify the new key against fingerprints provided by CSC.
 
 #### Host key fingerprints
 
-=== "Roihu"
-    | SHA256 checksum                             | Key                                |
-    |---------------------------------------------|------------------------------------|
-    | h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
-    | cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
-
-=== "Puhti"
-    | SHA256 checksum                             | Key                                |
-    |---------------------------------------------|------------------------------------|
-    | kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | Q2lpykI43ffs4PrRODZ/qncjUo3eyrRHc5T9yjJEwWY | ssh_host_ed25519_key.pub (ED25519) |
-    | WH1Ag2OQtMPZb+hj3YeH9uVMMetXpCvyNUbsdk0Qcpk | ssh_host_rsa_key.pub (RSA)         |
-
-=== "Mahti"
-    | SHA256 checksum                             | Key                                |
-    |---------------------------------------------|------------------------------------|
-    | WC9Lb5tmKDzUJqsQjaZLvp9T7LTs3aMUYSIy2OCdtgg | ssh_host_ecdsa_key.pub (ECDSA)     |
-    | tE+1jA4Et1enbbat1V3dMRWlLtJgA8t7ZrkyIkU4ooo | ssh_host_ed25519_key.pub (ED25519) |
-    | 0CxM3ECpD2LhAnMfHnm3YaXresvHrhW4cevvcPb+HNw | ssh_host_rsa_key.pub (RSA)         |
+| SHA256 checksum                             | Key                                |
+|---------------------------------------------|------------------------------------|
+| h3YVzmNucpxTXcxag8D2TaC21jH8/6LGNNCCOgRDaTU | ssh_host_ecdsa_key.pub (ECDSA)     |
+| YNdesHbXhxN0hKD4mWvYGQONebjRqY+CGXDqPiZyByQ | ssh_host_ed25519_key.pub (ED25519) |
+| cXJ5h3Z9fgu0wVpC2kDIpjdsrFsJF/bfyWegQXsfQpU | ssh_host_rsa_key.pub (RSA)         |
 
 ### Graphical connection
 
@@ -169,12 +150,12 @@ ssh <username>@<host>-login<id>.csc.fi  # e.g. 'roihu-gpu-login1.csc.fi'
 
 The available login nodes are:
 
-| Puhti | Mahti | Roihu CPU | Roihu GPU |
-|-|-|-|-|
-| `puhti-login11` | `mahti-login11` | `roihu-cpu-login1` | `roihu-gpu-login1` |
-| `puhti-login12` | `mahti-login12` | `roihu-cpu-login2` | `roihu-gpu-login2` |
-| `puhti-login14` | `mahti-login14` | `roihu-cpu-login3` |                    |
-| `puhti-login15` | `mahti-login15` | `roihu-cpu-login4` |                    |
+| Roihu CPU | Roihu GPU |
+|-|-|
+| `roihu-cpu-login1` | `roihu-gpu-login1` |
+| `roihu-cpu-login2` | `roihu-gpu-login2` |
+| `roihu-cpu-login3` |                    |
+| `roihu-cpu-login4` |                    |
 
 This also applies to compute nodes, although just the ones where you have a
 job running. Use the `squeue` command to see which node(s) your job is on, and
@@ -201,10 +182,10 @@ then connect to a node using `ssh`.
 # The nodes hosting the job are
 # displayed in the "NODELIST(REASON)" column.
 
-[username@puhti-login11 ~]$ squeue --me
+[username@roihu-cpu-login1 ~]$ squeue --me
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
           12345678      test     test username  R       0:01      1 r07c01
-[username@puhti-login11 ~]$ ssh r07c01
+[username@roihu-cpu-login1 ~]$ ssh r07c01
 [username@r07c01 ~]$ hostname
 r07c01.bullx
 ```

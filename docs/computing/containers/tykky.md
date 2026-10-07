@@ -127,7 +127,7 @@ export PATH="<install_dir>/bin:$PATH"
 
 To use a Tykky installation with [Jupyter](https://jupyter.org/), include correct conda package in your Conda environment file: `jupyterlab` for [JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) or `notebook` for [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/) from `conda-forge` channel. Also additional JupyterLab extensions can be installed, for example [jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) or [dask-labextension](https://github.com/dask/dask-labextension). 
 
-The best way to use Jupyter in Puhti or Mahti is with [the web interface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with Puhti web interface Jupyter.
+The best way to use Jupyter on Roihu is with [the web interface](../webinterface/index.md). See [Jupyter application page](../webinterface/jupyter.md#tykky-installations) for details how to use your own Tykky installation with the Roihu web interface Jupyter.
 
 ### Mamba
 
@@ -266,10 +266,7 @@ installation needs to be done on a compute node, for example using an
 [interactive session](../../computing/running/interactive-usage.md#sinteractive-on-roihu):
 
 ```bash
-# Start interactive session, here with 15 GB local disk on Mahti and 20 GB default amount on Roihu (increase if needed)
-# In Mahti:
-sinteractive --account <project> --time 1:00:00 --cores 8 --tmp 15
-# In Roihu:
+# Start interactive session, here with 20 GB default local disk amount on Roihu (increase if needed)
 sinteractive --account <project> --time 1:00:00 --cores 8 
 
 # Load Tykky
@@ -287,7 +284,7 @@ For deleting a Tykky installation, remove the <install_dir> folder.
 Tykky installations can also be moved:
 
 * Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
-* Between Roihu and Mahti use `rsync`. For copying to Roihu, log in to Mahti and change to the folder where you want to move the Tykky installation, then use:
+* Between Roihu and LUMI use `rsync`. For copying to Roihu, log in to LUMI and change to the folder where you want to move the Tykky installation, then use:
 
 ```
 rsync -al <username>@roihu-cpu.csc.fi:<install_dir> .

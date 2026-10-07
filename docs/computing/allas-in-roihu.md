@@ -1,6 +1,5 @@
 # Using Allas and Lumi-O object storage services in Roihu
 
-
 Object storage related tools are initialized in Roihu with command:
 
 ```text

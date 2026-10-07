@@ -253,7 +253,7 @@ apply for a separate *dataset project* on Roihu. This gives you access to a
 storage area intended for sharing data between multiple computational projects
 on the system.
 
-See details about [dataset projects and the dataset disk area](../../computing/roihu-disk.md#dataset-directory).
+See details about [dataset projects and the dataset disk area](../../computing/disk.md#dataset-directory).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is easy using the

@@ -97,24 +97,14 @@ You can add your public key through the
     ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlapOdeoxNvz/1AZFRjGAPnPj8pzzz3skI+a+yJS5b7 optional-comment
     ```
 
-Users can check their public keys on Puhti or Mahti using the commands:
+Users can check their public key file on Roihu using the command:
 
 ```bash
-# Check timestamp of file (time of previous sync)
-ls -l /var/lib/acco/sshkeys/${USER}/${USER}.pub
-
-# Check its contents (public keys)
-cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
+cat /var/local/account-refresh/sshkeys/${USER}/${USER}.pub
 ```
 
 If you have added multiple keys to MyCSC, they should all be visible in the
 same `${USER}.pub` file.
-
-On Roihu the equivalent file is in a different location:
-
-```bash
-/var/local/account-refresh/sshkeys/${USER}/${USER}.pub
-```
 
 ## Signing public key
 

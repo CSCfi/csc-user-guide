@@ -56,7 +56,7 @@ connection by opening the terminal and running:
 
 ```bash
 # Replace <username> with the name of your CSC user account and
-# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu"
+# <host> with "roihu-cpu" or "roihu-gpu"
 
 ssh <username>@<host>.csc.fi
 ```
@@ -78,7 +78,7 @@ these files. Use option `-i` as follows:
 
 ```bash
 # Replace <username> with the name of your CSC user account,
-# <host> with "puhti", "mahti", "roihu-cpu" or "roihu-gpu",
+# <host> with "roihu-cpu" or "roihu-gpu",
 # <path-to-private-key> with the path to your SSH private key and
 # <path-to-certificate> with the path to your SSH certificate file (Roihu only)
 
@@ -172,7 +172,7 @@ in memory. The program's behavior depends on your system:
       data from another CSC server to Roihu), also the SSH certificate must be
       added to the SSH agent so that it can be properly forwarded.
     * Alternatively, you may connect to Roihu and **pull** data from servers
-      that do not require a SSH certificate (e.g. Puhti or Mahti). In this case
+      that do not require a SSH certificate (e.g. LUMI). In this case
       it is enough to forward only your SSH keys.
     * [Read more about SSH agent forwarding below](#ssh-agent-forwarding).
 

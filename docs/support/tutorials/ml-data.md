@@ -8,7 +8,7 @@ applications on CSC's supercomputers. It is part of our
 
 CSC's supercomputers have three types of shared disk areas: **home**,
 **projappl** and **scratch**. You can
-[read more about the disk areas for Roihu here](../../computing/roihu-disk.md). For
+[read more about the disk areas for Roihu here](../../computing/disk.md). For
 [LUMI check the data storage section here](https://docs.lumi-supercomputer.eu/storage/).
 In general, keep your code and software in **projappl** and datasets,
 logs and calculation outputs in **scratch**. The **home** directory is
@@ -96,7 +96,7 @@ to access your data more efficiently.
 
 If you really need to access the individual small files, you can use
 the [fast NVMe local drive that is present in all compute nodes on
-Roihu](../../computing/roihu-disk.md#compute-nodes). This area can be
+Roihu](../../computing/disk.md#compute-nodes). This area can be
 accessed in the location specified by the environment variable
 `$TMPDIR`, and for GPU jobs it has a maximum capacity of 150 GiB.
 
@@ -134,7 +134,7 @@ srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
 ### Disaggregated NVMe
 
 Finally, if 150 GiB is not enough, [Roihu also supports disaggregated
-NVMe](../../computing/roihu-disk.md#disaggregated-storage). This fast
+NVMe](../../computing/disk.md#disaggregated-storage). This fast
 storage capacity is provided over the network and will appear as local
 scratch from within a Slurm job. The total capacity of the
 disaggregated NVMe resource is 307.2 TB. Disaggregated NVMe is still

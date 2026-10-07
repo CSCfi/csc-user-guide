@@ -4,7 +4,7 @@ When you log into a CSC supercomputer, you are connected to one of its login
 nodes. Login nodes are shared by all users and are **not** to be used for
 heavy processing. [See our usage policy for details](../usage-policy.md). If
 you need to run heavy computations interactively, you can use the `interactive`
-partitions on Roihu and Mahti.
+partitions on Roihu.
 
 The `interactive` partition offers fewer resources than other partitions, but
 jobs submitted to it have a much higher priority in comparison, so they will
@@ -43,8 +43,7 @@ sinteractive -i
 When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
-arguments. Note that the available options and resources are not identical on
-Roihu and Mahti due to differences in hardware.
+arguments.
 
 ### `sinteractive` on Roihu
 

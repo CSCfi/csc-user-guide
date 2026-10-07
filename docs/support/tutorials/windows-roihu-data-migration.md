@@ -27,7 +27,7 @@ Options described in CSC Docs:
 
 Connecting with SSH and SSH Agent to Puhti
 
-1. [Start SSH agent and add your private key for Puhti](../../computing/connecting/ssh-windows.md#authentication-agents-with-puhti-mahti-and-lumi)
+1. [Start SSH agent and add your private key for Puhti](../../computing/connecting/ssh-windows.md#authentication-agents-with-lumi)
 3. [Download SSH certificate for Roihu](../../computing/connecting/ssh-keys.md#option-1-download-from-mycsc) from my.csc.fi.
 4. Connect to Roihu:
 	* PowerShell: `ssh -A <username>@roihu-cpu.csc.fi`
