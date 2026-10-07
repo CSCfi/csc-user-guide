@@ -43,7 +43,7 @@ Contents:
 
 * You need to have a data permit issued by Findata or another register before starting the service access process at CSC. This is required for the project creation.
 
-* After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to export all your results before the validity period of your data permit ends. The expired project and all the data will be deleted after 90 days according to CSC's data retention policy.
+* After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to export all your results before the validity period of your data permit ends. The expired project and all data will be deleted after 90 days according to CSC's data retention policy.
 
 ## Your next steps in this guide
 
