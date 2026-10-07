@@ -115,7 +115,7 @@ See more details on the [Standard flavors](#epouta) section.
 | hpc.7.32core    | 32 | 175 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 50 |
 | hpc.7.64core    | 64 | 355 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 100 |
 | hpc.7.128core   | 128| 725 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 200 |
-| hpc.7.256core   | 256| 1450 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 400 |
+| hpc.7.256core (*) | 256| 1450 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 400 |
 | hpc.6.14core    | 14 | 88  | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 25 |
 | hpc.6.28core    | 28 | 176 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 50 |
 | hpc.6.56core   | 56 | 352 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 100 |
@@ -131,6 +131,8 @@ See more details on the [Standard flavors](#epouta) section.
 | hpc.4.80core         | 80 | 351 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 120 |
 
 See more details on the [HPC flavors](#epouta_1) section.
+
+(*) restricted access. Flavor available only upon request via [servicedesk@csc.fi](../../support/contact.md).
 
 ### I/O flavors
 
