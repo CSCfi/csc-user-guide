@@ -14,9 +14,9 @@ Each Pouta project has this initial default quota:
 |--------------:|:--------|
 | Instances | 8 |
 | Cores | 8 |
-| Memory | 32 GB |
+| Memory | 32 GiB |
 | Floating IPs | 2 |
-| Storage | 1 TB |
+| Storage | 1 TiB |
 
 
 Additional quota can be requested by sending an email to [csc service desk](../../support/contact.md) and explaining your use case. Every request is evaluated based on user needs versus available resources. We always aim to have enough free resources for every quota granted, but please note that there is no warranty. In some cases specific hardware, linked to specific virtual machine flavors may be full, so you would not be able to provision them even if you have the quota to do so.
@@ -193,7 +193,7 @@ We also offer the possibility to store the data in a [persistent volume (FULL)](
 
 ### **Standard flavors**
 
-These are generic flavors that are useful for running regular computation tasks like a web service or software development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards when your application's are clearer.
+These are generic flavors that are useful for running regular computation tasks like a web service or software development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards once your application's needs are clearer.
 
 They provide better availability compared to the
 HPC flavors. This is because cloud administrators can move these virtual machines from one host machine to another without causing a break in service. This means that
@@ -202,7 +202,7 @@ you are likely less affected by maintenance.
 These flavors are not suitable for computationally intensive
 workloads. The virtual CPUs used in these instances are
 **overcommitted**, which means 32 hyperthreaded CPU cores are used to
-provide more than 32 virtual cores. For these kind of tasks we recommend [HPC flavors](#hpc-flavors_2)
+provide more than 32 virtual cores. For these kind of tasks we recommend [HPC flavors](#hpc-flavors_2).
 
 #### cPouta
 
@@ -248,10 +248,10 @@ Typical use cases:
 -   Clustered databases
 
 I/O flavors are intended to provide the best I/O performance on the
-virtual machine root and ephemeral local disks. Typical use cases are the ones that will read from and/or write to intensely the disk.   
+virtual machine root and ephemeral local disks. Typical use cases are the ones that will intensely read from and/or write to the disk.
 
 The availability of these instances is not as high as the standard flavors, but the I/O performance is significantly better.
-This is why, the instances of this flavor are tightly tied to the hardware, because of this you may
+This is because the instances of this flavor are tightly tied to the hardware, so you may
 expect downtime of instances during the maintenance of the hardware that runs them.
 
 The bulk of the storage is available as an ephemeral disk, typically
@@ -349,12 +349,12 @@ which require and can utilize such amounts of memory. Typical use cases
 of these flavors include genome sequencing and analysis applications.
 
 The resize/migration functionalities do not work for these instances. 
-If you need to resize one VM of this flavor you will need to, either create a new VM and move all data and install all applications manually
-on the new VM, either create a snapshot of the source VM, and then
+If you need to resize one VM of this flavor you will need to either create a new VM and move all data and install all applications manually
+on the new VM, or create a snapshot of the source VM, and then
 create a new VM with that snapshot. More information at the [resize the instance](../../support/faq/how-to-resize-in-pouta.md) article.
 **Please note** that all ephemeral disk data will be lost in the process and will not be stored
 in the snapshot because only the VM's root disk is stored in the snapshot.
-Never store on the ephemeral disk any valuable data that you have no a second safe copy.
+Never store valuable data on the ephemeral disk unless you have a second, safe copy of it.
 
 #### ePouta
 
@@ -393,7 +393,7 @@ but they will be removed at some point in the near future.
 | hpc.medium.haswell    | 8  | 40  | 80         | 0            | | 20  |
 | hpc.large.haswell     | 16 | 80  | 80         | 0            | | 40  |
 | hpc.xlarge.haswell    | 32 | 156 | 80         | 0            | | 80  |
-| hpc.fullnode.haswell | 46 | 242 | 80 | 0 | 80 | 5.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 72  |
+| hpc.fullnode.haswell | 46 | 242 | 80 | 0 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 72  |
 | hpc.medium.westmere   | 8  | 14  | 80         | 0            |  | 8   |
 | hpc.large.westmere    | 16 | 28  | 80         | 0            |  | 16  |
 | hpc.xlarge.westmere   | 23 | 41  | 80         | 0            |  | 24  |
@@ -410,8 +410,5 @@ but they will be removed at some point in the near future.
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) || 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) || 400 |
 
-  [CSC computing environment articles]: https://research.csc.fi/computing
-  [command line instructions]: command-line-tools.md
-  [TensorFlow]: https://www.tensorflow.org
   [optimization service]: https://research.csc.fi/optimization-service
   [Terms of Use]: https://research.csc.fi/pouta-user-policy
