@@ -22,3 +22,10 @@ sure you follow the [CSC AI Agent Policy](../usage-policy.md).
 CSC hosts an MCP server that lets AI agents search an up-to-date version of the
 CSC User Guide. See the [CSC Documentation MCP server](docs-mcp.md) page for
 usage instructions.
+
+## CSC skills
+
+[csc-skills](https://github.com/CSCfi/csc-skills) is a collection of agent
+skills for Roihu, Allas, Pouta, Rahti and Satama. See
+[Using the CSC computing environment with LLM coding agents](../../support/tutorials/csc-skills.md)
+for installation and usage.
