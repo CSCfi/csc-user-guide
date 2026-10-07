@@ -1,7 +1,5 @@
 # Billing
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 CSC resource usage is measured in Billing Units (BU). Billing Units are granted
 to CSC projects and are consumed when you use CSC services.
 
@@ -129,18 +127,6 @@ Instead, it is included in compute BU billing.
 
      Storage BU billing depends on the amount of data stored, the storage area,
      and the time the data is kept there.
-
-## Scratch disk billing
-
-Puhti and Mahti have the same billing for scratch storage. Usage up to 1 TiB is free of charge. 
-
-* Excess usage beyond 1 TiB is billed: 1 TiB consumes **5** Storage BU per hour.
-
-## ProjAppl disk billing
-
-Puhti and Mahti have the same billing for ProjAppl storage. Usage up to 50 GiB is free of charge. 
-
-* Excess usage beyond 50 GiB is billed: 1 TiB consumes **5** Storage BU per hour.
 
 ## Additional information
 

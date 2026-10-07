@@ -1,7 +1,5 @@
 # File browser and accessing storage services from the web interfaces
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 The file browser can be opened from the _Files_ section on the top navbar
 (this displays a list of all project disk areas), or using the shortcut to your
 home folder in the _Pinned Apps_ view on the landing page (dashboard). In the
@@ -93,8 +91,7 @@ the web interfaces. However, some key features, such as moving data from the
 staging area to the frozen area, are only possible though the
 [IDA web interface](https://ida.fairdata.fi).
 
-To use IDA from the Puhti/Mahti web interfaces, it must first be configured for
-To use IDA from the Roihu, Puhti, or Mahti web interfaces, it must first be configured for
+To use IDA from the Roihu web interface, it must first be configured for
 use with Rclone in a login node shell as follows:
 
 ```
@@ -117,7 +114,7 @@ settings:
 6. Bearer token: Leave empty
 7. Advanced config: No
 
-After completing the Rclone configuration, restart the Roihu/Puhti/Mahti web
+After completing the Rclone configuration, restart the Roihu web
 interface by clicking _Restart web server_ in the _Help_ menu in the top-right
 section of the navbar. IDA can now be accessed in the file browser, where you
 will be able to upload, download, transfer and edit files in the staging area,

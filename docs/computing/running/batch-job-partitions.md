@@ -1,11 +1,9 @@
 # Available batch job partitions
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 On CSC supercomputers, programs are run by submitting them to partitions,
 which are logical sets of nodes managed by the Slurm workload manager.
-This page lists the available Slurm partitions on the Roihu, Puhti, and Mahti
-supercomputers and explains their intended uses. Below are the general
+This page lists the available Slurm partitions on the Roihu supercomputer
+and explains their intended uses. Below are the general
 guidelines for using the Slurm partitions on our systems:
 
 1. **Use the `test` and `gputest` partitions for testing your code, not production.**

@@ -1,7 +1,5 @@
 # RStudio
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 The RStudio application will launch an RStudio session with the specified resources using the
 selected [R environment (module `r-env`) version](../../apps/r-env.md#available).
 
@@ -24,36 +22,19 @@ threading](../../support/tutorials/parallel-r-examples.md#improving-performance-
 
 If an RStudio session fails to start or RStudio is extremely slow, first try resetting your
 RStudio user state as described below. These steps will clean up leftover data from previous interrupted RStudio
-sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/x86_64/rstudio` (`.local/share/rstudio` on Mahti). These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
+sessions in two hidden folders in the user's home directory: `.config/rstudio` and `.local/share/x86_64/rstudio`. These folders can be either renamed (to keep the contents) or deleted (if you are sure the contents are not needed).
 
+**Option 1:** Use the file viewer in the web interface:
 
-=== "Roihu-CPU"
-    **Option 1:** Use the file viewer in the web interface:
-    
-    1. In the top left corner of the web interface dashboard, choose **Files** and **Home Directory**.
-    2. Click **Show dotfiles**.
-    3. Delete or rename the `rstudio` folders 1) under `.config` and 2) under `.local` -> `share` -> `x86_64`. 
-    
-    **Option 2:** Use a terminal (for example a login node shell in the web interface) to delete or
-    rename these folders. Here is an example how renaming would work:
-    
-    `mv ~/.config/rstudio ~/.config/rstudio-old`  
-    `mv ~/.local/share/x86_64/rstudio ~/.local/share/x86_64/rstudio-old`
+1. In the top left corner of the web interface dashboard, choose **Files** and **Home Directory**.
+2. Click **Show dotfiles**.
+3. Delete or rename the `rstudio` folders 1) under `.config` and 2) under `.local` -> `share` -> `x86_64`.
 
+**Option 2:** Use a terminal (for example a login node shell in the web interface) to delete or
+rename these folders. Here is an example how renaming would work:
 
-=== "Mahti"
-    **Option 1:** Use the file viewer in the web interface:
-    
-    1. In the top left corner of the web interface dashboard, choose **Files** and **Home Directory**.
-    2. Click **Show dotfiles**.
-    3. Delete or rename the `rstudio` folders under `.config` and `.local` -> `share`. 
-    
-    **Option 2:** Use a terminal (for example a login node shell in the web interface) to delete or
-    rename these folders. Here is an example how renaming would work:
-    
-    `mv ~/.config/rstudio ~/.config/rstudio-old`  
-    `mv ~/.local/share/rstudio ~/.local/share/rstudio-old`
-
+`mv ~/.config/rstudio ~/.config/rstudio-old`  
+`mv ~/.local/share/x86_64/rstudio ~/.local/share/x86_64/rstudio-old`
 
 If after this RStudio still fails to start or remains very slow, please [contact CSC Service
 Desk](../../support/contact.md).

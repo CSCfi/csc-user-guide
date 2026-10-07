@@ -1,7 +1,5 @@
 # High-performance libraries
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 Various high-performance libraries for dense linear algebra, fast
 Fourier transforms, *etc.* are available via the module system. Many
 libraries are provided both as single-threaded and multithreaded
@@ -49,19 +47,3 @@ Selected libraries available on Roihu-GPU:
   - CUDA (module `cuda`/`nvhpc`) includes libraries such as
     cublas, cufft, cusolver, ...
 
-
-## Libraries on Puhti
-
-Selected libraries available on Puhti:
-
-- Dense linear algebra: `intel-oneapi-mkl`
-- Dense distributed linear algebra: `intel-oneapi-mkl`, `netlib-scalapack`
-- Fast fourier transforms: `fftw`
-
-## Libraries on Mahti
-
-Selected libraries available on Mahti:
-
-- Dense linear algebra: `openblas`, `amdblis`, `amdlibflame`
-- Dense distributed linear algebra: `netlib-scalapack`, `amdscalapack`
-- Fast fourier transforms: `fftw`

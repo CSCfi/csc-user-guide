@@ -1,7 +1,5 @@
 # Using Allas and Lumi-O object storage services in Roihu
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 Object storage related tools are initialized in Roihu with command:
 
 ```text
