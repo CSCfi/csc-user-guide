@@ -27,5 +27,5 @@ usage instructions.
 
 [csc-skills](https://github.com/CSCfi/csc-skills) is a collection of agent
 skills for Roihu, Allas, Pouta, Rahti and Satama. See
-[tutorial](../../support/tutorials/csc-skills.md)
+[tutorial](csc-skills.md)
 for installation and usage.

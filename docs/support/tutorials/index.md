@@ -16,7 +16,7 @@
 * [Running Julia batch jobs on CSC clusters](../../apps/julia.md#running-julia-batch-jobs-on-csc-clusters)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
 * [Setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
-* [Using the CSC computing environment with LLM coding agents](csc-skills.md)
+* [Using the CSC computing environment with LLM coding agents](../../computing/ai-tools/csc-skills.md)
 
 ## Roihu
 

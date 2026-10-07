@@ -10,14 +10,14 @@ agents this CSC-specific knowledge, based on this user guide.
 !!! warning "Responsibility"
     You are always responsible for what your agent does. Every command it
     runs is executed under your own account and CSC project. Read the
-    [CSC AI Agent Policy](../../computing/usage-policy.md) before using
+    [CSC AI Agent Policy](../usage-policy.md) before using
     agents on CSC systems.
 
 ## Available skills
 
 | Skill | Service |
 |---|---|
-| `csc-roihu` | [Roihu](../../computing/systems-roihu.md) supercomputer: batch jobs, SSH certificates, disk areas, billing |
+| `csc-roihu` | [Roihu](../systems-roihu.md) supercomputer: batch jobs, SSH certificates, disk areas, billing |
 | `csc-allas` | [Allas](../../data/Allas/index.md) object storage |
 | `csc-pouta` | [Pouta](../../cloud/pouta/index.md) IaaS cloud |
 | `csc-rahti` | [Rahti](../../cloud/rahti/index.md) container cloud |
@@ -85,10 +85,10 @@ Update the skills with `git pull` in the clone.
 
 ### On Roihu
 
-The [Roihu agent environment](../../computing/ai-tools/agent-env.md) provides
+The [Roihu agent environment](agent-env.md) provides
 Claude Code, Codex and OpenCode with HPC-specific skills already set up. You
 can add csc-skills to it as described in
-[Adding your own skills](../../computing/ai-tools/agent-env.md#adding-your-own-skills).
+[Adding your own skills](agent-env.md#adding-your-own-skills).
 
 ## Using the skills
 
@@ -97,7 +97,7 @@ job that runs this script on one GPU in Roihu" or "upload my results to an
 Allas bucket". The agent picks the matching skill automatically.
 
 For questions the skills don't cover, the
-[CSC Documentation MCP server](../../computing/ai-tools/docs-mcp.md) lets the
+[CSC Documentation MCP server](docs-mcp.md) lets the
 agent search this user guide directly.
 
 Feedback and contributions are welcome in the
