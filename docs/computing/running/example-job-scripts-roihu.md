@@ -231,7 +231,7 @@ Example script reserving 10G of fast NVMe disk space:
 #SBATCH --time=00:10:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4 --cpus-per-task=96
-#SBATCH --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/<user>" 
+#SBATCH --bb="#BB_LUA SBF storagesize=10G path=/sbf/data" 
 
 # Set the number of CPU threads based on cpus-per-task
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -245,15 +245,5 @@ export OMP_PROC_BIND=spread
 srun myprog <options>
 ```
 
-!!! warning "Disaggregated storage is currently only available on full node jobs"
-    
-    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
-    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
-    nodes with the `--exclusive` flag on the GPU partitions.
-
-    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
-    without producing standard output or error logs.
-    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
-
-
+Disaggregated storage can be requested on all partitions, including shared-node jobs.
 See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).
