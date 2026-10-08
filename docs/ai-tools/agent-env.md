@@ -1,7 +1,7 @@
 # Agent environment
 
 This page describes the containerized agent environment on Roihu, make sure you read
-the [Must read](#must-read) section before usage, and follow the [CSC AI Agent Policy](../usage-policy.md).
+the [Must read](#must-read) section before usage, and follow the [CSC AI Agent Policy](../computing/usage-policy.md).
 
 ## Must read
 

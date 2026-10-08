@@ -92,4 +92,4 @@ print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 
 ## Running through LUMI
 
-For instructions on running the job on LUMI, see the [example batch scripts](../quantum-computing/running-quantum-jobs.md#submitting-a-job) or use the [Lumi web Interface](../quantum-computing/running-quantum-jobs.md#quantum-job-on-lumi-web-interface)
+For instructions on running the job on LUMI, see the [example batch scripts](running-quantum-jobs.md#submitting-a-job) or use the [Lumi web Interface](running-quantum-jobs.md#quantum-job-on-lumi-web-interface)

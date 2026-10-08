@@ -1,5 +1,5 @@
 # Setting up a LUMI project and accounts for accessing the Quantum devices
-This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50** quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md){ target=_blank }.
+This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50** quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../computing/index.md){ target=_blank }.
 
 ## 1. Request a quantum computing project
 
@@ -9,7 +9,7 @@ Some devices carry additional terms of use that the project PI is responsible fo
 
 ## 2. Add project members
 
-Once the project is created, the **Principal Investigator (PI)** can invite other users. See [How to add members to project](../../accounts/how-to-add-members-to-project.md){ target=_blank }.
+Once the project is created, the **Principal Investigator (PI)** can invite other users. See [How to add members to project](../accounts/how-to-add-members-to-project.md){ target=_blank }.
 
 ## 3. Connect to LUMI
 
@@ -21,6 +21,6 @@ Once connected, read the [Running quantum jobs](./running-quantum-jobs.md) secti
 
 ## Support
 
-For support with access via LUMI, contact the [CSC Service Desk](../../support/contact.md){ target=_blank }, reachable at servicedesk@csc.fi.
+For support with access via LUMI, contact the [CSC Service Desk](../support/contact.md){ target=_blank }, reachable at servicedesk@csc.fi.
 
 

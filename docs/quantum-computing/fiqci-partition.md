@@ -36,4 +36,4 @@ Quantum computing projects work similarly to the regular LUMI system. The main d
 4. The LUMI-Fiqci computing environment has to be loaded separately. See [Running on quantum jobs](./running-quantum-jobs.md) for details.
 
 
-Support can be reached via the [CSC Service Desk](../../support/contact.md) for LUMI related issues or at [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) for FiQCI and quantum computing services related issues.
+Support can be reached via the [CSC Service Desk](../support/contact.md) for LUMI related issues or at [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) for FiQCI and quantum computing services related issues.

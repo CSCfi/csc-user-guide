@@ -11,7 +11,7 @@ tasks and make it easier to use agents responsibly on the cluster. See the
 [agent environment](agent-env.md) page for details on using it on Roihu.
 
 Before using agents on CSC systems, read the agent environment page and make
-sure you follow the [CSC AI Agent Policy](../usage-policy.md).
+sure you follow the [CSC AI Agent Policy](../computing/usage-policy.md).
 
 !!! warning "Responsibility"
     You are **always** responsible for what your agent does. Every command it
