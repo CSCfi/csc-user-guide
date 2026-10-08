@@ -111,6 +111,11 @@ See more details on the [Standard flavors](#epouta) section.
 
 |Flavor|Cores|Memory<br/>(GiB)|Root<br/>disk<br/>(GB)|Redundancy<br/>([notation](#flavor-notation))|Cloud<br/>Billing<br/>Units<br/>/h|
 |-:|:---:|:---:|:---:|:---:|:---:|
+| hpc.7.16core    | 16 | 83  | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 25 |
+| hpc.7.32core    | 32 | 170 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 50 |
+| hpc.7.64core    | 64 | 346 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 100 |
+| hpc.7.128core   | 128| 708 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 200 |
+| hpc.7.256core (*) | 256| 1416 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 400 |
 | hpc.6.14core    | 14 | 88  | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 25 |
 | hpc.6.28core    | 28 | 176 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 50 |
 | hpc.6.56core   | 56 | 352 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 100 |
@@ -126,6 +131,8 @@ See more details on the [Standard flavors](#epouta) section.
 | hpc.4.80core         | 80 | 351 | 80 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 120 |
 
 See more details on the [HPC flavors](#epouta_1) section.
+
+(*) restricted access. Flavor available only upon request via [servicedesk@csc.fi](../../support/contact.md).
 
 ### I/O flavors
 
@@ -158,6 +165,7 @@ See more details on the [High memory flavors](#epouta_4) section.
 | gpu.1.4gpu | 56 | 4 | 468 | 80 |    0 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk BASIC")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 240 |
 | gpu.2.1gpu | 20 | 1 | 180 | 80 | 1000 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk NONE")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral disk NONE")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 100 |
 | gpu.3.1gpu | 12 | 1 | 219 | 80 | 1500 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level NONE](../../img/circle_icons/r0.svg "Root disk NONE")![Icon for ephemeral disk data redundancy level NONE](../../img/circle_icons/e0.svg "Ephemeral disk NONE")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 150  |
+| gpu.4.1gpu | 12 | 1 | 219 | 80 | 3000 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level BASIC](../../img/circle_icons/r50.svg "Root disk BASIC")![Icon for ephemeral disk data redundancy level BASIC](../../img/circle_icons/e50.svg "Ephemeral disk BASIC")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 150  |
 
 Note that both the root and the ephemeral disks of the GPU flavors are hosted on solid-state drives (SSDs).
 
@@ -235,6 +243,7 @@ flavors have faster CPUs models and **no overcommitment of CPU cores**.
 
 |Flavor<br/>family|Redundant<br/>power|CPU|Network|Disk<br/>flavor|Notes|
 |:-:|:-:|:-:|:-:|:-:|:-:|
+|**hpc.7.\***|Yes|AMD EPYC 9754 128-Core Processor|Redundant 100 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
 |**hpc.6.\***|Yes|AMD EPYC 9734 112-Core Processor|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
 |**hpc.5.\***|Yes|AMD EPYC 7702 64-Core Processor|Redundant 25 Gb/s|Stored in the central storage|Single-node failure may cause downtime, but instances are recoverable.|
 |**hpc.4\***|Yes|Intel(R) Xeon(R) CPU Gold 6148, with hyper-threading|Redundant 25 Gb/s|Stored in the central storage|Single-node or disk failures may cause downtime, but instances are recoverable.|
@@ -338,6 +347,7 @@ batch system [Roihu](../../computing/systems-roihu.md).
 |**gpu.1.\***|Yes|NVIDIA Tesla P100 (16 GB)|Intel(R) Xeon(R) CPU E5-2680 v4, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-1|Instance can be lost due to a single-node or disk failure.|
 |**gpu.2.\***|Yes|NVIDIA Tesla V100 (16 GB)|Intel(R) Xeon(R) Gold 6148, with hyper-threading|Redundant 10 Gb/s|Local SSD disks, RAID-0|NUMA Aware: yes (CPU &lt;&gt; memory, not PCI devices)<br/>Instance can be lost due to a single-node or disk failure.|
 |**gpu.3.\***|Yes|NVIDIA A100 (40 GB)|AMD EPYC 7402 24-Core Processor|Redundant 10 Gb/s|Local NVMe disks|Instance can be lost due to a single-node or disk failure.<br/>Multi-Instance GPU (MIG) functionality supported|
+|**gpu.4.\***|Yes|NVIDIA L40S (48 GB)|Intel(R) Xeon(R) Gold 6542Y|Redundant 100 Gb/s|Local NVMe disks, RAID-1|Instance can be lost due to a single-node or disk failure.|
 
 ### High memory flavors
 
