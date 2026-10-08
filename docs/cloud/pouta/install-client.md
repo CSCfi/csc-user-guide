@@ -84,12 +84,16 @@ If running version 7 or newer:
 
 #### Preparation: OS X systems
 
-Download the latest [Python setuptools](https://pypi.python.org/pypi/setuptools)"
+Modern macOS does not ship Python by default. The easiest way to
+install Python 3 (which includes pip) is via
+[Homebrew](https://brew.sh/):
 
-Install the tools and pip:
+    brew install python3
 
-    sudo python ez_setup.py
-    sudo /usr/local/bin/easy_install pip
+Alternatively, download and run the official installer from
+[python.org](https://www.python.org/downloads/macos/).
+
+Once installed, `pip3` will be available for the steps below.
 
 ### Installing the openstack tool (all operating systems)
 
@@ -178,14 +182,32 @@ install.
     below. As you are installing in your own virtual environment, you do
     not want to run the commands as root.
 
+!!! info
+
+    On newer Linux distributions (e.g. Ubuntu 23.04+, Debian 12+), `pip`
+    may refuse to install packages system-wide with an
+    `externally-managed-environment` error. If you hit this, either use
+    the [virtual environment instructions](#optional-installation-in-a-python-virtual-environment)
+    above, or install the tools in an isolated environment with
+    [pipx](https://pypa.github.io/pipx/) instead, e.g.
+    `pipx install python-openstackclient`.
+
 Install python-openstackclient with pip:
 
-    sudo pip install python-openstackclient
+    sudo pip3 install python-openstackclient
+
+!!! info
+
+    The latest release on PyPI is not always compatible with the
+    OpenStack version currently running on cPouta/ePouta. See the
+    [recommended client versions](command-line-tools.md#recommended-client-versions) for versions
+    known to work, and install a specific version with e.g.
+    `sudo pip3 install python-openstackclient==5.8.1`.
 
 If you also want to install all the service-specific tools listed at
 the beginning of this page:
 
-    sudo pip install python-keystoneclient python-novaclient python-glanceclient python-neutronclient
+    sudo pip3 install python-keystoneclient python-novaclient python-glanceclient python-neutronclient
 
 Depending on your computer's setup, some dependencies might be
 missing. The error message `ImportError: No module named
@@ -194,7 +216,7 @@ with pip and then repeating the previous, failed command. For some
 errors during installation, updating setuptools or pip might help.
 Upgrade a package:
 
-    sudo pip install -U python_module_to_be_upgraded
+    sudo pip3 install -U python_module_to_be_upgraded
 
 ### Configure your terminal environment for OpenStack
 
@@ -223,6 +245,9 @@ credentials from linked accounts, such as Haka or Virtu. After doing this, the
 current terminal session will have the proper environment variables for using
 the command line tools. You need to do this again if you open a new terminal.
 
+You can verify that everything is working by listing your instances:
+
+    openstack server list
+
   [install it first]: http://docs.python-guide.org/en/latest/starting/installation/
-  [SoftwareCollections.org]: https://www.softwarecollections.org/en/
   [The Hitchhiker's Guide to Python]: http://docs.python-guide.org/en/latest/dev/virtualenvs/

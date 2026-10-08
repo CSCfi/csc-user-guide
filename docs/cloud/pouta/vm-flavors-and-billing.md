@@ -4,7 +4,7 @@ Currently, Pouta will bill for the use of 3 resources: storage volumes, floating
 
 - **Storage volumes**: 3,6 Cloud BU / TiB hour for standard volume and 1,8 Cloud BU / TiB hour for capacity volume. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes Cloud BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems, and the total size of the volume is reserved for the volume.
 - **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project (even if it is not in use) is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume Cloud Billing Units.
-- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a **shut down or suspended virtual machine still consumes Cloud BUs**, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
+- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated)(1 GiB = 1.074 GB). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a **shut down or suspended virtual machine still consumes Cloud BUs**, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
 
 ## Quotas
 
@@ -201,7 +201,7 @@ We also offer the possibility to store the data in a [persistent volume (FULL)](
 
 ### **Standard flavors**
 
-These are generic flavors that are useful for running regular computation tasks like a web service or software development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards when your application's are clearer.
+These are generic flavors that are useful for running regular computation tasks like a web service or software development. If you are unsure on what to use, this is the recommended choice for you. You can later [resize the instance](../../support/faq/how-to-resize-in-pouta.md) to a more suitable flavor afterwards once your application's needs are clearer.
 
 They provide better availability compared to the
 HPC flavors. This is because cloud administrators can move these virtual machines from one host machine to another without causing a break in service. This means that
@@ -210,7 +210,7 @@ you are likely less affected by maintenance.
 These flavors are not suitable for computationally intensive
 workloads. The virtual CPUs used in these instances are
 **overcommitted**, which means 32 hyperthreaded CPU cores are used to
-provide more than 32 virtual cores. For these kind of tasks we recommend [HPC flavors](#hpc-flavors_2)
+provide more than 32 virtual cores. For these kind of tasks we recommend [HPC flavors](#hpc-flavors_2).
 
 #### cPouta
 
@@ -257,10 +257,10 @@ Typical use cases:
 -   Clustered databases
 
 I/O flavors are intended to provide the best I/O performance on the
-virtual machine root and ephemeral local disks. Typical use cases are the ones that will read from and/or write to intensely the disk.   
+virtual machine root and ephemeral local disks. Typical use cases are the ones that will intensely read from and/or write to the disk.
 
 The availability of these instances is not as high as the standard flavors, but the I/O performance is significantly better.
-This is why, the instances of this flavor are tightly tied to the hardware, because of this you may
+This is because the instances of this flavor are tightly tied to the hardware, so you may
 expect downtime of instances during the maintenance of the hardware that runs them.
 
 The bulk of the storage is available as an ephemeral disk, typically
@@ -359,12 +359,12 @@ which require and can utilize such amounts of memory. Typical use cases
 of these flavors include genome sequencing and analysis applications.
 
 The resize/migration functionalities do not work for these instances. 
-If you need to resize one VM of this flavor you will need to, either create a new VM and move all data and install all applications manually
-on the new VM, either create a snapshot of the source VM, and then
+If you need to resize one VM of this flavor you will need to either create a new VM and move all data and install all applications manually
+on the new VM, or create a snapshot of the source VM, and then
 create a new VM with that snapshot. More information at the [resize the instance](../../support/faq/how-to-resize-in-pouta.md) article.
 **Please note** that all ephemeral disk data will be lost in the process and will not be stored
 in the snapshot because only the VM's root disk is stored in the snapshot.
-Never store on the ephemeral disk any valuable data that you have no a second safe copy.
+Never store valuable data on the ephemeral disk unless you have a second, safe copy of it.
 
 #### ePouta
 
@@ -403,7 +403,7 @@ but they will be removed at some point in the near future.
 | hpc.medium.haswell    | 8  | 40  | 80         | 0            | | 20  |
 | hpc.large.haswell     | 16 | 80  | 80         | 0            | | 40  |
 | hpc.xlarge.haswell    | 32 | 156 | 80         | 0            | | 80  |
-| hpc.fullnode.haswell | 46 | 242 | 80 | 0 | 80 | 5.2 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 72  |
+| hpc.fullnode.haswell | 46 | 242 | 80 | 0 |![Icon for power redundancy level FULL](../../img/circle_icons/p100.svg "Power FULL")![Icon for root disk data redundancy level FULL](../../img/circle_icons/r100.svg "Root disk FULL")![Icon for network reachability redundancy level FULL](../../img/circle_icons/n100.svg "Network FULL")| 72  |
 | hpc.medium.westmere   | 8  | 14  | 80         | 0            |  | 8   |
 | hpc.large.westmere    | 16 | 28  | 80         | 0            |  | 16  |
 | hpc.xlarge.westmere   | 23 | 41  | 80         | 0            |  | 24  |
@@ -420,8 +420,5 @@ but they will be removed at some point in the near future.
 | tb.westmere.32core    | 32 | 488 | 80 (RAID6) | 3250 (RAID6) || 200 |
 | tb.westmere.64core    | 64 | 976 | 80 (RAID6) | 6500 (RAID6) || 400 |
 
-  [CSC computing environment articles]: https://research.csc.fi/computing
-  [command line instructions]: command-line-tools.md
-  [TensorFlow]: https://www.tensorflow.org
   [optimization service]: https://research.csc.fi/optimization-service
   [Terms of Use]: https://research.csc.fi/pouta-user-policy
