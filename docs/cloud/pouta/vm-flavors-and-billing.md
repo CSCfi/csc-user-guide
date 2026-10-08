@@ -4,7 +4,7 @@ Currently, Pouta will bill for the use of 3 resources: storage volumes, floating
 
 - **Storage volumes**: 3,6 Cloud BU / TiB hour for standard volume and 1,8 Cloud BU / TiB hour for capacity volume. In the [Volumes](https://pouta.csc.fi/dashboard/project/volumes/) page of your project, you can see the existing volumes. The total size of the volume is billed, and it consumes Cloud BUs even if they are not attached to virtual machines. This is because the data is still stored on our systems, and the total size of the volume is reserved for the volume.
 - **Floating IPs**: 0,2 Cloud BU / hour. Every floating IP reserved to the project (even if it is not in use) is billed. See the list of reserved [Floating IPs](https://pouta.csc.fi/dashboard/project/floating_ips/) of your project. Any extra routers you create and connect to the external network will be also billed for one floating IP. The default router included in the project does not consume Cloud Billing Units.
-- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a **shut down or suspended virtual machine still consumes Cloud BUs**, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
+- **Virtual machines**: see below the list of [cPouta](#cpouta-flavors) and [ePouta](#epouta-flavors) flavors (The values for the memory of each flavor (in GiB) are approximated)(1 GiB = 1.074 GB). Virtual machines consume Cloud BUs regardless whether you are using them or not. This means that a **shut down or suspended virtual machine still consumes Cloud BUs**, and it is because the resources are still reserved and cannot be used by other users. You can find more information about the different states of virtual machines and their Cloud BU consumption in [Virtual machine lifecycle](vm-lifecycle.md).
 
 ## Quotas
 
@@ -14,9 +14,9 @@ Each Pouta project has this initial default quota:
 |--------------:|:--------|
 | Instances | 8 |
 | Cores | 8 |
-| Memory | 32 GiB |
+| Memory | 32 GB |
 | Floating IPs | 2 |
-| Storage | 1 TiB |
+| Storage | 1 TB |
 
 
 Additional quota can be requested by sending an email to [csc service desk](../../support/contact.md) and explaining your use case. Every request is evaluated based on user needs versus available resources. We always aim to have enough free resources for every quota granted, but please note that there is no warranty. In some cases specific hardware, linked to specific virtual machine flavors may be full, so you would not be able to provision them even if you have the quota to do so.
