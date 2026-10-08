@@ -100,7 +100,8 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 
 Login to [SD Connect service](https://sd-connect.csc.fi/) and copy your Share ID, which you need to deliver to to the Sensitive Data support team in the next step.
 
-You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier.
+You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
+
 ![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
 
 ### 5. Contact CSC service desk
@@ -129,6 +130,7 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-login.md) and [login and upload materials to SD Connect](sd-connect-login.md).
+- CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only access the data on SD Desktop's virtual computers via the DataGateway application.
 
 ### 8. Apply for Billing Units
 
