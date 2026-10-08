@@ -1,6 +1,8 @@
 # Computing environment
 
-## Disaggregated storage available on all Roihu partitions, 8.10.2026
+## Roihu Slurm updated and disaggregated storage available on all partitions, 8.10.2026
+
+Slurm on Roihu has been updated from version 25.05 to 26.05.
 
 [Disaggregated storage](../../computing/roihu-disk.md#disaggregated-storage) (fast NVMe over
 fabric) can now be requested on all Roihu partitions, including shared-node jobs. The
