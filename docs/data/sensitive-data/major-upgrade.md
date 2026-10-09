@@ -52,7 +52,7 @@ Please review the following information:
 
 - **SD Connect**: In order to restore access to the register dataset, [follow these instructions](sd-use-case-secondary-use-project.md#4-retrieve-your-projects-share-id-from-sd-connect) to retrieve the Share ID of your project from SD Connect and deliver it to [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
-- Read the [new instructions](secondarydata-access.md) for secondary use projects.
+- Get familiar with the [new features](secondarydata-access.md) for secondary use projects, and [export instructions](sd-desktop-secondary-export.md) for all project members.
 
 
 ### 4. Known issues
