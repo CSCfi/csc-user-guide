@@ -178,4 +178,3 @@ csc-workspaces
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of
   your applications
-* [AI Tools](ai-tools/docs-mcp.md): AI Tools provided by CSC

@@ -44,7 +44,7 @@ Visual Studio Code features a remote connection extension (Remote-SSH) that allo
 
 ## More information
 
-More information on Visual Studio Code, interactive applications, and the web interfaces can be found under the [Computing section](../computing/index.md):
+More information on Visual Studio Code, interactive applications, and the web interfaces can be found under the [Supercomputing section](../computing/index.md):
 
 - [Visual Studio Code](../computing/webinterface/vscode.md)
 - [Interactive applications](../computing/webinterface/apps.md)

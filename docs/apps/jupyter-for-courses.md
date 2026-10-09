@@ -33,7 +33,7 @@ Jupyter for courses is available as an interactive application via the web inter
 
 ## More information
 
-More information on Jupyter for courses, interactive applications, and the web interfaces for courses can be found under the [Computing section](../computing/index.md):
+More information on Jupyter for courses, interactive applications, and the web interfaces for courses can be found under the [Supercomputing section](../computing/index.md):
 
   - [Jupyter for courses](../computing/webinterface/jupyter-for-courses.md)
   - [Interactive applications](../computing/webinterface/apps.md)

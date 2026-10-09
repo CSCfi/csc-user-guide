@@ -59,7 +59,7 @@ nav:
       - Monivaiheinen tunnistautuminen: accounts/mfa.md
       - Vahva tunnistautuminen: accounts/strong-identification.md
       - FMI: accounts/fmi.md
-  - Laskenta:
+  - Supertietokoneet:
       - computing/index.md
       - Käyttöpolitiikka: computing/usage-policy.md
       - Laskutus: computing/hpc-billing.md
@@ -122,17 +122,6 @@ nav:
               - RStudio: computing/webinterface/rstudio.md
               - TensorBoard: computing/webinterface/tensorboard.md
               - Visual Studio Code: computing/webinterface/vscode.md
-      - Kvanttilaskenta:
-          - computing/quantum-computing/overview.md
-          - Käyttö LUMIn kautta: computing/quantum-computing/access.md
-          - Laitteistot:
-              - computing/quantum-computing/devices/overview.md
-              - Aalto Q20: computing/quantum-computing/devices/q20.md
-              - VTT Q50: computing/quantum-computing/devices/q50.md
-          - Ensimmäinen kvanttityö: computing/quantum-computing/first-quantum-job.md
-          - Kvanttitöiden ajaminen: computing/quantum-computing/running-quantum-jobs.md
-          - Pulssitason käyttöoikeus: computing/quantum-computing/pulse-level-access.md
-          - FiQCI-osio: computing/quantum-computing/fiqci-partition.md
       - FirecREST HPC API:
           - computing/firecrest/index.md
           - Yhteyden muodostaminen: computing/firecrest/connecting.md
@@ -368,6 +357,17 @@ nav:
               - S3cmd: data/Allas/using_allas/s3_client.md
               - Pouta web-käyttöliittymä: data/Allas/using_allas/web_client.md
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
+  - Kvanttilaskenta:
+      - quantum-computing/overview.md
+      - Käyttö LUMIn kautta: quantum-computing/access.md
+      - Laitteistot:
+          - quantum-computing/devices/overview.md
+          - Aalto Q20: quantum-computing/devices/q20.md
+          - VTT Q50: quantum-computing/devices/q50.md
+      - Ensimmäinen kvanttityö: quantum-computing/first-quantum-job.md
+      - Kvanttitöiden ajaminen: quantum-computing/running-quantum-jobs.md
+      - Pulssitason käyttöoikeus: quantum-computing/pulse-level-access.md
+      - FiQCI-osio: quantum-computing/fiqci-partition.md
   - Sensitiivinen data:
       - data/sensitive-data/index.md
       - Uudet SD Connect ja SD Desktop -versiot saatavilla:

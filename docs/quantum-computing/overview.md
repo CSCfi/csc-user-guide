@@ -13,11 +13,11 @@ and algorithms. The [Finnish Quantum-Computing Infrastructure](https://fiqci.fi)
 
 FiQCI currently provides access to quantum computers reachable through the supercomputing environment.
 
-See the [Devices](../quantum-computing/devices/overview.md) section for more details and hardware specifications of each machine.
+See the [Devices](devices/overview.md) section for more details and hardware specifications of each machine.
 
 For further reading:
 
-* [Getting access to the devices](../quantum-computing/access.md)
+* [Getting access to the devices](access.md)
 * [LUMI Documentation page](https://docs.lumi-supercomputer.eu/){ target=_blank }
 
 

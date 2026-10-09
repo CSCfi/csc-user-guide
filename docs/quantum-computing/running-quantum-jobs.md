@@ -166,7 +166,7 @@ Calibration data (or quality metrics set) may be necessary for publishing work p
 
 
 
-For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
+For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
 ## Quantum job on Lumi-web interface
@@ -195,11 +195,11 @@ It is recommended to use the `Advanced settings`. Under the `Custom init` option
     source $RUN_SETUP
     ```
 
-!["Qcs with LUMI web"](../../img/Quantum_jobs_lumi_web.png)
+!["Qcs with LUMI web"](../img/Quantum_jobs_lumi_web.png)
 
 Click on launch to start your Jupyter session. This will launch Jupyter using the command python -m Jupyter lab. If you are using Q20/Q50 during a quantum computing course, a custom environment may have been created specifically for the course. In this case, you can access the quantum computers using the Jupyter-for-courses app.
 
-!["Qcs with LUMI web courses"](../../img/helmi_with_jupyter_for_courses_gui.png)
+!["Qcs with LUMI web courses"](../img/helmi_with_jupyter_for_courses_gui.png)
 
 ## Viewing QPU Usage On LUMI and MyCSC
 

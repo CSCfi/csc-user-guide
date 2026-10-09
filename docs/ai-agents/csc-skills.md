@@ -10,18 +10,18 @@ agents this CSC-specific knowledge, based on this user guide.
 !!! warning "Responsibility"
     You are always responsible for what your agent does. Every command it
     runs is executed under your own account and CSC project. Read the
-    [CSC AI Agent Policy](../usage-policy.md) before using
+    [CSC AI Agent Policy](../computing/usage-policy.md) before using
     agents on CSC systems.
 
 ## Available skills
 
 | Skill | Service |
 |---|---|
-| `csc-roihu` | [Roihu](../systems-roihu.md) supercomputer: batch jobs, SSH certificates, disk areas, billing |
-| `csc-allas` | [Allas](../../data/Allas/index.md) object storage |
-| `csc-pouta` | [Pouta](../../cloud/pouta/index.md) IaaS cloud |
-| `csc-rahti` | [Rahti](../../cloud/rahti/index.md) container cloud |
-| `csc-satama` | [Satama](../../cloud/satama/index.md) container image registry |
+| `csc-roihu` | [Roihu](../computing/systems-roihu.md) supercomputer: batch jobs, SSH certificates, disk areas, billing |
+| `csc-allas` | [Allas](../data/Allas/index.md) object storage |
+| `csc-pouta` | [Pouta](../cloud/pouta/index.md) IaaS cloud |
+| `csc-rahti` | [Rahti](../cloud/rahti/index.md) container cloud |
+| `csc-satama` | [Satama](../cloud/satama/index.md) container image registry |
 
 An agent loads a skill only when your request concerns that service, so
 installing all of them costs nothing for the ones you don't use.
