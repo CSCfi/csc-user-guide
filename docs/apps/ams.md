@@ -201,9 +201,8 @@ module load ams/2026.104
     !!! info "Disaggregated NVMe on Roihu"
         Roihu provides a centralised pool of 307.2 TB fast NVMe storage served over
         InfiniBand NDR. For I/O-intensive full-node jobs this can outperform both
-        Lustre scratch and node-local `$TMPDIR`. It requires a full-node partition
-        (`medium` or `large`) and a `#BB_LUA` burst-buffer directive — shared-node
-        support is not yet available. See
+        Lustre scratch and node-local `$TMPDIR`. It is available on all partitions
+        and is requested with a `#BB_LUA` burst-buffer directive. See
         [Roihu disk areas](../computing/roihu-disk.md#disaggregated-storage)
         for full details.
 
@@ -211,14 +210,14 @@ module load ams/2026.104
     #!/bin/bash
     #SBATCH --partition=medium
     #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=384     # full node required for disaggregated NVMe
+    #SBATCH --ntasks-per-node=384     # full node
     #SBATCH --account=yourproject     # insert here the project to be billed
     #SBATCH --time=00:20:00           # time as `hh:mm:ss`
-    #BB_LUA SBF storagesize=100GB path=/run/sbb/<user>
+    #BB_LUA SBF storagesize=100GB path=/sbf/data
     module purge
     module load ams/2026.104
     # Disaggregated NVMe is mounted at the path specified in #BB_LUA above
-    export SCM_TMPDIR=/run/sbb/<user>/ams_$SLURM_JOB_ID
+    export SCM_TMPDIR=/sbf/data/ams_$SLURM_JOB_ID
     mkdir -p $SCM_TMPDIR
     # Create an example input file from the examples
     sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run > ./Si35_TZ2P.inp
