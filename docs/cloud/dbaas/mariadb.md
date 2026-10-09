@@ -6,6 +6,7 @@
 
 * [How to access your MariaDB database](mariadb-accessing.md)
 * [How to create database users and modify user permissions](mariadb-permissions.md)
+* [MariaDB server log explained](mariadb-log.md)
 
 # Database engine and backups
 
