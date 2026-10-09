@@ -1,5 +1,21 @@
 # Computing environment
 
+## Roihu Slurm updated and disaggregated storage available on all partitions, 8.10.2026
+
+Slurm on Roihu has been updated from version 25.05 to 26.05.
+
+[Disaggregated storage](../../computing/roihu-disk.md#disaggregated-storage) (fast NVMe over
+fabric) can now be requested on all Roihu partitions, including shared-node jobs. The
+`--exclusive` flag is no longer needed on the GPU partitions.
+
+The mount path has changed from `/run/sbb/` to `/sbf/`, for example:
+
+```bash
+#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/sbf/data"
+```
+
+Update the path in your existing batch scripts.
+
 ## Roihu web interface updated to release 3, 22.9.2026
 
 * python-pytorch is now available for CPU partitions, and python-tensorflow is available for all partitions in the web interface.
