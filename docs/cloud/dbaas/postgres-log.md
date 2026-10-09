@@ -1,12 +1,12 @@
-# Server log in PostgreSQL
+# Database server log in PostgreSQL
  
-PostgreSQL server log gives important information from the database's current health and operation.
+PostgreSQL server log gives important information from the database server's current health and operation.
 
-## How to access database logs
+## How to access database server logs
 
-[Via CLI](advanced.md#how-to-access-database-logs)
+[Via CLI](advanced.md#how-to-access-database-server-logs)
 
-[Via Web UI](web-interface.md#how-to-access-database-logs)
+[Via Web UI](web-interface.md#how-to-access-database-server-logs)
 
 If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
@@ -14,11 +14,11 @@ If you think there are missing log lines, please [contact CSC Service Desk](/sup
 
 PostgreSQL server log is more chatty than for example MariaDB. 
 
-On idle database there will be always information about checkpoints (forced buffer writes), see `server log format` section below.
+On idle database server there will be always information about checkpoints (forced buffer writes), see `log format` section below.
 
-### Server log format
+### Log format
 
-Example snipped from server log;
+Example snipped from log;
 
 ```
 2026-01-09 08:28:40.077 UTC [43] LOG:  checkpoint starting: time
@@ -40,7 +40,7 @@ Possible severities from lowest to highest level and their description;
 | FATAL            | Reports an error that caused the current session to abort.                                           |
 | PANIC            | Reports an error that caused all database sessions to abort.                                         |
 
-By default only `WARNING` and higher level messages appear in the server log.
+By default only `WARNING` and higher level messages appear in the database server log.
 
 ### Common messages
 
@@ -68,9 +68,9 @@ This can also happen under heavy load caused by upgrade process or when manually
 !!! info "Note"
     In Pukki `max_wal_size` is tied to instance's flavor size. 
 
-    On idling database the checkpoints can happen less frequently than every five minutes.
+    On idling database server the checkpoints can happen less frequently than every five minutes.
 
-#### Database shutdown messages
+#### Database server shutdown messages
 
 ```
 2026-01-30 14:51:39.364 UTC [1] LOG:  received fast shutdown request
@@ -80,7 +80,7 @@ This can also happen under heavy load caused by upgrade process or when manually
 2026-01-30 14:51:39.566 UTC [1] LOG:  database system is shut down
 ```
 
-Database shutdown also generates `FATAL` level message if database connection exists, additionally `STATEMENT` level message is shown if some query was running during the shutdown;
+Database server shutdown also generates `FATAL` level message if database connection exists, additionally `STATEMENT` level message is shown if some query was running during the shutdown;
 
 ```
 2026-02-13 16:06:34.942 UTC [27] FATAL:  terminating connection due to administrator command
@@ -97,11 +97,11 @@ Checkpoint message is also possible during shutdown;
 2026-01-30 14:51:39.558 UTC [43] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.163 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=14745 kB; lsn=0/E7000168, redo lsn=0/E7000168
 ```
 
-#### Database deletion
+#### Database server deletion
 
-The database is shutdown and logs are removed.
+The database server is shutdown and logs are removed.
 
-#### Database startup messages
+#### Database server startup messages
 
 ```
 
@@ -115,19 +115,19 @@ PostgreSQL Database directory appears to contain a database; Skipping initializa
 2026-01-30 14:52:30.164 UTC [1] LOG:  database system is ready to accept connections
 ```
 
-If the database is not ready to accept connections and there is an incoming connection the following will be also logged on the startup;
+If the database server is not ready to accept connections and there is an incoming connection the following will be also logged on the startup;
 
 ```
 2026-02-13 16:06:36.222 UTC [13] FATAL:  the database system is starting up
 ```
 
-Above `FATAL` error could be also caused by Pukki trying to ping the database.
+Above `FATAL` error could be also caused by Pukki trying to ping the database server.
 
 #### Volume & instance resize, instance rebuild and upgrade
 
-These are from Pukki's database logging point of view just a shutdown and startup. Upgrade does other actions on background but logs of these are not shown to the user.
+These are from Pukki's logging point of view just a shutdown and startup. Upgrade does other actions on background but logs of these are not shown to the user.
 
-The database upgrade might complain about discrepancy of default collation version and databases' actual collation version on disk, but this is handled automatically by Pukki;
+The database server upgrade might complain about discrepancy of default collation version and databases' actual collation version on disk, but this is handled automatically by Pukki;
 
 ```
 2026-07-31 14:32:51.739 UTC [17] WARNING:  database "postgres" has a collation version mismatch
@@ -150,9 +150,9 @@ The database upgrade might complain about discrepancy of default collation versi
 2026-07-31 14:32:52.260 UTC [22] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE template1 REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
 ```
 
-#### Database creation and database restore
+#### Database server creation and restore
 
-Database restore is essentially just database creation from the database's logging stand point. Creating a database generates one-off log lines and it will end to same `database system is ready to accept connections` message like startup does;
+Database server restore is essentially just a new database server creation from the Pukki's logging stand point. Creating a database server generates one-off log lines and it will end to same `database system is ready to accept connections` message like startup does;
 ```
 The files belonging to this database system will be owned by user "postgres".
 This user must also own the server process.
@@ -232,7 +232,7 @@ For example for `work_mem` the correct value would be `8MB` not `8M`;
 2026-06-12 14:03:18.924 UTC [1] LOG:  invalid value for parameter "work_mem": "8M"
 ```
 
-Note worthy here is that if database has incorrect configurations during any startup then it will end in to restart loop without never successfully starting to serve connections;
+Note worthy here is that if database server has incorrect configurations during any startup then it will end in to restart loop without never successfully starting to serve connections;
 ```
 
 PostgreSQL Database directory appears to contain a database; Skipping initialization
@@ -285,7 +285,7 @@ Just collation is incorrect;
 ```
 
 !!! info "Note"
-    Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+    Maybe someone authorized was trying manually to connect to the database server or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 
 #### User does not exists
@@ -297,7 +297,7 @@ Just collation is incorrect;
 ```
 
 !!! info "Note"
-    Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+    Maybe someone authorized was trying manually to connect to the database server or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 
 #### Transaction was committed or rollbacked and there was no transaction started in the first place
@@ -321,4 +321,4 @@ Just collation is incorrect;
 ```
 
 !!! info "Note"
-    Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
+    Usually these are improperly closed connections, but there is a possibility that network connection between the application and the server has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.

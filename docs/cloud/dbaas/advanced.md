@@ -64,11 +64,9 @@ your database instance.
     !!! info "Note"
         No new backups will be taken of the instance before the restart has been done.
 
-## How to access database logs
+## How to access database server logs
 
-If the system does not return any log lines, then that means there are no log entries within the one month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
-
-With CLI you can get the whole database log from one month retention period;
+With CLI you can get the whole database server log from one month retention period;
 ```
 openstack database log list -f value --sort-column Published -c Status $INSTANCE_ID
 ```
@@ -79,3 +77,5 @@ openstack database log list -f value --sort-column Published -c Status $INSTANCE
 ```
 
 If log lines are with same `Published` timestamp, then log lines may be displayed in bit of a mixed order.
+
+If the system does not return any log lines, then that means there are no log entries within the one month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.

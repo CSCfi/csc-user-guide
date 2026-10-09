@@ -1,12 +1,12 @@
-# Server log in MariaDB
+# Database server log in MariaDB
 
-Server log in MariaDB gives important information from database's current health and operation.
+Server log in MariaDB gives important information from database server's current health and operation.
 
-## How to access database logs
+## How to access database server logs
 
-[Via CLI](advanced.md#how-to-access-database-logs)
+[Via CLI](advanced.md#how-to-access-database-server-logs)
 
-[Via Web UI](web-interface.md#how-to-access-database-logs)
+[Via Web UI](web-interface.md#how-to-access-database-server-logs)
 
 If the system does not return any log lines, then that means there are no log entries within the 1 month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
@@ -31,7 +31,7 @@ In this example the first attempt did not specify password when connecting and t
 The log line looks same in case of incorrect password or trying to connect with user that does not exists.
 
 !!! info "Note"
-    Maybe someone authorized was trying manually to connect to the database or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+    Maybe someone authorized was trying manually to connect to the database server or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
 
 #### Idle connections
 
@@ -53,11 +53,11 @@ Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
 ```
 
 !!! info "Note"
-    Usually these are improperly closed connections, but there is a possibility that network connection between application and database has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
+    Usually these are improperly closed connections, but there is a possibility that network connection between the application and the server has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
 
 ### Other common messages
 
-#### Database shutdown messages
+#### Database server shutdown messages
 
 ```
 2026-07-31 11:24:40 0 [Note] mariadbd (initiated by: unknown): Normal shutdown
@@ -70,11 +70,11 @@ Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
 2026-07-31 11:24:40 0 [Note] mariadbd: Shutdown complete
 ```
 
-#### Database deletion
+#### Database server deletion
 
-The database is shutdown and logs are removed.
+The database server is shutdown and logs are removed.
 
-#### Database startup messages
+#### Database server startup messages
 
 ```
 2026-07-31 11:25:03+00:00 [Note] [Entrypoint]: Entrypoint script for MariaDB Server 1:12.3.2+maria~ubu2404 started.
@@ -109,11 +109,11 @@ Version: '12.3.2-MariaDB-ubu2404'  socket: '/var/run/mysqld/mysqld.sock'  port: 
 
 #### Volume & instance resize and instance rebuild
 
-These are from Pukki's database logging point of view just a shutdown and startup. 
+These are from Pukki's logging point of view just a shutdown and startup. 
 
-#### Database creation
+#### Database server creation
 
-In reality it is a startup and shutdown of a temporary server, ending up to normal startup sequence;
+In reality it is a startup and shutdown of a temporary database server, ending up to normal startup sequence;
 
 ```
 2026-07-31 11:13:27+00:00 [Note] [Entrypoint]: Entrypoint script for MariaDB Server 1:12.3.2+maria~ubu2404 started.
@@ -190,11 +190,11 @@ create_uring failed: falling back to libaio
 Version: '12.3.2-MariaDB-ubu2404'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  mariadb.org binary distribution
 ```
 
-#### Database upgrade and restore
+#### Database server upgrade and restore
 
-Database restore does not have MariaDB's previous version information available and therefore upgrade process is forced during the restore.
+The restore process does not have MariaDB's previous version information available and therefore upgrade process is forced during the restore.
 
-Database upgrade performs first normal shutdown which is not shown on below.
+Database server upgrade performs first normal shutdown which is not shown on below.
 
 
 ```
@@ -312,7 +312,7 @@ The restore process also prints following which is not an issue;
 
 #### SQL level errors
 
-For instance, typos entered in command-line interface (CLI), in MariaDB's case nothing will be logged in server log.
+For instance, typos entered in command-line interface (CLI), in MariaDB's case nothing will be logged in database server log.
 
 Committing or rolling back a transaction when transaction was not explicitly started does not cause an error and transaction control language (TCL) is just performed.
 
