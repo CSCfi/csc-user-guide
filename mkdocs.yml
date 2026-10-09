@@ -357,6 +357,7 @@ nav:
           - computing/ai-tools/index.md
           - Agent Environment: computing/ai-tools/agent-env.md
           - Docs MCP Server: computing/ai-tools/docs-mcp.md
+          - CSC Skills: computing/ai-tools/csc-skills.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:

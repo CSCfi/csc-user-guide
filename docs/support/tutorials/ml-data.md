@@ -138,5 +138,4 @@ NVMe](../../computing/roihu-disk.md#disaggregated-storage). This fast
 storage capacity is provided over the network and will appear as local
 scratch from within a Slurm job. The total capacity of the
 disaggregated NVMe resource is 307.2 TB. Disaggregated NVMe is still
-considered an experimental feature on Roihu, and is currently
-available only on full node jobs.
+considered an experimental feature on Roihu.
