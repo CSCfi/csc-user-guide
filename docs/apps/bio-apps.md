@@ -193,6 +193,7 @@ py-biopython/1.85
 py-cutadapt/4.7
 py-dbcan/5.2.9
 py-deeptools/3.5.3
+py-fdstools/2.2.1
 py-gtdbtk/2.7.2
 py-htseq/2.0.3
 py-instrain/1.6.3
@@ -234,8 +235,10 @@ GPU-accelerated tools:
 
 ```text
 dorado/2.1.1
+foldseek/10-941cd33
 mhm2/2.2.2.0-20260904
 mmseqs2/18-8cc5c
+mrbayes/3.2.8
 nextflow/25.10.2-standalone
 nextflow/26.04.6-standalone
 py-medaka/2.2.2
