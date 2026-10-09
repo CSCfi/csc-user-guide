@@ -66,27 +66,16 @@ your database instance.
 
 ## How to access database logs
 
-!!! info "Note"
-    If the system does not return any log lines, then that means there are no log entries within the 1 month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
+If the system does not return any log lines, then that means there are no log entries within the one month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
-[Prerequisites for CLI use](cli.md#getting-started)
+With CLI you can get the whole database log from one month retention period;
+```
+openstack database log list -f value --sort-column Published -c Status $INSTANCE_ID
+```
 
-1. Onces you got your OpenStack running, you can list your databases;
+In Unix-like systems you can use `tail` command to output only last n lines;
+```
+openstack database log list -f value --sort-column Published -c Status $INSTANCE_ID | tail -10
+```
 
-    ```
-    openstack database instance list
-    ```
-
-2. Using the ID from above command you can get the database log;
-
-    ```
-    openstack database log list -f value --sort-column Published -c Status $ID
-    ```
-
-    In Unix-like systems you can use `tail` command to output only last n lines;
-    ```
-    openstack database log list -f value --sort-column Published -c Status $ID | tail -10
-    ```
-
-!!! info "Note"
-    If log lines are with same `Published` timestamp, then log lines may be displayed in bit of a mixed order.
+If log lines are with same `Published` timestamp, then log lines may be displayed in bit of a mixed order.
