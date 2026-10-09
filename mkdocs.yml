@@ -110,10 +110,10 @@ plugins:
       "support/tutorials/julia.md": "apps/julia.md#running-julia-batch-jobs-on-csc-clusters"
       "support/tutorials/nextflow-tutorial.md": "apps/nextflow.md"
       "computing/running/fireworks.md": "apps/fireworks.md"
-      "computing/ai-tools/index.md": "ai-tools/index.md"
-      "computing/ai-tools/agent-env.md": "ai-tools/agent-env.md"
-      "computing/ai-tools/docs-mcp.md": "ai-tools/docs-mcp.md"
-      "computing/ai-tools/csc-skills.md": "ai-tools/csc-skills.md"
+      "computing/ai-tools/index.md": "ai-agents/index.md"
+      "computing/ai-tools/agent-env.md": "ai-agents/agent-env.md"
+      "computing/ai-tools/docs-mcp.md": "ai-agents/docs-mcp.md"
+      "computing/ai-tools/csc-skills.md": "ai-agents/csc-skills.md"
       "computing/quantum-computing/overview.md": "quantum-computing/overview.md"
       "computing/quantum-computing/access.md": "quantum-computing/access.md"
       "computing/quantum-computing/devices/overview.md": "quantum-computing/devices/overview.md"
@@ -355,7 +355,7 @@ nav:
           - Connecting: computing/firecrest/connecting.md
           - Data transfer over S3: computing/firecrest/data-transfer-s3.md
           - Python SDK: computing/firecrest/pyfirecrest.md
-  - Cloud Services:
+  - Cloud services:
       - cloud/index.md
       - Noppe:
           - cloud/noppe/index.md
@@ -597,11 +597,11 @@ nav:
       - Running quantum jobs: quantum-computing/running-quantum-jobs.md
       - Pulse level access: quantum-computing/pulse-level-access.md
       - FiQCI partition: quantum-computing/fiqci-partition.md
-  - AI Tools:
-      - ai-tools/index.md
-      - Agent Environment: ai-tools/agent-env.md
-      - Docs MCP Server: ai-tools/docs-mcp.md
-      - CSC Skills: ai-tools/csc-skills.md
+  - AI agents:
+      - ai-agents/index.md
+      - Agent environment: ai-agents/agent-env.md
+      - Docs MCP server: ai-agents/docs-mcp.md
+      - CSC skills: ai-agents/csc-skills.md
   - Sensitive data:
       - data/sensitive-data/index.md
       - New versions of SD Connect and SD Desktop available:

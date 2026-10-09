@@ -36,7 +36,7 @@ Desktop is available as an interactive application via the web interface for
 ## More information
 
 More information on Desktop, interactive applications, and the web interfaces
-can be found under the [Computing section](../computing/index.md):
+can be found under the [Supercomputing section](../computing/index.md):
 
 - [Desktop](../computing/webinterface/desktop.md)
 - [Interactive applications](../computing/webinterface/apps.md)

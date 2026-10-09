@@ -1,4 +1,4 @@
-# AI tools
+# AI agents
 
 This section covers CSC tools for working with AI agents, and tools that agents
 can use themselves.
