@@ -13,6 +13,8 @@ catalog:
 
 # Biopython
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Biopython is a collection of Python modules that facilitate the development of Python scripts for 
 bioinformatics applications. As such, it does not include ready to use programs in the sense that 
 many commercial packages and free web-based interfaces do. On the other hand, Biopython provides 

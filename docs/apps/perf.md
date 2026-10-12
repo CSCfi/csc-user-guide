@@ -15,6 +15,8 @@ catalog:
 
 # perf
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 [`perf`](https://perfwiki.github.io/main/) is a performance monitoring tool for Linux systems.
 It provides access to hardware counters in the Performance Monitor Unit (PMU) and is capable of lightweight performance profiling.
 Typical use cases include monitoring hardware events like cache or branch misses, or counting instructions of specific type.

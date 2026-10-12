@@ -17,6 +17,8 @@ catalog:
 
 # CryoSPARC
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification)
 is a state-of-the-art scientific software platform for processing cryo-electron
 microscopy (cryo-EM) single particle analysis data used in research and drug

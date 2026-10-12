@@ -16,6 +16,8 @@ catalog:
 
 # Elmer
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Elmer is CSC's open source Finite Element multi-physics simulation package. It covers modules for fluid and solid mechanics,
 acoustics, and electro-magneto dynamics.
 

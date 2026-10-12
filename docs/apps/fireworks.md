@@ -14,6 +14,8 @@ catalog:
 
 # FireWorks
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 [FireWorks](https://materialsproject.github.io/fireworks/) is a free, open-source tool for defining, managing and executing workflows with multiple steps and potentially complex dependencies. Workflows are flexibly defined using YAML, JSON or through a Python API and stored in a MongoDB database. This page describes how to define and execute FireWorks workflows in CSC's computing environment using a MongoDB running in the Rahti container cloud.
 
 If you are still wondering about workflows at more general level or which workflow tool to use, see also our [high-throughput computing and workflows page](../computing/running/throughput.md).

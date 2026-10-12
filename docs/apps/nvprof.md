@@ -14,6 +14,8 @@ catalog:
 
 # nvprof: CUDA profiler
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Available
 
 - Puhti: 11.7.50

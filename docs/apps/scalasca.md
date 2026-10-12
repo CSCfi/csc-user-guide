@@ -14,6 +14,8 @@ catalog:
 
 # Scalasca
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 [Scalasca](https://www.scalasca.org/) is an open-source software tool
 that supports the performance optimization of parallel programs by
 measuring and analyzing their runtime behavior via event traces. The analysis

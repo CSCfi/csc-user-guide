@@ -13,6 +13,8 @@ catalog:
 
 # SALMON
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Salmon is a fast program to produce highly-accurate, transcript-level quantification estimates from RNA-seq data. Salmon achieves its accuracy and speed via a number of different innovations, including the use of quasi-mapping (accurate but fast-to-compute proxies for traditional read alignments), and massively-parallel stochastic collapsed variational inference. The result is a versatile tool that fits nicely into many pipelines. For example, you can choose to make use of the quasi-mapping algorithm by providing Salmon with raw sequencing reads, or, if it is more convenient, you can provide Salmon with regular alignments (e.g. an unsorted BAM file produced with your favorite aligner), and it will use the same fast, state-of-the-art inference algorithm to estimate transcript-level abundances for your experiment.
 
 !!! info "Note"

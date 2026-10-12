@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -20,8 +18,6 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 
 ## Available
 
--   Puhti: AMS, Version 2024.102, 2025.105
--   Mahti: AMS, Version 2024.102, 2025.105
 -   Roihu-CPU: AMS, Version 2026.104
 
 ## License
@@ -32,12 +28,6 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 -  Research groups which need other modules of the AMS suite can obtain a license for themselves to run the programs on the CSC computers. 
 
 ## Usage
-
-Initialize AMS on Puhti and Mahti:
-
-```bash
-module load ams/2025.105
-```
 
 Initialize AMS on Roihu-CPU:
 
@@ -50,83 +40,6 @@ module load ams/2026.104
 !!! warning "Note"
     Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Roihu](../computing/disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
-
-=== "Puhti"
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=yourproject     # insert here the project to be billed 
-    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
-    #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
-    mkdir -p $SCM_TMPDIR
-    # Create an example input file from the examples 
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-     
-=== "Puhti, local disk"
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=large
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
-    #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
-    #SBATCH --gres=nvme:100           # requested local disk space in GB
-    module load ams/2025.105
-    export SCM_TMPDIR=$LOCAL_SCRATCH
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=medium
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128 # MPI tasks per node
-    #SBATCH --account=yourproject # insert here the project to be billed
-    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
-    mkdir -p $SCM_TMPDIR
-
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-
-=== "Mahti, local disk"
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=small
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128 # MPI tasks per node
-    #SBATCH --account=yourproject # insert here the project to be billed
-    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
-    #SBATCH --gres=nvme:100
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$LOCAL_SCRATCH
-    mkdir -p $SCM_TMPDIR
-    
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
 
 === "Roihu-CPU"
 
@@ -240,7 +153,7 @@ module load ams/2026.104
 ### [The AMS-GUI](../apps/ams-gui.md)
 
 AMS comes with an integrated Graphical User Interface, [AMS-GUI](ams-gui.md) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti web interface, but for more extensive use we recommend installing
+You can test the GUI via the Roihu web interface, but for more extensive use we recommend installing
 the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-GUI documentation.](ams-gui.md)
 
 ## References

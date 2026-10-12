@@ -13,6 +13,8 @@ catalog:
 
 # VirusDetect
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 VirusDetect is a software for analyzing large-scale sRNA datasets for
 virus identification. The program performs reference-guided assembly by
 aligning sRNA reads to the known virus reference database (GenBank

@@ -15,6 +15,8 @@ catalog:
 
 # Jupyter for courses
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 A version of the [Jupyter app](jupyter.md) for setting up custom course environments.
 
 

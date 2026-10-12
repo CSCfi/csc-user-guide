@@ -15,6 +15,8 @@ catalog:
 
 # PLUMED
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 PLUMED (PLUgin for MolEcular Dynamics) is an open-source, community-developed
 library that provides a wide  range of different methods for enhanced sampling
 in molecular dynamics. It can be used with several MD codes.

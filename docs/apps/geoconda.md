@@ -14,6 +14,8 @@ catalog:
 
 # Geoconda
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Geoconda is a collection of python packages that facilitate the
 development of python scripts for geoinformatics applications. It
 includes following python packages:

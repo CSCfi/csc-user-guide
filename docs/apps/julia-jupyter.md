@@ -17,6 +17,8 @@ catalog:
 
 # Julia-Jupyter
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 A version of the [Jupyter app](jupyter.md) for Julia programming language.
 
 ## License

@@ -16,6 +16,8 @@ catalog:
 
 # Accelerated visualization
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 A selection of GPU accelerated visualization applications.
 
 ## License

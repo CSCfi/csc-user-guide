@@ -13,7 +13,7 @@ catalog:
 
 # XHMM (eXome-Hidden Markov Model)
 
-
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 The XHMM C++ software suite was written to call copy number variation (CNV)
 from next-generation sequencing projects, where exome capture was used 

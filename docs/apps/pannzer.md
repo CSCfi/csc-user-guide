@@ -13,6 +13,8 @@ catalog:
 
 # PANNZER2/SANSPANZ
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 PANNZER2/SANSPANZ is a fully automated service for functional annotation 
 of prokaryotic and eukaryotic proteins of unknown function. The tool is 
 designed to predict the functional description (DE) and gene ontology (GO) classes. 

@@ -13,6 +13,8 @@ catalog:
 
 # wtdbg2
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 wtdbg2 is a fast _de novo_ assembly tool for long-read sequence data produced by PacBio or Oxford Nanopore Technologies sequencers.
 
 [TOC]

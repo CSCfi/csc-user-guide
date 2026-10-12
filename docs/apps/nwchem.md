@@ -14,6 +14,8 @@ catalog:
 
 # NWChem
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 NWChem provides many different methods to compute the properties of molecular and
 periodic systems using standard quantum mechanical descriptions of the electronic
 wavefunction or density. In addition, NWChem has the capability to perform classical

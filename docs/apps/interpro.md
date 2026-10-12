@@ -13,7 +13,7 @@ catalog:
 
 # InterProScan
 
-
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 InterProScan is a tool that compares protein or nucleotide sequence against a set of protein signature databases.
 The results obtained from different databases are given in uniform format. The InterProScan5 installation at CSC can

@@ -14,6 +14,8 @@ catalog:
 
 # cProfile: Python profiler
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Available
 
 - Mahti: Any Python version

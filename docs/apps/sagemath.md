@@ -13,6 +13,8 @@ catalog:
 
 # SageMath
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 SageMath is a free open-source mathematics software system licensed
 under the GPL. It builds on top of many existing open-source packages:
 NumPy, SciPy, matplotlib, Sympy, Maxima, GAP, FLINT, R and many more.

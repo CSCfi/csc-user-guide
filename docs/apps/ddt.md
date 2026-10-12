@@ -14,6 +14,8 @@ catalog:
 
 # DDT
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Arm DDT is a parallel debugger with a graphical user interface (GUI).
 
 ## Available

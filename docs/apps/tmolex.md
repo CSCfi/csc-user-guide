@@ -13,6 +13,8 @@ catalog:
 
 # TmoleX
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 TmoleX is an easy to use graphical user interface to handle
 [TURBOMOLE](turbomole.md) calculations. TmoleX includes a structure builder
 and tools for preparing [TURBOMOLE](turbomole.md) jobs and analyzing results.
