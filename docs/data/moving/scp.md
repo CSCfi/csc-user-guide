@@ -33,33 +33,33 @@ scp username@server:/path/to/file /path/to/local/destination
     default location using standard naming, so the `-i` flag is omitted. Note
     that SSH certificates are required for connecting to Roihu only.
 
-## Using scp to copy data between your local computer and Puhti
+## Using scp to copy data between your local computer and Roihu
 
 For example, the command to copy a local file `data.txt` from the current
-directory to the home directory of user `bob` on Puhti would be:
+directory to the home directory of user `bob` on Roihu would be:
 
 ```bash
-scp data.txt bob@puhti.csc.fi:~/
+scp data.txt bob@roihu-cpu.csc.fi:~/
 ```
 
 The special symbol `~` points to the user's home directory. You can use the
-`csc-workspaces` command on Puhti to show other available disk areas.
+`csc-workspaces` command on Roihu to show other available disk areas.
 
 To copy complete directories, you should use `scp` command with option `-r`.
 For example:
 
 ```bash
-scp -r /path/to/data_directory bob@puhti.csc.fi:/scratch/project_2001234/data_dir 
+scp -r /path/to/data_directory bob@roihu-cpu.csc.fi:/scratch/project_2001234/data_dir 
 ```
 
 The above command would copy the directory `data_directory` and all its
-contents to Puhti at `/scratch/project_2001234/data_dir`.
+contents to Roihu at `/scratch/project_2001234/data_dir`.
 
 Copying the data from a CSC server to your local machine is done in the same
 way:
 
 ```bash
-scp bob@puhti.csc.fi:/scratch/project_2001234/data.txt .
+scp bob@roihu-cpu.csc.fi:/scratch/project_2001234/data.txt .
 ```
 
 The `.` symbol points to the current working directory on your local machine,
@@ -69,15 +69,15 @@ In the commands above, files and directories have been copied one at a time.
 However, `scp` can also copy several files at once. For example:
 
 ```bash
-scp data1.txt data2.txt data3.txt bob@puhti.csc.fi:~/
+scp data1.txt data2.txt data3.txt bob@roihu-cpu.csc.fi:~/
 ```
 
 You can also use wildcards when defining the files to be copied. For example,
 to copy all files with extension `.txt` from the current directory on your
-local machine to your home directory on Puhti, you could use the command:
+local machine to your home directory on Roihu, you could use the command:
 
 ```bash
-scp *.txt bob@puhti.csc.fi:~/
+scp *.txt bob@roihu-cpu.csc.fi:~/
 ```
 
 By default, the copied files are treated as new files, but if you add option
@@ -97,9 +97,9 @@ certificate) to the supercomputer you're first connecting to.
 
 After this, `scp` can be used to copy data directly between CSC supercomputers
 using the same syntax as above. For example, the command to copy a file
-`data.txt` from directory `/scratch/project_2001234` on Puhti to the same
-directory on Mahti would be:
+`data.txt` from directory `/scratch/project_2001234` on Roihu to the same
+directory on LUMI would be:
 
 ```bash
-scp /scratch/project_2001234/data.txt bob@mahti.csc.fi:/scratch/project_2001234
+scp /scratch/project_2001234/data.txt bob@lumi.csc.fi:/scratch/project_2001234
 ```

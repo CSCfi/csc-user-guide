@@ -1,5 +1,7 @@
 # Dataset sources
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Overview
 
 Data are observations or measurements (unprocessed or processed) represented as
@@ -69,7 +71,7 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 - [Chipster_genomes](../../apps/chipster_genomes.md) Tool to download aligner
   indexes used by the [Chipster software](https://chipster.csc.fi/index.shtml)
-  to Puhti
+  to Roihu
 - [AlphaFold databases are available on Puhti](../../apps/alphafold.md)
 
 ### Chemistry
@@ -81,7 +83,7 @@ CSC also hosts or provides access to several datasets on different platforms.
 
 ### Geosciences
 
-- [Open Finnish spatial datasets are available in Puhti or in Allas](spatial-data-in-csc-computing-env.md).
+- [Open Finnish spatial datasets are available in Roihu or in Allas](spatial-data-in-csc-computing-env.md).
 
 ### Language research and other digital humanities and social sciences
 

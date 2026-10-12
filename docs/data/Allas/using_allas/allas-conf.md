@@ -40,11 +40,6 @@ To enable S3 based connection to Allas in Roihu, use command `allas-conf`.
 allas-conf 
 ```
 
-In Puhti and Mahti you must add option `-m S3`
-```text
-allas-conf -m S3
-```
-
 The authentication process asks you to give the password of your CSC account. Note that the Haka password or password related to you ssh key 
 are not valid in this authentication step.
 

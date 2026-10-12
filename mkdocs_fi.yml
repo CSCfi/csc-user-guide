@@ -342,7 +342,7 @@ nav:
           - Tiedostojen jakaminen ja siirtäminen Funet FileSenderillä: data/moving/funet.md
           - Datan siirtäminen IDAn ja CSC:n laskentaympäristön välillä: data/ida/using_ida.md
           - Etälevyjen liittäminen: data/moving/disk_mount.md
-          - Datan kopioiminen Allaksen ja IDAn välillä Puhtin kautta: data/moving/copy_allas_ida.md
+          - Datan kopioiminen Allaksen ja IDAn välillä Roihun kautta: data/moving/copy_allas_ida.md
       - Allas-objektitallennustila:
           - data/Allas/index.md
           - Johdatus Allas-tallennuspalveluun: data/Allas/introduction.md
