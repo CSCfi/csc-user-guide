@@ -4,7 +4,7 @@
 
 Slurm on Roihu has been updated from version 25.05 to 26.05.
 
-[Disaggregated storage](../../computing/roihu-disk.md#disaggregated-storage) (fast NVMe over
+[Disaggregated storage](../../computing/disk.md#disaggregated-storage) (fast NVMe over
 fabric) can now be requested on all Roihu partitions, including shared-node jobs. The
 `--exclusive` flag is no longer needed on the GPU partitions.
 
