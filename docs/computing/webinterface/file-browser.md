@@ -95,16 +95,16 @@ To use IDA from the Roihu web interface, it must first be configured for
 use with Rclone in a login node shell as follows:
 
 ```
-module load allas
+module load rclone
 rclone config
 ```
 
 In the Rclone configuration interface, create a new remote with the following
 settings:
 
-1. Storage: WebDAV (#45)
-2. URL: <https://ida.fairdata.fi/remote.php/webdav/>
-3. Vendor: Nextcloud (#1)
+1. Storage: WebDAV (#63)
+2. URL: <https://ida.fairdata.fi/remote.php/dav/files/username> (replace username with your CSC username)
+3. Vendor: Nextcloud (#2)
 4. Username: Your CSC username
 5. Password:
       1. Login to the [IDA web interface](https://ida.fairdata.fi).
