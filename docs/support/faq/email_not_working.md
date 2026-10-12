@@ -1,3 +1,5 @@
+## ⚠️ This feature is not currently working with Roihu
+
 # Sending email when a job starts/finishes is not working
 
 * Check that the option is correctly set in your batch script. For example, to
