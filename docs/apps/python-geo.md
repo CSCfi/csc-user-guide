@@ -28,7 +28,7 @@ includes following python packages:
 -   [contextily](https://contextily.readthedocs.io/en/latest/) -  to retrieve tile maps from the internet. 
 -   [copc-lib](https://github.com/RockRobotic/copc-lib) - reader and writer interface for [Cloud Optimized Point Clouds (COPC)](https://copc.io/) 
 -   [dask](https://dask.org/) - provides advanced parallelism for analytics, enabling performance at scale, including [dask-geopandas](https://dask-geopandas.readthedocs.io/), [Dask-ML](https://ml.dask.org/) and [Dask JupyterLab extension](https://github.com/dask/dask-labextension). 
-    -   [Dask parallelization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/puhti/05_parallel_dask).
+    -   [Dask parallelization example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/roihu/06_parallel_dask).
     -   [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [dask-image](https://dask-image.readthedocs.io/) - image processing with Dask Arrays. 
 -   [datashader](https://datashader.org/) - for big data rendering. NEW 2026
@@ -117,7 +117,7 @@ Additionally python-geo includes:
 -   [PDAL](https://pdal.io/) - Point Data Abstraction Library
    
 Python has multiple packages for parallel computing, for example
-**multiprocessing**, **joblib** and **dask**. In our [Puhti Python examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti) there are examples how to utilize these different parallelisation libraries.
+**multiprocessing**, **joblib** and **dask**. In our [Roihu Python examples](https://github.com/csc-training/geocomputing/tree/master/python/roihu) there are examples how to utilize these different parallelisation libraries.
 
 If you think that some important GIS package for Python is missing from here, you can ask for installation from [CSC Service Desk](../support/contact.md).
 
@@ -224,7 +224,7 @@ Python-geo conda environment files and `download_wbt` and `start_wbt.py` needed 
 -   [Automating GIS processes course materials](https://automating-gis-processes.github.io) by University of Helsinki
 -   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) by Henrikki Tenkanen / Aalto University
 -   [Introduction to GIS Programming](https://geog-312.gishub.org/index.html) by Dr. Qiusheng Wu / University of Tennessee
--   [Geographic Data Science with Python](https://geographicdata.science/book/intro.html) by Sergio Rey, Dani Arribas-Bel, Levi Wolf
+-   [Geographic Data Science with Python](https://geographicdata.science/book/) by Sergio Rey, Dani Arribas-Bel, Levi Wolf
 -   [Python Foundation for Spatial Analysis](https://courses.spatialthoughts.com/python-foundation.html) by Ujaval Gandhi
 
 ------------------------------------------------------------------------

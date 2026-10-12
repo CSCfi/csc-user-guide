@@ -29,7 +29,7 @@ The application deadline was in March 2026 and has now passed.
 
 ## Accessing Roihu
 
-### 3. Will logging in to Roihu be different than for Puhti/Mahti?
+### 3. Will logging in to Roihu be different than for Puhti/Mahti? Why is the certificate needed?
 
 In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH.
 
@@ -39,6 +39,8 @@ Short talk: SSH authentication changes to Roihu
 
 * [Slides](https://a3s.fi/media/SSH_CA_USER_COFFEE-20260422.pdf)
 * [Recording](https://video.csc.fi/media/t/0_el9fzv7f)
+
+CSC is obliged to follow export restriction legislation from the EU and Finland, as well as restrictions put on dual-use technology (GPUs) by chip vendors. The restrictions dictate who can and cannot use these technologies (also remotely, via a supercomputer). In order to be more certain that our users' credentials have not been stolen, and that the people logged into Roihu are who we expect them to be, we have implemented a once-per-24h multi-factor authentication (MFA) requirement (i.e., the SSH certificates). In case a user's computer is hacked, and the SSH key is stolen, the hope is that the MFA will prevent malicious users from accessing Roihu.
 
 ### 4. Is there a web interface for Roihu like Puhti and Mahti have?
 
