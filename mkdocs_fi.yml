@@ -75,6 +75,7 @@ nav:
           - computing/disk.md
           - Roihun data-aineistoprojektit: computing/roihu-dataset-project.md
           - Lustre-tiedostojärjestelmä: computing/lustre.md
+          - Objektitallennustila: computing/allas-in-roihu.md
       - Moduuliympäristö: computing/modules.md
       - Töiden ajaminen:
           - computing/running/getting-started.md

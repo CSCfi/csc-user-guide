@@ -1,12 +1,5 @@
 # Overview
 
-!!! note "Puhti and Mahti have been decommissioned"
-    Puhti and Mahti have been replaced by Roihu, CSC's next-generation
-    supercomputer. Their storage and login nodes remain available until
-    15 October 2026 for data migration purposes only.
-
-    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
-
 Roihu and LUMI are CSC's supercomputers. Roihu, CSC's national supercomputer,
 has been available for CSC users since June 2026, replacing the retired Puhti
 and Mahti systems. LUMI is one of the pan-European pre-exascale supercomputers,
@@ -100,7 +93,7 @@ This command shows information for all your CSC projects. You can select just
 one project to be reported with the `-p` option. For example:
 
 ```bash
-[kkayttaj@roihu-login1 ~]$ csc-projects -p project_2012345
+[kkayttaj@roihu-cpu-login1 ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
 Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"

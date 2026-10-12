@@ -291,6 +291,7 @@ nav:
           - computing/disk.md
           - Roihu dataset projects: computing/roihu-dataset-project.md
           - Lustre filesystem: computing/lustre.md
+          - Object storage: computing/allas-in-roihu.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md

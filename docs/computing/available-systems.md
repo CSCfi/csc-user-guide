@@ -1,12 +1,5 @@
 # Systems
 
-!!! note "Puhti and Mahti have been decommissioned"
-    Puhti and Mahti have been replaced by Roihu, CSC's next-generation
-    supercomputer. Their storage and login nodes remain available until
-    15 October 2026 for data migration purposes only.
-
-    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
-
 CSC's computing environment consists of the national supercomputer Roihu, which
 replaced the retired Puhti and Mahti systems in 2026. In addition, CSC's data
 center in Kajaani hosts the pan-European pre-exascale supercomputer LUMI. The

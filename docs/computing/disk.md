@@ -119,7 +119,7 @@ For example, if you are a member in two projects, with unix groups `project_2000
 and `project_2001234`, then you have access to two `scratch` and `projappl` directories:
 
 ```text
-[kkayttaj@roihu-login11 ~]$ csc-workspaces 
+[kkayttaj@roihu-cpu-login1 ~]$ csc-workspaces 
 
 Disk area               Capacity(used/max)  Files(used/max)  Cleanup
 ----------------------------------------------------------------------
@@ -197,9 +197,6 @@ See details about [dataset projects](roihu-dataset-project.md) and
 
 Data can be moved directly between supercomputers using
 [rsync](../data/moving/rsync.md) command.
-
-See our [data migration guide](../support/tutorials/roihu-data.md) for migrating data
-from Puhti/Mahti to Roihu.
 
 ## Increasing quotas
 
