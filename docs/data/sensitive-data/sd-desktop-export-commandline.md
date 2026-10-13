@@ -2,6 +2,11 @@
 
 # Export data programmatically from the virtual desktop
 
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+
+  SD Desktop and SD Connect services had a major upgrade in September 2026, and these instructions are currently outdated. New instructions for exporting with command line will be provided here as soon as possible. Read more about the upgrade on a separate [info page](major-upgrade.md). 
+
 ## Background information
 
 ### Data export from SD Desktop requires manual encryption
