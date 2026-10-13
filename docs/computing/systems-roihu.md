@@ -38,6 +38,8 @@ graph LR;
     style C fill:#dceeceff;
     style D fill:#dceeceff;
     style E fill:#dceeceff;
+    style F fill:#dceeceff;
+    style G fill:#dceeceff;
 ```
 
 **Roihu** is installed in the same datacenter as LUMI, meaning that the
