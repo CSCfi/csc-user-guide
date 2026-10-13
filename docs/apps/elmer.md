@@ -32,7 +32,6 @@ directives implemented.
     |:----------:|:-------------------|:------|
     | 26.2.1     | `elmerfem/26.2.1`  | Versioned release |
     | devel      | `elmerfem/devel`   | Development version |
-    | XIOS-Elmer | `xios-elmer/2.6.x` | Elmer with XIOS support |
 
 === "LUMI"
 
