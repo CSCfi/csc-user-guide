@@ -1,5 +1,7 @@
 # Running your first job on Puhti
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Logging in
 
 To prepare and run your jobs, you first need to log in to Puhti. You

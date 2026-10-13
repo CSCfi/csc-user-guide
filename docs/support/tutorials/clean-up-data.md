@@ -1,5 +1,7 @@
 # Managing data on supercomputer scratch disks
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 An important task for all users on CSC supercomputers is to manage what data resides in project
 folders in `scratch`. These are only intended as temporary storage space for data that is in
 active use. All other data should be removed, or stored in other more suitable storage systems.
@@ -70,7 +72,6 @@ If your project is newly created, your project might not yet have its own subdir
 the `purge_lists` directory, in which case it won't participate in the automatic cleaning.
 
 * `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
-* `/fmi/scratch/purge_lists/<PROJECT NAME>/path_summary.txt` (only on Puhti, for FMI projects)
 
 In case the `path_summary.txt` file does not exist, your project did not have any files that matched
 the clean-up criteria, and thus nothing will be deleted from it. To indicate that the file is
@@ -138,8 +139,6 @@ All projects don't automatically have one, only the ones which have something to
 # Check if your project has a path_summary.txt file
 my_project="project_2001659" # Replace with your own project name
 ls "/scratch/purge_lists/${my_project:?}/"
-# Or if you are in an FMI project on Puhti:
-ls "/fmi/scratch/purge_lists/${my_project:?}/"
 ```
 
 If you see a `path_summary.txt` file in the directory, read ahead to discover what files
