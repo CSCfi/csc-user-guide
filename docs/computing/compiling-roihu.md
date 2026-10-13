@@ -301,5 +301,5 @@ many of the available software on CSC supercomputers have been
 installed using Spack.
 
 [See here for a short tutorial on how
-to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
+to install software on CSC supercomputers using Spack](../support/tutorials/roihu-user-spack.md).
 -->

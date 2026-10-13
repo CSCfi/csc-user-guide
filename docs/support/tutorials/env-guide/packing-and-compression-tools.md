@@ -553,7 +553,7 @@ and Linux systems too. By default, the command uses its own *7z*
 compression file format, but it can utilize other compression file
 formats too.
 
-In Puhti, 7zip is launched with command `7z`. To get access to the
+7zip is launched with command `7z`. To get access to the
 command, first load the required module with:
 
 ```bash

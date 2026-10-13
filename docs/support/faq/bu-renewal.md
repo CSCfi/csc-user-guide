@@ -8,13 +8,13 @@ Billing Units based on the kind of services used. A summary of which service
 uses which units is depicted below:
 
 * **CPU Billing Unit**
-    * Puhti, Mahti and Roihu jobs *without GPU*
+    * Roihu jobs *without GPU*
 * **GPU Billing Unit**
-    * Puhti, Mahti and Roihu jobs *with GPU*
+    * Roihu jobs *with GPU*
 * **Cloud Billing Unit**
     * cPouta, ePouta, Rahti, Pukki DBaaS, SD Desktop
 * **Storage Billing Unit**
-    * Puhti, Mahti and Roihu Lustre storage, Allas, Shared fileservice, SD
+    * Roihu Lustre storage, Allas, Shared fileservice, SD
       Connect
 
 !!! info "Note"
@@ -38,11 +38,11 @@ exact schedule is detailed below:
 No, you do not need to do anything. Old unused Billing Units already granted to
 projects will be migrated to the new units, i.e. no granted resources are lost.
 The mapping of old BUs to new BUs will be based on the past usage of the
-project. In other words, e.g. projects only running GPU jobs on Puhti will not
+project. In other words, e.g. projects only running GPU jobs on Roihu will not
 get Cloud Billing Units which they have no use for.
 
 You can check your current BU budget in [MyCSC](https://my.csc.fi), as well as
-using the `csc-projects` command on Puhti and Mahti.
+using the `csc-projects` command on Roihu.
 
 ## 4. How will the BU renewal affect CSC's services?
 

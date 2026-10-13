@@ -100,6 +100,7 @@ plugins:
       # reorganization:
       "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+      "support/tutorials/user-spack.md": "support/tutorials/roihu-user-spack.md"
       "computing/allas.md": "data/Allas/allas-roihu.md"
       "computing/roihu-disk.md": "computing/disk.md"
       "computing/containers/creating.md": "computing/containers/overview.md"

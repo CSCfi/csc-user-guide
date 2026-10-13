@@ -30,16 +30,9 @@ online course.
 ### Roihu
 
 New users are recommended to start working on the
-[Roihu supercomputer](../../computing/available-systems.md#roihu), as
-Puhti and Mahti are being decommissioned in 2026.
-
-* Puhti computing services have been shut down since 31 July 2026
-* Mahti computing services have been shut down since 31 August 2026
-* Puhti and Mahti storage and login nodes are planned to remain accessible
-until 15 October 2026
-
-Roihu is CSC's
-next-generation supercomputer offering enhanced performance and capabilities.
+[Roihu supercomputer](../../computing/available-systems.md#roihu). Roihu is
+CSC's next-generation supercomputer offering enhanced performance and
+capabilities.
 
 Roihu has two distinct partitions, **Roihu-CPU** and **Roihu-GPU**, for
 CPU-only and GPU workloads. The two partitions have separate login nodes and
@@ -53,7 +46,7 @@ software stacks.
 The [LUMI supercomputer](../../computing/available-systems.md#lumi)
 is one of the fastest in the world. It is intended primarily
 for running computations that benefit from the large amount of high-performance
-GPUs in its LUMI-G hardware partition. Whereas the GPUs on Puhti and Mahti are
+GPUs in its LUMI-G hardware partition. Whereas the GPUs on Roihu are
 manufactured by Nvidia, the LUMI GPUs are made by AMD, so make sure that your
 GPU applications are able to run on AMD GPUs. LUMI has
 [its own documentation pages](https://docs.lumi-supercomputer.eu/).
