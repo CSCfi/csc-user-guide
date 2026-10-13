@@ -8,20 +8,16 @@ catalog:
   disciplines:
     - Mathematics and Statistics
   available_on:
-    - Puhti
-    - Mahti
+    - Roihu
 ---
 
 # IDL
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 Programming Language, Numeric Analysis, Manipulation and Visualization of Scientific Data
 
 ## Available
 
-* Puhti: 8.5.1, 8.8.2
-* Mahti: 8.5.1, 8.8.1, 8.8.3
+* Roihu-CPU: 8.5.1
 
 ## License
 
@@ -38,8 +34,6 @@ module load idl
 
 ## More information
 
-* **Manuals on Puhti (pdf):**
-    * `/appl/soft/math/idl/idl/help/pdf`
-    * `/appl/soft/math/idl/idl85/help/pdf`
-    * `/appl/soft/math/idl/idl882/idl88/help/pdf`
+* **Manuals on Roihu (pdf):**
+    * `/appl/soft/manual/general/x86_64/idl/idl851/idl85/help/pdf`
 * [**IDL Manuals on the Web**](https://www.nv5geospatialsoftware.com/docs/routines-135.html)

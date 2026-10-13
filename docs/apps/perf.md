@@ -9,8 +9,7 @@ catalog:
     - Miscellaneous
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
+    - Roihu
 ---
 
 # perf
@@ -42,7 +41,7 @@ counters for cache loads and misses.
 
 **Please note that performance measurements with `perf` should be done on compute nodes**, using the Slurm job scheduling system.
 `perf` data collected on login nodes is generally **not** reliable. Here is an example one-liner for running the above `perf stat`
-command on a Mahti compute node:
+command on a compute node:
 ```bash
 srun --account=<project_name> --partition=small --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --time=0:10:00 perf stat -d ./my_application
 ```

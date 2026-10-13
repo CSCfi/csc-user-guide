@@ -8,12 +8,10 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Biopython
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 Biopython is a collection of Python modules that facilitate the development of Python scripts for 
 bioinformatics applications. As such, it does not include ready to use programs in the sense that 
@@ -31,10 +29,9 @@ Biopython is free to use and open source. It is dual licensed under [Biopython L
 
 ## Available
 
-- Puhti: Python 3.10.6 with Biopython 1.79
-- Puhti: Python 3.12.3 with Biopython 1.83
+- Roihu-CPU: Python 3.13.14 with Biopython 1.87
 
-On Puhti, Biopython libraries, as well as many other bioinformatics-related Python libraries are available.
+On Roihu, Biopython libraries, as well as many other bioinformatics-related Python libraries are available.
 
 ```bash
 module load biopythontools

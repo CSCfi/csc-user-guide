@@ -8,12 +8,10 @@ catalog:
   disciplines:
     - Mathematics and Statistics
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # Octave
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 GNU Octave is a high-level interpreted language, primarily intended for numerical computations. It provides capabilities for the numerical solution of linear and nonlinear problems, and for performing other numerical experiments. It also provides extensive graphics capabilities for data visualization and manipulation. Octave is normally used through its interactive command line interface, but it can also be used to write non-interactive programs. The Octave language is quite similar to Matlab so that most programs are easily portable.
 
@@ -21,7 +19,7 @@ GNU Octave is a high-level interpreted language, primarily intended for numerica
 
 ## Available
 
-- Puhti: 5.1.0
+- Roihu-CPU: 11.3.0
 
 ## License
 
@@ -29,24 +27,23 @@ GNU General Public License (GPL)
 
 ## Usage
 
-### Interactive use on Puhti
+### Interactive use on Roihu
 
 ```bash
-$ ssh puhti.csc.fi
-$ module load octave-env
+$ ssh roihu-cpu.csc.fi
+$ module load octave
 $ octave
 ```
+
 Installing packages from Octave Forge for current user
 
 ```bash
 > pkg install -forge -local <pkg_name>
 ```
 
-Packages ['Structure Handling'](https://gnu-octave.github.io/packages/struct/) and ['Parallel Computing'](https://gnu-octave.github.io/packages/parallel/) have been installed for all users by default.
-
 ### Octave batch jobs
 
-Example about a serial batch script job on Puhti
+Example about a serial batch script job on Roihu
 
 ```bash
 #!/bin/bash
@@ -54,9 +51,8 @@ Example about a serial batch script job on Puhti
 #SBATCH --partition=small
 #SBATCH --ntasks=1
 #SBATCH --account=<project>
-##SBATCH --mail-type=END #uncomment to get mail
 
-module load octave-env
+module load octave
 
 srun octave my_code.m
 ```

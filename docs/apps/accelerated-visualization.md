@@ -10,13 +10,11 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
+        - Roihu
     - LUMI
 ---
 
 # Accelerated visualization
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 A selection of GPU accelerated visualization applications.
 
@@ -27,7 +25,7 @@ Free
 ## Available
 
 Accelerated visualization is available as an interactive application via the
-Puhti web interface. On LUMI, GPU accelerated graphical applications can be run
+Roihu web interface. On LUMI, GPU accelerated graphical applications can be run
 through the regular Desktop app by selecting the `lumid` partition.
 
 ## More information

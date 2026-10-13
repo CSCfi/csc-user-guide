@@ -8,18 +8,15 @@ catalog:
   disciplines:
     - Miscellaneous
   available_on:
-    - Puhti
-    - Mahti
+    - Roihu
 ---
 
 # cProfile: Python profiler
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 ## Available
 
-- Mahti: Any Python version
-- Puhti: Any Python version
+- Roihu-CPU: Any Python version
+- Roihu-GPU: Any Python version
 
 ## License
 

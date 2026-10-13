@@ -9,13 +9,10 @@ catalog:
     - Miscellaneous
   available_on:
     - web_interfaces:
-        - Puhti
-        - Mahti
+        - Roihu
 ---
 
 # Jupyter for courses
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 A version of the [Jupyter app](jupyter.md) for setting up custom course environments.
 
@@ -29,8 +26,7 @@ Free
 
 Jupyter for courses is available as an interactive application via the web interface for
 
-  - Mahti
-  - Puhti
+  - Roihu
 
 
 ## More information

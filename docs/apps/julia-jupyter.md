@@ -10,14 +10,11 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
-        - Mahti
+        - Roihu
     - LUMI
 ---
 
 # Julia-Jupyter
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 A version of the [Jupyter app](jupyter.md) for Julia programming language.
 
@@ -29,8 +26,7 @@ Free
 
 Julia-Jupyter is available as an interactive application via the web interface for
 
-- Mahti
-- Puhti
+- Roihu
 - LUMI
 
 ## More information

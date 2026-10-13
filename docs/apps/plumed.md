@@ -8,14 +8,11 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
+    - Roihu
     - LUMI
 ---
 
 # PLUMED
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 PLUMED (PLUgin for MolEcular Dynamics) is an open-source, community-developed
 library that provides a wide  range of different methods for enhanced sampling
@@ -25,8 +22,8 @@ in molecular dynamics. It can be used with several MD codes.
 
 ## Available
 
--   Puhti: 2.7.4, 2.8.0
--   Mahti: 2.6.3, 2.7.2
+-   Roihu-CPU: 2.9.2, 2.10.0
+-   Roihu-GPU: 2.9.2, 2.10.0
 -   LUMI: 2.9.4, 2.10.0
 
 ## License
@@ -53,7 +50,7 @@ module use /appl/local/csc/modulefiles
 If you want to run molecular dynamics with PLUMED, either compile your MD engine of
 choice with PLUMED (see [selection e.g. here](https://www.plumed.org/)), or use e.g.
 [GROMACS](gromacs.md), which is available at CSC. GROMACS versions >=2025.0
-include PLUMED by default.
+support PLUMED by default.
 
 ## References
 
