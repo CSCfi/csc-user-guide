@@ -11,14 +11,14 @@ computing resources.
 
 In addition to this page, this guide contains the following subsections:
 
-- [**Getting started with machine learning at CSC**](ml-starting.md)
-- [**GPU-accelerated machine learning**](gpu-ml.md)
-- [**Data storage for machine learning**](ml-data.md)
-- [**Multi-GPU and multi-node machine learning**](ml-multi.md)
+- [**Getting started with machine learning at CSC**](starting.md)
+- [**GPU-accelerated machine learning**](gpu.md)
+- [**Data storage for machine learning**](data.md)
+- [**Multi-GPU and multi-node machine learning**](multi.md)
 - [**Hyperparameter search**](hyperparameter_search.md)
-- [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
-- [**Working with large language models on supercomputers**](ml-llm.md)
-- [**Extend CSC-based ML containers using sandbox**](ml-container-extend.md)
+- [**Managing machine learning workflows on CSC's supercomputers**](workflows.md)
+- [**Working with large language models on supercomputers**](llm.md)
+- [**Extend CSC-based ML containers using sandbox**](container-extend.md)
 
 ## What CSC service to use?
 
@@ -83,8 +83,8 @@ PyTorch. Note that GPUs access is more restricted for interactive
 sessions.
 
 Also check the subsections related to [efficient GPU
-utilization](gpu-ml.md), [how to work with big data sets](ml-data.md),
-and [multi-GPU and multi-node jobs](ml-multi.md).
+utilization](gpu-ml.md), [how to work with big data sets](data.md),
+and [multi-GPU and multi-node jobs](multi.md).
 
 
 ## Cloud services
