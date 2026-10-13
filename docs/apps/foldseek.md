@@ -56,23 +56,55 @@ foldseek easy-cluster structures/ clusters tmp -c 0.9
 
 ### Databases
 
-`foldseek databases` downloads prebuilt databases, for example the PDB or the
-AlphaFold/Swiss-Prot structures. Run it without arguments to list all available
-databases. Download large databases to your project's `/scratch`:
+CSC provides shared, prebuilt Foldseek databases on Roihu, and the `foldseek`
+module sets the environment variable `$FOLDSEEK_DB` to their location (under
+`/dataset/project_2020345/foldseek`). Give the path to a database as the search
+target:
+
+| Database | Source (`foldseek databases` name) | Padded copy for GPU search |
+|----------|------------------------------------|----------------------------|
+| `afdb` | Alphafold/UniProt | `afdb_pad` |
+| `afdb50` | Alphafold/UniProt50 | `afdb50_pad` |
+| `afdb_proteome` | Alphafold/Proteome | `afdb_proteome_pad` |
+| `afdb_swissprot` | Alphafold/Swiss-Prot | `afdb_swissprot_pad` |
+| `esmatlas30` | ESMAtlas30 | `esmatlas30_pad` |
+| `pdb` | PDB | `pdb_pad` |
+| `cath50` | CATH50 | `cath50_pad` |
+| `bfmd` | BFMD | `bfmd_pad` |
+| `bfvd` | BFVD | `bfvd_pad` |
 
 ```bash
-foldseek databases PDB pdb tmp
-foldseek databases Alphafold/Swiss-Prot afdb tmp
+foldseek easy-search queries/ $FOLDSEEK_DB/pdb results.m8 tmp
+```
+
+The [ProstT5](https://github.com/mheinzinger/ProstT5) model is also provided, so you
+can search with amino acid sequences (FASTA) instead of structures:
+
+```bash
+foldseek easy-search queries.fasta $FOLDSEEK_DB/pdb results.m8 tmp --prostt5-model $FOLDSEEK_DB/prostt5
+```
+
+To use another database, `foldseek databases` downloads prebuilt databases. Run it
+without arguments to list all available databases. Download large databases to
+your project's `/scratch`:
+
+```bash
+foldseek databases <name> /scratch/<project>/<database> tmp
 ```
 
 ### GPU-accelerated search
 
 Add `--gpu 1` to run a search on the GPU. A GPU search needs a padded target
-database, which you make from a regular Foldseek database with `makepaddedseqdb`:
+database. Use the padded copies of the shared databases (names ending in `_pad`):
 
 ```bash
-foldseek makepaddedseqdb afdb afdb_pad
-foldseek easy-search queries/ afdb_pad results.m8 tmp --gpu 1 --prefilter-mode 1
+foldseek easy-search queries/ $FOLDSEEK_DB/afdb_swissprot_pad results.m8 tmp --gpu 1 --prefilter-mode 1
+```
+
+For your own databases, make a padded copy with `makepaddedseqdb`:
+
+```bash
+foldseek makepaddedseqdb mydb mydb_pad
 ```
 
 ### Example batch script
@@ -93,7 +125,7 @@ foldseek easy-search queries/ afdb_pad results.m8 tmp --gpu 1 --prefilter-mode 1
 module load bio-apps/v202603
 module load foldseek/10-941cd33
 
-foldseek easy-search queries/ afdb_pad results.m8 tmp --gpu 1 --prefilter-mode 1 \
+foldseek easy-search queries/ $FOLDSEEK_DB/afdb_swissprot_pad results.m8 tmp --gpu 1 --prefilter-mode 1 \
   --threads $SLURM_CPUS_PER_TASK
 ```
 
