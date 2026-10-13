@@ -10,7 +10,7 @@ spec:
   triggers:
     - type: ConfigChange
     - type: ImageChange
-      ImageChange: {}
+      imageChange: {}
   output:
     to:
       kind: ImageStreamTag

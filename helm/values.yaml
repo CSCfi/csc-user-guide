@@ -71,13 +71,13 @@ site:
       duration: 2160h
       renewBefore: 720h
 
-    # ACME secrets file. Format is
+    # ACME EAB secrets file. Format is
     #   kid: <ACME account EAB key ID>
     #   hmac: <ACME account EAB HMAC key>
     #
     # Has no effect if site.host is not set or ends in '.rahtiapp.fi',
     # or if useResourceLookup is set. Keys are case-sensitive:
-    secretsFile: acme.yaml
+    secretsFile: eab.yaml
 
     # Attempt to lookup existing ACME resources in the namespace.
     # Requires issuerName to be defined:
