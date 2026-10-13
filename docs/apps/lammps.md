@@ -9,8 +9,6 @@ catalog:
     - Chemistry
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -33,22 +31,17 @@ your needs. Please read the instructions below.
     | 11 February 2026 | `lammps/20260211`   | Default, [Pre-release](https://github.com/lammps/lammps/releases#release-patch_11Feb2026) |
     | 22 July 2025     | `lammps/20250722.3` | [Stable release, update 3](https://github.com/lammps/lammps/releases/tag/stable_22Jul2025_update3) |
 
+    * Instructions for building your own custom versions available at
+      `/appl/soft/manual/chem/x86_64/lammps/custom/`.
 
-=== "Puhti"
-    | Release        | Available modules  | Notes |
-    |:--------------:|:-------------------|:-----:|
-    | 29 August 2024 | `lammps/29Aug2024` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2) |
+=== "Roihu-GPU"
+    | Release          | Available modules   | Notes |
+    |:----------------:|:--------------------|:-----:|
+    | 11 February 2026 | `lammps/20260211`   | Default, [Pre-release](https://github.com/lammps/lammps/releases#release-patch_11Feb2026) |
+    | 22 July 2025     | `lammps/20250722.3` | [Stable release, update 3](https://github.com/lammps/lammps/releases/tag/stable_22Jul2025_update3) |
 
     * Instructions for building your own custom versions available at
-      `/appl/soft/chem/lammps/custom`.
-
-=== "Mahti"
-    | Release        | Available modules  | Notes |
-    |:--------------:|:-------------------|:-----:|
-    | 29 August 2024 | `lammps/29Aug2024` | [Stable release, update 2](https://github.com/lammps/lammps/releases/tag/stable_29Aug2024_update2) |
-
-    * Instructions for building your own custom versions available at
-      `/appl/soft/chem/lammps/custom`.
+      `/appl/soft/manual/chem/aarch64/lammps/custom/`.
 
 === "LUMI"
     | Release        | Available modules  | Notes |
@@ -92,7 +85,8 @@ lmp -help
 If the pre-installed module does not include the packages you need, you may
 install your own custom version as follows:
 
-1. Navigate to `/appl/soft/chem/lammps/custom` on Puhti/Mahti, or
+1. Navigate to `/appl/soft/manual/chem/x86_64/lammps/custom/` on Roihu-CPU,
+   `/appl/soft/manual/chem/aarch64/lammps/custom/` on Roihu-GPU, or
    `/appl/local/csc/soft/chem/lammps/custom` on LUMI.
 2. Read the compilation instructions, e.g. `lammps-cpu-instruction.txt`.
 3. Select the packages you want to include and compile the software following
@@ -102,13 +96,8 @@ install your own custom version as follows:
        [LAMMPS GitHub repository](https://github.com/lammps/lammps/tree/develop/bench).
     2. Example batch scripts are available [below](#batch-script-examples).
 
-!!! note "Custom versions on Roihu"
-    Roihu does not provide manual installation instructions for LAMMPS yet.
-    Please use the available modules before custom installation instructions
-    are finalized for the system.
-
 !!! info "Compile using the fast local disk"
-    Please compile in `$TMPDIR` on Puhti/Mahti for faster performance and
+    Please compile on the node's fast local disk for faster performance and
     less load on the shared file system. As the local disk is cleaned
     frequently, remember to move your files to your project's `/projappl`
     directory afterwards. Setting `-DCMAKE_INSTALL_PREFIX=/projappl/...` will
@@ -140,6 +129,7 @@ install your own custom version as follows:
     #SBATCH --mem-per-cpu=1000M
 
     module purge
+    module load gcc/15.2.0 openmpi/5.0.10
     module load lammps/20260211
 
     srun lmp -in in.script
@@ -159,40 +149,8 @@ install your own custom version as follows:
     export OMP_PLACES=cores
 
     module purge
+    module load gcc/15.2.0 openmpi/5.0.10
     module load lammps/20260211
-
-    srun lmp -in in.script -sf omp
-    ```
-
-=== "Puhti (pure MPI)"
-    ```bash
-    !/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small
-    #SBATCH --time=01:00:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=40
-
-    module purge
-    module load lammps/29Aug2024
-
-    srun lmp -in in.script
-    ```
-
-=== "Mahti (hybrid MPI/OpenMP)"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=01:00:00
-    #SBATCH --nodes=4
-    #SBATCH --ntasks-per-node=64
-    #SBATCH --cpus-per-task=2
-
-    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
-
-    module purge
-    module load lammps/29Aug2024
 
     srun lmp -in in.script -sf omp
     ```
@@ -238,17 +196,10 @@ install your own custom version as follows:
 
 ### Performance notes
 
-The following diagram compares the performance and scaling of LAMMPS on
-CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
-
-![LAMMPS performance](../img/lammps-bench.png 'LAMMPS performance')
-
-* LAMMPS performance is measured here in Gatom-steps/s, i.e. how many billion
+* LAMMPS performance is typically measured in atom-steps/s, i.e. how many
   atoms can be propagated one time step each second.
-* Large systems (millions of atoms) are able to utilize multiple GPUs
-  efficiently. The example system of 16M atoms scales well to several GPU nodes
-  and is about 10 times faster compared to running on an equal amount of CPU
-  nodes.
+* Only large systems (millions of atoms) are able to utilize multiple GPUs
+  efficiently.
 * Smaller systems are best run on CPUs or a single GPU (or by sharing one GPU
   among multiple independent trajectories using multi-replica simulations,
   [see below](#high-throughput-computing-with-lammps)).
@@ -258,7 +209,7 @@ CPUs and GPUs on Mahti and LUMI. The system contains 16M atoms.
   product of MPI tasks (`--ntasks-per-node`) and threads/task
   (`--cpus-per-task`) should not exceed the physical number of cores on a node,
   otherwise performance will suffer. See e.g.
-  [the Mahti example above](#batch-script-examples).
+  [the Roihu example above](#batch-script-examples).
 
 ### High-throughput computing with LAMMPS
 
@@ -268,34 +219,34 @@ command-line switch enables running these concurrently within a
 single Slurm job step, thus accelerating the computations while keeping the
 load on the batch queue system minimal as excessive calls of `srun` or `sbatch`
 are avoided. An example batch script using the `-partition` option is provided
-for Puhti below.
+for Roihu below.
 
 ```bash
 #!/bin/bash
 #SBATCH --account=<project>
-#SBATCH --partition=large
+#SBATCH --partition=medium
 #SBATCH --time=00:15:00
-#SBATCH --nodes=3
-#SBATCH --ntasks-per-node=40
-#SBATCH --mem-per-cpu=100
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=384
 
 module purge
-module load lammps/29Aug2024
+module load gcc/15.2.0 openmpi/5.0.10
+module load lammps/20260211
 
 export OMP_NUM_THREADS=1
 
-srun lmp -in loop.lammps -partition 24x5
+srun lmp -in loop.lammps -partition 24x16
 ```
 
 The above example runs an umbrella sampling simulation of ethanol adsorption on
 a NaCl surface. The simulation consists of 24 iterations where the ethanol
 molecule is gradually pulled closer to the surface. These 24 iterations are all
-run concurrently using 5 MPI tasks each, which is specified in the batch script
-as `-partition 24x5`. The number of processors must add up to the amount
-requested, in this case 3 full Puhti nodes (120 cores). In general, the
+run concurrently using 16 MPI tasks each, which is specified in the batch script
+as `-partition 24x16`. The number of processors must add up to the amount
+requested, in this case 1 full Roihu node (384 cores). In general, the
 partitions do not have to be of equal size, but one could for example specify
-`-partition 3x30 20 10` for 3 partitions of 30 cores, one of 20 cores and one
-of 10 cores (3 Puhti nodes). This does of course not make sense for jobs where
+`-partition 3x100 50 34` for 3 partitions of 100 cores, one of 50 cores and one
+of 34 cores (384 cores total, i.e. 1 Roihu node). This does of course not make sense for jobs where
 the subtasks are virtually identical, such as here.
 
 If the `-partition` switch is used one needs to replace the usual `index` and
