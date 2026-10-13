@@ -21,7 +21,7 @@ When exporting files with Data Gateway, you can:
 - :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
-    If you are processing data under the Act on the Secondary Use of Health and Social Data, please follow the [specific export guidance](sd-desktop-secondary-export.md) concerning the anonymity of your results before the export.
+    If you are processing data under the Act on the Secondary Use of Health and Social Data, please follow the [specific guidance](sd-desktop-secondary-export.md) concerning the anonymity of your results before the export.
 
 </div>
 
