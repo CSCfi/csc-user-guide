@@ -41,20 +41,20 @@ BUSCO is run with the `busco` command, specifying the input, the mode
 (`genome`, `proteins` or `transcriptome`) and a lineage dataset:
 
 ```bash
-busco -i genome.fa -m genome -l eukaryota_odb12 -o result -c 8
+busco --offline --download_path $BUSCO_DB -i genome.fa -m genome -l eukaryota_odb12.2 -o result -c 8
 ```
 
 ### Lineage datasets
 
-BUSCO downloads the required lineage datasets automatically into a `busco_downloads`
-directory in your working directory. Run BUSCO from your project's `/scratch` directory
-so there is space for these datasets.
+CSC provides all BUSCO lineage datasets on Roihu: odb10 for BUSCO 5.4.3 (for example
+`eukaryota_odb10`) and odb12.2, the default for BUSCO 6.1.0 (for example
+`eukaryota_odb12.2`). The `busco` module sets
+the `BUSCO_DB` environment variable to their location. Use them with
+`--offline --download_path $BUSCO_DB`, as in the example above.
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, let BUSCO download the lineage
-    datasets to a writable location, or download them yourself with
-    `busco --download <lineage>`.
+!!! warning "Always add `--offline`"
+    The shared lineage directory is read-only. Without `--offline`, BUSCO tries to
+    update files in it and the run fails.
 
 ### Augustus gene predictor
 
@@ -89,7 +89,8 @@ The default gene predictor (Metaeuk/Miniprot) does not require this step.
 module load bio-apps/v202603
 module load busco/6.1.0
 
-busco -i genome.fa -m genome -l eukaryota_odb12 -o result -c $SLURM_CPUS_PER_TASK
+busco --offline --download_path $BUSCO_DB \
+    -i genome.fa -m genome -l eukaryota_odb12.2 -o result -c $SLURM_CPUS_PER_TASK
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).

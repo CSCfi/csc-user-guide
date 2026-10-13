@@ -55,16 +55,15 @@ hmmsearch -h
 
 ### Pfam database
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases (such as Pfam-A) at a central
-    location on Roihu. This is still being set up. Until it is available, download
-    and use your own copy of the database.
+CSC provides the Pfam-A HMM database (Pfam 38.2) on Roihu, already prepared for
+searching with `hmmpress`. The `hmmer` module sets the `HMMER_DB` environment variable
+to its directory, so you can search against `$HMMER_DB/Pfam-A.hmm`.
 
-You can search a protein sequence against a Pfam-A HMM database, or against your own HMM databases.
-After downloading a Pfam-A HMM file, prepare it for searching with `hmmpress`:
+You can also search against your own HMM databases. Prepare them for searching with
+`hmmpress` first:
 
 ```bash
-hmmpress Pfam-A.hmm
+hmmpress my_models.hmm
 ```
 
 With native HMMER, you can speed up the `hmmscan` and `hmmsearch` commands by using several
@@ -78,7 +77,7 @@ You can run the search in an [interactive session](../computing/running/interact
 sinteractive --account <project> --cores 4
 module load bio-apps/v202603
 module load hmmer/3.4
-hmmscan --cpu $SLURM_CPUS_PER_TASK Pfam-A.hmm protein.fasta > result.txt
+hmmscan --cpu $SLURM_CPUS_PER_TASK $HMMER_DB/Pfam-A.hmm protein.fasta > result.txt
 ```
 
 HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job script using 4 processor cores:
@@ -99,7 +98,7 @@ HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is
 module load bio-apps/v202603
 module load hmmer/3.4
 
-hmmscan --cpu $SLURM_CPUS_PER_TASK Pfam-A.hmm protein.fasta > result.txt
+hmmscan --cpu $SLURM_CPUS_PER_TASK $HMMER_DB/Pfam-A.hmm protein.fasta > result.txt
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).

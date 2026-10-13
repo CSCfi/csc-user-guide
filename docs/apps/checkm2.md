@@ -39,22 +39,12 @@ module load checkm2/1.1.0
 
 ### Database
 
-CheckM2 needs a DIAMOND reference database (~3 GB), which is **not** bundled with the
-module.
+CheckM2 needs a DIAMOND reference database. CSC provides a shared copy (database
+version 3) on Roihu, and the `checkm2` module sets the `CHECKM2DB` environment variable
+to it, so CheckM2 finds the database without further options.
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, download your own copy to a
-    writable location (for example your project's `/scratch`).
-
-Download the database with:
-
-```bash
-checkm2 database --download --path /scratch/<project>/checkm2_db
-```
-
-You can then point CheckM2 at it with `--database_path`, or set the `CHECKM2DB`
-environment variable to the downloaded `.dmnd` file.
+To use another copy of the database, give the path to its `.dmnd` file with
+`--database_path`.
 
 ### Example batch script
 
@@ -75,7 +65,6 @@ module load bio-apps/v202603
 module load checkm2/1.1.0
 
 checkm2 predict --threads $SLURM_CPUS_PER_TASK \
-    --database_path /scratch/<project>/checkm2_db/CheckM2_database/*.dmnd \
     --input bins/ --output-directory checkm2_out -x fa
 ```
 
