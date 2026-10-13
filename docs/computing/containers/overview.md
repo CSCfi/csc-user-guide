@@ -322,7 +322,7 @@ From: satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13
 ```
 
 Our machine learning guide also contains a [tutorial on how to extend
-our `ml-base` container using a sandbox](../../support/tutorials/ml-container-extend.md).
+our `ml-base` container using a sandbox](../../support/tutorials/ml-guide/container-extend.md).
 
 
 ## Reading datasets from SquashFS file

@@ -2,13 +2,13 @@
 
 This guide explains how to store your data efficiently for machine learning
 applications on CSC's supercomputers. It is part of our
-[Machine learning guide](ml-guide.md).
+[Machine learning guide](index.md).
 
 ## Where to store data?
 
 CSC's supercomputers have three types of shared disk areas: **home**,
 **projappl** and **scratch**. You can
-[read more about the disk areas for Roihu here](../../computing/roihu-disk.md). For
+[read more about the disk areas for Roihu here](../../../computing/roihu-disk.md). For
 [LUMI check the data storage section here](https://docs.lumi-supercomputer.eu/storage/).
 In general, keep your code and software in **projappl** and datasets,
 logs and calculation outputs in **scratch**. The **home** directory is
@@ -22,7 +22,7 @@ cost than using normal scratch
 storage](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#flash-storage-lumi-f-billing).
 
 It is recommended to store datasets in the [Allas object
-store](../../data/Allas/index.md), and download them to your project's
+store](../../../data/Allas/index.md), and download them to your project's
 scratch directory prior to starting your computation. For example:
 
 ```bash
@@ -40,7 +40,7 @@ used to store anything important long-term.
 
 Finally, if you are working with other projects that all need access
 to the same common data, you might consider applying for a [dataset
-project in Roihu](../../computing/roihu-dataset-project.md). A dataset
+project in Roihu](../../../computing/roihu-dataset-project.md). A dataset
 project is a good way to host data that is read from often but not
 written often.
 
@@ -63,7 +63,7 @@ hours.
     for sequential access instead!
 
 For further reading, see CSC's
-[technical description of the Lustre filesystem](../../computing/lustre.md)
+[technical description of the Lustre filesystem](../../../computing/lustre.md)
 and our general tutorial on
 [how to achieve better I/O performance on Lustre](lustre_performance.md).
 
@@ -81,7 +81,7 @@ formats for use with PyTorch. See also
 The main point with all of these formats is that instead of many
 thousands of small files you have one or a few bigger files, which are
 much more efficient to access and read sequentially. Don't hesitate to
-[contact our service desk](../contact.md) if you need advice about how
+[contact our service desk](../../contact.md) if you need advice about how
 to access your data more efficiently.
 
 [TFRecord]: https://www.tensorflow.org/tutorials/load_data/tfrecord
@@ -96,7 +96,7 @@ to access your data more efficiently.
 
 If you really need to access the individual small files, you can use
 the [fast NVMe local drive that is present in all compute nodes on
-Roihu](../../computing/roihu-disk.md#compute-nodes). This area can be
+Roihu](../../../computing/roihu-disk.md#compute-nodes). This area can be
 accessed in the location specified by the environment variable
 `$TMPDIR`, and for GPU jobs it has a maximum capacity of 150 GiB.
 
@@ -120,9 +120,9 @@ srun python3 myprog.py --input_data=$TMPDIR <options>
 Note that you need to communicate to your own program where to find
 the dataset, for example with a command line argument. Also see our
 [general instructions on how to take the fast local storage into
-use](../../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
+use](../../../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
 
-If you are running a [multi-node job](ml-multi.md), you need to modify the `tar`
+If you are running a [multi-node job](multi.md), you need to modify the `tar`
 line so that it is performed on each node separately:
 
 ```bash
@@ -134,7 +134,7 @@ srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
 ### Disaggregated NVMe
 
 Finally, if 150 GiB is not enough, [Roihu also supports disaggregated
-NVMe](../../computing/roihu-disk.md#disaggregated-storage). This fast
+NVMe](../../../computing/roihu-disk.md#disaggregated-storage). This fast
 storage capacity is provided over the network and will appear as local
 scratch from within a Slurm job. The total capacity of the
 disaggregated NVMe resource is 307.2 TB. Disaggregated NVMe is still

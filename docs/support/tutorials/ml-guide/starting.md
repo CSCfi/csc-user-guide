@@ -13,8 +13,7 @@ be the answer but the documentation seems a bit daunting.*
 CSC's computing environment is well-documented at [docs.csc.fi](../../../index.md),
 but for a newcomer it might be a bit difficult to know how to get started.
 **This guide will show you, step by step, how to get your codes and data to the
-Roihu supercomputer and running on GPUs**. It is part of our [Machine learning
-guide](ml-guide.md).
+Roihu supercomputer and running on GPUs**.
 
 CSC has two supercomputers: [Roihu](../../../computing/systems-roihu.md)
 and [LUMI](https://docs.lumi-supercomputer.eu/hardware/). In this

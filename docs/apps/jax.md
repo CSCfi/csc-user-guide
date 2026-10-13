@@ -151,11 +151,11 @@ module avail jax         # on other systems
     Please **do not read a huge number of files from the shared file system**, use
     fast local disk or package your data into larger files instead! See the [Data
     storage section in our machine learning
-    guide](../support/tutorials/ml-data.md) for more details.
+    guide](../support/tutorials/ml-guide/data.md) for more details.
 
 ## More information
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../support/tutorials/ml-guide/index.md)
 - [JAX in LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/j/jax/)
 - [JAX GitHub page](https://github.com/google/jax)
 - [JAX reference documentation](https://jax.readthedocs.io/en/latest/)
