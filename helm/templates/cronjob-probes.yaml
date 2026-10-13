@@ -1,0 +1,38 @@
+{{- $resourcename := include "docs-csc.probesName" . -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  suspend: {{ .Values.components.probes.suspend | default false }}
+  schedule: {{ .Values.components.probes.schedule | default "0 3 2 * *" | squote }}
+  timeZone: {{ .Values.timeZone | default "Etc/UTC" | squote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+{{ include "docs-csc.labels" . | indent 12 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 12 }}
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: {{ include "docs-csc.probesContainerName" . }}
+              image: {{ include "docs-csc.probesContainerName" . | list $ | include "docs-csc.fullImageName" | squote }}
+              imagePullPolicy: Always
+              env:
+                - name: SITE_URL
+                  value: {{ list $ "/" | include "networking.sitePath" }}
+{{- range $key := .Values.components.probes.email | default dict | keys }}
+                - name: {{ upper $key | printf "EMAIL_%s" }}
+                  valueFrom:
+                    configMapKeyRef:
+                      name:  {{ include "docs-csc.probesConfigName" $ }}
+                      key: {{ printf "email.%s" $key }}
+{{- end }}
+                - name: OUTPUT_IN_MARKDOWN
+                  value: {{ .Values.components.probes.markdown | default true | squote }}

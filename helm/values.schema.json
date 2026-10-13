@@ -198,6 +198,28 @@
         "prefix"
       ]
     },
+    "emailConfig": {
+      "type": "object",
+      "properties": {
+        "sender": {
+          "type": "string",
+          "format": "email"
+        },
+        "recipient": {
+          "type": "string",
+          "format": "email"
+        },
+        "smtp": {
+          "type": "string",
+          "format": "hostname"
+        }
+      },
+      "required": [
+        "sender",
+        "recipient",
+        "smtp"
+      ]
+    },
     "siteConfig": {
       "type": "object",
       "properties": {
@@ -386,10 +408,107 @@
         }
       }
     },
+    "backupsConfig": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "repo": {
+          "$ref": "#/$defs/githubRepository"
+        },
+        "suspend": {
+          "$ref": "#/$defs/cronSuspend"
+        },
+        "schedule": {
+          "$ref": "#/$defs/cronSchedule",
+          "default": "0 22 * * 1-5"
+        },
+        "restic": {
+          "$ref": "#/$defs/resticConfig"
+        },
+        "useResourceLookup": {
+          "$ref": "#/$defs/enableLookupFlag"
+        },
+        "secretsFile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
-      "configBranchOverride": {
-        "$ref": "#/$defs/configBranch"
+      "if": {
+        "properties": {
+          "useResourceLookup": {
+            "const": false
+          }
+        },
+        "required": [
+          "useResourceLookup"
+        ]
+      },
+      "then": {
+        "required": [
+          "secretsFile",
+          "schedule",
+          "restic"
+        ],
+        "properties": {
+          "secretsFile": {
+            "type": "string"
+          }
+        }
+      },
+      "else": {
+        "required": [
+          "schedule",
+          "restic"
+        ]
       }
+    },
+    "probesConfig": {
+      "type": "object",
+      "properties": {
+        "git": {
+          "$ref": "#/$defs/gitSource"
+        },
+        "suspend": {
+          "$ref": "#/$defs/cronSuspend"
+        },
+        "schedule": {
+          "$ref": "#/$defs/cronSchedule",
+          "default": "0 3 2 * *"
+        },
+        "email": {
+          "$ref": "#/$defs/emailConfig"
+        },
+        "markdown": {
+          "type": "boolean",
+          "default": true
+        },
+        "sourceFrom": {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/$defs/imageName"
+            }
+          ],
+          "properties": {
+            "namespace": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image",
+            "tag",
+            "namespace"
+          ]
+        }
+      },
+      "required": [
+        "git",
+        "sourceFrom"
+      ]
     }
   },
   "properties": {
@@ -408,6 +527,9 @@
         "string",
         "null"
       ]
+    },
+    "base": {
+      "$ref": "#/$defs/imageName"
     },
     "builder": {
       "$ref": "#/$defs/imageName"
@@ -444,6 +566,12 @@
         },
         "alternate": {
           "$ref": "#/$defs/alternateConfig"
+        },
+        "backups": {
+          "$ref": "#/$defs/backupsConfig"
+        },
+        "probes": {
+          "$ref": "#/$defs/probesConfig"
         }
       },
       "required": [
@@ -454,6 +582,7 @@
   },
   "required": [
     "git",
+    "base",
     "builder",
     "server",
     "restic",

@@ -2,7 +2,9 @@
                                 (include "docs-csc.origName" .)
                                 (include "translation.translatorName" .)
                                 (include "docs-csc.altBuilderName" .)
-                                (include "docs-csc.altName" .) }}
+                                (include "docs-csc.altName" .)
+                                (include "docs-csc.backupsName" . )
+                                (include "docs-csc.probesContainerName" .) }}
 ---
 apiVersion: image.openshift.io/v1
 kind: ImageStream

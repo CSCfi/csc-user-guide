@@ -10,6 +10,10 @@ nameOverride: null
 # Defaults to Etc/UTC:
 timeZone: Europe/Helsinki
 
+base:
+  image: ubi9/ubi-minimal
+  tag:  9.8-1790754119
+
 builder:
   image: ubi9/python-312
   tag: 9.8-1789950416
@@ -178,3 +182,57 @@ components:
     # Number of replicas for translated sites deployment,
     # Defaults to 1 if not set:
     replicaCount: 1
+
+  backups:
+    # Git repo to be backed up to a restic repository according to backup.schedule:
+    # (defaults are defined in /backups/Containerfile.backups):
+    repo:
+      host: github.com
+      org: CSCfi
+      name: csc-user-guide
+
+    # Suspend scheduled backups if needed:
+    suspend: false
+
+    # The backup schedule as cron expression.
+    # Defaults to '0 23 * * 1-5', i.e. weekdays at 23:00:
+    schedule: 0 23 * * 1-5
+
+    restic:
+      repository: swift:docs-restic:/backups
+      # This is not the server hostname. Only used as the hostname in restic snapshots:
+      host: docs.csc.fi
+
+    # Backups secrets. Format is
+    #   backups.restic.password: <string>
+    #
+    # Has no effect if useResourceLookup is true. Keys are case-sensitive:
+    secretsFile: backups.yaml
+
+    # Attempt to lookup existing backups Secret in the namespace.
+    useResourceLookup: false
+
+  probes:
+    git:
+      uri: https://github.com/CSCfi/broken-link-s2i.git
+      ref: main
+    suspend: false
+
+    # The probes schedule as cron expression.
+    # Defaults to '0 3 2 * *', i.e. every 2nd day of the month at 03:00:
+    schedule: 0 3 2 * *
+
+    # Email report not sent if these are not set. Has not effect is useResourceLookup is true.
+    email:
+      sender: sender@example.org
+      recipient: recipient@example.org
+      smtp: smtp.example.org
+
+    # Attempt to lookup existing probes ConfigMap in the namespace.
+    useResourceLookup: false
+
+    markdown: true
+    sourceFrom:
+      image: python
+      tag: 3.12-ubi9
+      namespace: openshift

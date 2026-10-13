@@ -39,6 +39,24 @@ Create names for resources.
 {{- define "docs-csc.altVolumeClaimName" -}}
 {{- printf "%s-builds" (include "docs-csc.altName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
+{{- define "docs-csc.backupsName" -}}
+{{- printf "%s-backups" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "docs-csc.backupsSecretName" -}}
+{{- printf "%s-secret" (include "docs-csc.backupsName" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "docs-csc.backupsContainerName" -}}
+{{- printf "%s-git-repo" (include "docs-csc.backupsName" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "docs-csc.probesName" -}}
+{{- printf "%s-probes" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "docs-csc.probesContainerName" -}}
+{{- printf "%s-broken-link" (include "docs-csc.probesName" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "docs-csc.probesConfigName" -}}
+{{- printf "%s-config" (include "docs-csc.probesName" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
 
 {{/*
 Create chart name and version as used by the chart label.

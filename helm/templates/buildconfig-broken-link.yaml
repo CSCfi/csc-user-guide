@@ -1,0 +1,28 @@
+{{- $resourcename := include "docs-csc.probesContainerName" . -}}
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      ImageChange: {}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ $resourcename | printf "%s:latest" | squote }}
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+{{- with .Values.components.probes.sourceFrom }}
+        kind: ImageStreamTag
+        name: {{ printf "%s:%s" .image .tag }}
+        namespace: {{ .namespace }}
+{{- end }}
+  source:
+{{ include "docs-csc.gitSource" .Values.components.probes.git | indent 4 -}}

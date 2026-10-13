@@ -1,3 +1,4 @@
-acme.yaml
-iplist.yaml
-translator.yaml
+/os.yaml
+/acme.yaml
+/translator.yaml
+/backups.yaml
