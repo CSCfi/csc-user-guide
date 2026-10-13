@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -21,7 +20,6 @@ music information retrieval to compute large feature sets from audio signals.
 
 ## Available
 
-* Puhti: 3.0.2
 * Roihu: 3.0.2
 
 ## License

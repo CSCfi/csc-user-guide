@@ -14,6 +14,8 @@ catalog:
 
 # r-env
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 `r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
 
 -   R is an open-source language and environment for data analytics, statistical computing, and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
