@@ -2,10 +2,7 @@
 
 The Roihu supercomputer uses a parallel file system called
 *Lustre*. Data on Lustre is accessible from all nodes of a system, and is thus
-the best place to store the data that you need for computations. Please note
-that you can not directly access data on Roihu from Mahti or vice versa, i.e.
-they have their own Lustre file systems. You can, however, move data between
-Roihu and Mahti using tools such as [rsync](../../data/moving/rsync.md).
+the best place to store the data that you need for computations.
 
 See the [detailed data migration guide](../tutorials/roihu-data.md) from Mahti and Puhti to Roihu.
 

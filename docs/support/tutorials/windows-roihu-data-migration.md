@@ -1,5 +1,7 @@
 # Data migration from Puhti/Mahti/LUMI to Roihu from Windows
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 This tutorial is meant for users who use only Roihu web interface and need to move data from Puhti or Mahti to Roihu. Below Puhti is used as example, the same applies for Mahti and LUMI.
 
 Depending on the amount of data and the speed of your internet connection, there are 3 main options depending on the amount of data:

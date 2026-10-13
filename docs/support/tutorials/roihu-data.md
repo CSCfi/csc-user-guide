@@ -1,5 +1,7 @@
 # Roihu data migration guide
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ??? info "About this guide"
     This guide is divided into four parts:
 
