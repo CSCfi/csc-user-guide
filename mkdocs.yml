@@ -16,7 +16,7 @@ extra:
       mirror: false # Toggle mirrored right-hand side icon
     color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |- # Make sure to also update the translation in mkdocs_fi.yml
-      <p><strong>Puhti and Mahti have been retired as of 15 October 2026.</strong> Their login nodes and storage services are no longer accessible. Please use Roihu for your computing needs. See the <a href="{{ base_url }}/support/tutorials/roihu/">Roihu getting started guide</a> for instructions.</p>
+      <p>Docs CSC will have a service break on Monday 19 October 2026 from 11:00–13:00 EEST. See <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/">more information</a>.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
@@ -574,7 +574,7 @@ nav:
           - Allas clients:
               - Allas connection configuration: data/Allas/using_allas/allas-conf.md
               - Allas web UI: data/Allas/using_allas/allas-ui.md
-              - Puhti/Mahti web UI: computing/webinterface/file-browser.md
+              - Roihu web UI: computing/webinterface/file-browser.md
               - a-commands: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md

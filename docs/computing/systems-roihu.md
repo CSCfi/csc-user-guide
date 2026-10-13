@@ -1,13 +1,5 @@
 # Roihu supercomputer
 
-!!! info "Note"
-    This page contains information about CSC's next national
-    supercomputer Roihu, which is now available for researchers.
-
-    As part of the transition, Mahti and Puhti will be decommissioned
-    in steps over summer and fall 2026.
-    [See the schedule for Mahti and Puhti shutdown below](#schedule).
-
 ## Schedule
 
 ```mermaid
@@ -42,38 +34,7 @@ graph LR;
     style G fill:#dceeceff;
 ```
 
-**Roihu** is installed in the same datacenter as LUMI, meaning that the
-system will be brought up without disrupting Puhti and Mahti services. There
-will also be a margin between Roihu general availability and the
-decommissioning of Puhti and Mahti to enable users to migrate to Roihu without
-a break in HPC access.
-
-Puhti is being decommissioned in two stages: First, Puhti's computing services
-have been shut down 31 July 2026 at 12:00 EEST. This
-means that jobs will not run on Puhti's compute nodes anymore. Puhti's storage and login nodes will,
-however, remain accessible until midday October 15th 2026, after which Puhti will be retired
-completely.
-
-Mahti will be closed in a similar two-stage process. Mahti’s computing services have been shut down on 31 August 2026 at 12:00 EEST, and jobs will not run on Mahti anymore.
-Its storage and login nodes will remain accessible until midday 15 October 2026, after which Mahti will be retired completely.
-
-Between September and October 2026, the storage services will not be covered by service contracts.
-As a result, we cannot guarantee that they will remain accessible throughout this period.
-We strongly encourage all users to prioritize moving their data without delay.
-
-### Prepare for data migration from Mahti and Puhti to Roihu
-
-If you have any data that you need to migrate from Puhti to Roihu, please be
-prepared to do it during summer 2026, aiming to complete it by the **end of August**.
-See the [Roihu migration guide](../support/tutorials/roihu-data.md) on how you can transfer data
-directly from Mahti and Puhti to Roihu.
-
-If you cannot move data directly from Mahti or Puhti to Roihu between early July and end of August,
-consider [using Allas or LUMI-O for short-term data storage](../support/tutorials/roihu-data-preparation.md).
-
-For any questions and concerns regarding transferring data between the systems,
-feel free to contact the [CSC service desk](https://research.csc.fi/support/),
-or attend [CSC's weekly user support coffee breaks](https://research.csc.fi/training/csc-research-support-coffee-every-wednesday-at-1400-finnish-time/).
+Puhti and Mahti have been retired as of 15 October 2026, and are no longer accessible.
 
 ## Compute
 
@@ -133,12 +94,11 @@ and users' personal Home directories. Separate file systems ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
 The Scratch disk of Roihu is more than ten times as performant as Puhti
-Scratch. Specifically, the peak I/O performance of Roihu Scratch is expected
-to be around 560 GB/s for read and 280 GB/s for write. The Home and ProjAppl
-disk areas are expected to have read and write bandwidths of 120 GB/s and
-100 GB/s, respectively.
+Scratch. Specifically, the peak I/O performance of Roihu Scratch is around 560 GB/s
+for read and 280 GB/s for write. The Home and ProjAppl disk areas have read
+and write bandwidths of 120 GB/s and 100 GB/s, respectively.
 
-Similar to Puhti, Roihu Scratch disk will be regularly cleaned of files that
+Similar to Puhti, Roihu Scratch disk is regularly cleaned of files that
 have not been accessed in the last 180 days to prevent inactive data from accumulating
 on the system.
 
@@ -176,11 +136,6 @@ they use:
     | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
     | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
 
-    Reservable local scratch has not yet been implemented on visualization nodes (V).
-    Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
-
-    Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
-
 === "Reservable (`$LOCAL_SCRATCH`)"
 
     | Node type               | Maximum reservable | Read / Write speeds |
@@ -188,12 +143,14 @@ they use:
     | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
     | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
 
-    Reserving local scratch on the visualization nodes is not yet
-    implemented; use `$TMPDIR` on these nodes until this feature is added.
+Reservable local scratch has not yet been implemented on visualization nodes (V).
+Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
 
-As a new feature, users can also request local disk mounts from a
+Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
+
+Users can also request local disk mounts from a
 centralized pool of fast storage resources. This fast storage capacity is
-provided over the network and will appear as local scratch storage from within a
+provided over the network and appears as local scratch storage from within a
 Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB.
 
 ## Network
@@ -204,7 +161,7 @@ partition there are four 200 Gb/s links per node, one per GPU.
 
 ## Software and programming environment
 
-We intend to provide a comprehensive stack of pre-installed HPC libraries and
+We provide a comprehensive stack of pre-installed HPC libraries and
 scientific software on Roihu, similar to those on Puhti and Mahti. Some older and less
 used software packages and versions may, however, be deprecated. Please also
 note that any software compiled on Puhti and Mahti will most likely need to be

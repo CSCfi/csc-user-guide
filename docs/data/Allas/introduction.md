@@ -87,7 +87,7 @@ The object storage service is provided over two different protocols, **S3** and 
 * The token-based **Swift authentication** used remains valid for **eight hours* at a time. 
 
 
-The permanent connection of S3 is practical in many ways, but it includes a security aspect: if the server where Allas is used is compromised, the object storage space will be compromised as well. Due to this security concern, Swift was the default for multiple-user servers such as the Allas web interface, Mahti, and Puhti. However, due to technical development Allas services are starting to use S3 as the default protocol. For  example in Roihu S3 will be the default Allas protocol.
+The permanent connection of S3 is practical in many ways, but it includes a security aspect: if the server where Allas is used is compromised, the object storage space will be compromised as well. Due to this security concern, Swift was the default for multiple-user servers such as the Allas web interface, Mahti, and Puhti. However, due to technical development Allas services are starting to use S3 as the default protocol. For  example in Roihu S3 is the default Allas protocol.
 
 Thus, for example, the CSC-specific `a-commands`, as well as the `rclone` configuration in Puhti and Mahti, were by default based on Swift. But in Roihu they use S3.
 

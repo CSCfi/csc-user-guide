@@ -1,7 +1,5 @@
 # Connecting to the Roihu web interface
 
---8<-- "mfa-update.md"
-
 1. Ensure that you have a CSC account:
     * [Instructions for creating a new CSC user account](../../accounts/how-to-create-new-user-account.md).
 2. Using a web browser, go to [www.roihu.csc.fi](https://www.roihu.csc.fi).
