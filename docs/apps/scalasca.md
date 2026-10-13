@@ -181,9 +181,6 @@ square scorep_my_app_40_trace
 For large traces, one may copy only the post-processed trace analysis
 result file `scorep_my_app_40_trace/scout.cubex`.
 
-The OTF2 formatted event trace `scorep_my_app_40_trace/trace.otf2` can
-be analyzed also with [Intel Trace Analyzer](itac.md).
-
 ## More information
 
 - [Scalasca user guide](https://apps.fz-juelich.de/scalasca/releases/scalasca/2.6/docs/manual/index.html)
