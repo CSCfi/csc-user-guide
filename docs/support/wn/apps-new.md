@@ -704,7 +704,7 @@ and Mahti. [See release notes here](https://manual.gromacs.org/2022.3/release-no
 
 Users can now install software on CSC supercomputers using the Spack package
 manager. [See here for a short tutorial on how to use the user Spack module at
-CSC](../tutorials/user-spack.md).
+CSC](../tutorials/roihu-user-spack.md).
 
 ## Installing packages from Bioconda using Tykky, 10.10.2022
 
