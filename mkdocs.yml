@@ -16,16 +16,14 @@ extra:
       mirror: false # Toggle mirrored right-hand side icon
     color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |- # Make sure to also update the translation in mkdocs_fi.yml
-      <p>Puhti and Mahti computing services have been decommissioned. Puhti and Mahti login nodes and storage services will remain available until 15 October 2026, but are no longer covered by service contracts. <strong>Please clean up and migrate your data to Roihu ASAP.</strong> See <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions.</p>
+      <p><strong>Puhti and Mahti have been retired as of 15 October 2026.</strong> Their login nodes and storage services are no longer accessible. Please use Roihu for your computing needs. See the <a href="{{ base_url }}/support/tutorials/roihu/">Roihu getting started guide</a> for instructions.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
     title: Roihu supercomputer – get started here!
     link: support/tutorials/roihu/
     description: |-
-      Puhti and Mahti will be decommissioned by October 2026 and replaced by
-      Roihu, CSC's next-generation supercomputer offering enhanced performance
-      and capabilities.
+      Roihu is CSC's national supercomputer, replacing the retired Puhti and Mahti systems and offering enhanced performance and capabilities.
     visible: true
   analytics:
     provider: custom
