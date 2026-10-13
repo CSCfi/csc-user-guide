@@ -9,11 +9,13 @@ catalog:
     - Computational Engineering
   available_on:
     - Roihu
-    - Mahti
     - LUMI
 ---
 
 # OpenFOAM
+
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 [OpenFOAM](https://www.openfoam.com/) (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD). OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics ([by OpenCFD Ltd](https://www.openfoam.com/)).
 
 There are different variants of OpenFOAM, of which at CSC - IT Center for Science computer platforms, are currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com).
@@ -22,7 +24,7 @@ There are different variants of OpenFOAM, of which at CSC - IT Center for Scienc
 OpenFOAM is freely available and open source, and is licensed under the [GNU General Public Licence](https://www.gnu.org/licenses/gpl-3.0.en.html) (Gnu GPL or GPL), with GPL license typical [characteristics for exploitation](https://openfoam.org/licence/).
 
 ## Available
-Different versions of OpenFOAM, provided by OpenFOAM Foundation and OpenCFD, are installed on [Roihu, Mahti and LUMI servers](../computing/available-systems.md).
+Different versions of OpenFOAM, provided by OpenFOAM Foundation and OpenCFD, are installed on [Roihu and LUMI servers](../computing/available-systems.md).
 
 ## Usage
 After logging in to the server, give the command
@@ -55,7 +57,7 @@ module load openfoam/v2412
 - on CSC's computing servers, use OpenFOAM's [collated I/O method](https://openfoam.org/news/parallel-io/) whenever possible
 - using the collated method is absolutely necessary when the model size is large and a lot of disk I/O is necessary
 
-The file system used on CSC's computing platforms, Roihu, Mahti and LUMI, is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files. The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and if field variables are written to the disk every time step. Such I/O operations will cause the file system to become heavily overloaded, and the whole computing platform can get jammed even by a few simultaneous OpenFOAM users.
+The file system used on CSC's computing platforms, Roihu and LUMI, is [Lustre](http://lustre.org/), which is optimized for reading and writing small number of files. The number of output files written by OpenFOAM can easily become very large, even up to millions, if the mesh size is large, and if field variables are written to the disk every time step. Such I/O operations will cause the file system to become heavily overloaded, and the whole computing platform can get jammed even by a few simultaneous OpenFOAM users.
 
 The above described traditional parallel I/O method of OpenFOAM can be replaced in the latest versions of OpenFOAM with the collated parallel I/O method, where the output data is written only in few files. Considering HPC platforms using parallel files systems, this has been a significant improvement to OpenFOAM.
 
