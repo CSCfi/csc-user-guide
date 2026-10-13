@@ -48,7 +48,7 @@ hide:
     * [Customisation - software & tools](sd-desktop-software.md)
     * [Import data](sd-desktop-access.md)  
     * [Export data via user interface](sd-desktop-export.md)  
-    * [Export data programmatically](sd-desktop-export-commandline.md)
+    <!-- * [Export data programmatically](sd-desktop-export-commandline.md) -->
     * [Troubleshooting](sd-desktop-troubleshooting.md)
 
 ### 1.2 Publish and reuse research data
