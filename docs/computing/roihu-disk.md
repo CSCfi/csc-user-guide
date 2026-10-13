@@ -336,36 +336,28 @@ local scratch usage consumes.
 It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
 This fast storage capacity is provided over the network and will appear as local scratch from 
 within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
-to get larger capacity fast storage for your jobs.
+to get larger capacity fast storage for your jobs. Disaggregated storage can be requested on all
+partitions, including shared-node jobs.
 
 ### Requesting storage from slurm
-
-!!! warning "Disaggregated storage is currently only available on full node jobs"
-    
-    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
-    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
-    nodes with the `--exclusive` flag on the GPU partitions.
-
-    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
-    without producing standard output or error logs.
-    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
 request block of your script:
 
 ```bash
-#BB_LUA SBF storagesize=20GB path=/run/sbb/$USER
+#BB_LUA SBF storagesize=20GB path=/sbf/data
 ```
 
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 
 storage will be mounted.
 
-Use the path `/run/sbb/$USER` when mounting disaggregated storage.
+The path must begin with `/sbf/`. Each job gets its own private mount, so several jobs on the
+same node can use the same path without interfering with each other.
 
 You can also request resources directly on the command line with the `--bb` flag:
 
 ```bash
-srun -p medium --nodes 1 --account <project> --bb="#BB_LUA SBF storagesize=10G path=/run/sbb/$USER" --pty bash -i
+srun -p medium --nodes 1 --account <project> --bb="#BB_LUA SBF storagesize=10G path=/sbf/data" --pty bash -i
 ```
 
 Alternatively you can pass the request in a file using the `--bbf` flag, for example:
@@ -374,11 +366,10 @@ Alternatively you can pass the request in a file using the `--bbf` flag, for exa
 srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
 ```
 
-For reserving disaggregated storage on the GPU partitions, include the `--exclusive` flag. Note that you will be
-billed for the full node regardless of how many GPUs you reserve.
+The same works on shared-node and GPU partitions, for example:
 
 ```bash
-srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --exclusive --bbf bb.spec --pty bash -i
+srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --bbf bb.spec --pty bash -i
 ```
 
 !!! warning "Steps must use `srun`!"

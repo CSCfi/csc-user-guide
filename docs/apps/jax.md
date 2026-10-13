@@ -87,6 +87,10 @@ If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md).
 
+If adding a few packages with `pip` is not enough, you can also build
+your own containers, for example by [extending CSC's machine learning
+containers](../computing/containers/overview.md#ml-containers).
+
 ## License
 
 JAX is licensed under [Apache License

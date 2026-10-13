@@ -29,7 +29,7 @@ Free to use and open source under the [BSD 3-Clause License](https://github.com/
 
 ## Available
 
-* Roihu: 3.4, via the `bio-apps` module.
+* Roihu-CPU: 3.4, via the `bio-apps` module.
 
 ## Usage
 

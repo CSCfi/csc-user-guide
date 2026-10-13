@@ -23,7 +23,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 2.7.11b, via the `bio-apps` module.
+* Roihu-CPU: 2.7.11b, via the `bio-apps` module.
 
 ## Usage
 

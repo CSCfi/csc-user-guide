@@ -377,6 +377,11 @@ nav:
           - Connecting: computing/firecrest/connecting.md
           - Data transfer over S3: computing/firecrest/data-transfer-s3.md
           - Python SDK: computing/firecrest/pyfirecrest.md
+      - AI Tools:
+          - computing/ai-tools/index.md
+          - Agent Environment: computing/ai-tools/agent-env.md
+          - Docs MCP Server: computing/ai-tools/docs-mcp.md
+          - CSC Skills: computing/ai-tools/csc-skills.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
@@ -640,7 +645,7 @@ nav:
               - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
               - Import data: data/sensitive-data/sd-desktop-access.md
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
-              - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
+              # - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Research data - Publish and reuse:
           - Publish with Federated EGA:

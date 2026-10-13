@@ -23,7 +23,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 3.2.7a, via the `bio-apps` module.
+* Roihu-CPU: 3.2.7a, via the `bio-apps` module.
 
 ## Usage
 
@@ -35,19 +35,13 @@ module load bio-apps/v202603
 module load mrbayes/3.2.7a
 ```
 
-After loading the module, the serial (i.e. single processor) version starts with the command:
+MrBayes is started with the `mb` command. The same MPI-enabled binary runs serially when started directly:
 
 ```bash
 mb
 ```
 
-Parallel version starts with the command:
-
-```bash
-mb-mpi 
-```
-
-When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
+and in parallel when launched with `srun` in a batch job. When using the parallel version, you should note that MrBayes assigns one chain to one core, so for optimal performance you should use as many cores as the total number of chains in your job. If, for example, you have specified `nchains=4`, `nruns=2` you should use 4 * 2 = 8 cores.
 
 ## Batch jobs
 
@@ -91,7 +85,7 @@ Below is an example batch job script for Roihu using 8 cores. We are using 8 cor
 module load bio-apps/v202603
 module load mrbayes/3.2.7a
 
-srun mb-mpi mb_com.nex >log.txt
+srun mb mb_com.nex >log.txt
 ```
 
 To submit the job:
