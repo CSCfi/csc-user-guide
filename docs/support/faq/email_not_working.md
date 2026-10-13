@@ -1,5 +1,8 @@
 # Sending email when a job starts/finishes is not working
 
+!!! warning
+    This feature is not currently working with Roihu.
+
 * Check that the option is correctly set in your batch script. For example, to
   get email when the job starts, it should read `#SBATCH --mail-type=BEGIN`.
 * Multiple arguments are separated by a comma, e.g.
