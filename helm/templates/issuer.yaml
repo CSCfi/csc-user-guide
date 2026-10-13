@@ -1,13 +1,37 @@
 {{- if not (include "networking.siteHost" . | hasSuffix ".rahtiapp.fi") }}
+{{- $resourcename := include "networking.acmeIssuerName" . -}}
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  acme:
 {{- if .Values.site.acme.useResourceLookup | default false }}
 {{ lookup "cert-manager.io/v1"
           "Issuer"
           .Release.Namespace
-          (include "networking.acmeIssuerName" .)
-   | dig "spec" "acme" dict
-   | list $
-   | include "networking.issuer" }}
+          $resourcename
+   | dig "spec" "acme" ""
+   | required "Issuer lookup failed!"
+   | toYamlPretty
+   | indent 4 }}
 {{- else }}
-{{ include "networking.newIssuer" . }}
+    email: {{ .Values.site.acme.email | required "ACME email not provided!" }}
+    server: {{ .Values.site.acme.server | required "ACME server not provided!" }}
+    externalAccountBinding:
+      keyID: {{ (include "networking.acmeFile" . | fromYaml).kid
+                | required "ACME kid not provided!" }}
+      keySecretRef:
+        name: {{ include "networking.acmeEabSecretName" . }}
+        key: hmac
+    privateKeySecretRef:
+      name: {{ include "networking.acmeAccountKeySecretName" . }}
+    solvers:
+    - http01:
+        ingress:
+          ingressClassName: openshift-default
 {{- end }}
 {{- end }}

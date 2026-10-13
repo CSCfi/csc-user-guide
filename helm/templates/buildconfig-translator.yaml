@@ -1,6 +1,6 @@
 {{- $resourcename := include "translation.translatorName" . -}}
-kind: BuildConfig
 apiVersion: build.openshift.io/v1
+kind: BuildConfig
 metadata:
   name: {{ $resourcename }}
   labels:
@@ -18,8 +18,7 @@ spec:
     dockerStrategy:
       dockerfilePath: translation/Containerfile.translator
       buildArgs:
-{{ list .Values.components.translator "restic" | include "docs-csc.imageBuildArg" | indent 8 }}
-{{ list .Values "builder" | include "docs-csc.imageBuildArg" | indent 8 }}
+{{- list $ "restic" "builder" | include "docs-csc.imageBuildArg" | indent 8 }}
 {{- .Values.components.translator.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
   source:
-{{ include "docs-csc.gitSource" . | indent 4 }}
+{{ include "docs-csc.gitSource" .Values.git | indent 4 }}

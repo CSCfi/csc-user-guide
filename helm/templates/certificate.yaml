@@ -1,13 +1,31 @@
 {{- if not (include "networking.siteHost" . | hasSuffix ".rahtiapp.fi") }}
+{{- $resourcename := include "networking.domainIngressName" . -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
 {{- if .Values.site.acme.useResourceLookup | default false }}
 {{ lookup "cert-manager.io/v1"
           "Certificate"
           .Release.Namespace
-          (include "networking.domainIngressName" .)
-   | dig "spec" dict
-   | list $
-   | include "networking.certificate" }}
+          $resourcename
+   | dig "spec" ""
+   | required "Certificate lookup failed!"
+   | toYamlPretty
+   | indent 2 }}
 {{- else }}
-{{ include "networking.newCertificate" . }}
+{{- $hostname := .Values.site.host }}
+  secretName: {{ include "networking.domainTlsSecretName" . }}
+{{ .Values.site.acme.certificate | toYamlPretty | indent 2 }}
+  issuerRef:
+    name: {{ include "networking.acmeIssuerName" . }}
+    kind: Issuer
+  commonName: {{ $hostname }}
+  dnsNames:
+    - {{ $hostname }}
 {{- end }}
 {{- end }}

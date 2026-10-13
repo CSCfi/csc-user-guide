@@ -21,6 +21,9 @@ Create names for resources.
 {{- define "docs-csc.origBuilderName" -}}
 {{- printf "%s-builder" (include "docs-csc.origName" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
+{{- define "docs-csc.osAppCredSecretName" -}}
+{{- printf "%s-os-app-cred-secret" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
 {{- define "docs-csc.altName" -}}
 {{- printf "%s-alternate" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
@@ -95,19 +98,22 @@ app.kubernetes.io/part-of: {{ include "docs-csc.name" . }}
 
 {{/*
 GitBuildSource
+
+Passed to .spec.source.git in BuildConfig [build.openshift.io/v1]
 */}}
 {{- define "docs-csc.gitSource" -}}
 type: Git
 git:
-{{- range $key, $value := .Values.git }}
-  {{ $value | squote | printf "%s: %s" $key }}
-{{- end }}
+{{ . | toYamlPretty | indent 2 }}
 {{- end -}}
 
 {{- define "docs-csc.imageBuildArg" -}}
-- name: {{ index . 1 | printf "%s_image" }}
-{{- with index . 1 | get (index . 0) }}
+{{- $ := first . -}}
+{{- range $key := rest . }}
+{{- with get ($.Values) $key }}
+- name: {{ printf "%s_image" $key }}
   value: {{ printf "%s:%s" .image .tag | squote }}
+{{- end }}
 {{- end }}
 {{- end -}}
 
@@ -140,4 +146,14 @@ Expects a dict of type {
   | list
   | toPrettyJson
 }}
+{{- end -}}
+
+{{- define "docs-csc.requireKeysEnc" -}}
+{{- $data := first . -}}
+{{- range $key := rest . }}
+{{ $key | get $data
+        | required (printf "%s not provided!" $key)
+        | b64enc
+        | printf "%s: %s" $key }}
+{{- end }}
 {{- end -}}

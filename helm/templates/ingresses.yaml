@@ -3,11 +3,10 @@
 {{- $origservicename := include "docs-csc.origName" . }}
 {{- $altservicename := include "docs-csc.altName" . -}}
 {{- $languages := .Values.components.translator.languages -}}
-kind: Ingress
 apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: {{ include "networking.redundantIngressName" . }}
-{{ include "networking.ingressMetadata" . | indent 2}}
+{{ include "networking.redundantIngressName" . | list $ | include "networking.ingressMetadata" | indent 2 }}
 spec:
   rules:
 {{ dict "host" $redundanthost
@@ -17,11 +16,10 @@ spec:
     | include "networking.ingressRules" | indent 4 -}}
 {{- if not ($sitehost | hasSuffix ".rahtiapp.fi") }}
 ---
-kind: Ingress
 apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: {{ include "networking.domainIngressName" . }}
-{{ include "networking.ingressMetadata" . | indent 2 }}
+{{ include "networking.domainIngressName" . | list $ | include "networking.ingressMetadata" | indent 2 }}
 spec:
   rules:
 {{ dict "host" $sitehost

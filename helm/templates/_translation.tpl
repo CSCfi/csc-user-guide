@@ -41,51 +41,11 @@ builds
   mountPath: /translations
 {{- end -}}
 
-{{- define "translation.secretsFile" -}}
-{{- .Values.components.translator.secretsFile
-    | required "translator.secretsFile not provided!"
-    | .Files.Get -}}
-{{- end -}}
-
-{{- define "translation.translatorSecret" -}}
-{{- $ := index . 0 -}}
-{{- $data := index . 1 -}}
-{{- $resourcename := include "translation.translatorSecretName" $ -}}
-{{- $requiredkeys := list "openAiApiKey"
-                          "resticPassword"
-                          "osApplicationCredentialId"
-                          "osApplicationCredentialSecret" -}}
-kind: Secret
-apiVersion: v1
-metadata:
-  name: {{ $resourcename }}
-  labels:
-{{ include "docs-csc.labels" $ | indent 4 }}
-{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
-type: Opaque
-data:
-{{- range $key := $.Values.components.translator.restoreOnly
-                  | default false
-                  | ternary (without $requiredkeys "openAiApiKey")
-                            $requiredkeys }}
-{{ $key | get $data
-        | required (printf "%s not provided!" $key)
-        | printf "%s: %s" $key
-        | indent 2 }}
-{{- end }}
-{{- end -}}
-
-{{- define "translation.newTranslatorSecret" -}}
-{{ include "translation.secretsFile" .
-   | fromYaml
-   | list $
-   | include "translation.translatorSecret" }}
-{{- end -}}
-
 {{- define "translation.translatorContainer" -}}
 {{- $ := index . 0 -}}
 {{- $args := index . 1 -}}
-{{- $secretname := include "translation.translatorSecretName" $ -}}
+{{- $translatorsecretname := include "translation.translatorSecretName" $ -}}
+{{- $ossecretname := include "docs-csc.osAppCredSecretName" $ -}}
 - name: {{ $args.languageCode | printf "%s-%s" (include "translation.translatorName" $) }}
   image: {{ include "translation.translatorName" $ | list $ | include "docs-csc.fullImageName" | squote }}
   imagePullPolicy: Always
@@ -107,26 +67,26 @@ data:
     - name: RESTIC_PASSWORD
       valueFrom:
         secretKeyRef:
-          name: {{ $secretname }}
-          key: resticPassword
+          name: {{ $translatorsecretname }}
+          key: translator.restic.password
     - name: OS_AUTH_URL
       value: {{ $args.osAuthUrl | squote }}
     - name: OS_APPLICATION_CREDENTIAL_ID
       valueFrom:
         secretKeyRef:
-          name: {{ $secretname }}
-          key: osApplicationCredentialId
+          name: {{ $ossecretname }}
+          key: os.applicationCredential.id
     - name: OS_APPLICATION_CREDENTIAL_SECRET
       valueFrom:
         secretKeyRef:
-          name: {{ $secretname }}
-          key: osApplicationCredentialSecret
+          name: {{ $ossecretname }}
+          key: os.applicationCredential.secret
 {{- if $.Values.components.translator.restoreOnly | default false | not }}
     - name: OPENAI_API_KEY
       valueFrom:
         secretKeyRef:
-          name: {{ $secretname }}
-          key: openAiApiKey
+          name: {{ $translatorsecretname }}
+          key: translator.openAi.apiKey
 {{- end }}
     - name: CACHE_CONTAINER
       value: {{ $args.cacheContainer | squote }}
@@ -153,11 +113,7 @@ data:
     - name: LANG_CODE
       value: {{ $args.languageCode | squote }}
     - name: SITE_URL
-      value: {{ dict "scheme" "https"
-                      "host" (include "networking.siteHost" $)
-                      "path" $args.languageCode
-                | urlJoin
-                | squote }}
+      value: {{ list $ $args.languageCode | include "networking.sitePath" }}
 {{- if $args.matomoSiteId | and $args.matomoUrl }}
     - name: MATOMO_URL
       value: {{ $args.matomoUrl | squote }}
@@ -191,7 +147,7 @@ spec:
         "configBranchOverride" ($.Values.components.translator.configBranchOverride | default nil)
         "resticRepository" ($translatorrestic.repository | required "translator.restic.repository not provided!")
         "resticHost" ($translatorrestic.host | required "translator.restic.host not provided!")
-        "osAuthUrl" ($.Values.components.translator.osAuthUrl | required "translator.osAuthUrl not provided!")
+        "osAuthUrl" ($.Values.os.authUrl | required "os.authUrl not provided!")
         "cacheContainer" ($translatorcache.container | required "translator.cache.container not provided!")
         "cachePrefix" ($translatorcache.prefix | required "translator.cache.prefix not provided!")
    | list $

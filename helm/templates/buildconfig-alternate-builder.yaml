@@ -1,7 +1,7 @@
 {{- $resourcename := include "docs-csc.altBuilderName" . -}}
 {{- $origbuildername := include "docs-csc.origBuilderName" . -}}
-kind: BuildConfig
 apiVersion: build.openshift.io/v1
+kind: BuildConfig
 metadata:
   name: {{ $resourcename }}
   labels:
@@ -27,4 +27,4 @@ spec:
           value: {{ $origbuildername | list $ | include "docs-csc.fullImageName" | squote }}
 {{- .Values.components.alternate.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
   source:
-{{ include "docs-csc.gitSource" . | indent 4 }}
+{{ include "docs-csc.gitSource" .Values.git | indent 4 }}

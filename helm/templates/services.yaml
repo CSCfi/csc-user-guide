@@ -2,8 +2,8 @@
                (include "docs-csc.altName" .) }}
 {{- $componentlabels := . | list $ | include "docs-csc.componentLabels" -}}
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: {{ . }}
   labels:

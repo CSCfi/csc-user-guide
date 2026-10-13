@@ -14,10 +14,10 @@
 {{- end -}}
 {{- end -}}
 {{- $componentlabels := $resourcename | list $ | include "docs-csc.componentLabels" -}}
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: {{ include "docs-csc.origName" . }}
+  name: {{ $resourcename }}
   labels:
 {{ include "docs-csc.labels" . | indent 4 }}
 {{ $componentlabels | indent 4 }}

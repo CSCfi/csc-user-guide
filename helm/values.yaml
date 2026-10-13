@@ -7,6 +7,9 @@ environment: production
 
 nameOverride: null
 
+# Defaults to Etc/UTC:
+timeZone: Europe/Helsinki
+
 builder:
   image: ubi9/python-312
   tag: 9.8-1789950416
@@ -15,7 +18,25 @@ server:
   image: ubi9/nginx-126
   tag: 9.8-1789518899
 
+restic:
+  image: ghcr.io/restic/restic
+  tag: 0.19.1
+
 localRegistry: image-registry.openshift-image-registry.svc:5000
+
+# OpenStack Authentication
+os:
+  authUrl: https://pouta.csc.fi:5001/v3
+
+  # OS Application Credential secrets file. Format is
+  #   os.applicationCredential.id: <OS Application Credential ID>
+  #   os.applicationCredential.secret: <OS Application Credential Secret>
+  #
+  # Has no effect if useResourceLookup is set. Keys are case-sensitive:
+  secretsFile: os.yaml
+
+  # Attempt to lookup existing OpenStack Secret in the namespace.
+  useResourceLookup: false
 
 site:
   # The server hostname. Alternate languages will be available
@@ -24,33 +45,39 @@ site:
 
   matomoUrl: https://mwa-acf.2.rahtiapp.fi/
 
-  # List of IP addresses/ranges to allow access from. Format is
-  #   ipAllowlist:
-  #     - 127.0.0.1
-  #     - 192.167.0.0/16
+  # List of IP addresses/ranges to allow access from. For example
+  # - 127.0.0.1
+  # - 192.167.0.0/16
   #
-  # Allow any if filename not defined or ipAllowlist is empty:
-  ipAllowlistFile: iplist.yaml
+  # Allow any if empty. Has no effect if useAllowlistLookup is set.
+  # Keys are case-sensitive:
+  ipAllowlist: []
+
+  # Attempt to lookup ipAllowlist from Ingress(es) on cluster.
+  useAllowlistLookup: false
 
   acme:
-    # Attempt to lookup existing ACME resources in the namespace.
-    useResourceLookup: false
-
     # Required if a custom certificate is needed, i.e. site.host
     # is set and does not end in '.rahtiapp.fi':
     issuerName: null
 
-    # ACME details. Format is
-    #   email: recipient@example.org
-    #   server: https://acme.api.example.org
-    #   certificateDuration: 2160h
-    #   certificateRenewBefore: 720h
-    #   eabKeyID: <ACME account EAB key ID>
-    #   eabHmacKey: <ACME account EAB HMAC key>
+    email: recipient@example.org
+    server: https://acme.api.example.org
+    certificate:
+      duration: 2160h
+      renewBefore: 720h
+
+    # ACME secrets file. Format is
+    #   kid: <ACME account EAB key ID>
+    #   hmac: <ACME account EAB HMAC key>
     #
     # Has no effect if site.host is not set or ends in '.rahtiapp.fi',
-    # or if useResourceLookup is set:
-    acmeFile: acme.yaml
+    # or if useResourceLookup is set. Keys are case-sensitive:
+    secretsFile: acme.yaml
+
+    # Attempt to lookup existing ACME resources in the namespace.
+    # Requires issuerName to be defined:
+    useResourceLookup: false
 
 components:
   original:
@@ -86,44 +113,39 @@ components:
     # from this branch instead of repo.branch:
     configBranchOverride: null
 
-    # Attempt to lookup existing translator secret in the namespace.
-    useResourceLookup: false
-
     # Translator secrets. Format is
-    #   openAiApiKey: <string> (not needed if translator.restoreOnly is set)
-    #   resticPassword: <string>
-    #   osApplicationCredentialId: <string>
-    #   osApplicationCredentialSecret: <string>
+    #   translator.openAi.apiKey: <string> (not needed if translator.restoreOnly is set)
+    #   translator.restic.password: <string>
     #
-    # Keys are case-sensitive:
+    # Has no effect if useResourceLookup is true. Keys are case-sensitive:
     secretsFile: translator.yaml
+
+    # Attempt to lookup existing translator Secret in the namespace.
+    useResourceLookup: false
 
     languages:
       - code: fi
         name: Finnish
         matomoSiteId: 24
+
+        # Suspend scheduled translation for language if needed:
+        suspend: false
       # - code: se
       #   name: Swedish
       #   matomoSiteId: ??
 
     # Allows for a deployment where pages are not translated,
     # but only restored from the latest restic snapshot.
-    # If set to true, openAiApiKey is not needed in secretsFile.
+    # If set to true, translator.openAi.apiKey is not needed in secretsFile.
     # Defaults to false:
     restoreOnly: false
 
     # The translation schedule as cron expression.
     # Defaults to '0 0 * * 1-5', i.e. weekday midnights:
     schedule: 0 0 * * 1-5
-    # Defaults to Etc/UTC:
-    timeZone: Europe/Helsinki
 
-    osAuthUrl: https://pouta.csc.fi:5001/v3
     restic:
-      image: ghcr.io/restic/restic
-      tag: 0.19.1
       repository: swift:docs-restic:/translations
-
       # This is not the server hostname. Only used as the hostname in restic snapshots:
       host: docs.csc.fi
 

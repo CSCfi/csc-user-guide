@@ -17,14 +17,14 @@
         "uri"
       ]
     },
-    "gitHubRepository": {
-      "description": "GitHub repository for sparse clones.",
+    "githubRepository": {
+      "description": "GitHub repository.",
       "type": "object",
       "properties": {
         "host": {
           "type": "string",
           "default": "github.com",
-          "format": "uri"
+          "format": "hostname"
         },
         "org": {
           "type": "string",
@@ -33,7 +33,18 @@
         "name": {
           "type": "string",
           "default": "csc-user-guide"
-        },
+        }
+      }
+    },
+    "githubBranch": {
+      "description": "A branch in a GitHub repository.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/githubRepository"
+        }
+      ],
+      "properties": {
         "branch": {
           "type": "string",
           "default": "master"
@@ -53,20 +64,22 @@
       ],
       "default": false
     },
-    "containerImage": {
-      "type": "string"
+    "cronSuspend": {
+      "type": "boolean",
+      "default": false
     },
-    "containerImageTag": {
+    "cronSchedule": {
+      "description": "A cron expression.",
       "type": "string"
     },
     "imageName": {
       "type": "object",
       "properties": {
         "image": {
-          "$ref": "#/$defs/containerImage"
+          "type": "string"
         },
         "tag": {
-          "$ref": "#/$defs/containerImageTag"
+          "type": "string"
         }
       },
       "required": [
@@ -110,15 +123,54 @@
         "null"
       ]
     },
+    "osConfig": {
+      "type": "object",
+      "properties": {
+        "authUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "secretsFile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "useResourceLookup": {
+          "$ref": "#/$defs/enableLookupFlag"
+        }
+      },
+      "if": {
+        "properties": {
+          "useResourceLookup": {
+            "const": false
+          }
+        },
+        "required": [
+          "useResourceLookup"
+        ]
+      },
+      "then": {
+        "required": [
+          "secretsFile",
+          "authUrl"
+        ],
+        "properties": {
+          "secretsFile": {
+            "type": "string"
+          },
+          "authUrl": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "resticConfig": {
       "type": "object",
       "properties": {
-        "image": {
-          "$ref": "#/$defs/containerImage"
-        },
-        "tag": {
-          "$ref": "#/$defs/containerImageTag"
-        },
         "repository": {
           "type": "string"
         },
@@ -127,8 +179,6 @@
         }
       },
       "required": [
-        "image",
-        "tag",
         "repository",
         "host"
       ]
@@ -164,12 +214,15 @@
             "null"
           ]
         },
-        "ipAllowlistFile": {
-          "description": "Optional YAML file with a list of IP addresses/ranges to allow traffix from.",
-          "type": [
-            "string",
-            "null"
-          ]
+        "useAllowlistLookup": {
+          "$ref": "#/$defs/enableLookupFlag"
+        },
+        "ipAllowlist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
         },
         "acme": {
           "type": "object",
@@ -183,8 +236,8 @@
                 "null"
               ]
             },
-            "acmeFile": {
-              "description": "YAML file with ACME details for TLS certificate.",
+            "secretsFile": {
+              "description": "YAML file with ACME EAB details.",
               "type": [
                 "string",
                 "null"
@@ -202,18 +255,24 @@
             },
             "then": {
               "required": [
-                "acmefile"
+                "secretsFile",
+                "issuerName"
               ],
               "properties": {
                 "acmeFile": {
                   "type": "string"
+                },
+                "issuerName": {
+                  "type": "string"
                 }
               }
+            },
+            "else": {
+              "required": [
+                "issuerName"
+              ]
             }
-          },
-          "required": [
-            "issuerName"
-          ]
+          }
         }
       }
     },
@@ -221,7 +280,7 @@
       "type": "object",
       "properties": {
         "repo": {
-          "$ref": "#/$defs/gitHubRepository"
+          "$ref": "#/$defs/githubBranch"
         },
         "matomoSiteId": {
           "$ref": "#/$defs/matomoSiteId"
@@ -235,7 +294,7 @@
       "type": "object",
       "properties": {
         "repo": {
-          "$ref": "#/$defs/gitHubRepository"
+          "$ref": "#/$defs/githubBranch"
         },
         "configBranchOverride": {
           "$ref": "#/$defs/configBranch"
@@ -261,18 +320,12 @@
           "type": "boolean",
           "default": false
         },
+        "suspend": {
+          "$ref": "#/$defs/cronSuspend"
+        },
         "schedule": {
-          "description": "The translation schedule as cron expression.",
-          "type": "string",
+          "$ref": "#/$defs/cronSchedule",
           "default": "0 0 * * 1-5"
-        },
-        "timeZone": {
-          "type": ["string", "null"],
-          "default": "Etc/UTC"
-        },
-        "osAuthUrl": {
-          "type": "string",
-          "format": "uri"
         },
         "restic": {
           "$ref": "#/$defs/resticConfig"
@@ -281,7 +334,10 @@
           "$ref": "#/$defs/cacheConfig"
         },
         "storageCapacity": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "default": "2Gi"
         },
         "if": {
@@ -296,26 +352,40 @@
         },
         "then": {
           "required": [
-            "secretsFile"
+            "secretsFile",
+            "languages",
+            "restic",
+            "cache"
           ],
           "properties": {
             "secretsFile": {
               "type": "string"
             }
           }
+        },
+        "else": {
+          "required": [
+            "languages",
+            "restic",
+            "cache"
+          ]
         }
-      },
-      "required": [
-        "languages",
-        "schedule",
-        "osAuthUrl",
-        "restic",
-        "cache"
-      ]
+      }
     },
     "alternateConfig": {
-      "repo": {
-        "$ref": "#/$defs/gitHubRepository"
+      "type": "object",
+      "properties": {
+        "repo": {
+          "$ref": "#/$defs/githubBranch"
+        },
+        "configBranchOverride": {
+          "$ref": "#/$defs/configBranch"
+        },
+        "replicaCount": {
+          "$ref": "#/$defs/deploymentReplicas"
+        }
+      }
+    },
       },
       "configBranchOverride": {
         "$ref": "#/$defs/configBranch"
@@ -345,8 +415,20 @@
     "server": {
       "$ref": "#/$defs/imageName"
     },
+    "restic": {
+      "$ref": "#/$defs/imageName"
+    },
     "localRegistry": {
       "type": "string"
+    },
+    "os": {
+      "$ref": "#/$defs/osConfig"
+    },
+    "timeZone": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "site": {
       "$ref": "#/$defs/siteConfig"
@@ -366,8 +448,7 @@
       },
       "required": [
         "original",
-        "translator",
-        "alternate"
+        "translator"
       ]
     }
   },
@@ -375,7 +456,9 @@
     "git",
     "builder",
     "server",
+    "restic",
     "localRegistry",
+    "os",
     "site",
     "components"
   ]
