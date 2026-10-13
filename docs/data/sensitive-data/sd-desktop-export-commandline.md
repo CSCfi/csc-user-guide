@@ -5,7 +5,7 @@
 - :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
-  SD Desktop and SD Connect services had a major upgrade in September 2026, and these instructions are currently outdated. New instructions for exporting with command line will be provided here as soon as possible. Read more about the upgrade on a separate [info page](major-upgrade.md). 
+  SD Desktop and SD Connect services were upgraded in September 2026, and the export instructions on this page are currently outdated. New instructions for exporting with command line will be provided here as soon as possible. Read more about the upgrade on a separate [info page](major-upgrade.md). 
 
 ## Background information
 
