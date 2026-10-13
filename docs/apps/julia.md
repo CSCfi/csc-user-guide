@@ -10,7 +10,6 @@ catalog:
   available_on:
     - LUMI
     - Roihu
-    - Mahti
 ---
 
 # Julia Language
@@ -37,7 +36,7 @@ To find the correct citation for a specific Julia package, you can use the `pkg>
 
 
 ## Available
-Julia language is available on Roihu-CPU, Roihu-GPU, Mahti, and LUMI from the command line using the [module system](../computing/modules.md).
+Julia language is available on Roihu-CPU, Roihu-GPU, and LUMI from the command line using the [module system](../computing/modules.md).
 It is also available on the web interface via [Jupyter](../computing/webinterface/julia-on-jupyter.md) and [VSCode](../computing/webinterface/vscode.md#julia-language).
 
 If you find issues in using Julia on the cluster, you should [contact the servicedesk](../support/contact.md).
@@ -47,9 +46,9 @@ If you find issues in using Julia on the cluster, you should [contact the servic
 ### Using the Julia module
 Julia language is available from the `julia` module.
 
-=== "Roihu-CPU, Roihu-GPU and Mahti"
+=== "Roihu-CPU and Roihu-GPU"
 
-    On Roihu-CPU, Roihu-GPU and Mahti, we can load the module as follows:
+    On Roihu-CPU and Roihu-GPU, we can load the module as follows:
 
     ```bash
     module load julia
@@ -90,7 +89,7 @@ The [Pkg documentation](https://pkgdocs.julialang.org/) provides more informatio
 ### Placing the Julia depot directory
 The first directory on the Julia depot path controls where Julia stores installed packages, compiled files, log files, and other depots.
 It is `$HOME/.julia` by default.
-The home directory has a relatively small quota on Roihu, Mahti, and LUMI.
+The home directory has a relatively small quota on Roihu and LUMI.
 If you install large packages, we recommend placing the depot directory under Projappl to avoid running out of quota.
 We can change the depot directory by prepending a new directory to `JULIA_DEPOT_PATH` environment variable.
 
@@ -122,7 +121,7 @@ We recommend reading the [multi-processing and distributed computing](https://do
 
 
 #### MPI.jl
-We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu-CPU, Roihu-GPU, Mahti, and LUMI using the `MPI.jl` package.
+We can use MPI for distributed computing, especially over multiple nodes, in Julia on Roihu-CPU, Roihu-GPU, and LUMI using the `MPI.jl` package.
 We can install it using the package manager as follows:
 
 ```julia
@@ -141,7 +140,7 @@ For more information, we recommend reading the [MPI.jl documentation](https://ju
 
 ### GPU programming
 #### CUDA.jl
-The GPU nodes on Roihu-GPU and Mahti contain NVidia GPUs which can be programmed using CUDA.
+The GPU nodes on Roihu-GPU contain NVidia GPUs which can be programmed using CUDA.
 We can install the `CUDA.jl` package for CUDA programming in Julia using the package manager as follows:
 
 ```julia
@@ -183,9 +182,9 @@ Finally, the [Julia on HPC Clusters](https://juliahpc.github.io) lists general n
 
 
 ## Running Julia batch jobs on CSC clusters
-This section contains examples for running various Julia batch jobs on Roihu-CPU, Roihu-GPU, Mahti and LUMI clusters.
+This section contains examples for running various Julia batch jobs on Roihu-CPU, Roihu-GPU and LUMI clusters.
 They demonstrate the usage of the Julia environment described [above](#usage) for various batch jobs.
-They are adapted from the general instructions of running jobs on [Roihu and Mahti](../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
+They are adapted from the general instructions of running jobs on [Roihu](../computing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Note that we do not use `srun` to start processes in the batch script.
 Instead we use Julia for process management or call `srun` inside the Julia code.
 
@@ -196,12 +195,6 @@ That is, run the following command in the directory with your Julia environment 
 === "Roihu-CPU and Roihu-GPU"
     ```bash
     module purge
-    module load julia
-    julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
-    ```
-
-=== "Mahti"
-    ```bash
     module load julia
     julia --project=. --threads=1 -e 'using Pkg; Pkg.instantiate()'
     ```
@@ -245,22 +238,6 @@ println("Hello world!")
     module load julia
     julia --project=. script.jl
     ```
-
-=== "Mahti"
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=interactive
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1875
-
-    module load julia
-    julia --project=. script.jl
-    ```
-
 
 === "LUMI"
     ```bash title="batch.sh"
@@ -321,21 +298,6 @@ println(ids)
     #SBATCH --mem-per-cpu=1000
 
     module purge
-    module load julia
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --mem-per-cpu=0
-
     module load julia
     julia --project=. script.jl
     ```
@@ -421,21 +383,6 @@ println.(outputs)
     #SBATCH --mem-per-cpu=1000
 
     module purge
-    module load julia
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=128
-    #SBATCH --mem-per-cpu=0
-
     module load julia
     julia --project=. script.jl
     ```
@@ -526,21 +473,6 @@ println.(outputs)
     julia --project=. script.jl
     ```
 
-=== "Mahti"
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=0
-
-    module load julia
-    julia --project=. script.jl
-    ```
-
 === "LUMI"
     ```bash title="batch.sh"
     #!/bin/bash
@@ -561,7 +493,7 @@ println.(outputs)
 ### MPI program
 We launch the MPI program using Julia's `mpiexec` wrapper function.
 The wrapper function substitutes the correct command from local preferences to the `mpirun` variable to run the MPI program.
-The command is `srun` in Roihu, Mahti, and LUMI.
+The command is `srun` in Roihu and LUMI.
 The wrapper allows us to write more flexible code, such as mixing MPI and non-MPI code, and more portable code because the command to run MPI programs can vary across platforms.
 We note that for large-scale Julia MPI jobs with thousands of ranks, we have to distribute the [depot directory to local node storage or memory](https://juliahpc.github.io/user_faq/#how_to_cope_with_a_large_number_of_mpi_processes_accessing_the_same_julia_depot) and modify the depot paths accordingly.
 Otherwise, package loading will become extremely slow.
@@ -610,22 +542,6 @@ MPI.Barrier(comm)
     #SBATCH --mem-per-cpu=1000
 
     module purge
-    module load julia
-    module load julia-mpi
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=medium
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=0
-
     module load julia
     module load julia-mpi
     julia --project=. script.jl
@@ -684,38 +600,6 @@ We use the following directory structure and assume it is our working directory.
     #SBATCH --gres=gpu:gh200:1
 
     module purge
-    module load julia
-    module load julia-cuda
-    julia --project=. script.jl
-    ```
-
-=== "Mahti"
-    ```toml title="Project.toml"
-    [deps]
-    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
-
-    [compat]
-    CUDA = "< 5.9"
-    ```
-
-    ```julia title="script.jl"
-    using CUDA
-
-    A = rand(2^9, 2^9)
-    A_d = CuArray(A)
-    B_d = A_d * A_d
-    ```
-
-    ```bash title="batch.sh"
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpusmall
-    #SBATCH --time=00:15:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=1
-    #SBATCH --cpus-per-task=32
-    #SBATCH --gres=gpu:a100:1
-
     module load julia
     module load julia-cuda
     julia --project=. script.jl
