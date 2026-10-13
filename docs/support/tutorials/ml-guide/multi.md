@@ -2,7 +2,7 @@
 
 This guide explains how to utilize multiple GPUs and multiple nodes
 for machine learning applications on CSC's supercomputers. It is part
-of our [Machine learning guide](ml-guide.md).
+of our [Machine learning guide](index.md).
 
 First we will explain the general principles, such as single- and
 multi-node jobs and mechanisms for launching multiple processes. After
@@ -62,7 +62,7 @@ Roihu, you'll have 2*4=8 GPUs.
     #SBATCH --nodes=2
     ```
 
-    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../../accounts/how-to-access-roihu-large-partition.md).
 
 === "LUMI"
 
@@ -268,7 +268,7 @@ Example of running PyTorch DDP on 2 full nodes:
         myprog.py <options>
     ```
 
-    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../../accounts/how-to-access-roihu-large-partition.md).
 
 === "LUMI"
 
@@ -459,7 +459,7 @@ PyTorch Lightning Slurm script for two full nodes using all GPUs:
     srun python3 myprog.py --gpus=4 --nodes=2 <options>
     ```
 
-    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../../accounts/how-to-access-roihu-large-partition.md).
 
 === "LUMI"
 
@@ -501,7 +501,7 @@ the accelerate launcher and also provide an Accelerate config file.
 A working [example for LLM fine-tuning can be found in this GitHub
 repository](https://github.com/CSCfi/llm-fine-tuning-examples)
 (check the files ending with `-accelerate.sh`). Also check our [guide
-on using LLMs on supercomputers](ml-llm.md).
+on using LLMs on supercomputers](llm.md).
 
 Example using Accelerate on all GPUs on a single node:
 
@@ -585,7 +585,7 @@ Example of running Accelerate on 2 full nodes (8 GPUs).
     srun bash -c "$RUN_CMD"
     ```
 
-    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../../accounts/how-to-access-roihu-large-partition.md).
 
 === "LUMI"
 
@@ -766,7 +766,7 @@ separate task for each GPU:
         <further options>
     ```
 
-    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../accounts/how-to-access-roihu-large-partition.md).
+    Note that getting [access to the Roihu `gpularge` partition requires submitting scalability tests](../../../accounts/how-to-access-roihu-large-partition.md).
 
 === "LUMI"
 

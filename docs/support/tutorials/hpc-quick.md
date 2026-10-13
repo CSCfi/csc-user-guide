@@ -109,7 +109,7 @@ Roihu will provide even more support for highly parallel workloads.
 
 While Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
 are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
-also suitable for demanding [machine learning](ml-guide.md) applications. Roihu,
+also suitable for demanding [machine learning](ml-guide/index.md) applications. Roihu,
 however, with its H100 GPUs provides even more performance than Mahti for these workloads.
 
 ## How to access CSC supercomputers?
@@ -299,7 +299,7 @@ at CSC.
 === "Training materials and tutorials"
     - [*CSC Computing Environment* course materials](https://csc-training.github.io/csc-env-eff/)
     - [Linux basics tutorial](../tutorials/env-guide/index.md)
-    - [Machine learning guide](ml-guide.md)
+    - [Machine learning guide](ml-guide/index.md)
     - [Using Python on CSC supercomputers](python-usage-guide.md)
     - [Managing data on scratch disks](clean-up-data.md)
     - Other [tutorials](index.md) and

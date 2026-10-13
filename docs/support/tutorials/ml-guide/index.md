@@ -11,30 +11,30 @@ computing resources.
 
 In addition to this page, this guide contains the following subsections:
 
-- [**Getting started with machine learning at CSC**](ml-starting.md)
-- [**GPU-accelerated machine learning**](gpu-ml.md)
-- [**Data storage for machine learning**](ml-data.md)
-- [**Multi-GPU and multi-node machine learning**](ml-multi.md)
+- [**Getting started with machine learning at CSC**](starting.md)
+- [**GPU-accelerated machine learning**](gpu.md)
+- [**Data storage for machine learning**](data.md)
+- [**Multi-GPU and multi-node machine learning**](multi.md)
 - [**Hyperparameter search**](hyperparameter_search.md)
-- [**Managing machine learning workflows on CSC's supercomputers**](ml-workflows.md)
-- [**Working with large language models on supercomputers**](ml-llm.md)
-- [**Extend CSC-based ML containers using sandbox**](ml-container-extend.md)
+- [**Managing machine learning workflows on CSC's supercomputers**](workflows.md)
+- [**Working with large language models on supercomputers**](llm.md)
+- [**Extend CSC-based ML containers using sandbox**](container-extend.md)
 
 ## What CSC service to use?
 
 CSC offers several services which might be relevant for machine learning users:
 
-- [Roihu](../../computing/index.md) and
+- [Roihu](../../../computing/index.md) and
   [LUMI](https://docs.lumi-supercomputer.eu/) supercomputers are
   multi-user clusters and offer the highest computing performance,
   including GPU acceleration in a centrally controlled software
   environment,
 
-- [Pouta](../../cloud/pouta/index.md) offers your own virtual server with full
+- [Pouta](../../../cloud/pouta/index.md) offers your own virtual server with full
   control of the software environment, but restricted computing performance
   compared to supercomputers, 
 
-- [Rahti](../../cloud/rahti/index.md) offers a more automatized container-based
+- [Rahti](../../../cloud/rahti/index.md) offers a more automatized container-based
   cloud environment, useful in particular for deploying web services.
 
 **Our recommendation is to use CSC's supercomputers**, unless you need
@@ -48,7 +48,7 @@ model as a service, then Pouta or Rahti might be most relevant for
 you.
 
 If you are unsure about the right service to use, don't hesitate to
-[contact our service desk](../contact.md) and explain your computing
+[contact our service desk](../../contact.md) and explain your computing
 needs.
 
 
@@ -59,17 +59,17 @@ go. These are clusters of hundreds (or thousands) of computers, some
 of which offer GPU-acceleration. The supercomputers are multi-user
 systems, so individual users have limited rights to install software,
 and as with any shared resource one must follow the [usage
-policy](../../computing/usage-policy.md) so that the service can
+policy](../../../computing/usage-policy.md) so that the service can
 remain usable.
 
 CSC hosts the national supercomputer Roihu and the European LUMI
 supercomputer. If you are [unsure which supercomputer to choose, read
-the discussion here](gpu-ml.md).
+the discussion here](gpu.md).
 
 If you are a new user, please read [how to access
-Roihu](../../computing/index.md#accessing-csc-supercomputers), and
+Roihu](../../../computing/index.md#accessing-csc-supercomputers), and
 [how to submit computing
-jobs](../../computing/running/getting-started.md). If you have opted
+jobs](../../../computing/running/getting-started.md). If you have opted
 for LUMI read the [LUMI Get Started
 page](https://docs.lumi-supercomputer.eu/firststeps/). LUMI users may
 also be interested in the [AI Software Environment provided by the
@@ -77,14 +77,14 @@ LUMI AI
 Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 All supercomputers also provide a [web user
-interface](../../computing/webinterface/index.md), through which
+interface](../../../computing/webinterface/index.md), through which
 one can easily launch for example a Jupyter Notebook session with
 PyTorch. Note that GPUs access is more restricted for interactive
 sessions.
 
 Also check the subsections related to [efficient GPU
-utilization](gpu-ml.md), [how to work with big data sets](ml-data.md),
-and [multi-GPU and multi-node jobs](ml-multi.md).
+utilization](gpu.md), [how to work with big data sets](data.md),
+and [multi-GPU and multi-node jobs](multi.md).
 
 
 ## Cloud services
@@ -93,7 +93,7 @@ and [multi-GPU and multi-node jobs](ml-multi.md).
 
 There are some use cases where the supercomputers are not the right
 solution, and you may need a [virtual server on
-Pouta](../../cloud/pouta/index.md).  Typical examples include:
+Pouta](../../../cloud/pouta/index.md).  Typical examples include:
 
 - very complex software environment,
 - need for root access,
@@ -101,7 +101,7 @@ Pouta](../../cloud/pouta/index.md).  Typical examples include:
 
 With Pouta you get your own virtual server, where you have root or administrator
 access. [HPC and GPU flavors are
-available](../../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) for heavy
+available](../../../cloud/pouta/vm-flavors-and-billing.md#hpc-flavors) for heavy
 computing needs, however, the computing resources will always be smaller than in
 a supercomputer.
 
@@ -110,14 +110,14 @@ which is suited for cases with high security requirements. With ePouta the
 virtual server will be integrated into your existing network infrastructure.
 
 See our [Pouta documentation pages on how to apply for
-access](../../cloud/pouta/index.md).
+access](../../../cloud/pouta/index.md).
 
 
 ## Further reading in Docs CSC
 
-* [Python parallel jobs](python-usage-guide.md#python-parallel-jobs)
-* [Dask tutorial](dask-python.md)
-* [High-throughput computing and workflows](../../computing/running/throughput.md)
+* [Python parallel jobs](../python-usage-guide.md#python-parallel-jobs)
+* [Dask tutorial](../dask-python.md)
+* [High-throughput computing and workflows](../../../computing/running/throughput.md)
 
 For LUMI users see also the [LUMI AI
 Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) created by

@@ -5,7 +5,7 @@ title: GPU-accelerated machine learning
 # GPU-accelerated machine learning
 
 This guide explains the basics of using GPUs in CSC's supercomputers. It is part
-of our [Machine learning guide](ml-guide.md).
+of our [Machine learning guide](index.md).
 
 
 ## Roihu-GPU or LUMI?
@@ -39,7 +39,7 @@ The main GPU-related statistics are summarized in the table below.
     are shown in parenthesis.
 
 Please read our [usage policy for the GPU
-nodes](../../computing/usage-policy.md#gpu-nodes). Also consider that
+nodes](../../../computing/usage-policy.md#gpu-nodes). Also consider that
 the Slurm queuing situation may vary between the different
 supercomputers at different times, so it may be worth checking out all
 the options.
@@ -51,13 +51,13 @@ to manually copy your files if you wish to change the system.
 ## Available machine learning software
 
 We support [a number of
-applications](../../apps/by_discipline.md#data-analytics-and-machine-learning)
+applications](../../../apps/by_discipline.md#data-analytics-and-machine-learning)
 for GPU-accelerated machine learning on CSC's supercomputers,
-including [PyTorch](../../apps/pytorch.md), [JAX](../../apps/jax.md)
-and [TensorFlow](../../apps/tensorflow.md).  Please read the detailed
+including [PyTorch](../../../apps/pytorch.md), [JAX](../../../apps/jax.md)
+and [TensorFlow](../../../apps/tensorflow.md).  Please read the detailed
 instructions for the specific application that you are interested in.
 
-You need to use the [module system](../../computing/modules.md) to
+You need to use the [module system](../../../computing/modules.md) to
 load the application you want, for example:
 
 ```bash
@@ -79,14 +79,14 @@ then [install additional packages for personal use with the `pip` package
 manager](./python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 For more complex software requirements, we recommend using
-[tykky](../../computing/containers/tykky.md) or [creating your own
+[tykky](../../../computing/containers/tykky.md) or [creating your own
 Apptainer
-container](../../computing/containers/overview.md#building-container-images). For
+container](../../../computing/containers/overview.md#building-container-images). For
 Roihu we have provided a set of [base Apptainer
-images](../../computing/containers/overview.md#ml-containers) that you
+images](../../../computing/containers/overview.md#ml-containers) that you
 can build on when creating your own containers. Also see our [tutorial
 on how to extend our `ml-base` container using a
-sandbox](ml-container-extend.md).
+sandbox](container-extend.md).
 
 ## Running GPU jobs
 
@@ -129,11 +129,11 @@ corresponding proportion of the CPU cores and memory of a single node:
 
 Roihu-GPU also has a [`gpularge` partition which requires a scalability
 test for
-access](../../accounts/how-to-access-roihu-large-partition.md)
+access](../../../accounts/how-to-access-roihu-large-partition.md)
 
 For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
-supercomputers](../../computing/running/batch-job-partitions.md) and [Slurm partitions on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
+supercomputers](../../../computing/running/batch-job-partitions.md) and [Slurm partitions on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
 ## GPU utilization
 
@@ -156,7 +156,7 @@ it might be because of several reasons:
   your utilization is really low, you might consider if using CPUs
   would be more cost efficient.
 
-As always, don't hesitate to [contact our service desk](../contact.md)
+As always, don't hesitate to [contact our service desk](../../contact.md)
 if you have any questions regarding GPU utilization.
 
 ### Tools for monitoring GPU utilization
@@ -267,7 +267,7 @@ If you are using multiple data loaders, but data loading is still slow, it is
 also possible that you are using the shared file system inefficiently. A common
 error is to read a huge number of small files. You can read more about [how to
 store and load data in the most efficient way for machine learning in our
-separate tutorial](ml-data.md).
+separate tutorial](data.md).
 
 ### Profilers
 
@@ -283,8 +283,8 @@ pipeline.
 
 See also:
 
-- [How to launch TensorBoard using the Roihu web interface](../../computing/webinterface/apps.md)
-- [PyTorch profiler tutorial](../../apps/pytorch.md#pytorch-profiler)
+- [How to launch TensorBoard using the Roihu web interface](../../../computing/webinterface/apps.md)
+- [PyTorch profiler tutorial](../../../apps/pytorch.md#pytorch-profiler)
 
 ## GPU energy usage
 

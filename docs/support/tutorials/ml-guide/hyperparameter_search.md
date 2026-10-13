@@ -1,7 +1,7 @@
 # Hyperparameter search
 
 This guide explains how to do hyperparameter search for machine learning on
-CSC's supercomputers. It is part of our [Machine learning guide](ml-guide.md).
+CSC's supercomputers. It is part of our [Machine learning guide](index.md).
 
 ## Introduction
 
