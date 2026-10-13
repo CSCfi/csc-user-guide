@@ -44,7 +44,7 @@ directives implemented.
 
 Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL. It is free for everyone to use.
 
-### Usage
+## Usage
 
 === "Roihu-CPU"
 
