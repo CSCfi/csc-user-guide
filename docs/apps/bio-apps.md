@@ -202,6 +202,7 @@ py-ipyrad/0.9.102
 py-metaphlan/4.2.4
 py-micom/0.39.0
 py-multiqc/1.28
+py-samestr/1.2025.111
 py-steadiercom/0.1.5
 raxml/8.2.12
 raxml-ng/2.0.2
