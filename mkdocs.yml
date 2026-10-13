@@ -14,9 +14,9 @@ extra:
     icon:
       name: material/alert-circle # Choose one (emojis not supported) from here https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search
       mirror: false # Toggle mirrored right-hand side icon
-    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
+    color_scheme: info # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |- # Make sure to also update the translation in mkdocs_fi.yml
-      <p>Docs CSC will have a service break on Monday 19 October 2026 from 11:00–13:00 EEST. See <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/">more information</a>.</p>
+      <p>Docs CSC will have a service break on Monday 19 October 2026 from 11:00–13:00 EEST. <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/" target="_blank">See more information</a>.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png

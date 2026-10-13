@@ -5,7 +5,7 @@ site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalvel
 extra:
   announcement:
     content: |-
-      <p><strong>Docs.csc.fi-sivustolla on huoltokatko maanantaina 19. lokakuuta 2026 klo 11.00–13.00.</strong> Katso <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/">lisätietoja</a>.</p>
+      <p>Docs CSC -sivustolla on huoltokatko maanantaina 19. lokakuuta 2026 klo 11.00–13.00. <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/" target="_blank">Katso lisätietoja</a>.</p>
   analytics:
     feedback:
       title: Onko tämä sivu hyödyllinen?
