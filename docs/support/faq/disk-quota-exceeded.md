@@ -10,7 +10,7 @@ csc-workspaces
 An example output is shown below:
 
 ```text
-[kkayttaj@puhti-login11 ~]$ csc-workspaces 
+[kkayttaj@roihu-cpu-login1 ~]$ csc-workspaces 
 
 Disk area               Capacity(used/max)  Files(used/max)  Cleanup
 ----------------------------------------------------------------------

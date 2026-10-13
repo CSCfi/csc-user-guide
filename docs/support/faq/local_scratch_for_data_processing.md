@@ -1,5 +1,7 @@
 # Which directory should I use to analyze many small files?
-                   
+
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 An [interactive batch job](../../computing/running/interactive-usage.md) on
 Puhti allows you to start a shell session on a compute node with up to:
 

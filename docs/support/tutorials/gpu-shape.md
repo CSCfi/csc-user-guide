@@ -1,5 +1,7 @@
 # Shape based molecular screening using GPU
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 This tutorial will show how to use the 
 [Schrödinger Maestro Shape](https://www.schrodinger.com/Shape-Screening/)
 tool to quickly screen the 
