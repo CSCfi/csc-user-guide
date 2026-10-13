@@ -205,6 +205,7 @@ py-multiqc/1.28
 py-steadiercom/0.1.5
 raxml/8.2.12
 raxml-ng/2.0.2
+revbayes/1.4.1
 roary/3.13.0
 samtools/1.21
 samtools/1.24
