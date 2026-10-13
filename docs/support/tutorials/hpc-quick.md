@@ -78,45 +78,11 @@ GPU applications are able to run on AMD GPUs. LUMI has
     pre-installed software and licenses are other factors which may make using
     CSC supercomputers attractive for you.
 
-### Puhti
-
-!!! warning "Do not start new work on Puhti"
-     Puhti's computing services have been shut down since 31 July 2026, and its storage will be
-     fully inaccessible after mid October 2026.
-
-     If you are a new user, we advise you to start using Roihu for your supercomputing needs.
-
-The Puhti supercomputer has been in use since 2019.
-Compared to Mahti, it has much more
-[pre-installed software](../../apps/by_availability.md#puhti), more GPU nodes, and
-typically more available memory per CPU core. Additionally, GPU nodes and some
-CPU nodes on Puhti have
-[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
-
-### Mahti
-
-!!! warning "Do not start new work on Mahti"
-     Mahti's computing services have been shut down since 31 August 2026, and its storage will be
-     fully inaccessible after mid October 2026.
-
-     If you are a new user, we advise you to start using Roihu for your supercomputing needs.
-
-Mahti has been CSC’s CPU-focused supercomputer for highly parallel workloads.
-It has many more CPU nodes and cores per node than Puhti, and has mainly been
-intended for computations that can efficiently utilize at least an entire CPU node.
-However, Mahti's computing services have been shut down since August 2026, so new work should be started on Roihu instead.
-Roihu will provide even more support for highly parallel workloads.
-
-While Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
-are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
-also suitable for demanding [machine learning](ml-guide.md) applications. Roihu,
-however, with its H100 GPUs provides even more performance than Mahti for these workloads.
-
 ## How to access CSC supercomputers?
 
 ### Web interface
 
-Roihu, Puhti, Mahti and LUMI each have
+Roihu and LUMI both have
 [their own web interface](../../computing/webinterface/index.md), which allows
 interacting with the supercomputer through a web browser. The web interface is a
 good choice for interactive computing, such as analyzing, exploring and
@@ -135,8 +101,6 @@ schedule your jobs.
 
 - [Roihu web interface](https://www.roihu.csc.fi)
 - [LUMI web interface](https://www.lumi.csc.fi)
-- [Puhti web interface](https://www.puhti.csc.fi) - compute services decommissioned; login and data access only, until 15 October 2026
-- [Mahti web interface](https://www.mahti.csc.fi) - compute services decommissioned; login and data access only, until 15 October 2026
 
 ### Command-line interface
 
@@ -185,7 +149,7 @@ available on CSC supercomputers. Software availability varies between systems
 and between the Roihu-CPU and Roihu-GPU partitions, so check the application
 pages and module availability on the system you plan to use.
 
-CSC supercomputers use [environment modules](../../computing/modules.md) for
+Both Roihu and LUMI use [environment modules](../../computing/modules.md) for
 managing software environments. These modules cover everything from
 [compilers](../../computing/installing.md#compiling) and
 [programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
@@ -227,7 +191,7 @@ using specific resources like GPUs.
 
 ### Data storage
 
-CSC supercomputers provide distinct [disk areas](../../computing/disk.md) for
+Roihu provides distinct [disk areas](../../computing/disk.md) for
 different data storage purposes. The *project-based* shared storage can be found
 under `/scratch/<project>`. This folder is shared by *all users* in a project
 and has a default quota of 250 GB on Roihu.
