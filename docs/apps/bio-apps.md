@@ -189,6 +189,7 @@ picard/3.3.0
 plink/1.07
 plink2/2.0.0-a.6.9
 prodigal/2.6.3
+py-bakta/1.11.4
 py-biopython/1.85
 py-cutadapt/4.7
 py-dbcan/5.2.9
