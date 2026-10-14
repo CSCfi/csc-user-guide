@@ -103,16 +103,11 @@ Do note that the default quotas in Roihu are more restrictive than they were on 
 
 See documentation on [increasing disk quotas.](../../computing/disk.md#increasing-quotas)
 
-### 8. Do I need to migrate data from Allas to Roihu?
+### 8. How do I migrate data from Allas to Roihu?
 
-Allas is not affected in this update. You can keep your current data there.
-If you have your data in Allas, you can access that data from Roihu too.
-That data does not need to be migrated, as Allas will remain available during and after the Roihu transition.
+Allas can be accessed from Roihu in an almost identical manner to Puhti and Mahti.
 
-It is not recommended to transfer data from Mahti/Puhti to Roihu via Allas or your local workstation.
-Instead, CSC recommends using command-line based tools such as
-[`rsync`](../../support/tutorials/roihu-data.md#3-recommended-data-migration-methods)
-to directly transfer data from Puhti/Mahti/LUMI to Roihu.
+See our tutorial for [using Allas in Roihu](../../data/Allas/allas-roihu.md).
 
 ### 9. How should I run large or long-running data transfers, and how long do they take?
 
