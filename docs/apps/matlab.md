@@ -11,10 +11,8 @@ catalog:
     - web_interfaces:
         - LUMI
         - Roihu
-        - Mahti
     - LUMI
     - Roihu
-    - Mahti
 ---
 
 # MATLAB
@@ -43,26 +41,32 @@ The best choice depends on your needs.
 1. **MATLAB web application** is best for interactive use.
 It works like the desktop version and lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
-Available on Roihu, Mahti, and LUMI.
+Available on Roihu-CPU, and LUMI.
 
 2. **MATLAB command-line interface** is good for basic interactive and batch work.
 It lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
 You can also use a network license.
-Available on Roihu, Mahti, and LUMI.
+Available on Roihu-CPU, and LUMI.
 
 3. **MATLAB parallel server** is best for batch computing.
 You can send jobs from your local MATLAB to the supercomputer.
 Your local toolboxes work on the supercomputer too.
 The supercomputer workers use CSC's network license.
-Available on Roihu only.
+Available on Roihu-CPU only.
 
 All options support MATLAB versions R2023b to R2026a.
 
+!!! warning "Availability on Roihu"
+    1. MATLAB Parallel Server is NOT yet available on Roihu!
+    2. MATLAB runs currently only on Roihu-CPU (x86_64).
+       GPUs are currently available only on the [`vizinteractive`](../computing/running/creating-job-scripts-roihu.md#gpu-visualization-jobs) partition which is intended for visualization.
+    3. Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
+
 CSC provides the following licenses, shared between all users, for **academic** use:
 
-=== "Roihu and Mahti"
+=== "Roihu"
 
-    A network license `1766@license4.csc.fi` provides the following academic licenses for Roihu and Mahti: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
+    A network license `1766@license4.csc.fi` provides the following academic licenses for Roihu: 5 MATLAB, 2 Parallel Computing Toolbox, 500 MATLAB Parallel Server.
     The academic license allows use only for affiliates, that is, staff and students, of Finnish higher education institutions.
 
 === "LUMI"
@@ -81,7 +85,7 @@ CSC provides the following licenses, shared between all users, for **academic** 
 
 We recommend using the [web interface](../computing/webinterface/index.md) to use MATLAB interactively.
 
-1. Start by logging into the web interface of the cluster you want to use: [www.roihu.csc.fi](https://www.roihu.csc.fi), [www.mahti.csc.fi](https://www.mahti.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
+1. Start by logging into the web interface of the cluster you want to use: [www.roihu.csc.fi](https://www.roihu.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 
 2. Then press the MATLAB icon to choose the MATLAB web application.
     - ![MATLAB OOD pinned apps](https://a3s.fi/docs-files/apps/matlab-ood-pinned-apps.png){width=400}
@@ -113,9 +117,9 @@ Then press Connect to MATLAB and the web application will open.
 
 ## MATLAB command-line interface
 
-=== "Roihu and Mahti"
+=== "Roihu-CPU"
 
-    On Roihu and Mahti, you can load the MATLAB module as follows:
+    On Roihu-CPU, you can load the MATLAB module as follows:
 
     ```bash
     module load matlab
@@ -249,6 +253,7 @@ t_threads = funcThreads(2)
 ```
 
 It is also possible to use GPUs in MATLAB, but only Nvidia GPUs are supported.
+
 We can query the available GPU devices and perform computation on the GPU as follows:
 
 ```matlab title="funcGPU.m"
@@ -275,10 +280,6 @@ C = funcGPU(1000);
 MATLAB Parallel Server (MPS) allows users to send batch jobs from MATLAB on the user's computer to the Roihu cluster's MATLAB workers.
 Using MPS requires the following configuration on the user's computer: MATLAB installation with a supported MATLAB version, the Parallel Computing Toolbox, [SSH access](../computing/connecting/ssh-keys.md) to the Roihu cluster, and a user-side configuration.
 Install the user-side configuration files by running the following MATLAB script:
-
-!!! Info "Integration scripts"
-    The integration scripts `mps_roihu.zip` for Roihu-CPU are not yet available.
-    They will be available soon!
 
 ```matlab title="mps_roihu.m"
 % Define local MATLAB configuration directory.
@@ -343,7 +344,7 @@ cscWorkspaces(c);
     The PuTTY Private Key format (`.ppk`) will **not** work.
 
 
-### Single node serial, parallel and GPU jobs
+### Single node serial and parallel
 We define the resource reservation using [`parcluster`](https://www.mathworks.com/help/parallel-computing/parcluster.html) and submit the function or script to the cluster using [`batch`](http://www.mathworks.com/help/distcomp/batch.html).
 The `parcluster` object is stateful, thus we explicitly unset properties when they are unused, such as GPUs for CPU-only jobs.
 You can use the following examples; just replace `<project>` with your project, such as `project_2001234`, and modify the resource reservation to suit your needs.
@@ -376,19 +377,19 @@ You can use the following examples; just replace `<project>` with your project, 
     j = batch(c, @funcThreads, 1, {2}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
     ```
 
-=== "GPU"
-
-    ```matlab title="gpu.m"
-    c = parcluster();
-    c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject>
-    c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition>
-    c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime>
-    c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads>
-    c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU>
-    c.AdditionalProperties.GPUCard = 'v100';                % --gres=gpu:<GPUCard>:<GPUsPerNode>
-    c.AdditionalProperties.GPUsPerNode = 1;
-    j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false);
-    ```
+<!-- === "GPU" -->
+<!---->
+<!--     ```matlab title="gpu.m" -->
+<!--     c = parcluster(); -->
+<!--     c.AdditionalProperties.ComputingProject = '<project>';  % --account=<ComputingProject> -->
+<!--     c.AdditionalProperties.Partition = 'gpu';               % --partition=<Partition> -->
+<!--     c.AdditionalProperties.WallTime = '00:15:00';           % --time=<WallTime> -->
+<!--     c.NumThreads = 1;                                       % --cpus-per-task=<NumThreads> -->
+<!--     c.AdditionalProperties.MemPerCPU = '4g';                % --mem-per-cpu=<MemPerCPU> -->
+<!--     c.AdditionalProperties.GPUCard = 'gh200';                % --gres=gpu:<GPUCard>:<GPUsPerNode> -->
+<!--     c.AdditionalProperties.GPUsPerNode = 1; -->
+<!--     j = batch(c, @funcGPU, 1, {1000}, 'CurrentFolder', '.', 'AutoAddClientPath', false); -->
+<!--     ``` -->
 
 In the example, we set the working directory to the home directory in the cluster by setting `'CurrentFolder'` to `'.'`.
 Also, we should disable MATLAB from adding the local MATLAB search path to the remote workers by setting `'AutoAddClientPath'` to `false`.
@@ -477,3 +478,96 @@ LicenseName=mdcs
     Total=500 Used=320 Free=180 Remote=no
 ```
 -->
+
+## Extending the MATLAB environment
+
+CSC's MATLAB installation runs inside an [Apptainer container](../computing/containers/overview.md).
+If you need software that the installation does not provide, such as a Python interpreter, extra system libraries, or command-line tools that your MATLAB code calls, you can build your own container image on top of CSC's MATLAB image and use it with the `matlab` module.
+
+Since MATLAB is available on Roihu-CPU, build the container on the Roihu-CPU login node or on a Roihu-CPU compute node.
+See [Building container images](../computing/containers/overview.md#building-container-images) for general instructions and best practices about building containers on CSC supercomputers.
+
+### Writing the definition file
+
+We extend CSC's MATLAB image by using it as the base image of the container, that is, by bootstrapping from a local image.
+You can see the path of the image that a specific MATLAB version uses as follows:
+
+```bash
+module show matlab/r2026a
+```
+
+The MATLAB image is built on Rocky Linux, thus we install software into it with the DNF package manager.
+Here is an example of installing the [MATLAB engine for Python](https://www.mathworks.com/help/matlab/matlab_external/install-the-matlab-engine-for-python.html) on top of the MATLAB image:
+
+```sh title="matlab.def"
+Bootstrap: localimage
+From: /appl/soft/manual/general/x86_64/matlab/r2026a/matlab.sif
+
+%post
+    # Install Python
+    dnf install -y python3.11 python3.11-pip
+
+    # Install MATLAB engine into a virtual environment
+    cd /opt
+    python3.11 -m venv venv
+    . venv/bin/activate
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/matlab/bin/glnxa64
+    python3.11 -m pip install matlabengine
+
+%environment
+    PATH=/opt/venv/bin:$PATH
+    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/matlab/bin/glnxa64
+```
+
+The `matlabengine` package must match the MATLAB version of the base image.
+The `%environment` section makes the virtual environment and the MATLAB libraries available at runtime, so that `python3` resolves to the Python of the virtual environment and `import matlab.engine` finds the MATLAB libraries.
+
+### Building the container
+
+We build the container from the definition file (`matlab.def`) into a container image (`matlab.sif`) using fakeroot.
+The MATLAB image is large, so build it on scratch (replace `<project>` with your project) and keep an eye on your [quota](../computing/roihu-disk.md):
+
+```bash
+cd /scratch/<project>
+apptainer build --fakeroot --bind="$TMPDIR:/tmp" matlab.sif matlab.def
+```
+
+The build takes a while because Apptainer has to copy and recompress the whole base image.
+
+### Using the custom container
+
+Load the same MATLAB version that you used as the base image and point the `MATLAB_SIF_IMAGE` environment variable to your own image:
+
+```bash
+module load matlab/r2026a
+export MATLAB_SIF_IMAGE=/scratch/<project>/matlab.sif
+```
+
+The MATLAB commands provided by the module now run inside your own image:
+
+```bash
+matlab -nodisplay
+```
+
+We can also run other software that we installed into the image using the `matlab-apptainer-exec` command:
+
+```bash
+matlab-apptainer-exec python3 --version
+```
+
+For example, we can call MATLAB from Python using the MATLAB engine as follows:
+
+```python title="engine.py"
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
+print(eng.sqrt(16.0))
+eng.quit()
+```
+
+```bash
+matlab-apptainer-exec python3 engine.py
+```
+
+Note that CSC updates the MATLAB images, for example, to apply patches to a MATLAB version.
+If the base image changes, you need to rebuild your own image to pick up the changes.

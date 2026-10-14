@@ -2,45 +2,102 @@
 
 # Create virtual desktop and volume
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/wb4TwsqNCRE" title="Create a virtual desktop in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## On this page: 
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/KgdGueesSe4" title="Luo virtuaalinen työpöytä SD Desktop -palvelussa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+- [1. Create volume](#1-create-volume)
+- [2. Create virtual desktop](#2-create-virtual-desktop)
+- [3. Attach volume and virtual desktop](#3-attach-the-volume-to-the-virtual-desktop)
+- [4. Make sure your CSC project has sufficient Billing Units](#4-make-sure-your-csc-project-has-sufficient-billing-units-bu)
+- [5. Important considerations](#5-important-considerations)
+___
 
-With the SD Desktop service, you can create virtual computers for analysing sensitive data via web browser. In addition, SD Desktop provides a secure workspace for collaborative research projects. You can create up to six virtual desktops for one CSC project. Creating a virtual desktop doesn't require technical expertise.
+!!! Note
+   If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". **We can provide general introduction to the service, guidance and, if needed, arrange an online support session**.
 
-## Overview: 
 
-1. [Log in to SD Desktop](#1-log-in-to-sd-desktop)
+___
 
-2. [Select correct options](#2-select)
+In this section, you will start preparing your secure working environment by creating a volume to store a working copy of your data and a virtual desktop where you will analyse it. You will then connect them so your environment is ready for data import form SC Connect.
 
-3. [Add an external volume](#3-add-an-external-volume-virtual-external-hard-drive)
 
-4. [Create virtual desktop](#4-create-virtual-desktop)
+![Virtual desktop and volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/VM_and_volume.png){ style="float: right; margin: 0 3em 3em 3em; width: 45%;" }
 
-5. [Make sure your CSC project has sufficient Billing Units](#5-make-sure-your-csc-project-has-sufficient-billing-units-bu)
 
-6. [Important considerations](#6-important-considerations)
 
 
 ## Step by step
 
-### 1. Log in to SD Desktop
+## 1. Create volume
 
-* Log in to SD Desktop.
-* Click **Go to SD Desktop Management**.
+**A storage volume is a secure storage space where you import and store a working copy of the data you want to analyse**. Think of a volume as a virtual USB stick: you can attach it to one virtual desktop at a time and move it between virtual desktops within the same CSC project. You can create up to five volumes per CSC project. 
 
-![Go to SD Desktop Management.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_GoToManagement.png)
+Your data remains stored on the volume if the virtual desktop becomes unresponsive. If you delete the virtual desktop, the volume is automatically detached and remains available for you to attach to another virtual desktop (**notice: this feature is available only for virtual desktops created after 28 September 2028**) or for permanently deleting it in a separate step.
 
-### 2. Select
+In the next steps, you will be guided to **choose a volume size that matches the total amount of storage you expect to need for your data, scripts, and analysis results**: 200 GB, 500 GB, or 1 TB. Select only the storage space you need rather than choosing the largest option by default. If you are unsure which size is suitable or need more than 1 TB of storage, contact us for support and describe the type and amount of data you plan to analyse. A volume **can only be extended** with additional storage before any data or files are imported on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
-1. correct CSC project
-2. operating system. **Please select Default Ubuntu 22.04** as the operating system. Other available operating systems are only available after contacting the service desk and following specific instructions.
+Volumes consume your CSC project resources, 4.7 Could-type Billing units /TiB/ hour, from the moment they are created, whether or not they are attached to a virtual desktop. Plan in advance how many resources your CSC project needs.  Check billing unit consumption:
 
-4. name for your desktop. A descriptive name is useful, especially if you are working on multiple projects. Note, that the name should only include letters or numbers, and you shouldn't use special characters or spaces in the name.
-5. a pre-built desktop option based on your needs. [See options below](#virtual-desktop-options).
 
-![Virtual desktop selections.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_SelectProject.png)
+| Name   | Size (GB) | Cost Billing Units per year |
+|--------|-----------|-------------|
+| Small  | 200       | 8 234  |
+| Medium | 500       | 20 586 |
+| Large  | 1000      | 41 172 |
+
+
+
+### Step by step
+
+1. Log in to [SD Desktop services](https://sd-desktop.csc.fi)
+
+2. In the main page, select the CSC project you want to use from the drop-down menu on the left.
+
+3. In the top-right corner, click **Create volume**. This opens a new Create volume window.
+
+Here:
+
+1. **Select a name** for your volume. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
+
+2. **Choose from the available options** the one that covers the combined size of your dataset and working files:  200 GB, 500 GB, or 1 TB. Select only the storage space you need rather than choosing the largest option by default. If you are unsure which size is suitable or need more than 1 TB of storage, contact servicedesk@csc.fi (subject: SD Services) for support. 
+
+3. Write **optional** description or note about the volume to help your team members understand its purpose and contents.
+
+4. Click **Create**. The window will now close and volume creation will start.
+   
+5. Back on the main page, you will see a list of your volumes in **Volumes tab**. 
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .csc-grid-card-warning }
+    
+     A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+
+</div>
+
+
+![Create volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume.png)
+
+![Create volume window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateVolume2.png)
+
+![Volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_Volumes.png)
+
+
+
+
+
+## 2. Create virtual desktop
+
+A virtual desktop is a secure computer that you access through your web browser. Like a regular computer, it has an operating system, applications, memory and storage, but it runs remotely in the SD Desktop service rather than on your own computer. You use the virtual desktop to access and analyse your sensitive research data in a secure environment. 
+
+Desktops have only 80 GB of storage by default. If you save more than 80 GB of data directly to your desktop, it becomes unresponsive and you may lose your data. To avoid this, please **create and attach a volume to your desktop and save your data there**, do not skip the last step. 
+
+You can create up to three desktops within a single CSC project, with up to 10 project members allowed to connect simultaneously to each desktop. As the storage volume, your virtual desktop is accessible to all project members upon creation.
+
+You can choose between different virtual desktops options based on your needs. Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
+
+
 
 #### Virtual desktop options
 
@@ -55,33 +112,73 @@ With the SD Desktop service, you can create virtual computers for analysing sens
 !!! note
     All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. 
 
-### 3. Add an external volume (virtual external hard drive)
 
-When creating a desktop, you must also add a volume, where you will import the data for analysis. 
 
-1. Choose a size that covers the combined size of your dataset and working files via the user interface, up to 200 GB. An empty volume can be extended with additional storage upon request to service desk, after desktop creation and if no data or files have been saved on it. To request an extension, contact [CSC Service Desk](../../support/contact.md), *(subject: SD Desktop) and share your CSC project number, virtual desktop  and volume name. If you are unsure about which volume size you should choose for your project, contact us for support. 
+## Step by step
 
-2. Name your volume. Note, that the volume name should not include special characters or spaces.
+1. In the main Select correct CSC project from dropdown on the left side.
 
-* It’s recommended to save critical analyses or files on the volume, which can also act as a backup if the virtual desktop becomes unresponsive.
-  
-* **You can detach and attach a volume from your virtual desktop** on the SD Desktop Management page. This can be compared to connecting/disconnecting a USB stick to your laptop. This feature is available only on desktops created after February 2023. For additional details, refer to: [Managing volume and desktops](./sd-desktop-manage.md).
+2. On the top right corner, Click **Create desktop**. This will open a new window.
 
-*  Volumes consume 4.7 Cloud Billing units/TiB/hour until deleted. 
+Here: 
 
-![Add volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_Volume.png)
+1. **Select a name** for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
+   
+3. **Operating system.**  **Linux Ubuntu24** is already preselected by default.
+4. 
+5. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
+   
+6. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+   
+7. Click **Create**. The window will now close and desktop creation will start.
 
-### 4. Create virtual desktop
+After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 15 minutes, during which the status label **Creating** will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready for the next step and for being accessed. 
 
-4. Click *Create desktop*. The operation is entirely automated and can take up to 30 minutes. If you try accessing the virtual desktop during this process, an error message will be displayed asking you to return later. 
+
+
+![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop.png)
+
+![Create desktop window.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_CreateDesktop2.png)
+
+![Access desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AccessVM.png)
+
+
+<div class="grid cards" markdown>
+
+- :material-close-circle:{ .lg .middle } **Desktop storage limit**
+  { .csc-grid-card-error }
+    
+    Desktops have 80 GB of storage by default. **If you save more than 80 GB of data to your desktop, it becomes unresponsive and you may lose your data**. To avoid this, please create and attach a **volume** to your desktop and save your data there.
+
+</div>
+
+
+## 3. Attach the volume to the virtual desktop
 
 !!! Note
-    After clicking "Create," please be aware that the confirmation notification may take up to 90 seconds to appear at the bottom of the page. If you are unsure whether the action was successful, please reach out to us at the service desk. We apologize for any inconvenience this may cause.
+    **This option is only available for virtual desktops created after 25 September 2026.**
 
-![Create desktop.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-Desktop_CreateButton.png)
+Once you have created a virtual desktop and a volume, you can connect them. Each volume can be attached to only one desktop at a time but you can attach multiple volumes to the same virtual desktop when needed. 
 
 
-### 5. Make sure your CSC project has sufficient Billing Units (BU).
+1. On the SD Desktop homepage, locate the virtual desktop you want to attach the volume to.
+
+2. On the right side of the virtual desktop, click **Manage volumes**. The **Manage volumes window opens**.
+
+3. Here, locate the volume you want to attach.
+
+4. Click **Attach** on the right side of the volume.
+
+5. Once the volume is attached, close the Manage volumes window.
+
+ 
+![Manage volumes.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_ManageVolumes.png)
+
+![Attach volume.](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/SD-DesktopNew_AttachVolume.png)
+
+___
+
+### 4. Make sure your CSC project has sufficient Billing Units (BU).
 
 Once created, your virtual desktop and any associated storage volumes begin consuming resources, measured in Cloud Billing Units (BU), from your project allocation.
 
@@ -104,14 +201,13 @@ Once created, your virtual desktop and any associated storage volumes begin cons
 You will receive automated email notifications throughout the process, including warnings, status updates, and instructions on any actions that may be required.
 
 
-
-## 6. Important considerations
+## 5. Important considerations
 
 * Your virtual desktop is **accessible to all the CSC project members upon creation**. All project members can import file, install software, permanently delete the virtual desktop and its entire content. Only the CSC project manager can export files from the secure environment. 
 
 * Each CSC project supports up to 6 virtual desktops, with 10 project members allowed to connect simultaneously to each desktop.
 
-* All desktops come with a set of pre-installed open-source software managed by CSC. Read more about [pre-installed software and customisation.](./sd-desktop-software.md).
+* All desktops come with a set of pre-installed open-source software managed by CSC. Read more about [pre-installed software and customization.](./sd-desktop-software.md).
 
 * **Delete or pause unused desktops**: Ensure to [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) or [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) your desktop when not in use. You will receive email notifications after 14 days of inactivity.
   

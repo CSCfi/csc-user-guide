@@ -296,26 +296,29 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 
 ## How do I use the announcement bar?
 
-The content inside the yellow announcement bar below the header is controlled by editing the file
-[csc-overrides/partials/announcement.html](csc-overrides/partials/announcement.html). The bar's
-visibility, in turn, is controlled by changing the value `true|false` of `extra: announcement_visible` in
-[mkdocs.yml](mkdocs.yml). At the moment, the only content confirmed to work are HTML `<p>` and `<a>`.
+The announcement bar below the header is controlled by editing the `extra.announcement` mapping in [mkdocs.yml](mkdocs.yml):
 
-Select an icon by uncommenting (change both `#`s to `%`s) one of the lines:
+- `announcement` to hide the announcement, comment the entire mapping (announcement itself, icon, color_scheme, etc.)
+  - `icon` pick an icon [here](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search)
+    - `name` replace the first `-` with `/`; prefer 'material' icons
+    - `mirror` mirror the right-hand side icon (`true` or `false`)
+  - `color_scheme` pick a color [here](https://design-system.csc.fi/design-tokens/color) (`null` for the yellow note color)
+  - `content` the content of the announcement, in HTML
 
-Commented:
-```text
-{# import ".icons/material/information.svg" as icon #}
+The _href_ attribute for internal hyperlinks **must** start with `{{ base_url }}`. Note that this is not a Markdown link.
+
+```yaml
+extra:
+  # ...
+  announcement:
+    icon:
+      name: material/beaker-outline
+      mirror: true
+    color_scheme: error
+    content: |-
+      <p>Announcement content in HTML. <a href="{{ base_url }}/path/to/page/">Click here for more information</a>.</p>
+  # ...
 ```
-
-Uncommented:
-```text
-{% import ".icons/material/information.svg" as icon %}
-```
-
-Make sure to "un-uncomment" every other line, since only a single line may be in an uncommented state at a time.
-
-Documentation for _Material for MkDocs_ has a [search feature](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search) including **previews** for the icon database. The path of the icon file can be determined by examining the shortcode. For example, the path `.icons/material/information.svg` above corresponds to the shortcode `:material-information:` shown in the search.
 
 ## How do I add a new "Applications" page?
 

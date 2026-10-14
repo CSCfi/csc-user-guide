@@ -10,14 +10,13 @@ docs_dir: docs/
 
 extra:
   environment: !ENV [MKDOCS_ENV, "preview"]
-  announcement_visible: true # Show/hide announcement bar (does not affect urgent announcement below)
-  announcement_urgent: # An urgent announcement shown below the regular one; comment/uncomment to toggle
-    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color
-    content: |-
-      <p>Warning!</p>
-      <div>
-        <p><strong>Puhti and Mahti computing services have been decommissioned</strong> and no new jobs are accepted or executed on its compute nodes. Puhti and Mahti login nodes and storage services are planned to remain available until 15 October 2026. Clean up unnecessary files and move any data you need to keep by <strong>31 August 2026</strong>. See the <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions on transferring your data to Roihu.</p></p>
-      </div>
+  announcement: # An announcement shown below the header
+    icon:
+      name: material/alert-circle # Choose one (emojis not supported) from here https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search
+      mirror: false # Toggle mirrored right-hand side icon
+    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
+    content: |- # Make sure to also update the translation in mkdocs_fi.yml
+      <p>Puhti and Mahti computing services have been decommissioned. Puhti and Mahti login nodes and storage services will remain available until 15 October 2026, but are no longer covered by service contracts. <strong>Please clean up and migrate your data to Roihu ASAP.</strong> See <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
@@ -161,15 +160,18 @@ plugins:
       "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
       # Pouta
       "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
-      "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/projects.md"
+      # Quantum
+      "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/overview.md"
       "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
       "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
-      "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/specs.md"
+      "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/devices/overview.md"
       "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
       "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
       "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
       "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
       "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
+      "computing/quantum-computing/projects.md": "computing/quantum-computing/overview.md"
+      "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
 
 markdown_extensions:
   - md_in_html
@@ -337,18 +339,25 @@ nav:
               - Visual Studio Code: computing/webinterface/vscode.md
       - Quantum computing:
           - computing/quantum-computing/overview.md
-          - Projects: computing/quantum-computing/projects.md
           - Access through LUMI: computing/quantum-computing/access.md
+          - Devices: 
+            - computing/quantum-computing/devices/overview.md
+            - Aalto Q20: computing/quantum-computing/devices/q20.md
+            - VTT Q50: computing/quantum-computing/devices/q50.md
           - First quantum job: computing/quantum-computing/first-quantum-job.md
-          - Technical details: computing/quantum-computing/specs.md
-          - FiQCI partition: computing/quantum-computing/fiqci-partition.md
           - Running quantum jobs: computing/quantum-computing/running-quantum-jobs.md
           - Pulse level access: computing/quantum-computing/pulse-level-access.md
+          - FiQCI partition: computing/quantum-computing/fiqci-partition.md
       - FirecREST HPC API:
           - computing/firecrest/index.md
           - Connecting: computing/firecrest/connecting.md
           - Data transfer over S3: computing/firecrest/data-transfer-s3.md
           - Python SDK: computing/firecrest/pyfirecrest.md
+      - AI Tools:
+          - computing/ai-tools/index.md
+          - Agent Environment: computing/ai-tools/agent-env.md
+          - Docs MCP Server: computing/ai-tools/docs-mcp.md
+          - CSC Skills: computing/ai-tools/csc-skills.md
   - Cloud Services:
       - cloud/index.md
       - Noppe:
@@ -582,6 +591,10 @@ nav:
       # data/Allas/using_allas/directory_object_error.md is not linked in this structure
   - Sensitive data:
       - data/sensitive-data/index.md
+      - New versions of SD Connect and SD Desktop available:
+          - data/sensitive-data/major-upgrade.md
+          - Convert SD Connect buckets: data/sensitive-data/sd-connect-conversion.md
+          - Restore SD Desktop import and export: data/sensitive-data/sd-desktop-major-upgrade.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
       - Research data - Store and analyse:
           - Start here:
@@ -595,10 +608,9 @@ nav:
               - Upload: data/sensitive-data/sd-connect-upload.md
               - Download: data/sensitive-data/sd-connect-download.md
               - Delete: data/sensitive-data/sd-connect-delete.md
-              - Share: data/sensitive-data/sd-connect-share.md
+              - Share buckets: data/sensitive-data/sd-connect-share.md
               - Command line interface: data/sensitive-data/sd-connect-command-line-interface.md
-              - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md
-              - Page under construction: data/sensitive-data/sd-connect-conversion.md
+              - Troubleshooting: data/sensitive-data/sd-connect-troubleshooting.md      
           - Analyse with SD Desktop:
               - data/sensitive-data/sd_desktop.md
               - Login to SD Desktop: data/sensitive-data/sd-desktop-login.md
@@ -609,7 +621,7 @@ nav:
               - Customisation - software & tools: data/sensitive-data/sd-desktop-software.md
               - Import data: data/sensitive-data/sd-desktop-access.md
               - Export data via user interface: data/sensitive-data/sd-desktop-export.md
-              - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
+              # - Export data programmatically: data/sensitive-data/sd-desktop-export-commandline.md
               - Troubleshooting: data/sensitive-data/sd-desktop-troubleshooting.md
       - Research data - Publish and reuse:
           - Publish with Federated EGA:

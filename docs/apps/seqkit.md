@@ -25,7 +25,7 @@ Free to use and open source under the [MIT License](https://github.com/shenwei35
 
 ## Available
 
-* Roihu: 2.10.0, via the `bio-apps` module.
+* Roihu-CPU: 2.10.0, 2.13.0, via the `bio-apps` module.
 
 ## Usage
 
@@ -34,7 +34,7 @@ bio-apps module tree and then the SeqKit module:
 
 ```bash
 module load bio-apps/v202603
-module load seqkit/2.10.0
+module load seqkit/2.13.0
 ```
 
 SeqKit is run through the `seqkit` command followed by a subcommand. For example, to
@@ -66,7 +66,7 @@ seqkit seq -m 1000 input.fasta > long_sequences.fasta
 #SBATCH --mem-per-cpu=2G
 
 module load bio-apps/v202603
-module load seqkit/2.10.0
+module load seqkit/2.13.0
 
 seqkit stats -j $SLURM_CPUS_PER_TASK *.fasta
 ```

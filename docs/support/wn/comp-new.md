@@ -1,5 +1,33 @@
 # Computing environment
 
+## Roihu Slurm updated and disaggregated storage available on all partitions, 8.10.2026
+
+Slurm on Roihu has been updated from version 25.05 to 26.05.
+
+[Disaggregated storage](../../computing/roihu-disk.md#disaggregated-storage) (fast NVMe over
+fabric) can now be requested on all Roihu partitions, including shared-node jobs. The
+`--exclusive` flag is no longer needed on the GPU partitions.
+
+The mount path has changed from `/run/sbb/` to `/sbf/`, for example:
+
+```bash
+#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/sbf/data"
+```
+
+Update the path in your existing batch scripts.
+
+## Roihu web interface updated to release 3, 22.9.2026
+
+* python-pytorch is now available for CPU partitions, and python-tensorflow is available for all partitions in the web interface.
+* Avogadro 2 and VMD have been added to the Desktop.
+* VSCode updated to 1.136.1.
+* Jupyter for Courses modules available for all users may now be installed by CSC.
+* Roihu-GPU has been added as an option in the file browser Open in Terminal dropdown.
+* Quotas for `/dataset` paths will now be visible.
+* Default MLflow and TensorBoard memory has been increased to 8GiB.
+* seff in the My interactive session page now works again.
+* Open OnDemand updated to 4.2.4.
+
 ## Mahti compute services decommissioned, 31.8.2026
 
 Compute services in Mahti have been decommissioned as of 31 August 2026 at 12:00 EEST.

@@ -1,6 +1,8 @@
 # MLflow
 
 The MLflow app launches the [MLflow tracking UI](https://www.mlflow.org/) on a compute node.
+To ensure compatibility, you should use the same module in the web interface, as the module version
+used for the MLflow runs.
 
 To launch it select where the MLflow files are stored. This is
 typically either:

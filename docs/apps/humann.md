@@ -25,7 +25,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Roihu: 4.0.0a2 (a HUMAnN 4.0 alpha release), via the `bio-apps` module.
+* Roihu-CPU: 4.0.0a2 (a HUMAnN 4.0 alpha release), via the `bio-apps` module.
 
 ## Usage
 

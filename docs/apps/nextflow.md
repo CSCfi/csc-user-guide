@@ -15,14 +15,19 @@ catalog:
 # Nextflow
 
 Nextflow is a scientific workflow management system for creating scalable,
-portable, and reproducible workflows. It is a groovy-based language for expressing the entire workflow in a single script and also supports running scripts (via script/run/shell directive of Snakemake rule) from other languages such as R, bash and Python.
+portable, and reproducible workflows. Pipelines are written in a Groovy-based
+language and can embed scripts in other languages such as R, bash and Python.
+[Nextflow](https://www.nextflow.io/) has built-in support for HPC-friendly
+containers such as Apptainer (= Singularity).
 
-[Nextflow](https://www.nextflow.io/) provides built-in support for
-HPC-friendly containers such as Apptainer (= Singularity). One of the advantages of Nextflow is that the actual pipeline functional logic is separated from the execution environment. The same script can therefore be executed in different environments by changing the execution environment without touching actual pipeline code. Nextflow uses `executor` information to decide where the job should be run. Once executor is configured, Nextflow submits each process to the specified job scheduler on your behalf.
-
-Default executor is `local` where processes are run in the computer where Nextflow is launched. Several other [executors](https://www.nextflow.io/docs/latest/executor.html) are supported, the CSC computing environments best suit SLURM and HyperQueue executors.
-
-If you are still wondering about workflows at more general level or which workflow tool to use, see also our [high-throughput computing and workflows page](../computing/running/throughput.md).
+A key advantage is that the pipeline logic is separated from the execution
+environment: the same script runs in different environments by changing the
+configured `executor`, which tells Nextflow where to submit each process. The
+default `local` executor runs processes on the machine where Nextflow is
+launched; on CSC systems the SLURM and HyperQueue
+[executors](https://www.nextflow.io/docs/latest/executor.html) are the best fit.
+For choosing a workflow tool more generally, see our
+[high-throughput computing and workflows page](../computing/running/throughput.md).
 
 [TOC]
 
@@ -30,8 +35,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available on CSC's servers
 
-* Roihu-CPU: 25.10.2-standalone (via the `bio-apps` module)
-* Roihu-GPU: 25.10.2-standalone (via the `bio-apps` module)
+* Roihu-CPU: 25.10.2-standalone, 26.04.6-standalone (via the `bio-apps` module)
+* Roihu-GPU: 25.10.2-standalone, 26.04.6-standalone (via the `bio-apps` module)
 * LUMI: 22.10.4
 
 !!! info "Pay attention to usage of Nextflow version"
@@ -53,7 +58,7 @@ on both CPU and GPU nodes. Load the bio-apps module tree and then the Nextflow m
 
 ```bash
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 ```
 
 On LUMI, Nextflow is available as a separate module. To access CSC modules on LUMI,
@@ -72,11 +77,11 @@ nextflow -h
 
 ### Installation of tools used in Nextflow
 
-#### Local installations
+**Local installations**
 
 By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../apps/by_discipline.md) or [own custom module installations](../computing/modules.md#using-your-own-module-files). See also how to [create containers](../computing/containers/overview.md#building-container-images).
 
-#### On-the-fly Apptainer installations
+**On-the-fly Apptainer installations**
 
 Containers can be smoothly integrated with Nextflow pipelines. No additional
 modifications to Nextflow scripts are needed except for enabling the
@@ -168,21 +173,23 @@ executor >  local (5)
 [a0/bdf83f] process > sayHello (5) [100%] 5 of 5 ✔
 ```
 
-### Running Nextflow pipeline with local executor interactively
+### Running Nextflow pipelines
+
+**Local executor (interactive)**
 
 To run Nextflow in an [interactive session](../computing/running/interactive-usage.md):
 
 ```bash
 sinteractive --account <project> --cores 2   # replace <project> with your project
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 nextflow run workflow.nf
 ```
 
 !!! info "Note"
     Please do not launch heavy Nextflow workflows on login nodes.
 
-### Running Nextflow with local executor in a batch job
+**Local executor (batch job)**
 
 To launch a Nextflow job as a regular batch job that executes all job tasks in the same job
 allocation, create the batch job file:
@@ -197,7 +204,7 @@ allocation, create the batch job file:
 
 # Load Nextflow module
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 
 # Actual Nextflow command here
 nextflow run workflow.nf <options>
@@ -211,7 +218,7 @@ Finally, submit the job to the supercomputer:
 sbatch nextflow_local_batch_job.sh
 ```
 
-### Running Nextflow with SLURM executor 
+**SLURM executor**
 
 If the workflow includes only limited number of individual jobs/job steps [SLURM executor of Nextflow](https://www.nextflow.io/docs/latest/executor.html#slurm) could be considered.
 
@@ -252,7 +259,7 @@ Create the batch job file, note the usage of a profile.
 
 # Load Nextflow module
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 
 # Actual Nextflow command here
 nextflow run workflow.nf -profile roihu
@@ -267,7 +274,7 @@ sbatch nextflow_slurm_batch_job.sh
 This will submit each process of your workflow as a separate batch job to the Roihu supercomputer.
 
 
-### Running Nextflow with HyperQueue executor
+**HyperQueue executor**
 
 [HyperQueue meta-scheduler](../apps/hyperqueue.md) executer is suitable, if your workflow includes a lot of short processes and you need several nodes for the computation. However, the executor settings can be complex depending on the pipeline.
 
@@ -288,7 +295,7 @@ Here is a batch script for running a
 # Load the required modules
 module load hyperqueue
 module load bio-apps/v202603
-module load nextflow/25.10.2-standalone
+module load nextflow/26.04.6-standalone
 
 # Create a per job directory
 wrkdir=${PWD}/WRKDIR-${SLURM_JOB_ID}
@@ -342,7 +349,7 @@ If you use Nextflow in your work, please cite:
 
 * [Nextflow official documentation](https://www.nextflow.io/docs/latest/index.html)
 * [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
-    * [Full code Nextflow example from Antoni Gołoś with 3 different executors](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
+* [Full code Nextflow example from Antoni Gołoś with 3 different executors](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
 * [General guidelines for high-throughput computing in CSC's HPC environment](../computing/running/throughput.md)
 * [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
 * [CSC's HyperQueue documentation](../apps/hyperqueue.md)
