@@ -71,8 +71,13 @@ module load bio-apps/v202603
 module load sortmerna/7.0.0
 
 sortmerna --ref $SORTMERNA_DB/smr_v4.3_default_db.fasta --reads reads.fq.gz \
-    --workdir sortmerna_run --threads $SLURM_CPUS_PER_TASK
+    --workdir sortmerna_run --fastx --other --threads $SLURM_CPUS_PER_TASK
 ```
+
+With `--fastx`, SortMeRNA writes the reads that match the rRNA database to a
+FASTA/FASTQ file (`aligned`), and `--other` writes the remaining, non-rRNA reads to
+a separate file (`other`). Both are written to `sortmerna_run/out/` and are
+compressed if the input reads are.
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
