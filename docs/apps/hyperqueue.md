@@ -49,38 +49,10 @@ module use /appl/local/csc/modulefiles
 module load hyperqueue
 ```
 
-### Task farming with sbatch-hq
-
-For simple task-farming workflows, where you only want to run many similar, independent,
-and non-MPI parallel programs, you can use the CSC utility tool `sbatch-hq`. It creates
-and launches a batch job that runs your commands using HyperQueue, executing them until
-all are done or the batch job time limit is reached.
-
-Specify the list of commands to run in a file, one command per line. **Do not use `srun`
-in the commands!** HyperQueue launches the tasks using the allocated resources as
-requested. For example, a `tasks` file might contain:
-
-```text
-command1 arguments1
-command2 arguments2
-# and so on
-```
-
-Then submit the tasks, reserving for example eight cores on a single node:
-
-```bash
-module load sbatch-hq
-sbatch-hq --cores=8 --nodes=1 --account=<project> --partition=test --time=00:15:00 tasks
-```
-
-The number of commands in the file can (usually should) be much larger than the number of
-tasks that can fit running simultaneously in the reserved nodes. See `sbatch-hq --help`
-for more details on usage and input options.
-
 ### Running HyperQueue in a Slurm batch job
 
-For more control than `sbatch-hq` offers, you can drive HyperQueue yourself from a Slurm
-batch job.
+You can drive HyperQueue yourself from a Slurm batch job for full control over workers and
+scheduling.
 
 HyperQueue works on a worker-server-client basis. The server manages connections
 between workers and the client. The client submits tasks to the server, which sends
@@ -293,4 +265,4 @@ If you use HyperQueue in your work, the developers ask that you cite:
 ## More information
 
 * [Using HyperQueue and local disk to process many files](https://csc-training.github.io/csc-env-eff/hands-on/throughput/hyperqueue.html)
-* [Farming Gaussian jobs with sbatch-hq](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
+* [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
