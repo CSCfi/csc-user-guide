@@ -29,7 +29,7 @@ Free to use and open source under [GNU LGPLv3](https://github.com/sortmerna/sort
 
 ## Usage
 
-SortMeRNA is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+SortMeRNA is part of the [bio-apps](bio-apps.md) collection on Roihu-CPU. Load the
 bio-apps module tree and then the SortMeRNA module:
 
 ```bash
