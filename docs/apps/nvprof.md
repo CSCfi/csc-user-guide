@@ -9,7 +9,6 @@ catalog:
     - Miscellaneous
   available_on:
     - Puhti
-    - Mahti
 ---
 
 # nvprof: CUDA profiler

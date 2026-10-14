@@ -9,7 +9,6 @@ catalog:
     - Biosciences
   available_on:
     - Puhti
-    - Mahti
 ---
 
 # Alphafold

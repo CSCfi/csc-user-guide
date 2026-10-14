@@ -9,7 +9,6 @@ catalog:
   license_type: Free
   available_on:
     - Puhti
-    - Mahti
 ---
 
 # Scalasca
