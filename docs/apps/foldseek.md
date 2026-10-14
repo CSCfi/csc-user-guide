@@ -92,6 +92,9 @@ your project's `/scratch`:
 foldseek databases <name> /scratch/<project>/<database> tmp
 ```
 
+`foldseek databases` only downloads and unpacks prebuilt files, so you can run it on
+the login node.
+
 ### GPU-accelerated search
 
 Add `--gpu 1` to run a search on the GPU. A GPU search needs a padded target
@@ -100,6 +103,10 @@ database. Use the padded copies of the shared databases (names ending in `_pad`)
 ```bash
 foldseek easy-search queries/ $FOLDSEEK_DB/afdb_swissprot_pad results.m8 tmp --gpu 1 --prefilter-mode 1
 ```
+
+GPU searches must run on a GPU node, either in a batch job on a GPU partition (see the
+[example batch script](#example-batch-script)) or in an interactive session started
+with [`sinteractive`](../computing/running/interactive-usage.md) on `roihu-gpu.csc.fi`.
 
 For your own databases, make a padded copy with `makepaddedseqdb`:
 
