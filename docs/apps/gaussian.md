@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -20,8 +18,6 @@ electronic structure modeling.
 
 ## Available
 
-- Puhti: `G16RevC.02`
-- Mahti: `G16RevC.02`
 - Roihu-CPU: `G16RevC.02`
 
 ## License
@@ -33,36 +29,22 @@ request to the [CSC Service Desk](../support/contact.md).
 
 ## Usage
 
-Initialize the Gaussian environment:
+Gaussian jobs must be submitted from the **CPU login node** (`roihu-cpu`).
+Initialize the Gaussian environment and submit standard jobs with the `subg16`
+script:
 
 ```bash
 module load gaussian/G16RevC.02
-```
-
-Standard jobs are then conveniently submitted by using the `subg16` script:
-
-```bash
-subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
+subg16 hhh:mm:ss jobname <your project id> [local disk GB] [--no-submit]
 ```
 
 where:
 
 - `hhh:mm:ss` is the requested maximum wall time in hours, minutes and seconds.
 - `jobname` is the name of the input file, excluding the `.com` extension.
-- `[NVMe disk]` (optional) is the request for fast local NVMe disk in GB.
-
-Run `subg16` without arguments to display more details.
-
-### Running on Roihu
-
-On Roihu, Gaussian jobs must be submitted from the **CPU login node**
-(`roihu-cpu`). The workflow is otherwise the same as on Puhti and Mahti: load
-the module and use `subg16` to submit jobs:
-
-```bash
-module load gaussian/G16RevC.02
-subg16 hhh:mm:ss jobname <your project id> [local disk GB] [--no-submit]
-```
+- `[local disk GB]` (optional) is the requested local disk size in GB (future
+  use, see below).
+- `[--no-submit]` (optional) generates the job file without submitting it.
 
 Examples:
 
@@ -76,7 +58,7 @@ The number of cores (`%NProcShared`) and memory (`%Mem`) are read directly
 from the input `.com` file. Run `subg16` without arguments for a full usage
 summary.
 
-**Partitions.** The Roihu `subg16` script selects the batch partition
+**Partitions.** The `subg16` script selects the batch partition
 automatically based on the requested wall time:
 
 | Partition | Maximum wall time |
@@ -89,15 +71,11 @@ when reserving memory from Slurm. The maximum supported `%Mem` is capped at
 the M-node limit of 768 GiB. Set `%Mem` to slightly less than the total node
 memory to leave room for the operating system.
 
-**Local NVMe disk.** While Roihu CPU nodes include a 960 GB local disk,
+**Local NVMe disk.** Roihu CPU nodes include a 960 GB local disk, but
 on-demand local NVMe allocation via `subg16` is **not yet available** for
 standard M-nodes. When a local disk size is requested, scratch I/O currently
 falls back to Lustre with optimised striping applied automatically by the
-script. Local NVMe support will be enabled in a future update. Roihu's
-Lustre scratch is over ten times faster than Puhti's, so performance for most
-jobs is not significantly impacted in the meantime.
-
-
+script. Local NVMe support will be enabled in a future update.
 
 ## Performance considerations
 
@@ -143,12 +121,6 @@ There are also some tools, like
 memory needs.
 
 !!! info "Note"
-    On Mahti, each reserved CPU core is allocated **1.875 GiB of memory**. The
-    only way to request more memory is to reserve additional cores. As a
-    result, the optimal number of cores used by Gaussian may sometimes be lower
-    than the number of reserved cores, depending on memory requirements.
-
-!!! info "Note"
     On Roihu, the standard CPU nodes (M-nodes) have 768 GiB of memory shared
     across 384 cores, giving approximately **2 GiB per core**. The `subg16`
     script enforces this as a hard upper limit for `%Mem`. A 1 500 MB overhead
@@ -159,19 +131,14 @@ memory needs.
 
 For disk I/O intensive jobs, such as highly correlated methods like **MP2**,
 **CCSD(T)**, and property calculations like **vibrational frequency
-calculations**, using the fast **NVMe local disk** can
-significantly improve performance. Using local disk for such jobs will also
-reduce the overall load on the Lustre parallel file system.
+calculations**, fast **NVMe local disk** can significantly improve
+performance. Using local disk for such jobs also reduces the overall load on
+the Lustre parallel file system.
 
-On **Roihu**, local NVMe allocation via `subg16` is not yet available for
-standard CPU nodes; scratch I/O currently uses Lustre with optimised striping.
-Roihu's Lustre scratch is over ten times faster than Puhti's, so the impact
-on most jobs is modest. NVMe support via `subg16` will be enabled in a future
-update.
-
-```bash
-subg16 hhh:mm:ss jobname <your project id> [NVMe disk]
-```
+On Roihu, local NVMe allocation via `subg16` is not yet available for
+standard CPU nodes. Scratch I/O currently uses Lustre with optimised striping,
+which is sufficient for most jobs. NVMe support via `subg16` will be enabled
+in a future update.
 
 ### Estimating optimal resources
 
@@ -205,11 +172,11 @@ Gaussian's performance and what factors should be considered. We use
 vitamin E) as the input structure. The input file is available at
 [vitamin_e.com](https://a3s.fi/gaussian/vitamin_e.com).
 
-The tests below were conducted on **Puhti and Mahti** in a production
-environment, where job interference may introduce performance fluctuations.
-Additionally, some variability arises from the arbitrary placement of allocated
-cores within a node. Performance benchmarks for **Roihu** will be added once
-they are available.
+The tests below were conducted on Puhti and Mahti (now decommissioned) in a
+production environment, where job interference may introduce performance
+fluctuations. Additionally, some variability arises from the arbitrary
+placement of allocated cores within a node. Performance benchmarks for
+**Roihu** will be added once they are available.
 
 First, we compare the runtime and scaling of a `b3lyp/cc-pVDZ, %mem=10GB, 10GB
 NVMe` single-point calculation. This calculation requires only modest memory
@@ -239,10 +206,10 @@ impact on performance, as shown in the following graph:
 On Puhti, the speedup levels off at around 25 cores, while on Mahti, the
 performance gain continues up to approximately 35 cores.
 
-Tests on Puhti highlight the importance of allocating sufficient memory.
+The tests highlight the importance of allocating sufficient memory.
 Additionally, the notable performance improvement from using local disk (NVMe)
-over the standard scratch disk (about 30% faster!) indicates that local disk
-should always be the preferred option for these types of calculations.
+over the standard scratch disk (about 30% faster on Puhti) shows that local
+disk is the preferred option for these types of calculations when available.
 
 ## References
 
@@ -252,5 +219,4 @@ should always be the preferred option for these types of calculations.
 ## More information
 
 - [Online Gaussian user reference](http://gaussian.com/man/)
-- [Using Gabedit as GUI for Gaussian jobs on Puhti](../support/tutorials/gabedit_gaussian.md)
 - [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
