@@ -14,8 +14,6 @@ catalog:
 
 # OpenFOAM
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 [OpenFOAM](https://www.openfoam.com/) (for "Open-source Field Operation And Manipulation") is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, most prominently including computational fluid dynamics (CFD). OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics ([by OpenCFD Ltd](https://www.openfoam.com/)).
 
 There are different variants of OpenFOAM, of which at CSC - IT Center for Science computer platforms, are currently installed different versions from [OpenFOAM Foundation](https://cfd.direct/) and [OpenCFD Ltd](https://www.openfoam.com).

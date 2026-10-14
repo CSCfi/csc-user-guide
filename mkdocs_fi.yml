@@ -353,7 +353,7 @@ nav:
           - Allas-asiakasohjelmat:
               - Allas-yhteyden määritys: data/Allas/using_allas/allas-conf.md
               - Allas Web-käyttöliittymä: data/Allas/using_allas/allas-ui.md
-              - Roihu web-käyttöliittymä: computing/webinterface/file-browser.md
+              - Roihu web-käyttöliittymä: data/Allas/using_allas/roihu-web-ui.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
