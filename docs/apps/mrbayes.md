@@ -36,7 +36,7 @@ module load bio-apps/v202603
 module load mrbayes/3.2.7a
 ```
 
-On the GPU nodes, load `mrbayes/3.2.8` instead; see [Running on GPUs](#running-on-gpus).
+On Roihu-GPU, load `mrbayes/3.2.8` instead; see [Running on GPUs](#running-on-gpus).
 
 MrBayes is started with the `mb` command. The same MPI-enabled binary runs serially when started directly:
 
