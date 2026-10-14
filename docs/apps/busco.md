@@ -25,7 +25,7 @@ Free to use and open source under the [MIT License](https://gitlab.com/ezlab/bus
 
 ## Available
 
-* Roihu: 5.4.3, 6.1.0, via the `bio-apps` module.
+* Roihu-CPU: 5.4.3, 6.1.0, via the `bio-apps` module.
 
 ## Usage
 
