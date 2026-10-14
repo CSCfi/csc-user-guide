@@ -37,7 +37,7 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 ### 2. Join a CSC project
 
 - The SD services team adds you to a CSC project that is created specifically for data transfers from your organisation.
-- Check your email for a notification and log in to MyCSC to find the project.
+- Check your email for a notification and log in to MyCSC to find the project. You will need the project number and project name to identify the correct project in SD Connect.
 
 ---
 
