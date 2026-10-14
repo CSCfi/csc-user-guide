@@ -51,9 +51,6 @@ module load hyperqueue
 
 ### Running HyperQueue in a Slurm batch job
 
-You can drive HyperQueue yourself from a Slurm batch job for full control over workers and
-scheduling.
-
 HyperQueue works on a worker-server-client basis. The server manages connections
 between workers and the client. The client submits tasks to the server, which sends
 them to the available workers. The client and server may run on login or compute nodes,
