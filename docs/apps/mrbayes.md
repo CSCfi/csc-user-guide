@@ -28,7 +28,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Usage
 
-MrBayes is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+MrBayes is part of the [bio-apps](bio-apps.md) collection on Roihu. On Roihu-CPU, load the
 bio-apps module tree and then the MrBayes module:
 
 ```bash
