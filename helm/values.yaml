@@ -222,6 +222,8 @@ components:
     # Defaults to '0 3 2 * *', i.e. every 2nd day of the month at 03:00:
     schedule: 0 3 2 * *
 
+    siteUrlOverride: null
+
     # Email report not sent if these are not set. Has not effect is useResourceLookup is true.
     email:
       sender: sender@example.org

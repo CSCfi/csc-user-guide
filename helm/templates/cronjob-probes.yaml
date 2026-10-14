@@ -26,7 +26,8 @@ spec:
               imagePullPolicy: Always
               env:
                 - name: SITE_URL
-                  value: {{ list $ "/" | include "networking.sitePath" }}
+                  value: {{ .Values.components.probes.siteUrlOverride
+                            | default (list $ "/" | include "networking.sitePath") }}
 {{- range $key := .Values.components.probes.email | default dict | keys }}
                 - name: {{ upper $key | printf "EMAIL_%s" }}
                   valueFrom:
