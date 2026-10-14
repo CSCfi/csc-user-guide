@@ -102,7 +102,7 @@ See the updated instructions:
 
 ## Puhti web interface updated to release 30, 5.11.2025
 
-* A new File Deletion Explorer tool has been added for testing, see more information [here](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
+* A new File Deletion Explorer tool has been added for testing.
 * Default MATLAB memory has been increased to 8GB.
 * The Allas Swift integration now generates correct storage URLs.
 * Open OnDemand updated to 4.0.8.

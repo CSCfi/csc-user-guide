@@ -59,10 +59,8 @@
 ## Bioinformatics
 
 * [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
-* [Singularity applications on Puhti](bioapplications-puhti.md)
-* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
-* [Running your first job on Puhti](biojobs-on-puhti.md)
+* [Running your first job on Roihu](biojobs-on-puhti.md)
 
 ## Chemistry
 
