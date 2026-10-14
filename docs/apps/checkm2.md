@@ -25,7 +25,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/chklovski/Check
 
 ## Available
 
-* Roihu: 1.1.0, via the `bio-apps` module.
+* Roihu-CPU: 1.1.0, via the `bio-apps` module.
 
 ## Usage
 
