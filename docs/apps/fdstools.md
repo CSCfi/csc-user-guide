@@ -80,11 +80,19 @@ in the `[tssv]` section of the INI file to the number of cores reserved for the 
 
 The tools can also be run one at a time. For tools that process sample data files,
 such as `stuttermark`, `bgcorrect`, `samplestats` and `seqconvert`, give the input
-files with `-i` and the output files with `-o`. Giving the input file as a plain
-argument without `-i` does not work on Roihu.
+files with `-i` and the output files with `-o`:
 
 ```bash
 fdstools samplestats -i sample.csv -o sample_stats.csv
+```
+
+You can also give the input and output files as plain arguments
+(`fdstools samplestats sample.csv sample_stats.csv`). For tools that take another
+argument first, such as the format in `seqconvert`, put the files directly after it,
+with no options in between:
+
+```bash
+fdstools seqconvert allelename sample.csv sample_named.csv -l mylibrary.txt
 ```
 
 ### Example batch script
