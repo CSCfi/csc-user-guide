@@ -114,6 +114,7 @@ plugins:
       "apps/nomachine.md": "support/faq/deprecated-apps.md"
       "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
       "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
+      "apps/nvprof.md": "apps/nsys.md"
       "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_client_in_puhti.md": "data/kaivos/index.md"
