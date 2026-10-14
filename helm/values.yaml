@@ -233,7 +233,10 @@ components:
     # Attempt to lookup existing probes ConfigMap in the namespace.
     useResourceLookup: false
 
+    # Send email report in Markdown format:
     markdown: true
+
+    # Source-to-Image builder:
     sourceFrom:
       image: python
       tag: 3.12-ubi9
