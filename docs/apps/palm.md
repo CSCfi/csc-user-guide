@@ -9,8 +9,6 @@ catalog:
     - Computational Engineering
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
 ---
 
 # PALM
@@ -34,8 +32,8 @@ of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Available
 
-PALM is available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Versions
-available are listed when running the installation script, see below.
+PALM is available on [LUMI](../computing/available-systems.md) server. Versions
+are listed when running the installation script, see below.
 
 ## Usage
 
@@ -58,13 +56,6 @@ module use /appl/local/csc/modulefiles
 module spider palm
 module load palm/<version>
 ```
-
-Link to read the instruction file is created,
-
-```bash
-readme_palm_csc
-```
-
 along with link to the command to run the installation script
 
 ```bash
