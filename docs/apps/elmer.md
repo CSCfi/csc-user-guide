@@ -14,8 +14,6 @@ catalog:
 
 # Elmer
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 Elmer is CSC's open source Finite Element multi-physics simulation package. It covers modules for fluid and solid mechanics,
 acoustics, and electro-magneto dynamics.
 
@@ -101,23 +99,22 @@ Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL. It is free 
 
 ### Example parallel batch script
 
-=== "Mahti"
-    The main difference on Mahti is that only full nodes can be allocated. A single node contains 128 cores.
-    The following script submits a 6-hour job using 4 nodes and all 128 cores per node (hence in total 512).
+=== "Roihu-CPU"
+    Basic script for a 1-hour job using a single node and 384 cores in total, where the Elmer input file is `myrun.sif`.
 
     ```bash
     #!/bin/bash 
-    #SBATCH --time=06:00:00
+    #SBATCH --time=01:00:00
     #SBATCH --job-name=jobname
     #SBATCH --output=%x.%j.out
     #SBATCH --error=%x.%j.err
-    #SBATCH --partition=medium
+    #SBATCH --partition=small
     #SBATCH --account=<project>
-    #SBATCH --nodes=4
-    #SBATCH --ntasks-per-node=128
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=384
 
     export OMP_NUM_THREADS=1
-    module load elmer/latest
+    module load elmerfem/26.2.1
     # make sure the SIF is in the start-info
     echo myrun.sif > ELMERSOLVER_STARTINFO
     echo "starting Elmer simulation with SIF file"
