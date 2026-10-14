@@ -54,7 +54,7 @@ There are three analysis types:
 * `reference-sample`: runs a single reference sample through TSSV and Stuttermark.
 * `reference-database`: builds a database of systematic noise from a collection of
   reference samples.
-* `case-sample`: runs a single case sample through TSSV, BGPredict, BGCorrect and
+* `case-sample`: runs a single case sample through TSSV, BGPredict, BGMerge, BGCorrect and
   Samplestats.
 
 The analyses need a library file that describes your markers. Create one with
