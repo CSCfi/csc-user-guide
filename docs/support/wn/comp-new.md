@@ -1,5 +1,14 @@
 # Computing environment
 
+## Puhti and Mahti have been shut down, 15.10.2026
+
+Puhti and Mahti have been fully decommissioned as of 15 October 2026.
+Their login nodes and storage services are no longer available.
+
+Roihu has replaced both systems, offering improved performance and new capabilities.
+
+To get started with Roihu, see the [getting started tutorial](../tutorials/roihu.md).
+
 ## Roihu Slurm updated and disaggregated storage available on all partitions, 8.10.2026
 
 Slurm on Roihu has been updated from version 25.05 to 26.05.
