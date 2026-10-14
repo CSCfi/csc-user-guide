@@ -9,8 +9,6 @@ catalog:
     - Quantum
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
 ---
 
 # Qiskit
