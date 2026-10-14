@@ -25,7 +25,7 @@ Free to use and open source under [GNU LGPLv3](https://github.com/sortmerna/sort
 
 ## Available
 
-* Roihu: 7.0.0, via the `bio-apps` module.
+* Roihu-CPU: 7.0.0, via the `bio-apps` module.
 
 ## Usage
 
