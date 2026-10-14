@@ -32,22 +32,9 @@ of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Available
 
-PALM is available on [LUMI](../computing/available-systems.md) server. Versions
-are listed when running the installation script, see below.
+PALM is available on [LUMI](../computing/available-systems.md) server. 
 
 ## Usage
-
-After login on the server, give the command
-
-```bash
-module spider palm
-```
-
-This gives you a list of the installed versions. To load the version of your choice, give the command
-
-```bash
-module load palm/<version>
-```
 
 On LUMI, you need to first load the module environment
 
