@@ -310,7 +310,7 @@ and in CSC Sensitive Data Services.
 ### 4.1 Using Roihu to create a shared bucket
 
 If you know the project number of the data producer, you can easily create a shared Allas 
-bucket using `a-tools` commands in _Roihu_. First open terminal connection to `roihu-cpu.csc.fi`
+bucket using `rclone` and `a-commands` in _Roihu_. First open terminal connection to `roihu-cpu.csc.fi`
 (use SSH, PuTTY, or terminal connection from [Roihu web interface](https://www.roihu.csc.fi)).
 
 In chapter 2.2 we had researcher Tiina Tutkija who created encryption keys and stored them to Allas. 
@@ -327,14 +327,14 @@ In the terminal, Tiina activates connection to Allas:
 
 ```text
 module load allas
-allas-conf
+allas-conf --swift
 ```
 
 Then she creates a new shared bucket using `rclone` and `a-access`:
 
 ```text
 rclone mkdir allas:animine-data-import-1
-a-access +rw project_2000111 animine-data-import-1
+a-access --swift +rw project_2000111 animine-data-import-1
 ```
 
 The first command creates a new bucket. In this case Tiina uses bucket name
@@ -346,13 +346,13 @@ to the bucket.
 Then she downloads the public key to Roihu:
 
 ```text
-a-get animine-pub/data/animine_crypt4gh.pub
+a-get --swift animine-pub/data/animine_crypt4gh.pub
 ```
 
 And uploads the key to the shared bucket:
 
 ```text
-a-put animine_crypt4gh.pub -b animine-data-import-1
+a-put --swift animine_crypt4gh.pub -b animine-data-import-1
 ```
 
 Finally, Tiina sends the name of the shared bucket to the data producer 
@@ -366,7 +366,7 @@ After few days, data producer tells Tiina that all data has been imported to the
 Tiina can now remove the external access rights from the bucket with command:
 
 ```text
-a-access -rw project_2000111 animine-data-import-1
+a-access --swift -rw project_2000111 animine-data-import-1
 ```
 
 ## 5. Using encrypted data 

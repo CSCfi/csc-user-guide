@@ -101,17 +101,17 @@ certificate) to the supercomputer you're first connecting to.
 
 After this, data can be transferred directly between CSC supercomputers using
 same syntax as above. For example, the command to transfer a directory
-`/scratch/project_2001234/myfiles` on Roihu to the corresponding location on
-LUMI would be:
+`/scratch/project_2001234/myfiles` on Roihu to directory
+`/scratch/project_462000123` on LUMI would be:
 
 ```bash
-tar c -C /scratch/project_2001234 myfiles | ssh <username>@lumi.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
+tar c -C /scratch/project_2001234 myfiles | ssh <username>@lumi.csc.fi 'cat > /scratch/project_462000123/myfiles.tar'
 ```
 
 The same could be accomplished while working on LUMI as follows:
 
 ```bash
-ssh <username>@roihu-cpu.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > /scratch/project_2001234/myfiles.tar
+ssh <username>@roihu-cpu.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > /scratch/project_462000123/myfiles.tar
 ```
 
 ## Performance comparison

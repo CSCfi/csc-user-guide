@@ -16,12 +16,12 @@ Disk area               Capacity(used/max)  Files(used/max)  Cleanup
 ----------------------------------------------------------------------
 Personal home folder
 
-/users/kkayttaj                 4.4G/10G         24K/100K        n/a
+/users/kkayttaj                 4.4G/15G         24K/150K        n/a
 ----------------------------------------------------------------------
 Project: project_2000123 "Project X"
 
-/projappl/project_2000123        24G/50G         36K/100K        n/a
-/scratch/project_2000123        103G/1.0T       389K/1.0M       180d
+/projappl/project_2000123       4.2G/15G         36K/150K        n/a
+/scratch/project_2000123        103G/250G       389K/500K       180d
 ----------------------------------------------------------------------
 Project: project_2001234 "Project Y"
 

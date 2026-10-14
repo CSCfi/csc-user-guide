@@ -69,6 +69,7 @@ Load a module installed by CSC and check which packages are available. For
 example on **Roihu**:
 
 ```bash
+module load gcc/15.2.0 openmpi/5.0.10
 module load lammps/20260211
 lmp -help
 ```

@@ -52,7 +52,7 @@ These disk areas have quotas for both the amount of data and total number of fil
 
 ## Home directory
 
-Each user has a home directory (`$HOME`) that can contain up to 15 GB of data on Roihu.
+Each user has a home directory (`$HOME`) that can contain up to 15 GiB of data on Roihu.
 
 The home directory is the default location after logging in.
 However, it is not intended for data analysis or running jobs.
@@ -88,7 +88,7 @@ manage your data on `scratch`](../support/tutorials/clean-up-data.md).
 
 ## Projappl directory
 
-Each project on Roihu has also a 15 GB project application disk space
+Each project on Roihu has also a 15 GiB project application disk space
 in the directory `/projappl/<project>`.
 
 Use the projappl area for storing compiled software binaries, source code, libraries, scripts
@@ -129,13 +129,13 @@ Personal home folder
 ----------------------------------------------------------------------
 Project: project_2000123 "Project X"
 
-/projappl/project_2000123        24G/15G         36K/150K        n/a
-/scratch/project_2000123        103G/250G       389K/500k        180d
+/projappl/project_2000123       4.2G/15G         36K/150K        n/a
+/scratch/project_2000123        103G/250G       389K/500K       180d
 ----------------------------------------------------------------------
 Project: project_2001234 "Project Y"
 
 /projappl/project_2001234        25G/100G       282K/1.0M       n/a
-/scratch/project_2001234         7.2/10TB       2.1M/2.5M       90d
+/scratch/project_2001234        7.2T/10T        2.1M/2.5M       90d
 ----------------------------------------------------------------------
 ```
 

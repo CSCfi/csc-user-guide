@@ -97,9 +97,9 @@ certificate) to the supercomputer you're first connecting to.
 
 After this, `scp` can be used to copy data directly between CSC supercomputers
 using the same syntax as above. For example, the command to copy a file
-`data.txt` from directory `/scratch/project_2001234` on Roihu to the same
-directory on LUMI would be:
+`data.txt` from directory `/scratch/project_2001234` on Roihu to directory
+`/scratch/project_462000123` on LUMI would be:
 
 ```bash
-scp /scratch/project_2001234/data.txt bob@lumi.csc.fi:/scratch/project_2001234
+scp /scratch/project_2001234/data.txt bob@lumi.csc.fi:/scratch/project_462000123
 ```

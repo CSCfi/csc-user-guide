@@ -81,8 +81,7 @@ select the optimal one.
   `Benchmark time:` line in the output.
 
 To run on multiple GPUs efficiently, you typically need a rather large system
-composed of at least several hundred thousand atoms, such as the STMV case
-below. Check with your system and see the
+composed of at least several hundred thousand atoms. Check with your system and see the
 [NAMD website](https://www.ks.uiuc.edu/Research/namd/3.0/features.html)
 for available features that allow you to maximize the performance
 of multi-GPU runs. Importantly, enabling GPU-resident mode using configuration
@@ -102,7 +101,7 @@ file option `GPUresident on` is extremely beneficial.
     ```bash
     #!/bin/bash
     #SBATCH --job-name=apoa1-namd
-    #SBATCH --account=project_2001659
+    #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=00:20:00
     #SBATCH --nodes=1

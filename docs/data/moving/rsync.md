@@ -96,10 +96,10 @@ certificate) to the supercomputer you're first connecting to.
 
 After this, `rsync` can be used to transfer data directly between CSC
 supercomputers using same syntax as above. For example, to copy a directory
-`/scratch/project_2001234/myfiles` on Roihu to the corresponding path on LUMI:
+`/scratch/project_2001234/myfiles` on Roihu to the scratch directory of a LUMI project, `/scratch/project_462000123`:
 
 ```bash
-rsync -rP /scratch/project_2001234/myfiles <username>@lumi.csc.fi:/scratch/project_2001234
+rsync -rP /scratch/project_2001234/myfiles <username>@lumi.csc.fi:/scratch/project_462000123
 ```
 
 [See also the final section of this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-maindisks.html).

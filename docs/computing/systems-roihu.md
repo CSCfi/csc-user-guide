@@ -93,13 +93,13 @@ a 6.0 PiB Scratch space and a 0.5 PiB storage system for project applications
 and users' personal Home directories. Separate file systems ensure
 responsiveness of Home and ProjAppl even under heavy Scratch usage.
 
-The Scratch disk of Roihu is more than ten times as performant as Puhti
-Scratch. Specifically, the peak I/O performance of Roihu Scratch is around 560 GB/s
+The peak I/O performance of Roihu Scratch is around 560 GB/s
 for read and 280 GB/s for write. The Home and ProjAppl disk areas have read
 and write bandwidths of 120 GB/s and 100 GB/s, respectively.
 
-Similar to Puhti, Roihu Scratch disk is regularly cleaned of files that
-have not been accessed in the last 180 days to prevent inactive data from accumulating
+Roihu Scratch disk is regularly cleaned of files that
+have not been accessed in the last 180 days (90 days for projects with a
+scratch quota of 5 TiB or more) to prevent inactive data from accumulating
 on the system.
 
 Roihu also provides a separate Dataset disk area for actively used
@@ -162,22 +162,18 @@ partition there are four 200 Gb/s links per node, one per GPU.
 ## Software and programming environment
 
 We provide a comprehensive stack of pre-installed HPC libraries and
-scientific software on Roihu, similar to those on Puhti and Mahti. Some older and less
-used software packages and versions may, however, be deprecated. Please also
-note that any software compiled on Puhti and Mahti will most likely need to be
-recompiled on Roihu.
+scientific software on Roihu.
 Instructions for installing applications are provided in
 [the getting started with Roihu tutorial](../support/tutorials/roihu.md#installing-software)
 
-The programming environment of Roihu is otherwise similar to Mahti,
-including:
+The programming environment of Roihu includes:
 
 * The GNU compiler stack
 * The AOCC compiler stack
 * CUDA and NVIDIA HPC Software Development Kit (SDK)
 * OpenMPI as the main MPI library
 
-Like Puhti and Mahti, Roihu also features a web interface for easy-to-use
+Roihu also features a web interface for easy-to-use
 interactive access and running graphical user interfaces.
 
 A list of currently supported applications on Roihu can be found on the
@@ -215,7 +211,7 @@ Read more about the [sensitive data services at CSC](../data/sensitive-data/inde
 * [Frequently asked questions](../support/faq/roihu.md)
 * [See the latest Roihu presentation slides](https://a3s.fi/docs-files/roihu-presentation.pdf)
   (updated 2026-06-15)
-* Do you have questions about Roihu or the retirement of Puhti and Mahti?
+* Do you have questions about Roihu?
   Please [contact CSC Service Desk](../support/contact.md), we're happy to
   help!
 
