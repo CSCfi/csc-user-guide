@@ -24,7 +24,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/bcb-unl/run_dbc
 
 ## Available
 
-* Roihu: 5.2.9 (module `py-dbcan`), via the `bio-apps` module.
+* Roihu-CPU: 5.2.9 (module `py-dbcan`), via the `bio-apps` module.
 
 ## Usage
 
