@@ -87,8 +87,6 @@ bottlenecks. At CSC, several profiling tools are available:
   OpenMP and hybrid MPI+OpenMP programs
 * [cProfile](../apps/cProfile.md) is the recommended, in-built profiling tool
   for Python programs
-* [nvprof](../apps/nvprof.md) is a command-line CUDA profiler and tracing tool
-  for CUDA programs
 * [nsys](../apps/nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool designed to visualize an application’s algorithms
 * [ncu](../apps/ncu.md) is the command-line interface of Nsight Compute, a tool to debug and optimize CUDA kernels
 
