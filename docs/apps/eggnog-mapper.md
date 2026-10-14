@@ -25,7 +25,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/eggnogdb/eggnog
 
 ## Available
 
-* Roihu: 2.1.15, via the `bio-apps` module.
+* Roihu-CPU: 2.1.15, via the `bio-apps` module.
 
 ## Usage
 
