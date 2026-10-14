@@ -8,11 +8,7 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - web_interfaces:
-        - Puhti
-        - Mahti
     - Puhti
-    - Mahti
 ---
 
 # CryoSPARC

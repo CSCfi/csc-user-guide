@@ -56,4 +56,4 @@ Some of the resources can be omitted if they are not relevant, such as if you do
 
 ### Tutorials
 [Tutorial example for course organizers](https://github.com/CSCfi/Jupyter_www_puhti): This tutorial is useful for course organizers
-who want to provide custom Jupyter notebooks *via* the web interfaces. 
+who want to provide custom Jupyter notebooks *via* the web interface. 

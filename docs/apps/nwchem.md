@@ -9,7 +9,6 @@ catalog:
     - Chemistry
   available_on:
     - Puhti
-    - Mahti
 ---
 
 # NWChem

@@ -9,13 +9,9 @@ catalog:
     - Computational Engineering
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
 ---
 
 # PALM
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 PALM is an advanced and modern meteorological model system for atmospheric and oceanic
 boundary-layer flows. It has been developed as a turbulence-resolving large-eddy simulation
@@ -34,22 +30,9 @@ of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Available
 
-PALM is available on [Puhti, Mahti and LUMI](../computing/available-systems.md) servers. Versions
-available are listed when running the installation script, see below.
+PALM is available on [LUMI](../computing/available-systems.md) server. 
 
 ## Usage
-
-After login on the server, give the command
-
-```bash
-module spider palm
-```
-
-This gives you a list of the installed versions. To load the version of your choice, give the command
-
-```bash
-module load palm/<version>
-```
 
 On LUMI, you need to first load the module environment
 

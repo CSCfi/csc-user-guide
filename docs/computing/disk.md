@@ -175,10 +175,6 @@ Allas can be found in the [Allas guide](../data/Allas/index.md).
 Roihu users can apply for separate dataset projects, which provide access to a shared disk
 area under `/dataset/<project>`, but no computational resources.
 
-!!! note "Dataset project access begins in early August" 
-     You can already apply for a dataset project in MyCSC.
-     Based on the applications, the first dataset projects will be approved and granted access in early August 2026.
-
 Unlike normal computational projects, dataset projects do not include scratch or projappl
 directories. Instead, they are designed specifically for sharing data between multiple
 projects.
