@@ -78,7 +78,9 @@ the disaggregated NVMe storage (SBF), mounted at `/sbf/data`, and the Gaussian
 scratch files (`GAUSS_SCRDIR`) are written there. The disk exists only during
 the job and is removed when the job ends. Without a disk size, scratch files
 are written to Lustre in the job directory, with optimised striping set by the
-script. Request enough disk: the scratch files must fit in the requested size. Files named in `%Chk` are written to the job directory.
+script. Request enough disk: the scratch files must fit in the requested size.
+A checkpoint file named in `%Chk` is written to the job directory, unless a
+full path is given in the input file.
 
 ## Performance considerations
 
