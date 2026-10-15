@@ -697,7 +697,7 @@ mpiexec(mpirun -> run(`$mpirun julia --project=. prog.jl`))
     ```bash title="batch.sh"
     #!/bin/bash
     #SBATCH --account=<project>
-    #SBATCH --partition=gpumedium
+    #SBATCH --partition=gputest
     #SBATCH --time=00:15:00
     #SBATCH --nodes=2
     #SBATCH --ntasks-per-node=4
