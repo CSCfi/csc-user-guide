@@ -53,11 +53,11 @@ Now all the preparations are ready and you can start using SD Connect service. B
 
 ### 4. Upload each dataset to a dedicated bucket
 
-CSC will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the project where the data users can analyze it in the isolated SD Desktop environment.
+CSC will create a bucket in SD Connect for each dataset, share the bucket name with you, and grant Read-only access to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
 
-A bucket will be created for each dataset based on the data permit, i.e. each bucket will contain only one dataset and it should include all data under the same data permit.
+One bucket is created for each dataset based on a data permit. In other words, each bucket contains only one dataset and should include all data covered by the same data permit.
 
-The data users create their CSC projects based on the data permits, and they can access only the data uploaded to the bucket shared for their project. If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets and the users must have separate CSC projects for each data permit.
+Data users create their CSC projects based on their data permits and can access only the data uploaded to the bucket shared with their project. If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets, and the users must have separate CSC projects for each data permit.
 
 Follow these instructions to upload data to the buckets:
 
