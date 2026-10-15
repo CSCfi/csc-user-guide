@@ -29,7 +29,7 @@ Commercial, more info from [Materials Design](https://www.materialsdesign.com/).
 
 These instructions assume the MedeA GUI is already installed on your own computer. The MedeA JobServer and TaskServer run in a container on a Roihu login node, and the TaskServer submits calculations to Slurm. VASP and LAMMPS calculations use Roihu's own `vasp` and `lammps` modules.
 
-## 1. Set up the servers on Roihu (once)
+### Set up the servers on Roihu (once)
 
 Log in to the login node where your servers will run. Always use the same node, because the servers run there:
 
@@ -62,7 +62,7 @@ The generated `TaskServer.options` submits jobs with these settings. Edit the fi
 | `-nprocessors 128` | Maximum cores per task |
 | `-ntasks 4` | Maximum concurrent tasks |
 
-## 2. Start and stop the servers
+### Start and stop the servers
 
 Run these on the same login node, in your work directory, with the module loaded:
 
@@ -89,7 +89,7 @@ Stop the servers when you no longer need them:
 medea-stop-servers.sh
 ```
 
-## 3. Open an SSH tunnel from your computer
+### Open an SSH tunnel from your computer
 
 On your own computer, forward a local port to your JobServer port (here `32077`):
 
@@ -105,17 +105,13 @@ Close the tunnel:
 pkill -f "ssh -N -f -L localhost:32001:localhost:32077 roihu-cpu-login1.csc.fi"
 ```
 
-## 4. Connect the GUI to Roihu
+### Connect the GUI to Roihu
 
 Start the MedeA GUI, then go to **File » Preferences » JobServers** and add a JobServer with name `Roihu` and address `http://localhost:32001`.
 
 Each time you work with MedeA: start the servers on Roihu (step 2), open the tunnel (step 3), then start the GUI.
 
-## Troubleshooting
+### Troubleshooting
 
 - **Servers do not start or a port is in use:** choose other ports, run `medea-init-servers.py` again with them, and use the new JobServer port in the SSH tunnel.
 - **Where are my files?** Job data is in `<workdir>/JobServer/Jobs` and task run directories in `<workdir>/TaskServer`.
-
-## More information
-
-- [MedeA documentation](https://www.materialsdesign.com/)
