@@ -8,7 +8,7 @@ Currently, Q20 and Q50 support job submissions using Qiskit or Cirq. These scrip
 To run jobs on the quantum computers, follow these steps to set up the correct environment on LUMI:
 
 !!! info "Device-specific values"
-    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page.
+    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](./devices/vlq.md).
 
 !!! info 
     Run these commands either in your batch script or within an interactive session started via `srun`
