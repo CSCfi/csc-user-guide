@@ -36,7 +36,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
 - Enable two-step authentication (MFA).
 
-!!! warning If you don't have Haka or Virtu account or you haven't verified your identity in your home organisation, an identity verification is required before you can access the secondary use project in SD services. Read the [instructions for strong identification](../../accounts/strong-identification.md) and raise the level of assurance for your identity if needed.
+!!! warning "If you don't have Haka or Virtu account or you haven't verified your identity in your home organisation, an identity verification is required before you can access the secondary use project in SD services. Read the [instructions for strong identification](../../accounts/strong-identification.md) and raise the level of assurance for your identity if needed."
 
 ---
 
