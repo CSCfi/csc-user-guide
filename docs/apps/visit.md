@@ -40,6 +40,7 @@ VisIt is free also for commercial use and has been released under
 ## Available
 
 * Roihu-CPU: 3.5.0
+* Roihu Accelerated Visualization Desktop: 3.3.3
 * LUMI: 3.2.2
 
 ## Usage
@@ -65,8 +66,7 @@ VisIt is free also for commercial use and has been released under
 
     Note that running VisIt with many processors does not necessarily bring speed
     benefits.
-    It will depend on VisIt's particular data reader if (and to what
-extent)
+    It will depend on VisIt's particular data reader if (and to what extent)
     the data can be distributed between the processors.
 
 === "Roihu accelerated"
