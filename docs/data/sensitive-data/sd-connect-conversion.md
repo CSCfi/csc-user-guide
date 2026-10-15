@@ -151,8 +151,14 @@ The cleanup depends on the bucket label:
 
 
 
-!!! warning
+<div class="grid cards" markdown>
+
+- :material-close-circle:{ .lg .middle } **Warning**
+  { .csc-grid-card-error }
+  
     Always verify that the converted data is complete and accessible before confirming the deletion of the original bucket. Deleting a bucket permanently removes all data it contains.
+
+</div>
 
 
 When conversion creates both an original and a converted bucket, keeping both consumes additional CSC storage space.
