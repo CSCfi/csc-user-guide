@@ -24,7 +24,7 @@ In SD Connect UI you will see buckets marked with **Urgent** label. These bucket
 - :material-alert:{ .lg .middle } **Note**
   { .csc-grid-card-warning }
 
-    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
+    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool GUI and not start a new conversion until further notice.
  
   
 </div>
