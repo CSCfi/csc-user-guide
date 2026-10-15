@@ -7,12 +7,12 @@ catalog:
   license_type: Free
   disciplines:
     - Chemistry
-  available_on:
-    - Puhti
-    - Mahti
+  unchecked: true
 ---
 
 # NWChem
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 NWChem provides many different methods to compute the properties of molecular and
 periodic systems using standard quantum mechanical descriptions of the electronic
