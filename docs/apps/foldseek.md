@@ -104,9 +104,12 @@ database. Use the padded copies of the shared databases (names ending in `_pad`)
 foldseek easy-search queries/ $FOLDSEEK_DB/afdb_swissprot_pad results.m8 tmp --gpu 1 --prefilter-mode 1
 ```
 
-GPU searches must run on a GPU node, either in a batch job on a GPU partition (see the
-[example batch script](#example-batch-script)) or in an interactive session started
-with [`sinteractive`](../computing/running/interactive-usage.md) on `roihu-gpu.csc.fi`.
+GPU searches must run on a GPU node. Use a batch job on a GPU partition (see the
+[example batch script](#example-batch-script)) for searches against the large
+databases. For short tests, you can also start an interactive session with
+[`sinteractive`](../computing/running/interactive-usage.md) on `roihu-gpu.csc.fi`,
+but interactive sessions will get a GPU slice with only 12 GiB of GPU memory once
+slicing is configured, so use a small database such as `afdb_swissprot_pad` there.
 
 For your own databases, make a padded copy with `makepaddedseqdb`:
 
