@@ -525,7 +525,7 @@ The `%environment` section makes the virtual environment and the MATLAB librarie
 ### Building the container
 
 We build the container from the definition file (`matlab.def`) into a container image (`matlab.sif`) using fakeroot.
-The MATLAB image is large, so build it on scratch (replace `<project>` with your project) and keep an eye on your [quota](../computing/roihu-disk.md):
+The MATLAB image is large, so build it on scratch (replace `<project>` with your project) and keep an eye on your [quota](../computing/disk.md):
 
 ```bash
 cd /scratch/<project>

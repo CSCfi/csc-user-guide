@@ -8,20 +8,18 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
 # Gaussian
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 Gaussian is a versatile program package providing various capabilities for
 electronic structure modeling.
 
 ## Available
 
-- Puhti: `G16RevC.02`
-- Mahti: `G16RevC.02`
 - Roihu-CPU: `G16RevC.02`
 
 ## License
@@ -56,8 +54,7 @@ Run `subg16` without arguments to display more details.
 ### Running on Roihu
 
 On Roihu, Gaussian jobs must be submitted from the **CPU login node**
-(`roihu-cpu`). The workflow is otherwise the same as on Puhti and Mahti: load
-the module and use `subg16` to submit jobs:
+(`roihu-cpu`). Load the module and use `subg16` to submit jobs:
 
 ```bash
 module load gaussian/G16RevC.02
@@ -94,7 +91,7 @@ on-demand local NVMe allocation via `subg16` is **not yet available** for
 standard M-nodes. When a local disk size is requested, scratch I/O currently
 falls back to Lustre with optimised striping applied automatically by the
 script. Local NVMe support will be enabled in a future update. Roihu's
-Lustre scratch is over ten times faster than Puhti's, so performance for most
+Lustre scratch is very fast, so performance for most
 jobs is not significantly impacted in the meantime.
 
 
@@ -143,12 +140,6 @@ There are also some tools, like
 memory needs.
 
 !!! info "Note"
-    On Mahti, each reserved CPU core is allocated **1.875 GiB of memory**. The
-    only way to request more memory is to reserve additional cores. As a
-    result, the optimal number of cores used by Gaussian may sometimes be lower
-    than the number of reserved cores, depending on memory requirements.
-
-!!! info "Note"
     On Roihu, the standard CPU nodes (M-nodes) have 768 GiB of memory shared
     across 384 cores, giving approximately **2 GiB per core**. The `subg16`
     script enforces this as a hard upper limit for `%Mem`. A 1 500 MB overhead
@@ -165,7 +156,7 @@ reduce the overall load on the Lustre parallel file system.
 
 On **Roihu**, local NVMe allocation via `subg16` is not yet available for
 standard CPU nodes; scratch I/O currently uses Lustre with optimised striping.
-Roihu's Lustre scratch is over ten times faster than Puhti's, so the impact
+Roihu's Lustre scratch is very fast, so the impact
 on most jobs is modest. NVMe support via `subg16` will be enabled in a future
 update.
 

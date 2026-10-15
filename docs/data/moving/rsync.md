@@ -47,27 +47,27 @@ The table below lists the most commonly used options:
     `rsync` will by default overwrite any changes made to the target, even if
     they are newer than the source! Use option `-u` to avoid this.
 
-## Using rsync to transfer data between your local computer and Puhti
+## Using rsync to transfer data between your local computer and Roihu
 
-The command for transferring a local folder to Puhti, while showing the
+The command for transferring a local folder to Roihu, while showing the
 progress and keeping partially transferred files, would for example be:
 
 ```bash
-rsync -rP /path/to/local/folder <username>@puhti.csc.fi:/path/to/target
+rsync -rP /path/to/local/folder <username>@roihu-cpu.csc.fi:/path/to/target
 ```
 
 This would either:
 
-1. Create a folder on Puhti at `/path/to/target/folder` if the folder was not
+1. Create a folder on Roihu at `/path/to/target/folder` if the folder was not
    present before. In this case, everything in the local folder will be
    transferred.
 2. Synchronize the source and target folders if the folder already exists on
-   Puhti. In this case, only changes we have made will be transferred.
+   Roihu. In this case, only changes we have made will be transferred.
 
 And the same thing in reverse:
 
 ```bash
-rsync -rP <username>@puhti.csc.fi:/path/to/target/folder /path/to/local
+rsync -rP <username>@roihu-cpu.csc.fi:/path/to/target/folder /path/to/local
 ```
 
 !!! info "Note"
@@ -96,10 +96,10 @@ certificate) to the supercomputer you're first connecting to.
 
 After this, `rsync` can be used to transfer data directly between CSC
 supercomputers using same syntax as above. For example, to copy a directory
-`/scratch/project_2001234/myfiles` on Puhti to the corresponding path on Mahti:
+`/scratch/project_2001234/myfiles` on Roihu to the scratch directory of a LUMI project, `/scratch/project_462000123`:
 
 ```bash
-rsync -rP /scratch/project_2001234/myfiles <username>@mahti.csc.fi:/scratch/project_2001234
+rsync -rP /scratch/project_2001234/myfiles <username>@lumi.csc.fi:/scratch/project_462000123
 ```
 
 [See also the final section of this tutorial](https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-maindisks.html).

@@ -7,11 +7,12 @@ catalog:
   license_type: Academic
   disciplines:
     - Chemistry
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # TmoleX
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 TmoleX is an easy to use graphical user interface to handle
 [TURBOMOLE](turbomole.md) calculations. TmoleX includes a structure builder

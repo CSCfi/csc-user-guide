@@ -30,9 +30,6 @@ saving the user from having to script something themselves based on raw `du` out
 The sources of possible inaccuracy are:
 
 1. Old files which have not been accessed are missing size data.
-      - There is a specific date (2020-11-18) before which data is not available on
-        **Puhti**. Mahti does not have a such a limitation.
-      - Files created/accessed after this should be ok.
       - It's not always possible to accurately determine affected files in a
         sufficiently efficient manner.
 2. We can't get the actual layout of the files on the disk, so we might slightly
@@ -148,8 +145,8 @@ in a more parsable format instead of printing it to the screen.
 
 ## Updating size
 
-As mentioned, files which have not been accessed since _2020-11-18_ are not reported
-correctly. Note that this applies only for **Puhti**, Mahti does not have this limitation.
+As mentioned, old files which have not been accessed recently may be missing size
+data and reported as `NOSIZE`.
 
 Next follows the steps to correct this. This procedure needs to be done only once,
 after which the size should be reported correctly:

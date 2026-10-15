@@ -8,11 +8,12 @@ catalog:
   disciplines:
     - Mathematics and Statistics
   available_on:
-    - Mahti
     - Roihu
 ---
 
 # r-env
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 `r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
 
