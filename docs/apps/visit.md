@@ -22,8 +22,6 @@ VisIt is available on Roihu, and we recommend
 [the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-If you need more performance and GPUs for interactive visualization, ...
-
 !!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
     You can now also enable
     [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
