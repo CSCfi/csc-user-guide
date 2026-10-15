@@ -48,11 +48,11 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
     ---
 
-    [Start here: what is a secondary use project? :material-arrow-right:](secondarydata-access.md)
+    [Start here: Accessing secondary use health and social data via Sensitive Data services :material-arrow-right:](secondarydata-access.md)
 
     [Create an account and a secondary use project :material-arrow-right:](sd-use-case-secondary-use-project.md)
 
-    [How to transfer secondary use data to SD Desktop? :material-arrow-right:](sd-use-case-secondary-use-data-controller.md)
+    [Data controller: transfer secondary use data to SD Desktop :material-arrow-right:](sd-use-case-secondary-use-data-controller.md)
 
 </div>
 
