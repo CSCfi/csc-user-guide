@@ -37,7 +37,7 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 
 ### 2. Join a CSC project
 
-- The SD services team adds you to a CSC project that is created specifically for data transfers from your organisation.
+- CSC adds you to a CSC project that is created specifically for data transfers from your organisation.
 - Check your email for a notification and log in to MyCSC to find the project. You will need the project number and project name to identify the correct project in SD Connect.
 
 ---
@@ -53,7 +53,7 @@ Now all the preparations are ready and you can start using SD Connect service. B
 
 ### 4. Upload each dataset to a dedicated bucket
 
-The SD services team will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the project where the data users can analyze it on SD Desktop. Each bucket will contain only one dataset, i.e. all data under the same data permit, and a bucket will be created for each dataset based on the data permit. Users create their projects based on data permits and can access the data only on the isolated virtual desktops under that project.
+CSC will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the project where the data users can analyze it on SD Desktop. Each bucket will contain only one dataset, i.e. all data under the same data permit, and a bucket will be created for each dataset based on the data permit. Users create their projects based on data permits and can access the data only on the isolated virtual desktops under that project.
 
 Follow these instructions to upload data to the bucket:
 
