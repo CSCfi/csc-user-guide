@@ -156,7 +156,7 @@ Small BU applications (S) are automatically approved.
 
 <div class="grid cards" markdown>
   
-- :material-alert:{ .lg .middle } **Review your data for errors and omissions**
+- :material-alert:{ .lg .middle } **Review the data for errors and omissions**
   { .csc-grid-card-warning }
 
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
