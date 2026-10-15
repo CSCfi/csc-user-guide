@@ -78,6 +78,7 @@ with [yak](yak.md), then give them to hifiasm with `-1` (paternal) and `-2`
 ```bash
 module load bio-apps/v202603
 module load yak/0.1
+module load hifiasm/0.25.0
 cat pat_1.fq.gz pat_2.fq.gz > pat.fq.gz
 cat mat_1.fq.gz mat_2.fq.gz > mat.fq.gz
 yak count -b37 -t 16 -o pat.yak pat.fq.gz
