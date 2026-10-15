@@ -6,7 +6,7 @@
 
 Your organisation has issued a data permit for a research group to process health and social data under the Secondary Use Act. You need to deliver the dataset to SD Desktop environment for the users.
 
-!!! Note 
+!!! warning 
     - Before any data can be made available for researchers in the Sensitive Data services, you need to confirm that the necessary legal agreements are in place between the data controller and CSC.
     - The register dataset must always be uploaded in collaboration with the CSC Sensitive Data (SD) services team.
     - You can start a conversation with the SD services team by sending a message to the [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
