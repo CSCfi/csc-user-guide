@@ -19,7 +19,8 @@ ssh yourcscusername@roihu-cpu.csc.fi
 ```
 
 Where `yourcscusername` is the username you get from CSC. In addition to
-an SSH key, Roihu also requires a signed SSH certificate.
+an SSH key, Roihu also requires a
+[signed SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key).
 
 You can find more detailed instructions in our User Guide: [Connecting
 to CSC supercomputers](../../computing/connecting/index.md).
@@ -351,7 +352,7 @@ squeue -l -u <username>
 
 You can check the status of your job in the column named `ST` or `STATUS` (depending
 whether option `-l` is used or not). `R` or `RUNNING` means the job is currently running.
-`P` or `PENDING` means it is still waiting in the queue.
+`PD` or `PENDING` means it is still waiting in the queue.
 
 If the job is pending, you can see the reason in the `NODELIST(REASON)` column. 
 
@@ -408,7 +409,8 @@ Most important things to check are the CPU efficiency and memory utilization.
 
 There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
-you should consider using a node with fast local disk.
+you should consider using the fast local disk (`$TMPDIR`) available on all
+compute nodes, or [disaggregated storage](../../computing/disk.md#disaggregated-storage).
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,

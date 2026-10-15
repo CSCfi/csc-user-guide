@@ -41,8 +41,8 @@ local machine. Read the instructions:
 * [How to sign your SSH key with a certificate](../../computing/connecting/ssh-keys.md#signing-public-key)
 * [How to enable SSH agent forwarding](../../computing/connecting/ssh-unix.md#authentication-agent)
 
-Once you've set up SSH keys, registered your public key in MyCSC, and
-configured SSH agent forwarding on your local workstation, mounting of a remote
+Once you've set up SSH keys, registered your public key in MyCSC, signed it
+to obtain an SSH certificate, and configured SSH agent forwarding on your local workstation, mounting of a remote
 directory on Roihu can be done in your cPouta virtual machine with:
 
 ```bash

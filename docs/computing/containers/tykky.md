@@ -284,11 +284,18 @@ For deleting a Tykky installation, remove the <install_dir> folder.
 Tykky installations can also be moved:
 
 * Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
-* Between Roihu and LUMI use `rsync`. For copying to Roihu, log in to LUMI and change to the folder where you want to move the Tykky installation, then use:
+* Between Roihu and another supercomputer (e.g. LUMI) use `rsync`. For example, to copy an installation from Roihu to LUMI, log in to LUMI and change to the folder where you want to move the Tykky installation, then use:
 
 ```
 rsync -al <username>@roihu-cpu.csc.fi:<install_dir> .
 ```
+
+Connecting to Roihu requires a valid
+[SSH certificate](../connecting/ssh-keys.md#signing-public-key), so make sure
+to forward your SSH agent, including your certificate, when logging in to the
+other supercomputer. See the SSH agent forwarding instructions for
+[Linux/macOS](../connecting/ssh-unix.md#ssh-agent-forwarding) and
+[Windows](../connecting/ssh-windows.md#ssh-agent-forwarding).
 
 ## More complicated example
 

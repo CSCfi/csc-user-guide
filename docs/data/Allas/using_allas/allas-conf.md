@@ -18,7 +18,7 @@ Alternatively, one can use [Roihu web interface](../../../computing/webinterface
 
 ## `allas-conf` availability
 
-Available on CSC supercomputers with **allas** module. Can be (installed)[allas-conf-installation] to Linux and Mac, but not Windows.
+Available on CSC supercomputers with **allas** module. Can be [installed](#allas-conf-installation) to Linux and Mac, but not Windows.
 
 ```text
 module load allas
@@ -45,7 +45,8 @@ are not valid in this authentication step.
 
 Once S3 connection is configured, same authentication is used for all login sessions and it does not have an expiration time.
 
-`allas-conf` generates configuration files in S3 mode for: 
+`allas-conf` generates configuration files in S3 mode for:
+
 * `rclone`: `.config/rclone/rclone.conf`
 * `s3cmd`: `~/.s3cfg`
 * `aws`: credentials and S3 region in `~/.aws/credentials` and S3 endpoint in `~/.aws/config` files.
@@ -78,20 +79,20 @@ The `allas-conf` command prompts for your CSC password (University/Haka password
 By default, `allas-conf` lists your projects that have access to Allas, but if you know the name of the project, you
 can also give it as an argument:
 ```text
-allas-conf project_201234
+allas-conf --swift project_201234
 ```
 
-`allas-conf --swift` enables you to use only one Allas project at a time in one session. You can switch to another project by running `allas-conf` again.
+`allas-conf --swift` enables you to use only one Allas project at a time in one session. You can switch to another project by running `allas-conf --swift` again.
 
 Note that the Allas project does not need to be the same as the project you are using in Roihu.
 
-`allas-conf --swift` generates Swift configuration files for : `a-tools, `rclone` and `swift`.
+`allas-conf --swift` generates Swift configuration files for: `a-tools`, `rclone` and `swift`.
 
-The authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables. However, you can refresh the authentication at any time by running `allas-conf` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
+The authentication information is stored in the `OS_AUTH_TOKEN` and `OS_STORAGE_URL` environment variables. However, you can refresh the authentication at any time by running `allas-conf --swift` again. The environment variables are set only for the current login session, so you need to configure authentication individually for each shell with which you wish to access Allas.
 
 If you are running big, multistep processes (e.g. batch jobs), it may be that your data management pipeline takes more than eight hours. In those cases you can add option `-k` to the `allas-conf` command.
 ```text
-allas-conf -k
+allas-conf --swift -k
 ```
 With this option on, the password is stored into environment variable OS_PASSWORD. A-commands recognize this environment variable and when executed, automatically refresh the current Allas connection.
 

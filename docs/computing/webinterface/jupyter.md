@@ -16,7 +16,7 @@ modules listed on the Python app page are not guaranteed to work with the
 Jupyter interactive app. Additionally, installation of Python packages works
 differently from the general instructions in the usage guide.
 
-### Supported Python environments in the Roihu web interface
+## Supported Python environments in the Roihu web interface
 
 CPU partitions:
 

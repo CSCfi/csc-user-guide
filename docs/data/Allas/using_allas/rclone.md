@@ -85,7 +85,7 @@ Following remotes are available:
 
 ### Rclone with swift 
 
-If need to use rclone with Swift based Allas connection, for example for accessing data that you stored to Allas from Puhti and Mahti, the connection
+If you need to use rclone with a Swift-based Allas connection, for example for accessing data that you stored to Allas from Puhti and Mahti, the connection
 is activated with commands:
 ```text
 module load allas

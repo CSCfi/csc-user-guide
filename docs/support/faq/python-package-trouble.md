@@ -22,9 +22,9 @@ $ which python3
 /appl/soft/manual/aida/x86_64/pytorch/pytorch-2.13-update1/bin/python3
 
 $ module load python-pytorch
-$ source venv-pytorch2.6/bin/activate  # ← activating virtual environment
+$ source venv-pytorch2.13/bin/activate  # ← activating virtual environment
 $ which python3
-/scratch/project_2001234/cscuser/venv-pytorch2.6/bin/python3
+/scratch/project_2001234/cscuser/venv-pytorch2.13/bin/python3
 ```
 
 You can also check the Python version:
@@ -89,7 +89,7 @@ pip3 list -v | grep -v /ROIHU_TYKKY
 ```
 
 Note that some modules are not using [Tykky][tykky] and Conda, for
-example pytorch has packages installed into `/usr/local/lib` or
+example python-pytorch has packages installed into `/usr/local/lib` or
 `/usr/local/lib64`. Note that these are paths inside the python-pytorch
 container.
 

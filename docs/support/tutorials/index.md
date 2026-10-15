@@ -60,7 +60,7 @@
 
 * [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
-* [Running your first job on Roihu](biojobs-on-puhti.md)
+* [Running your first job on Roihu](biojobs-on-roihu.md)
 
 ## Chemistry
 

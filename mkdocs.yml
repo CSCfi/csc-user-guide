@@ -101,6 +101,7 @@ plugins:
       "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/user-spack.md": "support/tutorials/roihu-user-spack.md"
+      "support/tutorials/biojobs-on-puhti.md": "support/tutorials/biojobs-on-roihu.md"
       "computing/allas.md": "data/Allas/allas-roihu.md"
       "computing/roihu-disk.md": "computing/disk.md"
       "computing/containers/creating.md": "computing/containers/overview.md"
@@ -563,7 +564,7 @@ nav:
       - Moving data:
           - data/moving/index.md
           - Copying files using scp: data/moving/scp.md
-          - Moving files using the HPC web interfaces: data/moving/web-interface.md
+          - Moving files using the HPC web interface: data/moving/web-interface.md
           - Graphical file transfer tools: data/moving/graphical_transfer.md
           - Using rsync for data transfer and synchronization: data/moving/rsync.md
           - Using tar and SSH to transfer many small files efficiently: data/moving/tar_ssh.md

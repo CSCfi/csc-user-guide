@@ -70,9 +70,9 @@ run from the GPU login node without additional parameters.
      being loaded and available, as the interactive job inherits the environment from
      the login node.
 
-!!! info "`gpuinteractive` currently gives full GPUs during pilot"
+!!! info "`gpuinteractive` currently gives full GPUs"
      The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
-     during the pilot users will be allocated full GPUs.
+     users are currently allocated full GPUs.
 
 To see the command options available on Roihu, run the following while
 logged into the system:
@@ -150,7 +150,7 @@ Once the resources are available, you can work normally in the shell. The
 Bash prompt shows the name of the compute node:
 
 ```bash
-[username@r07c02 ~]$
+[username@rc4105 ~]$
 ```
 
 Once the requested time has passed, the shell exits automatically.

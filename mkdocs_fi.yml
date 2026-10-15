@@ -135,6 +135,11 @@ nav:
           - Yhteyden muodostaminen: computing/firecrest/connecting.md
           - Tiedonsiirto S3:n yli: computing/firecrest/data-transfer-s3.md
           - Python SDK: computing/firecrest/pyfirecrest.md
+      - Tekoälytyökalut:
+          - computing/ai-tools/index.md
+          - Agenttiympäristö: computing/ai-tools/agent-env.md
+          - Docs MCP -palvelin: computing/ai-tools/docs-mcp.md
+          - CSC Skills: computing/ai-tools/csc-skills.md
   - Pilvipalvelut:
       - cloud/index.md
       - Noppe:
@@ -334,7 +339,7 @@ nav:
       - Datan siirtäminen:
           - data/moving/index.md
           - Tiedostojen kopiointi scp:llä: data/moving/scp.md
-          - Tiedostojen siirtäminen HPC-verkkokäyttöliittymien avulla: data/moving/web-interface.md
+          - Tiedostojen siirtäminen HPC-verkkokäyttöliittymän avulla: data/moving/web-interface.md
           - Graafiset tiedostonsiirtotyökalut: data/moving/graphical_transfer.md
           - Rsyncin käyttö tiedonsiirtoon ja synkronointiin: data/moving/rsync.md
           - Tarin ja SSH:n käyttö pienten tiedostojen tehokkaaseen siirtoon: data/moving/tar_ssh.md

@@ -129,7 +129,7 @@ should again verify the new key against fingerprints provided by CSC.
 
 ### Graphical connection
 
-We recommend using the web interfaces for running applications with graphical
+We recommend using the web interface for running applications with graphical
 user interfaces. Alternatively, graphics can also be displayed over an SSH
 connection using X11 forwarding. See the operating system-specific instructions:
 

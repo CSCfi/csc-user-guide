@@ -125,8 +125,8 @@ csc-workspaces
 * [Systems](available-systems.md): What computational resources are available
 * [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
 * [Connecting](connecting/index.md): How to connect to  CSC supercomputers
-* [Web interfaces](webinterface/index.md): How to connect to CSC supercomputers
-  using the web interfaces
+* [Web interface](webinterface/index.md): How to connect to Roihu
+  using the web interface
 * [Disk areas](disk.md): What places are there for storing data on CSC
   supercomputers
 * [Object storage](allas-in-roihu.md): Opening connections to Allas and Lumi-O object storage services 
