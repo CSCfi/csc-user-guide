@@ -107,7 +107,7 @@ module load jax  # jax/small
 
     In your scripts we recommend to fix the version so that
     changes in future upgrades do not break scripts, e.g.,:
-    `module load jax/0.5.0` or `module load jax/0.5.0-small`
+    `module load jax/0.10` (Roihu-GPU) or `module load jax/0.4.30-small` (LUMI)
 
 Please note that the JAX modules already include the corresponding
 CUDA and cuDNN or ROCm libraries, so **there is no need to load any
