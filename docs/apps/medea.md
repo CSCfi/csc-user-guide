@@ -48,16 +48,16 @@ Create a work directory and generate the server option files `JobServer.options`
 ```bash
 mkdir -p /scratch/<project>/$USER/medea
 cd /scratch/<project>/$USER/medea
-medea-init-servers.py --jobserver-port 32077 --taskserver-port 23077
+medea-init-servers.py --jobserver-port 32077 --taskserver-port 23077 --batch-project <project>
 ```
 
-The login node is shared with other users, so choose your own two port numbers instead of `32077` and `23077` (any free ports between 1024 and 65535).
+Replace `<project>` with your CSC project (e.g. `project_2001234`); Slurm jobs are billed to it. The login node is shared with other users, so choose your own two port numbers instead of `32077` and `23077` (any free ports between 1024 and 65535).
 
 The generated `TaskServer.options` submits jobs with these settings. Edit the file if you need different ones:
 
 | Line | Meaning |
 |------|---------|
-| `-batch_project project_2003810` | Billing project (Slurm `--account`) |
+| `-batch_project <project>` | Billing project (Slurm `--account`), set by `--batch-project` |
 | `-batch_queue small` | Slurm partition |
 | `-nprocessors 128` | Maximum cores per task |
 | `-ntasks 4` | Maximum concurrent tasks |
