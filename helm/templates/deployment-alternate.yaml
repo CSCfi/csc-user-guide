@@ -35,6 +35,7 @@ spec:
       labels:
 {{ include "docs-csc.labels" . | indent 8 }}
 {{ $componentlabels | indent 8 }}
+{{ include "translation.podAffinityLabel" . | indent 8 }}
     spec:
       volumes:
 {{ include "translation.buildsVolume" . | indent 8 }}
@@ -54,6 +55,9 @@ spec:
             - name: {{ include "translation.buildsVolumeName" . }}
               mountPath: /opt/app-root/src
               subPath: builds
+      affinity:
+        podAffinity:
+{{ include "translation.podAffinity" . | indent 10 }}
   strategy:
     type: RollingUpdate
     rollingUpdate:

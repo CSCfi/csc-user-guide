@@ -41,6 +41,23 @@ builds
   mountPath: /translations
 {{- end -}}
 
+{{- define "translation.podAffinityLabel" -}}
+{{ include "docs-csc.name" . | nospace | lower }}/volume-group: {{ include "docs-csc.altVolumeClaimName" . }}
+{{- end -}}
+
+{{- define "translation.podAffinitySelectorLabels" -}}
+{{ include "docs-csc.selectorLabels" . }}
+{{ include "translation.podAffinityLabel" . }}
+{{- end -}}
+
+{{- define "translation.podAffinity" -}}
+requiredDuringSchedulingIgnoredDuringExecution:
+  - topologyKey: kubernetes.io/hostname
+    labelSelector:
+      matchLabels:
+{{ include "translation.podAffinitySelectorLabels" . | indent 8 }}
+{{- end -}}
+
 {{- define "translation.translatorContainer" -}}
 {{- $ := index . 0 -}}
 {{- $args := index . 1 -}}
@@ -136,6 +153,7 @@ metadata:
   labels:
 {{ include "docs-csc.labels" $ | indent 4 }}
 {{ include "translation.translatorName" $ | list $ | include "docs-csc.componentLabels" | indent 4 }}
+{{ include "translation.podAffinityLabel" $ | indent 4 }}
 spec:
   restartPolicy: Never
   volumes:
@@ -161,10 +179,5 @@ spec:
    | include "translation.buildContainer" | indent 4 }}
   affinity:
     podAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        - topologyKey: kubernetes.io/hostname
-          labelSelector:
-            matchLabels:
-{{ include "docs-csc.selectorLabels" $ | indent 14 }}
-{{ include "docs-csc.altName" $ | list $ | include "docs-csc.componentLabels" | indent 14 }}
+{{ include "translation.podAffinity" $ | indent 6 }}
 {{- end -}}
