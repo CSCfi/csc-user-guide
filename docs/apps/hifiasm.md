@@ -46,7 +46,8 @@ hifiasm -o asm -t 32 reads.fq.gz 2> asm.log
 ```
 
 The primary contigs are written to `asm.bp.p_ctg.gfa`, and two sets of partially
-phased contigs to `asm.bp.hap1.p_ctg.gfa` and `asm.bp.hap2.p_ctg.gfa`. Convert the
+phased contigs to `asm.bp.hap1.p_ctg.gfa` and `asm.bp.hap2.p_ctg.gfa`. With Hi-C
+phasing (`--h1`/`--h2`), the files are named `asm.hic.*.gfa` instead. Convert the
 primary contigs to FASTA with:
 
 ```bash
