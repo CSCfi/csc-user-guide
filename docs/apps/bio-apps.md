@@ -226,6 +226,7 @@ trimmomatic/0.39
 trinity/2.15.1.FULL
 vcftools/0.1.17
 vsearch/2.22.1
+yak/0.1
 ```
 
 ### GPU nodes (GH200)

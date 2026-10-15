@@ -65,6 +65,28 @@ Hifiasm saves the corrected reads and overlaps as `asm.*.bin` files and reuses t
 if you run it again with the same prefix, which makes reruns with different
 options much faster.
 
+### Trio binning
+
+When short reads from both parents are available, hifiasm can produce two
+haplotype-resolved assemblies by trio binning. First count the parental k-mers
+with [yak](yak.md), then give them to hifiasm with `-1` (paternal) and `-2`
+(maternal):
+
+```bash
+module load bio-apps/v202603
+module load yak/0.1
+cat pat_1.fq.gz pat_2.fq.gz > pat.fq.gz
+cat mat_1.fq.gz mat_2.fq.gz > mat.fq.gz
+yak count -b37 -t 16 -o pat.yak pat.fq.gz
+yak count -b37 -t 16 -o mat.yak mat.fq.gz
+hifiasm -o asm -t 32 -1 pat.yak -2 mat.yak reads.fq.gz 2> asm.log
+```
+
+The two haplotype assemblies are written to `asm.dip.hap1.p_ctg.gfa` and
+`asm.dip.hap2.p_ctg.gfa`. Hifiasm reuses the saved overlaps, so if you have already
+run a standard assembly with the same prefix, you can give `/dev/null` instead of
+the reads to skip read correction and overlapping.
+
 ### Example batch script
 
 ```bash
