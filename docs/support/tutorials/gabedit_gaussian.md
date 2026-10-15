@@ -1,5 +1,7 @@
 # Using Gabedit as GUI for Gaussian jobs on Puhti
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 [Gabedit](http://gabedit.sourceforge.net/) is a free graphical user interface
 (GUI) to many computational chemistry packages. Here we introduce how it can be
 used to prepare and analyze [Gaussian](../../apps/gaussian.md) jobs on Puhti.

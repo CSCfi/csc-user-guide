@@ -9,8 +9,7 @@ catalog:
     - Miscellaneous
   available_on:
     - web_interfaces:
-        - Puhti
-        - Mahti
+        - Roihu
 ---
 
 # Jupyter for courses
@@ -27,8 +26,7 @@ Free
 
 Jupyter for courses is available as an interactive application via the web interface for
 
-  - Mahti
-  - Puhti
+  - Roihu
 
 
 ## More information

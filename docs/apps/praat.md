@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -21,7 +20,6 @@ pitch, formants and intensity, and manipulating and synthesising speech.
 
 ## Available
 
-* Puhti: 6.4
 * Roihu: 6.4
 
 ## License
@@ -38,7 +36,7 @@ module load praat
 ```
 
 Praat is primarily a graphical application; the best way to run it remotely is
-through the [Puhti web interface remote desktop](../computing/webinterface/desktop.md).
+through the [Roihu web interface remote desktop](../computing/webinterface/desktop.md).
 It can also be run without a graphical interface for scripted batch processing:
 
 ```bash

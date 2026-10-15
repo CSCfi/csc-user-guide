@@ -7,15 +7,12 @@ catalog:
   license_type: Other
   disciplines:
     - Biosciences
-  available_on:
-    - web_interfaces:
-        - Puhti
-        - Mahti
-    - Puhti
-    - Mahti
+  unchecked: true
 ---
 
 # CryoSPARC
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification)
 is a state-of-the-art scientific software platform for processing cryo-electron

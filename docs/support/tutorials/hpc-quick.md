@@ -30,16 +30,9 @@ online course.
 ### Roihu
 
 New users are recommended to start working on the
-[Roihu supercomputer](../../computing/available-systems.md#roihu), as
-Puhti and Mahti are being decommissioned in 2026.
-
-* Puhti computing services have been shut down since 31 July 2026
-* Mahti computing services have been shut down since 31 August 2026
-* Puhti and Mahti storage and login nodes are planned to remain accessible
-until 15 October 2026
-
-Roihu is CSC's
-next-generation supercomputer offering enhanced performance and capabilities.
+[Roihu supercomputer](../../computing/available-systems.md#roihu). Roihu is
+CSC's next-generation supercomputer offering enhanced performance and
+capabilities.
 
 Roihu has two distinct partitions, **Roihu-CPU** and **Roihu-GPU**, for
 CPU-only and GPU workloads. The two partitions have separate login nodes and
@@ -53,7 +46,7 @@ software stacks.
 The [LUMI supercomputer](../../computing/available-systems.md#lumi)
 is one of the fastest in the world. It is intended primarily
 for running computations that benefit from the large amount of high-performance
-GPUs in its LUMI-G hardware partition. Whereas the GPUs on Puhti and Mahti are
+GPUs in its LUMI-G hardware partition. Whereas the GPUs on Roihu are
 manufactured by Nvidia, the LUMI GPUs are made by AMD, so make sure that your
 GPU applications are able to run on AMD GPUs. LUMI has
 [its own documentation pages](https://docs.lumi-supercomputer.eu/).
@@ -78,45 +71,11 @@ GPU applications are able to run on AMD GPUs. LUMI has
     pre-installed software and licenses are other factors which may make using
     CSC supercomputers attractive for you.
 
-### Puhti
-
-!!! warning "Do not start new work on Puhti"
-     Puhti's computing services have been shut down since 31 July 2026, and its storage will be
-     fully inaccessible after mid October 2026.
-
-     If you are a new user, we advise you to start using Roihu for your supercomputing needs.
-
-The Puhti supercomputer has been in use since 2019.
-Compared to Mahti, it has much more
-[pre-installed software](../../apps/by_availability.md#puhti), more GPU nodes, and
-typically more available memory per CPU core. Additionally, GPU nodes and some
-CPU nodes on Puhti have
-[fast local NVMe storage](../../computing/disk.md#temporary-local-disk-areas).
-
-### Mahti
-
-!!! warning "Do not start new work on Mahti"
-     Mahti's computing services have been shut down since 31 August 2026, and its storage will be
-     fully inaccessible after mid October 2026.
-
-     If you are a new user, we advise you to start using Roihu for your supercomputing needs.
-
-Mahti has been CSC’s CPU-focused supercomputer for highly parallel workloads.
-It has many more CPU nodes and cores per node than Puhti, and has mainly been
-intended for computations that can efficiently utilize at least an entire CPU node.
-However, Mahti's computing services have been shut down since August 2026, so new work should be started on Roihu instead.
-Roihu will provide even more support for highly parallel workloads.
-
-While Mahti has fewer GPU nodes than Puhti, the A100 GPUs on Mahti
-are considerably more powerful than the V100 GPUs on Puhti, which makes Mahti
-also suitable for demanding [machine learning](ml-guide.md) applications. Roihu,
-however, with its H100 GPUs provides even more performance than Mahti for these workloads.
-
 ## How to access CSC supercomputers?
 
 ### Web interface
 
-Roihu, Puhti, Mahti and LUMI each have
+Roihu and LUMI both have
 [their own web interface](../../computing/webinterface/index.md), which allows
 interacting with the supercomputer through a web browser. The web interface is a
 good choice for interactive computing, such as analyzing, exploring and
@@ -135,8 +94,6 @@ schedule your jobs.
 
 - [Roihu web interface](https://www.roihu.csc.fi)
 - [LUMI web interface](https://www.lumi.csc.fi)
-- [Puhti web interface](https://www.puhti.csc.fi) - compute services decommissioned; login and data access only, until 15 October 2026
-- [Mahti web interface](https://www.mahti.csc.fi) - compute services decommissioned; login and data access only, until 15 October 2026
 
 ### Command-line interface
 
@@ -174,6 +131,10 @@ featured in the web interfaces or by
     adding your public key to a supercomputer is a much more secure way of
     authenticating than traditional passwords or manually managed SSH keys.
 
+    Roihu additionally requires that you sign your public key in MyCSC to
+    obtain an SSH certificate, which is valid for 24 hours.
+    [Read how to sign your public key](../../computing/connecting/ssh-keys.md#signing-public-key).
+
     [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
 
 ## How to work with software and data?
@@ -185,7 +146,7 @@ available on CSC supercomputers. Software availability varies between systems
 and between the Roihu-CPU and Roihu-GPU partitions, so check the application
 pages and module availability on the system you plan to use.
 
-CSC supercomputers use [environment modules](../../computing/modules.md) for
+Both Roihu and LUMI use [environment modules](../../computing/modules.md) for
 managing software environments. These modules cover everything from
 [compilers](../../computing/installing.md#compiling) and
 [programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
@@ -227,7 +188,7 @@ using specific resources like GPUs.
 
 ### Data storage
 
-CSC supercomputers provide distinct [disk areas](../../computing/disk.md) for
+Roihu provides distinct [disk areas](../../computing/disk.md) for
 different data storage purposes. The *project-based* shared storage can be found
 under `/scratch/<project>`. This folder is shared by *all users* in a project
 and has a default quota of 250 GB on Roihu.
@@ -253,7 +214,7 @@ apply for a separate *dataset project* on Roihu. This gives you access to a
 storage area intended for sharing data between multiple computational projects
 on the system.
 
-See details about [dataset projects and the dataset disk area](../../computing/roihu-disk.md#dataset-directory).
+See details about [dataset projects and the dataset disk area](../../computing/disk.md#dataset-directory).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is easy using the

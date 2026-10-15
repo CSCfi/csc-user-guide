@@ -11,7 +11,7 @@
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
-* [How to run existing containers in Puhti](../../computing/containers/overview.md#running-containers)
+* [How to run existing containers](../../computing/containers/overview.md#running-containers)
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia batch jobs on CSC clusters](../../apps/julia.md#running-julia-batch-jobs-on-csc-clusters)
 * [Using Python on CSC supercomputers](python-usage-guide.md)
@@ -22,11 +22,11 @@
 
 * [Getting started with Roihu](roihu.md)
 * [Roihu data migration guide](roihu-data.md)
+* [Roihu data migration guide (Windows)](windows-roihu-data-migration.md)
 * [Preparing for Roihu: Data management and temporary storage options](roihu-data-preparation.md)
 
 ## Installation of tools on supercomputers
 
-* [Installing software with Spack](user-spack.md)
 * [Installing software with Spack on Roihu](roihu-user-spack.md)
 * [Conda best practices](conda.md)
 
@@ -40,7 +40,7 @@
 * [FireWorks workflow manager](../../apps/fireworks.md)
 * [How to run many short jobs with GNU Parallel](many.md)
 * [Running Nextflow pipelines](../../apps/nextflow.md)
-* [Running Snakemake pipelines on Puhti](../../apps/snakemake.md)
+* [Running Snakemake pipelines](../../apps/snakemake.md)
 
 ## Resources for courses
 
@@ -59,11 +59,8 @@
 ## Bioinformatics
 
 * [Installing packages from Bioconda using Tykky](bioconda-tutorial.md)
-* [Singularity applications on Puhti](bioapplications-puhti.md)
-* [Running MaxQuant on Puhti](MaxQuant-tutorial.md)
 * [Schrödinger Maestro Puhti advanced tutorial](power-maestro.md)
-* [Schrödinger GPU-powered screening of the Molport database](gpu-shape.md)
-* [Running your first job on Puhti](biojobs-on-puhti.md)
+* [Running your first job on Roihu](biojobs-on-roihu.md)
 
 ## Chemistry
 

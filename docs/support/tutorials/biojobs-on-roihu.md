@@ -1,86 +1,97 @@
-# Running your first job on Puhti
+# Running your first job on Roihu
 
 ## Logging in
 
-To prepare and run your jobs, you first need to log in to Puhti. You
-can use either command line application or a special terminal
-program. Command line applications come standard on most operating
+To prepare and run your jobs, you first need to log in to Roihu. The
+easiest way is through the [Roihu web interface](https://www.roihu.csc.fi),
+which provides a login node shell directly in your browser, without needing
+to install anything locally.
+
+Alternatively, you can use either command line application or a special
+terminal program. Command line applications come standard on most operating
 systems. Terminal programs may need to be installed separately, but they
 typically offer more options on things like font size, copy-paste etc.
 
-On Linux or macOS open a terminal. In Windows 10 open Powershell. Give command:
+On Linux or macOS open a terminal. In Windows open Powershell. Give command:
 
 ```text
-ssh yourcscusername@puhti.csc.fi
+ssh yourcscusername@roihu-cpu.csc.fi
 ```
-Where **yourcscusername** is the username you get from CSC.
+
+Where `yourcscusername` is the username you get from CSC. In addition to
+an SSH key, Roihu also requires a
+[signed SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key).
 
 You can find more detailed instructions in our User Guide: [Connecting
 to CSC supercomputers](../../computing/connecting/index.md).
 
 
-## What is Puhti?
+## What is Roihu?
 
-Puhti, like most modern HPC (High Performance Computing) systems, is
-a cluster computer. It means that is has a small number of login nodes
+Roihu, like most modern HPC (High Performance Computing) systems, is
+a cluster computer. It means that it has a small number of login nodes
 and a large number of compute nodes.
 
-When you log in, you end up in one of the two login nodes. Login nodes
-are meant for things like moving data and setting up and managing your
-batch jobs. You should not run actual jobs on the login nodes. There
-are only two login nodes and they are shared by everybody. Running big
+When you log in, you end up in one of several login nodes (Roihu has
+separate login nodes for CPU and GPU work; see
+[Connecting to CSC supercomputers](../../computing/connecting/index.md)
+for details). Login nodes are meant for things like moving data and
+setting up and managing your batch jobs. You should not run actual jobs
+on the login nodes. They are shared by everybody, and running big
 jobs on them can make the system slow and unresponsive for all
 (More details in our [usage policy](../../computing/usage-policy.md)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The
-system in use in Puhti is called [Slurm](https://slurm.schedmd.com/overview.html).
+system in use in Roihu is called [Slurm](https://slurm.schedmd.com/overview.html).
 
-To run your job through the batch job system you use command **srun**
-or write a batch jobs script and use command **sbatch**. We will
+To run your job through the batch job system you use command `srun`
+or write a batch jobs script and use command `sbatch`. We will
 discuss this in more detail later.
 
-To check what kind of compute nodes are available in Puhti, see the
-User Guide: [Technical details about
-Puhti](../../computing/systems-puhti.md).
+To check what kind of compute nodes are available in Roihu, see the
+User Guide: [Technical details about Roihu](../../computing/systems-roihu.md).
 
 
 ## Software environment
 
-Puhti has a selection of commonly used bioscience software
-available. You can check the listing in
+Roihu has a selection of commonly used bioscience software
+available, mainly through the [bio-apps](../../apps/bio-apps.md) module
+collection. You can check the listing in
 [Applications](../../apps/by_discipline.md#biosciences).
 
-The application listing may not be quite up to date, so it is a good
-idea to use **module spider** command to see if a software (and which
-version) is available, *e.g*:
+To avoid conflicts between different applications and versions, bioscience
+software on Roihu is installed as *modules* under the `bio-apps` module tree.
+Load `bio-apps` first to make its applications available:
+
+```text
+module load bio-apps/v202603
+```
+
+Loading `bio-apps` does not load any application itself — it only adds the
+application modules to your environment, after which you can find and load
+them normally. The application listing may not be quite up to date, so it is
+a good idea to use `module spider` to see if a software (and which version)
+is available, *e.g.*:
 
 ```text
 module spider bowtie2
 ```
 
-To avoid conflicts between different applications and versions, most
-software on Puhti is installed as *modules*. To use an application you
-will need to load the module, *e.g*:
+To use an application you will need to load its module, *e.g.*:
 
 ```text
-module load bowtie2
+module load bowtie2/2.5.4
 ```
-You can also specify a specific version, *e.g*:
-```text
-module load bowtie2/2.3.5.1
-```
+
 If you do not specify a version, the default version (typically latest
 stable release) is loaded.
 
-We also provide a module that loads many commonly used bioscience 
-applications at once:
+The easiest way to see all the bioscience applications made available by
+`bio-apps` is to load it, and check the listing.
+
 ```text
-module load biokit
-```
-The easiest way to see the content of the biokit module is to load it, and check the listing.
-```text
-module list
+module avail
 ```
 
 To see which modules to load, see the instruction page for each software
@@ -102,7 +113,7 @@ First a short note on terminology: When speaking about home computers
 people usually use terms "processor" and "core". For example, most
 modern home computers have one processor with two or more cores. When
 speaking about HPC machines the corresponding terms are "socket" and
-"CPU". For example, Puhti compute nodes have two sockets with 20 CPUs
+"CPU". For example, Roihu compute nodes have two sockets with 192 CPUs
 each. This tutorial uses terms "processors/cores", as they are
 probably more familiar for people without HPC background.
 
@@ -118,7 +129,7 @@ of cores they can use:
       as they can only use one
 - **Shared memory/threaded/OpenMP applications**
     - Can use more than one core, but all cores must be in the same node 
-      (so in Puhti max 40 cores)
+      (so on Roihu max 384 cores)
     - Most bioscience applications that can use more than one core are 
       in this category
     - Also remember to tell the application the number of cores to use
@@ -149,7 +160,7 @@ core numbers to see how well the application scales.
 
 Estimating the required memory can be quite difficult. In many cases
 it is affected by the data and the application options chosen. Also
-number of threads used can often effect the memory requirements.
+number of threads used can often affect the memory requirements.
 
 You should read the application documentation to see if the developers
 give any estimate. Often it is also helpful to check the user forums,
@@ -168,7 +179,7 @@ needs?](../faq/how-much-memory-my-job-needs.md)
 
 ### How much time should I reserve?
 
-Knowing the run tme in advance can also be difficult if you are not
+Knowing the run time in advance can also be difficult if you are not
 familiar with the application.
 
 You should make sure to reserve enough, as the job will be stopped
@@ -189,15 +200,18 @@ next time.
 
 ### Interactive jobs
 
-Interactive jobs are good for things like testing, running small tasks
-and for software that has a graphical user interface.
+Interactive jobs are good for things like testing and running small tasks.
+For software with a graphical user interface, interactive apps in the
+[Roihu web interface](https://www.roihu.csc.fi) are the best way to run
+them.
 
 As mentioned, you should not run jobs in the login node. Instead you
-can use **sinteractive** command to open an interactive shell:
+can use `sinteractive` command to open an interactive shell:
 
 ```text
 sinteractive -i
 ```
+
 For more detailed instructions, see the User Guide: [Interactive usage](../../computing/running/interactive-usage.md)
 
 Longer jobs that take more resources are best run as batch jobs.
@@ -205,17 +219,19 @@ Longer jobs that take more resources are best run as batch jobs.
 ### Batch jobs
 
 Running a batch job typically has three steps:
+
 1. Make sure you have all the necessary input files
-    1. For instructions on how to move data from your own computer to Puhti, see section [Data/Moving data](../../data/moving/index.md) in the User Guide
+    1. For instructions on how to move data from your own computer to Roihu, see section [Data/Moving data](../../data/moving/index.md) in the User Guide
 2. Write a batch job script
     1. Use a text editor like nano, vim or emacs to write the script
     2. If you write the script on your own computer, and move it to 
-       Puhti, some care should be taken. Make sure it is saved as text, 
+       Roihu, some care should be taken. Make sure it is saved as text, 
        not as a Word doc or something like that. Also be aware that Windows 
        treats line endings differently than Linux, and this can cause problems.
 3. Submit the job
 
-Here is an example batch job script. It is saved as *myjobscript*
+Here is an example batch job script. It is saved as `myjobscript`
+
 ```text
 #!/bin/bash
 #SBATCH --job-name=bowtie2
@@ -223,29 +239,30 @@ Here is an example batch job script. It is saved as *myjobscript*
 #SBATCH --ntasks=1
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=16g
+#SBATCH --mem=16G
 #SBATCH --time=04:00:00
 #SBATCH --partition=small
 
-module load biokit
+module load bio-apps/v202603
+module load bowtie2/2.5.4
 bowtie2 -p $SLURM_CPUS_PER_TASK -x genome -1 reads_1.fq -2 reads_2.fq > output.sam
 ```
 
-All the lines starting with **#SBATCH** are passed on to the batch job
+All the lines starting with `#SBATCH` are passed on to the batch job
 system. We use them to request the necessary resources.
 
-Job name (--job-name) is mainly used to identify your job *e.g.* when
-listing jobs with **squeue** or checking past jobs with **sacct**.
+Job name (`--job-name`) is mainly used to identify your job *e.g.* when
+listing jobs with `squeue` or checking past jobs with `sacct`.
 
 It is necessary to inform the system which project should be
-billed. This is done with **--account**. You can check the projects that
+billed. This is done with `--account`. You can check the projects that
 you belong to in [MyCSC](https://my.csc.fi/myProjects) or with `csc-projects`
 in the command line.
 
 Bowtie2 is a shared memory application. As discussed earlier that
 means it can use more than one core, but all cores must be in the same
-node. We specify that we want to run one task (--ntask=1) in one node
-(--nodes=1) using 16 cores (--cpus-per-task):
+node. We specify that we want to run one task (`--ntasks=1`) in one node
+(`--nodes=1`) using 16 cores (`--cpus-per-task`):
 
 ```text
 #SBATCH --ntasks=1
@@ -282,7 +299,7 @@ batch job partitions](../../computing/running/batch-job-partitions.md)
 
 By default various outputs and error messages that would be printed to
 the screen if the application was run interactively, are saved in a
-file called *slurm-&lt;jobid&gt;.out*. Sometimes it is clearer to separate
+file called `slurm-<jobid>.out`. Sometimes it is clearer to separate
 the outputs and errors. This can be done adding options `--output` and
 `--error`. The `%j` will be replaced by jobid of the job in the file name.
 
@@ -292,15 +309,18 @@ the outputs and errors. This can be done adding options `--output` and
 ```
 
 When you have written the batch job script, you can submit the job to the queue:
+
 ```text
 sbatch myjobscript
 ```
+
 If the job was submitted successfully, you should see a message:
+
 ```text
 Submitted batch job <jobid>
 ```
 
-It is possible to launch a job directly with command **srun** by
+It is possible to launch a job directly with command `srun` by
 giving the options given as `#SBATCH` lines directly as command line
 options, but writing a batch job script is generally preferable for
 clarity and ease of re-use if you *e.g.* want submit a similar job with
@@ -319,34 +339,44 @@ Running array jobs is described in detail in the User Guide:
 ## Managing jobs
 
 You can check your current jobs, both running and queueing:
+
 ```text
 squeue -u <username>
 ```
-Or  get a bit more detailed listing using:
+
+Or get a bit more detailed listing using:
+
 ```text
 squeue -l -u <username>
 ```
-You can check the status of your job in the column named ST or STATUS (depending
-whether option -l is used or not). R or RUNNING means the job is currently running.
-P or PENDING means it is still waiting in the queue.
 
-If the job is pending, you can see the reason in the NODELIST(REASON) column. 
+You can check the status of your job in the column named `ST` or `STATUS` (depending
+whether option `-l` is used or not). `R` or `RUNNING` means the job is currently running.
+`PD` or `PENDING` means it is still waiting in the queue.
+
+If the job is pending, you can see the reason in the `NODELIST(REASON)` column. 
 
 Reason:
+
 ```text
 (Resources)
 ```
+
 or
+
 ```text
  (Nodes required for job are DOWN, DRAINED or reserved for jobs in higher priority partitions)
 ```
+
 mean that there are currently no available resources to run your job. The
 job will run as soon as resources are free.
 
 Reason:
+
 ```text
 (Priority)
 ```
+
 means your job is being held back by the fair share functionality of the 
 batch job system: When a user runs many jobs in a short amount of time, their 
 jobs will have lower priority. These jobs will spend a bit longer in the queue, 
@@ -358,17 +388,19 @@ queue before yours) and on the resource requirements of your jobs.
 If it feels your jobs queue a long time, you might want to check this FAQ entry:
 [Why is my batch job queueing so long?](../faq/why-is-my-job-queueing-so-long.md)
 
-There are also other reasons, but they are less common. Consult **servicedesk@csc.fi** if necessary.
+There are also other reasons, but they are less common. Consult [CSC Service Desk](../contact.md) if necessary.
 
 You can cancel a submitted batch job with:
+
 ```text
 scancel <jobid>
 ```
 
 ## Monitoring resource usage
 
-After the job has finished you can use commands **seff** and **sacct** to check the 
+After the job has finished you can use commands `seff` and `sacct` to check the 
 resources the job actually used.
+
 ```text
 seff <jobid>
 ```
@@ -377,11 +409,12 @@ Most important things to check are the CPU efficiency and memory utilization.
 
 There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
-you should consider using a node with fast local disk.
+you should consider using the fast local disk (`$TMPDIR`) available on all
+compute nodes, or [disaggregated storage](../../computing/disk.md#disaggregated-storage).
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,
-*e.g.* 25% with four cores or 12,5% with eight cores *etc*. This is typically due to the
+*e.g.* 25% with four cores or 12.5% with eight cores *etc.* This is typically due to the
 application only using one core. Check if the application can really use more than one core, 
 or if you have set the corresponding application parameter correctly. 
 
@@ -390,7 +423,7 @@ CPU Efficiency: 12.48% of 06:56:08 core-walltime
 ```
 
 Also check the actual utilized memory and set the memory reservation for the next run
-accordingly, but leave some safety buffer, e.g. few GB. Fore example, in the following
+accordingly, but leave some safety buffer, e.g. few GB. For example, in the following
 job, the memory request has been way too large (92GB requested vs. 6GB used).
 
 ```text
@@ -398,25 +431,30 @@ Memory Utilized: 5.98 GB
 Memory Efficiency: 6.25% of 92.59 GB
 ```
 
-The other command to check the status and resource usage of past jobs is **sacct**. It is handy
-when you want to see the status of many jobs (*e.g* all the subjobs of an array job).
-Command **seff** will only show one job at a time.
+The other command to check the status and resource usage of past jobs is `sacct`. It is handy
+when you want to see the status of many jobs (*e.g.* all the subjobs of an array job).
+Command `seff` will only show one job at a time.
 
 ```text
 sacct
 ```
-The information shown by default includes the state of the jobs (PENDING/RUNNING/COMPLETED/FAILED) 
+
+The information shown by default includes the state of the jobs (`PENDING`/`RUNNING`/`COMPLETED`/`FAILED`) 
 and the jobid. 
 
-You can also specify which fields to show with the -o option:
+You can also specify which fields to show with the `-o` option:
+
 ```text
 sacct -o jobid,jobname,ntasks,ReqNodes,allocnodes,reqcpus,alloccpus,reqmem,maxrss,timelimit,elapsed,state -j <jobid>
 ```
-By default **sacct** only shows jobs run on current date. You can select the start date
-with option -S.
+
+By default `sacct` only shows jobs run on current date. You can select the start date
+with option `-S`.
+
 ```text
 sacct -S <YYYY-MM-DD>
 ```
+
 Please note, that the `sacct` command is heavy on the queuing system, so don't build scripts that
 run it repeatedly.
 
@@ -427,15 +465,15 @@ run it repeatedly.
 Here are some useful steps when familiarizing yourself with a new program.
 
 - Read the manual
-- It may be helpful to first try run the program interactively to find the correct command line options
-    - This allows to use `top` to get rough a estimate on memory use etc.
+- It may be helpful to first try running the program interactively to find the correct command line options
+    - This allows to use `top` to get a rough estimate on memory use etc.
 - If developers provide some test or example data, run it first
     - Make sure the results are as expected
 - You can use the test partition to check your batch job script
-    - Limits : 15 min, 2 nodes
+    - Limits: 15 min, 2 nodes
     - Job turnaround usually very fast
     - Can be useful to spot typos, missing files *etc.* before submitting a job that will spend long in the queue
-- Before very large runs, it’s a good idea do a smaller trial run
+- Before very large runs, it's a good idea to do a smaller trial run
     - Check that results are as expected
     - Check resource usage after test run and adjust accordingly 
     - Try different core numbers and see how the software scales
@@ -455,11 +493,11 @@ Start with these if your job fails:
 6. Check any other error files and logs the program may have produced
 7. Error messages can sometimes be long, cryptic and a bit intimidating, 
    but try skimming through them and see if you can spot something 
-   ”human readable” instead of ”nerd readable”
+   "human readable" instead of "nerd readable"
     - Often you can spot the actual problem easily if you go through the 
-      whole message. Something like ”required input file so-and-so missing” 
-      or ”parameter X out of range” *etc.*
+      whole message. Something like "required input file so-and-so missing" 
+      or "parameter X out of range" *etc.*
 
-If you can't figure it out, please don't hesitate to contact us at
-**servicedesk@csc.fi**. Remember to include relevant information like what
-program you were trying to run on which server etc.
+If you can't figure it out, please don't hesitate to
+[contact CSC Service Desk](../contact.md). Remember to include relevant
+information like what program you were trying to run on which server etc.

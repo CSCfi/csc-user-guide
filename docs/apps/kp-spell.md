@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -25,7 +24,6 @@ Finnish (via [Voikko](https://voikko.puimula.org/)) and Swedish (via
 
 ## Available
 
-* Puhti: 1.0
 * Roihu: 1.0
 
 ## License

@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Miscellaneous
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -17,8 +15,6 @@ catalog:
 
 ## Available
 
-- Puhti: version depends on the CUDA environment
-- Mahti: version depends on the CUDA environment
 - Roihu-GPU: version depends on the CUDA environment
 
 ## License
