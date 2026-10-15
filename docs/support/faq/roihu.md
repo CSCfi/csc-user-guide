@@ -112,8 +112,7 @@ See our tutorial for [using Allas in Roihu](../../data/Allas/allas-roihu.md).
 ### 9. How should I run large or long-running data transfers, and how long do they take?
 
 For long transfers, use `screen` or `tmux` on Roihu so the transfer is not interrupted if your connection drops.
-See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#42-running-long-transfer-processes-safely),
-or our [tmux usage tutorial](../tutorials/tmux.md).
+See our [tmux usage tutorial](../tutorials/tmux.md).
 
 Transfer times depend on the amount and size of files: large numbers of small files take longer, so consider
 archiving them into a single file first. As a ballpark, a single ~100 GB file takes about 10 minutes to transfer
