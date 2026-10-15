@@ -13,6 +13,8 @@ catalog:
 
 # Gaussian
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Gaussian is a versatile program package providing various capabilities for
 electronic structure modeling.
 

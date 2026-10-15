@@ -30,8 +30,6 @@ command is `srun valgrind ./myprogram`.
 For example, to check for memory leaks in an interactive session:
 
 ```bash
-module load valgrind
-
 valgrind ./example
 ```
 
@@ -44,8 +42,6 @@ a parallel program, the command to use is `srun valgrind ./example`.
 Fully-fledged debuggers are often needed to really dig into the code execution
 and to resolve runtime errors. At CSC, several debuggers are available:
 
-* [Arm DDT](../apps/ddt.md) is a debugger for serial and parallel programs
-  (MPI, OpenMP, CUDA) with both graphical and command-line interfaces
 * [GDB](../apps/gdb.md) is a command-line debugger for compiled programs (C, C++,
   Fortran, etc.)
 * [PDB](../apps/pdb.md) is an interactive debugger for Python programs

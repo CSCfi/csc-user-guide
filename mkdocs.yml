@@ -14,18 +14,16 @@ extra:
     icon:
       name: material/alert-circle # Choose one (emojis not supported) from here https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search
       mirror: false # Toggle mirrored right-hand side icon
-    color_scheme: error # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
+    color_scheme: info # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |- # Make sure to also update the translation in mkdocs_fi.yml
-      <p>Puhti and Mahti computing services have been decommissioned. Puhti and Mahti login nodes and storage services will remain available until 15 October 2026, but are no longer covered by service contracts. <strong>Please clean up and migrate your data to Roihu ASAP.</strong> See <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihu data migration guide</a> for instructions.</p>
+      <p>Docs CSC will have a service break on Monday 19 October 2026 from 11:00–13:00 EEST. <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/" target="_blank">See more information</a>.</p>
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
     title: Roihu supercomputer – get started here!
     link: support/tutorials/roihu/
     description: |-
-      Puhti and Mahti will be decommissioned by October 2026 and replaced by
-      Roihu, CSC's next-generation supercomputer offering enhanced performance
-      and capabilities.
+      Roihu is CSC's national supercomputer, replacing the retired Puhti and Mahti systems and offering enhanced performance and capabilities.
     visible: true
   analytics:
     provider: custom
@@ -102,7 +100,10 @@ plugins:
       # reorganization:
       "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
       "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+      "support/tutorials/user-spack.md": "support/tutorials/roihu-user-spack.md"
+      "support/tutorials/biojobs-on-puhti.md": "support/tutorials/biojobs-on-roihu.md"
       "computing/allas.md": "data/Allas/allas-roihu.md"
+      "computing/roihu-disk.md": "computing/disk.md"
       "computing/containers/creating.md": "computing/containers/overview.md"
       "computing/containers/run-existing.md": "computing/containers/overview.md"
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
@@ -114,6 +115,14 @@ plugins:
       "apps/nomachine.md": "support/faq/deprecated-apps.md"
       "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
       "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
+      "apps/nvprof.md": "apps/nsys.md"
+      "apps/ddt.md": "computing/debugging.md"
+      "apps/itac.md": "computing/performance.md"
+      "apps/vtune.md": "computing/performance.md"
+      "computing/systems-puhti.md": "computing/available-systems.md"
+      "computing/systems-mahti.md": "computing/available-systems.md"
+      "computing/lumi-vs-mahti.md": "computing/available-systems.md"
+      "accounts/fmi.md": "accounts/index.md"
       "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_client_in_puhti.md": "data/kaivos/index.md"
@@ -139,7 +148,7 @@ plugins:
       "computing/gdb.md": "apps/gdb.md"
       "computing/ncu.md": "apps/ncu.md"
       "computing/nsys.md": "apps/nsys.md"
-      "computing/nvprof.md": "apps/nvprof.md"
+      "computing/nvprof.md": "apps/nsys.md"
       "computing/pdb.md": "apps/pdb.md"
       "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
       # files moved to Allas:
@@ -273,15 +282,12 @@ nav:
       - Billing: accounts/billing.md
       - Multi-factor authentication: accounts/mfa.md
       - Strong identification: accounts/strong-identification.md
-      - FMI: accounts/fmi.md
   - Computing:
       - computing/index.md
       - Usage policy: computing/usage-policy.md
       - Billing: computing/hpc-billing.md
       - Systems:
           - computing/available-systems.md
-          - Puhti: computing/systems-puhti.md
-          - Mahti: computing/systems-mahti.md
           - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Connecting:
@@ -291,9 +297,9 @@ nav:
           - SSH client on Windows: computing/connecting/ssh-windows.md
       - Supercomputer storage:
           - computing/disk.md
-          - Roihu disk areas: computing/roihu-disk.md
           - Roihu dataset projects: computing/roihu-dataset-project.md
           - Lustre filesystem: computing/lustre.md
+          - Object storage: computing/allas-in-roihu.md
       - Module environment: computing/modules.md
       - Running jobs:
           - computing/running/getting-started.md
@@ -558,7 +564,7 @@ nav:
       - Moving data:
           - data/moving/index.md
           - Copying files using scp: data/moving/scp.md
-          - Moving files using the HPC web interfaces: data/moving/web-interface.md
+          - Moving files using the HPC web interface: data/moving/web-interface.md
           - Graphical file transfer tools: data/moving/graphical_transfer.md
           - Using rsync for data transfer and synchronization: data/moving/rsync.md
           - Using tar and SSH to transfer many small files efficiently: data/moving/tar_ssh.md
@@ -566,7 +572,7 @@ nav:
           - Sharing and transporting files using Funet FileSender: data/moving/funet.md
           - Moving data between IDA and CSC computing environment: data/ida/using_ida.md
           - Remote disk mounts: data/moving/disk_mount.md
-          - Copying data between Allas and IDA via Puhti: data/moving/copy_allas_ida.md
+          - Copying data between Allas and IDA via Roihu: data/moving/copy_allas_ida.md
       - Allas object storage:
           - data/Allas/index.md
           - Introduction to Allas Storage service: data/Allas/introduction.md
@@ -577,7 +583,7 @@ nav:
           - Allas clients:
               - Allas connection configuration: data/Allas/using_allas/allas-conf.md
               - Allas web UI: data/Allas/using_allas/allas-ui.md
-              - Puhti/Mahti web UI: computing/webinterface/file-browser.md
+              - Roihu web UI: data/Allas/using_allas/roihu-web-ui.md
               - a-commands: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md

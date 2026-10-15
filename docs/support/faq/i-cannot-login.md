@@ -6,15 +6,17 @@ services you can login and which you cannot.
 ## I can login to MyCSC but not the system I want to use
 
 If you can login to [MyCSC](https://my.csc.fi), there are three common reasons
-for login problems affecting other services, like Puhti:
+for login problems affecting other services, like Roihu:
 
-1. You're trying to login to Puhti, Mahti or LUMI using an SSH client, but
-   have not set up SSH keys and/or uploaded your public key to MyCSC. This is
-   a requirement starting 14 April 2025. Please read the
+1. You're trying to login to Roihu or LUMI using an SSH client, but
+   have not set up SSH keys and/or uploaded your public key to MyCSC. Please
+   read the
    [instructions on how to create an SSH key pair and add the public key to MyCSC](../../computing/connecting/ssh-keys.md).
+   Roihu additionally requires a signed SSH certificate. See
+   [how to sign your SSH key](../../computing/connecting/ssh-keys.md#signing-public-key).
    If you're still facing issues, [see this FAQ](ssh-keys-not-working.md).
 2. The service you are trying to login is down or has issues. See notifications
-   in your mailbox or at [research.csc.fi](https://research.csc.fi). Wait until
+   in your mailbox or at [research.csc.fi](https://research.csc.fi/service-break). Wait until
    the maintenance is completed or the issue is resolved.
 3. You have no projects enabled in the service that you are trying to login.
    Check the services linked to your projects at MyCSC.
@@ -31,10 +33,9 @@ If you cannot login to MyCSC, there is one problem that is more common than
 others:
 
 1. Your account is locked. The most common reasons are:
-
-* You have not changed your password for a year.
-* We have sent email to you but it bounces back.
-* Your account was granted for a fixed period and the time is up.
+    1. You have not changed your password for a year.
+    2. We have sent email to you but it bounces back.
+    3. Your account was granted for a fixed period and the time is up.
 
 You need to [contact CSC Service Desk](../contact.md) to get your account
 unlocked.
@@ -67,10 +68,10 @@ defaults to choose the most suitable algorithm for you, also in the future.
 
 ```bash
 # (Preferred way:) Tell SSH not to use the broken algorithms:
-ssh -o MACS="-umac-128-etm@openssh.com,umac-128@openssh.com" yourcscusername@mahti.csc.fi
+ssh -o MACS="-umac-128-etm@openssh.com,umac-128@openssh.com" yourcscusername@roihu-cpu.csc.fi
 
 # Or override the default MAC algorithm:
-ssh -m hmac-sha2-512 yourcscusername@puhti.csc.fi
+ssh -m hmac-sha2-512 yourcscusername@roihu-cpu.csc.fi
 # Show what MAC algorithms your SSH client supports:
 ssh -Q mac
 ```

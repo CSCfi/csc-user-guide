@@ -161,6 +161,7 @@ humann/4.0.0a2
 hybpiper/2.3.4
 hyphy/2.5.51hf
 igv/2.19.7
+interproscan/5.76-107.0
 iq-tree/2.4.0
 iqtree3/3.1.4
 jellyfish/2.2.7
@@ -204,8 +205,10 @@ py-steadiercom/0.1.5
 raxml/8.2.12
 raxml-ng/2.0.2
 roary/3.13.0
+salmon/2.8.0
 samtools/1.21
 samtools/1.24
+sanspanz/3.20250512
 seqkit/2.10.0
 seqkit/2.13.0
 seqtk/1.4
@@ -225,6 +228,8 @@ trimmomatic/0.39
 trinity/2.15.1.FULL
 vcftools/0.1.17
 vsearch/2.22.1
+wtdbg2/2.5
+xhmm/20160104
 ```
 
 ### GPU nodes (GH200)

@@ -1,7 +1,5 @@
 # I have set up SSH keys, but logging in does not work or still asks for password
 
-Puhti is used as an example for SSH key login in this example. The same steps apply for Mahti as well.
-
 Roihu uses SSH keys together with time-limited SSH certificates. See Roihu-specific aspects of SSH at the end of the document, in the [Roihu section](#roihu-signing-your-ssh-key).
 
 ## Please check the following
@@ -44,17 +42,7 @@ is different from your CSC account password. To avoid having to
    type the passphrase repeatedly, you may configure an
    [authentication agent](../../computing/connecting/ssh-unix.md#authentication-agent)
    that can hold your keys in memory.
-5. You have waited for at least one hour after adding the key to MyCSC. Syncing
-   the data to CSC servers takes some time and may depend on the current load
-   on the systems. To check if your public key has been synced, you may login
-   to [Puhti web interface](https://www.puhti.csc.fi), open a login node shell
-   and run:
-   ```bash
-   cat /var/lib/acco/sshkeys/${USER}/${USER}.pub
-   ```
-   For SSH login to work, the above file must exist **and** contain the key you
-   are trying to use.
-6. On **Linux** and **macOS**, ensure that your `~/.ssh` folder and private key
+5. On **Linux** and **macOS**, ensure that your `~/.ssh` folder and private key
    file have 0700 and 0600 permissions, respectively. Example of correct
    permissions:
    ```bash
@@ -68,9 +56,6 @@ is different from your CSC account password. To avoid having to
    chmod 0700 ~/.ssh
    chmod 0600 ~/.ssh/<private key file>
    ```
-
-If everything above checks, and you are still unable to log in to Mahti and Puhti, please
-[contact CSC Service Desk](../contact.md).
 
 ## Roihu: Signing your SSH key
 
@@ -109,13 +94,16 @@ Disconnected from 86.50.172.17 port 22
 ```
 
 Your SSH client may be trying too many keys before it tries the correct one.
-Use the -i option to specify the correct key:
+Use the `-i` option to specify the correct key:
 
 ```bash
 ssh -i ~/.ssh/id_ed25519-your-key <username>@roihu-cpu.csc.fi
 ```
 
 See CSC instructions for details on how you can [sign your SSH key with a certificate](../../computing/connecting/ssh-keys.md#signing-public-key).
+
+If everything above checks, and you are still unable to log in, please
+[contact CSC Service Desk](../contact.md).
 
 ## More information
 

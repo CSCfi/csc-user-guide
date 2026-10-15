@@ -668,8 +668,8 @@ instead.
 
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
-similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
+similar (non-MPI parallel, independent) commands/programs. See the HyperQueue page for more
+details.
 
 ## PyTorch 1.13, 9.12.2022
 
@@ -704,7 +704,7 @@ and Mahti. [See release notes here](https://manual.gromacs.org/2022.3/release-no
 
 Users can now install software on CSC supercomputers using the Spack package
 manager. [See here for a short tutorial on how to use the user Spack module at
-CSC](../tutorials/user-spack.md).
+CSC](../tutorials/roihu-user-spack.md).
 
 ## Installing packages from Bioconda using Tykky, 10.10.2022
 

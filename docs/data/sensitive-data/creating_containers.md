@@ -197,7 +197,7 @@ apptainer exec sd_tools_1.sif samtools
 
 ## 4. Uploading container to Allas/SD Connect
 
-In order to use the Apptainer container in SD desktop, we need to encrypt it with CSC public key and upload it to Allas. If you want to use the same container in other locations too, for example in Puhti and Mahti, you will need to upload another, non-encrypted version to Allas.
+In order to use the Apptainer container in SD desktop, we need to encrypt it with CSC public key and upload it to Allas. If you want to use the same container in other locations too, for example on Roihu, you will need to upload another, non-encrypted version to Allas.
 
 For the upload process we use the Allas tools we installed in step 2, where we installed Allas tools to directory `$HOME/allas-cli-utils`.
 First we add this directory to command path:
