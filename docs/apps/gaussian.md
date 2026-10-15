@@ -31,7 +31,7 @@ request to the [CSC Service Desk](../support/contact.md).
 
 ## Usage
 
-Gaussian jobs must be submitted from the **CPU login node** (`roihu-cpu`).
+Gaussian jobs must be submitted from the **CPU login node** (`roihu-cpu.csc.fi`).
 Initialize the Gaussian environment and submit standard jobs with the `subg16`
 script:
 
