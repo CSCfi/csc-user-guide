@@ -59,7 +59,7 @@ A bucket will be created for each dataset based on the data permit, i.e. each bu
 
 The data users create their CSC projects based on the data permits, and they can access only the data uploaded to the bucket shared for their project. If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets and the users must have separate CSC projects for each data permit.
 
-Follow these instructions to upload data to the bucket:
+Follow these instructions to upload data to the buckets:
 
 - [Upload and encrypt files to an existing bucket](sd-connect-upload.md#24-upload-and-encrypt-files-to-an-existing-bucket)
 - [SD Connect command line tool for large datasets (over 50 GB)](sd-connect-command-line-interface.md)
