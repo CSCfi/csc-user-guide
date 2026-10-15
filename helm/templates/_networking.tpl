@@ -16,11 +16,7 @@
    | squote }}
 {{- end -}}
 
-{{- define "networking.redundantIngressName" -}}
-{{- printf "%s-rahtiapp" (include "docs-csc.name" .) | trunc 63 | trimSuffix "-" }}
-{{- end -}}
-
-{{- define "networking.domainIngressName" -}}
+{{- define "networking.ingressName" -}}
 {{- .Values.site.host | required "site.host not provided!"
                       | replace "." "-"
                       | trunc 63
@@ -28,7 +24,7 @@
 {{- end -}}
 
 {{- define "networking.domainTlsSecretName" -}}
-{{- printf "%s-tls" (include "networking.domainIngressName" .) | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-tls" (include "networking.ingressName" .) | trunc 63 | trimSuffix "-" }}
 {{- end -}}
 
 {{- define "networking.webHookSecretName" -}}
@@ -53,6 +49,31 @@
     | .Files.Get -}}
 {{- end -}}
 
+{{- define "networking.ipAllowlistAnnotation" -}}
+{{- $ := index . 0 -}}
+{{- $apiversion := index . 1 -}}
+{{- $kind := index . 2 -}}
+{{- $resourcename := index . 3 -}}
+{{- if or ($.Values.site.useAllowlistLookup | default false)
+          ($.Values.site.ipAllowlist | empty | not) }}
+{{- $allowlistkey := "haproxy.router.openshift.io/ip_allowlist" -}}
+{{- if $.Values.site.useAllowlistLookup }}
+{{ lookup $apiversion
+          $kind
+          $.Release.Namespace
+          $resourcename
+   | dig "metadata" "annotations" $allowlistkey ""
+   | required "ipAllowlist lookup failed!"
+   | quote
+   | printf "%s: %s" $allowlistkey }}
+{{- else }}
+{{ $.Values.site.ipAllowlist
+   | join " "
+   | printf "%s: %q" $allowlistkey }}
+{{- end }}
+{{- end }}
+{{- end -}}
+
 {{- define "networking.ingressMetadata" -}}
 {{- $ := index . 0 -}}
 {{- $ingressname := index . 1 -}}
@@ -62,45 +83,10 @@ labels:
 {{ include "docs-csc.name" $ | list $ | include "docs-csc.componentLabels" | indent 2 }}
 annotations:
   haproxy.router.openshift.io/redirect-to-https: 'true'
-{{- if or ($.Values.site.useAllowlistLookup | default false)
-          ($.Values.site.ipAllowlist | empty | not) }}
-{{- $allowlistkey := "haproxy.router.openshift.io/ip_allowlist" -}}
-{{- if $.Values.site.useAllowlistLookup }}
-{{ lookup "networking.k8s.io/v1"
-                                 "Ingress"
-                                 $.Release.Namespace
-                                 $ingressname
-                       | dig "metadata" "annotations" $allowlistkey ""
-                       | required "ipAllowlist lookup failed!"
-                       | quote
-                       | printf "%s: %s" $allowlistkey | indent 2 }}
-{{- else }}
-{{ $.Values.site.ipAllowlist
-                      | join " "
-                      | printf "%s: %q" $allowlistkey | indent 2 }}
-{{- end }}
-{{- end }}
-{{- end }}
-
-{{- define "networking.ingressRules" -}}
-{{- $altservicename := .altServiceName -}}
-- host: {{ .host }}
-  http:
-    paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .origServiceName }}
-            port:
-              number: 8000
-{{- range .languages }}
-      - path: {{ .code | printf "/%s" }}
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ $altservicename }}
-            port:
-              number: 8000
-{{- end }}
+{{- list $
+         "networking.k8s.io/v1"
+         "Ingress"
+         $ingressname
+    | include "networking.ipAllowlistAnnotation"
+    | indent 2 }}
 {{- end }}
