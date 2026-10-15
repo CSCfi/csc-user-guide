@@ -57,7 +57,8 @@ awk '/^S/{print ">"$2;print $3}' asm.bp.p_ctg.gfa > asm.p_ctg.fa
 Useful options:
 
 * `-l0`: disable duplication purging, for inbred or homozygous genomes.
-* `-f0`: disable the initial bloom filter (16 GB of memory), for small genomes.
+* `-f0`: disable the initial bloom filter (16 GB of memory), for small genomes. For
+  genomes much larger than human, `-f38` or `-f39` reduces the memory used for k-mer counting.
 * `--ont`: assemble ONT simplex R10 reads (FASTQ) instead of HiFi reads.
 * `--h1 read1.fq.gz --h2 read2.fq.gz`: phase the assembly with paired-end Hi-C reads.
 * `--ul ul.fq.gz`: add ultra-long ONT reads.
