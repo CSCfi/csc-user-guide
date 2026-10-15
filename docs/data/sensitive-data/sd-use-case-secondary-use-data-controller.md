@@ -53,7 +53,11 @@ Now all the preparations are ready and you can start using SD Connect service. B
 
 ### 4. Upload each dataset to a dedicated bucket
 
-CSC will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the project where the data users can analyze it on SD Desktop. Each bucket will contain only one dataset, i.e. all data under the same data permit, and a bucket will be created for each dataset based on the data permit. Users create their projects based on data permits and can access the data only on the isolated virtual desktops under that project.
+CSC will create a bucket in SD Connect for each dataset, share the bucket name with you, and share the bucket for Read-only access to the project where the data users can analyze it in the isolated SD Desktop environment.
+
+A bucket will be created for each dataset based on the data permit, i.e. each bucket will contain only one dataset and it should include all data under the same data permit.
+
+The data users create their CSC projects based on the data permits, and they can access only the data uploaded to the bucket shared for their project. If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets and the users must have separate CSC projects for each data permit.
 
 Follow these instructions to upload data to the bucket:
 
@@ -66,8 +70,8 @@ Follow these instructions to upload data to the bucket:
 
 The datasets will remain in your control after they are uploaded to the buckets and shared to the users' projects. You can upload more data, remove files, and also remove the data access from the users anytime during the project lifetime.
 
-1. **Delivering additional data**: You can add data for a project by [uploading new files to the bucket](#4-upload-each-dataset-to-a-dedicated-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
-2. **Removing corrupted or incorrect files**: You can remove data from the bucket by [deleting the files](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
+1. **Delivering additional data**: You can add data to any existing dataset by [uploading new files to the bucket](#4-upload-each-dataset-to-a-dedicated-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
+2. **Removing corrupted or incorrect files**: You can remove data from aby existing dataset by [deleting files from the bucket](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
 4. **Cancelling the data access**: You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data. In case the permission to process the data is withdrawn and user's access to the environment must be revoked, please contact the [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 !!! Note ""
