@@ -48,7 +48,7 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
     ---
 
-    [Start here: Accessing secondary use health and social data via Sensitive Data services :material-arrow-right:](secondarydata-access.md)
+    [Start here: Accessing secondary use health and social data :material-arrow-right:](secondarydata-access.md)
 
     [Create an account and a secondary use project :material-arrow-right:](sd-use-case-secondary-use-project.md)
 
