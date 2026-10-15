@@ -7,8 +7,7 @@ catalog:
   license_type: Free
   disciplines:
     - Biosciences
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # Alphafold

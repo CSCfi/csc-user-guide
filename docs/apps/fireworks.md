@@ -7,8 +7,7 @@ catalog:
   license_type: Free
   disciplines:
     - Miscellaneous
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # FireWorks

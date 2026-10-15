@@ -4,8 +4,6 @@ The Roihu supercomputer uses a parallel file system called
 *Lustre*. Data on Lustre is accessible from all nodes of a system, and is thus
 the best place to store the data that you need for computations.
 
-See the [detailed data migration guide](../tutorials/roihu-data.md) from Mahti and Puhti to Roihu.
-
 More specifically, Roihu has three main disk areas: *home*,
 *projappl* and *scratch*. The home directory (accessible using the `$HOME`
 environment variable) is the only user-specific directory. The other

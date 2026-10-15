@@ -7,8 +7,7 @@ catalog:
   license_type: Academic
   disciplines:
     - Chemistry
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # TmoleX

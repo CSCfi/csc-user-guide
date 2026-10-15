@@ -7,8 +7,7 @@ catalog:
   license_type: Free
   disciplines:
     - Mathematics and Statistics
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # SageMath

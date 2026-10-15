@@ -7,8 +7,7 @@ catalog:
   disciplines:
     - Miscellaneous
   license_type: Free
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # Scalasca

@@ -7,8 +7,7 @@ catalog:
   license_type: Free
   disciplines:
     - Chemistry
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # NWChem

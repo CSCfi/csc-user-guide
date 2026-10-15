@@ -7,8 +7,7 @@ catalog:
   license_type: Other
   disciplines:
     - Geosciences
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 # ArcGIS Python API
 

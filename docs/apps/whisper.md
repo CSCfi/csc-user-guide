@@ -7,8 +7,7 @@ catalog:
   license_type: Free
   disciplines:
     - Data Analytics and Machine Learning
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # Whisper

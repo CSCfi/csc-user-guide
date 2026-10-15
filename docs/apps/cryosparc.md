@@ -7,8 +7,7 @@ catalog:
   license_type: Other
   disciplines:
     - Biosciences
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # CryoSPARC

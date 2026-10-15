@@ -131,6 +131,10 @@ featured in the web interfaces or by
     adding your public key to a supercomputer is a much more secure way of
     authenticating than traditional passwords or manually managed SSH keys.
 
+    Roihu additionally requires that you sign your public key in MyCSC to
+    obtain an SSH certificate, which is valid for 24 hours.
+    [Read how to sign your public key](../../computing/connecting/ssh-keys.md#signing-public-key).
+
     [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
 
 ## How to work with software and data?

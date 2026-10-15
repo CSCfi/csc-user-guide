@@ -38,7 +38,7 @@ exact schedule is detailed below:
 No, you do not need to do anything. Old unused Billing Units already granted to
 projects will be migrated to the new units, i.e. no granted resources are lost.
 The mapping of old BUs to new BUs will be based on the past usage of the
-project. In other words, e.g. projects only running GPU jobs on Roihu will not
+project. In other words, e.g. projects only running GPU jobs on CSC supercomputers will not
 get Cloud Billing Units which they have no use for.
 
 You can check your current BU budget in [MyCSC](https://my.csc.fi), as well as
