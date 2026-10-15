@@ -60,10 +60,13 @@ yak qv -t 16 -p -K3.2g -l100k sr.yak asm.fa > asm-sr.qv.txt
 ```
 
 Evaluate the phasing of a haplotype assembly with k-mers counted from the
-paternal and maternal short reads:
+paternal and maternal short reads (see [trio binning in hifiasm](hifiasm.md#trio-binning)
+for how to count them). Hifiasm writes its assemblies in GFA format, so convert
+them to FASTA first:
 
 ```bash
-yak trioeval -t 16 pat.yak mat.yak asm.hap1.fa > hap1.trioeval.txt
+awk '/^S/{print ">"$2;print $3}' asm.dip.hap1.p_ctg.gfa > asm.dip.hap1.p_ctg.fa
+yak trioeval -t 16 pat.yak mat.yak asm.dip.hap1.p_ctg.fa > hap1.trioeval.txt
 ```
 
 ### Example batch script
