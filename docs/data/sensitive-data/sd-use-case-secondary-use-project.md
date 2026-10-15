@@ -37,7 +37,7 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Enable two-step authentication (MFA).
 
 !!! warning "Strong identification"
-    If you don't have Haka or Virtu account or you haven't verified your identity in your home organisation, an identity verification is required before you can access the secondary use project in SD services. Read the [instructions for strong identification](../../accounts/strong-identification.md) and raise the level of assurance for your identity if needed."
+    If you don't have Haka or Virtu account or you haven't verified your identity in your home organisation, an identity verification is required before you can access the secondary use project in SD services. Read the [instructions for strong identification](../../accounts/strong-identification.md) and raise the level of assurance for your identity if needed.
 
 ---
 
