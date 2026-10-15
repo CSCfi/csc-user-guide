@@ -53,7 +53,7 @@ site:
   # - 127.0.0.1
   # - 192.167.0.0/16
   #
-  # Allow any if empty. Has no effect if useAllowlistLookup is set.
+  # Allow any if empty. Has no effect if useAllowlistLookup is true.
   # Keys are case-sensitive:
   ipAllowlist: []
 
@@ -65,6 +65,7 @@ site:
     # is set and does not end in '.rahtiapp.fi':
     issuerName: null
 
+    # Replace email and server with actual values unless using useResourceLookup:
     email: recipient@example.org
     server: https://acme.api.example.org
     certificate:
@@ -76,7 +77,7 @@ site:
     #   hmac: <ACME account EAB HMAC key>
     #
     # Has no effect if site.host is not set or ends in '.rahtiapp.fi',
-    # or if useResourceLookup is set. Keys are case-sensitive:
+    # or if useResourceLookup is true. Keys are case-sensitive:
     secretsFile: eab.yaml
 
     # Attempt to lookup existing ACME resources in the namespace.
@@ -216,6 +217,8 @@ components:
     git:
       uri: https://github.com/CSCfi/broken-link-s2i.git
       ref: main
+
+    # Suspend scheduled probes if needed:
     suspend: false
 
     # The probes schedule as cron expression.
@@ -224,7 +227,7 @@ components:
 
     siteUrlOverride: null
 
-    # Email report not sent if these are not set. Has not effect is useResourceLookup is true.
+    # Email report not sent if these are not set. Has no effect is useResourceLookup is true.
     email:
       sender: sender@example.org
       recipient: recipient@example.org
