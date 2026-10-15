@@ -111,8 +111,8 @@ module load hifiasm/0.25.0
 hifiasm -o asm -t $SLURM_CPUS_PER_TASK reads.fq.gz 2> asm.log
 ```
 
-The hifiasm documentation reports that a human genome (3.1 Gb, about 35x HiFi
-coverage) takes around 8 hours and 140 GB of memory with 48 threads. Smaller
+The hifiasm README reports that, with version 0.12, a human genome (3.1 Gb, about
+35x HiFi coverage) took around 8 hours and 140 GB of memory with 48 threads. Smaller
 genomes need far less. Replace `<project>` with your CSC project (for example
 `project_2001234`).
 
