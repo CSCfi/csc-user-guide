@@ -65,7 +65,8 @@ Useful options:
 
 Hifiasm saves the corrected reads and overlaps as `asm.*.bin` files and reuses them
 if you run it again with the same prefix, which makes reruns with different
-options much faster.
+options much faster. The files are reused even if the input reads have changed,
+so use a new prefix or the `-i` option when assembling different data.
 
 ### Trio binning
 
