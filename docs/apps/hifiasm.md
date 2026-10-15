@@ -38,6 +38,10 @@ module load bio-apps/v202603
 module load hifiasm/0.25.0
 ```
 
+Assemblies take hours and a lot of memory, so run hifiasm (and the yak steps for
+trio binning) in a batch job, not on the login node. See the
+[example batch script](#example-batch-script) below.
+
 Assemble HiFi reads, with `-o` giving the prefix of the output files and `-t` the
 number of threads (the default is one thread):
 
@@ -86,6 +90,10 @@ yak count -b37 -t 16 -o mat.yak mat.fq.gz
 hifiasm -o asm -t 32 -1 pat.yak -2 mat.yak reads.fq.gz 2> asm.log
 ```
 
+Run these commands in a batch job script, such as the
+[example batch script](#example-batch-script) below, with `-t` set to
+`$SLURM_CPUS_PER_TASK`.
+
 The two haplotype assemblies are written to `asm.dip.hap1.p_ctg.gfa` and
 `asm.dip.hap2.p_ctg.gfa`. Hifiasm reuses the saved overlaps, so if you have already
 run a standard assembly with the same prefix, you can give `/dev/null` instead of
@@ -109,7 +117,7 @@ the reads to skip read correction and overlapping.
 module load bio-apps/v202603
 module load hifiasm/0.25.0
 
-hifiasm -o asm -t $SLURM_CPUS_PER_TASK reads.fq.gz 2> asm.log
+hifiasm -o asm -t $SLURM_CPUS_PER_TASK reads.fq.gz
 ```
 
 The hifiasm README reports that, with version 0.12, a human genome (3.1 Gb, about
