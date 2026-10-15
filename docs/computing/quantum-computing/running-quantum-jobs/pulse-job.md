@@ -1,21 +1,13 @@
-!!! warning "Q20 Service in MyCSC"
-    There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
-
 # Pulse level access
 
 Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to both VTT Q50, Aalto Q20, and VLQ is enabled through the IQM Pulla python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
 
 !!! info "Device-specific values"
-    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](./devices/vlq.md).
-
-## Load the environment
-
-```bash
-module use /appl/local/quantum/modulefiles    
-module load fiqci-vtt-qiskit
-```
+    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](../devices/q20.md#runtime-identifiers) or [VTT Q50](../devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](../devices/vlq.md).
 
 ## Import packages
+
+Load the module with `module load fiqci-vtt-qiskit`.
 
 ```python
 import os
@@ -39,6 +31,9 @@ p = Pulla(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
 provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
 backend = provider.get_backend()
 ```
+
+!!! "VLQ Pulla backend"
+    For VLQ see the [VLQ page](../devices/vlq.md) for instructions for fetching the VLQ Pulla backend as well as loading the VLQ module.
 
 ## Define a quantum circuit
 
@@ -68,7 +63,7 @@ settings.set_shots(shots)
 job_definition, context = compiler.compile(circuits, settings=settings)
 ```
 
-## Visualise pulse scheduling
+## Visualise pulse scheduling (optional)
 
 Optionally it is possible to visualise the pulse scheduling before submitting the job.
 
@@ -90,6 +85,12 @@ print(f"Raw results:\n{job.result().circuit_measurement_results}\n")
 print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 ```
 
-## Running through LUMI
+## Submitting through LUMI
 
-For instructions on running the job on LUMI, see the [example batch scripts](../quantum-computing/running-quantum-jobs.md#submitting-a-job) (for VLQ see the [VLQ instructions](./devices/vlq.md)) or use the [Lumi web Interface](../quantum-computing/running-quantum-jobs.md#quantum-job-on-lumi-web-interface)
+For submitting jobs see [Running quantum jobs](overview.md#access-models).
+
+## Further Reading
+* [Batch jobs](./access-models/batch.md)
+* [Interactive jobs](./access-models/batch.md)
+* [Jupyter notebook](./access-models/jupyter-notebook.md)
+* [Additional examples (fiqci-examples)](https://github.com/FiQCI/fiqci-examples){ target=_blank }
