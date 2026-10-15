@@ -37,8 +37,6 @@ module load python-geo
 module load geoconda
 ```
 
-Or `module load whiteboxtools` if you want to use the older version.
-
 To check whiteboxtools version
 ```
 whitebox_tools --version

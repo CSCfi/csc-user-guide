@@ -30,8 +30,6 @@ command is `srun valgrind ./myprogram`.
 For example, to check for memory leaks in an interactive session:
 
 ```bash
-module load valgrind
-
 valgrind ./example
 ```
 
