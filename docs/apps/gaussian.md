@@ -42,15 +42,15 @@ where:
 
 - `hhh:mm:ss` is the requested maximum wall time in hours, minutes and seconds.
 - `jobname` is the name of the input file, excluding the `.com` extension.
-- `[local disk GB]` (optional) is the requested local disk size in GB (future
-  use, see below).
+- `[local disk GB]` (optional) is the requested fast local disk size in GB
+  (see below).
 - `[--no-submit]` (optional) generates the job file without submitting it.
 
 Examples:
 
 ```bash
 subg16 05:30:00 h2o <your project id>                  # basic submission
-subg16 05:30:00 h2o <your project id> 10               # with 10 GiB local disk (future use, see below)
+subg16 05:30:00 h2o <your project id> 10               # with 10 GB fast disk (SBF)
 subg16 05:30:00 h2o <your project id> --no-submit      # generate the job file without submitting
 ```
 
@@ -71,11 +71,12 @@ when reserving memory from Slurm. The maximum supported `%Mem` is capped at
 the M-node limit of 768 GiB. Set `%Mem` to slightly less than the total node
 memory to leave room for the operating system.
 
-**Local NVMe disk.** Roihu CPU nodes include a 960 GB local disk, but
-on-demand local NVMe allocation via `subg16` is **not yet available** for
-standard M-nodes. When a local disk size is requested, scratch I/O currently
-falls back to Lustre with optimised striping applied automatically by the
-script. Local NVMe support will be enabled in a future update.
+**Fast local disk.** If a disk size is given, `subg16` requests fast disk from
+the disaggregated NVMe storage (SBF), mounted at `/sbf/data`, and the Gaussian
+scratch files (`GAUSS_SCRDIR`) are written there. The disk exists only during
+the job and is removed when the job ends. Without a disk size, scratch files
+are written to Lustre in the job directory, with optimised striping set by the
+script. Request enough disk: the scratch files must fit in the requested size. Files named in `%Chk` are written to the job directory.
 
 ## Performance considerations
 
@@ -135,10 +136,10 @@ calculations**, fast **NVMe local disk** can significantly improve
 performance. Using local disk for such jobs also reduces the overall load on
 the Lustre parallel file system.
 
-On Roihu, local NVMe allocation via `subg16` is not yet available for
-standard CPU nodes. Scratch I/O currently uses Lustre with optimised striping,
-which is sufficient for most jobs. NVMe support via `subg16` will be enabled
-in a future update.
+On Roihu, request fast disk with the `[local disk GB]` argument of `subg16`,
+for example `subg16 05:30:00 jobname <your project id> 200` for 200 GB. Use a
+size larger than the expected `RWF` file size, which is printed at the end of a
+test run ("File lengths").
 
 ### Estimating optimal resources
 
