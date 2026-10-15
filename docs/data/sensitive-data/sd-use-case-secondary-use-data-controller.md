@@ -65,7 +65,7 @@ Follow these instructions to upload data to the buckets:
 - [SD Connect command line tool for large datasets (over 50 GB)](sd-connect-command-line-interface.md)
 
 !!! warning "Note"
-    Make sure you use only SD Connect user interface or command line tools for uploading data. If you use Allas user interface or command line tools, the data won't be encrypted.
+    Make sure you use only SD Connect user interface or command line tools for uploading data. If you use Allas user interface or command line tools, the data won't be encrypted, and the data storage is not compatible with the Findata regulation.
 
 ---
 
