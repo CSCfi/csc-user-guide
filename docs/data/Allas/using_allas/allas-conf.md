@@ -153,7 +153,7 @@ The easiest way to get the S3 credentials is by configuring an [S3 connection](#
 
 ```
 module load allas
-allas-conf -m S3
+allas-conf
 ```
 
 Later the keys can be found for example with: `less ~/.aws/credentials`

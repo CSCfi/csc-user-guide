@@ -77,9 +77,8 @@ You can add your public key through the
             ![Manual input](https://a3s.fi/docs-files/ssh-manual-input.png 'Manual input')
 
 5. Select _Upload_ or _Add_.
-6. You should now see your new key listed under _SSH PUBLIC KEYS_. Note that
-   it might take up to one hour for your new key to become active. If it takes
-   longer than that, please
+6. You should now see your new key listed under _SSH PUBLIC KEYS_. If you run
+   into problems, please
    [contact the CSC Service Desk](../../support/contact.md).
 
     ![New key added](https://a3s.fi/docs-files/ssh-key-added.png 'New key added')

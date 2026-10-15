@@ -12,7 +12,7 @@ separate login nodes and software environments. Roihu-CPU contains AMD EPYC
 CPUs and is intended for CPU-based computing, while Roihu-GPU provides
 GPU-accelerated computing with NVIDIA GH200 Grace Hopper Superchips. Roihu also
 supports jobs requiring larger amounts of memory than CSC's previous national
-supercomputers, and provides enhanced support for sensitive data workloads.
+supercomputers, and will provide enhanced support for sensitive data workloads.
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.

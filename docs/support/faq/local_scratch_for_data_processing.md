@@ -45,13 +45,13 @@ First, we launch an interactive batch job with 2 cores, 4000 MB of memory and
 250 GB of disaggregated storage.
 
 ```bash
-srun --partition=interactive --account=<project> --cpus-per-task=2 --mem=4000 \
+srun --partition=interactive --account=<project> --cpus-per-task=2 --mem=4000 --time=02:00:00 \
   --bb="#BB_LUA SBF storagesize=250G path=/sbf/data" --pty bash -i
 ```
 
 The analysis is then done in three steps:
 
-1. Move to the local scratch area and extract the tar package:
+1. Move to the disaggregated storage area and extract the tar package:
    ```bash
    cd /sbf/data
    tar xf /scratch/project_2001234/big_data.tar

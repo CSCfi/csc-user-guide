@@ -397,7 +397,7 @@ nav:
               - Mukautus - ohjelmistot ja työkalut: data/sensitive-data/sd-desktop-software.md
               - Datan tuonti: data/sensitive-data/sd-desktop-access.md
               - Datan vienti käyttöliittymän kautta: data/sensitive-data/sd-desktop-export.md
-              - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
+              # - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
               - Vianetsintä: data/sensitive-data/sd-desktop-troubleshooting.md
       - Tutkimusdata - Julkaise ja uudelleenkäytä:
           - Julkaise Federated EGA:lla:

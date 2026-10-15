@@ -43,7 +43,7 @@ Certain R packages (such as [`data.table`](https://r-datatable.com/), [`mgcv`](h
 
 **Combining multiprocessing and multithreading**
 
-It is also possible to run jobs that combine multiprocessing and multithreading. Here, several cores are allocated to each process. Each process can then run several threads, so that each thread runs on a single core. The number of processes times the number of threads per process should equal the number of cores used by the job. For example, a job using a single node with 40 cores in total could use 10 processes and four threads per process.
+It is also possible to run jobs that combine multiprocessing and multithreading. Here, several cores are allocated to each process. Each process can then run several threads, so that each thread runs on a single core. The number of processes times the number of threads per process should equal the number of cores used by the job. For example, a job using 40 cores in total could use 10 processes and four threads per process.
 
 ## Multiple concurrent jobs: array jobs
 

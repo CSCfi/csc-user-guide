@@ -266,7 +266,7 @@ installation needs to be done on a compute node, for example using an
 [interactive session](../../computing/running/interactive-usage.md#sinteractive-on-roihu):
 
 ```bash
-# Start interactive session, here with 20 GB default local disk amount on Roihu (increase if needed)
+# Start interactive session (provides 20 GiB of local disk under $TMPDIR)
 sinteractive --account <project> --time 1:00:00 --cores 8 
 
 # Load Tykky

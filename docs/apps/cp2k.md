@@ -95,6 +95,7 @@ double the number of cores the calculation should be at least 1.5 times faster.
     module purge
     module load gcc/15.2.0 openmpi/5.0.10
     module load cp2k/2026.1
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     srun cp2k.psmp H2O-512.inp > H2O-512.out
     ```
@@ -176,6 +177,14 @@ case. See the [performance checklist](../computing/running/performance-checklist
 for general tips. It is also important to
 [perform a scaling test](../computing/running/performance-checklist.md#perform-a-scaling-test),
 especially for large jobs.
+
+* Hybrid parallelism is often efficient – choose tasks and threads so that
+  they add up to the 384 physical cores available per Roihu-CPU node.
+* Using the ELPA diagonalization library instead of ScaLAPACK may significantly
+  accelerate calculations that require large matrix diagonalizations (even up
+  to 50% depending on the system). A good example are metallic systems that may
+  converge poorly with the orbital transformation (OT) method and thus demand a
+  standard diagonalization of the Kohn-Sham matrix.
 
 #### LUMI
 

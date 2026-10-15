@@ -149,7 +149,7 @@ First, open the Allas connection using the S3 protocol with the following comman
 
 ```text
 module load allas
-allas-conf -m S3
+allas-conf
 ```
 
 The _allas-conf_ command will prompt you to enter your CSC password. The Haka password is not accepted.

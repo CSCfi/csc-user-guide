@@ -321,7 +321,7 @@ you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
      The local scratch feature on visualization nodes is not yet
      implemented. Use `$TMPDIR` on visualization nodes for your local storage needs until this feature is added.
 
-Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the storage billing units that
+Find the [Roihu billing section](hpc-billing.md#roihu-compute-billing) for information on the billing units that
 local scratch usage consumes.
 
 ## Disaggregated storage

@@ -32,7 +32,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
 In the _My Projects_ page in [MyCSC](https://my.csc.fi) you can study the
 Billing Unit consumption and apply for more Billing Units. There you can easily
 check who consumed the Billing Units, when they were consumed and in which
-service. Note that storage-related Billing Unit consumption (in Roihu Scratch folders and in
+service. Note that storage-related Billing Unit consumption (in Roihu disk areas and in
 Allas) is not linked to a specific user account and is reported as "other" or "system".
 
 

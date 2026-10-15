@@ -257,9 +257,11 @@ Different authentication agents work with different tools:
 * Window ssh-agent: PowerShell, Cyberduck, MobaXterm
 * MobAgent: MobaXterm
 
-### Authentication agents with LUMI
+### Adding SSH keys to authentication agents
 
-LUMI does not use SSH certificates, so adding keys to SSH authentication agents is done once and can be used for a longer time. Below are the instructions for adding SSH keys to SSH agent manually.
+Systems that do not use SSH certificates (e.g. LUMI) only need the SSH keys to
+be added once, after which they can be used for a longer time. Below are the
+instructions for adding SSH keys to SSH agent manually.
 
 === "Pageant"
 
