@@ -18,6 +18,7 @@ Your organisation has issued a data permit for a research group to process healt
 3. [Login to SD Connect](#3-login-to-sd-connect)
 4. [Upload each dataset to a dedicated bucket](#4-upload-each-dataset-to-a-dedicated-bucket)
 5. [Manage datasets](#5-manage-datasets)
+6. [Data permit expiration and data deletion](#6-data-permit-expiration-and-data-deletion)
 
 ---
 
@@ -69,5 +70,6 @@ The datasets will remain in your control after they are uploaded to the buckets 
 2. **Removing corrupted or incorrect files**: You can remove data from the bucket by [deleting the files](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
 4. **Cancelling the data access**: You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data. In case the permission to process the data is withdrawn and user's access to the environment must be revoked, please contact the [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
-!!! Note 
-    CSC will remove the datasets from SD Connect after the data permit has expired. The data will be removed from your project after 90 days from the user's project's closing date in accordance with the legislation and CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)).
+!!! Note ""
+    ### 6. Data permit expiration and data deletion
+    CSC will delete all files for a dataset from your project in SD Connect after 90 from the usesr's project clousure, which usually corresponds with the data permit expiration date. The data will be removed by CSC as a service provider of a processing environment in accordance with the legislation and CSC’s data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)). You also have the permissions to delete datasets from your project at any point.
