@@ -23,6 +23,6 @@ details.
 
 ## More information
 
-* [Roihu disk areas](../../computing/roihu-disk.md)
+* [Roihu disk areas](../../computing/disk.md)
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [Managing data on supercomputer scratch disks](../tutorials/clean-up-data.md)

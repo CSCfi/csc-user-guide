@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -20,8 +18,6 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 
 ## Available
 
--   Puhti: AMS, Version 2024.102, 2025.105
--   Mahti: AMS, Version 2024.102, 2025.105
 -   Roihu-CPU: AMS, Version 2026.104
 
 ## License
@@ -33,12 +29,6 @@ that provides an intuitive way for setting up, running, and analyzing simulation
 
 ## Usage
 
-Initialize AMS on Puhti and Mahti:
-
-```bash
-module load ams/2025.105
-```
-
 Initialize AMS on Roihu-CPU:
 
 ```bash
@@ -48,85 +38,8 @@ module load ams/2026.104
 ### Example batch scripts
 
 !!! warning "Note"
-    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Roihu](../computing/roihu-disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
+    Particularly some property calculations can be very disk I/O intensive. Such jobs benefit from using the fast local storage (NVMe) on [Roihu](../computing/disk.md). Using local disk for such jobs will also reduce the load on the Lustre parallel file system.
  
-
-=== "Puhti"
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=yourproject     # insert here the project to be billed 
-    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
-    #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
-    mkdir -p $SCM_TMPDIR
-    # Create an example input file from the examples 
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-     
-=== "Puhti, local disk"
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=large
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:15:00           # time as `hh:mm:ss`
-    #SBATCH --mem-per-cpu=1500        # requested memory per process in MB
-    #SBATCH --gres=nvme:100           # requested local disk space in GB
-    module load ams/2025.105
-    export SCM_TMPDIR=$LOCAL_SCRATCH
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=medium
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128 # MPI tasks per node
-    #SBATCH --account=yourproject # insert here the project to be billed
-    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$PWD/$SLURM_JOB_ID
-    mkdir -p $SCM_TMPDIR
-
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
-
-=== "Mahti, local disk"
-    
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=small
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128 # MPI tasks per node
-    #SBATCH --account=yourproject # insert here the project to be billed
-    #SBATCH --time=00:20:00       # time as `hh:mm:ss`
-    #SBATCH --gres=nvme:100
-    module purge
-    module load ams/2025.105
-    export SCM_TMPDIR=$LOCAL_SCRATCH
-    mkdir -p $SCM_TMPDIR
-    
-    # Create an example input file from the examples
-    sed '1,4d;$d;/Print/,/End/d' $AMSHOME/examples/Benchmarks/ADF/Si35_TZ2P/Si35_TZ2P.run  > ./Si35_TZ2P.inp
-    "$AMSBIN/ams" < ./Si35_TZ2P.inp > ./Si35_TZ2P.log
-    ```
 
 === "Roihu-CPU"
 
@@ -194,7 +107,7 @@ module load ams/2026.104
         Maximum amount of local NVMe disk available in `$TMPDIR` depends on the Slurm partition and node type.
         On shared nodes (e.g. on the `small` and `longrun` partitions), you have access to 20 GiB of tmp storage.
         On full nodes (`medium` and `large` partitions), you have access to 600 GiB of local storage.
-        See [Roihu storage documentation](../computing/roihu-disk.md#automatic-local-temporary-storage) for more details.
+        See [Roihu storage documentation](../computing/disk.md#automatic-local-temporary-storage) for more details.
 
 === "Roihu-CPU, disaggregated NVMe"
 
@@ -203,7 +116,7 @@ module load ams/2026.104
         InfiniBand NDR. For I/O-intensive full-node jobs this can outperform both
         Lustre scratch and node-local `$TMPDIR`. It is available on all partitions
         and is requested with a `#BB_LUA` burst-buffer directive. See
-        [Roihu disk areas](../computing/roihu-disk.md#disaggregated-storage)
+        [Roihu disk areas](../computing/disk.md#disaggregated-storage)
         for full details.
 
     ```bash
@@ -240,7 +153,7 @@ module load ams/2026.104
 ### [The AMS-GUI](../apps/ams-gui.md)
 
 AMS comes with an integrated Graphical User Interface, [AMS-GUI](ams-gui.md) that makes it easy to set up, run and analyze modelling tasks.
-You can test the GUI via the Puhti web interface, but for more extensive use we recommend installing
+You can test the GUI via the Roihu web interface, but for more extensive use we recommend installing
 the GUI on your own laptop/workstation. For detailed instructions, see the [AMS-GUI documentation.](ams-gui.md)
 
 ## References

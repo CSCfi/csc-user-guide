@@ -246,4 +246,4 @@ srun myprog <options>
 ```
 
 Disaggregated storage can be requested on all partitions, including shared-node jobs.
-See [detailed usage instructions](../roihu-disk.md#disaggregated-storage).
+See [detailed usage instructions](../disk.md#disaggregated-storage).

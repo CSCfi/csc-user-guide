@@ -72,12 +72,6 @@ appendix:
       - "Biosciences"
     doc: "https://chipster.csc.fi/"
 
-  - name: "MaxQuant"
-    description: "A proteomics software for processing of Mass-spectromtery data"
-    disciplines:
-      - "Biosciences"
-    doc: "support/tutorials/MaxQuant-tutorial.md"
-
   - name: "Finnish Tagtools"
     description: "Finnish Tagtools"
     disciplines:

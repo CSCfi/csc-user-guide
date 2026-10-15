@@ -44,7 +44,7 @@ authentication for your CSC account in order to be able to use SD Connect-
 
 In addition to CSC user account, users must either join an existing CSC computing project 
 or set up a new computing project. You can use the same project to access other 
-CSC services too like SD Desktop, Puhti, or Allas.
+CSC services too like SD Desktop, Roihu, or Allas.
 
 If you are eligible to act as a [project manager](https://research.csc.fi/prerequisites-for-a-project-manager), you can create a new CSC project in MyCSC and apply access to SD Connect.
 Select 'Academic' as the project type.  As a project manager, you can invite other users as members to your project. 

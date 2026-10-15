@@ -1,13 +1,11 @@
 # Extended instructions for using Maestro at CSC
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Please first read the actual [CSC Maestro page](../../apps/maestro.md)
 and then consult the power user and special case instructions below.
 Further down there are steps to help solving or diagnosing issues
 and to prepare data for support requests.
-
-!!! warning
-    This page contains outdated Puhti- and Mahti-related content. An updated
-    version including instructions for Roihu and LUMI will be published soon.
 
 [TOC]
 
