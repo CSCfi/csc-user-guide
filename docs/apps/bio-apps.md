@@ -154,6 +154,7 @@ gapseq/2.1.0
 gatk/4.5.0.0
 gatk/4.7.0.0
 getorganelle/1.7.7.1
+hifiasm/0.25.0
 hisat2/2.2.1
 hmmer/3.4
 htslib/1.23.1
