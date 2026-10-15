@@ -4,7 +4,7 @@
 
 Your virtual desktop is completely isolated from the internet and data export is restricted for information security reasons. Only the CSC project manager can export *anonymous results* from the secure workspace when processing secondary use data. All exported results must be reported to the data permit authority Findata for risk assessment and scrutiny.
 
-!!! warning "Researchers are obliged to do a risk based assessment on Findata's website before exporting results from the SD Desktop environment and inform Findata about all exports. Findata requests researchers to deliver their results for scrutiny if the risk of identifying individuals is high."
+!!! warning "Researchers are obliged to do a risk based assessment on Findata's website before exporting results from the SD Desktop environment and to inform Findata about all exports. Findata requests researchers to deliver their results for scrutiny if the risk of identifying individuals is high."
 
 ## In order to export results, you need to:
 
