@@ -133,8 +133,8 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 ---
 
 !!! Note ""
-    ### 7. CSC activates SD Desktop -service for your project
-    - Please wait that Sensitive Data Support team activates SD Desktop service for your project.
+    ### 7. CSC activates SD services for your project
+    - Please wait that Sensitive Data Support team activates SD services for your project.
     - You will receive an email notification, when everything is ready.
 
 ---
