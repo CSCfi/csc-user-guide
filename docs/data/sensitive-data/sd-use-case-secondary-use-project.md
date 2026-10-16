@@ -184,6 +184,8 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](./sd-billing-units.md).
 
+---
+
 #### 8.2 Login to the services
 
 After your team has a resource consumption plan, you can start using the services (links to related user guides):
@@ -197,6 +199,8 @@ SD Desktop:
 
 - [SD Desktop overview and key features](./sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
+
+---
 
 ### 8.3 Data access and review
 
