@@ -37,7 +37,7 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 
 ### 2. Join a CSC project
 
-- CSC adds you to a CSC project that is created specifically for data transfers from your organisation.
+- Sensitive Data support team adds you to a CSC project that is created specifically for data transfers from your organisation.
 - Check your email for a notification and log in to MyCSC to find the project. You will need the project number and project name to identify the correct project in SD Connect.
 
 ---
@@ -53,7 +53,7 @@ Now all the preparations are ready and you can start using SD Connect service. B
 
 ### 4. Upload each dataset to a dedicated bucket
 
-CSC will create a bucket in SD Connect for each dataset, share the bucket name with you, and grant Read-only access to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
+Sensitive Data support team will create a bucket in SD Connect for each dataset, share the bucket name with you, and grant Read-only access to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
 
 One bucket is created for each dataset based on a data permit. In other words, each bucket contains only one dataset and should include all data covered by the same data permit.
 
@@ -71,16 +71,16 @@ Follow these instructions to upload data to the buckets:
 
 ### 5. Manage datasets
 
-The datasets will remain in your control after they are uploaded to the buckets and shared to the users. You can upload more data, remove files, and also remove the data access from the users.
+The datasets will remain in your control after they are uploaded to the buckets and shared with the users. You can upload more data, remove files, and also remove the data access from the users.
 
 1. **Delivering additional data**: You can add data to any existing dataset by [uploading new files to the bucket](#4-upload-each-dataset-to-a-dedicated-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
 2. **Removing corrupted or incorrect files**: You can remove data from any existing dataset by [deleting files from the bucket](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
-4. **Cancelling the data access**: You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
+3. **Cancelling the data access**: You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
 
 !!! info "In case the permission to process the data is withdrawn and users' access to their SD Desktop environment must be revoked, please contact the [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data)."
 
 ---
 
-!!! Note ""
+!!! warning ""
     ### 6. Data permit expiration and data deletion
-    You can [delete datasets](sd-connect-delete.md) from your project independently in SD Connect. However, when a data permit expires, CSC will delete all files associated with the dataset from your project. The data will be deleted 90 days after the project in which the data users analyze the data is closed, which usually corresponds to the data permit's expiration date. However, if the project is closed earlier, the data will be removed regardless of whether the data permit remains valid. CSC, as the service provider of the processing environment, removes the data in accordance with the regulations and CSC's data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)).
+    You can [delete datasets](sd-connect-delete.md) from your project independently in SD Connect. However, when a data permit expires, the Sensitive Data support team will delete all files associated with the dataset from your project. The data will be deleted 90 days after the project in which the data users analyze the data is closed, which usually corresponds to the data permit's expiration date. However, if the project is closed earlier, the data will be removed regardless of whether the data permit remains valid. CSC, as the service provider of the processing environment, removes the data in accordance with the regulations and CSC's data retention policy (see [General Terms of Use for CSC's Services for Research and Education](https://research.csc.fi/general-terms-of-use)).
