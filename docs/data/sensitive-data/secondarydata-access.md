@@ -18,7 +18,8 @@ Contents:
 
  * [Your next steps in this guide](./secondarydata-access.md#your-next-steps-in-this-guide)
 
-    
+---
+
 ## Key features
 
 * SD Desktop is a computing environment audited against the Findata regulation.
