@@ -12,7 +12,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 
 1. [Create a CSC account](#1-create-a-csc-account) 
 2. [Create a new CSC project](#2-create-a-new-csc-project)
-3. [Fill in the Description of Processing Activity (GDPR) form](#3-fill-in-the-Description-of-processing-activity-gdpr-form)
+3. [Fill in the Description of Processing Activity (GDPR) form](#3-fill-in-the-description-of-processing-activity-gdpr-form)
 4. [Retrieve your project's Share ID from SD Connect](#4-retrieve-your-projects-share-id-from-sd-connect)
 5. [Contact CSC service desk](#5-contact-csc-service-desk)
 6. CSC adds members to your project, please wait
@@ -219,6 +219,18 @@ CSC shares a bucket for your project in SD Connect with Read-only access. This b
 - :material-alert:{ .lg .middle } **Review the data for errors and omissions**
   { .csc-grid-card-warning }
 
-    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
+    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data controller within 3 months of the permit holder having obtained access to the disclosed data. **The 3-month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual desktop ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
+
+</div>
+
+
+- :material-alert:{ .lg .middle } **After your project is closed**
+  { .csc-grid-card-warning }
+
+    ___
+
+    - Access to SD Connect and SD Desktop services will be disabled.
+    - All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
+    - Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
 
 </div>
