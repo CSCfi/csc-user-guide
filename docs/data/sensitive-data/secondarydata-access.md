@@ -29,6 +29,8 @@ Contents:
 
 * SD Connect can be used to upload additional software and data to the environment.
 
+---
+
 ## Limitations
 
 * Each secondary use dataset must have its own CSC project, i.e. its own isolated environment. Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller in accordance with the Secondary Use Act.
@@ -39,11 +41,15 @@ Contents:
 
 * Data export from SD Desktop is restricted. Only the CSC project manager can export data from SD Desktop to SD Connect, and **the project manager is responsible of making sure that only *anonymous results* are exported from the workspace, in accordance with [Findata's insctructions](https://findata.fi/en/services-and-instructions/producing-anonymous-results/)**. More detailed instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
 
+---
+
 ## Before you start
 
 * You need to have a data permit issued by Findata or another register before starting the service access process at CSC. This is required for the project creation.
 
 * After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to export all your results before the validity period of your data permit ends. The expired project and all data will be deleted after 90 days according to CSC's data retention policy.
+
+---
 
 ## Your next steps in this guide
 
