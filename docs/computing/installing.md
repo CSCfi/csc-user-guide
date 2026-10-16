@@ -52,7 +52,7 @@ used on LUMI](https://docs.lumi-supercomputer.eu/software/installing/easybuild/)
 CSC provides user Spack modules on Roihu that can be used to build software on top of the
 available compilers and libraries. It is also possible to install different customized versions of
 packages available in the module tree for special use cases. [See here for a short tutorial on how to
-install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md). Spack is
+install software on CSC supercomputers using Spack](../support/tutorials/roihu-user-spack.md). Spack is
 also available on [LUMI](https://docs.lumi-supercomputer.eu/software/installing/spack/).
 
 ### Ready-made binaries

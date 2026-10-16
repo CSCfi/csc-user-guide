@@ -24,7 +24,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/bcb-unl/run_dbc
 
 ## Available
 
-* Roihu: 5.2.9 (module `py-dbcan`), via the `bio-apps` module.
+* Roihu-CPU: 5.2.9 (module `py-dbcan`), via the `bio-apps` module.
 
 ## Usage
 
@@ -38,19 +38,10 @@ module load py-dbcan/5.2.9
 
 ### Databases
 
-The dbCAN reference databases are **not** bundled with the module.
-
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, download your own copy to a
-    writable location (for example your project's `/scratch`).
-
-Download the databases with `run_dbcan database` (or `dbcan_build`) into a writable
-directory:
-
-```bash
-run_dbcan database --db_dir /scratch/<project>/dbcan_db
-```
+CSC provides the dbCAN reference databases for run_dbcan 5.2.9, including the CGC
+and PUL databases, on Roihu. The `py-dbcan` module sets the `DBCAN_DB` environment
+variable to their location. Give it to run_dbcan with `--db_dir $DBCAN_DB`, as in the
+example below.
 
 ### Running run_dbcan
 
@@ -71,7 +62,7 @@ module load bio-apps/v202603
 module load py-dbcan/5.2.9
 
 run_dbcan CAZyme_annotation --input_raw_data proteins.faa --mode protein \
-    --db_dir /scratch/<project>/dbcan_db --output_dir dbcan_out --threads $SLURM_CPUS_PER_TASK
+    --db_dir $DBCAN_DB --output_dir dbcan_out --threads $SLURM_CPUS_PER_TASK
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).

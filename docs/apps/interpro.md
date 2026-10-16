@@ -8,35 +8,36 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # InterProScan
 
-
-
 InterProScan is a tool that compares protein or nucleotide sequence against a set of protein signature databases.
-The results obtained from different databases are given in uniform format. The InterProScan5 installation at CSC can
-be used to search protein signatures from following databases:
+The results obtained from different databases are given in uniform format. The InterProScan 5 installation on Roihu can
+be used to search protein signatures from the following databases:
 
-   * TIGRFAM (15.0)
-   * SFLD (4)
-   * SUPERFAMILY (1.75)
-   * PANTHER (15.0)
-   * Gene3D (4.3.0)
-   * Hamap (2020_05)
-   * Coils (2.2.1)
-   * ProSiteProfiles (2021_01)
-   * SMART (7.1)
-   * CDD (3.18)
-   * PRINTS (42.0)
-   * PIRSR (2021_05)
-   * ProSitePatterns (2021_01)
-   * AntiFam (7.0)
-   * Pfam (34.0)
-   * MobiDBLite (2.0)
-   * PIRSF (3.10)
+   * AntiFam
+   * CDD
+   * FunFam
+   * Gene3D
+   * HAMAP
+   * NCBIfam
+   * PANTHER
+   * Pfam
+   * PIRSF
+   * PIRSR
+   * PRINTS
+   * PROSITE (patterns and profiles)
+   * SFLD
+   * SMART
+   * SUPERFAMILY
 
+The analyses that require a separate license (Phobius, SignalP and TMHMM) are not
+available. To see the available analyses and their database versions, run
+`interproscan.sh -h`.
+
+[TOC]
 
 ## License
 
@@ -44,45 +45,81 @@ Free to use and open source under [Apache License 2.0](https://www.apache.org/li
 
 ## Available
 
-*   Puhti: 5.55-88.0, 5.67-90.0
+* Roihu-CPU: 5.76-107.0, via the `bio-apps` module.
 
 ## Usage
 
-In Puhti, first load interproscan module with commands:
+InterProScan is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the InterProScan module:
 
 ```bash
-module load biokit
-module load interproscan
+module load bio-apps/v202603
+module load interproscan/5.76-107.0
 ```
 
-After that you can submit  InterProScan jobs using command `cluster_interproscan`. Cluster_interproscan
-is a help tool that automatically runs your InterProScan task using the batch job system of Puhti.
-If your query file contains several sequences the cluster_interproscan tool also automatically splits
-the InterProScan tasks to several subtasks that are run simultaneously in Puhti.
+The InterProScan data is installed in a shared location on Roihu. The module sets the
+`INTERPROSCAN_CONF` environment variable to a configuration file that points
+InterProScan to this data, so you don't need to download or configure anything
+yourself.
 
-cluster_interproscan accepts all the normal InterProScan options. To check the available options, give command:
+InterProScan is run with the `interproscan.sh` command. To check the available
+options, give the command:
 
 ```bash
-cluster_interproscan -h
+interproscan.sh -h
 ```
 
-Below is two sample InterProScan commands
+Below are two sample InterProScan commands:
 
-1. Running InterProScan search for a nucleotide sequence set  against all InterProScan databases.
+1. Running InterProScan search for a nucleotide sequence set against all InterProScan databases.
 Results are reported in XML format.
 
 ```bash
-cluster_interproscan -i nucleotides.fasta -o results.xml -f XML -t n
+interproscan.sh -i nucleotides.fasta -o results.xml -f XML -t n
 ```
 
-2. Running InterProScan search for protein sequence set against PfamA databases. Results are reported in GFF3 format. GFF3 conversion needs more memory that what is available in the login nodes of Puhti. Because of that you should submit the interporosacn task from an interactive batch job with least 4 GiB of memory reserved.
+2. Running InterProScan search for a protein sequence set against Pfam. Results are reported in GFF3 format.
 
 ```bash
-sinteractive -m 4000
-cluster_interproscan -i proteins.fasta -o results.gff3 -f GFF3 -appl PfamA
+interproscan.sh -i proteins.fasta -o results.gff3 -f GFF3 -appl Pfam
 ```
 
+The `interproscan.sh` launcher reserves up to 14 GB of memory for Java alone, so don't
+run InterProScan on the login nodes. Use an
+[interactive session](../computing/running/interactive-usage.md) with enough cores to
+get the memory, for example `sinteractive --account <project> --cores 12 --time 04:00:00`
+(about 22 GB), or a batch job.
+
+### Example batch script
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=interproscan
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=12:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32G
+
+module load bio-apps/v202603
+module load interproscan/5.76-107.0
+
+interproscan.sh -i proteins.fasta -o results.tsv -f TSV -cpu $SLURM_CPUS_PER_TASK
+```
+
+Replace `<project>` with your CSC project (for example `project_2001234`).
+
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 
 *   [InterPro home page](https://www.ebi.ac.uk/interpro/)
+*   [InterProScan documentation](https://interproscan-docs.readthedocs.io/en/v5/)

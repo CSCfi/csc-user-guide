@@ -1,39 +1,39 @@
-# Copying data between Allas and IDA via Puhti
+# Copying data between Allas and IDA via Roihu
 
 
-## Copying data from Allas to IDA via Puhti
+## Copying data from Allas to IDA via Roihu
 
 In order to be able to copy data from Allas to IDA with this procedure, you
-need to be a member of a project which has IDA and Puhti services in use. On
+need to be a member of a project which has IDA and Roihu services in use. On
 the Allas side, you need at least read access to the data. You either need to
 be a member of a project which has Allas service in use, or the data in
 question needs to be available for downloading in Allas. Note that the projects
-in Allas, Puhti and IDA do not need to be the same.
+in Allas, Roihu and IDA do not need to be the same.
 
 In short, there are four steps to follow:
 
-1. Download the data from Allas to Puhti scratch disk
+1. Download the data from Allas to Roihu scratch disk
 2. Rearrange the data on the scratch disk
 3. Upload the data to IDA
-4. Clean the Puhti scratch disk
+4. Clean the Roihu scratch disk
 
 !!! Note
     Data in IDA is required to be described as research datasets with Fairdata
     services.
     [See more information here](https://www.fairdata.fi/en/about-fairdata/benefits/).
 
-### Step 1. Download the data from Allas to Puhti scratch
+### Step 1. Download the data from Allas to Roihu scratch
 
-Scratch disk area in Puhti is recommended as it is by default much larger than
+Scratch disk area in Roihu is recommended as it is by default much larger than
 other areas, e.g. user's home folder. Also, you can request even larger scratch
-quota if the default is not enough. On Puhti, you can show the available disk
+quota if the default is not enough. On Roihu, you can show the available disk
 areas and their usage with command:
 
 ```bash
 csc-workspaces
 ```
 
-For more details about Puhti disk areas, see
+For more details about Roihu disk areas, see
 [Supercomputer disk areas](../../computing/disk.md).
 
 For example, create a new directory `copydir` for the data under the scratch
@@ -46,7 +46,7 @@ mkdir /scratch/project_2000013/copydir
 Download the data from Allas to that new directory. You should use the same
 protocol as was used to originally upload the data to Allas. If the data was
 uploaded with command-line tools, preferably also use the same command-line
-tool. More information about the Allas tools on Puhti is available at
+tool. More information about the Allas tools on Roihu is available at
 [Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md).
 
 In our example case the data was originally uploaded to Allas with a-commands,
@@ -68,7 +68,7 @@ This is an important step when copying data from Allas to IDA. You should only
 copy data that is important enough to be described as a dataset in Fairdata
 services. Also, it makes the rest of the procedure easier to think at this
 point what kind of a directory structure would be good for the datasets and
-arrange the data in the Puhti directory to follow that structure. Note that in
+arrange the data in the Roihu directory to follow that structure. Note that in
 IDA you can't freeze (turn stable research data to an immutable state) more
 than 5000 files at once. So, as a rule of thumb, you should have at most that
 amount of files in one directory.
@@ -110,33 +110,33 @@ command uses that configuration. If not, then the upload command asks the user
 for their username and password in IDA.
 [See detailed instructions here](../ida/using_ida.md#configuring-and-using-ida-in-csc-supercomputers).
 
-### Step 4. Clean the Puhti scratch
+### Step 4. Clean the Roihu scratch
 
-If you do not need to continue working with the data on Puhti after uploading
-it to IDA, remove it from the scratch disk area of Puhti to free up disk space.
+If you do not need to continue working with the data on Roihu after uploading
+it to IDA, remove it from the scratch disk area of Roihu to free up disk space.
 
 
-## Copying data from IDA to Allas via Puhti
+## Copying data from IDA to Allas via Roihu
 
 In order to copy data from IDA to Allas, you need to be a
-member of a project that has Allas and Puhti services in use. On the IDA side,
+member of a project that has Allas and Roihu services in use. On the IDA side,
 you either need to be a member of a project which has IDA service in use, or
 the data in question needs to be publicly available for downloading. Note that
-the projects in Allas, Puhti and IDA do not need to be the same.
+the projects in Allas, Roihu and IDA do not need to be the same.
 
 ### Automatic copying with ida2allas tool
 
 If you wish to move a complete directory from IDA to Allas object storage service without
 any changes or rearrangements, you can use command line tool _ida2allas_. This tool is available 
-in Puhti server at CSC. 
+on the Roihu server at CSC. 
 
-#### 1. Connect to Puhti
+#### 1. Connect to Roihu
 
-We recommend that you run the data transfer process in one of the login nodes of the Puhti.
+We recommend that you run the data transfer process in one of the login nodes of Roihu.
 (Login nodes can be used in this case as the data transfer process is not computationally heavy).
-The easiest way to open a login node session in Puhti is to use the WWW interface of Puhti:
+The easiest way to open a login node session in Roihu is to use the WWW interface of Roihu:
 
-   * [Puhti Web interface](https://www.puhti.csc.fi)
+   * [Roihu Web interface](https://www.roihu.csc.fi)
 
 In the web interface, choose *Login node shell* from the *Tools* menu. This opens a
 terminal session where you can set up connections to IDA and Allas and where you can
@@ -149,7 +149,7 @@ First, open the Allas connection using the S3 protocol with the following comman
 
 ```text
 module load allas
-allas-conf -m S3
+allas-conf
 ```
 
 The _allas-conf_ command will prompt you to enter your CSC password. The Haka password is not accepted.
@@ -187,7 +187,7 @@ screen
 ida2allas
 ```
 
-In the example above, _screen_ command launches a virtual terminal session where the _ida2allas_ command will continue running even if the connection to Puhti would be lost.
+In the example above, _screen_ command launches a virtual terminal session where the _ida2allas_ command will continue running even if the connection to Roihu would be lost.
 
 
 
@@ -195,16 +195,16 @@ In the example above, _screen_ command launches a virtual terminal session where
 
 If you don't want to copy a complete IDA directory to Allas or if you want to rearrange the data, then you need to do the data transfer in four steps:
 
-1. Download the data from IDA to Puhti scratch disk
+1. Download the data from IDA to Roihu scratch disk
 2. Rearrange the data on the scratch disk, if necessary
 3. Upload the data to Allas
-4. Clean the Puhti scratch disk
+4. Clean the Roihu scratch disk
 
-### Step 1. Download the data from IDA to Puhti scratch
+### Step 1. Download the data from IDA to Roihu scratch
 
-Scratch disk area in Puhti is recommended as it is by default much larger than
+Scratch disk area in Roihu is recommended as it is by default much larger than
 other areas, e.g. user's home folder. Also, you can request even larger scratch
-quota if the default is not enough. For more details about Puhti disk areas,
+quota if the default is not enough. For more details about Roihu disk areas,
 see [Supercomputer disk areas](../../computing/disk.md).
 
 For example, create a new directory `xferdir` for the data under the scratch
@@ -222,7 +222,7 @@ ida download <target_in_ida> <local_file>
 ```
 
 Continuing our example, if the data in IDA is in a directory `testi` of project
-2000001, the download commands to run on Puhti are:
+2000001, the download commands to run on Roihu are:
 
 ```bash
 module load ida
@@ -231,7 +231,7 @@ ida download -p 2000001 testi testi.zip
 ```
 
 The last argument of the `ida download` command is the file name given to the
-data on Puhti. As in this case a directory is downloaded, it will be downloaded
+data on Roihu. As in this case a directory is downloaded, it will be downloaded
 as a zip package. If the user has used and configured the IDA command-line
 tool previously, then the download command uses that configuration. If not,
 then the upload command asks the user for their username and password in IDA.
@@ -254,7 +254,7 @@ options:
 
 ![Etsin download options](img/etsin-download-options.png)
 
-The user could then, for example, copy the `curl` command and run it on Puhti:
+The user could then, for example, copy the `curl` command and run it on Roihu:
 
 ```bash
 cd /scratch/project_2000012/xferdir
@@ -287,7 +287,7 @@ working directory should be on the scratch disk. The basic syntax of the
 a-put <directory_or_file>
 ```
 
-More information about the Allas tools on Puhti is available at
+More information about the Allas tools on Roihu is available at
 [Accessing Allas in the CSC computing environment and other Linux platforms](../Allas/accessing_allas.md).
 
 Continuing our example, assuming the unzipped data to be uploaded to Allas is
@@ -300,8 +300,8 @@ cd /scratch/project_2000012/xferdir
 a-put experiment_data
 ```
 
-#### Step 4. Clean the Puhti scratch
+#### Step 4. Clean the Roihu scratch
 
-If you do not need to continue working with the data on Puhti after uploading
-it to Allas, remove it from the scratch disk area of Puhti to free up disk
+If you do not need to continue working with the data on Roihu after uploading
+it to Allas, remove it from the scratch disk area of Roihu to free up disk
 space.

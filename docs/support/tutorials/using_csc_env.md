@@ -17,9 +17,6 @@ Temporarily resetting the login-settings to system default allows us to rule out
     If you are using some other login shell (ksh, zsh ...) the tool can not reset your login-settings,
     you can use the tool to switch to bash.
 
-!!!Note "CSC internal ssh changes"
-    As of the RHEL8 update, ssh connections between nodes within the supercomputers no longer use keys and configs from "~/.ssh" instead using host based authentication. Due to this the capability to reset the ssh settings has been removed. 
-
 ## Usage
 
 
@@ -34,12 +31,12 @@ them to the default settings. The test result can be included in your support re
 Below is an example test output: 
 
 ```
-csc_user@puhti $ csc-env test
+csc_user@roihu-cpu-login1 $ csc-env test
 
 Info
 ---------------------
 User: csc_user
-Host: puhti-login11
+Host: roihu-cpu-login1
 Home: /users/csc_user
 Home quota
     capacity: 23%
@@ -83,7 +80,7 @@ Here we present the basic reset + restore cycle.
 When the program prompts for input, press the number corresponding to your selection and then press enter. 
 
 ```
-csc_user@puhti $ csc-env reset
+csc_user@roihu-cpu-login1 $ csc-env reset
 [ INFO ] reset requires a target, please select one: 
 1) login
 2) shell
@@ -102,7 +99,7 @@ When you want to restore the settings, use the command `csc-env restore`. This w
 then restore the settings saved during the previous reset. 
 
 ```
-csc_user@puhti $ csc-env restore
+csc_user@roihu-cpu-login1 $ csc-env restore
 [ INFO ] restore requires a target, please select one: 
 1) login
 2) shell
@@ -138,7 +135,7 @@ Each invocation of `csc-env reset` or `csc-env restore` automatically saves the 
 The command `csc-env list-saved` will list all saves:
 
 ```
-csc_user@puhti $ csc-env list-saved
+csc_user@roihu-cpu-login1 $ csc-env list-saved
 Available restores in /users/csc_user/.csc/csc_env_saves
 
 login

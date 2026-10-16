@@ -154,6 +154,7 @@ gapseq/2.1.0
 gatk/4.5.0.0
 gatk/4.7.0.0
 getorganelle/1.7.7.1
+hifiasm/0.25.0
 hisat2/2.2.1
 hmmer/3.4
 htslib/1.23.1
@@ -161,6 +162,7 @@ humann/4.0.0a2
 hybpiper/2.3.4
 hyphy/2.5.51hf
 igv/2.19.7
+interproscan/5.76-107.0
 iq-tree/2.4.0
 iqtree3/3.1.4
 jellyfish/2.2.7
@@ -189,10 +191,12 @@ picard/3.3.0
 plink/1.07
 plink2/2.0.0-a.6.9
 prodigal/2.6.3
+py-bakta/1.11.4
 py-biopython/1.85
 py-cutadapt/4.7
 py-dbcan/5.2.9
 py-deeptools/3.5.3
+py-fdstools/2.2.1
 py-gtdbtk/2.7.2
 py-htseq/2.0.3
 py-instrain/1.6.3
@@ -200,12 +204,16 @@ py-ipyrad/0.9.102
 py-metaphlan/4.2.4
 py-micom/0.39.0
 py-multiqc/1.28
+py-samestr/1.2025.111
 py-steadiercom/0.1.5
 raxml/8.2.12
 raxml-ng/2.0.2
+revbayes/1.4.1
 roary/3.13.0
+salmon/2.8.0
 samtools/1.21
 samtools/1.24
+sanspanz/3.20250512
 seqkit/2.10.0
 seqkit/2.13.0
 seqtk/1.4
@@ -225,6 +233,9 @@ trimmomatic/0.39
 trinity/2.15.1.FULL
 vcftools/0.1.17
 vsearch/2.22.1
+wtdbg2/2.5
+xhmm/20160104
+yak/0.1
 ```
 
 ### GPU nodes (GH200)
@@ -234,8 +245,10 @@ GPU-accelerated tools:
 
 ```text
 dorado/2.1.1
+foldseek/10-941cd33
 mhm2/2.2.2.0-20260904
 mmseqs2/18-8cc5c
+mrbayes/3.2.8
 nextflow/25.10.2-standalone
 nextflow/26.04.6-standalone
 py-medaka/2.2.2

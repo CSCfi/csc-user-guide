@@ -1,5 +1,7 @@
 # Developing scripts remotely
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 !!! warning "Here be dragons!"
     While developing scripts remotely can be useful, it is quite prone to
     connection issues and other hard-to-debug problems. If you encounter

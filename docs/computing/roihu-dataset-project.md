@@ -130,7 +130,7 @@ provided by CSC or your organisation.
 
 ## Related documentation
 
-- [Roihu disk areas](roihu-disk.md)
+- [Roihu disk areas](disk.md)
 - [Creating a new dataset project](../accounts/how-to-create-new-project.md#dataset-project)
 - [Storing data at CSC](../data/datasets/hosting-datasets-at-CSC.md)
 - [Allas object storage](../data/Allas/index.md)

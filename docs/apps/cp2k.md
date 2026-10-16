@@ -9,8 +9,6 @@ catalog:
     - Chemistry
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -44,29 +42,6 @@ parallel quantum chemistry calculations, in particular for AIMD.
     |2025.1   |`cp2k/2025.1`<br>`cp2k/2025.1-gpu`| GPU version available |
     |2025.2   |`cp2k/2025.2`<br>`cp2k/2025.2-gpu`| GPU version available |
     |2026.1   |`cp2k/2026.1`<br>`cp2k/2026.1-gpu`| GPU version available |
-
-=== "Puhti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |9.1      |`cp2k/9.1`         |       |
-    |2022.2   |`cp2k/2022.2`      |       |
-    |2023.1   |`cp2k/2023.1`      |       |
-    |2023.2   |`cp2k/2023.2`      |       |
-    |2024.1   |`cp2k/2024.1`      |       |
-    |2024.2   |`cp2k/2024.2`      |       |
-    |2025.1   |`cp2k/2025.1`      |       |
-
-=== "Mahti"
-    | Version | Available modules | Notes |
-    |:-------:|:------------------|:-----:|
-    |8.2      |`cp2k/8.2`         |       |
-    |9.1      |`cp2k/9.1`         |       |
-    |2022.2   |`cp2k/2022.2`      |       |
-    |2023.1   |`cp2k/2023.1`      |       |
-    |2023.2   |`cp2k/2023.2`      |       |
-    |2024.1   |`cp2k/2024.1`      |       |
-    |2024.2   |`cp2k/2024.2`      |       |
-    |2025.1   |`cp2k/2025.1`      |       |
 
 ## License
 
@@ -116,11 +91,11 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --cpus-per-task=4     # 384 / ntasks-per-node
     #SBATCH --partition=medium
     #SBATCH --account=<project>
-    #SBATCH --hint=nomultithread
 
     module purge
     module load gcc/15.2.0 openmpi/5.0.10
     module load cp2k/2026.1
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     srun cp2k.psmp H2O-512.inp > H2O-512.out
     ```
@@ -136,7 +111,6 @@ double the number of cores the calculation should be at least 1.5 times faster.
     #SBATCH --gres=gpu:gh200:4
     #SBATCH --partition=gpumedium
     #SBATCH --account=<project>
-    #SBATCH --hint=nomultithread
 
     module purge
     module load gcc/13.4.0 openmpi/5.0.10
@@ -193,66 +167,19 @@ double the number of cores the calculation should be at least 1.5 times faster.
         separate GPU, you can reserve up to 8 "GPUs" per node. See more details
         in [LUMI Docs](https://docs.lumi-supercomputer.eu/hardware/lumig/).
 
-=== "Puhti (MPI only)"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --time=00:10:00
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --nodes=2
-    #SBATCH --mem-per-cpu=2GB
-    #SBATCH --partition=large
-    #SBATCH --account=<project>
-
-    module purge
-    module load gcc/14.2.0 openmpi/5.0.6
-    module load cp2k/2025.1
-
-    srun cp2k.psmp H2O-64.inp > H2O-64.out
-    ```
-
-=== "Mahti (hybrid MPI/OpenMP)"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --time=00:05:00
-    #SBATCH --ntasks-per-node=32  # 2 - 128
-    #SBATCH --cpus-per-task=4     # 128 / ntasks-per-node
-    #SBATCH --nodes=2
-    #SBATCH --partition=test
-    #SBATCH --account=<project>
-
-    module purge
-    module load gcc/14.2.0 openmpi/5.0.6
-    module load cp2k/2025.1
-
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-    export OMP_PLACES=cores
-
-    srun cp2k.psmp H2O-64.inp > H2O-64.out
-    ```
-
 ### Performance notes
 
-#### Mahti
+#### Roihu
 
-The following table shows the total execution time (in seconds) of the
-[H2O-256 benchmark](https://github.com/cp2k/cp2k/blob/master/benchmarks/QS/H2O-256.inp)
-on Mahti using `cp2k/2024.2`. The column headers show how many OpenMP threads
-were used per MPI task.
+The efficient combination of MPI tasks and OpenMP threads per task depends on
+the system and model used, and should be determined through testing for each
+case. See the [performance checklist](../computing/running/performance-checklist.md)
+for general tips. It is also important to
+[perform a scaling test](../computing/running/performance-checklist.md#perform-a-scaling-test),
+especially for large jobs.
 
-|CPU nodes|1     |2     |4         |8     |
-|:-------:|:----:|:----:|:--------:|:----:|
-|1        |197.35|164.80|169.66    |192.07|
-|2        |111.95|107.78|**101.52**|117.60|
-|4        |82.74 |72.12 |72.00     |97.97 |
-
-* For 256 water molecules, the best efficiency is obtained with 2 full nodes,
-  32 MPI tasks per node, and 4 OpenMP threads per task. For this system it is
-  not efficient to scale beyond 2 nodes (256 CPU cores).
-* Hybrid parallelism is often efficient – choose tasks and threads so that they
-  add up to 128 (physical) cores available per node (or up to 40 on Puhti).
-* Test the optimal run parameters for your model system and method.
+* Hybrid parallelism is often efficient – choose tasks and threads so that
+  they add up to the 384 physical cores available per Roihu-CPU node.
 * Using the ELPA diagonalization library instead of ScaLAPACK may significantly
   accelerate calculations that require large matrix diagonalizations (even up
   to 50% depending on the system). A good example are metallic systems that may
@@ -276,18 +203,11 @@ that there are only 56 cores available per node.
     [LUMI-G examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/),
     [GPU binding](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#gpu-binding)
 
-The following plot shows the total execution time of the
-[linear-scaling SCF benchmark](https://github.com/cp2k/cp2k/tree/master/benchmarks/QS_DM_LS)
-(2048 water molecules) on Mahti (CPU), LUMI-C and LUMI-G. When CPU-GPU binding
-is properly done (see example above), LUMI-G is about twice as performant as
-Mahti/LUMI-C when comparing GPU nodes vs. CPU nodes. Since not all routines of
-CP2K have been ported to GPUs, make sure to always check the performance and
-scaling of your system and method – some simulations (e.g. standard SCF) are
-better run on CPUs while others are substantially faster on GPUs (e.g.
-linear-scaling SCF, post-HF methods). For more details, see the
-[CP2K website](https://www.cp2k.org/gpu).
-
-![CP2K scaling on Mahti and LUMI](../img/cp2k-lumi.png 'CP2K scaling on Mahti and LUMI')
+Since not all routines of CP2K have been ported to GPUs, make sure to always
+check the performance and scaling of your system and method. Some
+simulations (e.g. standard SCF) are better run on CPUs while others are
+substantially faster on GPUs (e.g. linear-scaling SCF, post-HF methods). For
+more details, see the [CP2K website](https://www.cp2k.org/gpu).
 
 ### High-throughput computing with CP2K
 
@@ -354,23 +274,23 @@ Note that `RUN_TYPE` is set to `NONE` in the `&GLOBAL` section.
     #!/bin/bash -l
     #SBATCH --time=00:30:00
     #SBATCH --partition=medium
-    #SBATCH --ntasks-per-node=128
+    #SBATCH --ntasks-per-node=384
     #SBATCH --nodes=1
     #SBATCH --account=<project>
 
     module purge
-    module load gcc/14.2.0 openmpi/5.0.6
-    module load cp2k/2025.1
+    module load gcc/15.2.0 openmpi/5.0.10
+    module load cp2k/2026.1
 
     srun cp2k.psmp farming.inp >> farming.out
     ```
 
-In this particular example, one full Mahti node is requested for running 8
+In this particular example, one full Roihu node is requested for running 8
 single-point calculations of a NaCl crystal with different lattice constants.
 In addition to the `farming.inp` input, each subjob requires its own ordinary
 input file, which are here organized into separate subdirectories named `run*`.
 Issuing `sbatch farming.sh` in the parent directory launches all calculations
-in parallel, allocating 16 cores to each subjob.
+in parallel, allocating 48 cores to each subjob.
 
 Note that dependencies can also be specified between subjobs using the
 `DEPENDENCIES` and `JOB_ID` keywords under the `&JOB` section. This enables the

@@ -15,7 +15,7 @@ catalog:
 
 [AMS](ams.md) comes with an integrated GUI (Graphical User Interface)
 that makes it easy to set up, run and analyze modelling tasks. You can test
-the GUI via the supercomputer web interfaces, but for more extensive use we
+the GUI via the supercomputer web interface, but for more extensive use we
 recommend installing the GUI on your own laptop/workstation.
 
 ## License

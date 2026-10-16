@@ -5,7 +5,7 @@ site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalvel
 extra:
   announcement:
     content: |-
-      <p>Puhdin ja Mahdin laskentapalvelut ovat poistuneet käytöstä. Puhdin ja Mahdin kirjautumisnoodit sekä tallennustila ovat saatavilla 15. lokakuuta 2026 asti, mutta ne eivät enää ole palvelusopimusten piirissä. <strong>Ryhdythän toimiin datan siirtämiseksi Roihuun välittömästi.</strong> Ohjeita löydät sivulta <a href="{{ base_url }}/support/tutorials/roihu-data/">Roihun datan siirto-opas</a>.</p>
+      <p>Docs CSC -sivustolla on huoltokatko maanantaina 19. lokakuuta 2026 klo 11.00–13.00. <a href="https://research.csc.fi/service-break/service-break-on-docs-csc-fi/" target="_blank">Katso lisätietoja</a>.</p>
   analytics:
     feedback:
       title: Onko tämä sivu hyödyllinen?
@@ -61,15 +61,12 @@ nav:
       - Laskutus: accounts/billing.md
       - Monivaiheinen tunnistautuminen: accounts/mfa.md
       - Vahva tunnistautuminen: accounts/strong-identification.md
-      - FMI: accounts/fmi.md
   - Laskenta:
       - computing/index.md
       - Käyttöpolitiikka: computing/usage-policy.md
       - Laskutus: computing/hpc-billing.md
       - Järjestelmät:
           - computing/available-systems.md
-          - Puhti: computing/systems-puhti.md
-          - Mahti: computing/systems-mahti.md
           - Roihu: computing/systems-roihu.md
           - LUMI: "https://docs.lumi-supercomputer.eu/hardware/"
       - Yhteyden muodostaminen:
@@ -79,9 +76,9 @@ nav:
           - SSH-asiakas Windowsilla: computing/connecting/ssh-windows.md
       - Supertietokoneen tallennustila:
           - computing/disk.md
-          - Roihun levyalueet: computing/roihu-disk.md
           - Roihun data-aineistoprojektit: computing/roihu-dataset-project.md
           - Lustre-tiedostojärjestelmä: computing/lustre.md
+          - Objektitallennustila: computing/allas-in-roihu.md
       - Moduuliympäristö: computing/modules.md
       - Töiden ajaminen:
           - computing/running/getting-started.md
@@ -141,6 +138,11 @@ nav:
           - Yhteyden muodostaminen: computing/firecrest/connecting.md
           - Tiedonsiirto S3:n yli: computing/firecrest/data-transfer-s3.md
           - Python SDK: computing/firecrest/pyfirecrest.md
+      - Tekoälytyökalut:
+          - computing/ai-tools/index.md
+          - Agenttiympäristö: computing/ai-tools/agent-env.md
+          - Docs MCP -palvelin: computing/ai-tools/docs-mcp.md
+          - CSC Skills: computing/ai-tools/csc-skills.md
   - Pilvipalvelut:
       - cloud/index.md
       - Noppe:
@@ -340,7 +342,7 @@ nav:
       - Datan siirtäminen:
           - data/moving/index.md
           - Tiedostojen kopiointi scp:llä: data/moving/scp.md
-          - Tiedostojen siirtäminen HPC-verkkokäyttöliittymien avulla: data/moving/web-interface.md
+          - Tiedostojen siirtäminen HPC-verkkokäyttöliittymän avulla: data/moving/web-interface.md
           - Graafiset tiedostonsiirtotyökalut: data/moving/graphical_transfer.md
           - Rsyncin käyttö tiedonsiirtoon ja synkronointiin: data/moving/rsync.md
           - Tarin ja SSH:n käyttö pienten tiedostojen tehokkaaseen siirtoon: data/moving/tar_ssh.md
@@ -348,7 +350,7 @@ nav:
           - Tiedostojen jakaminen ja siirtäminen Funet FileSenderillä: data/moving/funet.md
           - Datan siirtäminen IDAn ja CSC:n laskentaympäristön välillä: data/ida/using_ida.md
           - Etälevyjen liittäminen: data/moving/disk_mount.md
-          - Datan kopioiminen Allaksen ja IDAn välillä Puhtin kautta: data/moving/copy_allas_ida.md
+          - Datan kopioiminen Allaksen ja IDAn välillä Roihun kautta: data/moving/copy_allas_ida.md
       - Allas-objektitallennustila:
           - data/Allas/index.md
           - Johdatus Allas-tallennuspalveluun: data/Allas/introduction.md
@@ -359,7 +361,7 @@ nav:
           - Allas-asiakasohjelmat:
               - Allas-yhteyden määritys: data/Allas/using_allas/allas-conf.md
               - Allas Web-käyttöliittymä: data/Allas/using_allas/allas-ui.md
-              - Puhti/Mahti web-käyttöliittymä: computing/webinterface/file-browser.md
+              - Roihu web-käyttöliittymä: data/Allas/using_allas/roihu-web-ui.md
               - a-command: data/Allas/using_allas/a_commands.md
               - a-backup: data/Allas/using_allas/a_backup.md
               - Cyberduck: data/Allas/using_allas/cyberduck.md
@@ -403,7 +405,7 @@ nav:
               - Mukautus - ohjelmistot ja työkalut: data/sensitive-data/sd-desktop-software.md
               - Datan tuonti: data/sensitive-data/sd-desktop-access.md
               - Datan vienti käyttöliittymän kautta: data/sensitive-data/sd-desktop-export.md
-              - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
+              # - Datan vienti ohjelmallisesti: data/sensitive-data/sd-desktop-export-commandline.md
               - Vianetsintä: data/sensitive-data/sd-desktop-troubleshooting.md
       - Tutkimusdata - Julkaise ja uudelleenkäytä:
           - Julkaise Federated EGA:lla:

@@ -47,7 +47,6 @@
 * [How do I know how much computing resources I have left?](how-do-i-know-how-much-resources-i-have-left.md)
 * [Which directory should I use to analyze many small files?](local_scratch_for_data_processing.md)
 * [How do the project and scratch file permissions work?](how-do-the-project-file-permissions-work.md)
-* [How does LUMI-C differ from Mahti?](../../computing/lumi-vs-mahti.md)
 * [Frequently asked questions about Roihu](roihu.md)
 
 ## Python on supercomputers
