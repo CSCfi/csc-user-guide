@@ -18,7 +18,6 @@ Your organisation has issued a data permit for a research group to process healt
 3. [Login to SD Connect](#3-login-to-sd-connect)
 4. [Upload each dataset to a dedicated bucket](#4-upload-each-dataset-to-a-dedicated-bucket)
 5. [Manage datasets](#5-manage-datasets)
-6. [Data permit expiration and data deletion](#6-data-permit-expiration-and-data-deletion)
 
 ---
 
