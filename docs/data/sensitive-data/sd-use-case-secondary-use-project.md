@@ -19,6 +19,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 7. [CSC project is ready](#7-your-csc-project-is-ready)
 8. [Apply for Billing Units](#8-apply-for-billing-units)
 
+---
 
 ### 1. Create a CSC account
 
@@ -96,6 +97,8 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
   
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
+---
+
 ### 4. Retrieve your project's Share ID from SD Connect
 
 !!! warning-label
@@ -106,6 +109,8 @@ Login to [SD Connect service](https://sd-connect.csc.fi/) and copy your Share ID
 You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
 
 ![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
+
+---
 
 ### 5. Contact CSC service desk
 
@@ -119,10 +124,14 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 - Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
 - Put your research team as cc.
 
+---
+
 !!! Note ""
     ### 6. CSC adds members to your project
     - Please wait that Sensitive Data Support -team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
+
+---
 
 ### 7. Your CSC project is ready!
 
@@ -134,6 +143,16 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 - Write down your project number, you might need it later (e.g. *project_1234567*).
 - Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-login.md) and [login and upload materials to SD Connect](sd-connect-login.md).
 - CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual computers via the DataGateway application](sd-desktop-access.md).
+
+<div class="grid cards" markdown>
+  
+- :material-alert:{ .lg .middle } **Review the data for errors and omissions**
+  { .csc-grid-card-warning }
+
+    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
+
+</div>
+---
 
 ### 8. Apply for Billing Units
 
@@ -153,12 +172,3 @@ You can apply (for free) for billing units in the MyCSC portal:
 - In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
 
 Small BU applications (S) are automatically approved.
-
-<div class="grid cards" markdown>
-  
-- :material-alert:{ .lg .middle } **Review the data for errors and omissions**
-  { .csc-grid-card-warning }
-
-    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
-
-</div>
