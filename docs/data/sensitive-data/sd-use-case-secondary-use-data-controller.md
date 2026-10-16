@@ -83,7 +83,7 @@ The datasets will remain in your control after they are uploaded to the buckets 
 
 <div class="grid cards" markdown>
   
-- :material-alert:{ .lg .middle }
+- { .lg .middle }
   { .csc-grid-card-warning }
   
     ### 6. Data permit expiration and data deletion
