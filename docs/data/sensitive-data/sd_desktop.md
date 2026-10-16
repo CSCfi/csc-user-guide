@@ -38,7 +38,7 @@ You can browse the main topics of this section using the navigation bar on the r
 * We do not provide virtual desktops with GPUs or Windows operating systems. 
 
 !!! Note 
-    Data under the Secondary Use of Health and Social Data Act can't be processed in the standard SD Desktop service. For processing secondary use health and social data, please check this manual: [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
+    When processing data under the Secondary Use of Health and Social Data Act, specific audited processes must be followed to comply with the law and Findata's regulation. For processing secondary use health and social data, please check the instructions in a separate guide: [Accessing secondary use data via SD services](secondarydata-access.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
 
 
 ## Your next steps in this guide

@@ -1,1 +1,0 @@
-sd-desktop-manage.md
