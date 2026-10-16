@@ -12,7 +12,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 
 1. [Create a CSC account](#1-create-a-csc-account) 
 2. [Create a new CSC project](#2-create-a-new-csc-project)
-3. [Fill in the GDPR document](#3-fill-in-the-gdpr-document)
+3. [Fill in the Description of Processing Activity (GDPR) form](#3-fill-in-the-Description-of-processing-activity-gdpr-form)
 4. [Retrieve your project's Share ID from SD Connect](#4-retrieve-your-projects-share-id-from-sd-connect)
 5. [Contact CSC service desk](#5-contact-csc-service-desk)
 6. CSC adds members to your project, please wait
@@ -28,12 +28,12 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 !!! info-label
     Team member
 
-Only create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
+Create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account with Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
 - Fill in your information on the Sign up page.
-- You will receive with instructions how to complete the registration. 
+- You will receive an email with instructions how to complete the registration. 
 - Create a password with at least 12 characters, including upper and lowercase letters and at least one number. No special characters allowed.
 - Enable two-step authentication (MFA).
 
@@ -71,29 +71,27 @@ Only create a CSC account if you have a Haka or Virtu account. If you do not hav
 - Click **Next**.
 
 ---
-#### 2.3 Confirm the services for the project
-- SD Desktop and SD Connect are automatically selected for the project.
-- Other services are not available.
-- Click **Next**
+
+#### 2.3 Terms of Use and Data Processing Agreement
+
+In the next view, under Terms of Use for the project:
+
+1. ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
+   
+2. Read and accept the General Terms of use for CSC's Services for Research. Note: this will include the [CSC’s Personal Data Processing Agreement (DPA)](https://research.csc.fi/terms-of-use/data-processing-agreement/)
+   
+- Click **Submit**.
+  
+- Wait for your project is being created. When project is ready, you'll be redirected to project page.
 
 ---
-#### 2.4 Confirmation
 
-- Under Terms of Use, ensure you meet the **Prerequisites and Responsibilities** to be a CSC Project Manager. For research projects, the Project Manager should be an experienced researcher (e.g., postdoc, group leader, professor, or doctoral researcher employed by a research organization). **Note for Students:** If you are a student, please have your supervisor create the CSC project or [contact CSC Service Desk](../../support/contact.md) (subject: sensitive data) for assistance. It is not possible to access SD Services with a student account.
-- Read and accept the terms of use.
-- Click **Submit**. 
-- Wait for your project being created. When project is ready, you'll be redirected to project page.
-
----
-
-### 3. Fill in the GDPR document
+### 3. Fill in the Description of Processing Activity (GDPR) form
 
 !!! warning-label
     Team manager
 
-- Since your project handles personal data, you need to fill the GDPR document i.e. *Description of processing activity* -form.
-- The document appears when you create a new project. You can edit this document later.
-- Your home organization is the **data controller**.
+When you first access your project, you’ll be prompted to complete the Description of Processing Activity (GDPR) form as your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
   
 ![Description of Processing Activity](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_NewProject_Descriptionof_1025.png)
 
@@ -119,7 +117,7 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
-- Copy your project's Share ID to the email (see step 4.).
+- Copy your project's Share ID to the email (see [step 4](#4-retrieve-your-projects-share-id-from-sd-connect)).
 - Attach a copy of your **data permit** to the email.
 - Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
 - Put your research team as cc.
@@ -130,6 +128,43 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
     ### 6. CSC adds members to your project
     - Please wait that Sensitive Data Support -team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
+
+---
+
+### 5. Project Lifetime, Billing Units, and Data Retention
+
+#### 5.1 Default project lifetime
+
+The default lifetime of a CSC project is **one year**, after which the project is automatically closed and all data is deleted.
+
+#### 5.2 When your project runs out of Billing Units
+
+When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
+
+To prevent this, the project manager should:
+
+1. Apply for more [**Billing Units**](sd-billing-units.md#32-step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+
+When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
+
+#### 5.3 Closing project 
+
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC.
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **After your project is closed**
+  { .csc-grid-card-error }
+
+    ___
+
+    - Access to SD Connect and SD Desktop services will be disabled.
+    - All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
+    - Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
+
+</div>
 
 ---
 
