@@ -27,7 +27,7 @@ listing_order:
   # and the 'Miscellaneous' discipline (fallback: true).
   #
   # *** IMPORTANT: If these are changed, translations need to be provided
-  # in overrides/catalog/translation.html ***
+  # in overrides/catalog/partials/translation.html ***
   #
   license_types:
     - Free
