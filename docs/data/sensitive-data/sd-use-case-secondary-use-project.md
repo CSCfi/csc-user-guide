@@ -190,7 +190,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 #### 9.1 Resource consumption
 
-Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](./sd-billing-units.md).
+Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](sd-billing-units.md).
 
 ---
 
@@ -200,12 +200,12 @@ After your team has a resource consumption plan, you can start using the service
 
 SD Connect:
 
-- [SD Connect overview and key features](./sd_connect.md)
-- [SD Connect login instructions](./sd-connect-login.md)
+- [SD Connect overview and key features](sd_connect.md)
+- [SD Connect login instructions](sd-connect-login.md)
   
 SD Desktop:
 
-- [SD Desktop overview and key features](./sd_desktop.md)
+- [SD Desktop overview and key features](sd_desktop.md)
 - [SD Desktop login instructions](sd-desktop-login.md)
 
 ---
@@ -218,8 +218,6 @@ CSC shares a bucket for your project in SD Connect with Read-only access. This b
   
 - :material-alert:{ .lg .middle } **Review the data for errors and omissions**
   { .csc-grid-card-warning }
-
-  ___
 
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
 
