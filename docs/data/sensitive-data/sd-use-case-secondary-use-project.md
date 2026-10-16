@@ -171,8 +171,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 - :material-alert:{ .lg .middle } **After your project is closed**
   { .csc-grid-card-error }
 
-    ___
-
+    ---
     - Access to SD Connect and SD Desktop services will be disabled.
     - All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
     - Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
