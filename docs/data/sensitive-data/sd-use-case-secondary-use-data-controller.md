@@ -62,7 +62,7 @@ Data users create their CSC projects based on their data permits and can access 
 Follow these instructions to upload data to the buckets:
 
 - [Upload and encrypt files to an existing bucket](sd-connect-upload.md#24-upload-and-encrypt-files-to-an-existing-bucket)
-- [SD Connect command line tool for large datasets (over 50 GB)](sd-connect-command-line-interface.md)
+- [SD Connect command line tool for large datasets (over 100 GB)](sd-connect-command-line-interface.md)
 
 !!! warning "Note"
     Make sure you use only SD Connect user interface or command line tools for uploading data. If you use Allas user interface or command line tools, the data won't be encrypted, and the data storage is not compatible with the Findata regulation.
