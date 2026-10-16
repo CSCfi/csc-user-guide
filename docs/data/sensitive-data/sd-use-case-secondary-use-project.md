@@ -137,6 +137,8 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
     Team manager
 !!! info-label
     Team member
+!!! note-label
+    Whole team
 
 #### 7.1 Default project lifetime
 
