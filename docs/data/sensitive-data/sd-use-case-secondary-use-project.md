@@ -219,18 +219,7 @@ CSC shares a bucket for your project in SD Connect with Read-only access. This b
 - :material-alert:{ .lg .middle } **Review the data for errors and omissions**
   { .csc-grid-card-warning }
 
+    ---
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data controller within 3 months of the permit holder having obtained access to the disclosed data. **The 3-month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual desktop ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
-
-</div>
-
-
-- :material-alert:{ .lg .middle } **After your project is closed**
-  { .csc-grid-card-warning }
-
-    ___
-
-    - Access to SD Connect and SD Desktop services will be disabled.
-    - All data stored in SD Connect or SD Desktop, including files, virtual desktops, and volumes, **will be permanently deleted 90 days after the project closure/ expiration**.
-    - Once data is deleted in line with CSC's data retention policy, it cannot be restored or recovered.
 
 </div>
