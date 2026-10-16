@@ -29,7 +29,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 !!! info-label
     Team member
 
-Create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. Alternatively, ask the Team Manager to contact CSC with a list of people who need accounts. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
+Create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
 
 - **Go to [MyCSC portal](https://my.csc.fi){ target="_blank" }**
 - Log in with Virtu or Haka, based on your home organization's federation. Select your home organization and log in to their identity service. [How to get an account with Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-with-haka-or-virtu).
@@ -127,7 +127,7 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 !!! Note ""
     ### 6. CSC adds members to your project
-    - Please wait that Sensitive Data Support -team adds your research team to your project
+    - Please wait that Sensitive Data Support team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
 
 ---
