@@ -218,7 +218,7 @@ This will start a web server on your computer listening on port 8000. Go to the 
 * to speed up the reloading of a page you've changed, you can start the ProperDocs server with the `--dirty` flag. (Mind the warning about "a 'dirty' build being performed" that will "likely lead to inaccurate navigation and other links [...]".):
 
 ```bash
-properdocs serve --dirtyreload
+properdocs serve --dirty
 ```
 
 #### Tests

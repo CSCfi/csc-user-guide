@@ -585,7 +585,7 @@ while **Option A &ndash; CLI** will be implicit.
 
 ### Previewing your changes locally
 
-The main point of this tutorial is to be able to work on the files using the tools you prefer, and that by using a local preview server, you will immediately see your changes when you save a file you've edited. This happens quicker with the `--dirtyreload` option enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
+The main point of this tutorial is to be able to work on the files using the tools you prefer, and that by using a local preview server, you will immediately see your changes when you save a file you've edited. This happens quicker with the `--dirty` flag enabled, but is in any case quicker and more convenient than waiting for the Rahti preview to rebuild a branch.
 
 >**Option B &ndash; GUI**: Run the task **_Docs CSC: Serve_**
 > * See _Using Tasks_ under _[VS Code &ndash; Tasks](#tasks)_
@@ -602,7 +602,7 @@ or
 properdocs serve --dirty
 ```
 
->**Option B &ndash; GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirtyreload` flag.
+>**Option B &ndash; GUI**: The task **_Docs CSC: Serve_**, for starting the development server, will ask whether you'd like to include e.g. the `--dirty` flag.
 > * See _Using Tasks_ under _[VS Code &ndash; Tasks](#tasks)_
 
 It will take a moment for ProperDocs to build and serve the site. If you wish to shut down the server (even when its building)&ndash;perhaps to restart it with `--dirty` enabled&ndash;simply hit _Ctrl+C_.
