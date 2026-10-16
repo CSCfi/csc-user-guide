@@ -18,7 +18,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 6. CSC adds members to your project, please wait
 7. CSC activates SD services for your project, please wait
 8. [Project Lifetime, Billing Units, and Data Retention](#8-project-lifetime-billing-units-and-data-retention)
-9. [Planning for resources consumption and data access](#9-planning-for-resources-consumption-and-data-access)
+9. [Plan resources consumption and access data](#9-plan-resources-consumption-and-access-data)
 
 ---
 
@@ -181,7 +181,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 ---
 
-### 9. Planning for resources consumption and data access
+### 9. Plan resources consumption and access data
 
 !!! warning-label
     Team manager
@@ -210,7 +210,7 @@ SD Desktop:
 
 ---
 
-### 9.3 Data access and review
+### 9.3 Access and review data
 
 CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual desktops via the Data Gateway application](sd-desktop-access.md).
 
