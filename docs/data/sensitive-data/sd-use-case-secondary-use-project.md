@@ -16,7 +16,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 4. [Retrieve your project's Share ID from SD Connect](#4-retrieve-your-projects-share-id-from-sd-connect)
 5. [Contact CSC service desk](#5-contact-csc-service-desk)
 6. CSC adds members to your project, please wait
-7. [CSC project is ready](#7-your-csc-project-is-ready)
+7. [Project Lifetime, Billing Units, and Data Retention](#7-project-lifetime-billing-units-and-data-retention)
 8. [Apply for Billing Units](#8-apply-for-billing-units)
 
 ---
@@ -131,26 +131,31 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 ---
 
-### 5. Project Lifetime, Billing Units, and Data Retention
+### 7. Project Lifetime, Billing Units, and Data Retention
 
-#### 5.1 Default project lifetime
+!!! warning-label
+    Team manager
+!!! info-label
+    Team member
+
+#### 7.1 Default project lifetime
 
 The default lifetime of a CSC project is **one year**, after which the project is automatically closed and all data is deleted.
 
-#### 5.2 When your project runs out of Billing Units
+#### 7.2 When your project runs out of Billing Units
 
-When an academic CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
+When a CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
 
 To prevent this, the project manager should:
 
 1. Apply for more [**Billing Units**](sd-billing-units.md#32-step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager. Note! Project lifetime can't be extended, if [your data permit is also expiring](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
 When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
 
-#### 5.3 Closing project 
+#### 7.3 Closing project 
 
-Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC.
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC. The project will also close automatically, when [your data permit expires](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
 
 <div class="grid cards" markdown>
@@ -168,16 +173,34 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 ---
 
-### 7. Your CSC project is ready!
+### 8. Planning for resources consumption and data access
 
 !!! warning-label
     Team manager
 !!! info-label
     Team member
 
-- Write down your project number, you might need it later (e.g. *project_1234567*).
-- Now you can log out from MyCSC and [login to SD Desktop](sd-desktop-login.md) and [login and upload materials to SD Connect](sd-connect-login.md).
-- CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual computers via the DataGateway application](sd-desktop-access.md).
+#### 8.1 Resource consumption
+
+Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](./sd-billing-units.md).
+
+#### 8.2 Login to the services
+
+After your team has a resource consumption plan, you can start using the services (links to related user guides):
+
+SD Connect:
+
+- [SD Connect overview and key features](./sd_connect.md)
+- [SD Connect login instructions](./sd-connect-login.md)
+  
+SD Desktop:
+
+- [SD Desktop overview and key features](./sd_desktop.md)
+- [SD Desktop login instructions](sd-desktop-login.md)
+
+### 8.3 Data access and review
+
+CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual desktops via the Data Gateway application](sd-desktop-access.md).
 
 <div class="grid cards" markdown>
   
@@ -187,23 +210,3 @@ Once your research is complete, the project manager can [**close CSC project**](
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.
 
 </div>
----
-
-### 8. Apply for Billing Units
-
-SD Desktop consumes Cloud type Billing Units (BUs) and SD Connect consumes Storage type BUs. You should estimate your project’s resource and storage needs for the next six months and apply for the required amount using the MyCSC portal. More information about [Billing Units](sd-billing-units.md).
-
-You can apply (for free) for billing units in the MyCSC portal:
-
-- Log in to MyCSC.
-- On the left navigation bar select **Projects** and in the new view click on your CSC project.
-- Scroll down and under Resources, on the right corner, click on **Apply for resources**.
-- In the new window you will see the services you have active in the project (in gray). Press **Next**.
-- In the second view, click on the Billing Units package you need (e.g. M) for:
-   - Cloud Billing Unit type (used by SD Desktop)
-   - Storage Billing Unit type (used by SD Connect)
-- Click **Next**.
-   - You will be guided to upload or add information about a publication related to your research. If you don't have a publication yet, you can also upload your research plan, or any old publication related to your research group.
-- In the last view, you can review the project description and field of science. Finally, you can click **Submit**.
-
-Small BU applications (S) are automatically approved.
