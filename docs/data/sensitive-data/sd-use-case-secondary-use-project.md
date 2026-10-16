@@ -17,7 +17,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 5. [Contact CSC service desk](#5-contact-csc-service-desk)
 6. CSC adds members to your project, please wait
 7. [Project Lifetime, Billing Units, and Data Retention](#7-project-lifetime-billing-units-and-data-retention)
-8. [Apply for Billing Units](#8-apply-for-billing-units)
+8. [Planning for resources consumption and data access](#8-planning-for-resources-consumption-and-data-access)
 
 ---
 
