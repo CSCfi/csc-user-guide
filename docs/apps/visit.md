@@ -22,13 +22,11 @@ VisIt is available on Roihu, and we recommend
 [the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
-    You can now also enable
-    [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
-    for much better performance. In this case, select the
-    _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
-    interface. On LUMI, select the regular _Desktop_ app and `lumid`
-    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+For workloads requiring more performance out of VisIt, GPU-accelerated visualization is also available
+on both Roihu and LUMI. On Roihu, select the
+[Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+app instead of *Desktop*. On LUMI, select the *Desktop* app with the `lumid`
+partition (see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 [TOC]
 
@@ -44,6 +42,8 @@ VisIt is free also for commercial use and has been released under
 * LUMI: 3.2.2
 
 ## Usage
+
+---
 
 ### Interactive usage in the web interface
 
@@ -80,6 +80,8 @@ VisIt is free also for commercial use and has been released under
 
     Use the `interactive` partition for CPU rendering or `lumid`
     for GPU-accelerated graphics. Launch VisIt from **Apps → Other**.
+
+---
 
 ### X11 forwarding
 
