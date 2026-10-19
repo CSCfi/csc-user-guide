@@ -3,7 +3,7 @@
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
   
