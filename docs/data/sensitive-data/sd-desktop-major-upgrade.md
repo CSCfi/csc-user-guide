@@ -29,7 +29,7 @@ Your next steps depend on whether your virtual desktop currently has a volume at
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     If you need help choosing the right option or following the steps in the guides, please contact us. We are happy to provide online support with step-by-step guidance.
 

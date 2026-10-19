@@ -141,7 +141,7 @@ Back on the main page, you will see a list of your volumes in **Volumes tab**. Y
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
     
     If you have a dataset **larger than 1 TB**, contact [CSC Service Desk](../../support/contact.md).
 
@@ -213,7 +213,7 @@ Users should delete old desktops to save resources.
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Warning**
-  { .csc-grid-card-error }
+  { .error-card }
     
     You cannot undo this action. Please contact all the project members before deleting a virtual desktop.
     
