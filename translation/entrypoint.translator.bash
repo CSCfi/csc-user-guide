@@ -12,8 +12,8 @@ then
   exit 0
 fi
 
-declare -r CLONE_PATH=${APP_ROOT}/${REPO_NAME:?} \
-           COMMIT_SHA_FILEPATH=${APP_ROOT}/commit_sha.txt \
+export CLONE_PATH=${APP_ROOT}/${REPO_NAME:?}
+declare -r COMMIT_SHA_FILEPATH=${APP_ROOT}/commit_sha.txt \
            CACHED_OBJS_FILEPATH=${APP_ROOT}/cached_objects.json \
            TRANSLATION_WORKDIR=${APP_ROOT}/translation \
            MOUNT_PREFIX=/translations \
