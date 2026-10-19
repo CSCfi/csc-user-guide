@@ -1,5 +1,7 @@
 # Using RStudio or Jupyter Notebook on Roihu 
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 [RStudio](https://www.rstudio.com/) and [Jupyter notebooks](https://jupyter.org/) are convenient options for developing and running R or Python code. 
 The R or Python code is run on a compute node within an [interactive session](../../computing/running/interactive-usage.md), but the tools themselves are used via a local web browser.
 

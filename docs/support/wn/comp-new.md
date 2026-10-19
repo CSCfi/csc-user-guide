@@ -1,10 +1,19 @@
 # Computing environment
 
+## Puhti and Mahti have been shut down, 15.10.2026
+
+Puhti and Mahti have been fully decommissioned as of 15 October 2026.
+Their login nodes and storage services are no longer available.
+
+Roihu has replaced both systems, offering improved performance and new capabilities.
+
+To get started with Roihu, see the [getting started tutorial](../tutorials/roihu.md).
+
 ## Roihu Slurm updated and disaggregated storage available on all partitions, 8.10.2026
 
 Slurm on Roihu has been updated from version 25.05 to 26.05.
 
-[Disaggregated storage](../../computing/roihu-disk.md#disaggregated-storage) (fast NVMe over
+[Disaggregated storage](../../computing/disk.md#disaggregated-storage) (fast NVMe over
 fabric) can now be requested on all Roihu partitions, including shared-node jobs. The
 `--exclusive` flag is no longer needed on the GPU partitions.
 
@@ -93,7 +102,7 @@ See the updated instructions:
 
 ## Puhti web interface updated to release 30, 5.11.2025
 
-* A new File Deletion Explorer tool has been added for testing, see more information [here](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
+* A new File Deletion Explorer tool has been added for testing.
 * Default MATLAB memory has been increased to 8GB.
 * The Allas Swift integration now generates correct storage URLs.
 * Open OnDemand updated to 4.0.8.
@@ -494,7 +503,7 @@ Fast local NVMe disks can be used to speed up single node workloads that do a lo
 read and write operations on data sets that fit on the disks. Especially small reads
 and writes, and operations on a large amount of files are much faster on the local disks
 than on the parallel file system. Now also the 6 nodes with 1.5 TiB of memory have been
-upgraded with 5960 GiB local disks. See [Puhti technical details](../../computing/systems-puhti.md)
+upgraded with 5960 GiB local disks. See Puhti technical details
 for a detailed list of all nodes.
 
 ## Puhti web interface beta updated to release 9 5.7.2022
@@ -524,7 +533,7 @@ your data](../tutorials/clean-up-data.md).
 
 ## Puhti has been updated with additional local disks, 13.5.2022
 
-Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See [Puhti technical details](../../computing/systems-puhti.md) for a detailed list of all nodes.
+Fast local NVMe disks can be used to speed up single node workloads that do a lot of read and write operations on data sets that fit on the disks. Especially small reads and writes, and operations on a large amount of files is much faster on the local disks than on the parallel file system. Now 48 nodes with 192 GiB of memory, and 12 nodes with 768 GiB of memory have been equipped with local disks that have a size of 1490 GiB. Later in 2022 all the big memory nodes with 1,5TiB of memory will be upgraded with 6 TiB disks. These are in addition to the original 40 CPU nodes and 80 GPU nodes with 3600 GiB NVMes.  See Puhti technical details for a detailed list of all nodes.
 
 ## Mahti operating system updated to RHEL8, 4.5.2022
 

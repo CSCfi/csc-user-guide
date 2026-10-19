@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -40,17 +38,6 @@ Some features of the software include:
 - Use `gpaw info` for detailed version information
 
 
-### Puhti and Mahti
-
-- Puhti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0, 24.6.0
-- Mahti: 20.10.0, 21.1.0, 21.6.0, 22.1.0, 22.8.0, 23.9.1, 24.1.0, 24.6.0, 25.1.0, 25.7.0
-- Check all available versions (and default version) with
-    `module avail gpaw`
-- Modules ending with `-omp` have the optional OpenMP parallelization enabled,
-    see [GPAW documentation about parallel runs](https://wiki.fysik.dtu.dk/gpaw/documentation/parallel_runs/parallel_runs.html?highlight=openmp#manual-openmp)
-    for more details.
-- All installations before 24.1.0 use version **0.9.20000** of GPAW's PAW Setups.
-
 ## License
 
 GPAW is free software available under GPL, version 3+.
@@ -66,7 +53,7 @@ module load gpaw/version
 ```
 
 !!! warning "Note"
-    GPAW calculations are run with the `gpaw-python` command on Puhti and Mahti and with the `gpaw python` command on Roihu.
+    GPAW calculations are run with the `gpaw python` command.
 
 ### Batch script examples
 
@@ -121,75 +108,6 @@ module load gpaw/version
 
     # Run GPAW
     srun gpaw python input.py
-    ```
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash -l
-    #SBATCH --time=00:30:00
-    #SBATCH --partition=large
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --mem-per-cpu=2GB
-    #SBATCH --account=<project>
-    ##SBATCH --mail-type=END #uncomment to get mail
-
-    # this script runs a 80 core (2 full nodes) gpaw job, requesting
-    # 30 minutes time and 2 GB of memory for each core
-
-    module load gpaw/21.1.0
-
-    srun gpaw-python input.py
-    ```
-
-=== "Mahti (hybrid MPI/OpenMP parallelization)"
-
-    ```bash
-    #!/bin/bash -l
-    #SBATCH --time=00:30:00
-    #SBATCH --partition=medium
-    #SBATCH --nodes=10
-    #SBATCH --ntasks-per-node=32
-    #SBATCH --cpus-per-task=4
-    #SBATCH --account=<project>
-    ##SBATCH --mail-type=END #uncomment to get mail
-
-    # this script runs a 1280 core (10 full nodes) gpaw job, using hybrid
-    # MPI/OpenMP parallelization with 4 OpenMP threads per node,
-    # requesting 30 minutes time.
-    # Please experiment with optimum MPI task / OpenMP thread ratio with
-    # your particular input
-
-    # Note: only the modules with "-omp" ending supports OpenMP
-    # (default version in Mahti is OpenMP enabled)
-
-    module load gpaw/21.1.0-omp
-
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-
-    srun gpaw-python input.py
-    ```
-
-=== "Mahti (pure MPI parallelization)"
-
-    ```bash
-    #!/bin/bash -l
-    #SBATCH --time=00:30:00
-    #SBATCH --partition=medium
-    #SBATCH --nodes=10
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --account=<project>
-    ##SBATCH --mail-type=END #uncomment to get mail
-
-    # this script runs a 1280 core (10 full nodes) gpaw job, using pure
-    # MPI parallelization requesting 30 minutes time.
-
-    module load gpaw/21.1.0
-
-    export OMP_NUM_THREADS=1
-
-    srun gpaw-python input.py
     ```
 
 ## More information

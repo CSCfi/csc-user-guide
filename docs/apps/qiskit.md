@@ -9,11 +9,11 @@ catalog:
     - Quantum
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
 ---
 
 # Qiskit
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 Qiskit is an open-source software for working with quantum computers at the level of circuits, pulses, and algorithms. 
 This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.

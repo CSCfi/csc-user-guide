@@ -17,7 +17,7 @@ catalog:
 
 [CloudCompare](http://cloudcompare.org/) is an open source tool for editing and processing dense 3D point clouds (such as those acquired with laser scanners).
 
-The main purpose of CloudCompare on Puhti is to serve as a tool for visualizing point cloud data.
+The main purpose of CloudCompare on Roihu is to serve as a tool for visualizing point cloud data.
 
 ## Available
 

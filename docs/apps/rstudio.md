@@ -9,8 +9,8 @@ catalog:
     - Mathematics and Statistics
   available_on:
     - web_interfaces:
-        - Puhti
-    - Puhti
+        - Roihu
+    - Roihu
 ---
 
 # RStudio IDE
@@ -19,7 +19,7 @@ RStudio is an integrated development environment (IDE) for R. More information o
 
 ## Available
 
-For running R and RStudio on Puhti, please see the user documentation for [`r-env`](r-env.md).
+For running R and RStudio on Roihu, please see the user documentation for [`r-env`](r-env.md).
 
 ## License
 

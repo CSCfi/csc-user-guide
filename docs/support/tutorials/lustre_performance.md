@@ -1,13 +1,11 @@
 # How to achieve better I/O performance on Lustre
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 In this tutorial, we discuss some technical details about parallel I/O
 and provide examples for achieving higher performance. Please note also
 the [Technical description about Lustre filesystem](../../computing/lustre.md)
 used in CSC supercomputers.
-
-!!! warning "This tutorial is being updated"
-    This tutorial was written for Mahti and is currently being updated for Roihu.
-    Some information in this tutorial may therefore be outdated.
 
 ## MPI I/O
 

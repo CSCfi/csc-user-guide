@@ -1,29 +1,27 @@
-# Web interfaces for Roihu, Puhti and Mahti
+# Web interface for Roihu
 
 ## Intro
 
-The web interfaces for Roihu, Puhti, and Mahti at
-[www.roihu.csc.fi](https://www.roihu.csc.fi),
-[www.puhti.csc.fi](https://www.puhti.csc.fi), and
-[www.mahti.csc.fi](https://www.mahti.csc.fi) can be used to access the
-supercomputers using only a web browser. A web interface for LUMI is also
+The web interface for Roihu at
+[www.roihu.csc.fi](https://www.roihu.csc.fi) can be used to access the
+supercomputer using only a web browser. A web interface for LUMI is also
 available at [www.lumi.csc.fi](https://www.lumi.csc.fi), see the [LUMI
 documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/) for more
 details.
 
-Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
+Please note that logging in to the Roihu web interface requires
 **multi-factor authentication**.
 [More information on the Connecting page](connecting.md).
 
 !!! warning "Scope"
-    The HPC web interfaces are best suited for **interactive workloads** that
+    The Roihu web interface is best suited for **interactive workloads** that
     consume a **modest amount of computational resources**. Some examples are
     **pre- and post-processing of data** in Jupyter Notebooks using
     **at most a few tens of CPU cores**, **small-scale AI/ML experiments**
     using a **single GPU**, and **data visualization** tasks. As such, the
     maximum length of interactive jobs is limited to 16 hours.
 
-    Please note that the interactive applications in the web interfaces are
+    Please note that the interactive applications in the web interface are
     **not** suitable for **multi-node** and **multi-GPU jobs**. Such workloads
     should ideally be carried out as standard
     [batch jobs](../running/getting-started.md). If you are new to batch jobs
@@ -55,9 +53,6 @@ Please note that logging in to Roihu, Puhti, and Mahti web interfaces requires
         - RStudio
         - TensorBoard
         - Visual Studio Code
-- **Features available in the Puhti and Mahti web interfaces:**
-    - Puhti and Mahti compute services have been decommissioned. Use the web interfaces only for login node
-      connections, or for inspecting or moving data from the file system.
 
 ### Shell
 
@@ -89,13 +84,6 @@ Using the _Project view_ under the _Tools_ section in the top navbar, you can
 view  current disk and project Billing Unit quotas on the supercomputers. For
 more information, see the [Project view](project-view.md) page.
 
-### File Deletion Explorer (beta)
-
-The File Deletion Explorer is a tool in beta, that can be used on Puhti to
-inspect the purge lists for scratch cleaning. See more details on the
-[Managing data on Puhti and Mahti scratch disks page](../../support/tutorials/clean-up-data.md#using-lcleaner-and-the-web-interface-to-check-which-files-will-be-automatically-removed).
-
-
 ### Interactive apps
 
 _Interactive apps_ are programs that can be launched and run on the compute
@@ -103,18 +91,18 @@ nodes and provide a graphical user interface. These are apps such as Jupyter
 Notebook, RStudio and Visual Studio Code. For a full list of applications and
 specific instructions, see the [Interactive apps](apps.md) page.
 
-!!! info-label
+!!! info ""
     If an interactive app does not start, or does not work as expected, you can
     delete the session and try to launch the app again. See also
     [Troubleshooting](apps.md#troubleshooting).
 
 ### Partitions and resources
 
-!!! warning-label
-    Only a few partitions of the cluster are available for use in the web
+!!! warning ""
+    Only a few partitions of Puhti and Mahti are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
     than others.  
-    The maximum length of jobs in the web interfaces is 16 hours to keep the
+    The maximum length of jobs in the web interface is 16 hours to keep the
     queueing times for interactive resources short. If you have work that
     requires longer jobs than that, we recommend that you run your software as
     [batch jobs](../running/getting-started.md).
@@ -125,7 +113,3 @@ partitions are available. In the [Accelerated Visualization app](accelerated-vis
 `gputest` partitions, one Nvidia GH200 GPU will be allocated. See the [Roihu partitions
 page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues on
 Roihu.
-
-Puhti and Mahti computing services have been retired, so in the
-**Puhti and Mahti web interfaces**, you can only access login node resources and inspect the
-storage in the system, until full retirement on 15 October 2026.

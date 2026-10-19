@@ -40,9 +40,6 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
 
 ## Accessing your Pukki PostgreSQL database from Roihu
 
-!!! info Puhti compatible
-    The following instructions also apply to Puhti, but its computing services have been decommissioned since summer 2026. Please use Roihu instead.
-
 1. First make sure that your database's [firewall allows traffic from Roihu](firewalls.md#roihu).
 2. [Log in to Roihu](../../computing/connecting/index.md).
 3. To be able to use the `psql` command line tool you need to first load the module:

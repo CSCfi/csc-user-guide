@@ -162,7 +162,7 @@ normal.
     If you are new to using machine learning on CSC's supercomputers,
     please read our new tutorial [Getting started with machine learning
     at CSC](../support/tutorials/ml-starting.md), which covers how to run
-    a simple PyTorch project on Puhti using the web user interface.
+    a simple PyTorch project on Roihu using the web user interface.
 
 
 ## License

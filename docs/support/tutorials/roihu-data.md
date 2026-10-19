@@ -1,5 +1,7 @@
 # Roihu data migration guide
 
+--8<-- "puhti-mahti-retired-notice.md"
+
 ??? info "About this guide"
     This guide is divided into four parts:
 
@@ -16,16 +18,6 @@
     [Basic rsync](#31-basic-rsync) example may suffice. If you have **a lot**
     of data or other special requirements, please also read the other sections
     carefully.
-
-!!! warning "Mahti and Puhti shutdown in Fall 2026"
-     Mahti and Puhti are being decommissioned by October 2026.
-
-     * Puhti and Mahti computing services have been shut down.
-
-     Puhti and Mahti storage services will be decommissioned 15 October 2026 at 12:00 EEST, but
-     are not covered by service contracts after end of August.
-     Due to this, aim to complete your data transfers from Mahti and/or Puhti
-     by the **end of August 2026**, or by October 15th at the very latest.
 
 ## 1. General guidelines and prerequisites
 

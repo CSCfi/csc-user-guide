@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -23,8 +21,6 @@ associated methods.
 
 ## Available
 
-- Puhti: 2024.3
-- Mahti: 2024.3
 - Roihu-CPU: 2025.4, 2026.1 (default)
 
 ## License
@@ -33,13 +29,7 @@ associated methods.
 
 ## Usage
 
-Initialise MOLPRO on Puhti or Mahti:
-
-```bash
-module load molpro/2024.3
-```
-
-On Roihu, the default version is 2026.1:
+Initialise MOLPRO on Roihu:
 
 ```bash
 module load molpro/2026.1
@@ -60,155 +50,80 @@ allocates one helper process per node for parallel MPI runs.
     performance for the job and to avoid excess load on the Lustre parallel
     file system it is advisable to use the local disk where available.
 
-=== "Puhti"
+On Roihu, jobs must be submitted from the **CPU login node** (`roihu-cpu`).
+For a full list of available partitions and their limits, see the
+[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+page.
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:15:00           # time as hh:mm:ss
-    module purge
-    module load molpro/2024.3
+Most Molpro jobs will run in the `small` (up to 72 h) or `longrun` (up to
+10 days) partitions, both of which support up to **1500 GiB per job** on M
+and L nodes with independent CPU and memory allocation (`--mem-per-cpu`).
+The `hugemem` and `hugemem_longrun` partitions provide access to XL nodes
+with up to 6037 GiB, but use a fixed memory-per-core allocation — you
+cannot set `--mem-per-cpu` independently there.
 
-    export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
-    mkdir -p $MOLPRO_TMP
-
-    $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
-    rm -rf $MOLPRO_TMP
-    ```
-
-=== "Puhti, local disk"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=large
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:15:00           # time as hh:mm:ss
-    #SBATCH --gres=nvme:100           # requested local disk space in GB
-    module purge
-    module load molpro/2024.3
-
-    export MOLPRO_TMP=$LOCAL_SCRATCH/MOLPRO_TMP_$SLURM_JOB_ID
-    mkdir -p $MOLPRO_TMP
-
-    $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
-    rm -rf $MOLPRO_TMP
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=16
-    #SBATCH --cpus-per-task=8
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=0:10:00            # time as hh:mm:ss
-    # set --ntasks-per-node=X and --cpus-per-task=Y so that X * Y = 128
-    module purge
-    module load molpro/2024.3
-
-    export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
-    mkdir -p $MOLPRO_TMP
-
-    $MOLPROP -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
-    rm -rf $MOLPRO_TMP
-    ```
-
-=== "Roihu"
-
-    On Roihu, jobs must be submitted from the **CPU login node** (`roihu-cpu`).
-    For a full list of available partitions and their limits, see the
-    [Roihu batch job partitions](../computing/running/batch-job-partitions.md)
-    page.
-
-    Most Molpro jobs will run in the `small` (up to 72 h) or `longrun` (up to
-    10 days) partitions, both of which support up to **1500 GiB per job** on M
-    and L nodes with independent CPU and memory allocation (`--mem-per-cpu`).
-    The `hugemem` and `hugemem_longrun` partitions provide access to XL nodes
-    with up to 6037 GiB, but use a fixed memory-per-core allocation — you
-    cannot set `--mem-per-cpu` independently there.
-
-    !!! note
-        Local NVMe disk is not yet available for standard M-node jobs on Roihu.
-        Scratch I/O goes to Lustre, which is significantly faster than on
-        Puhti or Mahti. NVMe support will be enabled in a future update.
+!!! note
+    Local NVMe disk is not yet available for standard M-node jobs on Roihu.
+    Scratch I/O goes to Lustre, which is very fast. NVMe support will be
+    enabled in a future update.
 
 
-    **Basic example** — on `small` and `longrun` partitions (M and L nodes),
-    CPU and memory are allocated independently. Simply set `--mem-per-cpu` to
-    match the `memory` directive in your input file. No core undersubscription
-    is needed:
+**Basic example** — on `small` and `longrun` partitions (M and L nodes),
+CPU and memory are allocated independently. Simply set `--mem-per-cpu` to
+match the `memory` directive in your input file. No core undersubscription
+is needed:
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=small         # see batch-job-partitions for all options
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=12
-    #SBATCH --mem-per-cpu=8000         # MB; 1000 MW * 8 / 1 core = 8000 MB/cpu
-    #SBATCH --account=yourproject
-    #SBATCH --time=02:00:00
-    module purge
-    module load molpro/2026.1
+```bash
+#!/bin/bash
+#SBATCH --partition=small         # see batch-job-partitions for all options
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+#SBATCH --mem-per-cpu=8000         # MB; 1000 MW * 8 / 1 core = 8000 MB/cpu
+#SBATCH --account=yourproject
+#SBATCH --time=02:00:00
+module purge
+module load molpro/2026.1
 
-    export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
-    mkdir -p $MOLPRO_TMP
+export MOLPRO_TMP=$PWD/MOLPRO_TMP_$SLURM_JOB_ID
+mkdir -p $MOLPRO_TMP
 
-    $MOLPROP -n $SLURM_NTASKS -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
-    rm -rf $MOLPRO_TMP
-    ```
+$MOLPROP -n $SLURM_NTASKS -d$MOLPRO_TMP -I$MOLPRO_TMP -W$PWD test.com
+rm -rf $MOLPRO_TMP
+```
 
-    **Undersubscribing cores — `hugemem` and `hugemem_longrun` only**
+**Undersubscribing cores — `hugemem` and `hugemem_longrun` only**
 
-    The `hugemem` and `hugemem_longrun` partitions (XL nodes, up to 6037 GiB)
-    use a fixed memory-per-core allocation (allocation type C). The only way to
-    increase memory per MPI task is to reserve multiple cores per task with
-    `--cpus-per-task`. Set `--ntasks-per-node=X` and `--cpus-per-task=Y` so
-    that their product does not exceed 128 (the core limit for `hugemem`). Note
-    that one MPI task per node is consumed by the Global Arrays helper process,
-    so the actual number of worker tasks is `--ntasks-per-node - 1`.
+The `hugemem` and `hugemem_longrun` partitions (XL nodes, up to 6037 GiB)
+use a fixed memory-per-core allocation (allocation type C). The only way to
+increase memory per MPI task is to reserve multiple cores per task with
+`--cpus-per-task`. Set `--ntasks-per-node=X` and `--cpus-per-task=Y` so
+that their product does not exceed 128 (the core limit for `hugemem`). Note
+that one MPI task per node is consumed by the Global Arrays helper process,
+so the actual number of worker tasks is `--ntasks-per-node - 1`.
 
-    **Matching the Molpro `memory` directive to Slurm resources**
+**Matching the Molpro `memory` directive to Slurm resources**
 
-    The `memory` directive specifies memory **per worker MPI process** in words
-    (1 word = 8 bytes), so the suffix `m` means MW (mega-words). The
-    corresponding `--mem-per-cpu` value depends on the partition type:
+The `memory` directive specifies memory **per worker MPI process** in words
+(1 word = 8 bytes), so the suffix `m` means MW (mega-words). The
+corresponding `--mem-per-cpu` value depends on the partition type:
 
-    - **`small`/`longrun`** (type R, `--cpus-per-task=1`):
-      `--mem-per-cpu (MB) = memory_in_MW × 8`
-    - **`hugemem`/`hugemem_longrun`** (type C, `--cpus-per-task=Y`):
-      `--mem-per-cpu (MB) = memory_in_MW × 8 / --cpus-per-task`
+- **`small`/`longrun`** (type R, `--cpus-per-task=1`):
+  `--mem-per-cpu (MB) = memory_in_MW × 8`
+- **`hugemem`/`hugemem_longrun`** (type C, `--cpus-per-task=Y`):
+  `--mem-per-cpu (MB) = memory_in_MW × 8 / --cpus-per-task`
 
-    For example, `memory,1000,m` with `--cpus-per-task=1` requires
-    `--mem-per-cpu=8000`. The total memory reserved on the node is
-    `--mem-per-cpu × --cpus-per-task × --ntasks-per-node`. See the
-    [Molpro manual](https://www.molpro.net/manual/doku.php?id=general_program_structure#memory_directive_in_the_input_file)
-    for full details on the memory directive.
+For example, `memory,1000,m` with `--cpus-per-task=1` requires
+`--mem-per-cpu=8000`. The total memory reserved on the node is
+`--mem-per-cpu × --cpus-per-task × --ntasks-per-node`. See the
+[Molpro manual](https://www.molpro.net/manual/doku.php?id=general_program_structure#memory_directive_in_the_input_file)
+for full details on the memory directive.
 
 ### Example of scalability
 
 The performance of Molpro depends a lot on the system size and which
-computational model is used. The following table shows the wall time (in
-seconds) for a single-point energy calculation on benzene (C6H6) at
-CCSD(T)/aug-cc-pVTZ level as a function of the number of cores, measured on
-Puhti. Results with Lustre and local NVMe scratch are shown separately. Note
-that parallel runs allocate one core per node as a helper process, so there
-is one core less per node available for the actual calculation.
-
-| Cores | Wall time/Lustre (s) | Wall time/NVMe (s) |
-|-------|----------------------|--------------------|
-| 1     | 11749                | 10962              |
-| 5     | 3254                 | 3228               |
-| 10    | 1730                 | 1561               |
-| 20    | 1394                 | 1239               |
-| 40    | 1112                 | 814                |
-| 2×20  | 786                  | 729                |
-| 2×40  | 716                  | 701                |
+computational model is used. Note that parallel runs allocate one core per
+node as a helper process, so there is one core less per node available for
+the actual calculation.
 
 The following results were obtained on Roihu M-nodes with Lustre scratch.
 Jobs were run sequentially with no other jobs on the node. Wall times on
