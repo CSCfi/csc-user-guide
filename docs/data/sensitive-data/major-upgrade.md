@@ -33,14 +33,14 @@ Please review the following information:
 - :material-alert:{ .lg .middle } **Note**
   { .warning-card }
 
-    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool and not start a new conversion until further notice.
+    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool GUI and not start a new conversion until further notice.
   
 </div>
 
 
 - **SD Desktop**: The import and export functionality needs to be restored.
 
-1. **If you did not complete the preparation steps before the upgrade [follow these instructions](sd-desktop-major-upgrade.md)
+1. **If you did not complete the preparation steps before the upgrade** [follow these instructions](sd-desktop-major-upgrade.md)
 2. **If you followed the preparation instructions sent by email before September 21**, complete the following steps:
 
     1. Log in to the service and access your virtual desktop.
