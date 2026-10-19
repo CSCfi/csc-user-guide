@@ -1,0 +1,46 @@
+{{- $resourcename := include "docs-csc.origName" . -}}
+{{- $buildername := include "docs-csc.origBuilderName" . -}}
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  triggers:
+    - type: ImageChange
+      imageChange:
+        from:
+          kind: ImageStreamTag
+          name: {{ $buildername | printf "%s:latest" | squote }}
+    - type: GitHub
+      github:
+        secretReference:
+          name: {{ include "networking.webHookSecretName" . }}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ $resourcename | printf "%s:latest" | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Containerfile
+      env:
+        - name: PROPERDOCS_ENV
+          value: {{ include "docs-csc.environment" . | squote }}
+        - name: SITE_URL
+          value: {{ list $ "/" | include "networking.sitePath" }}
+{{- if .Values.components.original.matomoSiteId | and .Values.site.matomoUrl }}
+        - name: MATOMO_URL
+          value: {{ .Values.site.matomoUrl | squote }}
+        - name: MATOMO_SITE_ID
+          value: {{ .Values.components.original.matomoSiteId | squote }}
+{{- end }}
+      buildArgs:
+        - name: builder_image
+          value: {{ $buildername | list $ | include "docs-csc.fullImageName" | squote }}
+{{- list $ "server" | include "docs-csc.imageBuildArg" | indent 8 }}
+{{- .Values.components.original.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
+  source:
+{{ include "docs-csc.gitSource" .Values.git | indent 4 }}
