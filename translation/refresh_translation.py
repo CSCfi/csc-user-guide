@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 try:
     check_environment("LANG_CODE",
-                      "LANG_NAME"
+                      "LANG_NAME",
                       "CLONE_PATH",
                       "DOCS_DIR")
 
