@@ -10,7 +10,6 @@ from git import Repo
 
 from translator.utils import (get_forced_filepaths,
                               check_environment,
-                              get_language,
                               md_filter)
 from translator.snapshots import read_commit_sha, write_head_sha
 from translator.persistence import SwiftCache as TranslationCache
@@ -22,12 +21,13 @@ logger = logging.getLogger(__name__)
 
 try:
     check_environment("LANG_CODE",
+                      "LANG_NAME"
                       "CLONE_PATH",
                       "DOCS_DIR")
 
     DOCS_DIR = os.getenv("DOCS_DIR")
     LANG_CODE = os.getenv("LANG_CODE")
-    lang_name = get_language(LANG_CODE)
+    LANG_NAME = os.getenv("LANG_NAME")
     repo_path = pathlib.Path(os.getenv("CLONE_PATH"))
 except:
     logger.error("Failed to initialize translator.")
@@ -65,7 +65,7 @@ def _main(dest_dir: str,
                 "No" if n_pages < 1 else str(n_pages))
 
     for page in translations:
-        logger.info("Translating '%s' to '%s'...", page.path, lang_name)
+        logger.info("Translating '%s' to '%s'...", page.path, LANG_NAME)
         result = translate_markdown(page.original)
         page.write_translation(result)
 

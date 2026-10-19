@@ -1,0 +1,47 @@
+ARG base_image
+FROM ${base_image}
+
+LABEL maintainer="CSC Service Desk <servicedesk@csc.fi>"
+
+RUN microdnf --assumeyes \
+      install \
+        git jq
+
+ARG restic_image
+COPY --from=${restic_image} \
+     /usr/bin/restic \
+     /usr/bin/restic
+
+ADD --chown=0:0 \
+    --chmod=774 \
+  backups/entrypoint.backups.bash /entrypoint.bash
+
+# Use default user and $HOME consistent with other ubi images
+ENV APP_ROOT=/opt/app-root \
+    HOME=/opt/app-root/src
+
+RUN \
+  mkdir --parents ${HOME} \
+&& \
+  sed --regexp-extended \
+      --in-place \
+      --expression='s/(^UID_MIN[[:blank:]]+)[[:digit:]]+$/\11002/' \
+      --expression='s/(^SYS_UID_MAX[[:blank:]]+)[[:digit:]]+$/\11001/' \
+    /etc/login.defs \
+&& \
+  useradd -u 1001 -r -g 0 -d ${HOME} -c "Default Application User" default \
+&& \
+  chown -R 1001:0 ${APP_ROOT}
+
+USER 1001
+
+WORKDIR ${HOME}
+
+ARG repo_host=github.com
+ARG repo_org=CSCfi
+ARG repo_name=csc-user-guide
+ENV REPO_HOST=${repo_host} \
+    REPO_ORG=${repo_org} \
+    REPO_NAME=${repo_name}
+
+ENTRYPOINT ["/entrypoint.bash"]
