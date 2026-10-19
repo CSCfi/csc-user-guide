@@ -13,7 +13,7 @@ If your project contains both types of buckets, convert the Urgent buckets first
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool GUI and not start a new conversion until further notice.
  
@@ -47,7 +47,7 @@ Plan the conversion with the other members of your CSC project.
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Projects with more than 5 TB**
-  { .csc-grid-card-warning }
+  { .warning-card }
   
     If your project contains more than 5 TB of data in **Urgent** buckets, contact the CSC Service Desk before starting the conversion. Converting these buckets is network intensive and may require additional planning.
 
@@ -74,7 +74,7 @@ This is a network-intensive operation. Large conversions should be planned in ad
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Projects with more than 5 TB**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     If your project's data size exceeds 5 TB, please contact us for support before starting the conversion. Buckets labelled **Urgent** are given priority in Helpdesk support queues. 
 
@@ -154,7 +154,7 @@ The cleanup depends on the bucket label:
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Warning**
-  { .csc-grid-card-error }
+  { .error-card }
   
     Always verify that the converted data is complete and accessible before confirming the deletion of the original bucket. Deleting a bucket permanently removes all data it contains.
 

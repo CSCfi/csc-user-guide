@@ -70,7 +70,7 @@ Here:
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
     
      A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
@@ -146,7 +146,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Desktop storage limit**
-  { .csc-grid-card-error }
+  { .error-card }
     
     Desktops have 80 GB of storage by default. **If you save more than 80 GB of data to your desktop, it becomes unresponsive and you may lose your data**. To avoid this, please create and attach a **volume** to your desktop and save your data there.
 

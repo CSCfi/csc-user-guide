@@ -45,7 +45,7 @@ After saving files to volume, adjust permissions for folders and files to enable
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Ensuring full access to data on a volume across desktops**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ___
     
@@ -161,7 +161,7 @@ Users should delete old desktops to save resources.
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Warning**
-  { .csc-grid-card-error }
+  { .error-card }
     
     You cannot undo this action. Please contact all the project members before deleting a virtual desktop.
     
