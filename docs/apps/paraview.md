@@ -60,7 +60,7 @@ allows free use, including commercial use.
 | Interactive work, most datasets (no GPU acceleration) | [[Desktop](#desktop-cpu) in the Roihu web interface |
 | Interactive work with GPU acceleration for larger datasets | [Accelerated visualization](#accelerated-visualization-gpu) in the Roihu web interface |
 | Large datasets that need many CPU cores for reading and filtering | [Parallel mode](#parallel-mode-client-with-several-pvservers) with several pvservers |
-| Non-interactive rendering of images and animations | [Batch jobs with pvbatch](#batch-jobs-with-pvbatch) |
+| X11 Forwarding for small or non-interactive testing | [X11 forwarding from the command line](#x11-forwarding-from-the-command-line) |
 
 ### Desktop (CPU)
 
@@ -139,34 +139,6 @@ module purge
 module load paraview/6.1.1
 srun --partition=small --account=<project> --time=01:00:00 \
      --ntasks=1 --cpus-per-task=12 --mem=24G --x11=first paraview
-```
-
-#### Example script
-
-```bash title="para5101-multi.sh"
-#!/bin/bash 
-######################################################
-### This script starts paraview servers and client ###
-### and connects them using a unique random port.  ###
-### Run the script via salloc. All job parameters  ###
-### are copied from the salloc command, no editing ###
-### of this script is needed.                      ###
-######################################################
-export SLURM_EXACT=1
-export XDG_RUNTIME_DIR=$HOME
-export KNOB_MAX_WORKER_THREADS=$SLURM_CPUS_PER_TASK
-export LP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-MACHINEFILE="nodes.${SLURM_JOB_ID}"
-scontrol show hostnames ${SLURM_JOB_NODELIST} > $MACHINEFILE
-FIRSTNODE=$(head -n 1 ${MACHINEFILE})
-MYPORT=`comm -23 <(seq 22200 22299 | sort) <(ss -Htan | awk '{print $4}' | cut -d':' -f2 | sort -u) | shuf | head -n 1`
-SERVER_NTASKS=$(( ${SLURM_NTASKS}-1 ))
-SERVER_MEMORY=$(( ${SLURM_MEM_PER_NODE}-1000 ))
-module purge
-module load paraview/5.10.1-pvserverosmesa
-srun --nodes=1 --ntasks=$SERVER_NTASKS --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY pvserver --server-port=$MYPORT &
-srun --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraview-5.10.1-mesa-client/bin/paraview --server-url=cs://$FIRSTNODE.bullx:$MYPORT &
-wait
 ```
 
 ### Accelerated visualization
