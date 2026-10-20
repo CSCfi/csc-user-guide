@@ -21,7 +21,7 @@ If your assurance level is **low**, you cannot access Roihu, or some of CSC's Se
 We offer the following options for identity vetting:
 identity verification using a passport (CANDOUR ID), authentication with Finnish online banking credentials, or authentication with Mobile ID (Mobiilivarmenne).
 
-**PASSPORT**
+### Using Candour ID with your passport
 
 You can raise the assurance level through an identity vetting service [Candour Ltd.](https://candour.fi/), by following
 the instructions below. This process raises your assurance level to high.
