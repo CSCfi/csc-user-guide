@@ -43,7 +43,6 @@ The following modules are currently available:
 -   CFD
 -   Heat Transfer
 -   Particle Tracing
--   Structural Mechanics
 
 To find out which versions of COMSOL are installed on Roihu, give a command
 ```bash
