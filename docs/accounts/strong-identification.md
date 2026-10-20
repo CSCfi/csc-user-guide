@@ -50,7 +50,7 @@ If you have problems with the process, follow the tutorial in the Candour ID app
 You can find our Privacy Notice [here](https://research.csc.fi/privacy-notice-for-remote-identification-service).
 
 
-**RAISING THE ASSURANCE LEVEL USING FINNISH ONLINE BANKING CREDENTIALS OR MOBILE ID (Mobiilivarmenne)**
+### Using Finnish banking credentials or Mobile Certificate (Mobiilivarmenne)
 
 1. Log in to [MyCSC](http://my.csc.fi) portal. 
 1. Go to your Profile page.
