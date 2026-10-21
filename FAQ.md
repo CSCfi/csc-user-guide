@@ -298,12 +298,13 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 
 The announcement bar below the header is controlled by editing the `extra.announcement` mapping in [mkdocs.yml](mkdocs.yml):
 
-- `announcement` to hide the announcement, comment the entire mapping (announcement itself, icon, color_scheme, etc.)
+- `announcement`
   - `icon` pick an icon [here](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search)
     - `name` replace the first `-` with `/`; prefer 'material' icons
     - `mirror` mirror the right-hand side icon (`true` or `false`)
   - `color_scheme` pick a color [here](https://design-system.csc.fi/design-tokens/color) (`null` for the yellow note color)
   - `content` the content of the announcement, in HTML
+  - `visible` show/hide the announcement (`true` or `false`)
 
 The _href_ attribute for internal hyperlinks **must** start with `{{ base_url }}`. Note that this is not a Markdown link.
 
@@ -317,6 +318,7 @@ extra:
     color_scheme: error
     content: |-
       <p>Announcement content in HTML. <a href="{{ base_url }}/path/to/page/">Click here for more information</a>.</p>
+    visible: true
   # ...
 ```
 
