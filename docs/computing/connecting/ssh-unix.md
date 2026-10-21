@@ -255,11 +255,9 @@ Host roihu-cpu
 Host roihu-gpu
     HostName roihu-gpu.csc.fi
 
-Match originalhost roihu* exec "python3 <path-to-certificate-helper-tool>/csc_cert.py -s -a none -u %r <path-to-public-key>"
+Match originalhost roihu* exec "python3 <path-to-certificate-helper-tool>/csc_cert.py -s -u %r <path-to-public-key>"
 ```
 
 This config means that the certificate tool is executed
 every time when `ssh roihu-cpu` or `ssh roihu-gpu` is done, and
 the tool requests certificate renewal only when the current certificate has expired.
-
-Note that the agent handling is disabled (`-a none`), assuming that the agent already has the keys.
