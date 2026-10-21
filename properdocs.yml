@@ -17,6 +17,7 @@ extra:
     color_scheme: info # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
     content: |- # Make sure to also update the translation in mkdocs_fi.yml
       <p>Welcome to our weekly research support coffee hour on Zoom! <a href="https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/" target="_blank">Click here for more information.</a></p>
+    visible: false
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
