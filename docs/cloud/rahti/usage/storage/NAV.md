@@ -1,0 +1,4 @@
+- [Ephemeral storage](ephemeral.md)
+- [Persistent storage](persistent.md)
+- [Object storage](object-storage.md)
+- [Volume snapshot](volume-snapshot.md)
