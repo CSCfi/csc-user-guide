@@ -69,9 +69,9 @@ ___
 
 ??? default "Installation guide for Linux"
 
-    1. Download the SD Connect Conversion Tool for Linux
+    1. Download the SD Connect Conversion Tool for Linux. **Please note that the tool is supported only on Ubuntu 22 and later versions.**
 
-    2. **GUI fails to start due to a sandbox permission error**. The GUI uses Chromium internally. On Linux, Chromium normally starts with a security feature called the sandbox         enabled. You do not need to enable this yourself. On some Linux systems, the GUI may fail to start because Chromium does not have the permissions required to initialize the         sandbox.
+    2. **GUI fails to start due to a sandbox permission error**. The GUI uses Chromium internally. On Linux, Chromium normally starts with a security feature called the sandbox         enabled. You do not need to enable this yourself. On some Linux systems, the GUI may fail to start because Chromium does not have the permissions required to initialize the sandbox.
     If you encounter this error, there are two possible solutions:
     2.1 Recommended: Correct the ownership and permissions of the required sandbox file. This requires sudo access. Instructions are provided below.
     If you do not have sudo access: The GUI can be started with --no-sandbox.
