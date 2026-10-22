@@ -1,0 +1,15 @@
+{% if page and page.meta.git_revision_date_localized %}
+  <style scoped>
+    .docs-last-update {
+      text-align: center;
+      color: var(--md-default-fg-color--light);
+
+      >.twemoji {
+        margin-right: 0.5em;
+      }
+    }
+  </style>
+  <div class="docs-last-update">
+    <span class="twemoji">{% include ".icons/material/update.svg" %}</span>{{ page.meta.git_revision_date_localized }}
+  </div>
+{% endif %}
