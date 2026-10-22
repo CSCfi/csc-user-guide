@@ -2,8 +2,9 @@
 
 ## On This page: 
 
-[Step 1: Verify that you have enough quota](#step-1-verify-that-you-have-enough-quota)
-[Step 2: Migrating SD Connect buckets in Roihu](#step-2-migrating-sd-connect-buckets-in-roihu)
+- [Step 1: Verify that you have enough quota](#step-1-verify-that-you-have-enough-quota)
+
+- [Step 2: Migrating SD Connect buckets in Roihu](#step-2-migrating-sd-connect-buckets-in-roihu)
 
 Please note: the bucket name Conversion Tool  CLI can be run locally (recommended for smaller datasets) or on the Roihu supercomputer. While Roihu is not suitable for processing sensitive data, it can be used to run the Conversion Tool, providing faster conversions through CSC's network.
 
