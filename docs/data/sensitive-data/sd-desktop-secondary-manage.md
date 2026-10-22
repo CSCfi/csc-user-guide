@@ -1,1 +1,1 @@
-sd-desktop-manage.md
+--8<-- "sd-desktop-manage.md"

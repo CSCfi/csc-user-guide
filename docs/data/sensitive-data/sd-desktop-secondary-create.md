@@ -1,1 +1,1 @@
-sd-desktop-create.md
+--8<-- "sd-desktop-create.md"

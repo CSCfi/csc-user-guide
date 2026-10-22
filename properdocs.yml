@@ -207,7 +207,9 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.snippets:
-      base_path: includes/snippets
+      base_path:
+        - includes/snippets
+        - docs/data/sensitive-data
       auto_append:
         - glossaries/hpc.md
         - glossaries/cloud.md

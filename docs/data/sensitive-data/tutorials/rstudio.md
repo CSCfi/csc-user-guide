@@ -1,1 +1,1 @@
-../r-in-sd-desktop.md
+--8<-- "r-in-sd-desktop.md"
