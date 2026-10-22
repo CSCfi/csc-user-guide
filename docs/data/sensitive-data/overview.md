@@ -4,11 +4,11 @@ On September 28, 2026, a new version of SD Connect and SD Desktop was released. 
 
 Please review the following information:
 
-- [1. Support](#1-important-dates-and-support)
+- [1. Support](#1-support)
 - [2. CSC Project- Academic type: video overview and required actions](#2-csc-project-academic-type-video-overview-and-required-actions)
 - [3. CSC Project- Secondary use type: register data](#3-csc-project-secondary-use-type-register-data)
 - [4. Known issues](#4-known-issues)
-- [5. Materials and release pages](#5-materials)
+- [5. Materials and release pages](#5-materials-and-release-pages)
 
 
 
