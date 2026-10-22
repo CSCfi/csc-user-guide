@@ -1,7 +1,7 @@
 # SD Connect: bucket names conversion
 
 
-Buckets (main folders) created with SD Connect before 28 September 2026 need to be converted to work correctly with the updated version of the services. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
+Buckets (main folders) **created with SD Connect before 28 September 2026** need to be converted to work correctly with the updated version of the services. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
 
 The action you need to take depends on the label displayed in the SD Connect user interface next to your bucket:
 
