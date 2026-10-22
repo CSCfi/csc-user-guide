@@ -10,6 +10,13 @@
 {% include "partials/docs-announce.html" %}
 {% endblock hero %}
 
+{% block content %}
+  {{ super() }}
+{% if page and page.meta.git_revision_date_localized %}
+  <small><span class="twemoji">{% include ".icons/material/update.svg" %}</span> {{ page.meta.git_revision_date_localized }}</small>
+{% endif %}
+{% endblock content %}
+
 {% block footer %}
   {% include "partials/pre-footer.html" %}
   {{ super() }}
