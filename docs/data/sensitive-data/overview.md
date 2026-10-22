@@ -63,7 +63,7 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 | **SD Desktop: SD Apply access from Data Gateway not working** | Accessing **SD Apply** from Data Gateway is currently not working. You may see an empty folder instead of the expected content, with no error message displayed. | No workaround is currently available. |
 | **SD Desktop: backup server is currently unavailable** | Data export is available only through the Data Gateway (web interface or CLI). | Exported files can now be downloaded via SD Connect by any project member. If you need to restrict access to exported data through SD Connect, please contact support. |
 | **SD Desktop: Byobu terminal stops** | Long-running jobs using Byobu stop when logging out of the virtual desktop. | As a temporary workaround, close the browser window instead. We are working to restore the previous functionality. |
-| **SD Desktop: executable not running
+| **SD Desktop**: executable not running | Executable stored on the external volumes may not run as expected.| A simple workaround is available, and we are actively working on a permanent fix.|
 
 
 ### 5. Materials and release pages
