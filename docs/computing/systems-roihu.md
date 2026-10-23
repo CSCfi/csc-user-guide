@@ -152,8 +152,8 @@ Users can also request temporary storage from a shared pool of
 disaggregated NVMe resources, providing approximately 180 TB of
 total usable capacity.
 The storage is accessed over the network and appears as local
-scratch storage within a Slurm job. See the [Roihu disk areas]
-(disk.md#disaggregated-storage) documentation for details.
+scratch storage within a Slurm job.
+See the [Roihu disk areas](disk.md#disaggregated-storage) documentation for details.
 
 ## Network
 
