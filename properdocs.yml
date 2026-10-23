@@ -160,6 +160,15 @@ plugins:
       "computing/nvprof.md": "apps/nsys.md"
       "computing/pdb.md": "apps/pdb.md"
       "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
+      "support/tutorials/ml-guide.md": "support/tutorials/ml-guide/index.md"
+      "support/tutorials/ml-container-extend.md": "support/tutorials/ml-guide/container-extend.md"
+      "support/tutorials/ml-data.md": "support/tutorials/ml-guide/data.md"
+      "support/tutorials/gpu-ml.md": "support/tutorials/ml-guide/gpu.md"
+      "support/tutorials/hyperparameter_search.md": "support/tutorials/ml-guide/hyperparameter_search.md"
+      "support/tutorials/ml-llm.md": "support/tutorials/ml-guide/llm.md"
+      "support/tutorials/ml-multi.md": "support/tutorials/ml-guide/multi.md"
+      "support/tutorials/ml-starting.md": "support/tutorials/ml-guide/starting.md"
+      "support/tutorials/ml-workflows.md": "support/tutorials/ml-guide/workflows.md"
       # files moved to Allas:
       # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
       "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -763,6 +772,7 @@ not_in_nav: |
   /support/tutorials/*.md
   /support/tutorials/env-guide/*.md
   /support/tutorials/gis/*.md
+  /support/tutorials/ml-guide/*.md
   !/support/tutorials/index.md
 
   # Training material
