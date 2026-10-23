@@ -25,8 +25,6 @@ Please review the following information:
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/ClH2FroTMA8" title="Sensitive Data (SD) -palveluiden päivitys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 - **SD Connect**: Access to files stored in SD Connect may be interrupted if the main folder (bucket) name contains spaces, special characters or exceeds 63 characters.
-<div class="grid cards" markdown>
-
 
 - **SD Desktop**: The import and export functionality needs to be restored.
 
@@ -63,7 +61,7 @@ You can now access again SD Desktop for analysis. Importing and exporting data o
 | **SD Desktop: SD Apply access from Data Gateway not working** | Accessing **SD Apply** from Data Gateway is currently not working. You may see an empty folder instead of the expected content. | No workaround is currently available. |
 | **SD Desktop: backup server is currently unavailable** | Data export is available only through the Data Gateway (web interface or CLI). | Exported files can be downloaded via SD Connect by any project member. |
 | **SD Desktop: Byobu terminal stops** | Long-running jobs using Byobu stop when logging out of the virtual desktop. | As a temporary workaround, close the browser window instead. |
-| **SD Desktop: executable not running** | Executables stored on external volumes may not run as expected. | A simple workaround is available, and a permanent fix is being developed. |
+| **SD Desktop: executable not running** | Executable stored on external volumes may not run as expected. | A simple workaround is available, and a permanent fix is being developed. |
 
 
 ### 5. Materials and release pages
