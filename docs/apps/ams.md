@@ -115,8 +115,8 @@ module load ams/2026.104
         Roihu provides a centralised pool of fast NVMe storage served over
         InfiniBand NDR. For I/O-intensive full-node jobs this can outperform both
         Lustre scratch and node-local `$TMPDIR`. It is available
-        on all partitions and can be requested using Slurm's --bb
-        option with a #BB_LUA burst-buffer specification. See
+        on all partitions and can be requested using Slurm's `--bb`
+        option with a `#BB_LUA` burst-buffer specification. See
         [Roihu disk areas](../computing/disk.md#disaggregated-storage)
         for full details.
 
