@@ -3,18 +3,19 @@
 This article explains the different states that virtual machine instances
 can have and their effect on resource usage.
 
-Similar to other cloud providers, Pouta virtual machines also have a lifecycle. 
+Similar to other cloud providers, Pouta virtual machines also have a lifecycle.
 Different states of virtual machines have different
 resource requirements for the underlying hardware and are therefore
-billed differently. Knowing about these different states in Pouta 
+billed differently. Knowing about these different states in Pouta
 helps you make better decisions on how to maintain your infrastructure.
-This also helps you to save Cloud Billing Units. 
+This also helps you to save Cloud Billing Units.
 
 ## States
 
 The main states of virtual machines in Pouta:
 
 ### Active
+
 A virtual machine is said to be active when it
 is in the *power on* state. It remains in the active state
 irrespective of whether you are using it or not. Virtual machines in
@@ -22,6 +23,7 @@ the active state consume computing resources on one of our compute
 nodes and are thus billed normally as explained in [Pouta flavors and billing](vm-flavors-and-billing.md).
 
 ### Shut off
+
 The virtual machine is not running and is *powered
 off*. However, a shut off virtual machine still consumes Billing
 Units in the same way as an **active** one. This is
@@ -30,16 +32,16 @@ resources on one of our compute nodes as explained in [Pouta flavors and billing
 
 !!! warning
 
-    A *shut off* virtual machine still consumes Cloud Billing Units. To stop
-    consuming, select the *shelved* state.
+    A *shut off* virtual machine still consumes Cloud Billing Units. To stop the billing, *shelve* the virtual machine instead.
 
 ### Pause
+
 Pausing a virtual machine pauses all processes running
 in the virtual machine and saves the entire state of the machine
 (memory, application state etc.) on the host compute node. You are
 not able to access your virtual machine or hosted applications when
 the virtual machine is in a *paused* state. Some applications may
-suffer from side effects when  paused, thus this state is not
+suffer from side effects when paused, thus this state is not
 recommended for production systems. Some legacy computational tasks
 may benefit from the paused state but modern workflows generally do
 not use this state. Pausing a virtual machine is billed in the same
@@ -47,9 +49,10 @@ way as an **active** state virtual machine.
 
 !!! warning
 
-    A "paused" virtual machine may be powered off during maintenance operations.
+    A *paused* virtual machine may be powered off during maintenance operations.
 
 ### Suspend
+
 Suspending a virtual machine saves its current state on
 the virtual machine's host compute node. The virtual machine can be
 resumed in the same state as it was before the suspension, but
@@ -62,28 +65,30 @@ in modern workflows.
 
 !!! warning
 
-    A "suspended" virtual machine may be powered off during maintenance operations.
+    A *suspended* virtual machine may be powered off during maintenance operations.
 
 ### Shelved
-Shelving means shutting down a virtual machine and removing it from the host compute node. 
-This frees up the computing resources that were reserved for the virtual machine. 
+
+Shelving means shutting down a virtual machine and removing it from the host compute node.
+This frees up the computing resources that were reserved for the virtual machine.
 However, the state of all other associated resources, for example the file system,
-floating IPs, network configuration, etc., is saved in our central storage. 
+floating IPs, network configuration, etc., is saved in our central storage.
 Please note that shelving a virtual machine will **not** reduce the amount of
 resources used by the project, only the billing for that virtual machine will stop.
 
-Shelving works best for the standard flavors that are already backed by our 
+Shelving works best for the standard flavors that are already backed by our
 central storage service. Shelving can be slow for flavors that are using local storage,
-especially bigger flavors since the data needs to be copied between the local and 
-central storage. On a rare occasion, if all of our compute resources are used up, 
-we may not be able to unshelve your virtual machine until another user frees up 
-compute resources. N.B. that your floating IPs, volumes etc. cannot be removed from
+especially bigger flavors since the data needs to be copied between the local and
+central storage. On a rare occasion, if all of our compute resources are used up,
+we may not be able to unshelve your virtual machine until another user frees up
+compute resources. Note that your floating IPs, volumes etc. cannot be removed from
 the virtual machine before it has been unshelved. If you have a floating IP quota
-of two and one of them is attached to a shelved virtual machine, you have only one left. 
+of two and one of them is attached to a shelved virtual machine, you have only one left.
+
 **Note** that the ephemeral storage in the IO, or TB flavors is **not** shelved.
 
-
 ### Terminate
+
 Termination (or deletion) removes the virtual machine
 from your project and frees up the compute resources that were in
 use. They cannot be recovered, and all data stored in the virtual
@@ -101,7 +106,7 @@ In the above section, we discussed the main states of virtual
 machines in Pouta. Theoretically, there are other states as well.
 The full list of states and their behaviors: [OpenStack documentation](https://developer.openstack.org/api-guide/compute/server_concepts.html).
 
-In order to transition between states, you have two main options, use the [Command line client tools](command-line-tools.md), or use the webinterface.
+In order to transition between states, you have two main options: use the [Command line client tools](command-line-tools.md), or use the web interface.
 From the web interface you can transition your VM to all these states. In the main page of the Pouta web interface, open the **Instances** view. Under the **Actions** column, you will be able to see a drop-down menu with all the possible options.
 
 ![Save your Cloud Billing Units](../../img/Save-Your-billing-units.png)
@@ -109,22 +114,24 @@ From the web interface you can transition your VM to all these states. In the ma
 There are many other practices which help save Cloud Billing Units:
 
 ### Automated provisioning
+
 Automated provisioning and configuration
 of your virtual machines helps save Cloud Billing Units. For
 example, you can tear down your unused virtual machines with automatic
 provisioning and configuration when you no longer need them. Later when
 you need them again, you can provision new virtual machines from
 scratch. Your data should always be stored on a volume, and virtual
-machines should be launched when you need computation done. 
+machines should be launched when you need computation done.
 
 An example how to automate a workflow with Heat, Ansible and Docker to
 deploy Etherpad containing both clustered database and Load balancing: <https://github.com/CSCfi/etherpad-deployment-demo>
 
 ### Boot from image
+
 A good utility in
 Pouta is creating your own virtual machine using the *Boot from image
-(creates new  volume)* option. In this case, even if you delete your
-virtual  machine, the entire file system state is saved on the
+(creates new volume)* option. In this case, even if you delete your
+virtual machine, the entire file system state is saved on the
 persistent volume in our central storage service. You can boot a new
 virtual machine from this volume. It will have the same file system
 state as the previously deleted virtual machine. You can attach this
@@ -141,15 +148,15 @@ flavors.
 
 !!! info
 
-    This type of scaling is not recommended for the IO,
-    GPU or TB flavors since ephemeral storage data is lost in this
+    This type of scaling is not recommended for the IO, GPU or TB flavors since ephemeral storage data is lost in this
     process.
 
 ### Select a suitable state of your virtual machine
+
 Depending on your project requirements, you can change the state of your virtual
 machines:
 
--   In case you are going on a long vacation and want to save 
+-   In case you are going on a long vacation and want to save
     Cloud Billing Units, you can shelve your virtual machines.
 -   If you no longer require your virtual machine, you can delete it
     after copying all essential data from it to a volume.
@@ -163,6 +170,7 @@ billed. In case your virtual machine enters the error state and you are
 unable to recover it, please contact cloud-support@csc.fi.
 
 ### Resize your virtual machine
+
 Resizing a virtual machine is a
 good utility in Pouta, and helps save Cloud Billing
 Units. Based on your project requirements, you can scale your virtual machine up or
@@ -170,7 +178,7 @@ down to other flavors. Scaling down your
 virtual machine when it has less computational workload frees up
 compute resources and saves Cloud Billing Units. Later on,
 depending on your computational workload, you can scale up your virtual
-machines. Please note that you can resize to another flavor from another *family* but it's **highly not recommended!**.
+machines. Please note that you can resize to another flavor from another *family* but this is **strongly discouraged**.
 You may lose data during this process and CSC is not responsible. We recommend to only resize to the flavors of the
 same *family*. For example, if you are using a standard
 family flavor, you can only resize it to another standard family
@@ -182,7 +190,7 @@ been completed. Note that resizing is not as elegant as using the _boot
 from volume_ option explained above. If you know beforehand that you want change the
 size of the virtual machines at some point, using boot from
 volume when launching the virtual machine gives more
-flexibility.  
-More information about how to resize an instance [here](../../support/faq/how-to-resize-in-pouta.md)
+flexibility.
 
-  [Pouta flavors and billing]: vm-flavors-and-billing.md
+More information about how to resize an instance [here](../../support/faq/how-to-resize-in-pouta.md).
+
