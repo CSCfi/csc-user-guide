@@ -64,7 +64,7 @@ Run all three steps on Roihu-CPU with `-d cpu`, which trains the model on the
 CPU. The default, `cuda`, fails on CPU nodes:
 
 ```bash
-run_comebin.sh -a contigs.fa -p bams -o comebin_out -d cpu -t 16
+run_comebin.sh -a contigs.fa -p bams -o comebin_out -d cpu -t $SLURM_CPUS_PER_TASK
 ```
 
 The bins are written to `comebin_out/comebin_res/comebin_res_bins`, and the bin
