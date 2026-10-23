@@ -326,11 +326,15 @@ local scratch usage consumes.
 
 ## Disaggregated storage
 
-It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
-This fast storage capacity is provided over the network and will appear as local scratch from 
-within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
-to get larger capacity fast storage for your jobs. Disaggregated storage can be requested on all
-partitions, including shared-node jobs.
+Roihu provides a shared pool of disaggregated NVMe storage, with
+approximately 180 TB of total usable capacity. This fast storage
+is accessed over the network and appears as local scratch storage
+within a Slurm job.
+
+Storage can be requested on all Roihu partitions, including
+shared-node jobs. As the storage pool is shared between jobs,
+requests are subject to resource availability and may need to
+wait until sufficient capacity becomes available.
 
 ### Requesting storage from slurm
 
