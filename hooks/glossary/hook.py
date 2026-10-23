@@ -1,6 +1,7 @@
 """Generate a page with all the glossary entries.
 """
 import pathlib
+import functools
 import re
 
 from classes import DocsHook
@@ -32,6 +33,10 @@ class GlossaryHook(DocsHook):
                     pass
 
     def on_config(self, config): # pylint: disable=missing-function-docstring
+        def handle_glossary(glossary_file):
+            self.__entries_from(glossary_file)
+            self._logger.info("Glossary entries read from '%s'.", glossary_file)
+
         try:
             snippets_config = config.mdx_configs["pymdownx.snippets"]
             base_path = snippets_config["base_path"]
@@ -40,8 +45,12 @@ class GlossaryHook(DocsHook):
             pass
         else:
             for glossary in glossaries:
-                self.__entries_from(pathlib.Path(base_path) / glossary)
-                self._logger.info("Glossary entries read from '%s'.", glossary)
+                glossary_file = pathlib.Path(base_path) / glossary
+
+                self._skip_if_clean(
+                    glossary_file,
+                    functools.partial(handle_glossary, glossary_file)
+                )
 
     def on_page_markdown(self, markdown, page, **_): # pylint: disable=missing-function-docstring
         if page.file.src_uri == "support/glossary.md":

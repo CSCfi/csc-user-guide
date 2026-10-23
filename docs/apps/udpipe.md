@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -23,7 +22,6 @@ a wide range of languages.
 
 ## Available
 
-* Puhti: 1.4.0
 * Roihu: 1.4.0
 
 ## License

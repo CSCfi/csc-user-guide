@@ -20,15 +20,14 @@ class JSONExport:
         return json.dumps(humps.camelize(data))
 
     def write(self) -> None:
-        with open(self.__filepath, "wt") as export_file:
+        with open(self.__filepath, "wt", encoding="utf-8") as export_file:
             export_file.write(self.__content)
 
 
 class DocsExport:
-    def __init__(self, catalog: Catalog, config: CatalogConfig, lang_code="en"):
+    def __init__(self, catalog: Catalog, config: CatalogConfig):
         self.__catalog = catalog
         self.__config = config
-        self.__lang = lang_code
 
     def __get_anchor_id(self, heading: str, ids: set) -> str:
         slug = unique_slug(slugify(heading, "-"), ids)
@@ -36,29 +35,14 @@ class DocsExport:
 
         return slug
 
-    def __get_translation(self, group: str, key: tuple[str, str]) -> str:
-        item_key, value = key
-
-        group_en = self.__config.listing_order.get(group)
-        for item in group_en:
-            if item.get(item_key, "") == value:
-                return item.get(f"{item_key}_{self.__lang}", "")
-
-        return ""
-
-    def __get_discipline_name(self, discipline: str) -> str:
-        return (discipline
-                if self.__lang == "en"
-                else self.__get_translation("disciplines", ("name", discipline)))
-
     def __get_system_description(self, name: str) -> str:
         for system in self.__config.listing_order.systems:
             if system.get("name", "") == name:
-                return (system.get("description", "")
-                        if self.__lang == "en"
-                        else system.get(f"description_{self.__lang}"))
+                return system.get("description", "")
 
-    def __get_alphabetical_context(self) -> tuple[list, set[str]]:
+        return ""
+
+    def __alphabetical_context(self) -> tuple[list, set[str]]:
         ids = set()
 
         return ([{"name": letter,
@@ -68,41 +52,40 @@ class DocsExport:
                 in self.__catalog.alphabetical.items()],
                 ids,)
 
-    def __get_disciplines_context(self) -> tuple[list, set[str]]:
+    def __disciplines_context(self) -> tuple[list, set[str]]:
         ids = set()
 
-        return ([{"name": self.__get_discipline_name(discipline),
+        return ([{"name": discipline,
                  "id": self.__get_anchor_id(discipline, ids),
                  "apps": apps}
                 for discipline, apps
                 in self.__catalog.by_discipline.items()],
                 ids,)
 
-    def __get_systems_context(self) -> tuple[dict, set[str]]:
+    def __systems_context(self) -> tuple[dict, set[str]]:
         ids = set()
 
-        return (dict(on_systems=[{"name": system,
+        return ({"on_systems": [{"name": system,
                                  "id": self.__get_anchor_id(system, ids),
                                  "description": self.__get_system_description(system),
                                  "apps": apps}
                                 for system, apps
                                 in self.__catalog.by_availability.items()],
-                    on_web=[{"name": system,
+                 "on_web": [{"name": system,
                              "id": self.__get_anchor_id(f"{system} web interface", ids),
                              "apps": apps}
                             for system, apps
-                            in self.__catalog.by_web_availability.items()]),
+                            in self.__catalog.by_web_availability.items()]},
                 ids,)
 
     def get_page_context(self, page) -> tuple[dict, set]:
         page_key = Path(page.file.src_uri).stem
 
         func_lookup = {
-            "index": self.__get_alphabetical_context,
-            "by_discipline": self.__get_disciplines_context,
-            "by_availability": self.__get_systems_context
+            "index": self.__alphabetical_context,
+            "by_discipline": self.__disciplines_context,
+            "by_availability": self.__systems_context
         }
         context, ids = func_lookup.get(page_key, lambda *_: ({},set()))()
 
-        return (dict(catalog={page_key: context}),
-                ids,)
+        return ({"catalog": {page_key: context}}, ids,)

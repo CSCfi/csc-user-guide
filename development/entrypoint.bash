@@ -2,23 +2,23 @@
 
 set -e
 
-declare -gr mkdocs_BIN='/usr/local/bin/mkdocs' \
-            mkdocs_IP='0.0.0.0' \
-            mkdocs_PORT='8000'
+declare -gr properdocs_BIN='/usr/local/bin/properdocs' \
+            properdocs_IP='0.0.0.0' \
+            properdocs_PORT='8000'
 
-mkdocs_serve() {
-  $mkdocs_BIN 'serve' --dev-addr=${mkdocs_IP}:${mkdocs_PORT} "$@"
+properdocs_serve() {
+  $properdocs_BIN 'serve' --dev-addr=${properdocs_IP}:${properdocs_PORT} "$@"
 }
 
 case $1 in
   '')
-    $mkdocs_BIN
+    $properdocs_BIN
   ;;
   serve)
     shift 1
-    mkdocs_serve "$@"
+    properdocs_serve "$@"
   ;;
   *)
-    $mkdocs_BIN "$@"
+    $properdocs_BIN "$@"
   ;;
 esac
