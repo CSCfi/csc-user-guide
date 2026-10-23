@@ -1,1 +1,1 @@
-sd-desktop-troubleshooting.md
+--8<-- "sd-desktop-troubleshooting.md"

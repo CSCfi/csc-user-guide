@@ -1,1 +1,1 @@
-sd-desktop-access-vm.md
+--8<-- "sd-desktop-access-vm.md"
