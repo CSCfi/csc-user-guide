@@ -99,6 +99,7 @@ Then load VisIt and start it on an allocated compute node:
 module load visit/3.5.0
 srun --ntasks=1 --cpus-per-task=2 --mem=4G \
      --time=00:20:00 --partition=interactive \
+     --x11=first \
      --account=<project> --pty visit
 ```
 
