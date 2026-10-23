@@ -1,7 +1,7 @@
 # SD Connect: bucket names conversion
 
 
-Buckets (main folders) created with SD Connect before 28 September 2026 need to be converted to work correctly with the updated version of the services. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
+Buckets (main folders) **created with SD Connect before 28 September 2026** need to be converted to work correctly with the updated version of the services. The SD Connect Conversion Tool, available via graphical user interface or command line, converts buckets names while preserving the data and restoring their functionality.
 
 The action you need to take depends on the label displayed in the SD Connect user interface next to your bucket:
 
@@ -9,17 +9,6 @@ The action you need to take depends on the label displayed in the SD Connect use
 - By the end of 2026: the data remains accessible, but the bucket name and file format should be converted by the end of 2026.
 
 If your project contains both types of buckets, convert the Urgent buckets first.
-
-<div class="grid cards" markdown>
-
-- :material-alert:{ .lg .middle } **Note**
-  { .warning-card }
-
-    We are currently carrying out additional checks on the bucket conversion process following some issues we have observed. As a precaution, we kindly ask you to wait before using the Conversion Tool GUI and not start a new conversion until further notice.
- 
-  
-</div>
-
 
 
 ## On this page:
@@ -123,12 +112,12 @@ The tool applies the following naming rules as needed:
 
 ## 4. Choose the appropriate conversion method
 
-Choose the method based on bucket's label and size. The SD Connect Conversion tool is available for download via graphical user interface (for files up to 10 GB), or as part of the SD Command line tools on Roihu for large conversions. 
+Choose the method based on bucket's label and size. The SD Connect Conversion tool is available for download via graphical user interface (for files up to 10 GB), or as part of the SD Command line tools on Roihu for large conversions. **Please note: while Roihu is not suitable for processing sensitive data, it can be used to run the Conversion Tool, providing faster conversions through CSC's network.**
 
 | Bucket Tag | Data Size | Recommended Action | User Guide |
 |-------|------------|-------------------|------------|
 | Urgent | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. This is a network-intensive operation. On a standard home internet connection, converting 25 GB may take around 2 hours. | [Link](sd-connect-conversion-tool-ui.md) |
-| Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Roihu. | [Link](sd-connect-conversion-cli.md) |
+| Urgent | 1–4 TB | Use the SD Connect Conversion CLI on Roihu.| [Link](sd-connect-conversion-cli.md) |
 | Urgent | 4–50 TB | Verify that sufficient quota is available to create a copy of the bucket with compatible name.  Use the SD Connect Conversion CLI on Roihu and convert a few buckets at a time. This is a network-intensive operation. Larger projects require advance planning to avoid overloading CSC storage infrastructure and to ensure a smooth conversion.  | [Link](sd-connect-conversion-cli.md) |
 | Urgent | More than 50 TB | Contact CSC support to plan the conversion. | servicedesk@csc.fi (subject:SD Connect)|
 | By End of 2026 | Up to 1 TB | Use the SD Connect Conversion Tool user interface on your local computer. | [Link](sd-connect-conversion-tool-ui.md)  |
