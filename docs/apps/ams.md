@@ -112,7 +112,7 @@ module load ams/2026.104
 === "Roihu-CPU, disaggregated NVMe"
 
     !!! info "Disaggregated NVMe on Roihu"
-        Roihu provides a centralised pool of 307.2 TB fast NVMe storage served over
+        Roihu provides a centralised pool of fast NVMe storage served over
         InfiniBand NDR. For I/O-intensive full-node jobs this can outperform both
         Lustre scratch and node-local `$TMPDIR`. It is available
         on all partitions and can be requested using Slurm's --bb
