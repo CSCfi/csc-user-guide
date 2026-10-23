@@ -281,13 +281,13 @@ Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 Reserve local storage by including the following flag in your Slurm script:
 
 ```text
---gres=nvme:<amount-in-GB>
+#SBATCH --gres=nvme:<amount-in-GB>
 ```
 
 For example, to reserve the maximum amount of 13 TB, use:
 
 ```text
---gres=nvme:13000
+#SBATCH --gres=nvme:13000
 ```
 
 Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
@@ -338,7 +338,7 @@ To request flash storage to be mounted in an sbatch job you must add the followi
 request block of your script:
 
 ```bash
-#BB_LUA SBF storagesize=20GB path=/sbf/data
+#SBATCH --bb="#BB_LUA SBF storagesize=20GB path=/sbf/data"
 ```
 
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 

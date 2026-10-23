@@ -126,7 +126,7 @@ module load ams/2026.104
     #SBATCH --ntasks-per-node=384     # full node
     #SBATCH --account=yourproject     # insert here the project to be billed
     #SBATCH --time=00:20:00           # time as `hh:mm:ss`
-    #BB_LUA SBF storagesize=100GB path=/sbf/data
+    #SBATCH --bb="#BB_LUA SBF storagesize=100GB path=/sbf/data"
     module purge
     module load ams/2026.104
     # Disaggregated NVMe is mounted at the path specified in #BB_LUA above
