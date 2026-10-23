@@ -35,7 +35,7 @@ s3cmd get s3://<bucket-name>/<your-dataset>.tar
 Anything that needs to be stored for a longer time than 180 days
 should be copied back to Allas. The [scratch disk area will be
 regularly cleaned of old
-files](clean-up-data.md#automatic-removal-of-files), and should not be
+files](../clean-up-data.md#automatic-removal-of-files), and should not be
 used to store anything important long-term.
 
 Finally, if you are working with other projects that all need access
@@ -65,7 +65,7 @@ hours.
 For further reading, see CSC's
 [technical description of the Lustre filesystem](../../../computing/lustre.md)
 and our general tutorial on
-[how to achieve better I/O performance on Lustre](lustre_performance.md).
+[how to achieve better I/O performance on Lustre](../lustre_performance.md).
 
 ### More efficient data format
 

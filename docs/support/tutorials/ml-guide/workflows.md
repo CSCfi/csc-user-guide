@@ -159,13 +159,13 @@ application, for example:
 
 
 [MLflow]: https://www.mlflow.org/
-[ml-apps]: ../../apps/by_discipline.md#data-analytics-and-machine-learning
-[own-install]: ./python-usage-guide.md#installing-python-packages-to-existing-modules
+[ml-apps]: ../../../apps/by_discipline.md#data-analytics-and-machine-learning
+[own-install]: ../python-usage-guide.md#installing-python-packages-to-existing-modules
 [autolog]: https://www.mlflow.org/docs/latest/ml/tracking/autolog/
 [pytorch-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_mlflow.py
 [lightning-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_lightning_ddp.py
-[mlflow-app]: ../../computing/webinterface/mlflow.md
-[webui]: ../../computing/webinterface/index.md
+[mlflow-app]: ../../../computing/webinterface/mlflow.md
+[webui]: ../../../computing/webinterface/index.md
 [log-func]: https://www.mlflow.org/docs/latest/ml/tracking/tracking-api/#core-logging-functions
 [tracking-server]: https://www.mlflow.org/docs/latest/self-hosting/architecture/tracking-server/
-[mlflow-rahti]: ../../cloud/rahti/managed-software/mlflow.md
+[mlflow-rahti]: ../../../cloud/rahti/managed-software/mlflow.md

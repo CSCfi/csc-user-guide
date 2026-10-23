@@ -32,7 +32,7 @@ getting access to Finland's most powerful GPU resource for researchers!
     While this guide tries to explain every step carefully, it is still recommended
     to have at least a basic familiarity with the Linux command line, as you will
     need to use that for a few of the steps. You can, for example, take a look at
-    the first section of our [Linux basics tutorial](env-guide/index.md).
+    the first section of our [Linux basics tutorial](../env-guide/index.md).
 
 
 ## Step 1: Get a CSC user account
@@ -228,13 +228,13 @@ packages are missing, you can easily install them yourself (to your
 home directory) with the `pip install` command in combination with a
 Python virtual environment ("venv"). See our [Python documentation for
 more information on how to install packages
-yourself](./python-usage-guide.md#installing-python-packages-to-existing-modules).
+yourself](../python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 If you have more complex software needs which are not easily covered by our
 existing modules, it is always possible to [create your own Python
-environments](./python-usage-guide.md#creating-your-own-python-environments). If
+environments](../python-usage-guide.md#creating-your-own-python-environments). If
 you are unsure what to do, you can always [contact our service
-desk](../contact.md).
+desk](../../contact.md).
 
 
 ## Step 7: Create your first batch job script
@@ -299,7 +299,7 @@ three things:
     but it is a good practice to do so as reading a large number of files from
     the shared file system (such as scratch and projappl) can cause a poor
     performance, and in extreme cases degrade the performance for all users.
-    [Read more about efficient file system usage in our Machine learning guide.](ml-data.md)
+    [Read more about efficient file system usage in our Machine learning guide.](data.md)
 
 
 ## Step 8: Run your first test job
@@ -318,7 +318,7 @@ Submitted batch job 12345678
 ```
 
 If you're instead seeing some error message, take a look at our [page of common
-batch job errors](../faq/why-does-my-batch-job-fail.md). If you cannot find a
+batch job errors](../../faq/why-does-my-batch-job-fail.md). If you cannot find a
 solution there, don't hesitate to [contact our service desk](../../contact.md).
 
 You can check your running job, either from the terminal:

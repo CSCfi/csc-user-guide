@@ -19,7 +19,7 @@ fixed number of GPUs. Roihu-GPU has 4 GPUs per node, and LUMI has 8
 GPUs per node.  (Technically a LUMI node has 4 dual-chip GPU cards,
 but from the software point-of-view this looks the same as 8 GPUs.)
 The entire supercomputer may have tens or even thousands of GPU
-nodes. See [GPU-accelerated machine learning](gpu-ml.md) for more
+nodes. See [GPU-accelerated machine learning](gpu.md) for more
 details.
 
 If you need 1-4 GPUs (or 1-8 in LUMI) you should always reserve a
@@ -98,7 +98,7 @@ GPU](https://lumi-supercomputer.github.io/LUMI-training-materials/User-Updates/U
 Note that the GPU memory (or VRAM) is fixed according to the number of
 GPUs, you cannot allocate more (or less) of this.
 
-See the [tutorial on running single-GPU jobs for Slurm examples with the correct CPU and memory allocations](gpu-ml.md#running-gpu-jobs).
+See the [tutorial on running single-GPU jobs for Slurm examples with the correct CPU and memory allocations](gpu.md#running-gpu-jobs).
 
 ## Monitoring GPU utilization
 
@@ -109,7 +109,7 @@ See the [tutorial on running single-GPU jobs for Slurm examples with the correct
     is not enough!**
     
 You can [monitor that your program is using all the reserved
-GPUs](gpu-ml.md#gpu-utilization) with the same mechanisms described in
+GPUs](gpu.md#gpu-utilization) with the same mechanisms described in
 our GPU-accelerated machine learning guide. The only difference is
 that you should now see statistics for more than one GPU.
 

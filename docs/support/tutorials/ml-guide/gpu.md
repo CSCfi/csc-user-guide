@@ -76,7 +76,7 @@ provided by the LUMI AI Factory](https://docs.lumi-supercomputer.eu/laif/softwar
 In many cases, our existing modules provide the required framework, but some
 packages are missing. In this case you can often load the appropriate module and
 then [install additional packages for personal use with the `pip` package
-manager](./python-usage-guide.md#installing-python-packages-to-existing-modules).
+manager](../python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 For more complex software requirements, we recommend using
 [tykky](../../../computing/containers/tykky.md) or [creating your own
