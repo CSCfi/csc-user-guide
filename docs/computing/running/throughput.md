@@ -171,8 +171,6 @@ It can schedule tasks at sub-node granularity and scales to large numbers of tas
 To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
 HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
 
-For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
-
 ### Snakemake
 
 Snakemake is a popular Python-based workflow manager with dependency support and automatic container integration.

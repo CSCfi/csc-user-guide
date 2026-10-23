@@ -130,7 +130,7 @@ The `python-geo` module is available:
 
 The version number is the same as the Python version.
 
-In Puhti, Mahti and LUMI python-geo is named [geoconda](geoconda.md)
+In LUMI, python-geo is named [geoconda](geoconda.md)
 
 ## Usage
 

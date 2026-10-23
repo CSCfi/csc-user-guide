@@ -6,7 +6,7 @@ method to install thousands of software packages related to biomedical
 research.
 
 CSC has deprecated the direct usage of Conda installations on shared file systems
-of supercomputers (Puhti and Mahti) due to performance
+of supercomputers due to performance
 issues, but you can easily install packages from Bioconda using the
 [Tykky](../../computing/containers/tykky.md) tool instead.
 

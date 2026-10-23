@@ -9,8 +9,6 @@ catalog:
     - Computational Engineering
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -28,10 +26,18 @@ directives implemented.
 
 ## Available
 
-- Puhti: 9.0
-- Mahti: 9.0
-- LUMI: 9.0
-- Roihu-CPU: 26.2.1
+=== "Roihu-CPU"
+
+    | Version    | Available modules  | Notes |
+    |:----------:|:-------------------|:------|
+    | 26.2.1     | `elmerfem/26.2.1`  | Versioned release |
+    | devel      | `elmerfem/devel`   | Development version |
+
+=== "LUMI"
+
+    | Version | Available modules |
+    |:-------:|:------------------|
+    | 9.0     | `elmer/latest`    |
 
 ## License
 
@@ -39,78 +45,76 @@ Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL. It is free 
 
 ## Usage
 
-On Puhti and Mahti, the Elmer versions available can be listed using the command
+=== "Roihu-CPU"
 
-```bash
-module avail elmer
-```
+    On Roihu-CPU, Elmer is available under the module name `elmerfem`.
 
-On Roihu-CPU, the elmer versions are named `elmerfem` are listed by
+    To list the available versions, use:
 
-```bash
-module avail elmerfem
-```
+    ```bash
+    module spider elmerfem
+    ```
 
-On LUMI, one needs to first take into use the module files of CSC installed software:
+    Load the versioned release with:
 
-```bash
-module use /appl/local/csc/modulefiles/
-module avail elmer
-```
+    ```bash
+    module load elmerfem/26.2.1
+    ```
 
-The default version of Elmer is loaded with
+    Alternatively, load the development version with:
 
-```bash
-module load elmer/latest
-```
+    ```bash
+    module load elmerfem/devel
+    ```
 
-We recommend using this version (except for special reasons) on all platforms.
+    For detailed information about a specific version and its
+    dependencies, use:
 
-Be aware that this version is frequently updated. If you have User Functions as compiled code added to your case, make sure to recompile upon such an update (the date is displayed upon loading the module).
+    ```bash
+    module spider elmerfem/26.2.1
+    ```
+
+=== "LUMI"
+
+    On LUMI, first enable the CSC software modules:
+
+    ```bash
+    module use /appl/local/csc/modulefiles/
+    ```
+
+    To list the available Elmer versions, use:
+
+    ```bash
+    module spider elmer
+    ```
+
+    Load the default version with:
+
+    ```bash
+    module load elmer/latest
+    ```
+
+    This version may be updated. If your simulation uses compiled
+    User Functions, recompile them after an update when necessary.
 
 ### Example parallel batch script
 
-=== "Puhti"
-    This is a basic script for a 30-minute single node job using all 40 cores and reserving 2 GB memory for each core, where the Elmer input file is `myrun.sif`.
+=== "Roihu-CPU"
+    Basic script for a 1-hour job using a single node and 384 cores in total, where the Elmer input file is `myrun.sif`.
 
     ```bash
     #!/bin/bash 
-    #SBATCH --time=00:30:00
+    #SBATCH --time=01:00:00
     #SBATCH --job-name=jobname
     #SBATCH --output=%x.%j.out
     #SBATCH --error=%x.%j.err
     #SBATCH --partition=small
-    #SBATCH --ntasks-per-node=40
+    #SBATCH --account=<project>
     #SBATCH --nodes=1
-    #SBATCH --mem-per-cpu=2G
-    #SBATCH --account=<project>
-
-    module load elmer/latest
-    # make sure the SIF is in the start-info
-    echo myrun.sif > ELMERSOLVER_STARTINFO
-    echo "starting Elmer simulation with SIF file"
-    cat ELMERSOLVER_STARTINFO
-    srun ElmerSolver
-    echo "done"
-    ```
-
-=== "Mahti"
-    The main difference on Mahti is that only full nodes can be allocated. A single node contains 128 cores.
-    The following script submits a 6-hour job using 4 nodes and all 128 cores per node (hence in total 512).
-
-    ```bash
-    #!/bin/bash 
-    #SBATCH --time=06:00:00
-    #SBATCH --job-name=jobname
-    #SBATCH --output=%x.%j.out
-    #SBATCH --error=%x.%j.err
-    #SBATCH --partition=medium
-    #SBATCH --account=<project>
-    #SBATCH --nodes=4
-    #SBATCH --ntasks-per-node=128
+    #SBATCH --ntasks-per-node=384
 
     export OMP_NUM_THREADS=1
-    module load elmer/latest
+    module load elmerfem/26.2.1
     # make sure the SIF is in the start-info
     echo myrun.sif > ELMERSOLVER_STARTINFO
     echo "starting Elmer simulation with SIF file"

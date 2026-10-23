@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -23,8 +21,6 @@ for efficient study of large systems.
 
 ## Available
 
-- Puhti: 7.5.1, 7.6, 7.7, 7.8
-- Mahti: 7.5.1, 7.6, 7.7, 7.8
 - Roihu-CPU: 8.0
 
 ## License
@@ -37,106 +33,20 @@ for efficient study of large systems.
 
 Initialise TURBOMOLE environment:
 
-=== "Puhti and Mahti"
+```bash
+module load turbomole/8.0
+```
 
-    ```bash
-    module load turbomole/7.8
-    ```
-
-=== "Roihu"
-
-    ```bash
-    module load turbomole/8.0
-    ```
-
-    On Roihu, jobs must be submitted from the **CPU login node** (`roihu-cpu`).
-    The module sets `I_MPI_FABRICS=shm:ofi` and `MPI_USESRUN=1` automatically.
-    No manual PATH or MPI setup is needed beyond what is shown in the batch
-    scripts below. For a full list of available partitions see the
-    [Roihu batch job partitions](../computing/running/batch-job-partitions.md)
-    page.
+On Roihu, jobs must be submitted from the **CPU login node** (`roihu-cpu`).
+The module sets `I_MPI_FABRICS=shm:ofi` and `MPI_USESRUN=1` automatically.
+No manual PATH or MPI setup is needed beyond what is shown in the batch
+scripts below. For a full list of available partitions see the
+[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+page.
 
 ### Batch scripts
 
-=== "Puhti, MPI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=<project>       # insert here the project to be billed
-    #SBATCH --time=00:10:00           # time as hh:mm:ss
-    export PARA_ARCH=MPI
-    module load turbomole/7.8
-    export SLURM_CPU_BIND=none
-    export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
-    mkdir -p $TURBOTMPDIR
-    export PARNODES=$SLURM_NTASKS
-    export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
-    jobex -ri -c 300 > jobex.out
-    ```
-
-=== "Puhti, SMP"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=40        # SMP threads
-    #SBATCH --account=<project>       # insert here the project to be billed
-    #SBATCH --time=00:10:00           # time as hh:mm:ss
-    export PARA_ARCH=SMP
-    module load turbomole/7.8
-    export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
-    mkdir -p $TURBOTMPDIR
-    export PARNODES=$SLURM_CPUS_PER_TASK
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-    export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
-    jobex -ri -c 300 > jobex.out
-    ```
-
-=== "Puhti, MPI, local disk"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=small
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=<project>       # insert here the project to be billed
-    #SBATCH --time=00:10:00           # time as hh:mm:ss
-    #SBATCH --gres=nvme:100           # requested local disk in GB
-    export PARA_ARCH=MPI
-    module load turbomole/7.8
-    export SLURM_CPU_BIND=none
-    export TURBOTMPDIR=$LOCAL_SCRATCH/$SLURM_JOBID
-    mkdir -p $TURBOTMPDIR
-    export PARNODES=$SLURM_NTASKS
-    export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
-    dscf > dscf.out
-    ccsdf12 > ccsdt.out
-    ```
-
-=== "Mahti, MPI"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=medium
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=128     # MPI tasks per node
-    #SBATCH --account=<project>       # insert here the project to be billed
-    #SBATCH --time=00:60:00           # time as hh:mm:ss
-    export PARA_ARCH=MPI
-    module load turbomole/7.8
-    export SLURM_CPU_BIND=none
-    export TURBOTMPDIR=`echo $PWD |cut -d'/' -f1-3`"/TM_TMPDIR/"$SLURM_JOB_ID
-    mkdir -p $TURBOTMPDIR
-    export PARNODES=$SLURM_NTASKS
-    export PATH=$TURBODIR/bin/`$TURBODIR/scripts/sysname`:$PATH
-    jobex -ri -c 300 > jobex.out
-    ```
-
-=== "Roihu, MPI"
+=== "MPI"
 
     On Roihu the module sets `MPI_USESRUN=1` so TURBOMOLE launches tasks via
     `srun` automatically. No wrapper script is needed.
@@ -164,7 +74,7 @@ Initialise TURBOMOLE environment:
     jobex -ri -c 300 > jobex.out
     ```
 
-=== "Roihu, SMP"
+=== "SMP"
 
     ```bash
     #!/bin/bash
@@ -194,9 +104,8 @@ Initialise TURBOMOLE environment:
 
 !!! note
     Particularly some of the wavefunction-based electron correlation methods
-    can be very disk I/O intensive. Such jobs benefit from using the fast local
-    storage on Puhti. Using local disk for such jobs will also reduce the load
-    on the Lustre parallel file system. On Roihu, local NVMe is not yet
+    can be very disk I/O intensive. Using local disk for such jobs reduces the
+    load on the Lustre parallel file system. On Roihu, local NVMe is not yet
     available for standard M-node jobs.
 
 ### Performance example

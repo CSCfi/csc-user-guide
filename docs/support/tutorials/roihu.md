@@ -137,17 +137,15 @@ The simplest way to connect to Roihu is to use the web interface.
 
 ## Migrating research data
 
-If you need to transfer data from Puhti or Mahti to Roihu, we require
-that you:
+Puhti and Mahti were retired on 15 October 2026, and their disks are no longer
+accessible.
 
-1. Review your data carefully – **only move what you really need**
-2. Check your available disk space on Roihu (for example, using the `csc-workspaces` command)
-3. Transfer data **directly** from Puhti or Mahti to Roihu.
+To copy data to Roihu from your own computer or another server, see [Moving data](../../data/moving/index.md).
+For data in Allas, see [Using Allas in Roihu](../../data/Allas/allas-roihu.md).
 
-Note that previous extended disk quotas on Puhti or Mahti will not be automatically moved to Roihu.
-Quota extensions on Roihu must be separately applied for and properly motivated.
+Check your free space on Roihu with `csc-workspaces`, and only move what you need on the system.
 
-**[Read the detailed instructions in the Roihu data migration guide](roihu-data.md).**
+If the default storage quotas in your project are insufficient, apply for [disk quota increases](../../accounts/how-to-increase-disk-quotas.md) separately in MyCSC.
 
 ## Installing software
 

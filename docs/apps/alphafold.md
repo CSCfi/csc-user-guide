@@ -7,12 +7,12 @@ catalog:
   license_type: Free
   disciplines:
     - Biosciences
-  available_on:
-    - Puhti
-    - Mahti
+  unchecked: true
 ---
 
 # Alphafold
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 AlphaFold is an AI system developed by [DeepMind](https://www.deepmind.com/) that predicts a protein’s 3D structure from its amino acid sequence.
 

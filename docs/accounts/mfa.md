@@ -18,8 +18,6 @@ CSC is gradually rolling out MFA across all of our services. Currently, the foll
 
 * **SD Connect**  
 * **SD Desktop**  
-* **Puhti web interface**
-* **Mahti web interface**
 * **Roihu web interface**
 * **MyCSC**
 * **Pouta web interface**
