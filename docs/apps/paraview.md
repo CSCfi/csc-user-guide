@@ -17,103 +17,128 @@ catalog:
 
 # ParaView
 
---8<-- "puhti-mahti-cleanup-notice.md"
+ParaView is an open-source application for interactive and batch scientific
+visualization and data analysis. It is built on the
+[VTK](https://vtk.org/) visualization toolkit and can be scripted with Python
+(`pvpython`, `pvbatch`).
 
-ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses the VTK library, in Python wrapping. We recommend the [HPC web interface remote desktops](../computing/webinterface/desktop.md) for interactive use.
-
-!!! info "Running ParaView with GPU-accelerated graphics on Roihu and LUMI"
-    You can now also enable [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md) for better
-    performance. In this case, select _Accelerated visualization_ instead of _Desktop_
-    in the Roihu web interface. On LUMI, select the _Desktop_ app and `lumid`
-    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
-
-ParaView is designed to run parallel tasks and consists of one client and one or several servers (pvservers). There are many ways to run ParaView to suit different needs.
+ParaView has a client–server architecture. The graphical client can do all the
+work itself (*standalone* mode), or it can connect to one or more ParaView
+servers (`pvserver` processes) that read, process and render the data in
+parallel. There are several ways to run ParaView on CSC systems, described
+below.
 
 [TOC]
 
 ## License
 
-ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-license/) that enables the broadest possible audience, including commercial organizations, to use the software, royalty free, for most purposes.
+ParaView is distributed under the OSI-approved
+[BSD 3-clause license](https://www.paraview.org/paraview-license/), which
+allows free use, including commercial use.
 
 ## Available
 
 * Roihu-CPU: 6.1.1
-* LUMI: 5.8.0
+* Roihu Accelerated Visualization Desktop: 5.13.3
+* LUMI web interface, *Desktop* app on the `lumid` partition: 5.9 and 5.11.
+  ParaView can also be installed with EasyBuild, see [LUMI](#lumi).
+
+!!! note "Different ParaView versions in different environments"
+    The GPU-accelerated ParaView in the Roihu web interface (5.13.3) is older
+    than the `paraview` modules on Roihu-CPU (6.1.1). Simple state files
+    (`.pvsm`) can be opened in both versions, but a state that uses features
+    added after 5.13 may not load in 5.13.3. If a state file does not load,
+    rebuild the pipeline in that version, or save it as a Python script with
+    *File* > *Save State* and the `.py` file type.
 
 ## Usage
 
-### Standalone mode
+### Choosing how to run ParaView
 
-The most straightforward way to use ParaView is to run it in standalone mode. This mode is sufficient for basic visualization tasks and is a good starting point also for more complex tasks.
+| Use case | Recommended approach |
+| -------- | -------------------- |
+| Interactive work, most datasets (no GPU acceleration) | [[Desktop](#desktop-cpu) in the Roihu web interface |
+| Interactive work with GPU acceleration for larger datasets | [Accelerated visualization](#accelerated-visualization-gpu) in the Roihu web interface |
+| Large datasets that need many CPU cores for reading and filtering | [Parallel mode](#parallel-mode-client-with-several-pvservers) with several pvservers |
+| X11 Forwarding for small or non-interactive testing | [X11 forwarding from the command line](#x11-forwarding-from-the-command-line) |
 
-Standalone ParaView needs no pvserver reservation. **Note that ParaView should not be run on the login node**. You can use `sinteractive -i` command to reserve one CPU and up to 16 GB memory for your interactive session. When resources become available, the session is directed to a compute node. Load the module and start ParaView:
+### Desktop (CPU)
+
+The [Desktop](../computing/webinterface/desktop.md) app runs on the Roihu CPU
+nodes and renders on the CPU. Use it when you need ParaView 6.1.1 or do not
+need GPU rendering.
+
+1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md)
+   and select the *Desktop* app.
+2. Select the `interactive` partition and the cores, memory and time you
+   need. A good starting point can be 12 cores for ParaView and 16-24 GiB of memory, but this depends on your dataset complexity and size. The `interactive`
+   partition allows up to 32 cores and 64 GiB of
+   memory per job at maximum.
+   
+   If you need more, select the `small` partition (longer
+   queueing times are possible). See
+   [Available batch job partitions](../computing/running/batch-job-partitions.md).
+3. Launch the desktop, open a terminal, and start ParaView:
+
+    ```bash
+    module purge
+    module load paraview/6.1.1
+    paraview
+    ```
+
+!!! warning "Do not use the applications menu entry in the Desktop app"
+    The *ParaView (Accelerated)* entry in the applications menu works only in
+    the [Accelerated visualization](#accelerated-visualization-gpu) app. In the
+    Desktop app, start ParaView from a terminal as shown above.
+
+The memory shown in the bottom-right corner of the ParaView window is the
+memory of the whole compute node, not the amount reserved for your session.
+If your session uses more memory than you reserved, the ParaView process is killed.
+
+### Accelerated visualization (GPU)
+
+The Accelerated visualization app runs ParaView on a Roihu visualization node
+with an Nvidia L40 GPU, which gives much faster rendering than pure CPU
+visualization.
+
+1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
+2. Select the [Accelerated visualization](../computing/webinterface/accelerated-visualization.md) desktop
+   app and specify the required resources. One GPU is reserved.
+3. Click *Launch*. Your job is placed in the queue, and once it has been
+   allocated resources, click *Launch Accelerated Visualization*.
+4. Launch ParaView from *Applications* > *Visualization* >
+   *ParaView (Accelerated)*, or search for it using the *Application Finder*.
+
+![Launching ParaView in Roihu web interface accelerated desktop](../img/paraview_interactive_roihu.png 'Launching ParaView in Roihu web interface accelerated desktop')
+
+Sessions run in the `vizinteractive` partition, which has a maximum
+runtime of 12 hours. Each reserved GPU gives access to up to 32 CPU
+cores and 183 GiB of memory, see
+[the partition details](../computing/running/batch-job-partitions.md#vizinteractive).
+
+### X11 forwarding from the command line
+
+It is also possible to run the ParaView client over X11 forwarding, but this is
+usually much slower than the web interface and is therefore discouraged. Log in
+with X11 forwarding enabled (`ssh -X <username>@roihu-cpu.csc.fi`) and start an
+[interactive session](../computing/running/interactive-usage.md) with at least
+12 cores:
 
 ```bash
+sinteractive --account <project> --cores 12
 module purge
-module load paraview/5.10.1-paraview
+module load paraview/6.1.1
 paraview
 ```
 
-If you need more resources, use `srun` and give session parameters as a one-liner. The following reserves 32 GB memory for one CPU, for one hour:
+Alternatively, start ParaView directly with `srun`, for example in the `small`
+partition:
 
 ```bash
-srun --partition=small --time=01:00:00 --mem=32G --account=<project> --x11=first --pty bash
-```
-
-When directed to a compute node, load the module and start ParaView, as shown in the example above.
-
-If your model has complex geometry, interaction becomes slow and lag in screen updates is noticeable. ParaView has a tick box option to use OSPRay renderer for faster screen re-draws. Note that switching between the default and OSPRay rendering modes can be slow. Even when using one CPU, OSPRay rendering is much faster.
-
-OSPRay is capable of using more than one CPU as threads to further accelerate screen updates. Threads are reserved with `--cpus-per-task`. The following example reserves 5 threads for rendering, and uses in total 32 GB of memory distributed between the CPUs. Note that most other functions of ParaView are not threaded, so they still use only one CPU.
-
-```bash
-srun --ntasks=1 --cpus-per-task=5 --partition=small --time=01:00:00 --mem=32G --account=<project> --x11=first --pty bash
-```
-
-As previously shown, once directed to a compute node, load the module and start ParaView.  
-
-### Parallel mode - client using several servers (pvservers) and threads
-
-For demanding jobs, ParaView can be run in parallel mode: one client and many pvservers, each running on separate CPUs. The client connects to one of the pvservers, which communicates with the rest of the pvservers.  
-
-Note that if most of the work is done by only one pvserver, using a parallel setup can actually make ParaView run slower, due to extra time taken to parse data from different CPUs. You can check how much each pvserver is being used by opening *Memory Inspector* window in ParaView (file menu: *View/Memory Inspector*). ParaView's *D3*-filter can be used to distribute work more evenly between the cores.  
-
-The example script `para5101-multi.sh` below starts several pvservers and one client (front-end), and connects them. After copying the script, check that it has the necessary execute permission - use `chmod u+x` to grant it. The script needs no editing. Resources should be reserved via `salloc` command. Reservation is for the client and the pvservers combined. `--ntasks` is the number of pvservers plus one client, and `--cpus-per-task` is the number of threads for each of these tasks, so the number of CPUs reserved is `--ntasks` * `cpus-per-task`. `--mem` is the combined memory used by all. The script reserves one GB memory for the client, and the rest is divided between the pvservers.
-
-The `salloc` example below allocates resources for one client and nine pvservers, each with two threads, so 20 CPUs are reserved. Nine GB memory in total is allocated for the pvservers, and one GB for the client. ParaView's OSPRay renderer uses threads, while most of the other ParaView functions benefit more of pvservers. **Note that all these `salloc` parameters need to be explicitly given,** otherwise the script `para581-multi.sh` will not work  
-
-```bash
-salloc --nodes=1 --ntasks=10 --cpus-per-task=2 --mem=10G --time=01:00:00 --partition=small --account=<project> para5101-multi.sh
-```
-
-While the client connects to the servers, you may get a few warnings (*connect failed, retrying*) which you can ignore. However, if the last message was *Creating default builtin connection*, connection did eventually fail, and the client is operating without any pvservers. If this happens, check that you have included all the necessary job parameters in your `salloc` command.  
-
-#### Example script
-
-```bash title="para5101-multi.sh"
-#!/bin/bash 
-######################################################
-### This script starts paraview servers and client ###
-### and connects them using a unique random port.  ###
-### Run the script via salloc. All job parameters  ###
-### are copied from the salloc command, no editing ###
-### of this script is needed.                      ###
-######################################################
-export SLURM_EXACT=1
-export XDG_RUNTIME_DIR=$HOME
-export KNOB_MAX_WORKER_THREADS=$SLURM_CPUS_PER_TASK
-export LP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-MACHINEFILE="nodes.${SLURM_JOB_ID}"
-scontrol show hostnames ${SLURM_JOB_NODELIST} > $MACHINEFILE
-FIRSTNODE=$(head -n 1 ${MACHINEFILE})
-MYPORT=`comm -23 <(seq 22200 22299 | sort) <(ss -Htan | awk '{print $4}' | cut -d':' -f2 | sort -u) | shuf | head -n 1`
-SERVER_NTASKS=$(( ${SLURM_NTASKS}-1 ))
-SERVER_MEMORY=$(( ${SLURM_MEM_PER_NODE}-1000 ))
 module purge
-module load paraview/5.10.1-pvserverosmesa
-srun --nodes=1 --ntasks=$SERVER_NTASKS --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=$SERVER_MEMORY pvserver --server-port=$MYPORT &
-srun --nodes=1 --ntasks=1 --cpus-per-task=$SLURM_CPUS_PER_TASK --mem=1000 --x11=first /appl/opt/vis/paraview/paraview-5.10.1-mesa-client/bin/paraview --server-url=cs://$FIRSTNODE.bullx:$MYPORT &
-wait
+module load paraview/6.1.1
+srun --partition=small --account=<project> --time=01:00:00 \
+     --ntasks=1 --cpus-per-task=12 --mem=24G --x11=first paraview
 ```
 
 ### Accelerated visualization
@@ -133,6 +158,59 @@ The ParaView version available on Roihu's accelerated visualization partition is
    few seconds, so be patient.
 
 ![Launching ParaView in Roihu web interface accelerated desktop](../img/paraview_interactive_roihu.png 'Launching ParaView in Roihu web interface accelerated desktop')
+
+## Improving performance in interactive visualization
+
+### Rendering performance on CPUs
+
+Without a GPU, ParaView renders with Mesa's software OpenGL implementation
+(`llvmpipe`), and interaction with complex geometry can be slow. For the
+best interactive performance, use the
+[Accelerated visualization](#accelerated-visualization-gpu) app. On CPU nodes,
+you can alternatively switch to the OSPRay ray tracing mode in ParaView properties:
+
+1. In the *Properties* panel, type `ray` in the *Search* box at the top of the
+   panel, or scroll down to the *Rendering Backend* section.
+2. Tick *Enable Ray Tracing*.
+3. Select the *Back End*:
+    * *OSPRay raycaster* is faster and suited for interactive work.
+    * *OSPRay pathtracer* gives more realistic lighting and shadows, but is
+      slower. Increase *Samples Per Pixel* or *Progressive Passes* for
+      smoother images.
+
+!!! note "ANARI rendering is not available on Roihu"
+    The *Enable Rendering with ANARI* option in ParaView 6.1.1 does not
+    currently work on Roihu. Leave it unticked.
+
+`llvmpipe`, OSPRay and the multithreaded VTK filters can use several
+threads. Reserve the cores for your session as shown above. The thread counts
+can be set before starting ParaView:
+
+```bash
+export LP_NUM_THREADS=$(nproc)       # Mesa llvmpipe rendering threads
+export OSPRAY_NUM_THREADS=$(nproc)   # OSPRay ray tracing threads
+export VTK_SMP_MAX_THREADS=$(nproc)  # threads for multithreaded VTK filters
+paraview
+```
+
+Some ParaView filters are multithreaded, but much of the data processing runs
+on a single core. To process large data in parallel, use several pvservers as
+described below.
+
+## LUMI
+
+ParaView is not preinstalled as a module on LUMI. There are two ways to use it:
+
+* **LUMI web interface (recommended):** start the *Desktop* app of the
+  [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)
+  on the `lumid` partition, whose nodes have GPUs for visualization, and start
+  ParaView from the applications menu. ParaView on LUMI desktop does not work on partitions other than LUMI-D.
+* **Your own installation:** the
+  [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/p/ParaView/)
+  provides an EasyBuild recipe for installing ParaView as your own module.
+  This is meant for users who need a configuration that the web interface
+  does not offer. Building takes a long time, and the instructions for
+  running it with GPU acceleration are on the same page.
 
 ## More Information
 
