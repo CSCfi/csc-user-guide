@@ -87,7 +87,7 @@ note that the login node itself has no GPUs.
 
     ```bash
     python $COMEBIN_INSTROOT/bin/COMEBin/main.py generate_aug_data --contig_file contigs.fa \
-      --bam_file_path bams --out_augdata_path comebin_out/data_augmentation --num_threads 16
+      --bam_file_path bams --out_augdata_path comebin_out/data_augmentation --num_threads $SLURM_CPUS_PER_TASK
     ```
 
 2. Log in to `roihu-gpu.csc.fi` and submit the
