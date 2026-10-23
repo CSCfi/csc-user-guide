@@ -90,7 +90,7 @@ note that the login node itself has no GPUs.
       --bam_file_path bams --out_augdata_path comebin_out/data_augmentation --num_threads $SLURM_CPUS_PER_TASK
     ```
 
-2. Log in to `roihu-gpu.csc.fi` and submit the
+2. Log in to `roihu-gpu.csc.fi`, go to the same directory as in step 1, and submit the
    [example GPU batch script](#example-gpu-batch-script), which trains the model.
 
 3. On Roihu-CPU, run `run_comebin.sh` in a batch job with the same options as in
