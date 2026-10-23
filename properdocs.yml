@@ -160,7 +160,6 @@ plugins:
       "computing/nvprof.md": "apps/nsys.md"
       "computing/pdb.md": "apps/pdb.md"
       "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
-      "support/tutorials/ml-guide.md": "support/tutorials/ml-guide/index.md"
       "support/tutorials/ml-container-extend.md": "support/tutorials/ml-guide/container-extend.md"
       "support/tutorials/ml-data.md": "support/tutorials/ml-guide/data.md"
       "support/tutorials/gpu-ml.md": "support/tutorials/ml-guide/gpu.md"
