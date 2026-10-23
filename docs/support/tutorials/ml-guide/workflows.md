@@ -2,7 +2,7 @@
 
 This guide discusses various ways for managing your machine learning
 workflows on CSC's supercomputers. It is part of our [Machine learning
-guide](ml-guide.md).
+guide](index.md).
 
 Instead of providing a single integrated machine learning workflow
 system, our approach is to support a wide range of ML workflow tools
@@ -25,7 +25,7 @@ We document **two ways to use MLflow on CSC's supercomputers**:
    
 2. Using your own [MLflow tracking server](#mlflow-tracking-server),
    for example running on [CSC's Rahti
-   service](../../cloud/rahti/index.md).
+   service](../../../cloud/rahti/index.md).
    
 Option 1 is simpler to get started with - just add a few lines in
 your code and open the MLflow UI in the web interface - however it may
@@ -102,13 +102,13 @@ The default resource settings should be fine for most cases.
 
 Once the session has started you should see a list of your runs similar to this screenshot:
 
-![MLflow front page with list of runs](../../img/mlflow-front.png)
+![MLflow front page with list of runs](../../../img/mlflow-front.png)
 
 If you select a run (here named based on the Slurm id), you can for
 example click on the "Metrics" field and select "loss" to see a plot
 of that metric over time:
 
-![MLflow plot showing the loss metric over time](../../img/mlflow-metrics.png)
+![MLflow plot showing the loss metric over time](../../../img/mlflow-metrics.png)
 
 
 ### MLflow tracking server
@@ -121,7 +121,7 @@ need to store data to it.
 
 A more suitable platform for running an MLflow tracking server is
 CSC's Rahti service. MLflow can be found in the [Rahti Software
-Catalog](../../cloud/rahti/usage/catalog.md). See our [user guide on
+Catalog](../../../cloud/rahti/usage/catalog.md). See our [user guide on
 how to start your own MLflow tracking server on
 Rahti][mlflow-rahti].
 
@@ -159,13 +159,13 @@ application, for example:
 
 
 [MLflow]: https://www.mlflow.org/
-[ml-apps]: ../../apps/by_discipline.md#data-analytics-and-machine-learning
-[own-install]: ./python-usage-guide.md#installing-python-packages-to-existing-modules
+[ml-apps]: ../../../apps/by_discipline.md#data-analytics-and-machine-learning
+[own-install]: ../python-usage-guide.md#installing-python-packages-to-existing-modules
 [autolog]: https://www.mlflow.org/docs/latest/ml/tracking/autolog/
 [pytorch-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_mlflow.py
 [lightning-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_lightning_ddp.py
-[mlflow-app]: ../../computing/webinterface/mlflow.md
-[webui]: ../../computing/webinterface/index.md
+[mlflow-app]: ../../../computing/webinterface/mlflow.md
+[webui]: ../../../computing/webinterface/index.md
 [log-func]: https://www.mlflow.org/docs/latest/ml/tracking/tracking-api/#core-logging-functions
 [tracking-server]: https://www.mlflow.org/docs/latest/self-hosting/architecture/tracking-server/
-[mlflow-rahti]: ../../cloud/rahti/managed-software/mlflow.md
+[mlflow-rahti]: ../../../cloud/rahti/managed-software/mlflow.md

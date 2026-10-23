@@ -131,7 +131,7 @@ Python:
 
 * [Python parallel jobs](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
 * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
-* [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+* [CSC machine learning guide](../../support/tutorials/ml-guide/index.md)
 
 R:
 

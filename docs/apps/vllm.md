@@ -87,10 +87,10 @@ pip list
 ### Example script for usage
 
 See the [vLLM section in CSC's Machine learning
-guide](../support/tutorials/ml-llm.md#inference-with-vllm), which has
+guide](../support/tutorials/ml-guide/llm.md#inference-with-vllm), which has
 links to example script for using vLLM on Roihu.
 
-The full [Machine learning guide](../support/tutorials/ml-guide.md)
+The full [Machine learning guide](../support/tutorials/ml-guide/index.md)
 might also be of use.
 
 [vLLM]: https://docs.vllm.ai/en/latest/
