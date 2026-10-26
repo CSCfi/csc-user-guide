@@ -27,7 +27,7 @@ ___
 
 ??? default "Installation guide for macOS"
 
-    1. Download the SD Connect Conversion Tool for mac
+    1. [Download](https://github.com/CSCfi/sd-connect-s3-migrate/releases/download/2026.10.8/sd_connect_s3_migrate_gui-2026.10.8-arm64.dmg) the SD Connect Conversion Tool for Mac.
 
     2. Open a new **Finder** window. In Finder window open your **Home folder** (marked with Home icon) from left sidebar. (If **Home folder** is not visible, click **Finder** at top left and select **Settings** from dropdown menu. A new window opens. In this **Settings** window select **Sidebar** tab and then select **Home folder** to make it visible in the sidebar.)
 
@@ -69,7 +69,7 @@ ___
 
 ??? default "Installation guide for Linux"
 
-    1. Download the SD Connect Conversion Tool for Linux. **Please note that the tool is supported only on Ubuntu 22.04 and later versions.**
+    1. [Download](https://github.com/CSCfi/sd-connect-s3-migrate/releases/download/2026.10.8/sd_connect_s3_migrate_gui-linux-x64-2026.10.8.zip) the SD Connect Conversion Tool for Linux. **Please note that the tool is supported only on Ubuntu 22.04 and later versions.**
 
     2. **GUI fails to start due to a sandbox permission error**. The GUI uses Chromium internally. On Linux, Chromium normally starts with a security feature called the sandbox         enabled. You do not need to enable this yourself. On some Linux systems, the GUI may fail to start because Chromium does not have the permissions required to initialize the sandbox.
     If you encounter this error, there are two possible solutions:
@@ -81,7 +81,7 @@ ___
 
 ??? default "Installation guide for Windows"
 
-    1. Download the SD Connect Conversion Tool for Windows
+    1. [Download](https://github.com/CSCfi/sd-connect-s3-migrate/releases/download/2026.10.8/sd_connect_s3_migrate_gui-win32-x64-2026.10.8.zip) the SD Connect Conversion Tool for Windows
 
     2. Open your **Downloads** folder and **extract** the folder you just downloaded.
 
@@ -104,7 +104,7 @@ ___
 
 ### Download the application for other operating systems
 
-The available versions of SD Connect S3 Migrate can be found on the GitHub Releases page
+The available versions of SD Connect S3 Migrate can be found on the [GitHub Releases](https://github.com/CSCfi/sd-connect-s3-migrate/releases/tag/2026.10.8) page.
 
 
 ___
