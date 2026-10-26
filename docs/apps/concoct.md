@@ -57,7 +57,7 @@ bin to a FASTA file:
 
 ```bash
 merge_cutup_clustering.py concoct_output/clustering_gt1000.csv > concoct_output/clustering_merged.csv
-mkdir concoct_output/fasta_bins
+mkdir -p concoct_output/fasta_bins
 extract_fasta_bins.py contigs.fa concoct_output/clustering_merged.csv \
   --output_path concoct_output/fasta_bins
 ```
@@ -88,7 +88,7 @@ concoct_coverage_table.py contigs_10K.bed mapping/*.sorted.bam > coverage_table.
 concoct --composition_file contigs_10K.fa --coverage_file coverage_table.tsv \
   -b concoct_output/ -t $SLURM_CPUS_PER_TASK
 merge_cutup_clustering.py concoct_output/clustering_gt1000.csv > concoct_output/clustering_merged.csv
-mkdir concoct_output/fasta_bins
+mkdir -p concoct_output/fasta_bins
 extract_fasta_bins.py contigs.fa concoct_output/clustering_merged.csv \
   --output_path concoct_output/fasta_bins
 ```

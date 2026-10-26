@@ -65,11 +65,12 @@ combine the bins from [SemiBin2](semibin.md), [COMEBin](comebin.md),
 awk -F'\t' 'NR>1 && $2!=-1{print "semibin_"$2"\t"$1"\tsemibin2"}' semibin_out/contig_bins.tsv > contigs_to_bin.tsv
 awk -F'\t' '{print "comebin_"$2"\t"$1"\tcomebin"}' comebin_out/comebin_res/comebin_res.tsv >> contigs_to_bin.tsv
 awk -F',' 'NR>1{print "concoct_"$2"\t"$1"\tconcoct"}' concoct_output/clustering_merged.csv >> contigs_to_bin.tsv
-awk '/^>/{b=FILENAME; sub(/.*\//,"",b); sub(/\.fa$/,"",b); print "metabat_"b"\t"substr($1,2)"\tmetabat2"}' bins/*.fa >> contigs_to_bin.tsv
+awk '/^>/{b=FILENAME; sub(/.*\//,"",b); sub(/\.fa$/,"",b); print "metabat_"b"\t"substr($1,2)"\tmetabat2"}' bins/bin.[0-9]*.fa >> contigs_to_bin.tsv
 ```
 
 By default, MetaBAT2 writes its bins only as FASTA files, so the last command
-reads the contig names from the bin files that `metabat2 -o bins/bin` writes.
+reads the contig names from the numbered bin files (`bins/bin.1.fa` and so on)
+that `metabat2 -o bins/bin` writes.
 
 Score and refine the bins:
 

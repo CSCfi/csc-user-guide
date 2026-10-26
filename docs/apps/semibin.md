@@ -57,7 +57,8 @@ cores of the node, not only the cores reserved for your job.
 
 The bins are written to `semibin_out/output_bins` as gzipped FASTA files
 (`SemiBin_<number>.fa.gz`), and the bin of each contig to
-`semibin_out/contig_bins.tsv`.
+`semibin_out/contig_bins.tsv`. If a downstream tool needs uncompressed files, add
+`--compression none` to write the bins as `SemiBin_<number>.fa`.
 
 To bin several samples together, combine their contigs with
 `SemiBin2 concatenate_fasta`, map the reads of each sample to the combined contigs
