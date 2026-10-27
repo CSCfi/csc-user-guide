@@ -64,7 +64,7 @@ These example coordinates are based on the human GRCh38/hg38 reference genome. E
 
 You can also make the regions file from a list of genes with `getGeneRegions.py`.
 This needs a directory with a GenBank file for each chromosome, named after the
-chromosome in the reference FASTA file (for example `chr1.gb`). :
+chromosome in the reference FASTA file (for example `chr1.gb`):
 
 ```bash
 getGeneRegions.py -glf genes.txt -ref genbank/ -wgref genome.fa -rf genes.regions.csv
