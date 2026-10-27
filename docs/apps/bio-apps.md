@@ -139,6 +139,7 @@ checkm2/1.1.0
 clumpp/1.1.2
 clustal-omega/1.2.4
 clustalw/2.1
+comebin/1.1.0
 cufflinks/2.2.1
 demix-check/1.0.20250120
 diamond/2.1.10
@@ -169,6 +170,7 @@ jellyfish/2.2.7
 kraken2/2.17.1
 kraken2/2.17.2
 mafft/7.525
+magscot/1.1
 mash/2.3
 megahit/1.2.9
 meme/5.5.7
@@ -184,6 +186,7 @@ muscle5/5.1.0
 ncbi-toolkit/28_0_12
 nextflow/25.10.2-standalone
 nextflow/26.04.6-standalone
+ngs-primerplex/1.3.4
 openmpi/5.0.10-gcc14.3.0
 perl-bioperl/1.7.8
 phylip/3.697
@@ -193,6 +196,7 @@ plink2/2.0.0-a.6.9
 prodigal/2.6.3
 py-bakta/1.11.4
 py-biopython/1.85
+py-concoct/1.1.0
 py-cutadapt/4.7
 py-dbcan/5.2.9
 py-deeptools/3.5.3
@@ -205,6 +209,7 @@ py-metaphlan/4.2.4
 py-micom/0.39.0
 py-multiqc/1.28
 py-samestr/1.2025.111
+py-semibin/2.6.0
 py-steadiercom/0.1.5
 raxml/8.2.12
 raxml-ng/2.0.2
@@ -244,6 +249,7 @@ On Roihu **GPU** nodes, `bio-apps/v202603` provides a small set of
 GPU-accelerated tools:
 
 ```text
+comebin/1.1.0
 dorado/2.1.1
 foldseek/10-941cd33
 mhm2/2.2.2.0-20260904
