@@ -41,7 +41,7 @@ sinteractive -i
 ```
 
 When this option is used, the user is prompted for the individual parameters
-of the session (runtime, memory, cores, etc.). If you do not want to specify
+of the session (runtime, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments.
 
@@ -72,7 +72,7 @@ run from the GPU login node without additional parameters.
 
 !!! info "`gpuinteractive` currently gives full GPUs"
      The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
-     users are currently allocated full GPUs.
+     users are currently allocated a full GPU when using sinteractive on Roihu-GPU.
 
 To see the command options available on Roihu, run the following while
 logged into the system:
@@ -80,6 +80,12 @@ logged into the system:
 ```bash
 sinteractive --help
 ```
+
+Note that memory can not be specified in a sinteractive session, and
+you are allocated 2 GiB memory per each reserved CPU on Roihu-CPU.
+Only way to get extra memory in your job is to increase the amount of resources you request.
+
+On Roihu-GPU, the maximum amount of memory per sinteractive job is currently 217 GiB.
 
 ### Example: Running a Jupyter notebook or RStudio server via `sinteractive`
 

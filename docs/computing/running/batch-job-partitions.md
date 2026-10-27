@@ -97,7 +97,12 @@ and automatically provides Roihu-CPU resources when run from a Roihu-CPU login n
 
 | Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            |
 |-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|
-| `interactive`     | R               | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
+| `interactive`     | R / C            | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
+
+When using `sinteractive`, the amount of memory is tied to the amount of CPU cores requested. Memory can not be specified independently
+through sinteractive.
+
+In the [Roihu web interface](../webinterface/index.md), memory and CPU core counts can be requested independently when using the `interactive` partition.
 
 #### Roihu-GPU interactive use
 
@@ -118,7 +123,7 @@ and automatically provides a GPU slice when run from a Roihu-GPU login node.
 
 !!! note "GPU slices not yet fully configured"
     GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
-    will instead provide full GPUs.
+    will instead provide a full GPU, 72 CPU cores and 217 GiB memory.
 
 #### Vizinteractive
 
