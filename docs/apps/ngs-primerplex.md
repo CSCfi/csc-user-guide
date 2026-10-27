@@ -60,6 +60,8 @@ chr12	25245346	25245351	KRAS	1	B	NotW
 chr7	140753335	140753337	BRAF	1	B	NotW
 ```
 
+These example coordinates are based on the human GRCh38/hg38 reference genome. Ensure that the coordinates in your regions file match the assembly used for the reference FASTA. Any GenBank annotations and dbSNP files must also use the same assembly.
+
 You can also make the regions file from a list of genes with `getGeneRegions.py`.
 This needs a directory with a GenBank file for each chromosome, named after the
 chromosome in the reference FASTA file (for example `chr1.gb`). Give the directory
