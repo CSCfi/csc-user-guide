@@ -629,7 +629,8 @@ nav:
           - Restore SD Desktop import and export: data/sensitive-data/sd-desktop-major-upgrade.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
       - Research data - Store and analyse:
-          - Start here: data/sensitive-data/store-and-analyze-research-data.md
+          - Start here: 
+              - data/sensitive-data/store-and-analyze-research-data.md
               - Access as project manager: data/sensitive-data/sd-use-case-new-user-project-manager.md
               - Access as project members: data/sensitive-data/sd-use-case-new-user-project-member.md
               - Resource planning for your CSC Project: data/sensitive-data/sd-billing-units.md
