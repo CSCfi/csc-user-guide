@@ -112,10 +112,11 @@ module load ams/2026.104
 === "Roihu-CPU, disaggregated NVMe"
 
     !!! info "Disaggregated NVMe on Roihu"
-        Roihu provides a centralised pool of 307.2 TB fast NVMe storage served over
+        Roihu provides a centralised pool of fast NVMe storage served over
         InfiniBand NDR. For I/O-intensive full-node jobs this can outperform both
-        Lustre scratch and node-local `$TMPDIR`. It is available on all partitions
-        and is requested with a `#BB_LUA` burst-buffer directive. See
+        Lustre scratch and node-local `$TMPDIR`. It is available
+        on all partitions and can be requested using Slurm's `--bb`
+        option with a `#BB_LUA` burst-buffer specification. See
         [Roihu disk areas](../computing/disk.md#disaggregated-storage)
         for full details.
 
@@ -126,10 +127,10 @@ module load ams/2026.104
     #SBATCH --ntasks-per-node=384     # full node
     #SBATCH --account=yourproject     # insert here the project to be billed
     #SBATCH --time=00:20:00           # time as `hh:mm:ss`
-    #BB_LUA SBF storagesize=100GB path=/sbf/data
+    #SBATCH --bb="#BB_LUA SBF storagesize=100GB path=/sbf/data"
     module purge
     module load ams/2026.104
-    # Disaggregated NVMe is mounted at the path specified in #BB_LUA above
+    # Disaggregated NVMe is mounted at /sbf/data as requested above
     export SCM_TMPDIR=/sbf/data/ams_$SLURM_JOB_ID
     mkdir -p $SCM_TMPDIR
     # Create an example input file from the examples
