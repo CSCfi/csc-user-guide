@@ -341,7 +341,7 @@ storage a job can request. However, as this is a shared resource,
 we recommend requesting **no more than 2 TB of storage per job**
 and reserving only the amount actually needed.
 
-Using disaggregated storage consumes [billing units](../accounts/billing.md)
+Using disaggregated storage consumes [billing units](../accounts/billing.md).
 
 ### Requesting storage from slurm
 
