@@ -186,6 +186,7 @@ muscle5/5.1.0
 ncbi-toolkit/28_0_12
 nextflow/25.10.2-standalone
 nextflow/26.04.6-standalone
+ngs-primerplex/1.3.4
 openmpi/5.0.10-gcc14.3.0
 perl-bioperl/1.7.8
 phylip/3.697
