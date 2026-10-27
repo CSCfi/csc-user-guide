@@ -336,6 +336,13 @@ shared-node jobs. As the storage pool is shared between jobs,
 requests are subject to resource availability and may need to
 wait until sufficient capacity becomes available.
 
+There is currently no enforced limit on the amount of disaggregated
+storage a job can request. However, as this is a shared resource,
+we recommend requesting **no more than 2 TB of storage per job**
+and reserving only the amount actually needed.
+
+Using disaggregated storage consumes [billing units](../accounts/billing.md)
+
 ### Requesting storage from slurm
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
