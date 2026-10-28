@@ -73,6 +73,7 @@ In Roihu:
 | [python-vllm](vllm.md) | LLM inference | GPU |
 | [python-tensorflow](tensorflow.md) | Tensorflow ML framework | CPU/GPU |
 | [python-jax](jax.md) | JAX ML framework | GPU |
+| [python-ambertools](amber.md#ambertools-python-tools) | AmberTools Python utilities | CPU/GPU |
 
 To use any of the above environments, simply load the corresponding module
 using the `module load` command.

@@ -24,11 +24,13 @@ for more sophisticated analysis and in particular NMR structure refinement.
 === "Roihu-CPU"
     | Version | Available modules              |
     |:-------:|:-------------------------------|
+    |26       |`amber/26`                      |
     |24       |`amber/24`                      |
 
 === "Roihu-GPU"
     | Version | Available modules              |
     |:-------:|:-------------------------------|
+    |26       |`amber/26`                      |
     |24       |`amber/24`                      |
 
 === "LUMI"
@@ -57,8 +59,12 @@ above command:
 module use /appl/local/csc/modulefiles
 ```
 
-The `module load` command will set `$AMBERHOME` and put the AmberTools binaries
-in the path. Run Amber production jobs in the batch queues, see
+The `module load` command will set `$AMBERHOME` and put the Amber and
+AmberTools binaries in the path. On Roihu, loading an Amber module also
+automatically loads the latest AmberTools module (`python-ambertools/26.0` or
+Roihu and `ambertools/26.0` on LUMI, see [below](#ambertools-python-tools)).
+
+Run Amber production jobs in the batch queues, see
 [below](#example-batch-scripts). Very light system preparation (serial
 AmberTools jobs lasting a few seconds and using barely any memory) can be done
 on the login node as well. Heavier analyses should be run e.g. in an
@@ -75,13 +81,36 @@ faster than without GPUs. If running on multiple GPUs, please ensure that the
 job scales (see
 [performance checklist](../computing/running/performance-checklist.md)).
 
-!!! info "Python modules"
-    Python scripts distributed with AmberTools are not available in the
-    pre-installed Amber modules. However, since AmberTools is also distributed
-    through [Conda](https://anaconda.org/conda-forge/ambertools), you can
-    easily create a containerized environment containing these scripts yourself
-    using [Tykky](../computing/containers/tykky.md) or the
-    [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
+### AmberTools Python tools
+
+Many AmberTools utilities are Python-based. On Roihu, these are provided as
+[containerized](../computing/containers/tykky.md)
+[Conda environments](https://anaconda.org/conda-forge/ambertools) by the
+`python-ambertools` module. Loading an Amber module will automatically also
+load the AmberTools module. You can also load it separately:
+
+```bash
+module load python-ambertools
+```
+
+Containerizing the installation avoids the poor performance of large Conda
+environments consisting of a huge number of small files on the Lustre parallel
+file system. Using the containerized tools does not require any special steps,
+the commands can be run as usual, for example:
+
+```bash
+module load amber/26
+MMPBSA.py -O -i mmpbsa.in -cp complex.prmtop -rp receptor.prmtop -lp ligand.prmtop -y prod.nc
+```
+
+On LUMI, a similar containerized AmberTools installation is available as the
+`ambertools` module. It is also loaded automatically when you load an Amber
+module. To load it separately, run:
+
+```bash
+module use /appl/local/csc/modulefiles
+module load ambertools
+```
 
 ### Example batch scripts
 
@@ -102,7 +131,7 @@ job scales (see
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
     module purge
-    module load amber/24
+    module load amber/26
 
     srun paramfit -i Job_Control.in -p prmtop -c mdcrd -q QM_data.dat
     ```
@@ -125,7 +154,7 @@ job scales (see
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
     module purge
-    module load amber/24
+    module load amber/26
 
     srun pmemd.cuda -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
     ```
@@ -147,7 +176,7 @@ job scales (see
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
 
     module purge
-    module load amber/24
+    module load amber/26
 
     srun pmemd.cuda.MPI -O -i mdin.GPU -o mdout.GPU -p Cellulose.prmtop -c Cellulose.inpcrd
     ```
