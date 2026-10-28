@@ -1,14 +1,14 @@
 # Applications
 
-## Amber26 on Roihu and containerized AmberTools26 on Roihu and LUMI, 27.10.2026
+## Amber26 and AmberTools26, 28.10.2026
 
 [Amber](../../apps/amber.md) version 26 is now available on Roihu-CPU and
-Roihu-GPU. In addition, on Roihu the Python-based AmberTools26 utilities (e.g.
-`MMPBSA.py`, `pdb4amber`, `ParmEd`, `pytraj`) are now provided as a
-containerized installation in the `python-ambertools/26.0` module, which is
-loaded automatically together with the `amber/24` and `amber/26` modules. On
+Roihu-GPU. Additionally, AmberTools26 utilities are now provided as a
+containerized Conda environment by the `python-ambertools/26.0` module. The
+AmberTools module is loaded automatically when you load an Amber module. On
 LUMI, the same containerized AmberTools26 installation is available as the
-`ambertools/26.0` module.
+`ambertools/26.0` module. It is loaded automatically together with the
+`amber/24-cpu` and `amber/24-gpu` modules.
 
 ## CPU versions of PyTorch and TensorFlow available on Roihu, 3.9.2026
 

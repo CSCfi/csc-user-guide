@@ -60,9 +60,9 @@ module use /appl/local/csc/modulefiles
 ```
 
 The `module load` command will set `$AMBERHOME` and put the Amber and
-AmberTools binaries in the path. Loading an Amber module also automatically
-loads the latest AmberTools module (`python-ambertools/26.0` or Roihu and
-`ambertools/26.0` on LUMI, see [below](#ambertools-python-tools)).
+AmberTools binaries in the path. Loading an Amber module will also
+automatically load the latest AmberTools module (`python-ambertools/26.0` on
+Roihu and `ambertools/26.0` on LUMI, see [below](#ambertools-python-tools)).
 
 Run Amber production jobs in the batch queues, see
 [below](#example-batch-scripts). Very light system preparation (serial
@@ -83,10 +83,10 @@ job scales (see
 
 ### AmberTools Python tools
 
-Many AmberTools utilities are Python-based. On Roihu, these are provided as
+Many AmberTools utilities are Python-based. On Roihu, these are provided as a
 [containerized](../computing/containers/tykky.md)
-[Conda environments](https://anaconda.org/conda-forge/ambertools) by the
-`python-ambertools` module. Loading an Amber module will automatically also
+[Conda environment](https://anaconda.org/conda-forge/ambertools) by the
+`python-ambertools` module. Loading an Amber module will also automatically
 load the AmberTools module. You can also load it separately:
 
 ```bash
