@@ -44,6 +44,11 @@ Amber can be used on CSC servers by all not-for-profit institute and university
 researchers irrespective of nationality or location. Look for the
 [academic license text here](https://ambermd.org/GetAmber.php).
 
+AmberTools is free of charge and can be used by everyone. Its components are
+mostly released under the GNU General Public License (GPL), while a few are in
+the public domain or have other open-source licenses. See the
+[AmberTools home page](https://ambermd.org/AmberTools.php) for details.
+
 ## Usage
 
 See available versions and how to load Amber by running:
@@ -102,6 +107,13 @@ the commands can be run as usual, for example:
 module load amber/26
 MMPBSA.py -O -i mmpbsa.in -cp complex.prmtop -rp receptor.prmtop -lp ligand.prmtop -y prod.nc
 ```
+
+!!! info "Note"
+    Do not run anything heavy on the login node! See the
+    [usage policy](../computing/usage-policy.md#login-nodes) for details.
+    Resource-intensive processes should be run as
+    [batch jobs](#example-batch-scripts) or in an
+    [interactive session](#interactive-jobs).
 
 On LUMI, a similar containerized AmberTools installation is available as the
 `ambertools` module. It is also loaded automatically when you load an Amber
