@@ -41,7 +41,7 @@ sinteractive -i
 ```
 
 When this option is used, the user is prompted for the individual parameters
-of the session (runtime, memory, cores, etc.). If you do not want to specify
+of the session (runtime, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments.
 
@@ -59,20 +59,23 @@ of a full GH200 GPU, giving each slice 12 GiB of GPU memory. With two nodes, fou
 GPUs per node, and up to seven slices per GPU, the partition can provide up to
 56 GPU slices in total.
 
-`sinteractive` will select the correct partition
-based on your resource request, and will automatically provide you with a GPU if
-run from the GPU login node without additional parameters.
+`sinteractive` selects the partition from your request. On the CPU login node
+(`roihu-cpu.csc.fi`), it starts a session on the `interactive` partition by
+default, or on the `gpuinteractive` partition if you add the `-g` option. On the
+GPU login node (`roihu-gpu.csc.fi`), it always starts a GPU session.
 
-!!! warning "Submit from the correct login node; CPU or GPU"
-     It is imperative that if you are requesting an interactive GPU job that you
-     request it from `roihu-gpu.csc.fi`, and likewise a CPU job from `roihu-cpu.csc.fi`.
-     Failure to do so will result in modules incompatible with the system architecture
-     being loaded and available, as the interactive job inherits the environment from
-     the login node.
+!!! info "GPU sessions started from `roihu-cpu.csc.fi` get a fresh environment"
+     The CPU nodes are x86 and the GPU nodes are ARM, so software loaded on the CPU
+     login node does not work on the GPU nodes. When you start a GPU session from
+     `roihu-cpu.csc.fi`, `sinteractive` therefore starts it with a fresh login
+     environment. Modules you have loaded on the login node are not carried over,
+     so load them again in the session. If you want the session to inherit your
+     login node environment, start GPU sessions from `roihu-gpu.csc.fi` instead. See
+     [submitting jobs across architectures](submitting-jobs-across-architectures.md).
 
 !!! info "`gpuinteractive` currently gives full GPUs"
      The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
-     users are currently allocated full GPUs.
+     users are currently allocated a full GPU when using sinteractive on Roihu-GPU.
 
 To see the command options available on Roihu, run the following while
 logged into the system:
@@ -80,6 +83,22 @@ logged into the system:
 ```bash
 sinteractive --help
 ```
+
+Note that memory can not be specified in a sinteractive session, and
+you are allocated 2 GiB memory per each reserved CPU on Roihu-CPU.
+Only way to get extra memory in your job is to increase the amount of resources you request.
+
+GPU sessions always get 212 GiB of memory.
+
+To reserve fast [disaggregated storage](../disk.md#disaggregated-storage) for the
+session, give the amount in GB with the `-d` (`--tmp`) option, up to 2048 GB. The
+storage is mounted at `/sbf/data`:
+
+```bash
+sinteractive --account <project> --cores 4 -d 100
+```
+
+Copy any results you need from `/sbf/data` before the session ends.
 
 ### Example: Running a Jupyter notebook or RStudio server via `sinteractive`
 
