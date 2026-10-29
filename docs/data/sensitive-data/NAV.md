@@ -1,4 +1,4 @@
-- [New versions of SD Connect and SD Desktop available](major-upgrade.md)
+- [SD Connect and SD Desktop major upgrade guide](overview.md)
     - [Convert SD Connect buckets](sd-connect-conversion.md)
     - [Restore SD Desktop import and export](sd-desktop-major-upgrade.md)
 - [Table of contents](sd-services-toc.md)

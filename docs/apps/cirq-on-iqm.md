@@ -14,7 +14,7 @@ catalog:
 # Cirq-on-iqm
 
 Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is
-installed as `fiqci-vtt-cirq` on LUMI. It is used for running quantum circuits on the
+installed as `fiqci-cirq` on LUMI. It is used for running quantum circuits on the
 [quantum computers](../computing/quantum-computing/running-quantum-jobs.md).
 
 ## Available
@@ -23,7 +23,7 @@ Currently supported [cirq-on-iqm](https://docs.meetiqm.com/iqm-client/user_guide
 
 | Module                               | LUMI  | Notes           |
 |:-------------------------------------|:-----:|-----------------|
-| `fiqci-vtt-cirq/18.0`                | X     | Default version. Supports Q50 and Q20  |
+| `fiqci-cirq/18.0`                | X     | Default version. Supports Q50 and Q20  |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -41,7 +41,7 @@ cirq-on-iqm is licensed under
 
 ## Usage
 
-To use `fiqci-vtt-cirq` on LUMI, initialize it with:
+To use `fiqci-cirq` on LUMI, initialize it with:
 
 ```bash
 module use /appl/local/quantum/modulefiles
@@ -54,13 +54,13 @@ module load Local-quantum
 and 
 
 ```bash
-module load fiqci-vtt-cirq
+module load fiqci-cirq
 ```
 
-This command will also show how to load `fiqci-vtt-cirq`:
+This command will also show how to load `fiqci-cirq`:
 
 ```bash
-module avail fiqci-vtt-cirq
+module avail fiqci-cirq
 ```
 
 ### Example batch script
@@ -83,7 +83,7 @@ Example batch script for running a quantum job:
     #SBATCH --account=project_xxx   # Project for billing
 
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-cirq
+    module load fiqci-cirq
     export DEVICES=("radiance20")
     source $RUN_SETUP
     python -u quantum_job.py
@@ -97,7 +97,7 @@ Example batch script for running a quantum job:
     #SBATCH --job-name=quantumjob     # Job name
     #SBATCH --output=quantumjob.o%j   # Name of stdout output file
     #SBATCH --error=quantumjob.e%j    # Name of stderr error file
-    #SBATCH --partition=q_fiqci     # Partition (queue) name
+    #SBATCH --partition=small     # Partition (queue) name
     #SBATCH --ntasks=1              # One task (process)
     #SBATCH --cpus-per-task=1       # Number of cores (threads)
     #SBATCH --mem-per-cpu=1G        # Memory allocation
@@ -105,7 +105,7 @@ Example batch script for running a quantum job:
     #SBATCH --account=project_xxx   # Project for billing
 
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-cirq
+    module load fiqci-cirq
     export DEVICES=("Q50")
     source $RUN_SETUP
     python -u quantum_job.py

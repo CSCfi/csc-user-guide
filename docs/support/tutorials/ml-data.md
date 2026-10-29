@@ -136,6 +136,4 @@ srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
 Finally, if 150 GiB is not enough, [Roihu also supports disaggregated
 NVMe](../../computing/disk.md#disaggregated-storage). This fast
 storage capacity is provided over the network and will appear as local
-scratch from within a Slurm job. The total capacity of the
-disaggregated NVMe resource is 307.2 TB. Disaggregated NVMe is still
-considered an experimental feature on Roihu.
+scratch from within a Slurm job.
