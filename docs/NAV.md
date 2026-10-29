@@ -1,4 +1,3 @@
-- [Home](index.md)
 - [Accounts](accounts/)
 - [Computing](computing/)
 - [Cloud services](cloud/)

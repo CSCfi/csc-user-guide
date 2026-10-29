@@ -50,6 +50,7 @@ class BreadcrumbsHook(DocsHook):
         super().__init__(**kwargs)
         self.__adoptive_parents = {}
         self.__dummy_parents = {}
+        self.__nav_pages = []
 
     def __find_dummy(self, relative_dir):
         return self.__dummy_parents.get(str(relative_dir))
@@ -84,6 +85,8 @@ class BreadcrumbsHook(DocsHook):
         return ancestors
 
     def on_nav(self, nav, config, files):  # pylint: disable=unused-argument
+        self.__nav_pages = nav.pages
+
         for key, (page, anchor) in self.DUMMIES.items():
             self.__dummy_parents[key] = DummyParent(files.get_file_from_path(page).page, anchor)
 
@@ -94,11 +97,10 @@ class BreadcrumbsHook(DocsHook):
             if not file_obj.page.is_homepage:
                 self.__adoptive_parents[pathlib.Path(file_obj.abs_src_path)] = file_obj.page
 
-    def on_page_context(self, context, page, config, nav):
-        if page.file.src_uri not in list(map(lambda p: p.file.src_uri, nav.pages)):
-            return context | {
-                "adoptive_ancestors": self.__find_adoptive_ancestors(config.docs_dir, page)
-            }
+    def on_pre_page(self, page, config, files):
+        if page.file.src_uri not in list(map(lambda p: p.file.src_uri, self.__nav_pages)):
+            page.ancestors.extend(self.__find_adoptive_ancestors(config.docs_dir, page))
+
+            return page
 
         return None
-

@@ -87,11 +87,11 @@ plugins:
       - "Non-commercial"
       - "Other"
   search: {}
+  section-index: {}
   literate-nav:
     nav_file: NAV.md
     implicit_index: true
     tab_length: 4
-  section-index: {}
   git-revision-date-localized:
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
     fallback_to_build_date: true
