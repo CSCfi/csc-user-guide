@@ -1,4 +1,6 @@
-# Overview
+# Computing
+
+## Overview
 
 Roihu and LUMI are CSC's supercomputers. Roihu, CSC's national supercomputer,
 has been available for CSC users since June 2026, replacing the retired Puhti
