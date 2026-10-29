@@ -78,6 +78,18 @@ In the future, it may become possible to submit batch jobs through the web
 interface, but for now the recommended way to launch standard batch jobs is
 using `sbatch` from the shell.
 
+
+### Job monitoring
+
+The Job monitoring app can be used to view the resource usage in your Slurm jobs.
+
+The table will show all your completed Slurm jobs for which performance monitoring data is
+available.
+
+The job-specific report pages will show a summary of the job resource usage as well as graphs for
+the CPU and memory usage over time.
+
+
 ### Project view
 
 Using the _Project view_ under the _Tools_ section in the top navbar, you can
