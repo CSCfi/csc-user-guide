@@ -296,6 +296,8 @@ validation:
     unrecognized_links: warn
     anchors: warn
 
+# nav: moved to docs/NAV.md
+
 not_in_nav: |
   # Accounts
   /accounts/how-to-access-mahti-large-partition.md
