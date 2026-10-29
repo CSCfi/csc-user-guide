@@ -13,10 +13,10 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 1. [Create a CSC account](#1-create-a-csc-account) 
 2. [Create a new CSC project](#2-create-a-new-csc-project)
 3. [Fill in the Description of Processing Activity (GDPR) form](#3-fill-in-the-description-of-processing-activity-gdpr-form)
-4. [Retrieve your project's Share ID from SD Connect](#4-retrieve-your-projects-share-id-from-sd-connect)
-5. [Contact CSC service desk](#5-contact-csc-service-desk)
-6. CSC adds members to your project, please wait
-7. CSC activates SD services for your project, please wait
+4. [Contact CSC service desk](#4-contact-csc-service-desk)
+5. CSC adds members to your project, please wait
+6. CSC activates SD services for your project, please wait
+7. [Retrieve your project's Share ID from SD Connect](#7-retrieve-your-projects-share-id-from-sd-connect)
 8. [Project Lifetime, Billing Units, and Data Retention](#8-project-lifetime-billing-units-and-data-retention)
 9. [Plan resources consumption and access data](#9-plan-resources-consumption-and-access-data)
 
@@ -98,27 +98,13 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 ---
 
-### 4. Retrieve your project's Share ID from SD Connect
-
-!!! warning-label
-    Team manager
-
-Login to [SD Connect service](https://sd-connect.csc.fi/) and copy your Share ID, which you need to deliver to to the Sensitive Data support team in the next step.
-
-You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
-
-![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
-
----
-
-### 5. Contact CSC service desk
+### 4. Contact CSC service desk
 
 !!! warning-label
     Team manager
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
-- Copy your project's Share ID to the email (see [step 4](#4-retrieve-your-projects-share-id-from-sd-connect)).
 - Attach a copy of your **data permit** to the email.
 - Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
 - Put your research team as cc.
@@ -126,16 +112,31 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 ---
 
 !!! Note ""
-    ### 6. CSC adds members to your project
+    ### 5. CSC adds members to your project
     - Please wait that Sensitive Data Support team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
 
 ---
 
 !!! Note ""
-    ### 7. CSC activates SD services for your project
+    ### 6. CSC activates SD services for your project
     - Please wait that Sensitive Data Support team activates SD services for your project.
     - You will receive an email notification, when everything is ready.
+
+---
+
+### 7. Retrieve your project's Share ID from SD Connect
+
+!!! warning-label
+    Team manager
+
+- Login to [SD Connect service](https://sd-connect.csc.fi/).
+- Copy your Share ID.
+- Send the Share ID to the Sensitive Data support team via the support email you have opened.
+
+You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
+
+![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
 
 ---
 
