@@ -17,17 +17,21 @@ class DummyParent:
             if item.children:
                 return self.__toc_item(item.children)
 
-            return "None"
+        return None
 
     @property
     def title(self):
         item = self.__toc_item(self.__page.toc)
-        return item.title
+        return item.title if item else None
 
     @property
     def url(self):
         item = self.__toc_item(self.__page.toc)
-        return f"{self.__page.url}{item.url}"
+        return f"{self.__page.url}{item.url}" if item else None
+
+    @property
+    def parent(self):
+        return self.__page
 
 
 class BreadcrumbsHook(DocsHook):
@@ -50,7 +54,6 @@ class BreadcrumbsHook(DocsHook):
         super().__init__(**kwargs)
         self.__adoptive_parents = {}
         self.__dummy_parents = {}
-        self.__nav_pages = []
 
     def __find_dummy(self, relative_dir):
         return self.__dummy_parents.get(str(relative_dir))
@@ -78,15 +81,16 @@ class BreadcrumbsHook(DocsHook):
                                or self.__find_surrogate(root_dir, parent_dir))
 
             if adoptive_lookup:
-                ancestors.append(adoptive_lookup)
+                if isinstance(adoptive_lookup, DummyParent):
+                    ancestors.extend((adoptive_lookup, adoptive_lookup.parent))
+                else:
+                    ancestors.append(adoptive_lookup)
 
             parent_dir = parent_dir.parent
 
         return ancestors
 
     def on_nav(self, nav, config, files):  # pylint: disable=unused-argument
-        self.__nav_pages = nav.pages
-
         for key, (page, anchor) in self.DUMMIES.items():
             self.__dummy_parents[key] = DummyParent(files.get_file_from_path(page).page, anchor)
 
@@ -97,10 +101,10 @@ class BreadcrumbsHook(DocsHook):
             if not file_obj.page.is_homepage:
                 self.__adoptive_parents[pathlib.Path(file_obj.abs_src_path)] = file_obj.page
 
-    def on_pre_page(self, page, config, files):
-        if page.file.src_uri not in list(map(lambda p: p.file.src_uri, self.__nav_pages)):
-            page.ancestors.extend(self.__find_adoptive_ancestors(config.docs_dir, page))
-
-            return page
+    def on_page_context(self, context, page, config, nav):
+        if page.file.src_uri not in list(map(lambda p: p.file.src_uri, nav.pages)):
+            return context | {
+                "adoptive_ancestors": self.__find_adoptive_ancestors(config.docs_dir, page)
+            }
 
         return None
