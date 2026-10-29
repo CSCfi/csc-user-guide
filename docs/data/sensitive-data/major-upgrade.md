@@ -50,9 +50,11 @@ Please review the following information:
 
 - **SD Desktop**: To gain access to the import and export functionality, [follow these instructions](secondary-use-major-upgrade.md).
 
-- **SD Connect**: In order to restore access to the register dataset, [follow these instructions](sd-use-case-secondary-use-project.md#4-retrieve-your-projects-share-id-from-sd-connect) to retrieve the Share ID of your project from SD Connect and deliver it to [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
+- **SD Connect**: In order to restore access to the register dataset, [follow these instructions](sd-use-case-secondary-use-project.md#7-retrieve-your-projects-share-id-from-sd-connect) to retrieve the Share ID of your project from SD Connect and deliver it to [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 - Get familiar with the [new features](secondarydata-access.md) for secondary use projects, and [export instructions](sd-desktop-secondary-export.md) for all project members.
+
+You can also join the **[CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/) on Wednesday, November 4th**, to learn more and dicuss the updates on CSC SD services for Secondary Use, or register for the online support sessions mentioned [above](#1-important-dates-and-support).
 
 
 ### 4. Known issues
