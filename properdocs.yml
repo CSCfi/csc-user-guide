@@ -624,7 +624,7 @@ nav:
   - Sensitive data:
       - data/sensitive-data/index.md
       - SD Connect and SD Desktop major upgrade guide:
-          - data/sensitive-data/overview.md
+          - data/sensitive-data/major-upgrade.md
           - Convert SD Connect buckets: data/sensitive-data/sd-connect-conversion.md
           - Restore SD Desktop import and export: data/sensitive-data/sd-desktop-major-upgrade.md
       - Table of contents: data/sensitive-data/sd-services-toc.md
