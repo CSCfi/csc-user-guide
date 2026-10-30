@@ -25,7 +25,7 @@ Free to use and open source under the
 
 ## Available
 
-* Roihu: 2.5.2, via the `bio-apps` module.
+* Roihu-CPU: 2.5.2, via the `bio-apps` module.
 
 ## Usage
 

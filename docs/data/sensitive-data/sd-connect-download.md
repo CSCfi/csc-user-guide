@@ -4,14 +4,14 @@
 
 ## On this page
 
-[* [1. Download and automated decryption](#1-download-and-automated-decryption)
+* [1. Download and automated decryption](#1-download-and-automated-decryption)
 * [1.1 Download size](#11-download-size)
 * [1.2 Download performance](#12-download-performance)
 * [1.2 Using a work laptop](#12-using-a-work-laptop)
 * [2. Downloading bucket content](#2-downloading-bucket-content)
 * [3. Downloading individual files](#3-downloading-individual-files)
 * [4. Problems downloading or opening files](#4-problems-downloading-or-opening-files)
-](https://github.com/CSCfi/csc-user-guide/edit/fm-connect-v3fix/docs/data/sensitive-data/sd-connect-download.md#12-using-a-work-laptop)
+
 
 ___
 

@@ -1,7 +1,10 @@
+<hgroup markdown>
+
 # Utilizing Apptainer containers in SD Desktop
 
-!!! warning-label
-    Skill level - Advanced 
+- !!! warning status  "Skill level &ndash; Advanced"
+
+</hgroup>
 
 As the SD Desktop is not directly connected internet, you can't use tools like Git, Conda or Pip to install new software there.
 Instead, you can use  [Apptainer](https://apptainer.org/docs/user/latest/introduction.html) software container tool to add new software to your SD Desktop environment. However, you have to first build or download an Apptainer container elsewhere, and then use _Allas/SD Connect_ to import the container to SD Desktop.
@@ -14,7 +17,7 @@ Apptainer containers. In this document we show how to import a ready-made Apptai
 
 ## Step by step tutorial
 
-*Before you start, please activate services **Puhti, SD Desktop** and **Allas/SD Connect** for your project. This happens in [MyCSC](https://my.csc.fi/login){ target="_blank" }.*
+*Before you start, please activate services **Roihu, SD Desktop** and **Allas/SD Connect** for your project. This happens in [MyCSC](https://my.csc.fi/login){ target="_blank" }.*
 
 <iframe width="562" height="316" srcdoc="https://www.youtube.com/embed/6-_pSrRu4-c" title="Utilizing Apptainer containers in SD Desktop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -25,7 +28,7 @@ How to import a ready-made Apptainer container from a public repository to SD De
 3. [Upload the container to SD Connect](#upload-the-container-to-allas-sd-connect)
 4. [Download the container to SD Desktop](#using-a-container-in-sd-desktop)
 
-### Importing ready-made container through Puhti
+### Importing ready-made container through Roihu
 
 #### Find a suitable container
 In the example below we import BETA Binding and Expression Target Analysis software to SD Desktop.
@@ -33,19 +36,15 @@ This tool is available as a ready-made Apptainer container in [Biocontainers](ht
 you can see that the Singularity module can be downloaded from URL: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
 
 #### Download the container
-As we don't need to build the container from scratch, we can use [puhti.csc.fi](../../computing/index.md) server to download the container image and push it to Allas.
+As we don't need to build the container from scratch, we can use [Roihu](../../computing/index.md) to download the container image and push it to Allas.
 
-First [login to puhti.csc.fi](https://www.puhti.csc.fi/public/){ target="_blank" }. Then, start an interactive batch job session with command:
+First log in to the [Roihu web interface](https://www.roihu.csc.fi/public/){ target="_blank" } and open a [Compute node shell](../../computing/webinterface/shell.md) in Roihu CPU.
 
-```text
-sinteractive
-```
-
-In the interactive session move to `LOCAL_SCRATCH` directory and set some Singularity related environment variables:
+In the shell session move to `TMPDIR` directory and set some Singularity related environment variables:
 
 ```text
-export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
-export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
+export SINGULARITY_TMPDIR=$TMPDIR
+export SINGULARITY_CACHEDIR=$TMPDIR
 unset XDG_RUNTIME_DIR
 ```
 
@@ -64,13 +63,13 @@ wget http://cistrome.org/BETA/src/BETA_test_data.zip
 
 #### Upload the container to Allas / SD Connect
 
-Then we upload these two files to Allas/SD Connect. In this example we use project _2012345_.
+Then we upload these two files to SD Connect. In this example we use project _2012345_.
 
 ```text
 module load allas
-allas-conf project_2012345
-a-put --sdx beta.sif -b 2012345_beta
-a-put --sdx BETA_test_data.zip -b 2012345_beta
+allas-conf project_2012345 --sdc
+a-put --sdc beta.sif -b 2012345_beta
+a-put --sdc BETA_test_data.zip -b 2012345_beta
 ```
 
 The commands above store the files into bucket `2012345_beta` in Allas. `a-put` is used with option `--sdx` in order to encrypt the uploaded data with SD Desktop compatible encryption. 

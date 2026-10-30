@@ -1,7 +1,19 @@
 # Using Allas storage service to receive sensitive research data
 
-These instructions provide an example of how a research group can use Allas service to receive **sensitive data** from external 
-data provider like a sequencing center. In many cases [SD Connect](sd-connect-sharing-for-import.md), provides you a more easy way to receive sensitive data but in some cases, SD Connect can't be used. For example, SD Connect is not able to provide you an encrypted file that you could later on decrypt in an environment that does not have internet connection.
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .warning-card }
+  
+This tutorial provides a  data transfer protocol, that is not recommended any longer.
+
+Please use a [method based on the latest version of SD Connect](sd-connect-sharing-for-import.md) if possible.
+
+Use the approach described here only in  cases where you are allowed to decrypt the data only in an environment where you don't have internet access.
+
+</div>
+
 
 ## Allas
 
@@ -38,7 +50,7 @@ Create a CSC account by logging in to MyCSC with Haka or Virtu.
 
 In addition to CSC user account, users must either join an existing CSC project 
 or set up a new CSC project. You can use the same project to access other 
-CSC services too like SD Desktop, SD Connect pt Puhti.
+CSC services too like SD Desktop, SD Connect, or Roihu.
 
 If you are eligible to act as a [project manager](https://research.csc.fi/prerequisites-for-a-project-manager), you can create a new CSC project in MyCSC and apply access to Allas.
 Select 'Academic' as the project type.  As a project manager, you can invite other users as members to your project. 
@@ -307,52 +319,52 @@ We recommend that you ask the data producer to encrypt your data with _CSC publi
 with the _key of your project_. This way you can use the data both in your local secure environment 
 and in CSC Sensitive Data Services.
 
-### 4.1 Using Puhti to create a shared bucket
+### 4.1 Using Roihu to create a shared bucket
 
 If you know the project number of the data producer, you can easily create a shared Allas 
-bucket using `a-tools` commands in _Puhti_. First open terminal connection to `puhti.csc.fi`
-(use SSH, PuTTY, or terminal connection from [Puhti web interface](https://puhti.csc.fi)).
+bucket using `rclone` and `a-commands` in _Roihu_. First open terminal connection to `roihu-cpu.csc.fi`
+(use SSH, PuTTY, or terminal connection from [Roihu web interface](https://www.roihu.csc.fi)).
 
 In chapter 2.2 we had researcher Tiina Tutkija who created encryption keys and stored them to Allas. 
 In her case a shared bucket could be created with following commands.
 
-First Tiina Tutkija opens a connection to Puhti. In a browser, she moves to URL
-[https://puhti.csc.fi](https://puhti.csc.fi) and logs in with her CSC account. Once the web interface of Puhti is open she opens a terminal with tool:
+First Tiina Tutkija opens a connection to Roihu. In a browser, she moves to URL
+[https://www.roihu.csc.fi](https://www.roihu.csc.fi) and logs in with her CSC account. Once the web interface of Roihu is open she opens a terminal with tool:
 
 **Tools/Login node shell**
 
-This tool provides terminal connection to Puhti.
+This tool provides terminal connection to Roihu.
 
 In the terminal, Tiina activates connection to Allas:
 
 ```text
 module load allas
-allas-conf
+allas-conf --swift
 ```
 
-Then she creates a new shared bucket with command:
+Then she creates a new shared bucket using `rclone` and `a-access`:
 
 ```text
-make-shared-bucket
+rclone mkdir allas:animine-data-import-1
+a-access --swift +rw project_2000111 animine-data-import-1
 ```
 
-This tool creates a new bucket and shares it with the collaborator.
-The command asks first for the name of the bucket to be created. In this
-case Tiina uses bucket name `animine-data-import-1` because bucket names should contain only lowercase letters,numbers and character "-".        
+The first command creates a new bucket. In this case Tiina uses bucket name
+`animine-data-import-1` because bucket names should contain only lowercase
+letters, numbers and character "-". The second command gives the project of
+the data producer, in this example `project_2000111`, read and write access
+to the bucket.
 
-Then the command asks for the project that should have access to the bucket.
-The project name of data producer is in this example `project_2000111`.
-
-Then she downloads the public key to Puhti:
+Then she downloads the public key to Roihu:
 
 ```text
-a-get animine-pub/data/animine_crypt4gh.pub
+a-get --swift animine-pub/data/animine_crypt4gh.pub
 ```
 
 And uploads the key to the shared bucket:
 
 ```text
-a-put animine_crypt4gh.pub -b animine-data-import-1
+a-put --swift animine_crypt4gh.pub -b animine-data-import-1
 ```
 
 Finally, Tiina sends the name of the shared bucket to the data producer 
@@ -366,7 +378,7 @@ After few days, data producer tells Tiina that all data has been imported to the
 Tiina can now remove the external access rights from the bucket with command:
 
 ```text
-a-access -rw project_2000111 animine-data-import-1
+a-access --swift -rw project_2000111 animine-data-import-1
 ```
 
 ## 5. Using encrypted data 

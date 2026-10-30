@@ -44,7 +44,7 @@ authentication for your CSC account in order to be able to use SD Connect-
 
 In addition to CSC user account, users must either join an existing CSC computing project 
 or set up a new computing project. You can use the same project to access other 
-CSC services too like SD Desktop, Puhti, or Allas.
+CSC services too like SD Desktop, Roihu, or Allas.
 
 If you are eligible to act as a [project manager](https://research.csc.fi/prerequisites-for-a-project-manager), you can create a new CSC project in MyCSC and apply access to SD Connect.
 Select 'Academic' as the project type.  As a project manager, you can invite other users as members to your project. 
@@ -71,13 +71,13 @@ After connecting, check that **Current project** setting refers to the CSC proje
 that you want to use. After that you can click the **Create folder** button to 
 create a new folder to be shared with the data provider.
 
-Avoid using spaces (use _ instead) and special characters in the folder names as they may cause problems in some cases. 
+Avoid using spaces (use - instead) and special characters in the folder names as they may cause problems in some cases. 
 Further, add some project specific feature, like project acronym, to the name, as the root folder needs to have an unique name 
 among all root folders of all SD Connect and Allas projects.
 
 ### 2.2 Sharing the folder
 
-For sharing you need to know the _Sharing ID_ string of the data producer. You should request this 32 characters long 
+For sharing you need to know the _Share ID_ string of the data producer. You should request this 32 characters long 
 random string from the data producer by email. 
 
 To do the sharing, go to the folder list in SD Connect and press the share icon of the folder you wish to share.
@@ -105,7 +105,7 @@ that automatically decrypts the data after downloading.
 The data can be accessed in [SD Desktop](https://sd-desktop.csc.fi) too, using the _Data Gateway_ 
 tool.
 
-In Linux and Mac computers, you can install a local copy of _allas-cli-utils_ tools that provides command line 
+In Linux and Mac computers, you can install a local copy of [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils) and [sd-lock-utils](https://github.com/CSCfi/sd-lock-util) tools that provides command line 
 tools to download (_a-get_) and upload ( a-put --sdc ) data from and to SD Connect.
 
 * [Using SD Connect data with a-commands](sd-connect-and-a-commands.md)

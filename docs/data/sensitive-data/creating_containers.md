@@ -29,15 +29,15 @@ In this tutorial we use a virtual machine that was launched using:
 
 *  Flavor: **Standard.medium**
 *  Instance Boot Source: **Image**
-*  Image Name: **Ubuntu-22.04**
+*  Image Name: **Ubuntu-24.04**
 
 
-## 2. Installing singularity and Allas tools to Ubuntu 22.04 server
+## 2. Installing singularity and Allas tools to Ubuntu 24.04 server
 
-Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **Apptainer** to create new software containers and **allas-tools** to upload the containers we will create to Allas.
+Here we start from a situation where we have logged in to our freshly started virtual machine for the first time. As preparatory steps we need to install to our virtual machine **Apptainer** to create new software containers and **allas-tools** and **sd-lock-util** to upload the containers we will create to SD Connect.
 
 
-The singularity installation is done with commands:
+The Apptainer installation is done with commands:
 
 ```text
 sudo apt update
@@ -53,10 +53,19 @@ After which Allas tools can be installed with:
 ```text
 sudo apt install python3-pip python3-dev
 sudo apt-get install python3-setuptools
-sudo pip3 install python-openstackclient
-sudo apt install python3-swiftclient
+sudo apt install python3-openstackclient
+sudo apt install restic
+#sudo apt install python3-swiftclient
 curl https://rclone.org/install.sh | sudo bash
+sudo apt install python3.12-venv
+python3 -m venv $HOME/python-venv
+source $HOME/python-venv/bin/activate
+pip3 install s3cmd
 git clone https://github.com/CSCfi/allas-cli-utils
+git clone https://github.com/CSCfi/sd-lock-util.git
+cd sd-lock-util
+pip3 install -r requirements.txt
+pip3 install .
 ```
 
 Note that this installation process needs to be done only once for a virtual machine.
@@ -79,7 +88,7 @@ And copy-paste to the new file the content from the sample definition file below
 
 ```text
 Bootstrap: docker
-From: ubuntu:20.04
+From: ubuntu:24.04
 Stage: build
 
 %environment
@@ -135,6 +144,7 @@ For example, following commands install _bamtools_ into Conda environment called
 ```text
 conda init bash
 bash
+conda config --add channels bioconda
 conda create -n biotools
 conda activate biotools
 conda install bamtools
@@ -195,35 +205,34 @@ apptainer exec sd_sandbox_1 samtools
 apptainer exec sd_tools_1.sif samtools
 ```
 
-## 4. Uploading container to Allas/SD Connect
+## 4. Uploading container to SD Connect
 
-In order to use the Apptainer container in SD desktop, we need to encrypt it with CSC public key and upload it to Allas. If you want to use the same container in other locations too, for example in Puhti and Mahti, you will need to upload another, non-encrypted version to Allas.
-
-For the upload process we use the Allas tools we installed in step 2, where we installed Allas tools to directory `$HOME/allas-cli-utils`.
-First we add this directory to command path:
+In order to upload the Apptainer container in SD Connect, we use the Allas tools we installed in step 2. In this example where we installed Allas tools to directory `$HOME/allas-cli-utils` and sd-lock-util to directory `$HOME/sd-lock-util`.
+First we add these directories to command path:
 
 ```text
-export PATH=${HOME}/allas-cli-utils:${PATH}
+export PATH=${HOME}/allas-cli-utils:$HOME/sd-lock-util:${PATH}
 ```
 
-Next we open connection to Allas using the `allas_conf` script. Note that you must define your CSC user account
-with `-u your-csc-account`. Here we assume that the user account is `kkayttaj`.
+Next we open connection to SD Connect using the `allas_conf` script. Note that you must define your CSC user account
+with `-u your-csc-account` and SD Connect compatibility with option `--sdc`. Here we assume that the user account is `kkayttaj`.
 
 ```text
-source ${HOME}/allas-cli-utils/allas_conf -u kkayttaj
+source ${HOME}/allas-cli-utils/allas_conf -u kkayttaj --sdc
 ```
 
-The command above asks for the password of the CSC user account and then lists the Allas projects that the user account has available.
-In this case we select the number that defines project _project_2000123_. After that the Allas connections to the selected project will remain active for the next eight hours.
+The command above asks for the password of the CSC user account and then lists the SD Connect projects that the user account has available.
+In this case we select the number that defines project _project_2000123_. After that the command ask for project specific API Key that can be created in the SD Connect web interface: [https://sd-connect.csc.fi](https://sd-connect.csc.fi).
+After the configuation the SD Connect connection to the selected project will remain active for the next 24 hours.
 
-Now we can access Allas with [a-tools](../Allas/using_allas/a_commands.md) or [rclone](../Allas/using_allas/rclone.md). 
-Next we upload the container image we just created to Allas with command:
+Now we can access SD Connect with [a-tools](../Allas/using_allas/a_commands.md). 
+Next we upload the container image we just created to SD Connect with command:
 
 ```text
-a-put --sdx sd_tools_1.sif -b 2000123_apptainer_sd -m "SD Compatible. Contains bamtools, samtools and vcftools."
+a-put --sdc sd_tools_1.sif -b 2000123-apptainer-sd
 ```
 
-In the command above option `--sdx` is used to encrypt the container with CSC public key. The encrypted container will be stored to bucket `2000123_apptainer_sd`. Here the bucket name contains the project number (2000123) to ensure uniqueness and _sd_ is used to indicate that this bucket contains SD Desktop compatible data. Option `-m` is used to add a description line to the metadata object that a-put creates.
+The encrypted container will be stored to bucket `2000123-apptainer-sd`. Here the bucket name contains the project number (2000123) to ensure uniqueness and _sd_ is used to indicate that this bucket contains SD Desktop compatible data.
 
 ## 5. Using Apptainer containers in SD Desktop
 
@@ -251,10 +260,10 @@ When using the Apptainer container, you should note that it has its own file sys
 
 By default, Apptainer bind mounts **home directory** (`/home/$USER`), `/tmp`, and **current working directory** (`$PWD`) into your container at runtime. If you need to mount additional directories you will need to define them with singularity option `-B source-directory:target-directory`.
 
-For example if we have input file `input_bam.bam` current working directory, it is automatically accessible for a command that is executed inside the container. But if we need also another input file `reference.bed` which locates in directory called `/data`, then we should add that directory to the list of bind-mounted directories. For example:
+For example if we have input file `input_bam.bam` current working directory, it is automatically accessible for a command that is executed inside the container. But if we need also another input file `reference.bed` which locates in a  `/media/volume1`, then we should add that directory to the list of bind-mounted directories. For example:
 
 ```text
-apptainer -B /data:/data exec sd_tools_1.sif samtools depth -a -b /data/reference.bed input_bam.bam > result.depth
+apptainer -B /media/volume1:/media/volume1 exec sd_tools_1.sif samtools depth -a -b /media/volume1/reference.bed input_bam.bam > result.depth
 ```
 
  

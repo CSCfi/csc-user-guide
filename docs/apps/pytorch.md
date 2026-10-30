@@ -148,6 +148,10 @@ If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md).
 
+If adding a few packages with `pip` is not enough, you can also build
+your own containers, for example by [extending CSC's machine learning
+containers](../computing/containers/overview.md#ml-containers).
+
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as
@@ -158,7 +162,7 @@ normal.
     If you are new to using machine learning on CSC's supercomputers,
     please read our new tutorial [Getting started with machine learning
     at CSC](../support/tutorials/ml-starting.md), which covers how to run
-    a simple PyTorch project on Puhti using the web user interface.
+    a simple PyTorch project on Roihu using the web user interface.
 
 
 ## License

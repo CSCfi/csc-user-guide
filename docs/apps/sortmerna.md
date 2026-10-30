@@ -25,11 +25,11 @@ Free to use and open source under [GNU LGPLv3](https://github.com/sortmerna/sort
 
 ## Available
 
-* Roihu: 7.0.0, via the `bio-apps` module.
+* Roihu-CPU: 7.0.0, via the `bio-apps` module.
 
 ## Usage
 
-SortMeRNA is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+SortMeRNA is part of the [bio-apps](bio-apps.md) collection on Roihu-CPU. Load the
 bio-apps module tree and then the SortMeRNA module:
 
 ```bash
@@ -39,13 +39,18 @@ module load sortmerna/7.0.0
 
 ### Databases
 
-SortMeRNA needs one or more rRNA reference databases (FASTA files, such as the SILVA or
-Rfam rRNA sets), which are **not** bundled with the module.
+SortMeRNA needs one or more rRNA reference databases (FASTA files). CSC provides the
+SortMeRNA 4.3 reference databases on Roihu, and the `sortmerna` module sets the
+`SORTMERNA_DB` environment variable to their location:
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, download the rRNA reference
-    databases you need to a writable location (for example your project's `/scratch`).
+* `smr_v4.3_default_db.fasta` (recommended)
+* `smr_v4.3_fast_db.fasta`
+* `smr_v4.3_sensitive_db.fasta`
+* `smr_v4.3_sensitive_db_rfam_seeds.fasta`
+
+Give a database with `--ref`, for example `--ref $SORTMERNA_DB/smr_v4.3_default_db.fasta`.
+To use your own reference files, note that SortMeRNA cannot read gzipped reference
+files (the reads can be gzipped).
 
 ### Running SortMeRNA
 
@@ -65,9 +70,14 @@ Rfam rRNA sets), which are **not** bundled with the module.
 module load bio-apps/v202603
 module load sortmerna/7.0.0
 
-sortmerna --ref rRNA_db.fasta --reads reads.fq.gz \
-    --workdir sortmerna_run --threads $SLURM_CPUS_PER_TASK
+sortmerna --ref $SORTMERNA_DB/smr_v4.3_default_db.fasta --reads reads.fq.gz \
+    --workdir sortmerna_run --fastx --other --threads $SLURM_CPUS_PER_TASK
 ```
+
+With `--fastx`, SortMeRNA writes the reads that match the rRNA database to a
+FASTA/FASTQ file (`aligned`), and `--other` writes the remaining, non-rRNA reads to
+a separate file (`other`). Both are written to `sortmerna_run/out/` and are
+compressed if the input reads are.
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 

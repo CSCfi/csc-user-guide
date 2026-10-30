@@ -27,7 +27,7 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Roihu: 1.3.6, via the `bio-apps` module.
+* Roihu-CPU: 1.3.6, via the `bio-apps` module.
 
 ## Usage
 

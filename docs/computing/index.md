@@ -1,42 +1,18 @@
 # Overview
 
-!!! warning "Puhti and Mahti retirement in 2026"
-    Puhti and Mahti will be decommissioned in 2026 and replaced by Roihu, CSC's
-    next-generation supercomputer offering enhanced performance and
-    capabilities.
+Roihu and LUMI are CSC's supercomputers. Roihu, CSC's national supercomputer,
+has been available for CSC users since June 2026, replacing the retired Puhti
+and Mahti systems. LUMI is one of the pan-European pre-exascale supercomputers,
+located in CSC's data center in Kajaani. The CPU partition of LUMI (LUMI-C) has
+been available since early 2022, and the full system with the large LUMI-G
+partition has been available since early 2023.
 
-    * Puhti computing services have been shut down since 31 July 2026.
-    * Mahti computing services have been shut down since 31 August 2026.
-    * Puhti and Mahti storage and login nodes are planned to remain accessible until 15 October 2026 at 12:00 EEST.
-    * Users are strongly encouraged to move any required data from these systems by the end of August 2026, as storage access cannot be fully guaranteed after that.
-
-    [Learn more about Roihu :material-arrow-right:](systems-roihu.md)
-
-Puhti, Mahti and Roihu are CSC's supercomputers. Puhti has been available for CSC users
-since 2 September 2019 and Mahti has been available since 26 August 2020. LUMI is
-one of the pan-European pre-exascale supercomputers, located in CSC's data
-center in Kajaani. The CPU partition of LUMI (LUMI-C) has been available since
-early 2022, and the full system with the large LUMI-G partition has been available since early 2023.
-
-Puhti and Mahti computing services have been shut down. Their login nodes and storage services are planned to remain accessible until 15 October 2026.
-
-Puhti contains CPU nodes with a range of memory sizes as well as a large GPU
-partition (Puhti AI), while Mahti contains homogeneous CPU nodes and is meant
-for larger jobs (minimum 128 CPU-cores). Mahti also contains a GPU partition
-since 2021 (Mahti AI) with Nvidia Ampere GPUs. See [specifications](available-systems.md)
-for details on the systems and [this page for an outline of differences between LUMI-C and
-Mahti](lumi-vs-mahti.md).
-
-Puhti and Mahti are being replaced in by CSC's next national supercomputer
-called **Roihu**. [Read more about Roihu here](systems-roihu.md). Roihu has been accessible for CSC users since end of June 2026.
-
-Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have separate login nodes
-and software environments.
-Roihu-CPU contains AMD EPYC CPUs and is intended for CPU-based computing, while
-Roihu-GPU provides GPU-accelerated computing with NVIDIA GH200 Grace Hopper
-Superchips. Roihu will also support jobs requiring larger amounts of memory than
-has been possible on CSC's previous national supercomputers, and provide
-enhanced support for sensitive data workloads.
+Roihu consists of two main partitions: **Roihu-CPU** and **Roihu-GPU** that have
+separate login nodes and software environments. Roihu-CPU contains AMD EPYC
+CPUs and is intended for CPU-based computing, while Roihu-GPU provides
+GPU-accelerated computing with NVIDIA GH200 Grace Hopper Superchips. Roihu also
+supports jobs requiring larger amounts of memory than CSC's previous national
+supercomputers, and will provide enhanced support for sensitive data workloads.
 
 CSC supercomputers use the Linux operating system and we recommend that you are familiar with
 basics of [Linux command line usage](../support/tutorials/env-guide/index.md) before starting.
@@ -63,15 +39,8 @@ of this user guide.
 
 --8<-- "ssh-ca.md"
 
-Connect using an SSH client:
-
-```bash
-ssh username@puhti.csc.fi
-# or
-ssh username@mahti.csc.fi
-```
-
-Roihu has separate login nodes for the Roihu-CPU and Roihu-GPU partitions:
+Connect using an SSH client. Roihu has separate login nodes for the Roihu-CPU
+and Roihu-GPU partitions:
 
 ```bash
 ssh username@roihu-cpu.csc.fi
@@ -83,10 +52,6 @@ These commands will connect you to one of the login nodes. If you need to
 connect to a specific login node, use the commands:
 
 ```bash
-ssh username@puhti-login[11-12,14-15].csc.fi
-# or
-ssh username@mahti-login[11-12,14-15].csc.fi
-# or
 ssh username@roihu-cpu-login[1-4].csc.fi
 # or
 ssh username@roihu-gpu-login[1-2].csc.fi
@@ -96,11 +61,8 @@ Where `username` is the username you get from CSC.
 
 For more details, see the [connecting](connecting/index.md) page.
 
-Puhti, Mahti and Roihu can also be accessed via their respective
-[web interfaces](webinterface/index.md) available at
-[www.puhti.csc.fi](https://www.puhti.csc.fi),
-[www.mahti.csc.fi](https://www.mahti.csc.fi) and
-[www.roihu.csc.fi](https://www.roihu.csc.fi).
+Roihu can also be accessed via its [web interface](webinterface/index.md)
+at [www.roihu.csc.fi](https://www.roihu.csc.fi).
 
 ### Scalability
 
@@ -131,7 +93,7 @@ This command shows information for all your CSC projects. You can select just
 one project to be reported with the `-p` option. For example:
 
 ```bash
-[kkayttaj@roihu-login1 ~]$ csc-projects -p project_2012345
+[kkayttaj@roihu-cpu-login1 ~]$ csc-projects -p project_2012345
 -----------------------------------------------------------------
 Project: project_2012345        Owner: Kalle Käyttäjä
 Title: "Ortotopology modeling"
@@ -163,8 +125,8 @@ csc-workspaces
 * [Systems](available-systems.md): What computational resources are available
 * [Usage policy](usage-policy.md): Usage policy of CSC supercomputers
 * [Connecting](connecting/index.md): How to connect to  CSC supercomputers
-* [Web interfaces](webinterface/index.md): How to connect to CSC supercomputers
-  using the web interfaces
+* [Web interface](webinterface/index.md): How to connect to Roihu
+  using the web interface
 * [Disk areas](disk.md): What places are there for storing data on CSC
   supercomputers
 * [Object storage](allas-in-roihu.md): Opening connections to Allas and Lumi-O object storage services 
@@ -178,3 +140,4 @@ csc-workspaces
 * [Debugging applications](debugging.md): How to debug your applications
 * [Performance analysis](performance.md): How to understand the performance of
   your applications
+* [AI Tools](ai-tools/docs-mcp.md): AI Tools provided by CSC

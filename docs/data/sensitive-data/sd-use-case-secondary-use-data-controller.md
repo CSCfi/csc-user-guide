@@ -81,7 +81,7 @@ The datasets will remain in your control after they are uploaded to the buckets 
 <div class="grid cards" markdown>
   
 - :material-alert:{ .lg .middle } **Data permit expiration and data deletion**
-  { .csc-grid-card-warning }
+  { .warning-card }
   
     You can [delete datasets](sd-connect-delete.md) from your organisation's project independently in SD Connect. However, when a data permit expires, the Sensitive Data support team will delete all files associated with the dataset from your project.
     The data will be deleted 90 days after the project in which the data users analyze the data is closed, which usually corresponds to the data permit's expiration date. However, if the project is closed earlier, the data will be removed regardless of whether the data permit remains valid.

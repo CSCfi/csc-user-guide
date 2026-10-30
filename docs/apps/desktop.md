@@ -10,8 +10,6 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
-        - Mahti
         - Roihu
     - LUMI
 ---
@@ -29,8 +27,6 @@ Free
 Desktop is available as an interactive application via the web interface for
 
 - Roihu
-- Mahti
-- Puhti
 - LUMI
 
 ## More information

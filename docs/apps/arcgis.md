@@ -7,10 +7,11 @@ catalog:
   license_type: Other
   disciplines:
     - Geosciences
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 # ArcGIS Python API
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 !!! info "Note"
     CSC had an ArcGIS consortium until 31.12.2025. From 2026 onwards CSC does not provide ArcGIS licenses for Finnish universities.

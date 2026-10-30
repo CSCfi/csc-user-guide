@@ -22,12 +22,14 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 
 ---
 
+<hgroup markdown>
+
 ### 1. Create a CSC account
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+- !!! warning status "Team manager"
+- !!! warning info "Team member"
+
+</hgroup>
 
 Create a CSC account if you have a Haka or Virtu account. If you do not have one, wait until the project has been created and then contact CSC. [How to get an account without Haka or Virtu](../../accounts/how-to-create-new-user-account.md#getting-an-account-without-haka-or-virtu)
 
@@ -43,10 +45,13 @@ Create a CSC account if you have a Haka or Virtu account. If you do not have one
 
 ---
 
+<hgroup markdown>
+
 ### 2. Create a new CSC project
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 - Sign in to MyCSC with your Haka or Virtu credentials.
 - Go to **Projects** page (left side menu or a hamburger menu at the top right corner).
@@ -87,10 +92,13 @@ In the next view, under Terms of Use for the project:
 
 ---
 
+<hgroup markdown>
+
 ### 3. Fill in the Description of Processing Activity (GDPR) form
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 When you first access your project, you’ll be prompted to complete the Description of Processing Activity (GDPR) form as your project handles personal data. This form requires key details such as the types of data collected (e.g. sensitive personal data), how it is used and secured, and the data controller (usually your home organization). The form will be linked to your CSC project and guide CSC in managing the data. You can edit the document later if needed.
   
@@ -98,10 +106,13 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 ---
 
+<hgroup markdown>
+
 ### 4. Contact CSC service desk
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 - Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
@@ -125,10 +136,13 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 ---
 
+<hgroup markdown>
+
 ### 7. Retrieve your project's Share ID from SD Connect
 
-!!! warning-label
-    Team manager
+- !!! warning status "Team manager"
+
+</hgroup>
 
 - Login to [SD Connect service](https://sd-connect.csc.fi/).
 - Copy your Share ID.
@@ -140,12 +154,14 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 ---
 
+<hgroup markdown>
+
 ### 8. Project Lifetime, Billing Units, and Data Retention
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+- !!! warning status "Team manager"
+- !!! warning info "Team member"
+
+</hgroup>
 
 #### 8.1 Default project lifetime
 
@@ -170,7 +186,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **After your project is closed**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ---
     - Access to SD Connect and SD Desktop services will be disabled.
@@ -181,12 +197,14 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 ---
 
+<hgroup markdown>
+
 ### 9. Plan resources consumption and access data
 
-!!! warning-label
-    Team manager
-!!! info-label
-    Team member
+- !!! warning status "Team manager"
+- !!! warning info "Team member"
+
+</hgroup>
 
 #### 9.1 Resource consumption
 
@@ -217,7 +235,7 @@ CSC shares a bucket for your project in SD Connect with Read-only access. This b
 <div class="grid cards" markdown>
   
 - :material-alert:{ .lg .middle } **Review the data for errors and omissions**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
     As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the extraction description as soon as possible after receiving access to the disclosed data. Suspected errors must be reported to the data controller within 3 months of the permit holder having obtained access to the disclosed data. **The 3-month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual desktop ready to access the data or not. Thus, we recommend starting the preparations for the data access early on. The data can be shared with your project once the data is transferred to CSC and your project is ready.

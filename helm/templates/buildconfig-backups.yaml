@@ -1,0 +1,24 @@
+{{- $resourcename := include "docs-csc.backupsName" . -}}
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  triggers:
+    - type: ConfigChange
+  output:
+    to:
+      kind: ImageStreamTag
+      name: {{ $resourcename | printf "%s:latest" | squote }}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: backups/Containerfile.backups
+      buildArgs:
+{{- list $ "base" "restic" | include "docs-csc.imageBuildArg" | indent 8 }}
+{{- .Values.components.backups.repo | default dict | include "docs-csc.repoOverride" | indent 8 }}
+  source:
+{{ include "docs-csc.gitSource" .Values.git | indent 4 -}}

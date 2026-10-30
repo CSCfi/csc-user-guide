@@ -19,7 +19,7 @@ When exporting files with Data Gateway, you can:
 <div class="grid cards" markdown>
   
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     If you are processing data under the Act on the Secondary Use of Health and Social Data, please follow the [specific guidance](sd-desktop-secondary-export.md) concerning the anonymity of your results before the export.
 
