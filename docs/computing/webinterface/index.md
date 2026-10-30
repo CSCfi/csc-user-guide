@@ -78,6 +78,20 @@ In the future, it may become possible to submit batch jobs through the web
 interface, but for now the recommended way to launch standard batch jobs is
 using `sbatch` from the shell.
 
+### Job monitoring
+
+The Job monitoring app shows how efficiently your Slurm jobs use the resources they reserved.
+It is intended to provide you with the information you need to improve the resource efficiency of your future jobs
+and will highlight resource requests that need attention.
+
+The table shows all your completed Slurm jobs from the last 60 days for which performance monitoring
+data is available (jobs with runtimes less than 1 minute are not recorded). Note that there is a delay of a
+few minutes after a job completes before reports become available.
+
+The job-specific report pages show a summary of the job's resource usage as well as plotted time series data
+for CPU, GPU and memory metrics throughout the job's runtime.
+
+
 ### Project view
 
 Using the _Project view_ under the _Tools_ section in the top navbar, you can
@@ -91,15 +105,15 @@ nodes and provide a graphical user interface. These are apps such as Jupyter
 Notebook, RStudio and Visual Studio Code. For a full list of applications and
 specific instructions, see the [Interactive apps](apps.md) page.
 
-!!! info-label
+!!! info ""
     If an interactive app does not start, or does not work as expected, you can
     delete the session and try to launch the app again. See also
     [Troubleshooting](apps.md#troubleshooting).
 
 ### Partitions and resources
 
-!!! warning-label
-    Only a few partitions of the cluster are available for use in the web
+!!! warning ""
+    Only a few partitions of Puhti and Mahti are available for use in the web
     interfaces. Some apps also have a more limited set of partitions available
     than others.  
     The maximum length of jobs in the web interface is 16 hours to keep the

@@ -21,7 +21,7 @@ You can browse through the main topics of the manual using the navigation bar on
 <div class="grid cards" markdown>
 
 - :material-check-circle:{ .lg .middle } **Key features**
-  { .csc-grid-card-success }
+  { .success-card }
 
     ---
 
@@ -34,7 +34,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 
 - :material-close-circle:{ .lg .middle } **Limitations**
-  { .csc-grid-card-error }
+  { .error-card }
 
 
     Known temporary issues:
