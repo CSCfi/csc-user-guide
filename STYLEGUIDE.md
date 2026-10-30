@@ -16,10 +16,10 @@
 ## General help
  - [Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/)
  - Also some special markup possible, e.g. admonitions (colored highlight boxes). Please look at Markdown source for examples, and use preview
- - [A reference card](https://docs.csc.fi/ref/) is available along with [Markdown source for reference card](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md)
+ - [A reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/) is available along with [Markdown source for reference card](docs/ref.md)
  - When in doubt, check how other pages are formatted
    - An example of a well-formatted page is the one on [disk areas](https://docs.csc.fi/computing/disk/)
-    ([source file](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/disk.md)),
+    ([source file](docs/computing/disk.md)),
     including examples on how to format code blocks, tables and admonitions
  - Note that pages under a certain category may have a unified formatting that should be followed
    - For example, application pages should have **Available** (which versions and on which systems),

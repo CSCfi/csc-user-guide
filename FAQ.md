@@ -3,7 +3,7 @@
 The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting contributing to Docs CSC through pull requests. This page highlights in more detail common questions and pitfalls you may encounter during the process.
 
 - [Frequently asked questions](#frequently-asked-questions)
-  - [How to include my new page in the navigation panel?](#how-to-include-my-new-page-in-the-navigation-panel)
+  - [How to include my new page in the navigation sidebar?](#how-to-include-my-new-page-in-the-navigation-sidebar)
     - [SectionPage](#sectionpage)
   - [How to add an image?](#how-to-add-an-image)
   - [How to embed an external video?](#how-to-embed-an-external-video)
@@ -29,49 +29,53 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How do I improve search results?](#how-do-i-improve-search-results)
   - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
 
-## How to include my new page in the navigation panel?
+## How to include my new page in the navigation sidebar?
 
-If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the `properdocs.yml` file in the root of the repository. Items appearing in the navigation panel are listed in this file as key/value pairs under the `nav:` key, for example:
+> [!TIP]
+> The following is achieved by using two ProperDocs plugins. For more information/documentation, see
+> - [mkdocs-literate-nav](https://oprypin.github.io/mkdocs-literate-nav/) and
+> - [mkdocs-section-index](https://oprypin.github.io/mkdocs-section-index/)
 
-```yaml
-nav:
-  - Home: index.md
-  - Accounts:
-    - accounts/index.md
-    - Creating a new user account: accounts/how-to-create-new-user-account.md
-    - Changing your password: accounts/how-to-change-password.md
-     ...
+If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the appropriate _NAV.md_ file for the section you want your page to appear in. For example, the root _NAV.md_ file, [_docs/NAV.md_](docs/NAV.md), defines the top-level sections as a list of Markdown links:
+
+```markdown
+- [Accounts](accounts/)
+- [Computing](computing/)
+- [Cloud services](cloud/)
+- [Data](data/)
+- [Sensitive data](data/sensitive-data/)
+- [Applications](apps/index.md)
+    - [By discipline](apps/by_discipline.md)
+    - [By availability](apps/by_availability.md)
+    - [By license](apps/by_license.md)
+- [FAQ](support/faq/index.md)
+- [Tutorials](support/tutorials/index.md)
+- [Training material](support/training-material/index.md)
+- [Contact](support/contact.md)
+- [What's new](support/whats-new.md)
 ```
 
-To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `properdocs.yml` as this will break things (an exception to this are the [SectionPages](#sectionpage)).
+> [!IMPORTANT]
+> Four spaces are used for indentation.
 
-If you intend to make substantial changes to the navigation menu, please communicate this for example in the RC-channel #docs.csc.fi and/or #research.csc.fi as big changes may break some links used elsewhere.
+The links to Markdown files appear as simple navigation items pointing to the page defined in that file. List items with nested lists under them define navigation sections, i.e. dropdown menus. Links where the target ends in a `/` are sections defined in another _NAV.md_ file found in the target directory.
 
-### SectionPage
+In the root _NAV.md_ above, all of the sections are links, meaning the dropdown itself appears as a link leading to the index page for that section. When the target is a section defined in another _NAV.md_ file, the index page for the section must be a file named _index.md_ in the target directory. If the section is defined as a nested list, the file can be named freely.
 
-The first item under 'Accounts' above is a so-called SectionPage. It is a hybrid of Section and
-Page introduced by a feature we use called
-[Section index pages](https://jaywhj.github.io/mkdocs-materialx/setup/setting-up-navigation.html?h=index#section-index-pages) 
-that makes the sections in the navigation sidebar clickable. Every section should have a
-SectionPage that acts as the index for the section. SectionPage for a section
-is defined in [properdocs.yml](properdocs.yml):
-
-```yaml
-    - Section:                         # Section
-      - path/to/file.md                # SectionPage
-      - Page: path/to/another-file.md  # Page
+```markdown
+- [Section with index page](path/to/the/page.md)
+    - [Page under the section](path/to/another/page.md)
 ```
 
-If an existing page is selected as the SectionPage for a section like so,
+A navigation section without an index page can be defined as just a text item:
 
-```yaml
-    - Section:
-      - path/to/file.md
-      - Page: path/to/file.md
+```markdown
+- Section without index page
+    - [A page](path/to/some/page.md)
 ```
 
-the page in question will be opened and highlighted when clicking on the section name in the
-sidebar.
+> [!WARNING]
+> If you intend to make substantial changes to the navigation menu, please communicate this for example in the RC-channel #docs.csc.fi and/or #research.csc.fi as big changes may break some links used elsewhere.
 
 ## How to add an image?
 
@@ -277,7 +281,7 @@ A good way to highlight a new update is to add an entry to the What's new -secti
 
 ## Which Markdown features/extensions are available?
 
-Have a look at [the reference card](https://docs.csc.fi/ref).
+Have a look at [the reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/).
 
 ## How do I add definitions to the glossary / display definitions as tooltips?
 
@@ -290,7 +294,7 @@ acronym you wish to define already exists, please use the following format to ad
 definition: `*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory`. New
 acronym-definition pairs may be added to an existing file, or a new file may be created within the
 same directory. The new file must then be introduced in [properdocs.yml](properdocs.yml). An example is
-found in [the reference card](https://docs.csc.fi/ref#glossary).
+found in [the reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/#glossary).
 
 The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.csc.fi/glossary/).
 
@@ -299,7 +303,7 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 The announcement bar below the header is controlled by editing the `extra.announcement` mapping in [mkdocs.yml](mkdocs.yml):
 
 - `announcement`
-  - `icon` pick an icon [here](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search)
+  - `icon` pick an icon [here](https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis.html#search)
     - `name` replace the first `-` with `/`; prefer 'material' icons
     - `mirror` mirror the right-hand side icon (`true` or `false`)
   - `color_scheme` pick a color [here](https://design-system.csc.fi/design-tokens/color) (`null` for the yellow note color)

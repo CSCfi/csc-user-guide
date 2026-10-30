@@ -31,7 +31,7 @@ deploying the documentation. There are more resources available, though:
 - [STYLEGUIDE.md](STYLEGUIDE.md) &mdash; Content and formatting instructions
 - [FAQ.md](FAQ.md) &mdash; More in-depth explanations of common questions you might encounter while contributing
 - [GETTING_STARTED.md](GETTING_STARTED.md) &mdash; Setting up a local development environment
-- [Reference card](docs.csc.fi/ref) &mdash; On the available elements
+- [Reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/) &mdash; On the available elements
     - [Markdown source for Reference card](docs/ref.md)
 
 ## For the impatient
@@ -58,7 +58,7 @@ must use pull requests.
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
- - When creating a new article, add it also to the properdocs.yml navigation OR in the index.md file in that folder (in case of FAQs for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel).
+ - When creating a new article, add also a link to it in one of the _NAV.md_ files (see the [root _NAV.md_ file](docs/NAV.md)) OR in the index.md file in that folder (in case of FAQs for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-sidebar).
     - For new software (Applications) pages, see [this FAQ entry](FAQ.md#how-do-i-add-a-new-applications-page) on how to include them on the Applications index pages. **Do not edit these index pages by hand!**
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it. See the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) for instructions.
