@@ -4,7 +4,7 @@
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
   
 This tutorial provides a  data transfer protocol, that is not recommended any longer.
 
