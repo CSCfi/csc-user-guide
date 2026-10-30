@@ -146,6 +146,9 @@ plugins:
       "data/kaivos/kaivos_perl.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_remote.md": "data/kaivos/index.md"
       "data/kaivos/overview.md": "data/kaivos/index.md"
+      "data/sensitive-data/findata-permit.md": "data/sensitive-data/sd-use-case-secondary-use-project.md"
+      "data/sensitive-data/single-register-permit.md": "data/sensitive-data/sd-use-case-secondary-use-project.md"
+      "data/sensitive-data/sd-desktop-audited.md": "data/sensitive-data/secondarydata-access.md"
       # renamed files:
       "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
       "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
@@ -167,6 +170,7 @@ plugins:
       "computing/nvprof.md": "apps/nsys.md"
       "computing/pdb.md": "apps/pdb.md"
       "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
+      "data/sensitive-data/single-register-submission.md": "data/sensitive-data/sd-use-case-secondary-use-data-controller.md"
       # files moved to Allas:
       # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
       "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -345,6 +349,7 @@ not_in_nav: |
   /data/sensitive-data/sd-desktop-major-upgrade-option1.md
   /data/sensitive-data/sd-desktop-major-upgrade-option2.md
   /data/sensitive-data/sd-desktop-major-upgrade-option3.md
+  /data/sensitive-data/secondary-use-major-upgrade.md
 
   # Sensitive data tutorials
   /data/sensitive-data/tutorials/*.md
