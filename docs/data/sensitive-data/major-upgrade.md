@@ -51,7 +51,7 @@ Please review the following information:
 
 - Get familiar with the [new features](secondarydata-access.md) for secondary use projects, and [export instructions](sd-desktop-secondary-export.md) for all project members.
 
-You can also join the **[CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/) on Wednesday, November 4th**, to learn more and dicuss the updates on CSC SD services for Secondary Use, or register for the online support sessions mentioned [above](#1-important-dates-and-support).
+You can also join the **[CSC Research Support Coffee](https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/) on Wednesday, November 4th**, to learn more and dicuss the updates on CSC SD services for Secondary Use, or register for the online support sessions mentioned [above](#1-support).
 
 
 
