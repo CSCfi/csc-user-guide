@@ -1,5 +1,10 @@
 # Computing environment
 
+## Roihu web interface updated to release 5, 29.10.2026
+
+* A Job monitoring app has been added for detailed job efficiency data.
+* Disk quotas for dataset projects now show up correctly.
+
 ## Puhti and Mahti have been shut down, 15.10.2026
 
 Puhti and Mahti have been fully decommissioned as of 15 October 2026.
