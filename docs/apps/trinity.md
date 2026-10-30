@@ -17,19 +17,20 @@ Trinity is used for _de novo_ reconstruction of transcriptomes from RNA-seq data
 independent software modules: **Inchworm**, **Chrysalis**, and **Butterfly**, applied sequentially to process 
 large volumes of RNA-seq reads. Trinity partitions the sequence data into many individual de Bruijn graphs, each 
 representing the transcriptional complexity at a given gene or locus, and then processes each graph independently 
-to extract full-length splicing isoforms and to tease apart transcripts derived.
+to extract full-length splicing isoforms and to tease apart transcripts derived from paralogous genes.
 
-The Trinity module at CSC also includes TransDecoder and Trinotate tools to analyze the results of a Trinity run.
+To predict the proteins of the assembled transcripts and annotate them, use
+[TransDecoder](transdecoder.md) and [Trinotate](trinotate.md).
 
 [TOC]
 
 ## License
 
-Free to use and open source under [Broad Institute License](https://github.com/genome-vendor/trinity/blob/master/LICENSE).
+Free to use and open source under the [BSD 3-Clause License](https://github.com/trinityrnaseq/trinityrnaseq/blob/master/LICENSE).
 
 ## Available
 
-Roihu-CPU: 2.15.2
+* Roihu-CPU: 2.15.2
 
 ## Usage
 
@@ -74,7 +75,7 @@ In the actual `Trinity` command the number of computing cores to be used (`--CPU
 This variable contains the value set by the `--cpus-per-task` Slurm option.
 
 !!! note "Option --grid-exec not currently available in Roihu"
-The `--grid-exec` option is not currently available on Roihu.
+    The `--grid-exec` option is not currently available on Roihu.
 
 
 
@@ -88,9 +89,11 @@ Look here for [more information about running batch jobs](../computing/running/g
 
 Please also check the [Trinity website](https://github.com/trinityrnaseq/trinityrnaseq/wiki) to get hints for estimating the required resources.
 
-!!! note ""
-    AutoTrinotate is currently not available on Roihu. We are looking into adding it.
+To annotate the assembly, see [Trinotate](trinotate.md).
 
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

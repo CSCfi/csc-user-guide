@@ -25,7 +25,9 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 ## Available
 
-* Roihu-CPU: 4.0.0a2 (a HUMAnN 4.0 alpha release), via the `bio-apps` module.
+* Roihu-CPU: 3.9 and 4.0.0a2 (a HUMAnN 4.0 alpha release), via the `bio-apps` module.
+
+HUMAnN 3.9 is the current stable release. Use it unless you need HUMAnN 4.
 
 ## Usage
 
@@ -34,7 +36,7 @@ bio-apps module tree and then the HUMAnN module:
 
 ```bash
 module load bio-apps/v202603
-module load humann/4.0.0a2
+module load humann/3.9
 ```
 
 You can then run HUMAnN:
@@ -45,35 +47,34 @@ humann --help
 
 ### Databases
 
-HUMAnN's reference databases (ChocoPhlAn and UniRef) are several gigabytes and are
-**not** bundled with the module. HUMAnN also uses [MetaPhlAn](metaphlan.md) for
-taxonomic prescreening, which needs its own database.
+CSC provides the reference databases for both HUMAnN versions on Roihu, and the
+module sets these environment variables to the databases of the loaded version:
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, download and use your own
-    copies as shown below.
+| Variable | Database |
+|----------|----------|
+| `$HUMANN_NUC_DB` | ChocoPhlAn nucleotide database (`--nucleotide-database`) |
+| `$HUMANN_PROT_DB` | UniRef protein database (`--protein-database`) |
+| `$HUMANN_UTIL_DB` | Utility mapping files (`--utility-database` in HUMAnN 4, and `humann_regroup_table`) |
 
 HUMAnN stores its database paths in a configuration file (`humann.cfg`) inside the
 module's installation directory. On Roihu this installation is **read-only**, so
-`humann_config` and the default config update of `humann_databases` cannot save
-paths there. Instead, download the databases to a writable location (for example
-your project's `/scratch` directory) with `--update-config no`, and point HUMAnN at
-them on the command line for each run.
+`humann_config` cannot change the paths. Instead, give the databases on the command
+line for each run, as shown below.
 
-```bash
-humann_databases --download chocophlan full /scratch/<project>/humann_db --update-config no
-humann_databases --download uniref uniref90_diamond /scratch/<project>/humann_db --update-config no
-```
+HUMAnN also runs [MetaPhlAn](metaphlan.md) for taxonomic prescreening. The module
+sets up the MetaPhlAn database that matches the HUMAnN version, so you do not need
+to give it.
 
 ### Running HUMAnN
 
-HUMAnN can utilize several CPU cores. Set `--cpus-per-task` to the desired number
-and pass `--threads $SLURM_CPUS_PER_TASK` to HUMAnN so it matches the requested
-number of cores. Point HUMAnN at your downloaded databases with `--nucleotide-database`
-and `--protein-database` (and MetaPhlAn's database via `--metaphlan-options`).
+Download a small test file:
 
-Example batch job script:
+```bash
+wget https://github.com/biobakery/humann/raw/master/examples/demo.fastq.gz
+```
+
+HUMAnN can use several CPU cores. Set `--cpus-per-task` to the number of cores and
+pass `--threads $SLURM_CPUS_PER_TASK` to HUMAnN. Example batch job script:
 
 ```bash
 #!/bin/bash
@@ -89,22 +90,33 @@ Example batch job script:
 #SBATCH --mem-per-cpu=2000M
 
 module load bio-apps/v202603
-module load humann/4.0.0a2
+module load humann/3.9
 
-DB=/scratch/<project>/humann_db
-
-# Download a test file
-wget https://github.com/biobakery/humann/raw/master/examples/demo.fastq.gz
-
-# Run HUMAnN, specifying the database locations on the command line
 humann --threads $SLURM_CPUS_PER_TASK --input demo.fastq.gz \
-    --nucleotide-database $DB/chocophlan \
-    --protein-database $DB/uniref \
+    --nucleotide-database $HUMANN_NUC_DB \
+    --protein-database $HUMANN_PROT_DB \
     --output demo_out
 ```
 
-Replace `<project>` with your CSC project (for example `project_2001234`), and use
-the same project in the database paths above.
+Replace `<project>` with your CSC project (for example `project_2001234`).
+
+With HUMAnN 4.0.0a2, load `humann/4.0.0a2` and also add
+`--utility-database $HUMANN_UTIL_DB`. HUMAnN 4 reads its pathway files from the
+utility database.
+
+The results are written to `demo_out`. HUMAnN 3.9 writes the gene family, pathway
+abundance and pathway coverage tables to `demo_genefamilies.tsv`,
+`demo_pathabundance.tsv` and `demo_pathcoverage.tsv`. HUMAnN 4 numbers its output
+files, for example `demo_2_genefamilies.tsv` and `demo_4_pathabundance.tsv`.
+
+To regroup the gene families, for example to KEGG orthologs, give the mapping file
+from `$HUMANN_UTIL_DB` with `-c`. `humann_rename_table` adds the names of the groups:
+
+```bash
+humann_regroup_table -i demo_out/demo_genefamilies.tsv \
+    -c $HUMANN_UTIL_DB/map_ko_uniref90.txt.gz -o demo_ko.tsv
+humann_rename_table -i demo_ko.tsv -n kegg-orthology -o demo_ko_named.tsv
+```
 
 ## Support
 
