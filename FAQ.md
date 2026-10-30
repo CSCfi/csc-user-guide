@@ -4,7 +4,6 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
 
 - [Frequently asked questions](#frequently-asked-questions)
   - [How to include my new page in the navigation sidebar?](#how-to-include-my-new-page-in-the-navigation-sidebar)
-    - [SectionPage](#sectionpage)
   - [How to add an image?](#how-to-add-an-image)
   - [How to embed an external video?](#how-to-embed-an-external-video)
   - [How to add links?](#how-to-add-links)
@@ -156,8 +155,6 @@ You can preview how the Docs CSC page would look like with your changes included
 ### Locally using the ProperDocs tool
 
 This user guide uses [ProperDocs](https://properdocs.org/) to generate documentation pages. ProperDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
-
-Alternatively, see [CONTRIBUTING.md](CONTRIBUTING.md#building-the-website-using-the-included-dockerfile) for instructions for Docker/Podman.
 
 #### Venv
 
