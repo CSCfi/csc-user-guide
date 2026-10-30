@@ -52,6 +52,21 @@ module load samtools/1.21
 samtools index input.bam
 ```
 
+### Running FreeBayes in parallel
+
+FreeBayes itself uses one core. `freebayes-parallel` splits the genome into regions,
+runs FreeBayes on several regions at a time and merges the results into one VCF
+file. Make a list of regions from the reference index (`samtools faidx reference.fa`
+makes the index), here in 100 kb pieces, and give the number of parallel runs
+after the regions file:
+
+```bash
+fasta_generate_regions.py reference.fa.fai 100000 > regions.txt
+freebayes-parallel regions.txt 16 -f reference.fa input.bam > results.vcf
+```
+
+### Example batch script
+
 FreeBayes analysis jobs can be computationally heavy and should be run as batch jobs on Roihu. Below is a sample batch job script:
 
 ```bash
@@ -64,12 +79,14 @@ FreeBayes analysis jobs can be computationally heavy and should be run as batch 
 #SBATCH --partition=small
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --mem-per-cpu=16000M
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=64G
 
 module load bio-apps/v202603
 module load freebayes/1.3.6
 
-freebayes -f reference.fa input.bam > results.vcf
+fasta_generate_regions.py reference.fa.fai 100000 > regions.txt
+freebayes-parallel regions.txt $SLURM_CPUS_PER_TASK -f reference.fa input.bam > results.vcf
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
