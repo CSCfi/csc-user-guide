@@ -1,4 +1,4 @@
-# Overview
+# Getting started with Pouta
 
 Here is a short video explaining how to run a virtual machine with the Pouta service.
 

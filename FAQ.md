@@ -3,8 +3,7 @@
 The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting contributing to Docs CSC through pull requests. This page highlights in more detail common questions and pitfalls you may encounter during the process.
 
 - [Frequently asked questions](#frequently-asked-questions)
-  - [How to include my new page in the navigation panel?](#how-to-include-my-new-page-in-the-navigation-panel)
-    - [SectionPage](#sectionpage)
+  - [How to include my new page in the navigation sidebar?](#how-to-include-my-new-page-in-the-navigation-sidebar)
   - [How to add an image?](#how-to-add-an-image)
   - [How to embed an external video?](#how-to-embed-an-external-video)
   - [How to add links?](#how-to-add-links)
@@ -12,7 +11,10 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
   - [How can I preview my edits?](#how-can-i-preview-my-edits)
     - [Using the preview feature for active branches hosted on Rahti](#using-the-preview-feature-for-active-branches-hosted-on-rahti)
     - [Locally using the ProperDocs tool](#locally-using-the-properdocs-tool)
-      - [Tests](#tests)
+      - [Venv](#venv)
+      - [Conda](#conda)
+      - [Preview server](#preview-server)
+      - [Tets](#tests)
   - [How and who should I ask to review my PR?](#how-and-who-should-i-ask-to-review-my-pr)
   - [I was asked to review a PR, what should I do?](#i-was-asked-to-review-a-pr-what-should-i-do)
   - [When reviewing a PR, how to leave comments/suggest changes so that they appear as a diff in the conversation tab?](#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab)
@@ -25,53 +27,57 @@ The [contributing guide](CONTRIBUTING.md) outlines the basic steps of starting c
     - [How do I tag an application as available under a web interface?](#how-do-i-tag-an-application-as-available-under-a-web-interface)
     - [How do I add scientific disciplines to an application page?](#how-do-i-add-scientific-disciplines-to-an-application-page)
     - [What if there is no application page, but the application still needs to be listed on the index pages?](#what-if-there-is-no-application-page-but-the-application-still-needs-to-be-listed-on-the-index-pages)
-  - [How do I make footnotes?](#how-do-i-make-footnotes)
+  - [How do I add footnotes?](#how-do-i-add-footnotes)
   - [How do I improve search results?](#how-do-i-improve-search-results)
   - [How do I redirect incoming links](#how-do-i-redirect-incoming-links)
 
-## How to include my new page in the navigation panel?
+## How to include my new page in the navigation sidebar?
 
-If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the `properdocs.yml` file in the root of the repository. Items appearing in the navigation panel are listed in this file as key/value pairs under the `nav:` key, for example:
+> [!TIP]
+> The following is achieved by using two ProperDocs plugins. For more information/documentation, see
+> - [mkdocs-literate-nav](https://oprypin.github.io/mkdocs-literate-nav/) and
+> - [mkdocs-section-index](https://oprypin.github.io/mkdocs-section-index/)
 
-```yaml
-nav:
-  - Home: index.md
-  - Accounts:
-    - accounts/index.md
-    - Creating a new user account: accounts/how-to-create-new-user-account.md
-    - Changing your password: accounts/how-to-change-password.md
-     ...
+If you add a new page that you want to appear in the left-hand-side navigation panel, you need to edit the appropriate _NAV.md_ file for the section you want your page to appear in. For example, the root _NAV.md_ file, [_docs/NAV.md_](docs/NAV.md), defines the top-level sections as a list of Markdown links:
+
+```markdown
+- [Accounts](accounts/)
+- [Computing](computing/)
+- [Cloud services](cloud/)
+- [Data](data/)
+- [Sensitive data](data/sensitive-data/)
+- [Applications](apps/index.md)
+    - [By discipline](apps/by_discipline.md)
+    - [By availability](apps/by_availability.md)
+    - [By license](apps/by_license.md)
+- [FAQ](support/faq/index.md)
+- [Tutorials](support/tutorials/index.md)
+- [Training material](support/training-material/index.md)
+- [Contact](support/contact.md)
+- [What's new](support/whats-new.md)
 ```
 
-To include your page in the navigation, add a new key/value pair corresponding to a title followed by the path to your file, for example `- My title: path/to/my-page.md`. Make sure that you include these under the correct section, i.e. mind the indentation. Also, don't refer to the same page twice in `properdocs.yml` as this will break things (an exception to this are the [SectionPages](#sectionpage)).
+> [!IMPORTANT]
+> Four spaces are used for indentation.
 
-If you intend to make substantial changes to the navigation menu, please communicate this for example in the RC-channel #docs.csc.fi and/or #research.csc.fi as big changes may break some links used elsewhere.
+The links to Markdown files appear as simple navigation items pointing to the page defined in that file. List items with nested lists under them define navigation sections, i.e. dropdown menus. Links where the target ends in a `/` are sections defined in another _NAV.md_ file found in the target directory.
 
-### SectionPage
+In the root _NAV.md_ above, all of the sections are links, meaning the dropdown itself appears as a link leading to the index page for that section. When the target is a section defined in another _NAV.md_ file, the index page for the section must be a file named _index.md_ in the target directory. If the section is defined as a nested list, the file can be named freely.
 
-The first item under 'Accounts' above is a so-called SectionPage. It is a hybrid of Section and
-Page introduced by a feature we use called
-[Section index pages](https://jaywhj.github.io/mkdocs-materialx/setup/setting-up-navigation.html?h=index#section-index-pages) 
-that makes the sections in the navigation sidebar clickable. Every section should have a
-SectionPage that acts as the index for the section. SectionPage for a section
-is defined in [properdocs.yml](properdocs.yml):
-
-```yaml
-    - Section:                         # Section
-      - path/to/file.md                # SectionPage
-      - Page: path/to/another-file.md  # Page
+```markdown
+- [Section with index page](path/to/the/page.md)
+    - [Page under the section](path/to/another/page.md)
 ```
 
-If an existing page is selected as the SectionPage for a section like so,
+A navigation section without an index page can be defined as just a text item:
 
-```yaml
-    - Section:
-      - path/to/file.md
-      - Page: path/to/file.md
+```markdown
+- Section without index page
+    - [A page](path/to/some/page.md)
 ```
 
-the page in question will be opened and highlighted when clicking on the section name in the
-sidebar.
+> [!WARNING]
+> If you intend to make substantial changes to the navigation menu, please communicate this for example in the RC-channel #docs.csc.fi and/or #research.csc.fi as big changes may break some links used elsewhere.
 
 ## How to add an image?
 
@@ -105,7 +111,7 @@ Links are added using the markdown syntax `[This is my link text](link url or pa
 * Link pointing to a file in another directory: `[Contact Service Desk](../support/contact.md)`, where the double dot `../` syntax means going up one level in the directory tree relative to the current directory. Then the path is followed to `support` and the contact page `contact.md`.
 * An absolute link to a file relative to the `docs` directory: `[Contact Service Desk](/support/contact.md)` (These do not work when, e.g., browsing the source files through the GitHub web interface).
 * **For internal links you need to include the file extension `.md` in the target**
-* **Don't make internal links using a URL, `https://docs.csc.fi/...` or `https://csc-guide-preview.2.rahtiapp.fi/...`**. Use URLs only in links pointing to an external target.
+* **Don't make internal links using a URL, `https://docs.csc.fi/...` or `https://csc-guide-preview.rahtiapp.fi/...`**. Use URLs only in links pointing to an external target.
 * **Always add a descriptive link text to make the content accessible.** Plain URLs without link text are not acceptable! Screen readers will read it as h-t-t-p-s-colon-slash-slash...
   * `[Read more here](gromacs.md#usage)` is not accessible. `[Read more about Gromacs usage](gromacs.md#usage)` is better.
   * If, for some rare reason, writing a descriptive link text is not possible, you can use html and aria-label: `<a href="https://code.visualstudio.com" aria-label="This is readable by screen readers">Visual Studio Code</a>`. This label is read by the screen readers but is not visible to others.
@@ -127,15 +133,35 @@ Tests are run to check, for example, that your pull request complies with the CS
 1. Under the `Build Failed` section, click the link at `The build failed` to open the Travis CI page with logged details on the build.
     - Alternatively, look for your PR in the [list of csc-user-guide pull requests at Travis CI](https://app.travis-ci.com/github/CSCfi/csc-user-guide/pull_requests).
 1. Scan through the Job log for any text marked in red. These are errors that the test found, and the reason for them is written before the red text.
-1. An example error is shown below. Here, the `link_check.py` test script was run to see whether any links were broken. The test found two broken section links and it tells you in which files and on which lines the errors are.
+1. An example error is shown below. Here, Travis is performing a test build of the site in "strict mode" to see if ProperDocs reports any warnings. Look for lines starting with `WARNING - `:
 
     ```console
-    $ python3 tests/python_link_tests/link_check.py
-    The section link namd.md#batch-script-example-for-mahti in file docs/apps/namd.md on line 33 is broken
-    The section link cp2k.md#example-batch-script-for-mahti-using-mixed-mpi-openmp-parallelization in file docs/apps/cp2k.md on line 81 is broken
-    No broken file links found
-    No hidden files found
-    The command "python3 tests/python_link_tests/link_check.py" exited with 1.
+    INFO    -  whats_new-hook: What's new entries read from 'support/wn/data-new.md'.
+    INFO    -  whats_new-hook: What's new entries read from 'support/wn/apps-new.md'.
+    INFO    -  whats_new-hook: What's new entries read from 'support/wn/training-new.md'.
+    INFO    -  whats_new-hook: What's new entries read from 'support/wn/comp-new.md'.
+    INFO    -  whats_new-hook: What's new entries read from 'support/wn/cloud-new.md'.
+    INFO    -  glossary-hook: Glossary entries read from 'includes/snippets/glossaries/hpc.md'.
+    INFO    -  glossary-hook: Glossary entries read from 'includes/snippets/glossaries/cloud.md'.
+    INFO    -  testing-hook: test build
+    INFO    -  Cleaning site directory
+    INFO    -  Building documentation to directory: /home/joonaso/Worktrees/csc-user-guide.nav-md/site
+    WARNING -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+                - support/faq/why-is-my-pr-failing-the-tests.md
+    INFO    -  whats_new-hook: Appending What's new entries to 'index.md'.
+    INFO    -  glossary-hook: Writing glossary to 'support/glossary.md'.
+    INFO    -  whats_new-hook: Appending What's new entries to 'support/whats-new.md'.
+    WARNING -  Doc file 'support/faq/why-is-my-pr-failing-the-tests.md' contains a link '/dev/null', but the target is not found among documentation files.
+    INFO    -  testing-hook: DocsTests.no_fixmes_are_present_in_documentation_sources: [Passed: 0, Failed: 1]
+    WARNING -  testing-hook: FIXME found on support/faq/why-is-my-pr-failing-the-tests.md line(s) 42!
+    INFO    -  testing-hook: None of the documentation source files should include the word 'FIXME'.
+    INFO    -  testing-hook: DocsTests.app_page_contains_license_heading: [Passed: 220, Failed: 0]
+    INFO    -  testing-hook: DocsTests.doc_page_has_no_internal_links_to_production_domain: [Passed: 758, Failed: 1]
+    WARNING -  testing-hook: The hyperlink 'this' on page support/faq/why-is-my-pr-failing-the-tests.md points to 'docs.csc.fi'!
+    INFO    -  testing-hook: No internal links should point to the site domain.
+
+    Aborted with 4 warnings in strict mode!
+    The command "bash tests/checkbuild.bash" exited with 1.
     ```
 
 1. Fix the errors, commit and push the revised files to the same branch and the tests should now pass.
@@ -146,14 +172,12 @@ You can preview how the Docs CSC page would look like with your changes included
 
 ### Using the preview feature for active branches hosted on Rahti
 
-* A full preview for ongoing work is available for all branches: https://csc-guide-preview.2.rahtiapp.fi/origin/
+* A full preview for ongoing work is available for all branches: https://csc-guide-preview.rahtiapp.fi/origin/
     - Select your branch from the list to get a preview of your version of Docs CSC
 
 ### Locally using the ProperDocs tool
 
 This user guide uses [ProperDocs](https://properdocs.org/) to generate documentation pages. ProperDocs comes with it's own preview server for a quick local preview of your edits. You can install the requirements for running Docs CSC locally (all of the following commands are to be run while in the root directory of the cloned repository) with Pip or Conda (recommended).
-
-Alternatively, see [CONTRIBUTING.md](CONTRIBUTING.md#building-the-website-using-the-included-dockerfile) for instructions for Docker/Podman.
 
 #### Venv
 
@@ -235,7 +259,7 @@ The tests depend on the Conda environment, so remember to activate it before run
 ## How and who should I ask to review my PR?
 
 1. Ask someone (one or two persons) who knows the *content* of the work you have committed to review your pull request. This is done in your pull request view using the right-hand-side panel, under `Reviewers`. The panel will suggest a few names for you based on, for example, who has edited the same pages recently. To view more reviewer options, click the cogwheel in the upper right corner of the `Reviewers` panel. If you're still unsure who to pick, you can always drop a message in the Rocket Chat channel #docs.csc.fi. Always request someone to review your PR, otherwise there's a high chance that it will just linger around.
-2. To help the reviewer to get started with going through your PR, you should leave a comment in the PR with a link to the preview page `https://csc-guide-preview.2.rahtiapp.fi/origin/your-branch/path/to/page/` with your additions/changes (edit `/your-branch/path/to/page/` as needed). Any other comments are of course also helpful for the reviewer to understand what you have done.
+2. To help the reviewer to get started with going through your PR, you should leave a comment in the PR with a link to the preview page `https://csc-guide-preview.rahtiapp.fi/origin/your-branch/path/to/page/` with your additions/changes (edit `/your-branch/path/to/page/` as needed). Any other comments are of course also helpful for the reviewer to understand what you have done.
 3. Once the reviewer has gone through your PR, they will request changes or approve the PR. Once approved, someone with merge permissions will merge your PR to the master branch. If the changes you have made are urgent, you can always ping the Rocket Chat channel #docs.csc.fi to expedite the merging of your PR.
 
 ## I was asked to review a PR, what should I do?
@@ -243,7 +267,7 @@ The tests depend on the Conda environment, so remember to activate it before run
 1. Read any comments left by the requestor. If you understand the content of the PR and have time, you're up for the task. Otherwise, communicate to the requestor that you're unable to review the PR so that they can request someone else.
 2. Ensure that all tests have passed. If the tests are failing, notify the requestor. [See also above](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do).
 3. Check which files have been modified under tab `Files changed`. The panel shows the _diff_, i.e. which lines have been deleted and which have been added. Focus on these changes, but also look that the content looks good and is correct overall. Are there typos, is the text clear and concise, is the content accessible (see [Style Guide](STYLEGUIDE.md#accessibility))?
-4. Go to the [Rahti preview page](https://csc-guide-preview.2.rahtiapp.fi/origin/) of the branch and check that the formatting of the page looks good. If the requestor has not left the preview link as a comment, select the branch from list. The name of the branch can be seen in the PR under the title (e.g. `username wants to merge N commits into master from name-of-branch`). It's important that you view the page in the preview because the preview feature of GitHub does not show all formatting correctly, e.g. indentation of bullet-point lists. Check that links work. Note that absolute internal links will not work in the preview, but work on docs.csc.fi.
+4. Go to the [Rahti preview page](https://csc-guide-preview.rahtiapp.fi/origin/) of the branch and check that the formatting of the page looks good. If the requestor has not left the preview link as a comment, select the branch from list. The name of the branch can be seen in the PR under the title (e.g. `username wants to merge N commits into master from name-of-branch`). It's important that you view the page in the preview because the preview feature of GitHub does not show all formatting correctly, e.g. indentation of bullet-point lists. Check that links work. Note that absolute internal links will not work in the preview, but work on docs.csc.fi.
 5. If there are small errors, for example typos, you can correct these directly in the PR: In the `Files changed` tab go the file you want to correct, select `Edit file` (behind the three dots in the top right corner). *Commit the corrections to the same branch so that they get added to the PR!*
 6. If there are substantial revisions that should be made, click the green `Review changes` button in the top right corner and select `Request changes`. You can also leave general feedback without explicit approval. It's a good idea to suggest changes so that they appear as a diff in the conversation tab, [see here](FAQ.md#when-reviewing-a-pr-how-to-leave-commentssuggest-changes-so-that-they-appear-as-a-diff-in-the-conversation-tab).
 7. Once all corrections have been made, approve the changes (also behind the `Review changes` button). Someone with merge privileges will merge the PR into master.
@@ -277,7 +301,7 @@ A good way to highlight a new update is to add an entry to the What's new -secti
 
 ## Which Markdown features/extensions are available?
 
-Have a look at [the reference card](https://docs.csc.fi/ref).
+Have a look at [the reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/).
 
 ## How do I add definitions to the glossary / display definitions as tooltips?
 
@@ -290,7 +314,7 @@ acronym you wish to define already exists, please use the following format to ad
 definition: `*[DFT]: 1. Discrete Fourier Transform, 2. Density Functional Theory`. New
 acronym-definition pairs may be added to an existing file, or a new file may be created within the
 same directory. The new file must then be introduced in [properdocs.yml](properdocs.yml). An example is
-found in [the reference card](https://docs.csc.fi/ref#glossary).
+found in [the reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/#glossary).
 
 The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.csc.fi/glossary/).
 
@@ -299,7 +323,7 @@ The glossary is also viewable as a page at [docs.csc.fi/glossary](https://docs.c
 The announcement bar below the header is controlled by editing the `extra.announcement` mapping in [mkdocs.yml](mkdocs.yml):
 
 - `announcement`
-  - `icon` pick an icon [here](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=icon#search)
+  - `icon` pick an icon [here](https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis.html#search)
     - `name` replace the first `-` with `/`; prefer 'material' icons
     - `mirror` mirror the right-hand side icon (`true` or `false`)
   - `color_scheme` pick a color [here](https://design-system.csc.fi/design-tokens/color) (`null` for the yellow note color)

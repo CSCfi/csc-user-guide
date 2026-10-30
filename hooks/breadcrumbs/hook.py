@@ -17,17 +17,21 @@ class DummyParent:
             if item.children:
                 return self.__toc_item(item.children)
 
-            return "None"
+        return None
 
     @property
     def title(self):
         item = self.__toc_item(self.__page.toc)
-        return item.title
+        return item.title if item else None
 
     @property
     def url(self):
         item = self.__toc_item(self.__page.toc)
-        return f"{self.__page.url}{item.url}"
+        return f"{self.__page.url}{item.url}" if item else None
+
+    @property
+    def parent(self):
+        return self.__page
 
 
 class BreadcrumbsHook(DocsHook):
@@ -77,7 +81,10 @@ class BreadcrumbsHook(DocsHook):
                                or self.__find_surrogate(root_dir, parent_dir))
 
             if adoptive_lookup:
-                ancestors.append(adoptive_lookup)
+                if isinstance(adoptive_lookup, DummyParent):
+                    ancestors.extend((adoptive_lookup, adoptive_lookup.parent))
+                else:
+                    ancestors.append(adoptive_lookup)
 
             parent_dir = parent_dir.parent
 
@@ -101,4 +108,3 @@ class BreadcrumbsHook(DocsHook):
             }
 
         return None
-

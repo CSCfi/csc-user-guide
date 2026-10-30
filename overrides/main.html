@@ -10,6 +10,11 @@
 {% include "partials/docs-announce.html" %}
 {% endblock hero %}
 
+{% block content %}
+  {{ super() }}
+  {% include "partials/docs-updated.html" %}
+{% endblock content %}
+
 {% block footer %}
   {% include "partials/pre-footer.html" %}
   {{ super() }}

@@ -2,6 +2,8 @@
 # file ../requirements.txt contains the current frozen environment.
 properdocs
 mkdocs-materialx
+mkdocs-section-index
+mkdocs-literate-nav
 mkdocs-redirects
 mkdocs-git-revision-date-localized-plugin
 feedparser

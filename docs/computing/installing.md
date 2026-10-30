@@ -1,4 +1,6 @@
-# Overview
+# Installing software
+
+## Overview
 
 It is possible to install own software on CSC supercomputers if you cannot find a software
 suitable for your needs from the [list of pre-installed applications](../apps/index.md)
