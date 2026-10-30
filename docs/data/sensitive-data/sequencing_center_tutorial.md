@@ -1,7 +1,19 @@
 # Using Allas storage service to receive sensitive research data
 
-These instructions provide an example of how a research group can use Allas service to receive **sensitive data** from external 
-data provider like a sequencing center. In many cases [SD Connect](sd-connect-sharing-for-import.md), provides you a more easy way to receive sensitive data but in some cases, SD Connect can't be used. For example, SD Connect is not able to provide you an encrypted file that you could later on decrypt in an environment that does not have internet connection.
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .warning-card }
+  
+This tutorial provides a  data transfer protocol, that is not recommended any longer.
+
+Please use a [method based on the latest version of SD Connect](sd-connect-sharing-for-import.md) if possible.
+
+Use the approach described here only in  cases where you are allowed to decrypt the data only in an environment where you don't have internet access.
+
+</div>
+
 
 ## Allas
 

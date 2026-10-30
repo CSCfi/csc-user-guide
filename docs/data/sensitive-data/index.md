@@ -5,7 +5,7 @@
 - :material-alert:{ .lg .middle } **Note**
   { .warning-card }
 
-    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](overview.md).
+    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
   
 </div>
 
@@ -48,13 +48,11 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
     ---
 
-    [Start here with **Findata permit** :material-arrow-right:](findata-permit.md)
+    [Start here: Accessing secondary use health and social data :material-arrow-right:](secondarydata-access.md)
 
-    [Start here with **Public Register permit** :material-arrow-right:](single-register-permit.md)
+    [Create an account and a secondary use project :material-arrow-right:](sd-use-case-secondary-use-project.md)
 
-    [Analyse with SD Desktop for secondary use :material-arrow-right:](sd-desktop-audited.md)
-
-    [Submit secondary use data :material-arrow-right:](single-register-submission.md)
+    [Data controller: transfer secondary use data to SD Desktop :material-arrow-right:](sd-use-case-secondary-use-data-controller.md)
 
 </div>
 
