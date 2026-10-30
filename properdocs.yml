@@ -737,7 +737,7 @@ not_in_nav: |
   /data/sensitive-data/sd-desktop-major-upgrade-option1.md
   /data/sensitive-data/sd-desktop-major-upgrade-option2.md
   /data/sensitive-data/sd-desktop-major-upgrade-option3.md
-  data/sensitive-data/secondary-use-major-upgrade.md
+  /data/sensitive-data/secondary-use-major-upgrade.md
 
   # Sensitive data tutorials
   /data/sensitive-data/tutorials/*.md
