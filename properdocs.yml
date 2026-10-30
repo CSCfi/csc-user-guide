@@ -669,6 +669,7 @@ nav:
               - Approve access to FEGA data: data/sensitive-data/sd-apply-approval.md
               - Enable reuse of FEGA data: data/sensitive-data/sd-apply-dac.md
       - Secondary use of health and social data:
+          # - Major upgrade for services for secondary use: data/sensitive-data/secondary-use-major-upgrade.md
           - Start here:
               - data/sensitive-data/secondarydata-access.md
               - Access with a Secondary Use project: data/sensitive-data/sd-use-case-secondary-use-project.md
