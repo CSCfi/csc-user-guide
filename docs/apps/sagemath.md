@@ -7,11 +7,12 @@ catalog:
   license_type: Free
   disciplines:
     - Mathematics and Statistics
-  available_on:
-    - Puhti
+  unchecked: true
 ---
 
 # SageMath
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 SageMath is a free open-source mathematics software system licensed
 under the GPL. It builds on top of many existing open-source packages:

@@ -29,13 +29,13 @@ mount with command syntax:
 sshfs username@hostname:/path/to/dir /path/to/mountpoint
 ```
 
-For example, to make the home directory of user _kayttaja_ on Puhti visible to
+For example, to make the home directory of user _kayttaja_ on Roihu visible to
 a local Linux computer, one would execute the following commands on the local
 machine:
 
 ```bash
 mkdir csc_home
-sshfs kayttaja@puhti.csc.fi:/users/kayttaja csc_home
+sshfs kayttaja@roihu-cpu.csc.fi:/users/kayttaja csc_home
 ```
 
 !!! info "Note"

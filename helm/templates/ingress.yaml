@@ -1,0 +1,32 @@
+{{- $sitehost := include "networking.siteHost" . -}}
+{{- if not ($sitehost | hasSuffix ".rahtiapp.fi") }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+{{ include "networking.ingressName" . | list $ | include "networking.ingressMetadata" | indent 2 }}
+spec:
+  rules:
+    - host: {{ $sitehost }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "docs-csc.origName" . }}
+                port:
+                  number: 8000
+{{- range $lang := .Values.components.translator.languages }}
+          - path: {{ printf "/%s" $lang.code }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "docs-csc.altName" $ }}
+                port:
+                  number: 8000
+{{- end }}
+  tls:
+    - hosts:
+        - {{ $sitehost }}
+      secretName: {{ include "networking.domainTlsSecretName" . }}
+{{- end }}

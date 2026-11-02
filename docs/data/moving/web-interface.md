@@ -5,13 +5,13 @@
     prompting. Currently, the maximum size for individual file uploads is 10 GB.
 
 Files can be uploaded and downloaded to/from CSC supercomputers using the file
-browser functionality of [Puhti, Mahti](../../computing/webinterface/index.md)
+browser functionality of [Roihu](../../computing/webinterface/index.md)
 and [LUMI web interfaces](https://docs.lumi-supercomputer.eu/runjobs/webui/).
 The file browser can be opened from the Files menu in the top navigation bar.
-This displays a list of all project disk areas you have access to (example for
-Puhti below).
+This displays a list of all project disk areas you have access to (example
+below).
 
-![Puhti web interface front page](../../img/ood-files.png 'Puhti web interface front page')
+![Web interface front page](../../img/ood-files.png 'Web interface front page')
 
 **In the file browser you can:**
 
@@ -21,4 +21,4 @@ Puhti below).
 * Create new files/directories
 * Open a command-line shell in the current directory
 
-![Puhti web interface file browser](../../img/ood-files2.png 'Puhti web interface file browser')
+![Web interface file browser](../../img/ood-files2.png 'Web interface file browser')

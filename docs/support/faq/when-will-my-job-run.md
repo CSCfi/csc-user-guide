@@ -13,12 +13,12 @@ squeue -u $USER
 
 An estimate when a job would run (if no new jobs were submitted and if all 
 running and queuing jobs used all the time they have requested) can be shown 
-for job ID 22425300 with:
+for job ID 2264302 with:
 
 ```bash
-[username@puhti-login12 ~]$ squeue -j 22425300 --start
-   JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST(REASON)
-22425300     small cool_job username PD 2024-07-26T06:27:12      1 r05c49               (Resources)
+[username@roihu-cpu-login1 ~]$ squeue -j 2264302 --start
+             JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST(REASON)
+           2264302     small cool_job  cscuser PD 2026-10-13T13:50:26      1 rc4105               (Resources)
 ```
 
 `Priority` as the reason for why the job is pending means that there are other

@@ -10,15 +10,14 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
         - Roihu
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
 # ParaView
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 ParaView is an open source, powerful software for scientific visualization. Under the hood, it uses the VTK library, in Python wrapping. We recommend the [HPC web interface remote desktops](../computing/webinterface/desktop.md) for interactive use.
 
@@ -39,8 +38,6 @@ ParaView uses a [permissive BSD license](https://www.paraview.org/paraview-licen
 ## Available
 
 * Roihu-CPU: 6.1.1
-* Puhti: 5.10.1
-* Mahti: 5.10.1
 * LUMI: 5.8.0
 
 ## Usage

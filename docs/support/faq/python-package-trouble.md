@@ -11,20 +11,20 @@ $ which python3
 
 $ module load python-data
 $ which python3
-/appl/soft/ai/tykky/python-data-2024-04-update2/bin/python3
+/appl/soft/manual/aida/x86_64/python-data/python-data-2026-03-2/bin/python3
 
-$ module load geoconda
+$ module load python-geo
 $ which python3
-/appl/soft/geo/geoconda/3.11.10/bin/python3
+/appl/soft/manual/geo/x86_64/python-geo/3.14.5/bin/python3
 
-$ module load pytorch
+$ module load python-pytorch
 $ which python3
-/appl/soft/ai/wrap/pytorch-2.6/bin/python3
+/appl/soft/manual/aida/x86_64/pytorch/pytorch-2.13-update1/bin/python3
 
-$ module load pytorch
-$ source venv-pytorch2.6/bin/activate  # ← activating virtual environment
+$ module load python-pytorch
+$ source venv-pytorch2.13/bin/activate  # ← activating virtual environment
 $ which python3
-/scratch/project_2001659/mvsjober/venv-pytorch2.6/bin/python3
+/scratch/project_2001234/cscuser/venv-pytorch2.13/bin/python3
 ```
 
 You can also check the Python version:
@@ -59,45 +59,45 @@ pip3 list -v | less
 In `less` you can use the arrow keys or Page Up and Page Down keys to
 move around. Press 'q' to quit.
 
-Below is an example (with many lines removed) using the python-data
+Below is an example (with many lines removed) using the python-geo
 module combined with a venv and some packages installed into the
 user's home directory.
 
 ```console
-Package    Version  Location                                                                Installer
----------- -------- ----------------------------------------------------------------------- ---------
-aiohttp    3.9.3    /PUHTI_TYKKY_FRQGCcR/miniconda/envs/env1/lib/python3.10/site-packages   conda    # ← tykky
-alembic    1.13.1   /PUHTI_TYKKY_FRQGCcR/miniconda/envs/env1/lib/python3.10/site-packages   pip      # ← tykky
+Package       Version Location                                                               Installer
+------------- ------- ---------------------------------------------------------------------- ---------
+geopandas     1.1.3   /ROIHU_TYKKY_euxliVc/miniforge/envs/env1/lib/python3.14/site-packages  conda     # ← tykky
+geoparquet-io 1.2.0   /ROIHU_TYKKY_euxliVc/miniforge/envs/env1/lib/python3.14/site-packages  pip       # ← tykky
 ..
-biopython  1.85     /users/mvsjober/.local/lib/python3.10/site-packages                     pip      # ← user's home
+biopython     1.88    /users/cscuser/.local/x86_64/lib/python3.14/site-packages              pip       # ← user's home
 ..
-cowsay     6.1      /projappl/project_2001659/mvsjober/my-venv/lib/python3.10/site-packages pip      # ← project venv
+cowsay        6.1     /projappl/project_2001234/cscuser/my-venv/lib/python3.14/site-packages pip       # ← project venv
 ```
 
 In the `pip3 list -v` output, check the Location column. In the example
-above the packages with locations starting with `/PUHTI_TYKKY_` are
-those coming from the python-data module, which has been installed
+above the packages with locations starting with `/ROIHU_TYKKY_` are
+those coming from the python-geo module, which has been installed
 with [Tykky][tykky]. Note that these are paths inside the container
 created with Tykky. The package `biopython` seems to be installed into
 the user's home directory, while `cowsay` is in the user's venv
 virtual environment found in a project folder.
 
-To see only packages not coming from the CSC-installed python-data module:
+To see only packages not coming from the CSC-installed python-geo module:
 
 ```bash
-pip3 list -v | grep -v /PUHTI_TYKKY
+pip3 list -v | grep -v /ROIHU_TYKKY
 ```
 
 Note that some modules are not using [Tykky][tykky] and Conda, for
-example pytorch has packages installed into `/usr/local/lib` or
-`/usr/local/lib64`. Note that these are paths inside the pytorch
+example python-pytorch has packages installed into `/usr/local/lib` or
+`/usr/local/lib64`. Note that these are paths inside the python-pytorch
 container.
 
 ```console
 Package    Version  Location                                  Installer
 ---------- -------- ----------------------------------------- ---------
-absl-py    1.4.0    /usr/local/lib/python3.11/site-packages   pip      # ← pytorch container
-aiohttp    3.11.10  /usr/local/lib64/python3.11/site-packages pip      # ← pytorch container
+absl-py    2.5.0    /usr/local/lib/python3.12/site-packages   pip      # ← python-pytorch container
+aiohttp    3.14.3   /usr/local/lib64/python3.12/site-packages pip      # ← python-pytorch container
 ```
 
 [tykky]: ../../computing/containers/tykky.md

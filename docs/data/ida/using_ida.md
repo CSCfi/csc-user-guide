@@ -14,7 +14,7 @@ More information about applying for IDA storage space can be found at the
 
 IDA can be used with a web browser user interface, as well as with a
 command-line client tool `ida` that is available on the computing servers
-hosted by CSC (Puhti and Mahti). IDA client can also be downloaded from
+hosted by CSC (Roihu). IDA client can also be downloaded from
 [GitHub](https://github.com/CSCfi/fairdata-ida-v3/tree/master/cli).
 
 The storage of files in IDA can be managed using the web and command-line
@@ -77,7 +77,7 @@ moving data from staging area to the frozen area, is possible only through the
 The basic syntax of the `ida` commands is:
 
 ```bash
-ida <task> [options] <target_in_ida> <target_in_puhti>
+ida <task> [options] <target_in_ida> <target_in_roihu>
 ```
 
 To check the contents of your staging area in IDA, use the command:
@@ -91,7 +91,7 @@ area instead of the staging area. For example, the following command would give
 you information about the file `test2` in the root of the frozen area:
 
 ```bash
-[kkayttaj@puhti-login12 ~] ida info -f /test2
+[kkayttaj@roihu-cpu-login1 ~] ida info -f /test2
 project:    2000136
 pathname:   /test2
 area:       frozen
@@ -103,7 +103,7 @@ modified:   2018-10-15T08:17:53Z
 frozen:     2018-10-15T08:58:15Z
 ```
 
-Uploading and downloading files and directories between Puhti and IDA is done
+Uploading and downloading files and directories between Roihu and IDA is done
 with the commands:
 
 ```bash
@@ -111,13 +111,13 @@ ida upload <target_in_ida> <local_file>
 ida download <target_in_ida> <local_file> 
 ```
 
-For example in Puhti, the command:
+For example in Roihu, the command:
 
 ```bash
 ida upload /test123/data1 test_data
 ```
 
-will upload file `test_data` from Puhti to the IDA staging area and store the
+will upload file `test_data` from Roihu to the IDA staging area and store the
 data in the directory `test123` with the name `data1`. The directory `test123`
 will be automatically created in the staging area if it does not already exist.
 

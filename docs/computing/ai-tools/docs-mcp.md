@@ -1,0 +1,55 @@
+# CSC Documentation MCP Server
+
+!!! note "Experimental"
+    This service is experimental. Tools and their exact outputs may change, do not
+    rely on it in a production environment.
+
+Model Context Protocol (MCP) is a standardized way for AI agents to access a large
+variety of tools. See the [MCP documentation](https://modelcontextprotocol.io/docs/getting-started/intro)
+for a general introduction.
+
+The CSC Documentation MCP server lets agents search the CSC User Guide for up-to-date
+information about HPC, Roihu, and other CSC services. It indexes the documentation as
+snippets and returns the snippets that best match a query. The search is *semantic*,
+so the agent does not have to guess the exact keywords used in the documentation. A
+query phrased in the agent's own words is usually enough to find the relevant passages.
+
+The server is public and requires no authentication.
+
+## How it works
+
+The server exposes a single tool, `search_csc_docs`, which takes a search query and
+returns the closest matching documentation snippets. The agent decides when to call
+it and what to search for.
+
+| Parameter | Description | Values |
+| --- | --- | --- |
+| `query` | The search query, in natural language. | Text, up to 100 characters. |
+| `k` | How many of the best matching snippets to return. | An integer from 1 to 10. Default is 4. |
+
+The indexed documentation is kept up-to-date automatically, so the snippets reflect
+the current CSC User Guide without any action on your part.
+
+The snippets come with links to the corresponding CSC User Guide webpage, so you can
+ask the agent to cite its sources, and get back links directly to the documentation
+you're interested in.
+
+## Getting started
+
+How you add an MCP server depends on the client, so check the documentation of your
+agent. Instructions for two common clients are below.
+
+For **Claude Code**, add it by running:
+
+```bash
+claude mcp add --transport http csc-docs https://mcp.docs.csc.fi
+```
+
+For **OpenCode**, run the following command:
+
+```bash
+opencode mcp add csc-docs --url https://mcp.docs.csc.fi
+```
+
+If you are adding the server to another client, note that the endpoint is
+`https://mcp.docs.csc.fi` and it uses streamable HTTP.

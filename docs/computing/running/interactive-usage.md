@@ -4,7 +4,7 @@ When you log into a CSC supercomputer, you are connected to one of its login
 nodes. Login nodes are shared by all users and are **not** to be used for
 heavy processing. [See our usage policy for details](../usage-policy.md). If
 you need to run heavy computations interactively, you can use the `interactive`
-partitions on Roihu and Mahti.
+partitions on Roihu.
 
 The `interactive` partition offers fewer resources than other partitions, but
 jobs submitted to it have a much higher priority in comparison, so they will
@@ -43,8 +43,7 @@ sinteractive -i
 When this option is used, the user is prompted for the individual parameters
 of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
-arguments. Note that the available options and resources are not identical on
-Roihu and Mahti due to differences in hardware.
+arguments.
 
 ### `sinteractive` on Roihu
 
@@ -71,9 +70,9 @@ run from the GPU login node without additional parameters.
      being loaded and available, as the interactive job inherits the environment from
      the login node.
 
-!!! info "`gpuinteractive` currently gives full GPUs during pilot"
+!!! info "`gpuinteractive` currently gives full GPUs"
      The GPU slicing in the `gpuinteractive` partition is not yet implemented, so
-     during the pilot users will be allocated full GPUs.
+     users are currently allocated full GPUs.
 
 To see the command options available on Roihu, run the following while
 logged into the system:
@@ -151,7 +150,7 @@ Once the resources are available, you can work normally in the shell. The
 Bash prompt shows the name of the compute node:
 
 ```bash
-[username@r07c02 ~]$
+[username@rc4105 ~]$
 ```
 
 Once the requested time has passed, the shell exits automatically.

@@ -2,6 +2,20 @@
 
 See [the page on firewalls](firewalls.md) for instructions on opening access to your database.
 
+## Ensuring your database connection is encrypted
+
+PostgreSQL database instances in Pukki support encrypted connections using a self-signed certificate, and most clients should default to using an encrypted connection. If you want to make sure your current connection is encrypted, you can use the following query to check:
+
+```sql
+SELECT a.pid, a.usename, a.client_addr, a.application_name, s.ssl
+FROM pg_stat_activity a
+JOIN pg_stat_ssl s USING (pid);
+```
+
+The last column, `ssl`, shows 't' for encrypted connections and 'f' for unencrypted ones. Keep in mind that it only shows all connections when executed as root.
+
+The method to force an encrypted connection varies by client, but a common way is to include the `sslmode=require` -variable in the connection string.
+
 ## Graphical user interface
 
 A popular tool for working with PostgreSQL databases is pgAdmin, which can be found [here](https://www.pgadmin.org/). It can be installed as a desktop application, or on a server to be accessed via its web GUI. Note that it can not be installed on the Pukki database instance, and the Pukki team does not provide support for it, as we are more comfortable using the CLI tools.
@@ -18,7 +32,7 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
    If your application is using a configuration file the syntax should look something like this:
 
    ```
-   postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}
+   postgresql://${USERNAME}:${PASSWORD}@{PUBLIC_IP}:5432/${DATABASE_NAME}?sslmode=require
    ```
 
    You can also use the latter syntax to access the database with `psql` but it will omit column names from query responses.
@@ -39,9 +53,6 @@ A popular tool for working with PostgreSQL databases is pgAdmin, which can be fo
 3. If `psql` asks for a password but rejects it, make sure you typed it correctly, and check that the database user exists, either through the Users tab in the web GUI or with `openstack database user list ${DATABASE_ID}`.
 
 ## Accessing your Pukki PostgreSQL database from Roihu
-
-!!! info Puhti compatible
-    The following instructions also apply to Puhti, but its computing services have been decommissioned since summer 2026. Please use Roihu instead.
 
 1. First make sure that your database's [firewall allows traffic from Roihu](firewalls.md#roihu).
 2. [Log in to Roihu](../../computing/connecting/index.md).

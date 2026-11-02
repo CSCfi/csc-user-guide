@@ -2,12 +2,7 @@
 
 The Roihu supercomputer uses a parallel file system called
 *Lustre*. Data on Lustre is accessible from all nodes of a system, and is thus
-the best place to store the data that you need for computations. Please note
-that you can not directly access data on Roihu from Mahti or vice versa, i.e.
-they have their own Lustre file systems. You can, however, move data between
-Roihu and Mahti using tools such as [rsync](../../data/moving/rsync.md).
-
-See the [detailed data migration guide](../tutorials/roihu-data.md) from Mahti and Puhti to Roihu.
+the best place to store the data that you need for computations.
 
 More specifically, Roihu has three main disk areas: *home*,
 *projappl* and *scratch*. The home directory (accessible using the `$HOME`
@@ -42,7 +37,7 @@ GB). A directory exceeding its capacity causes various problems (see
 disk area to store your active research data (default quota 250 GB on Roihu), while
 projappl is intended, for example, for project-wide installations of custom
 software and libraries (default quota 15 GB on Roihu). See
-[more information about the disk areas](../../computing/roihu-disk.md).
+[more information about the disk areas](../../computing/disk.md).
 
 !!! note "CSC does not back up your data!"
     None of the disk areas are automatically backed up by CSC. This means that

@@ -1,0 +1,410 @@
+site_name: Docs CSC
+site_url: !ENV [SITE_URL, "https://docs.csc.fi"]
+site_description: Instructions and user guides for the CSC supercomputers, cloud services, storage and software, including FAQ and tutorials
+
+repo_name: CSCfi/csc-user-guide
+repo_url: https://github.com/CSCfi/csc-user-guide/
+edit_uri: edit/master/docs/
+
+docs_dir: !ENV [DOCS_DIR, "docs"]
+
+extra:
+  environment: !ENV [PROPERDOCS_ENV, "preview"]
+  announcement: # An announcement shown below the header
+    icon:
+      name: material/coffee # Choose one (emojis not supported) from here https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis.html#search
+      mirror: false # Toggle mirrored right-hand side icon
+    color_scheme: info # Choose one from here https://design-system.csc.fi/design-tokens/color (null for default color)
+    content: |- # Make sure to also update the translation in mkdocs_fi.yml
+      <p>Welcome to our weekly research support coffee hour on Zoom! <a href="https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/" target="_blank">Click here for more information.</a></p>
+    visible: false
+  landing_banner:
+    path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
+    image: roihu-new.png
+    title: Roihu supercomputer – get started here!
+    link: support/tutorials/roihu/
+    description: |-
+      Roihu is CSC's national supercomputer, replacing the retired Puhti and Mahti systems and offering enhanced performance and capabilities.
+    visible: true
+  analytics:
+    provider: custom
+    matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
+    matomo_url: !ENV [MATOMO_URL, ""]
+    feedback:
+      title: Do you find this page useful?
+      ratings:
+        - name: "Yes"
+          type: Positive
+          description: Yes! I do find this page useful.
+          note: >-
+            Thank you for your feedback!
+        - name: "No"
+          type: Negative
+          description: No! This page needs to be improved.
+          note: >-
+            Thank you! Your feedback is appreciated.
+      exclude:
+        - ref.md
+  short_description: User guides and tutorials
+  social:
+    - icon: material/github
+      link: https://github.com/CSCfi/
+    - icon: material/linkedin
+      link: https://www.linkedin.com/company/csc---it-center-for-science/
+    - icon: material/instagram
+      link: https://www.instagram.com/CSCfi/
+    - icon: material/facebook
+      link: https://www.facebook.com/CSCfi/
+    - icon: material/youtube
+      link: https://www.youtube.com/c/CSCfi
+  alternate:
+    - name: In English
+      link: /
+      lang: en
+    - name: Suomeksi (tekoäly)
+      link: /fi/
+      lang: fi
+
+hooks:
+  - hooks/catalog.py
+  - hooks/archives.py
+  - hooks/preview.py
+  - hooks/testing.py
+  - hooks/whats-new.py
+  - hooks/glossary.py
+  - hooks/breadcrumbs.py
+
+watch:
+  - hooks
+  - includes
+  - overrides
+
+plugins:
+  tags:
+    tags_allowed:
+      - "Academic"
+      - "Free"
+      - "Non-commercial"
+      - "Other"
+  search: {}
+  section-index: {}
+  literate-nav:
+    nav_file: NAV.md
+    implicit_index: true
+    tab_length: 4
+  git-revision-date-localized:
+    enabled: !ENV [ENABLED_GIT_REVISION_DATE, true]
+    fallback_to_build_date: true
+    ignored_commits_file: .git-revision-date-ignore-revs
+    type: date
+    custom_format: "%Y-%m-%dT%H:%M:%S%z" # Used with feedback buttons
+    locale: en
+    timezone: Europe/Helsinki
+    exclude:
+      - index.md
+      - support/archives/*.md
+      - support/glossary.md
+      - support/whats-new.md
+      - apps/index.md
+      - apps/by_discipline.md
+      - apps/by_availability.md
+      - apps/by_license.md
+      - NAV.md
+      - '**/NAV.md'
+  redirects:
+    redirect_maps:
+      # reorganization:
+      "support/tutorials/puhti_quick.md": "support/tutorials/hpc-quick.md"
+      "support/tutorials/mahti_quick.md": "support/tutorials/hpc-quick.md"
+      "support/tutorials/user-spack.md": "support/tutorials/roihu-user-spack.md"
+      "support/tutorials/biojobs-on-puhti.md": "support/tutorials/biojobs-on-roihu.md"
+      "computing/allas.md": "data/Allas/allas-roihu.md"
+      "computing/roihu-disk.md": "computing/disk.md"
+      "computing/containers/creating.md": "computing/containers/overview.md"
+      "computing/containers/run-existing.md": "computing/containers/overview.md"
+      "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
+      "support/tutorials/snakemake-puhti.md": "apps/snakemake.md"
+      "support/tutorials/julia.md": "apps/julia.md#running-julia-batch-jobs-on-csc-clusters"
+      "support/tutorials/nextflow-tutorial.md": "apps/nextflow.md"
+      "computing/running/fireworks.md": "apps/fireworks.md"
+      # deprecation:
+      "apps/nomachine.md": "support/faq/deprecated-apps.md"
+      "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
+      "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
+      "apps/nvprof.md": "apps/nsys.md"
+      "apps/ddt.md": "computing/debugging.md"
+      "apps/itac.md": "computing/performance.md"
+      "apps/vtune.md": "computing/performance.md"
+      "computing/systems-puhti.md": "computing/available-systems.md"
+      "computing/systems-mahti.md": "computing/available-systems.md"
+      "computing/lumi-vs-mahti.md": "computing/available-systems.md"
+      "accounts/fmi.md": "accounts/index.md"
+      "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_client_in_puhti.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_import.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_perl.md": "data/kaivos/index.md"
+      "data/kaivos/kaivos_remote.md": "data/kaivos/index.md"
+      "data/kaivos/overview.md": "data/kaivos/index.md"
+      "data/sensitive-data/findata-permit.md": "data/sensitive-data/sd-use-case-secondary-use-project.md"
+      "data/sensitive-data/single-register-permit.md": "data/sensitive-data/sd-use-case-secondary-use-project.md"
+      "data/sensitive-data/sd-desktop-audited.md": "data/sensitive-data/secondarydata-access.md"
+      # renamed files:
+      "cloud/csc_notebooks/what_is_new.md": "support/whats-new.md#cloud-services"
+      "cloud/csc_notebooks/concepts.md": "cloud/noppe/concepts.md"
+      "cloud/csc_notebooks/data_persistence.md": "cloud/noppe/data_persistence.md"
+      "cloud/csc_notebooks/guide_for_students.md": "cloud/noppe/guide_for_students.md"
+      "cloud/csc_notebooks/guide_for_teachers.md": "cloud/noppe/guide_for_teachers.md"
+      "cloud/csc_notebooks/index.md": "cloud/noppe/index.md"
+      "computing/overview.md": "computing/index.md"
+      "cloud/concepts.md": "cloud/index.md"
+      "apps/alpha.md": "apps/index.md"
+      "apps/by_system.md": "apps/by_availability.md"
+      "support/tutorials/env-guide/overview.md": "support/tutorials/env-guide/index.md"
+      "computing/cProfile.md": "apps/cProfile.md"
+      "computing/compute-san.md": "apps/compute-san.md"
+      "computing/cuda-gdb.md": "apps/cuda-gdb.md"
+      "computing/gdb.md": "apps/gdb.md"
+      "computing/ncu.md": "apps/ncu.md"
+      "computing/nsys.md": "apps/nsys.md"
+      "computing/nvprof.md": "apps/nsys.md"
+      "computing/pdb.md": "apps/pdb.md"
+      "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
+      "data/sensitive-data/single-register-submission.md": "data/sensitive-data/sd-use-case-secondary-use-data-controller.md"
+      # files moved to Allas:
+      # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
+      "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
+      # for URL consistency:
+      "sensitive-data.md": "data/sensitive-data/index.md"
+      "applications.md": "apps/index.md"
+      "faq.md": "support/faq/index.md"
+      "tutorials.md": "support/tutorials/index.md"
+      "training-material.md": "support/training-material/index.md"
+      "contact.md": "support/contact.md"
+      "whats-new.md": "support/whats-new.md"
+      # for convenience:
+      "glossary.md": "support/glossary.md"
+      "archives.md": "support/contact.md#archives"
+      "roihu.md": "computing/systems-roihu.md"
+      "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
+      # Pouta
+      "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
+      # Quantum
+      "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/overview.md"
+      "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
+      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
+      "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/devices/overview.md"
+      "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
+      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
+      "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
+      "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
+      "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
+      "support/tutorials/gabedit_gaussian.md": "apps/gaussian.md"
+      "computing/quantum-computing/projects.md": "computing/quantum-computing/overview.md"
+      "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
+
+markdown_extensions:
+  - md_in_html
+  - footnotes
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - pymdownx.details
+  - pymdownx.blocks.caption
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.snippets:
+      base_path:
+        - includes/snippets
+        - docs/data/sensitive-data
+      auto_append:
+        - glossaries/hpc.md
+        - glossaries/cloud.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+theme:
+  name: materialx
+  language: en-CSC
+  custom_dir: overrides
+  logo: assets/images/logo.svg
+  favicon: assets/images/logo.png
+  icon:
+    repo: material/git
+    edit: material/pencil
+    view: material/eye
+    alternate: material/chevron-down
+  admonition:
+    note:
+      icon: null
+      color: "var(--docs-note-color)"
+    default:
+      icon: null
+      color: "var(--c-primary-600)"
+    info:
+      icon: material/information
+      color: "var(--c-info-600)"
+    success:
+      icon: material/check-circle
+      color: "var(--c-success-600)"
+    warning:
+      icon: material/alert
+      color: "var(--c-warning-600)"
+    error:
+      icon: material/close-circle
+      color: "var(--c-error-600)"
+    training:
+      icon: fontawesome/solid/chalkboard-user
+      color: "var(--c-secondary-600)"
+  palette:
+    scheme: docs-ui
+    primary: custom
+    accent: custom
+  font: false # No loading fonts from G****e
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.tabs.link
+    - navigation.path
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/extra.js
+  - assets/javascripts/feedback.js
+
+# See https://properdocs.org/user-guide/configuration/#validation
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    absolute_links: relative_to_docs
+    unrecognized_links: warn
+    anchors: warn
+
+# nav: moved to docs/NAV.md
+
+not_in_nav: |
+  # Accounts
+  /accounts/how-to-access-mahti-large-partition.md
+
+  # Computing
+  /computing/allas-in-roihu.md
+  /computing/lumi-vs-mahti.md
+  /computing/running/array-jobs.md
+  /computing/webinterface/job-composer.md
+
+  # Cloud Services
+  /cloud/pouta/ePouta-access.md
+
+  # Data
+  /data/Allas/allas-nextcloud.md
+  /data/Allas/allas-roihu.md
+  /data/Allas/allas_batchjobs.md
+  /data/Allas/allas_encryption.md
+  /data/Allas/allas_lumi.md
+  /data/Allas/allas_project_example.md
+  /data/Allas/using_allas/directory_object_error.md
+  /data/datasets/best-encryption-practices.md
+  /data/datasets/spatial-data-in-csc-computing-env.md
+  /data/kaivos/index.md
+
+  # Sensitive data
+  /data/sensitive-data/creating_containers.md
+  /data/sensitive-data/gatewaycertificatefinal.md
+  /data/sensitive-data/migration-to-ubuntu.md
+  /data/sensitive-data/r-in-sd-desktop.md
+  /data/sensitive-data/sd-connect-and-a-commands.md
+  /data/sensitive-data/sd-connect-conversion-tool-ui.md
+  /data/sensitive-data/sd-connect-introduction-to-data-encryption.md
+  /data/sensitive-data/sd-connect-share-read-to-sd-desktop.md
+  /data/sensitive-data/sd-connect-share-tranfer-data.md
+  /data/sensitive-data/sd-connect-share-workspace.md
+  /data/sensitive-data/sd-connect-sharing-for-import.md
+  /data/sensitive-data/sd-cookie-policy.md
+  /data/sensitive-data/sd-desktop-singularity.md
+  /data/sensitive-data/sd-desktop-volumes-billing.md
+  /data/sensitive-data/sequencing_center_tutorial.md
+  /data/sensitive-data/manual-encryption-decryption.md
+  /data/sensitive-data/sd-connect-conversion-cli.md
+  /data/sensitive-data/sd-desktop-export-commandline.md
+  /data/sensitive-data/sd-desktop-major-upgrade-option1.md
+  /data/sensitive-data/sd-desktop-major-upgrade-option2.md
+  /data/sensitive-data/sd-desktop-major-upgrade-option3.md
+  /data/sensitive-data/secondary-use-major-upgrade.md
+
+  # Sensitive data tutorials
+  /data/sensitive-data/tutorials/*.md
+
+  # Applications
+  /apps/*.md
+  !/apps/index.md
+  !/apps/by_discipline.md
+  !/apps/by_availability.md
+  !/apps/by_license.md
+
+  # FAQ
+  /support/faq/*.md
+  !/support/faq/index.md
+
+  # Tutorials
+  /support/tutorials/*.md
+  /support/tutorials/env-guide/*.md
+  /support/tutorials/gis/*.md
+  !/support/tutorials/index.md
+
+  # Training material
+  /support/training-material/geocomputing-learning-materials.md
+  /support/training-material/geocomputing-seminars.md
+
+  # What's new
+  /support/wn/apps-new.md
+  /support/wn/cloud-new.md
+  /support/wn/comp-new.md
+  /support/wn/data-new.md
+  /support/wn/training-new.md
+
+  # Archives
+  /support/archives/asiakaskoulutus-customer-training.md
+  /support/archives/compute-server-announcements.md
+  /support/archives/compute-server-users.md
+  /support/archives/lumi-users.md
+  /support/archives/mahti-users.md
+  /support/archives/pouta-users.md
+  /support/archives/puhti-users.md
+  /support/archives/rahti-users.md
+  /support/archives/roihu-users.md
+  /support/archives/sd-desktop-users.md
+  /support/archives/tutkimus-research.md
+
+  # Misc
+  /ref.md
+  /img/csc-quick-reference/README.md
+  /support/index.md
+  /support/accessibility.md
+  /support/glossary.md
+  /support/support-howto.md
+  /support/translation.md
+
+# /ref.md is visible in preview and staging builds:
+exclude_docs: |
+  /ref.md
+  **/NAV.md

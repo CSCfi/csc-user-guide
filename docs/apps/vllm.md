@@ -17,6 +17,8 @@ A fast and easy-to-use library for LLM inference and serving.
 
 !!! info "News" 
 
+    **25.9.2026** vLLM version 0.29.0 installed on Roihu, adding support to many new models
+
     **7.4.2026** vLLM now available as a separate module on Roihu-GPU
 
 
@@ -26,7 +28,8 @@ Currently supported vLLM versions:
 
 | Version | Module               | Notes   |
 |:--------|----------------------|---------|
-| 0.19.1  | `python-vllm/0.19.1` | Default |
+| 0.29.0  | `python-vllm/0.29.0` | Default |
+| 0.19.1  | `python-vllm/0.19.1` |         |
 | 0.18.0  | `python-vllm/0.18.0` |         |
 
 Includes [vLLM][], [PyTorch](https://pytorch.org/) and related
@@ -44,6 +47,10 @@ yourself](../support/tutorials/python-usage-guide.md#installing-python-packages-
 If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md).
+
+If adding a few packages with `pip` is not enough, you can also build
+your own containers, for example by [extending CSC's machine learning
+containers](../computing/containers/overview.md#ml-containers).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -67,7 +74,7 @@ If you wish to have a specific version ([see above for available
 versions](#available)), use:
 
 ```text
-module load python-vllm/0.18.0
+module load python-vllm/0.19.1
 ```
 
 To check the exact packages and versions included in the loaded module you can

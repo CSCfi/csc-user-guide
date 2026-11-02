@@ -1,9 +1,16 @@
-# Connecting to Roihu FirecREST HPC API
+# Connecting to FirecREST HPC API
 
 !!! warning "Access tokens are secrets"
     Access tokens issued for FirecREST HPC API allow the token holder to interact with Slurm jobs, and read, manipulate and transfer data with your privileges. Don't share your access token with anyone.
 
-Roihu FirecREST HPC API endpoints can be found under the URL [https://api.roihu.csc.fi](https://api.roihu.csc.fi). The service uses versioned URL scheme, where the first element of the URL path represents the API generation. The current, latest API generation is `v1`. It is based on the latest release of FirecREST v2.
+    If you suspect that your personal access token might have been compromised, [the token should be revoked](#revoking-a-personal-access-token) as soon as possible.
+
+FirecREST HPC API endpoints can be found under the following URLs:
+
+- LUMI: [https://api.lumi.csc.fi](https://api.lumi.csc.fi).
+- Roihu: [https://api.roihu.csc.fi](https://api.roihu.csc.fi).
+
+The HPC API service uses versioned URL scheme, where the first element of the URL path represents the API generation. The current, latest API generation is `v1`. It is based on the latest release of FirecREST v2.
 
 Possible major or breaking changes to the API will be released as new API generation. By default, a new release will not replace any existing APIs. Earlier generations will be maintained and kept available.
 
@@ -11,6 +18,15 @@ Possible major or breaking changes to the API will be released as new API genera
 
 FirecREST HPC API supports multiple subsystems with different configuration options, identified by subsystem identifier in API endpoint URLs (e.g. `/v1/compute/<subsystem>/jobs`).
 
+### LUMI API configuration details
+
+API and subsystem configuration on `api.lumi.csc.fi`:
+
+| API generation | API subsystem | Partitions | Data transfer |
+|----------------|---------------|-----------|---------------|
+| `v1` | `lumi` | LUMI-C, LUMI-G, LUMI-D | S3 via LUMI-O, pre-signed URLs |
+
+### Roihu API configuration details
 API and subsystem configuration on `api.roihu.csc.fi`:
 
 | API generation | API subsystem | Partitions | Data transfer |
@@ -18,9 +34,10 @@ API and subsystem configuration on `api.roihu.csc.fi`:
 | `v1` | `cpu` | All *CPU* partitions | S3 via Allas, pre-signed URLs |
 | `v1` | `gpu` | All *GPU* partitions | S3 via Allas, pre-signed URLs |
 
+
 ## API documentation
 
-Up-to-date API specification for `v1` is available in OpenAPI format at [https://api.roihu.csc.fi/v1/openapi.json](https://api.roihu.csc.fi/v1/openapi.json) and it can be viewed through FirecREST's Swagger UI at [https://api.roihu.csc.fi/v1/docs/](https://api.roihu.csc.fi/v1/docs).
+Up-to-date API specification for `v1` is available in OpenAPI format via `/v1/openapi.json` endpoint on all FirecREST API instances (for example, [https://api.roihu.csc.fi/v1/openapi.json](https://api.roihu.csc.fi/v1/openapi.json)). The API documentation can be viewed through FirecREST's Swagger UI at `/v1/docs/` (for example, [https://api.roihu.csc.fi/v1/docs/](https://api.roihu.csc.fi/v1/docs)).
 
 ## Connecting to the API
 
@@ -36,7 +53,7 @@ curl -X GET https://api.roihu.csc.fi/v1/compute/cpu/jobs \
 
 Authorization header must be present in every API request sent to FirecREST. Token validity is verified on server-side for each request. An attempt to use invalid access token will result in a `HTTP 401 Unauthorized` return code, with a specific error message recorded in a JSON document in the response body.
 
-All requests sent to the API are executed on Roihu using the same user account that was used to retrieve the access token. For example, with a personal access token, all commands run via FirecREST are executed as you on the target system.
+All requests sent to the API are executed on the target system using the same user account that was used to retrieve the access token. For example, with a personal access token, all commands run via FirecREST are executed under your own user account and privileges.
 
 ## Connecting with a personal access token
 
@@ -44,12 +61,15 @@ FirecREST HPC API can be used with personal access tokens, which allow access to
 
 As the name suggests, personal access tokens are intended for personal use. A [project-specific robot account](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) should be used for implementing machine-to-machine HPC API integration for headless non-interactive systems.
 
-A personal access token can be retrieved from the [MyCSC portal](https://my.csc.fi/firecrest-token). Note that there's no direct link from the portal itself yet. Personal access tokens are valid for 24 hours at a time.
+A personal access token can be retrieved from the [MyCSC FirecREST token service](https://my.csc.fi/firecrest-token). Note that there's no direct link to the token service from the MyCSC portal itself yet. Personal access tokens are valid for 24 hours at a time.
 
-You can view and revoke your active tokens at [CSC IdP federated personal profile page](https://user-auth.csc.fi/idp/profile/userprofile), under *Connected organizations* -> *Firecrest-access-tokens*.
+### Revoking a personal access token
+
+In an event where a personal access token is suspected to have been compromised (was accidentally committed to a public source repository or pasted in a chat or email, for example), you should revoke the potentially compromised token and generate a new one.
+
+You can view and revoke your active tokens at [CSC IdP federated personal profile page](https://user-auth.csc.fi/idp/profile/userprofile), under *Connected organizations* -> *Firecrest-access-tokens*. All valid, revocable tokens will show a red `Revoke now` button when the `Firecrest-access-tokens` view is expanded.
 
 ## Connecting with a robot account
-
 
 [Machine-to-machine robot accounts](../../accounts/how-to-create-new-user-account.md#getting-a-machine-to-machine-robot-account) can access computing resources on Roihu using FirecREST HPC API.
 

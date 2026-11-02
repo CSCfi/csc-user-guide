@@ -25,7 +25,7 @@ Free to use and open source under [GNU AGPLv3](https://www.gnu.org/licenses/agpl
 
 ## Available
 
-* Roihu: 8.0.4, via the `bio-apps` module.
+* Roihu-CPU: 8.0.4, via the `bio-apps` module.
 
 ## Usage
 
@@ -39,20 +39,17 @@ module load antismash/8.0.4
 
 ### Databases
 
-antiSMASH requires reference databases that are **not** bundled with the module.
-
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, download your own copy as
-    shown below.
-
-Download the databases to a writable location (for example your project's `/scratch`
-directory) with `download-antismash-databases`, and point antiSMASH at them with the
-`--databases` option:
+antiSMASH needs reference databases. CSC provides them in
+`/dataset/project_2020345/antismash`, and the `antismash` module sets the
+`ANTISMASH_DB` environment variable to this directory. antiSMASH does not read the
+variable itself, so give it with the `--databases` option:
 
 ```bash
-download-antismash-databases --database-dir /scratch/<project>/antismash_db
+antismash --databases $ANTISMASH_DB --output-dir results genome.gbk
 ```
+
+CSC keeps the shared databases up to date, so you don't need to run
+`download-antismash-databases` yourself.
 
 ### Running antiSMASH
 
@@ -77,13 +74,12 @@ module load bio-apps/v202603
 module load antismash/8.0.4
 
 antismash --cpus $SLURM_CPUS_PER_TASK \
-    --databases /scratch/<project>/antismash_db \
+    --databases $ANTISMASH_DB \
     --output-dir results \
     genome.gbk
 ```
 
-Replace `<project>` with your CSC project (for example `project_2001234`), and use the
-same project in the database path.
+Replace `<project>` with your CSC project (for example `project_2001234`).
 
 See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 

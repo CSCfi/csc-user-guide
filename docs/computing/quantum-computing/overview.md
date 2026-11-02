@@ -3,7 +3,9 @@ search:
   boost: 4
 ---
 
-# Overview
+# Quantum computing
+
+## Overview
 
 Quantum computers differ from their classical counterparts when it comes to the basic 
 computational operators. Before QPUs can be utilized, they require tailor-made programs 

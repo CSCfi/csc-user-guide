@@ -39,7 +39,8 @@ Free to use and open source under [GNU GPLv2](https://www.gnu.org/licenses/old-l
 
 ## Available
 
-* Roihu: 6.6.0, via the `bio-apps` module.
+* Roihu-CPU: 6.6.0, via the `bio-apps` module.
+* [Chipster](https://chipster.csc.fi) provides a graphical interface to many EMBOSS tools.
 
 ## Usage
 

@@ -8,7 +8,7 @@ academic research projects at Finnish universities and research institutes. SD C
 In most cases SD Connect is used through the [SD Connect Web interface](https://sd-connect.csc.fi), but in some cases command line tools
 provide more efficient way to manage data in SD Connect.
 
-In this document we describe how you can use use the a-commands provided by [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils) to upload and download data from SD Connect. These tools are available in CSC supercomputers (Puhti, Mahti and Lumi) and they can be installed in local Linux and Mac machines too. 
+In this document we describe how you can use use the a-commands provided by [allas-cli-utils](https://github.com/CSCfi/allas-cli-utils) to upload and download data from SD Connect. These tools are available in CSC supercomputers (Roihu and LUMI) and they can be installed in local Linux and Mac machines too. 
 
 Note, that Allas itself does not separate data stored with SD connect from other data stored in 
 Allas. Data buckets can contain a mixture of SD Connect data, other encrypted data and normal data 

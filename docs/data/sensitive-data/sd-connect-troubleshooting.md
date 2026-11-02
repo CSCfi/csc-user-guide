@@ -3,8 +3,33 @@
 
 # Troubleshooting
 
+## On this page: 
+
+
+- [1. Reporting an issue](#1-reporting-an-issue)
+- [2. List of most comment problems](#2-list-of-most-comment-problems)
+- [3. Firefox: Interrupted upload workaround](#3-firefox-interrupted-upload-workaround)
+
+
+
 !!! Note
-   Below you will find solutions to the most common issues encountered with SD Connect. If you need further assistance, please don't hesitate to contact servicedesk@csc.fi with the subject line "SD Services".
+    Below you will find solutions to the most common issues encountered with SD Connect. If you need further assistance, please don't hesitate to contact servicedesk@csc.fi with the subject line "SD Services".
+
+## 1. Reporting an issue
+
+If you experience problems when uploading or downloading files, you can export a log of your SD Connect session. The log contains technical information that can help investigate the issue.
+
+To export the session logs:
+
+- When the issue occurs, do not close your browser or log out from the service. 
+- Go to the SD Connect home page.
+- Select **Support** in the top-right corner.
+- From the drop-down menu, select **Export session logs.**
+- A file named sd-connect-log-[date].log will be downloaded to your computer.
+- Send the log file to servicedesk@csc.fi with the subject SD Connect and include a short description of the issue you encountered.
+
+
+## 2. List of most comment problems
 
 
 | Problem | Description | Solution |
@@ -23,6 +48,28 @@
 ||Low upload speed (programmatically)|Upload and download speed depends on the local network.|
 |Shared bucket|I cannot upload data into a shared bucket|Only folders shared with 'collaborate' permissions allow data uploads.|
 ||I cannot download the content of a shared bucket|Only folders shared with 'transfer' or 'collaborate' permissions allows you to download a copy of the content.|
+
+
+
+## 3. Firefox: Interrupted upload workaround
+
+If you encounter issues with file uploads or downloads in Firefox, try the following steps: 
+
+1. Open **SD Connect** in Firefox.
+2. Click the **☰ menu** in the top-right corner of Firefox.
+3. Select **More tools**.
+4. Select **Web Developer Tools**.
+5. Select the **Application** tab.
+    - If **Application** is not visible, select **`>>`** and then **Application**.
+6. From the left-hand menu, select **Service Workers**.
+7. Find the service worker associated with **SD Connect** and select **Unregister**.
+8. Close Developer Tools and refresh the **SD Connect** page.
+9. Try uploading or downloading the file again.
+
+
+
+
+
 
 
 ## Features in SD Connect

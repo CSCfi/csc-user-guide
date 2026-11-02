@@ -16,7 +16,7 @@ We cover this below, but it’s so important it needs to be mentioned at the top
 
 ## Give a descriptive subject
 
-Your subject line should be descriptive. "Problem on Mahti" is not a good subject line since it could be valid for many of the support emails we get. The support staff is a team. The subjects are the first thing that we see and a good subject will speed up the issue going to the right specialist.
+Your subject line should be descriptive. "Problem on Roihu" is not a good subject line since it could be valid for many of the support emails we get. The support staff is a team. The subjects are the first thing that we see and a good subject will speed up the issue going to the right specialist.
 
 ## Be specific
 

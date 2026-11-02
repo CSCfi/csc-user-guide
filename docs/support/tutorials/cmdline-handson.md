@@ -508,7 +508,7 @@ cores/mpitasks (*e.g.* 2,4,8,16, ... this is the `--ntasks` or `--ntasks-per-nod
 and rerun
 the job. The output files will be named with the number of cores used to
 run them (`$SLURM_NPROCS`). Instead of the small partition you can
-also use the `test` partition. In Roihu, there are 348 cores available per node. 
+also use the `test` partition. In Roihu, there are 384 cores available per node. 
 Jobs larger than that  need to switch to `large` partition. In multinode jobs, always 
 limit the number of *Nodes*, so that the job is not spread onto
 more nodes than necessary as it
