@@ -1,0 +1,8 @@
+- [Working with data](datasets/dataset-sources.md)
+    - [Tips for data management](datasets/datamanagement.md)
+    - [Metadata and data documentation](datasets/metadata-and-documentation.md)
+    - [Dataset sources](datasets/sourcing-datasets.md)
+    - [Storing data at CSC](datasets/hosting-datasets-at-CSC.md)
+    - [Publishing datasets](datasets/publishing-datasets.md)
+- [Moving data](moving/)
+- [Allas object storage](Allas/)

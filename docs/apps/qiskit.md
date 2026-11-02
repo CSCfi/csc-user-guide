@@ -13,8 +13,6 @@ catalog:
 
 # Qiskit
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 Qiskit is an open-source software for working with quantum computers at the level of circuits, pulses, and algorithms. 
 This page contains information in regard to running Quantum simulations using qiskit inside of a singularity container.
 For information pertaining to running jobs on the physical quantum computers using qiskit please refer to this documentation: 
@@ -29,40 +27,11 @@ For information pertaining to running jobs on the physical quantum computers usi
 
 Currently supported Qiskit versions:
 
-| Version | Module           | Puhti | Mahti | LUMI  | Notes                            |
-| :------ | :--------------- | :---: | :---: | :---: | -------------------------------- |
-| 1.1.1   | `qiskit/1.1.1`   |   X   |   X   |       |                                  |
-| 2.3.0   | `container only` |       |       |   X   | Native Cray MPI with GPU support |
+| Version | Module           | LUMI  | Notes                            |
+| :------ | :--------------- | :---: | -------------------------------- |
+| 2.3.0   | `container only` |   X   | Native Cray MPI with GPU support |
 
 Includes all the major Qiskit packages (Terra, Nature, Aer, etc.) and GPU acceleration. The `qiskit/1.1.1` and `qiskit/2.3.0` packages include the following qiskit plugins:
-
-=== "Puhti"
-    ```bash
-    qiskit==1.1.1
-    qiskit-aer-gpu>=0.14.2
-    qiskit-algorithms==0.3.0
-    qiskit-dynamics==0.5.1
-    qiskit-experiments==0.7.0
-    qiskit-finance==0.4.1
-    qiskit-ibm-experiment==0.4.7
-    qiskit-machine-learning==0.7.2
-    qiskit-nature==0.7.2
-    qiskit-optimization==0.6.1
-    ```
-    
-=== "Mahti"
-    ```bash
-    qiskit==1.1.1
-    qiskit-aer-gpu>=0.14.2
-    qiskit-algorithms==0.3.0
-    qiskit-dynamics==0.5.1
-    qiskit-experiments==0.7.0
-    qiskit-finance==0.4.1
-    qiskit-ibm-experiment==0.4.7
-    qiskit-machine-learning==0.7.2
-    qiskit-nature==0.7.2
-    qiskit-optimization==0.6.1
-    ```
     
 === "LUMI qiskit-aer"
     ```bash
@@ -262,60 +231,9 @@ Qiskit is licensed under
 
 ## Usage
 
-To use the default version of Qiskit on Puhti or Mahti, initialize
-it with:
+### Example sbatch and python script - Single-node simulations on LUMI
 
-```text
-module load qiskit
-```
-
-If you wish to have a specific version ([see above for available
-versions](#available)), use:
-
-```text
-module load qiskit/1.1.1
-```
-
-### Example sbatch and python script - Single-node simulations on Puhti, Mahti, and LUMI
-
-Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores in a single node for Puhti and Mahti and all CPU/GPU resources on a single node using the LUMI standard-g partition:
-
-=== "Puhti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --job-name=aer_job
-    #SBATCH --output=aer_job.o%j
-    #SBATCH --error=aer_job.e%j
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpu
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=2
-    #SBATCH --mem=8G
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:v100:1
-        
-    module load qiskit
-    srun python myprog.py <options>
-    ```
-
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --job-name=aer_job
-    #SBATCH --output=aer_job.o%j
-    #SBATCH --error=aer_job.e%j
-    #SBATCH --account=<project>
-    #SBATCH --partition=gpusmall
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=2
-    #SBATCH --time=1:00:00
-    #SBATCH --gres=gpu:a100:1
-    
-    module load qiskit
-    srun python myprog.py <options>
-    ```
+Example `<sbatch_script_name>.sh` script for reserving all CPU/GPU resources on a single node using the LUMI standard-g partition:
 
 === "LUMI qiskit-aer"
 
@@ -332,8 +250,8 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=56
     
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_csc.sif
-    export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/software/fiqci/qiskit/qiskit_2.3.0_csc.sif
+    export WRAPPER_PATH=/appl/local/quantum/software/fiqci/qiskit/run-singularity
     
     echo "NODES                   : ${SLURM_NNODES}"
     echo "TASKS PER NODE          : ${SLURM_NTASKS_PER_NODE}"
@@ -369,8 +287,8 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     #SBATCH --ntasks-per-node=1
     #SBATCH --cpus-per-task=56
     
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_hpcqc-ml-training_csc.sif
-    export WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/software/fiqci/qiskit/qiskit_2.3.0_hpcqc-ml-training_csc.sif
+    export WRAPPER_PATH=/appl/local/quantum/software/fiqci/qiskit/run-singularity
     
     echo "NODES                   : ${SLURM_NNODES}"
     echo "TASKS PER NODE          : ${SLURM_NTASKS_PER_NODE}"
@@ -392,62 +310,6 @@ Example `<sbatch_script_name>.sh` script for reserving one GPU and two CPU cores
     ```
 
 Example `<myprog>.py` python script for single node simulations. Do note that this code is just to highlight the syntax and only works on a single node. For LUMI simulations, reference the table below for resource requirements relative to the amount of qubits you wish to simulate.
-
-=== "Puhti"
-
-    ```Python
-    from qiskit import QuantumCircuit
-    from qiskit_aer import AerSimulator
-    
-    ## CHOOSE PARAMETERS
-    num_qubits = 5              # Number of qubits in the circuit
-    num_shots = 1000            # How many times we sample the circuit
-    
-    ## CREATE CIRCUIT FOR N-QUBIT GHZ-STATE
-    circuit = QuantumCircuit(num_qubits)
-    circuit.h(0)
-    for i in range(1,num_qubits):
-        circuit.cx(0,i)
-    circuit.measure_all()
-    
-    ## INITIALIZE SIMULATOR BACKEND THAT RUNS ON GPU
-    simulator = AerSimulator(method="statevector", device="GPU")
-    
-    ## RUN THE CIRCUIT WITH CUSTATEVEC ENABLED
-    result_statevec = simulator.run(circuit, shots=num_shots, seed_simulator=12345, cuStateVec_enable=True).result()
-    
-    ## PRINT RESULTS
-    counts = result_statevec.get_counts()
-    print(f"Counts:, {counts}")
-    ```
-
-=== "Mahti"
-
-    ```Python
-    from qiskit import QuantumCircuit
-    from qiskit_aer import AerSimulator
-    
-    ## CHOOSE PARAMETERS
-    num_qubits = 5              # Number of qubits in the circuit
-    num_shots = 1000            # How many times we sample the circuit
-    
-    ## CREATE CIRCUIT FOR N-QUBIT GHZ-STATE
-    circuit = QuantumCircuit(num_qubits)
-    circuit.h(0)
-    for i in range(1,num_qubits):
-        circuit.cx(0,i)
-    circuit.measure_all()
-    
-    ## INITIALIZE SIMULATOR BACKEND THAT RUNS ON GPU
-    simulator = AerSimulator(method="statevector", device="GPU")
-    
-    ## RUN THE CIRCUIT WITH CUSTATEVEC ENABLED
-    result_statevec = simulator.run(circuit, shots=num_shots, seed_simulator=12345, cuStateVec_enable=True).result()
-    
-    ## PRINT RESULTS
-    counts = result_statevec.get_counts()
-    print(f"Counts:, {counts}")
-    ```
 
 === "LUMI"
 
@@ -544,8 +406,8 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
     #SBATCH --ntasks-per-node=8
     #SBATCH --cpus-per-task=7
 
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_csc.sif
-    export GPU_WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity-with-gpu-affinity
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/software/fiqci/qiskit/qiskit_2.3.0_csc.sif
+    export GPU_WRAPPER_PATH=/appl/local/quantum/software/fiqci/qiskit/run-singularity-with-gpu-affinity
 
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
 
@@ -576,8 +438,8 @@ Example `<sbatch_MPI_script_name>.sh` script for running a simulation on multipl
     #SBATCH --ntasks-per-node=8
     #SBATCH --cpus-per-task=7
 
-    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/qiskit/qiskit_2.3.0_hpcqc-ml-training_csc.sif
-    export GPU_WRAPPER_PATH=/appl/local/quantum/qiskit/run-singularity-with-gpu-affinity
+    export LUMI_QISKIT_SINGULARITY_CONTAINER_PATH=/appl/local/quantum/software/fiqci/qiskit/qiskit_2.3.0_hpcqc-ml-training_csc.sif
+    export GPU_WRAPPER_PATH=/appl/local/quantum/software/fiqci/qiskit/run-singularity-with-gpu-affinity
 
     mask=mask_cpu:0xfe000000000000,0xfe00000000000000,0xfe0000,0xfe000000,0xfe,0xfe00,0xfe00000000,0xfe0000000000
 

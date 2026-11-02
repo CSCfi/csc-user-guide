@@ -1,4 +1,6 @@
-# Getting started
+# Running jobs
+
+## Getting started
 
 CSC uses a batch job system to schedule and execute computing tasks on our
 supercomputers.
