@@ -77,7 +77,7 @@ To upload and automatically encrypt sensitive data to SD Connect using command l
 [Here you can find step-by-step instructions](https://github.com/CSCfi/allas-cli-utils) for installing `a-commands` and  `sd-lock-util` command.
 
 !!! Note
-    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and LUMI). However, these systems are intended to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
+    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Roihu and LUMI). However, these systems are intended to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
 
 ### Step 2: Opening connection to SD Connect
 
@@ -206,7 +206,7 @@ a .c4gh file stored in SD Connect.
 
 In this Chapter we discuss how to decrypt Crypt4GH encrypted files that are not compatible with current SD Connect version.
 In these cases automatic decryption does not work. Instead the data needs first to be downloaded to your local computer after which the
-decryption is done with **crypt4gh** command or [Crypt4GH graphical user interface](./sd-connect-download.md#14-decrypt-the-files-with-the-crypt4gh-application).
+decryption is done with **crypt4gh** command or [Crypt4GH graphical user interface](./manual-encryption-decryption.md).
 
 Typical cases where this manual decryption is needed are files that have been stored to SD Connect using the old protocol and files that are exported from SD Desktop.
 

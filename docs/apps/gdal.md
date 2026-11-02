@@ -9,7 +9,6 @@ catalog:
     - Geosciences
   available_on:
     - LUMI
-    - Mahti
     - Roihu
 ---
 
@@ -24,9 +23,7 @@ GDAL is available with following versions:
 * 3.12.4 - in the 3.44.9 [QGIS](qgis.md) in Roihu.
 * 3.12.2 - in the 3.14.5 [python-geo](python-geo.md) in Roihu
 * 3.12.2 stand-alone: `gdal` in Roihu. Additionally is available `proj/9.7.0`.
-* 3.9.1 - in the 3.11.9 [geoconda](geoconda.md) in Mahti
 * 3.8.3 - in the 3.31 [QGIS](qgis.md) in LUMI
-* 3.6.2 - in the 3.10.x [geoconda](geoconda.md) in Mahti
 * Also in: [r-env](r-env-for-gis.md#gdal-and-saga-gis-support) and [OrfeoToolBox](otb.md)
 
 !!! note

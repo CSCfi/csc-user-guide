@@ -9,7 +9,6 @@ catalog:
     - Geosciences
   available_on:
     - LUMI
-    - Mahti
     - Roihu
 ---
 
@@ -22,9 +21,7 @@ catalog:
 PDAL is available in the following versions:
 
 * 2.10.1 - [QGIS-3.44.9 module](qgis.md) without pdal Python library, but with [pdal_wrench](https://github.com/PDAL/wrench), in Roihu
-* 2.10.0 - [geoconda-3.14.5 module](geoconda.md) with pdal Python library, in Roihu
-* 2.7.2 - [geoconda-3.11.9 module](geoconda.md) with pdal Python library, in Mahti
-* 2.4.1 - [geoconda-3.10.6 module](geoconda.md) with pdal Python library, in Mahti
+* 2.10.0 - [python-geo-3.14.3 module](python-geo.md) with pdal Python library, in Roihu
 * 2.3.0 - [QGIS-3.31 module](qgis.md) without pdal Python library, in LUMI
 
 ## Usage
@@ -60,7 +57,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Please see the respectives versions module page: [Geoconda](./geoconda.md) , [QGIS](./qgis.md).
+Please see the respective version's module page: [Python-geo](./python-geo.md) (Roihu), [Geoconda](./geoconda.md) (LUMI), [QGIS](./qgis.md).
 
 
 ## References

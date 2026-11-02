@@ -9,8 +9,6 @@ catalog:
     - Data Analytics and Machine Learning
   available_on:
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -29,22 +27,16 @@ learning research.
 
 Currently supported JAX versions:
 
-| Version | Module             | Roihu-GPU | Puhti   | Mahti   | LUMI     | Notes                |
-|:-------:|--------------------|-----------|:-------:|:-------:|:--------:|----------------------|
-| 0.10.2  | `python-jax/0.10`  | X         | -       | -       | -        | Default on Roihu-GPU |
-| 0.5.0   | `jax/0.5.0`        |           | default | default | -        | all packages         |
-|         | `jax/0.5.0-small`  |           | X       | X       | -        | framework only       |
-| 0.4.38  | `jax/0.4.38`       |           | X       | X       | default* | all packages         |
-|         | `jax/0.4.38-small` |           | X       | X       | X*       | framework only       |
-| 0.4.30  | `jax/0.4.30`       |           | X       | X       | X*       | all packages         |
-|         | `jax/0.4.30-small` |           | X       | X       | X*       | framework only       |
-| 0.4.23  | `jax/0.4.23-py3.9` |           | X       | X       | X*       |                      |
-| 0.4.20  | `jax/0.4.20`       |           | X       | X       | X*       |                      |
-| 0.4.18  | `jax/0.4.18`       |           | -       | -       | X*       |                      |
-| 0.4.14  | `jax/0.4.14`       |           | X       | X       | -        |                      |
-| 0.4.13  | `jax/0.4.13`       |           | X       | X       | -        |                      |
-| 0.4.1   | `jax/0.4.1`        |           | X       | X       | -        |                      |
-| 0.3.13  | `jax/0.3.13`       |           | X       | X       | -        |                      |
+| Version | Module             | Roihu-GPU | LUMI     | Notes                |
+|:-------:|--------------------|-----------|:--------:|----------------------|
+| 0.10.2  | `python-jax/0.10`  | X         | -        | Default on Roihu-GPU |
+| 0.4.38  | `jax/0.4.38`       |           | default* | all packages         |
+|         | `jax/0.4.38-small` |           | X*       | framework only       |
+| 0.4.30  | `jax/0.4.30`       |           | X*       | all packages         |
+|         | `jax/0.4.30-small` |           | X*       | framework only       |
+| 0.4.23  | `jax/0.4.23-py3.9` |           | X*       |                      |
+| 0.4.20  | `jax/0.4.20`       |           | X*       |                      |
+| 0.4.18  | `jax/0.4.18`       |           | X*       |                      |
 
 The modules contain [JAX](https://github.com/google/jax/) for Python with GPU support via CUDA/ROCm as well as a large list of additional python packages commonly used together with JAX.
 The Python version differs between modules releases. Modules with JAX version up to 0.4.23 use Python 3.9, later modules use Python 3.12.
@@ -87,6 +79,10 @@ If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md).
 
+If adding a few packages with `pip` is not enough, you can also build
+your own containers, for example by [extending CSC's machine learning
+containers](../computing/containers/overview.md#ml-containers).
+
 ## License
 
 JAX is licensed under [Apache License
@@ -100,17 +96,6 @@ To use the default version of JAX on Roihu-GPU, initialize it with:
 module load python-jax
 ```
 
-To access JAX on Puhti or Mahti:
-
-```text
-module load jax
-```
-
-or
-```text
-module load jax/small
-```
-
 To access CSC-installed JAX on LUMI:
 
 ```text
@@ -122,7 +107,7 @@ module load jax  # jax/small
 
     In your scripts we recommend to fix the version so that
     changes in future upgrades do not break scripts, e.g.,:
-    `module load jax/0.5.0` or `module load jax/0.5.0-small`
+    `module load jax/0.10` (Roihu-GPU) or `module load jax/0.4.30-small` (LUMI)
 
 Please note that the JAX modules already include the corresponding
 CUDA and cuDNN or ROCm libraries, so **there is no need to load any
@@ -132,7 +117,7 @@ This will show all available versions of JAX:
 
 ```bash
 module avail python-jax  # on Roihu-GPU
-module avail jax         # on other systems
+module avail jax         # on LUMI
 ```
 
 !!! note

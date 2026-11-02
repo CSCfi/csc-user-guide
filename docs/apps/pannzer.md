@@ -8,14 +8,16 @@ catalog:
   disciplines:
     - Biosciences
   available_on:
-    - Puhti
+    - Roihu
 ---
 
 # PANNZER2/SANSPANZ
 
-PANNZER2/SANSPANZ is a fully automated service for functional annotation 
-of prokaryotic and eukaryotic proteins of unknown function. The tool is 
-designed to predict the functional description (DE) and gene ontology (GO) classes. 
+PANNZER2/SANSPANZ is a fully automated service for functional annotation
+of prokaryotic and eukaryotic proteins of unknown function. The tool is
+designed to predict the functional description (DE) and gene ontology (GO) classes.
+
+[TOC]
 
 ## License
 
@@ -23,46 +25,39 @@ PANNZER has been published with the [GNU Public Licence v3](https://www.gnu.org/
 
 ## Available
 
-PANNZER is available on Puhti.
+* Roihu-CPU: 3.20250512 (module `sanspanz`), via the `bio-apps` module. The version
+  number is the release date of the SANSPANZ 3 package.
 
 ## Usage
 
-On Puhti, SANSPANZ annotation tool can be accessed with the command:
+SANSPANZ is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the SANSPANZ module:
 
 ```bash
-module load biokit
+module load bio-apps/v202603
+module load sanspanz/3.20250512
 ```
 
 After loading the module, you can launch SANSPANZ analysis using command `runsanspanz.py`. For example:
 
 ```bash
-runsanspanz.py -R -m Pannzer -s "species name" -i  input_seqs.fasta -o results.csv
+runsanspanz.py -R -m Pannzer -s "species name" -i input_seqs.fasta -o results.csv
 ```
 
-The species name is used to determine taxonomic distances. 
+The species name is used to determine taxonomic distances.
 The output is written to the file defined with option `-o`. Also, three other output files are created:
 
 * **Pannzer.out_1** contains details of the description (DE) prediction.
 * **Pannzer.out_2** contains details of the GO prediction.
 * **Pannzer.out_3** is a summary of all predicted annotations.
 
-Pannzer.out_3 can be converted to HTML-format with command `anno2html.pl`:
+Note, that on Roihu you should always use `runsanspanz.py` with option `-R` that sends the
+analysis jobs to the annotation server maintained by the Holm group. Thus, the job does not use
+the resources of Roihu, and it can be run as an interactive job on a login node.
 
-```bash
-anno2html.pl < Pannzer.out_3 > annotations.html
-```
+## Support
 
-If you upload this file to Allas with the command:
-
-```bash
-a-flip annotations.html
-```
-
-you can use the link provided by `a-flip` to study the results with your browser.
-
-Note, that on Puhti you should always use `runsanspanz.py` with option `-R` that sends the
-analysis jobs to the annotation server maintained by the Holm group. Thus, the job does not use 
-the resources of Puhti, and it can be run as an interactive job on a login node.
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

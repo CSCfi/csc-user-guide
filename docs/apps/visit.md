@@ -10,15 +10,14 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
         - Roihu
     - LUMI
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
 # VisIt
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 VisIt is an open source, versatile software for scientific visualization.
 VisIt is available on Roihu, and we recommend
@@ -43,8 +42,6 @@ VisIt is free also for commercial use and has been released under
 ## Available
 
 * Roihu-CPU: 3.5.0
-* Puhti: 3.1.3, 3.3.3
-* Mahti: 3.1.3, 3.3.1
 * LUMI: 3.2.2
 
 ## Parallel use

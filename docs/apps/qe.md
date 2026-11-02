@@ -8,8 +8,7 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
+    - Roihu
     - LUMI
 ---
 
@@ -23,8 +22,7 @@ is based on density-functional theory, plane waves, and pseudopotentials.
 
 The following versions are available:
 
-* Puhti: 7.4.1
-* Mahti: 7.4.1
+* Roihu-CPU: 7.5
 * LUMI: 7.4.1-cpu, 7.5-cpu
 
 ## License
@@ -44,39 +42,20 @@ Quantum ESPRESSO is free software, released under the
 
 ### Batch script examples
 
-=== "Puhti"
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=<project>
-    #SBATCH --partition=small
-    #SBATCH --time=01:00:00
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=2G
-
-    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
-
-    module purge
-    module load quantum-espresso/7.4.1
-
-    srun pw.x < input.in > input.out
-    ```
-
-=== "Mahti"
+=== "Roihu-CPU"
     ```bash
     #!/bin/bash
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     #SBATCH --time=01:00:00
     #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128
+    #SBATCH --ntasks-per-node=384
     #SBATCH --cpus-per-task=1
 
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
     module purge
-    module load quantum-espresso/7.4.1
+    module load quantum-espresso/7.5
 
     srun pw.x < input.in > input.out
     ```

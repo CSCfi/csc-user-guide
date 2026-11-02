@@ -89,8 +89,8 @@ Key rules for using AI agent tools on Roihu:
 
 6. **Do not overload Lustre and Slurm!** If you run the agent on Roihu, instruct
    it that `home`, `projappl` and `scratch` are on a
-   [Lustre filesystem](roihu-disk.md) and that it should use the
-   [local disk under `$TMPDIR`](roihu-disk.md#temporary-local-disk-areas)
+   [Lustre filesystem](disk.md) and that it should use the
+   [local disk under `$TMPDIR`](disk.md#temporary-local-disk-areas)
    for temporary files. Avoid excessive amounts of Slurm jobs and heavy
    tool calling: no tight polling loops of `squeue` or `sacct`, no
    recursive `find` or `grep` over large directories on Lustre, and no

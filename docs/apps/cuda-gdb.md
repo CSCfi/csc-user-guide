@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Miscellaneous
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -17,8 +15,6 @@ catalog:
 
 ## Available
 
-- Puhti: 10.2
-- Mahti: 10.1
 - Roihu-GPU
 
 ## License

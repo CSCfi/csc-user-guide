@@ -37,8 +37,6 @@ module load python-geo
 module load geoconda
 ```
 
-Or `module load whiteboxtools` if you want to use the older version.
-
 To check whiteboxtools version
 ```
 whitebox_tools --version
@@ -47,7 +45,7 @@ whitebox_tools --version
 Here is an example of calculating Hillshade for a 10m DEM. 
 
 ```
-whitebox_tools -r=Hillshade -v -i=/appl/data/geo/mml/dem10m/2019/M3/M34/M3444.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
+whitebox_tools -r=Hillshade -v -i=/dataset/project_2019680/mml/dem10m/2019/M3/M34/M3444.tif -o=test_hillshade.tif --azimuth=315.0 --altitude=30.0
 ```
 
 !!! note

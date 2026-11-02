@@ -1,6 +1,6 @@
 # Large file transfer using S3
 
-FirecREST HPC API implements asynchronous large file transfer model using an S3 object storage as a staging medium. On Roihu, the S3 storage used is [Allas](../../data/Allas/index.md). FirecREST uses its own dedicated tenant with dynamically created user-specific buckets.
+FirecREST HPC API implements asynchronous large file transfer model using an S3 object storage as a staging medium. On Roihu, for example, the S3 storage used is [Allas](../../data/Allas/index.md). FirecREST uses its own dedicated tenant with dynamically created user-specific buckets.
 
 ## How it works
 

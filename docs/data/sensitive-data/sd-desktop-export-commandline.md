@@ -2,6 +2,15 @@
 
 # Export data programmatically from the virtual desktop
 
+<div class="grid cards" markdown>
+  
+- :material-alert:{ .lg .middle } **Note**
+  { .warning-card }
+
+    SD Desktop and SD Connect services were upgraded in September 2026, and the export instructions on this page are currently outdated. New instructions for exporting with command line will be provided here as soon as possible. The user interface for Data Gateway was also upgraded and it now supports exporting multiple files and folder structures. Read more about the upgrade on a separate [info page](major-upgrade.md) and follow the [export instructions for the user interface](sd-desktop-export.md).
+
+</div>
+
 ## Background information
 
 ### Data export from SD Desktop requires manual encryption

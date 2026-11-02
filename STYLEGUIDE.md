@@ -16,10 +16,10 @@
 ## General help
  - [Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/)
  - Also some special markup possible, e.g. admonitions (colored highlight boxes). Please look at Markdown source for examples, and use preview
- - [A reference card](https://docs.csc.fi/ref/) is available along with [Markdown source for reference card](https://github.com/CSCfi/csc-user-guide/blob/master/docs/ref.md)
+ - [A reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/) is available along with [Markdown source for reference card](docs/ref.md)
  - When in doubt, check how other pages are formatted
    - An example of a well-formatted page is the one on [disk areas](https://docs.csc.fi/computing/disk/)
-    ([source file](https://github.com/CSCfi/csc-user-guide/blob/master/docs/computing/disk.md)),
+    ([source file](docs/computing/disk.md)),
     including examples on how to format code blocks, tables and admonitions
  - Note that pages under a certain category may have a unified formatting that should be followed
    - For example, application pages should have **Available** (which versions and on which systems),
@@ -33,7 +33,7 @@
  - The main user guide should document only what is specific to CSC environment, for general usage instructions link to the real manuals of the tool
    - Lengthier tutorials can be written under Support->Tutorials.
  - Don't make too deep hierarchy or too many entries per subcategory (combine very small pages)
- - Don't refer to the same page twice in mkdocs.yml -> sitemap breaks + weird menu action
+ - Don't refer to the same page twice in properdocs.yml -> sitemap breaks + weird menu action
  - If possible, try to keep your markdown lines shorter than 100 columns to improve readability
    and reviewability of the source material
    - Note that, for example, tables and preformatted code blocks cannot be split,
@@ -98,7 +98,7 @@
 
 If there's a URL that has been linked to from the outside a lot and it changes (disappears), a (temporary) redirect can be made by either
 
-1. Adding an entry of the form `'page/to/link-from.md': 'target/page/to/link-to.md'` into _redirect\_maps_ under _plugins.redirects_ in _mkdocs.yaml_:
+1. Adding an entry of the form `'page/to/link-from.md': 'target/page/to/link-to.md'` into _redirect\_maps_ under _plugins.redirects_ in _properdocs.yaml_:
 
     ```yaml
     plugins:

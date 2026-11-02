@@ -1,0 +1,26 @@
+{{- if or (.Values.components.probes.useResourceLookup | default false)
+          (.Values.components.probes.email | default false) -}}
+{{- $resourcename := include "docs-csc.probesConfigName" . -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+data:
+{{- if .Values.components.probes.useResourceLookup | default false }}
+{{ lookup "v1"
+          "ConfigMap"
+          .Release.Namespace
+          $resourcename
+   | dig "data" ""
+   | required "Probes ConfigMap lookup failed!"
+   | toYamlPretty
+   | indent 2 }}
+{{- else }}
+{{- range $key, $value := .Values.components.probes.email }}
+{{ printf "email.%s: %s" $key (squote $value) | indent 2 }}
+{{- end }}
+{{- end }}
+{{- end }}

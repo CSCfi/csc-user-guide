@@ -1,5 +1,15 @@
 # Sensitive Data (SD) services for research: user guide
 
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Note**
+  { .warning-card }
+
+    New versions of SD Connect and SD Desktop are available from Monday, September 28. This introduces significant improvements, but also includes changes that are not compatible with the previous version of the service. Here you can find [guidance and support](major-upgrade.md).
+  
+</div>
+
+
 Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide provides step-by-step instructions and video tutorials. Use the left menu (if menu is not visible, try zooming out in your browser), search bar or [table of contents](sd-services-toc.md) to find topics quickly. 
 
 <iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/m5BK6UdWbNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -10,7 +20,7 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
 
 
-<div class="grid cards csc-quick-links csc-quick-links--compact" markdown>
+<div class="grid cards docs-quick-links docs-quick-links--compact" markdown>
 
 - #### Research data: store and analyse
 
@@ -38,13 +48,11 @@ Welcome to the user guides for CSC's Sensitive Data (SD) services. Each guide pr
 
     ---
 
-    [Start here with **Findata permit** :material-arrow-right:](findata-permit.md)
+    [Start here: Accessing secondary use health and social data :material-arrow-right:](secondarydata-access.md)
 
-    [Start here with **Public Register permit** :material-arrow-right:](single-register-permit.md)
+    [Create an account and a secondary use project :material-arrow-right:](sd-use-case-secondary-use-project.md)
 
-    [Analyse with SD Desktop for secondary use :material-arrow-right:](sd-desktop-audited.md)
-
-    [Submit secondary use data :material-arrow-right:](single-register-submission.md)
+    [Data controller: transfer secondary use data to SD Desktop :material-arrow-right:](sd-use-case-secondary-use-data-controller.md)
 
 </div>
 

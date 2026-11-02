@@ -1,4 +1,4 @@
-# File browser and accessing storage services from the web interfaces
+# File browser and accessing storage services from the web interface
 
 The file browser can be opened from the _Files_ section on the top navbar
 (this displays a list of all project disk areas), or using the shortcut to your
@@ -28,7 +28,7 @@ editor:
 ## Accessing Allas and LUMI-O
 
 The **[Allas object storage service](../../data/Allas/index.md)** can also be
-accessed from the web interfaces using the file browser.
+accessed from the web interface using the file browser.
 
 To configure authentication for Allas: 
 
@@ -76,7 +76,7 @@ _Files_ dropdown menu.
 
 !!! warning "Large files"
     Uploading large files from your local computer to Allas via the web
-    interfaces is currently not recommended due to technical limitations.
+    interface is currently not recommended due to technical limitations.
 
 If you no longer need a configured remote, you can revoke the access token for
 it in the list of remotes, or delete the remote from the configuration. Remotes
@@ -87,25 +87,24 @@ and can be deleted, but the access tokens for those can not be revoked.
 ## Accessing IDA
 
 The [IDA storage service](../../data/ida/using_ida.md) can also be used from
-the web interfaces. However, some key features, such as moving data from the
+the web interface. However, some key features, such as moving data from the
 staging area to the frozen area, are only possible though the
 [IDA web interface](https://ida.fairdata.fi).
 
-To use IDA from the Puhti/Mahti web interfaces, it must first be configured for
-To use IDA from the Roihu, Puhti, or Mahti web interfaces, it must first be configured for
+To use IDA from the Roihu web interface, it must first be configured for
 use with Rclone in a login node shell as follows:
 
 ```
-module load allas
+module load rclone
 rclone config
 ```
 
 In the Rclone configuration interface, create a new remote with the following
 settings:
 
-1. Storage: WebDAV (#45)
-2. URL: <https://ida.fairdata.fi/remote.php/webdav/>
-3. Vendor: Nextcloud (#1)
+1. Storage: WebDAV (#63)
+2. URL: <https://ida.fairdata.fi/remote.php/dav/files/username> (replace username with your CSC username)
+3. Vendor: Nextcloud (#2)
 4. Username: Your CSC username
 5. Password:
       1. Login to the [IDA web interface](https://ida.fairdata.fi).
@@ -115,7 +114,7 @@ settings:
 6. Bearer token: Leave empty
 7. Advanced config: No
 
-After completing the Rclone configuration, restart the Roihu/Puhti/Mahti web
+After completing the Rclone configuration, restart the Roihu web
 interface by clicking _Restart web server_ in the _Help_ menu in the top-right
 section of the navbar. IDA can now be accessed in the file browser, where you
 will be able to upload, download, transfer and edit files in the staging area,

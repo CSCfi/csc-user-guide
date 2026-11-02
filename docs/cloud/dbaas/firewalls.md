@@ -91,44 +91,6 @@ Accessing your Pukki database from login and compute nodes you can allow this:
 86.50.172.0/27
 ```
 
-### Puhti
-
-!!! warning "Puhti retirement"
-    Puhti's computing services have been shut down (31 July 2026) and it is being
-    replaced by Roihu. Puhti's storage and login nodes are planned to remain
-    accessible until 15 October 2026.
-
-Accessing your Pukki database from login and compute nodes you can allow this:
-
-```
-86.50.164.176/28
-```
-
-<!--
-If one would like to have even stricter rules one could limit it only these
-puhti-nat-[1,2].csc.fi and puhti-login[11-15].csc.fi
--->
-
-### Mahti
-
-!!! warning "Mahti retirement"
-    Mahti's computing services have been shut down (31 August 2026) and it is
-    being replaced by Roihu. Mahti's storage and login nodes are planned to
-    remain accessible until 15 October 2026.
-
-Accessing your Pukki database from Roihu from both login nodes and compute node you can allow this:
-
-```
-86.50.165.192/27
-```
-
-<!--
-Some alternatives:
-86.50.165.192/27
-86.50.165.200/30 + 86.50.165.208/28
-86.50.165.200/30 + 86.50.165.208/29 + 86.50.165.216/32
-86.50.165.200/30 + 86.50.165.211/32 + 86.50.165.212/30 + 86.50.165.216/32
--->
 ### LUMI
 
 Accessing your Pukki database from LUMI you need to allow the follow CIDR:

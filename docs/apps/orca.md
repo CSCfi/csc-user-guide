@@ -8,8 +8,6 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
     - Roihu
 ---
 
@@ -25,8 +23,6 @@ for academic use at academic institutions.
 
 ## Available
 
-- Puhti: 6.0.0
-- Mahti: 6.0.0
 - Roihu-CPU: 6.1.1
 
 Note that due to licensing issues every user has to install their own copy of the program.
@@ -39,33 +35,23 @@ free version is available only for academic use at academic institutions.
 
 ## Usage
 
-=== "Puhti and Mahti"
+- Download ORCA 6.1.1, Linux, x86-64, shared-version,
+  `orca_6_1_1_linux_x86-64_shared_openmpi418_avx2.tar.xz`
+- Move the downloaded file to your computing project's application area
+  (`/projappl/<proj>/<user>/orca/`)
+- Unpack the package:
 
-    - Download ORCA 6.0.0, Linux, x86-64, shared-version,
-      `orca_6_0_0_linux_x86-64_avx2_shared_openmpi416.tar.xz`
-    - Move the downloaded file to your computing project's application area
-      (`/projappl/<proj>`) on Puhti or Mahti
-    - Unpack the package: `tar xf orca_6_0_0_linux_x86-64_avx2_shared_openmpi416.tar.xz`
+```bash
+mkdir -p /projappl/<project>/<user>/orca
+cd /projappl/<project>/<user>/orca
+tar xf orca_6_1_1_linux_x86-64_shared_openmpi418_avx2.tar.xz
+```
 
-=== "Roihu"
+On Roihu, set `ORCADIR` **before** loading the module. The module then
+loads the required MPI libraries (`gcc/15.2.0`, `openmpi/5.0.10`)
+automatically — no manual module loads are needed.
 
-    - Download ORCA 6.1.1, Linux, x86-64, shared-version,
-      `orca_6_1_1_linux_x86-64_shared_openmpi418_avx2.tar.xz`
-    - Move the downloaded file to your computing project's application area
-      (`/projappl/<proj>/<user>/orca/`)
-    - Unpack the package:
-
-    ```bash
-    mkdir -p /projappl/<project>/<user>/orca
-    cd /projappl/<project>/<user>/orca
-    tar xf orca_6_1_1_linux_x86-64_shared_openmpi418_avx2.tar.xz
-    ```
-
-    On Roihu, set `ORCADIR` **before** loading the module. The module then
-    loads the required MPI libraries (`gcc/15.2.0`, `openmpi/5.0.10`)
-    automatically — no manual module loads are needed.
-
-    Jobs must be submitted from the **CPU login node** (`roihu-cpu`).
+Jobs must be submitted from the **CPU login node** (`roihu-cpu`).
 
 ### Example batch scripts
 
@@ -75,135 +61,49 @@ free version is available only for academic use at academic institutions.
     performance for the job and to avoid excess load on the Lustre parallel
     file system it is advisable to use the local disk where available.
 
-=== "Puhti"
+On Roihu, the module loads MPI automatically. No `mpirun` wrapper
+script is needed. Set `ORCADIR` before loading the module. For a
+full list of available partitions see the
+[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+page.
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40      # MPI tasks per node
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:15:00           # time as hh:mm:ss
-    module purge
-    module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
-    export ORCADIR=<path to your ORCA directory>/orca_6_0_0_shared_openmpi416_avx2/
-    export LD_LIBRARY_PATH=${ORCADIR}:${LD_LIBRARY_PATH}
+!!! note
+    Local NVMe disks on the compute nodes can be accessed through $TMPDIR.
+    Jobs in the "small" partition have 20 GiB quota available, while "medium"
+    nodes have 600 GiB available.
+    $TMPDIR storage does not need to be separately reserved in Slurm to be accessible.
 
-    # Set $ORCA_TMPDIR to point to the submission directory
-    export ORCA_TMPDIR=$SLURM_SUBMIT_DIR
-    # create an mpirun script that executes srun
-    echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
-    chmod +x ./mpirun
-    export PATH=${SLURM_SUBMIT_DIR}:${PATH}
-    touch Jobid_is_$SLURM_JOB_ID
+```bash
+#!/bin/bash
+#SBATCH --partition=small         # see batch-job-partitions for all options
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+#SBATCH --mem-per-cpu=2667        # MB; total memory = nprocs * maxcore
+#SBATCH --account=yourproject
+#SBATCH --time=01:00:00
 
-    ${ORCADIR}/orca orca6.inp > orca6.out
-    rm -f  ${SLURM_SUBMIT_DIR}/mpirun
-    ```
+export ORCADIR=/projappl/<project>/<user>/orca/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2
+module purge
+module load orca/6.1.1
 
-=== "Puhti, local disk"
+${ORCADIR}/orca orca6.inp > orca6.out
+```
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=large
-    #SBATCH --nodes=2
-    #SBATCH --ntasks-per-node=40
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=00:15:00           # time as hh:mm:ss
-    #SBATCH --gres=nvme:100           # requested local disk space in GB
-    module purge
-    module load gcc/11.3.0 openmpi/4.1.4 intel-oneapi-mkl/2022.1.0
-    export ORCADIR=<path to your ORCA directory>/orca_6_0_0_shared_openmpi416_avx2/
-    export LD_LIBRARY_PATH=${ORCADIR}:${LD_LIBRARY_PATH}
+**Memory** — ORCA's `%maxcore` directive sets memory per MPI process in
+MB. The corresponding `--mem-per-cpu` value should match:
 
-    # create a mpirun script that executes srun
-    echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
-    chmod +x ./mpirun
-    export PATH=${SLURM_SUBMIT_DIR}:${PATH}
-    touch Jobid_is_$SLURM_JOB_ID
+```
+--mem-per-cpu (MB) = %maxcore
+```
 
-    #Set $ORCA_TMPDIR to point to the local disk
-    export ORCA_TMPDIR=$LOCAL_SCRATCH
-    # Copy only necessary files to $ORCA_TMPDIR
-    cp $SLURM_SUBMIT_DIR/*.inp $ORCA_TMPDIR/
-    # Move to $ORCA_TMPDIR
-    cd $ORCA_TMPDIR
+For example, with 12 MPI processes and 32 GB total memory:
+`%maxcore 2667` and `--mem-per-cpu=2667`.
 
-    $ORCADIR/orca orca6.inp > ${SLURM_SUBMIT_DIR}/orca6.out
-    rm -f  ${SLURM_SUBMIT_DIR}/mpirun
-    # Copy all output to submit directory
-    cp -r $ORCA_TMPDIR $SLURM_SUBMIT_DIR
-    ```
+After the job completes, check actual memory usage with:
 
-=== "Mahti"
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=test
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=128
-    #SBATCH --account=yourproject     # insert here the project to be billed
-    #SBATCH --time=0:10:00            # time as hh:mm:ss
-    module purge
-    module load gcc/11.2.0 openmpi/4.1.2 openblas/0.3.18-omp
-    export ORCADIR=<path to your ORCA directory>/orca_6_0_0_shared_openmpi416_avx2/
-    export LD_LIBRARY_PATH=${ORCADIR}:${LD_LIBRARY_PATH}
-
-    # create a mpirun script that executes srun
-    echo exec 'srun $(echo "${@}" | sed 's/^-np/-n/')' >./mpirun
-    chmod +x ./mpirun
-    export PATH=${SLURM_SUBMIT_DIR}:${PATH}
-    touch Jobid_is_$SLURM_JOB_ID
-
-    ${ORCADIR}/orca orca6.inp > orca6.out
-    rm -f  ${SLURM_SUBMIT_DIR}/mpirun
-    ```
-
-=== "Roihu"
-
-    On Roihu, the module loads MPI automatically. No `mpirun` wrapper
-    script is needed. Set `ORCADIR` before loading the module. For a
-    full list of available partitions see the
-    [Roihu batch job partitions](../computing/running/batch-job-partitions.md)
-    page.
-
-    !!! note
-        Local NVMe disks on the compute nodes can be accessed through $TMPDIR.
-        Jobs in the "small" partition have 20 GiB quota available, while "medium"
-        nodes have 600 GiB available.
-        $TMPDIR storage does not need to be separately reserved in Slurm to be accessible.
-
-    ```bash
-    #!/bin/bash
-    #SBATCH --partition=small         # see batch-job-partitions for all options
-    #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=12
-    #SBATCH --mem-per-cpu=2667        # MB; total memory = nprocs * maxcore
-    #SBATCH --account=yourproject
-    #SBATCH --time=01:00:00
-
-    export ORCADIR=/projappl/<project>/<user>/orca/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2
-    module purge
-    module load orca/6.1.1
-
-    ${ORCADIR}/orca orca6.inp > orca6.out
-    ```
-
-    **Memory** — ORCA's `%maxcore` directive sets memory per MPI process in
-    MB. The corresponding `--mem-per-cpu` value should match:
-
-    ```
-    --mem-per-cpu (MB) = %maxcore
-    ```
-
-    For example, with 12 MPI processes and 32 GB total memory:
-    `%maxcore 2667` and `--mem-per-cpu=2667`.
-
-    After the job completes, check actual memory usage with:
-
-    ```bash
-    sacct -j <jobid> --format=JobID,MaxRSS,Elapsed,State
-    ```
+```bash
+sacct -j <jobid> --format=JobID,MaxRSS,Elapsed,State
+```
 
 !!! note
     Please remember to adjust `%pal nprocs` in your input file according to

@@ -2,8 +2,8 @@
 
 On CSC supercomputers, programs are run by submitting them to partitions,
 which are logical sets of nodes managed by the Slurm workload manager.
-This page lists the available Slurm partitions on the Roihu, Puhti, and Mahti
-supercomputers and explains their intended uses. Below are the general
+This page lists the available Slurm partitions on the Roihu supercomputer
+and explains their intended uses. Below are the general
 guidelines for using the Slurm partitions on our systems:
 
 1. **Use the `test` and `gputest` partitions for testing your code, not production.**
@@ -170,7 +170,7 @@ The amount of local storage available to a single user depends on the [partition
     Reserving local scratch on the visualization nodes is not yet
     implemented; use `$TMPDIR` on these nodes until this feature is added.
 
-Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
+Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 
 <!-- Links -->
 [LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/

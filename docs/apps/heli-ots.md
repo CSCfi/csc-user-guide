@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -22,7 +21,6 @@ thousand sentences per second on a single CPU core.
 
 ## Available
 
-* Puhti: 2.0
 * Roihu: 2.0
 
 ## License

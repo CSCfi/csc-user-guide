@@ -12,17 +12,14 @@ A dataset project provides storage and access management, but no computing
 resources. It does not include `scratch` or `projappl` directories and cannot
 be used to submit jobs.
 
-!!! note "Dataset project access begins in early August 2026"
-     Applications for dataset projects are already open in MyCSC. The first
-     approved dataset projects will be granted access in early August 2026.
-
 A dataset project is useful when several computational projects need
 access to the same actively used dataset.
 Multiple computational projects can be granted read access to the shared
 dataset directory, while a single owning project has write access.
 
 Using a dataset project helps avoid storing separate copies of the same dataset in
-multiple Scratch directories. It also provides a clear owner for maintaining
+multiple Scratch directories. This is the main motivation for this service.
+It also provides a clear owner for maintaining
 the dataset and a central place for managing read access to this data across multiple projects on Roihu.
 
 Dataset projects are granted for one year at a time. Dataset projects are **not intended for long-term data storage**.
@@ -133,7 +130,7 @@ provided by CSC or your organisation.
 
 ## Related documentation
 
-- [Roihu disk areas](roihu-disk.md)
+- [Roihu disk areas](disk.md)
 - [Creating a new dataset project](../accounts/how-to-create-new-project.md#dataset-project)
 - [Storing data at CSC](../data/datasets/hosting-datasets-at-CSC.md)
 - [Allas object storage](../data/Allas/index.md)

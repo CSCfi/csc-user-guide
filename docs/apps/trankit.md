@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -22,7 +21,6 @@ feature tagging, lemmatization and dependency parsing across many languages.
 
 ## Available
 
-* Puhti: 1.1.0
 * Roihu: 1.1.0
 
 ## License

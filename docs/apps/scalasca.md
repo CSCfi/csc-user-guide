@@ -7,12 +7,12 @@ catalog:
   disciplines:
     - Miscellaneous
   license_type: Free
-  available_on:
-    - Puhti
-    - Mahti
+  unchecked: true
 ---
 
 # Scalasca
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 [Scalasca](https://www.scalasca.org/) is an open-source software tool
 that supports the performance optimization of parallel programs by
@@ -178,9 +178,6 @@ square scorep_my_app_40_trace
 
 For large traces, one may copy only the post-processed trace analysis
 result file `scorep_my_app_40_trace/scout.cubex`.
-
-The OTF2 formatted event trace `scorep_my_app_40_trace/trace.otf2` can
-be analyzed also with [Intel Trace Analyzer](itac.md).
 
 ## More information
 

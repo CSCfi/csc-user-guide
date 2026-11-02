@@ -8,11 +8,12 @@ catalog:
   disciplines:
     - Mathematics and Statistics
   available_on:
-    - Mahti
     - Roihu
 ---
 
 # r-env
+
+--8<-- "puhti-mahti-cleanup-notice.md"
 
 `r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
 
@@ -255,8 +256,8 @@ The command `module load r-env` loads the latest `r-env` version [available](#av
         
     If your R jobs produce very many or very large temporary files exceeding 20 GiB,
     please use the `medium` partition and reserve a full node, which provides 600 GiB of temporary storage by default under `$TMPDIR`.
-    Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage) (currently only
-    available for full-node jobs) or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`.
+    Alternatively, you can reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage)
+    or direct temporary files to the `/scratch` directory of your project as below. Using local storage is preferred over using `/scratch`.
         
     ```bash
     # Add this line to the batch job script to direct temporary files to the scratch directory of your
