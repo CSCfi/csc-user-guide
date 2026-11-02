@@ -33,7 +33,10 @@ class PreviewHook(DocsHook):
         return None
 
     def on_config(self, config): # pylint: disable=missing-function-docstring
-        setattr(config, "exclude_docs", None)
+        if (excludes := config.get("exclude_docs")):
+            for spec in excludes.patterns:
+                if spec.pattern == "/ref.md":
+                    spec.include = None
 
         return config
 
