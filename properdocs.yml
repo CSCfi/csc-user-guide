@@ -218,6 +218,8 @@ plugins:
       "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
 
 markdown_extensions:
+  - toc:
+      permalink: true
   - md_in_html
   - footnotes
   - admonition
