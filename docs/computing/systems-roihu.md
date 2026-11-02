@@ -115,8 +115,10 @@ See [Roihu dataset project](roihu-dataset-project.md) for details.
 Each Roihu CPU and GPU node provides 960 GB of local NVMe storage
 for temporary files created during jobs.
 
-High-memory (XL) and visualization (VIZ) nodes provide additional capacity and
-faster performance in their local storage, with a total of 13 TiB of local NVMe storage per node.
+High-memory (XL) and visualization (VIZ) nodes provide additional high-performance local NVMe storage.
+
+Each node has two 7.68 TB NVMe drives, providing 15.36 TB of
+raw physical storage capacity.
 
 There are two kinds of node-local storage. **Automatic temporary storage**
 (`$TMPDIR`) is available in every job without a reservation and free of
@@ -134,14 +136,14 @@ they use:
     | N (full nodes)          | 600 GiB            | 5000 / 1400 MB/s    |
     | G (GPU nodes)           | 150 GiB            | 5000 / 1400 MB/s    |
     | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
-    | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 13.3 TiB           | 6700 / 4000 MB/s    |
 
 === "Reservable (`$LOCAL_SCRATCH`)"
 
-    | Node type               | Maximum reservable | Read / Write speeds |
-    |:------------------------|-------------------:|---------------------|
-    | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
-    | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
+    | Node type               | Maximum reservable      | Read / Write speeds |
+    |:------------------------|------------------------:|---------------------|
+    | Hugemem (XL) nodes      | 13,000 GiB (≃ 12.7 TiB) | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | Not yet available       | -                   |
 
 Reservable local scratch has not yet been implemented on visualization nodes (V).
 Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.

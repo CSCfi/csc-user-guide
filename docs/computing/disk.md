@@ -250,7 +250,8 @@ to the following amount of local disk space:
 
 #### Automatic local temporary storage
 
-For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
+Local temporary storage is available under `$TMPDIR` on all
+Roihu compute nodes without a separate Slurm reservation.
 
 | Allocation type           | Path      | Available temporary storage |
 |:--------------------------|-----------|----------------------------:|
@@ -258,7 +259,7 @@ For shared-node, full-node, and GPU allocations, local temporary storage is avai
 | N (Full nodes)            | `$TMPDIR` | 600 GiB                     |
 | G (GPU nodes)             | `$TMPDIR` | 150 GiB                     |
 | XL (Hugemem nodes)        | `$TMPDIR` | 578 GiB                     |
-| VIZ (Visualization nodes) | `$TMPDIR` | 14 TiB                      |
+| VIZ (Visualization nodes) | `$TMPDIR` | ~13.3 TiB                   |
 
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
@@ -273,18 +274,18 @@ On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for la
 This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
 Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 
-| Allocation type           | Path             | Maximum reservable local scratch |
-|:--------------------------|------------------|---------------------------------:|
-| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GB                         |
-| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
+| Allocation type           | Path             | Maximum reservable local scratch  |
+|:--------------------------|------------------|----------------------------------:|
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13,000 GiB (≃ 12.7 TiB)           |
+| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | Not yet available                 |
 
 Reserve local storage by including the following flag in your Slurm script:
 
 ```text
-#SBATCH --gres=nvme:<amount-in-GB>
+#SBATCH --gres=nvme:<amount-in-GiB>
 ```
 
-For example, to reserve the maximum amount of 13 TB, use:
+For example, to reserve the maximum amount of 13 000 GiB (approximately 12.7 TiB), use:
 
 ```text
 #SBATCH --gres=nvme:13000
@@ -293,7 +294,7 @@ For example, to reserve the maximum amount of 13 TB, use:
 Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
 you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
 
-??? info "Example Slurm script for using local scratch memory in hugemem nodes"
+??? info "Example Slurm script for using local scratch storage in hugemem nodes"
      ```
      #!/bin/bash
      #SBATCH --job-name=example
@@ -303,7 +304,7 @@ you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
      #SBATCH --nodes=1
      #SBATCH --ntasks-per-node=1
      #SBATCH --cpus-per-task=1
-     #SBATCH --gres=nvme:100 # Reserves 100 GB local scratch memory
+     #SBATCH --gres=nvme:100 # Reserves 100 GiB local scratch storage
 
      # Go to the local scratch directory
      cd "$LOCAL_SCRATCH"
