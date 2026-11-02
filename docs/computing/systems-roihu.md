@@ -148,10 +148,12 @@ Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation
 
 Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
 
-Users can also request local disk mounts from a
-centralized pool of fast storage resources. This fast storage capacity is
-provided over the network and appears as local scratch storage from within a
-Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB.
+Users can also request temporary storage from a shared pool of
+disaggregated NVMe resources, providing approximately 180 TB of
+total usable capacity.
+The storage is accessed over the network and appears as local
+scratch storage within a Slurm job.
+See the [Roihu disk areas](disk.md#disaggregated-storage) documentation for details.
 
 ## Network
 

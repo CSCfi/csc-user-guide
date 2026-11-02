@@ -63,13 +63,13 @@ wget http://cistrome.org/BETA/src/BETA_test_data.zip
 
 #### Upload the container to Allas / SD Connect
 
-Then we upload these two files to Allas/SD Connect. In this example we use project _2012345_.
+Then we upload these two files to SD Connect. In this example we use project _2012345_.
 
 ```text
 module load allas
-allas-conf project_2012345
-a-put --sdx beta.sif -b 2012345_beta
-a-put --sdx BETA_test_data.zip -b 2012345_beta
+allas-conf project_2012345 --sdc
+a-put --sdc beta.sif -b 2012345_beta
+a-put --sdc BETA_test_data.zip -b 2012345_beta
 ```
 
 The commands above store the files into bucket `2012345_beta` in Allas. `a-put` is used with option `--sdx` in order to encrypt the uploaded data with SD Desktop compatible encryption. 

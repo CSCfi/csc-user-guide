@@ -281,13 +281,13 @@ Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 Reserve local storage by including the following flag in your Slurm script:
 
 ```text
---gres=nvme:<amount-in-GB>
+#SBATCH --gres=nvme:<amount-in-GB>
 ```
 
 For example, to reserve the maximum amount of 13 TB, use:
 
 ```text
---gres=nvme:13000
+#SBATCH --gres=nvme:13000
 ```
 
 Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
@@ -326,11 +326,22 @@ local scratch usage consumes.
 
 ## Disaggregated storage
 
-It is also possible to request local disk mounts from a centralised pool of fast storage resources. 
-This fast storage capacity is provided over the network and will appear as local scratch from 
-within a Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB, allowing you
-to get larger capacity fast storage for your jobs. Disaggregated storage can be requested on all
-partitions, including shared-node jobs.
+Roihu provides a shared pool of disaggregated NVMe storage, with
+approximately 180 TB of total usable capacity. This fast storage
+is accessed over the network and appears as local scratch storage
+within a Slurm job.
+
+Storage can be requested on all Roihu partitions, including
+shared-node jobs. As the storage pool is shared between jobs,
+requests are subject to resource availability and may need to
+wait until sufficient capacity becomes available.
+
+There is currently no enforced limit on the amount of disaggregated
+storage a job can request. However, as this is a shared resource,
+we recommend requesting **no more than 2 TB of storage per job**
+and reserving only the amount actually needed.
+
+Using disaggregated storage consumes [billing units](../accounts/billing.md).
 
 ### Requesting storage from slurm
 
@@ -338,7 +349,7 @@ To request flash storage to be mounted in an sbatch job you must add the followi
 request block of your script:
 
 ```bash
-#BB_LUA SBF storagesize=20GB path=/sbf/data
+#SBATCH --bb="#BB_LUA SBF storagesize=20GB path=/sbf/data"
 ```
 
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 
