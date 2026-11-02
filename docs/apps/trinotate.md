@@ -83,9 +83,11 @@ Trinotate --db myTrinotate.sqlite --run ALL --CPU 16 \
 ```
 
 `--run ALL` runs the SwissProt BLAST searches of the transcripts and proteins, the
-Pfam domain search and the Rfam search. SignalP and TMHMM are not available on
-Roihu, so Trinotate skips them. If the job stops, run the same command again:
-Trinotate skips the searches that have already finished.
+Pfam domain search and the Rfam search. If you also load the
+[eggNOG-mapper](eggnog-mapper.md) module (`module load eggnog-mapper/2.1.15`),
+it runs eggNOG-mapper on the predicted proteins as well. SignalP and TMHMM are not
+available on Roihu, so Trinotate skips them. If the job stops, run the same command
+again in the same directory: Trinotate skips the searches that have already finished.
 
 Finally, write the annotation report:
 
