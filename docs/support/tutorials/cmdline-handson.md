@@ -130,8 +130,9 @@ command will set it up (replace <project> with the same project as in the batch 
 ```
 sinteractive --account <project> --time 2:00:00
 ```
-By default, on Roihu this command reserves 2 cores with 2 GiB of memory each. 
-More cores and therefore more memory can be reserved with `--cores`, for example `--cores 4`.
+By default, on Roihu this command reserves 2 cores with 1 GiB of memory each.
+
+Use `--cores` to reserve more cores and `--mem` to reserve more memory, for example `--cores 4 --mem 8000`.
 
 Give `module load r-env` to initialize the R environment.
 

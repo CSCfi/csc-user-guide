@@ -42,10 +42,10 @@ directory called `big_data`. The directory contains about 100 GB of data in
 scratch directory of project 2001234 (`/scratch/project_2001234/big_data.tar`)
 
 First, we launch an interactive batch job with 2 cores (4 GiB of memory) and
-250 GB of disaggregated storage.
+250 GiB of disaggregated storage.
 
 ```bash
-sinteractive --account <project> --cores 2 --time 02:00:00 -d 250
+sinteractive --account <project> --cores 2 --mem 4G --time 02:00:00 -d 250
 ```
 
 The analysis is then done in three steps:
