@@ -94,7 +94,6 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     ```python
     # Import packages
     from py4lexis.session import LexisSession
-    from qaas.client import QProvider, QBackend, QJob
 
     # Authentication
     lexis_session = LexisSession()
@@ -124,7 +123,6 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     ```python
     from pathlib import Path
     from py4lexis.session import LexisSessionToken
-    from qaas.client import QProvider
 
     TOKEN_FILE = Path("offline_token")
 
@@ -153,11 +151,13 @@ PROJECT = "YOUR-VLQ-PROJECT-NAME"
 RESOURCE = "YOUR-VLQ-RESOURCE-NAME"
 ```
 
-Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is not accessible with Cirq.
+Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is not accessible with Cirq and instead of the iqm-client package one uses the quantum as a service (QaaS) package from IT4I. See here for [QaaS docs](https://it4innovations.github.io/quantum-as-a-service/). 
 
 === "Qiskit"
 
     ```python
+    from qaas.client import QProvider
+
     # Initialize backend
     provider = QProvider(PROJECT, token)
     backend = provider.get_backend(RESOURCE)
@@ -166,6 +166,8 @@ Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is
 === "IQM Pulla"
 
     ```python
+    from qaas.client import QProvider
+
     # Initialize backend
     provider = QProvider(PROJECT, token)
     pulla = provider.get_pulla(RESOURCE)
