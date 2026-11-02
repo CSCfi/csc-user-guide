@@ -99,7 +99,7 @@ includes following python packages:
 -   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [cf_xarray](https://cf-xarray.readthedocs.io/en/latest/) - interpret Climate and Forecast metadata convention attributes present on xarray objects. NEW 2026
     -   [flox](https://flox.readthedocs.io/en/latest/) - fast GroupBy reductions for Xarray. NEW 2026
-    -   [xarray-eopf](https://eopf-sample-service.github.io/xarray-eopf/) - for reading the [ESA EOPF data products](https://eopf.copernicus.eu/eopf-products-and-adfs/) in Zarr format. NEW 2026
+    -   [xarray-eopf](https://eopf-sample-service.github.io/xarray-eopf/) - for reading the [ESA EOPF data products FIXME](https://eopf.copernicus.eu/eopf-products-and-adfs/) in Zarr format. NEW 2026
     -   [xarray-spatial](https://xarray-spatial.readthedocs.io/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
     -   [xclim](https://xclim.readthedocs.io/en/stable/) - for climate analysis. NEW 2026
 -   [xgboost](https://xgboost.readthedocs.io/) - Gradient Boosting machine learning algorithms. NEW 2026
