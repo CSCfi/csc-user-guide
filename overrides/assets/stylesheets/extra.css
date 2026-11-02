@@ -305,7 +305,7 @@
     .twemoji { color: var(--grid-card-color); }
   }
 
-    .grid.docs-quick-links {
+  .grid.docs-quick-links {
     text-wrap: balance;
 
     :is(h1,h2,h3,h4,h5,h6) {
