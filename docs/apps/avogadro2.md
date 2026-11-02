@@ -34,6 +34,7 @@ Avogadro2 is a graphical program. Use it in the [Desktop app](../computing/webin
 3. Select your **Project** and the **Partition** `interactive`. Set **Memory (GiB)** to 4. Click **Launch**.
 4. In **My Interactive Sessions**, wait until the Desktop session is **Running**, then click **Launch Desktop**.
 5. In the desktop, double-click the **Avogadro 2** icon, or select **Applications → Chemistry → Avogadro 2**.
+6. If a **Version Update** window appears, select **Ignore**.
 
 !!! note
     Avogadro2 is used for preparing structures and inputs, and for viewing results. Run the calculations as batch jobs, see the pages of the programs, for example [ORCA](orca.md) and [Gaussian](gaussian.md).
@@ -42,7 +43,7 @@ Avogadro2 is a graphical program. Use it in the [Desktop app](../computing/webin
 
 The simplest way to get a start structure is the fragment library. No file is needed.
 
-1. Select **Build → Insert → Fragment...**.
+1. Select **Build → Insert → Molecule...**. The **Insert Fragment...** window opens.
 2. Type a name in the **Filter** field, or expand a category (for example `aromatics` or `amino_acids`). The preview shows the selected molecule.
 3. Click **Insert** once. The **Files** panel shows the formula (for benzene `C6H6`).
 
@@ -111,7 +112,6 @@ When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`
 - Avogadro2 runs inside the Desktop session. Keep the session open while you use it.
 - A terminal window opens together with Avogadro2 and closes when you quit Avogadro2.
 - Copy-paste between your local computer and the desktop works via the noVNC clipboard. Open the **Clipboard** menu from the tab on the left edge of the desktop window, paste your text there, and then paste normally inside the desktop.
-- If a **Version Update** dialog appears, select **Ignore**.
 - The file dialog may open in another directory. Type the full path of the file in the **File name** field to go there directly.
 - Open Babel is included, so many structure file formats can be read and written.
 
