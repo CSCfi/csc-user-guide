@@ -41,7 +41,7 @@ sinteractive -i
 ```
 
 When this option is used, the user is prompted for the individual parameters
-of the session (runtime, cores, etc.). If you do not want to specify
+of the session (runtime, memory, cores, etc.). If you do not want to specify
 the resources interactively, you can simply pass them to the command as
 arguments.
 
@@ -84,14 +84,22 @@ logged into the system:
 sinteractive --help
 ```
 
-Note that memory can not be specified in a sinteractive session, and
-you are allocated 2 GiB memory per each reserved CPU on Roihu-CPU.
-Only way to get extra memory in your job is to increase the amount of resources you request.
+On Roihu-CPU, memory and CPU cores are requested independently. If you do not specify
+memory, the session gets 1 GiB per reserved core, for example 4 GiB with `--cores 4`.
+If you need more memory, request it with `--mem` rather than reserving cores you won't use:
 
-GPU sessions always get 212 GiB of memory.
+```bash
+sinteractive --account <project> --cores 4 --mem 8G
+```
+
+The defaults and limits are the same as for jobs submitted to the `interactive` partition
+directly. See the
+[partition details](batch-job-partitions.md#roihu-cpu-interactive-use).
+
+Roihu-GPU sinteractive sessions get 212 GiB of memory in the current configuration.
 
 To reserve fast [disaggregated storage](../disk.md#disaggregated-storage) for the
-session, give the amount in GB with the `-d` (`--tmp`) option, up to 2048 GB. The
+session, give the amount in GiB with the `-d` (`--tmp`) option, up to 2048 GiB (2 TiB). The
 storage is mounted at `/sbf/data`:
 
 ```bash

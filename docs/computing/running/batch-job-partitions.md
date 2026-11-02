@@ -78,7 +78,7 @@ Roihu provides the following partitions for submitting jobs to GPU nodes:
 | `gpularge`       | G               | 36 hours   | 1 - 10 | 4        | 4 per node    | GPU                                     | 212 GiB per reserved GPU | [scalability test](../../accounts/how-to-access-roihu-large-partition.md) |
 
 Each full GPU node has 4 GH200 GPUs. Each reserved GPU grants access to up to **72 CPU cores**, and
-95 GiB of HBM3 memory + 117 GiB of LPDDR5 memory, for a total of **212GiB available memory** per reserved GPU.
+95 GiB of HBM3 memory + 117 GiB of LPDDR5 memory, for a total of **212 GiB available memory** per reserved GPU.
 
 The memory amounts listed here are the allocatable amounts available to jobs;
 some memory is reserved for system use.
@@ -97,12 +97,10 @@ and automatically provides Roihu-CPU resources when run from a Roihu-CPU login n
 
 | Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            |
 |-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|
-| `interactive`     | R / C            | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
+| `interactive`     | R            | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
 
-When using `sinteractive`, the amount of memory is tied to the amount of CPU cores requested. Memory can not be specified independently
-through sinteractive.
-
-In the [Roihu web interface](../webinterface/index.md), memory and CPU core counts can be requested independently when using the `interactive` partition.
+Memory and CPU cores can be requested independently on the `interactive` partition.
+If you don't request memory explicitly, you are given 1 GiB per reserved CPU core.
 
 #### Roihu-GPU interactive use
 
@@ -123,7 +121,7 @@ and automatically provides a GPU slice when run from a Roihu-GPU login node.
 
 !!! note "GPU slices not yet fully configured"
     GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
-    will instead provide a full GPU, 72 CPU cores and 217 GiB memory.
+    will instead provide a full GPU, 72 CPU cores and 212 GiB memory.
 
 #### Vizinteractive
 
