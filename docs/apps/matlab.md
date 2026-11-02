@@ -24,44 +24,8 @@ catalog:
 
 ## License
 
-MATLAB is proprietary software that requires a valid license to use.
-Additionally, each toolbox requires its own separate license for access to its functionality.
-
-While MATLAB installations on the supercomputers include all available toolboxes, installation alone does not grant usage rights.
-You must have a valid license for each specific toolbox you wish to use.
-
-License options are covered in the following sections.
-
-
-## Available
-
-We offer three ways to use MATLAB on CSC supercomputers.
-The best choice depends on your needs.
-
-1. **MATLAB web application** is best for interactive use.
-It works like the desktop version and lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
-You can also use a network license.
-Available on Roihu-CPU, and LUMI.
-
-2. **MATLAB command-line interface** is good for basic interactive and batch work.
-It lets you use your own license (home, individual, student, or campus-wide) with all your toolboxes.
-You can also use a network license.
-Available on Roihu-CPU, and LUMI.
-
-3. **MATLAB parallel server** is best for batch computing.
-You can send jobs from your local MATLAB to the supercomputer.
-Your local toolboxes work on the supercomputer too.
-The supercomputer workers use CSC's network license.
-Available on Roihu-CPU only.
-
-All options support MATLAB versions R2023b to R2026a.
-
-!!! warning "Availability on Roihu"
-    1. MATLAB Parallel Server is NOT yet available on Roihu!
-    2. MATLAB runs currently only on Roihu-CPU (x86_64).
-       GPUs are currently available only on the [`vizinteractive`](../computing/running/creating-job-scripts-roihu.md#gpu-visualization-jobs) partition which is intended for visualization.
-    3. Support for Roihu-GPU is planned once MATLAB becomes available for ARM (aarch64).
-
+MATLAB is proprietary software that requires a valid license to use
+It is freely available for academic use.
 CSC provides the following licenses, shared between all users, for **academic** use:
 
 === "Roihu"
@@ -78,6 +42,23 @@ CSC provides the following licenses, shared between all users, for **academic** 
     If you are a user from a commercial company or research institute, you must bring and use your own **commercial** license.
     Please [contact CSC Service Desk](../support/contact.md) for further instructions.
 
+## Available
+
+We offer three ways to use MATLAB on CSC supercomputers.
+The best choice depends on your needs.
+
+1. **MATLAB web application** is best for interactive use.
+It works like the desktop version and it's available on Roihu-CPU and LUMI.
+
+2. **MATLAB command-line interface** is good for basic interactive and batch work.
+Available on Roihu-CPU and LUMI.
+
+3. **MATLAB Parallel Server** is best for batch computing.
+You send jobs from your local MATLAB to the supercomputer.
+Your local toolboxes work on the supercomputer too.
+Available on Roihu-CPU only.
+
+All options support MATLAB versions R2023b to R2026b.
 
 ## MATLAB web application
 
@@ -148,11 +129,7 @@ Use via Online Licensing (OLL):
 matlab -nodisplay -licmode onlinelicensing
 ```
 
-Alternatively, you can use the license pointed to by the `MLM_LICENSE_FILE` environment variable's value, which defaults to the CSC-provided academic license:
-
-```bash
-matlab -nodisplay
-```
+Alternatively, you can use the license pointed to by the `MLM_LICENSE_FILE` environment variable's value, which defaults to the CSC-provided academic license.
 
 You can also run MATLAB scripts using the batch mode as follows:
 
@@ -166,6 +143,7 @@ You can use a different license by setting the following environment variable be
 export MLM_LICENSE_FILE="port@mylicenseserver.com"
 ```
 
+<!-- TODO: link to matlab parallel server -->
 
 ## Computational threads and parallel computing toolbox
 
