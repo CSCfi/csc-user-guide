@@ -71,10 +71,12 @@ processors. The number of processors, e.g. 4, to be used is indicated with the o
 but the number is better replaced with an environment variable which already has it, *i.e.* 
 `$SLURM_CPUS_PER_TASK`, so it's always in sync with the batch script request.
 
-You can run the search in an [interactive session](../computing/running/interactive-usage.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours), so request enough cores for the memory you need, for example:
+You can run the search in an [interactive session](../computing/running/interactive-usage.md).
+On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default, and you can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
+For example:
 
 ```bash
-sinteractive --account <project> --cores 4
+sinteractive --account <project> --cores 4 --mem 8000
 module load bio-apps/v202603
 module load hmmer/3.4
 hmmscan --cpu $SLURM_CPUS_PER_TASK $HMMER_DB/Pfam-A.hmm protein.fasta > result.txt

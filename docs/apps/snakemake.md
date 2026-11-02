@@ -146,10 +146,12 @@ For more complicated workflows, you can do argument parsing and transformations 
 
 ### Running Snakemake workflow with local executor interactively
 
-The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for the [interactive partition](../computing/running/batch-job-partitions.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours).
+The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for the [interactive partition](../computing/running/batch-job-partitions.md).
+
+On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default and can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
 
 ```bash
-sinteractive --account <project> --cores 6   # ~11 GB of memory
+sinteractive --account <project> --cores 4  --mem 12000 # 12 GB of memory
 module load bio-apps/v202603
 module load snakemake/9.14.0
 cd <to_folder_with_snakefile>

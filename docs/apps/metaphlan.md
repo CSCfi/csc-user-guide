@@ -101,12 +101,12 @@ wget https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014476-Su
 ```
 
 In this example the job is executed as an interactive job. On the Roihu `interactive`
-partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB /
-36 hours), so request the number of cores that gives you enough memory — here 8 cores
-(about 15 GB):
+partition you get 1 GiB of memory per reserved core by default, and you can request more
+with `--mem` (up to 32 cores / 64 GiB / 36 hours). Here we reserve 8 cores to match
+`--nproc 8` in our job script below, and 16 GB of memory:
 
 ```bash
-sinteractive --account <project> --cores 8
+sinteractive --account <project> --cores 8 --mem 16000
 module load bio-apps/v202603
 module load py-metaphlan/4.2.4
 metaphlan --nproc 8 --index mpa_vJan26_CHOCOPhlAnSGB_202605 SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt

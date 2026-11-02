@@ -130,54 +130,34 @@ To use R interactively from the command line on a compute node, first start an [
     **Option 1.** In the [supercomputer web interfaces](../computing/webinterface/index.md), open a shell session with the *Compute node shell* tool. When selecting the resources, make sure to reserve local disk space for temporary files. 
     
     **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting/index.md#using-an-ssh-client), open a shell session using the [`sinteractive` command](../computing/running/interactive-usage.md). 
-    As an example, the command below would launch a session with 4 GB of memory and 8 GB of local disk (on Mahti).
+    As an example, the command below would launch a session with 2 cores and 4 GB of memory.
 
-    === "Roihu-CPU"
-          Each core gives 1.875 GB of memory. To get more memory, reserve more cores (maximum 32 cores for 60 GB of memory).
+          By default, each reserved core gives 1 GiB of memory. Request more memory with `--mem` (up to 64 GiB) without reserving extra cores.
           Each user has 20 GB of temporary disk space by default in the `interactive` partition.
           
           ``` bash
-          sinteractive --account <project> --cores 2
-          ```
-    === "Mahti"
-          On Mahti, each core gives 1.875 GB of memory.
-          Local disk space should always be reserved for temporary files with the option `--tmp` when using R interactively.
-          
-          ``` bash
-          sinteractive --account <project> --cores 2 --tmp 8
+          sinteractive --account <project> --cores 2 --mem 4000
           ```
     
     It is possible to specify other options including the running time ([see `sinteractive --help` or the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
-Once you have opened an interactive shell session, you can **launch a command line version of R** as follows (note that the command needs to be run on a compute node):
+Once you have opened an interactive shell session, you can **launch a command line version of R** as follows (note that the command needs to be run on a Roihu-CPU compute node):
 
-=== "Roihu-CPU"
-    ``` bash
-    module load r-env
-    start-r
-    ```
-=== "Mahti"
-    ``` bash
-    module load r-env
-    start-r
-    ```
+``` bash
+module load r-env
+start-r
+```
 
 ### Interactive use on a login node
 
 It is also possible to use the R console on the login node for **light tasks**. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes).
 
-To launch the R console on a login node, run the following commands:
+To launch the R console on a login node, run the following commands on Roihu-CPU:
 
-=== "Roihu-CPU"
-    ``` bash
-    module load r-env
-    R --no-save
-    ```
-=== "Mahti"
-    ``` bash
-    module load r-env
-    apptainer_wrapper exec R --no-save
-    ```
+``` bash
+module load r-env
+R --no-save
+```
 
 ### Non-interactive batch jobs
 
