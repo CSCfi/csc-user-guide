@@ -29,6 +29,14 @@ Free to use and open source under [MIT License](https://raw.githubusercontent.co
 
 HUMAnN 3.9 is the current stable release. Use it unless you need HUMAnN 4.
 
+!!! warning "HUMAnN 4.0.0a2 has only an EC-filtered protein database"
+    For the HUMAnN 4.0 alpha, the HUMAnN developers provide only an EC-filtered
+    UniRef90 protein database (`uniref90_ec_filtered_diamond`), which contains only
+    the UniRef90 families that have an EC number. The translated search of HUMAnN
+    4.0.0a2 cannot assign reads to the other protein families, so they are missing
+    from its gene family results. For a translated search against the full UniRef90
+    database, use HUMAnN 3.9.
+
 ## Usage
 
 HUMAnN is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
