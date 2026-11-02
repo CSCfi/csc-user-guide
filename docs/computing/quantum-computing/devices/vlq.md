@@ -63,25 +63,7 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
 === "Local"
 
-    VLQ also provides API access so it can be accessed outside of LUMI. Locally it is recommended to create the environment using Uv.
-
-    ```bash
-    # Create project 
-    uv init vlq --python=3.12
-
-    cd vlq
-
-    # Add packages
-    uv add py4lexis \
-            "python-http-irods-client @ git+https://opencode.it4i.eu/lexis-platform/data/python-http-irods-client.git@1.3.6" \
-            --index "https://opencode.it4i.eu/api/v4/projects/107/packages/pypi/simple"
-
-    uv add "python-http-irods-client @ git+https://opencode.it4i.eu/lexis-platform/data/python-http-irods-client.git@1.3.6"
-
-    uv add qaas chardet
-
-    uv add notebook matplotlib pylatexenc # for using python notebooks and visualising circuits
-    ```
+    VLQ also provides API access so it can be accessed outside of LUMI. Locally it is recommended to follow the instructions in [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access#set-up-python-environment).
 
 ### Get your access token
 
@@ -89,7 +71,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
 === "Interactive"
 
-    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
+    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
 
     ```python
     # Import packages
