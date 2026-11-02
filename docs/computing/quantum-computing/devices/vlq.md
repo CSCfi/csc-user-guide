@@ -59,7 +59,7 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
     ```bash
     module use /appl/local/quantum/modulefiles    
     module load lumi-q-qiskit/vlq
-    ```§
+    ```
 
 === "Local"
 
@@ -87,17 +87,61 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
 For VLQ you need to get your own access token using MyAccessID. This can be done via the below python script.
 
-```python
-# Import packages
-from py4lexis.session import LexisSession
-from qaas.client import QProvider, QBackend, QJob
+=== "Interactive"
 
-# Authentication
-lexis_session = LexisSession()
-token = lexis_session.get_access_token()
-```
+    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
 
-This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser. If you are running on LUMI via the terminal it is recommended to get this token either locally or through a separate interactive job and then either copy paste it to your job script or save it to a file on your own home/work directory (that only you can read) and read it from there.
+    ```python
+    # Import packages
+    from py4lexis.session import LexisSession
+    from qaas.client import QProvider, QBackend, QJob
+
+    # Authentication
+    lexis_session = LexisSession()
+    token = lexis_session.get_access_token()
+    ```
+
+    This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
+
+=== "Batch"
+
+    For jobs submitter through the Slurm batch scheduler it is recommended to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
+
+    ```python
+    from py4lexis.core.session import LexisSession
+
+    lexis_session = LexisSession(offline_access=True)
+    print("Generating new token.")
+    offline_token = lexis_session.get_refresh_token()
+    with open("offline_token", "w") as text_file:
+        text_file.write(offline_token)
+    ```
+
+    This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
+
+    To use the offline token to get an access token without going through the browser login include the following in your python script
+
+    ```python
+    from pathlib import Path
+    from py4lexis.session import LexisSessionToken
+    from qaas.client import QProvider
+
+    TOKEN_FILE = Path("offline_token")
+
+    session = LexisSessionToken(
+        refresh_token=TOKEN_FILE.read_text().strip(),
+        reraise_exceptions=True,
+        suppress_welcome=True,
+    )
+
+    PROJECT = "VLQ-CSC"
+    RESOURCE = "VLQ-FI"
+
+    TOKEN_FILE.write_text(session.get_refresh_token())
+    TOKEN_FILE.chmod(0o600)
+
+    token=session.get_access_token()
+    ```
 
 ### Get the backend
 
