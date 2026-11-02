@@ -41,7 +41,7 @@ directory called `big_data`. The directory contains about 100 GB of data in
 120 000 files. Initially, the data is packaged as a single tar archive in the
 scratch directory of project 2001234 (`/scratch/project_2001234/big_data.tar`)
 
-First, we launch an interactive batch job with 2 cores (4 GiB of memory) and
+First, we launch an interactive batch job with 2 cores, 4 GiB of memory and
 250 GiB of disaggregated storage.
 
 ```bash

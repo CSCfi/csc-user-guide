@@ -132,12 +132,13 @@ To use R interactively from the command line on a compute node, first start an [
     **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting/index.md#using-an-ssh-client), open a shell session using the [`sinteractive` command](../computing/running/interactive-usage.md). 
     As an example, the command below would launch a session with 2 cores and 4 GB of memory.
 
-          By default, each reserved core gives 1 GiB of memory. Request more memory with `--mem` (up to 64 GiB) without reserving extra cores.
-          Each user has 20 GB of temporary disk space by default in the `interactive` partition.
-          
-          ``` bash
-          sinteractive --account <project> --cores 2 --mem 4000
-          ```
+    By default, each reserved core gives 1 GiB of memory. Request more memory with `--mem` (up to 64 GiB) without
+    reserving extra cores.
+    Each user has 20 GB of temporary disk space by default in the `interactive` partition.
+    
+    ``` bash
+    sinteractive --account <project> --cores 2 --mem 4000
+    ```
     
     It is possible to specify other options including the running time ([see `sinteractive --help` or the `sinteractive` documentation](../computing/running/interactive-usage.md)).
 
@@ -176,7 +177,7 @@ Actual R batch jobs should in most cases be run in the `small` partition. See he
     By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
     at the examples of [parallel R batch job scripts](../support/tutorials/parallel-r-examples.md).
 
-We define the batch job script to execute the R script (here `myscript.R`). On Mahti, we use the `apptainer_wrapper` command, which makes sure project directories are visible in the Apptainer container that `r-env` runs in.
+We define the batch job script to execute the R script (here `myscript.R`):
 
 === "Roihu-CPU"
     ``` bash
@@ -197,33 +198,6 @@ We define the batch job script to execute the R script (here `myscript.R`). On M
   
     # Run the R script
     srun Rscript --no-save myscript.R
-    ```
-=== "Mahti"
-    ``` bash
-    #!/bin/bash
-    #SBATCH --job-name=r_serial     # Job name
-    #SBATCH --account=<project>     # Define the billing project, e.g. project_2001234
-    #SBATCH --output=output_%j.txt  # File for storing output (%j will be job id)
-    #SBATCH --error=errors_%j.txt   # File for storing errors (%j will be job id)
-    #SBATCH --partition=test        # Job queue (partition), in general use 'small'
-    #SBATCH --time=00:05:00         # Max. duration of the job (hh:mm:ss)
-    #SBATCH --cpus-per-task=1       # Number of cores (1.875 GB of memory each)
-    #SBATCH --ntasks=1              # Number of tasks (only change this for multi-node/MPI jobs)
-    #SBATCH --nodes=1               # Number of nodes (only change this for multi-node/MPI jobs)
-
-    # Load the r-env module
-    module load r-env
-  
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-  
-    # Specify a temporary directory path (replace <project> with your project)
-    echo "TMPDIR=/scratch/<project>" >> ~/.Renviron
-  
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
     ```
 
 In the above example, one task (`--ntasks=1`) is executed with 1 CPU core (`--cpus-per-task=1`), 2 GB of memory (`--mem-per-cpu=2000M`) and a run time of five minutes (`--time=00:05:00`) reserved for the job.
@@ -342,40 +316,6 @@ An example of a serial batch job using 10 GB of fast local storage (`--gres=nvme
 === "Roihu-CPU"
     On Roihu CPU partitions `small`, `interactive`, and `test`, **each user has 20 GiB of temporary local storage by default**. This storage is suitable for I/O-intensive tasks and accessed with
     the environment variable `$TMPDIR`. For larger amounts of storage for I/O intensive tasks, see the [instructions on fast local scratch storage on Roihu](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage).
-
-=== "Mahti"
-    ``` bash
-    #!/bin/bash -l
-    #SBATCH --job-name=r_serial_fastlocal
-    #SBATCH --account=<project>
-    #SBATCH --output=output_%j.txt
-    #SBATCH --error=errors_%j.txt
-    #SBATCH --partition=test
-    #SBATCH --time=00:05:00
-    #SBATCH --ntasks=1
-    #SBATCH --nodes=1
-    #SBATCH --cpus-per-task=1 # Each core gives 1.875 GB of memory
-    #SBATCH --gres=nvme:10
-    
-    # Load the module
-    module load r-env
-    
-    # Clean up .Renviron file in home directory
-    if test -f ~/.Renviron; then
-        sed -i '/TMPDIR/d' ~/.Renviron
-    fi
-    
-    # Specify temporary directory to the fast local storage
-    echo "TMPDIR=$TMPDIR" >> ~/.Renviron
-    
-    # Run the R script
-    srun apptainer_wrapper exec Rscript --no-save myscript.R
-    ```
-    Further to temporary file storage, data sets for analysis can be stored on a fast local drive in the location specified by the variable `LOCAL_SCRATCH`. To enable R to find your data, you will need to indicate this location in your R script. After launching R, you can print out the location using the following command:
-
-    ```         
-    Sys.getenv("LOCAL_SCRATCH")
-    ```
 
 ### Using `r-env` with Stan
 

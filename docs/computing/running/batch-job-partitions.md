@@ -97,7 +97,7 @@ and automatically provides Roihu-CPU resources when run from a Roihu-CPU login n
 
 | Partition         | Allocation type | Time limit | Nodes  | Max CPUs      | [Node types](../systems-roihu.md#nodes) | Max memory            |
 |-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|
-| `interactive`     | R            | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
+| `interactive`     | R               | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
 
 Memory and CPU cores can be requested independently on the `interactive` partition.
 If you don't request memory explicitly, you are given 1 GiB per reserved CPU core.
