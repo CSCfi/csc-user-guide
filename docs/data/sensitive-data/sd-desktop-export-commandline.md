@@ -10,13 +10,13 @@ Only the CSC Project Manager is authorized to export files from the virtual desk
 
 On this page:
 
-1. Importing a working copy of the dataset on the external volume
+[1. Importing a working copy of the dataset on the external volume]
 
-2. Set correct permissions
+[2. Set correct permissions]
    
-3. Data analysis via Byobu terminal 
+[3. Data analysis via Byobu terminal]
 
-4. Results  export 
+[4. Results export]
 
 
 ## 1. Importing a working copy of the dataset on the external volume
