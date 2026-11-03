@@ -45,6 +45,5 @@
             - [Jupyter notebook](quantum-computing/running-quantum-jobs/access-models/jupyter-notebook.md)
         - [Circuit level job](quantum-computing/running-quantum-jobs/circuit-job.md)
         - [Pulse level job](quantum-computing/running-quantum-jobs/pulse-job.md)
-    - [FiQCI partition](quantum-computing/fiqci-partition.md)
 - [FirecREST HPC API](firecrest/)
 - [AI tools](ai-tools/)
