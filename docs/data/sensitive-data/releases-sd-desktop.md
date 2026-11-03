@@ -5,7 +5,7 @@ This page summarizes the major releases of SD Desktop, highlighting improvements
 Version shortcuts:
 
 
-- [SD Desktop v.3.5](#sd-desktop-v300)
+- [SD Desktop v.3.0.5](#sd-desktop-v300)
 - [SD Desktop v3.0.0](#sd-desktop-v300)
 
 ## SD Desktop v3.0.5
