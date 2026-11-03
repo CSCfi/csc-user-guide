@@ -101,17 +101,37 @@ You can choose between different virtual desktops options based on your needs. D
 
 #### Virtual desktop options
 
-|  | Use  | Technical specifications | Corresponding Pouta Flavor | Cloud Billing Units consumption |
+| Computation option | Use  | Technical specifications | Corresponding Pouta Flavor | Cloud Billing Units consumption |
 |-|-|-|-|-|
 |  **Small** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 Cloud Billing Units/h |
 |  **Medium**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.92 Cloud Billing Units/h |
 | **Heavy**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 16; Memory 83 GB; Root disk 80 GB  | hpc.7.16 core Redundant power: yes; CPU: AMD EPYC 9754 128-Core Processor; Network: Redundant 100 Gb/s; Disk storage: Stored in the central storage Notes: Single-node failure may cause downtime, but instances are recoverable. | 33 Cloud Billing Units/h|
-| **Big memory**| **This option is available only upon request providing the required information**.| Core 32; Memory 170 GB; Root disk 80 GB  | hpc.7.32 core  Redundant power: yes; CPU: AMD EPYC 9754 128-Core Processor; Network: Redundant 100 Gb/s; Disk storage: Stored in the central storage Notes: Single-node failure may cause downtime, but instances are recoverable. | 65 Cloud Billing Units/h|
-| **GPU**| **This option is available only upon request providing requires information** |  Cores 12; GPU 1; Memory 219, Root disk 80, Ephemeral disk 3000 GB.  | gpu4.1gpu Redundant power: yes; GPU: NVIDIA L40S (48 GB);CPU: Intel(R) Xeon(R) Gold 6542Y Network: Redundant 100 Gb/s; Disk flavor: Local NVMe disks, RAID-1; Stored in the central storage; Notes: Instance can be lost due to a single-node or disk failure.| 195 Cloud Billing Units/h |
-| **Big Picture project**| This option is available only for Big Picture project members. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  | |  195 Cloud Billing Units/h |
+| **Big memory**| **This option is available only upon request providing the (required information)[#requesting-big-memory-or-gpu-virtual-desktops]**.| Core 32; Memory 170 GB; Root disk 80 GB  | hpc.7.32 core  Redundant power: yes; CPU: AMD EPYC 9754 128-Core Processor; Network: Redundant 100 Gb/s; Disk storage: Stored in the central storage Notes: Single-node failure may cause downtime, but instances are recoverable. | 65 Cloud Billing Units/h|
+| **GPU**| **This option is available only upon request providing required information)[#requesting-big-memory-or-gpu-virtual-desktops]** |  Cores 12; GPU 1; Memory 219, Root disk 80, Ephemeral disk 3000 GB.  | gpu4.1gpu Redundant power: yes; GPU: NVIDIA L40S (48 GB);CPU: Intel(R) Xeon(R) Gold 6542Y Network: Redundant 100 Gb/s; Disk flavor: Local NVMe disks, RAID-1; Stored in the central storage; Notes: Instance can be lost due to a single-node or disk failure.| 195 Cloud Billing Units/h |
+| **Big Picture project**| This option is limited only to Big Picture project members upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  | |  195 Cloud Billing Units/h |
 
 !!! note
-    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. 
+    All virtual Big Memory or GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. 
+
+
+### Requesting Big Memory or GPU virtual desktops
+
+Bug Memory or GPU desktops option require a separate approval and allocation process. GPU resources at CSC remain limited and are allocated on a first-come, first-served basis for as long as the virtual machine is running. While current capacity is expected to meet demand, GPU resources should be requested only when there is a clear technical need.
+
+Before requesting a Small GPU desktop, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
+
+- Expected usage period and timeline
+- Purpose of the workload 
+- Software or applications to be used
+- Type of analysis, computation, or processing to be performed
+- Justification for requiring Bug Memory or GPU resources instead of a standard desktop
+
+To support efficient capacity planning, we recommend reviewing ongoing GPU requirements at least every three months. If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. P
+
+Please note: Only storage volumes created separately through the SD Desktop user interface can be moved between supported virtual desktops. The 3 TB local ephemeral disk included with GPU desktops is instance-specific and cannot be transferred between desktop types. When a GPU virtual desktop is deleted, the ephemeral disk and all data stored on it are permanently deleted.
+
+As GPU resources are among the most heavily utilized resources in CSC's cloud environment, please stop, shelve, or delete GPU desktops when they are no longer actively needed so that resources remain available for other workloads.
+
 
 
 
