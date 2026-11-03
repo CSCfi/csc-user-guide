@@ -112,7 +112,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
 === "Interactive"
 
-    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
+    For interactive jobs you can use the method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
 
     ```python
     # Import packages
