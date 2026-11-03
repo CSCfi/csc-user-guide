@@ -106,7 +106,7 @@ with `--mem` (up to 32 cores / 64 GiB / 36 hours). Here we reserve 8 cores to ma
 `--nproc 8` in our job script below, and 16 GB of memory:
 
 ```bash
-sinteractive --account <project> --cores 8 --mem 16000
+sinteractive --account <project> --cores 8 --mem 16G
 module load bio-apps/v202603
 module load py-metaphlan/4.2.4
 metaphlan --nproc 8 --index mpa_vJan26_CHOCOPhlAnSGB_202605 SRS014476-Supragingival_plaque.fasta.gz --input_type fasta > SRS014476-Supragingival_plaque_profile.txt

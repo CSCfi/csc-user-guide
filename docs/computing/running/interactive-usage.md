@@ -86,7 +86,9 @@ sinteractive --help
 
 On Roihu-CPU, memory and CPU cores are requested independently. If you do not specify
 memory, the session gets 1 GiB per reserved core, for example 4 GiB with `--cores 4`.
-If you need more memory, request it with `--mem` rather than reserving cores you won't use:
+
+If you need more memory, request it with `--mem` rather than reserving cores you won't use.
+By default, memory is requested in MiB. To request memory in GiB, add the `G` suffix:
 
 ```bash
 sinteractive --account <project> --cores 4 --mem 8G
@@ -99,11 +101,12 @@ directly. See the
 Roihu-GPU sinteractive sessions get 212 GiB of memory in the current configuration.
 
 To reserve fast [disaggregated storage](../disk.md#disaggregated-storage) for the
-session, give the amount in GiB with the `-d` (`--tmp`) option, up to 2048 GiB (2 TiB). The
-storage is mounted at `/sbf/data`:
+session, use the `-d` (`--tmp`) option, up to 2048 GiB (2 TiB).
+By default, storage is requested in MiB. To request storage in GiB, add the `G` suffix.
+The storage is mounted at `/sbf/data`:
 
 ```bash
-sinteractive --account <project> --cores 4 -d 100
+sinteractive --account <project> --cores 4 -d 100G
 ```
 
 Copy any results you need from `/sbf/data` before the session ends.

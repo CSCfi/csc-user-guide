@@ -46,7 +46,7 @@ To run Mothur in interactive mode, use [sinteractive](../computing/running/inter
 On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default; add `--mem` if you need more (up to 32 cores / 64 GiB / 36 hours):
 
 ```bash
-sinteractive --account <project> --cores 4 --mem 8000
+sinteractive --account <project> --cores 4 --mem 8G
 module load bio-apps/v202603
 module load mothur/1.48.0
 mothur

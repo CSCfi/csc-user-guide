@@ -76,7 +76,7 @@ On the Roihu `interactive` partition you get 1 GiB of memory per reserved core b
 For example:
 
 ```bash
-sinteractive --account <project> --cores 4 --mem 8000
+sinteractive --account <project> --cores 4 --mem 8G
 module load bio-apps/v202603
 module load hmmer/3.4
 hmmscan --cpu $SLURM_CPUS_PER_TASK $HMMER_DB/Pfam-A.hmm protein.fasta > result.txt

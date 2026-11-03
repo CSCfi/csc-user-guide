@@ -87,7 +87,7 @@ interproscan.sh -i proteins.fasta -o results.gff3 -f GFF3 -appl Pfam
 The `interproscan.sh` launcher reserves up to 14 GB of memory for Java alone, so don't
 run InterProScan on the login nodes. Use an
 [interactive session](../computing/running/interactive-usage.md) with enough memory, for
-example `sinteractive --account <project> --cores 8 --mem 24000 --time 04:00:00`
+example `sinteractive --account <project> --cores 8 --mem 24G --time 04:00:00`
 (24 GB), or a batch job.
 
 ### Example batch script

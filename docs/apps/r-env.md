@@ -137,7 +137,7 @@ To use R interactively from the command line on a compute node, first start an [
     Each user has 20 GB of temporary disk space by default in the `interactive` partition.
     
     ``` bash
-    sinteractive --account <project> --cores 2 --mem 4000
+    sinteractive --account <project> --cores 2 --mem 4G
     ```
     
     It is possible to specify other options including the running time ([see `sinteractive --help` or the `sinteractive` documentation](../computing/running/interactive-usage.md)).

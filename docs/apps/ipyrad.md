@@ -47,7 +47,7 @@ On the Roihu `interactive` partition you get 1 GiB of memory per reserved core b
 Here we reserve one core and 16 GB of memory:
 
 ```bash
-sinteractive --account <project> --cores 1 --mem 16000
+sinteractive --account <project> --cores 1 --mem 16G
 ```
 
 iPyrad processing can now be started with the command:

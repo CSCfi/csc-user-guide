@@ -69,7 +69,7 @@ a batch job rather than on a login node. For example, on the `interactive`
 partition (up to 32 cores / 64 GiB / 36 h):
 
 ```bash
-sinteractive --account <project> --cores 8 --mem 16000
+sinteractive --account <project> --cores 8 --mem 16G
 module load bio-apps/v202603 blast-plus
 blastp -query proteinseq.fasta -db nr -evalue 0.001 -outfmt 7 -out result.table
 ```

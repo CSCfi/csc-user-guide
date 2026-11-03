@@ -4,7 +4,7 @@ An [interactive batch job](../../computing/running/interactive-usage.md) on
 Roihu allows you to start a shell session on a CPU node with up to:
 
 * 32 cores
-* 64 GB of memory
+* 64 GiB of memory
 * 36 hours of run time
 
 To launch an interactive session on Roihu, execute the command:
@@ -45,7 +45,7 @@ First, we launch an interactive batch job with 2 cores, 4 GiB of memory and
 250 GiB of disaggregated storage.
 
 ```bash
-sinteractive --account <project> --cores 2 --mem 4G --time 02:00:00 -d 250
+sinteractive --account <project> --cores 2 --mem 4G --time 02:00:00 -d 250G
 ```
 
 The analysis is then done in three steps:
