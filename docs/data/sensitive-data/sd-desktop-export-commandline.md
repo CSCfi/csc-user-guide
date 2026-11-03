@@ -44,7 +44,21 @@ Ctrl+C
 
 ## 2. Set correct permissions
 
-When the data import has completed, please set correct access rights or permissions. 
+After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only.
+
+With the steps below, you ensure that all project members have read and write access to all files and folders. This prevents possible access issues when the volume is used on different virtual desktop, where file ownership information may be handled differently.
+
+
+1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
+
+4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
+6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
+7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
+8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
 
 
 ## 3. Data analysis via Byobu terminal 
