@@ -22,62 +22,88 @@ On this page:
 ## 1. Importing a working copy of the dataset on the external volume
 
 
-Use the following command to import files from both **SD Connect** and **SD Apply** (if you have the required access rights) to your virtual desktop external volume: 
+Use the Data Gateway application via command line to import files from **SD Connect** and **SD Apply** (if you have the required access rights) to a volume attached to your virtual desktop.
 
- First, you need to open the data Gateway application programmatically and type:
+#### Step 1: start the Data Gateway connection
+
+Open the Data Gateway application by running:
 
 ```bash
 data-gateway-cli import
 ```
 
-Now the secure connection between SD Connect and your virtual desktop is open. List the content of the project folder with this command to see the files and folder you have stored in SD Connect: 
+This establishes a secure connection between your virtual desktop and **SD Connect** or SD Apply, where your files are stored encrypted. Now you will notice on the side navication bar that a folder called Project has been opened. 
 
+#### Step 2:  View the contents of your SD Connect project
 
-```bash
-
-$HOME/Projects/SD-Connect/project-number/
-```
-
-
-Now change directory and move to your virtual desktop volume, the volumes attached to the virtual desktop are listed as numbers, so if you have only one volume you can access it via volume1: 
+To see the files and folders available in your CSC project and stored in SD Connect, run:
 
 ```bash
-
-cp /media/volume1
+ls $HOME/Projects/SD-Connect/project-number/
 ```
 
-Now you can copy the files stored in SD Connect visible to you via the Projects folder to the volume. During the copying pahe they wil also be decrypted. Leave teh data agteway applcaiiton open during this time. 
+Replace `project-number` with your CSC project number.
+
+## 3. Navigate to your virtual desktop volume
+
+You can now make a working copy of the files stored in SD Connect inside your virtual desktop, specifically save them on the volume attached to it.
+
+Volumes attached to the virtual desktop are mounted as `volume1`, `volume2`, etc.
+
+If you have only one attached volume, navigate to it with:
 
 ```bash
-
-cp -r  $HOME/Projects/SD-Connect/project-number/buckets/ .
+cd /media/volume1
 ```
 
+## 4. Copy files from SD Connect
 
+You can copy files from SD Connect via the secure connection created by the Data Gatewaty to your virtual desktop volume. Files are automatically decrypted during the copy process.
+
+Keep the Data Gateway application running until the file transfer is complete.
+
+Example:
+
+```bash
+cp -r $HOME/Projects/SD-Connect/project-number/buckets/ .
+```
 Where: 
 
-cp means copy
--r means the entire file or directory
-project-number is the CCS project number
-bucket is the bucket in SD Connect in which you have uplaoded files or folders
+| Component | Description |
+|------------|-------------|
+| `cp` | Copy files or directories |
+| `-r` | Copy directories and their contents recursively |
+| `project-number` | Your CSC project number |
+| `buckets` | The name of the bucket containing your files and folders in SD Connect |
+| `.` | The current directory (your virtual desktop volume) |
 
+Example:
 
+```bash
 cp -r $HOME/Projects/SD-Connect/project-2000XXX/experiment-04-10-2026/ .
+```
 
+## Import Files Only from SD Apply
 
-
-To import files exclusively from **SD Apply**:
+If you only need to access data stored in **SD Apply**, run:
 
 ```bash
 data-gateway-cli import -sdapply
 ```
 
+## Exit the Data Gateway Application
 
-To exit the application, press:
+To close the connection, press:
 
 ```text
 Ctrl+C
 ```
+
+## Notes
+
+- Keep the Data Gateway application open while copying files.
+- Files are available through the mounted `Projects` directory only while the secure connection is active.
+- Files are automatically decrypted when copied to your virtual desktop volume.
 
 ## 2. Set correct permissions
 
@@ -114,31 +140,60 @@ Byobu allows you to log out from a session and reconnect later, making it a reli
 
 ## 4. Exporting results
 
-Only the CSC Project Manager is authorized to export results from the virtual desktop via the data gateway. Project members can import files but cannot export data.
+# Export Files to SD Connect
 
-Open the terminal in the same location in which the files that you want to export are and then type: 
+Only the CSC Project Manager is authorized to export results from the virtual desktop using the Data Gateway application. Project members can import files but cannot export data.
 
-With this command you can create a bucket in SD Connect in which yow want to export a single file:
+Before exporting, open a terminal in the directory containing the file or folder you want to export.
+
+## Export a Single File
+
+Open a terminal in the directory containing the file or folder you want to export and use the following command to export a file to an SD Connect bucket:
 
 ```bash
-data-gateway-cli export <SD Connect bucket name> <file you want to export>
+data-gateway-cli export <SD-Connect-bucket-name> <file-name>
 ```
- example
+
+Example:
 
 ```bash
 data-gateway-cli export study2026 results.csv
 ```
+The file results.csv will be encrypted and exported to an SD Connect bucket named study2026. If the specified bucket does not already exist in SD Connect, it will be created automatically.
+Once the export is complete, the file will be available to all members of your CSC project. Project members can then download the file through SD Connect to their own computers. The file is automatically decrypted during the download process.
 
-With this command you can create or specific the name of the bucket in SD Connect in which yow want to export a folder and all its content: 
+## Export a Folder
+
+To export a folder and all of its contents to an SD Connect bucket, use:
 
 ```bash
-data-gateway-cli export <SD Connect bucket name> <folder you want to export>
+data-gateway-cli export <SD-Connect-bucket-name> <folder-name>
 ```
 
+Example:
 
 ```bash
-data-gateway-cli export study2026 results_directory
+data-gateway-cli export study2026 results-november-2026
 ```
+
+In this case, the directory called restuls-november-2026 will be exported to Sd Connect bucket named study 2026, with the entire content. All the files will be automatically encrypted. If the specified bucket does not already exist in SD Connect, it will be created automatically. Also in this case, once the export is complete, the file will be available to all members of your CSC project. Project members can then download the folder through SD Connect to their own computers. The file is automatically decrypted during the download process.
+
+Command Explanation
+
+| Component | Description |
+|------------|-------------|
+| `data-gateway-cli export` | Starts the export process |
+| `SD-Connect-bucket-name` | Name of the destination bucket in SD Connect |
+| `file-name` | File to be exported |
+| `folder-name` | Folder to be exported, including all its contents |
+
+## Notes
+
+- Only CSC Project Managers can export data from the virtual desktop.
+- Project members can import data but cannot perform exports.
+- The export command uploads the selected file or folder to the specified SD Connect bucket.
+- If the bucket does not exist, it is created automatically during the export process.
+- Ensure you are in the correct directory before running the export command, or provide the full path to the file or folder.
 
 
 
