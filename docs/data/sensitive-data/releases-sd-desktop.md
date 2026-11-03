@@ -4,12 +4,29 @@ This page summarizes the major releases of SD Desktop, highlighting improvements
 
 Version shortcuts:
 
-- [SD Desktop v3.0.0 Upcoming ](#sd-desktop-v300)
+
+- [SD Desktop v.30.4](#sd-desktop-v300)
+- [SD Desktop v3.0.0](#sd-desktop-v300)
+
+## SD Desktop v3.0.5
+
+This release resolves a number of reported issues:
+
+- Reminder emails have display again both the project name and virtual desktop name;
+- Resolved an issue that prevented executables from running from attached volumes.
+- Integration between SD Desktop and SD Apply restored.
+- Resolves issue related to Byobu terminal sessions interrupted after log out
+
+To provide access to the latest CSC computing resources, we are updating the virtual machine flavors available in the service:
+
+- Heavy computation option has been updated from hpc4.20 (20 cores, 87 GB memory) to hpc.7.16 (16 cores, 83 GB memory).
+- A new Big Memory computation option, hpc.7.32, is now available, providing 32 cores and 170 GB of memory for memory-intensive workloads.
+- GPU has been updated from gpu1.1gpu (deprecated) to gpu.4.1gpu (12 cores, 219 GB memory, 3 TB ephemeral storage).
+
 
 
 ## SD Desktop v3.0.0 
 
-Available from September 28, 2026. 
 
 ### Overview
 
