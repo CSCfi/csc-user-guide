@@ -48,11 +48,11 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
 ## Get your access token
 
-For VLQ you need to get your own access token using MyAccessID. This can be done via the below python script.
+For VLQ you need to get your own access token using MyAccessID. This can be done via the below Python script.
 
 === "Batch"
 
-    For jobs submitter through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
+    For jobs submitted through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
 
     ```python
     from pathlib import Path
@@ -68,7 +68,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
-    To use the offline token to get an access token without going through the browser login include the following in your python script
+    To use the offline token to get an access token without going through the browser login include the following in your Python script
 
     ```python
     from pathlib import Path
@@ -88,7 +88,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     token=session.get_access_token()
     ```
 
-    The quantum job python script can then be run using e.g. the below batch script:
+    The quantum job Python script can then be run using e.g. the below batch script:
 
     Below is an example batch script you can use for VLQ.
 
@@ -104,7 +104,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
     module load Local-quantum
-    module load --ignore_cache lumi-q-qiskit/vlq
+    module load lumi-q-qiskit/vlq
 
     python your_python_script.py
     ```
