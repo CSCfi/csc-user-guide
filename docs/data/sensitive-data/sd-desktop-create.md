@@ -129,13 +129,14 @@ Before requesting a Small GPU desktop, please provide the following information 
 - Type of analysis, computation, or processing to be performed
 - Justification for requiring Bug Memory or GPU resources instead of a standard desktop
 
-To support efficient capacity planning, we recommend reviewing ongoing GPU requirements at least every three months. If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. P
+To support efficient capacity planning, we recommend reviewing ongoing GPU requirements at least every three months. 
 
-!!! Note
-    Please note: Only storage volumes created separately through the SD Desktop user interface can be moved between supported virtual desktops. The 3 TB local ephemeral disk included with GPU desktops is instance-specific and cannot be transferred between desktop types. When a GPU virtual desktop is deleted, the ephemeral disk and all data stored on it are permanently deleted.
+If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. 
 
 As GPU resources are among the most heavily utilized resources in CSC's cloud environment, please stop, shelve, or delete GPU desktops when they are no longer actively needed so that resources remain available for other workloads.
 
+!!! Note
+    Please note: only storage volumes created separately through the SD Desktop user interface can be moved between supported virtual desktops. The 3 TB local ephemeral disk included with GPU desktops is instance-specific and cannot be transferred between desktop types. When a GPU virtual desktop is deleted, the ephemeral disk and all data stored on it are permanently deleted.
 
 
 
