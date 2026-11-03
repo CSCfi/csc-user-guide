@@ -122,12 +122,13 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     token=session.get_access_token()
     ```
-    
+
 !!! info "Next step"
     See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
 
 ## Further Reading
 * [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
+* [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank }
 * [Cirq adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }
