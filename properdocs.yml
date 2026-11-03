@@ -190,6 +190,7 @@ plugins:
       # Pouta
       "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
       # Quantum
+      "computing/quantum-computing/running-quantum-jobs.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
       "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/circuit-job.md"
       "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
       "computing/quantum-computing/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/circuit-job.md"
