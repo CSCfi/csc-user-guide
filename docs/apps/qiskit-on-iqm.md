@@ -14,7 +14,7 @@ catalog:
 # Qiskit-on-iqm
 
 Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is
-installed as `fiqci-vtt-qiskit` on LUMI. It is used for running quantum circuits on the
+installed as `fiqci-qiskit` on LUMI. It is used for running quantum circuits on the
 [quantum computers](../computing/quantum-computing/running-quantum-jobs/overview.md).
 
 
