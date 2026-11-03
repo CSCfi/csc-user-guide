@@ -25,7 +25,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
     ```
 
 !!! info "Exporting multiple backend"
-    You can export multiple backend using `export DEVICES=("<DEVICE_VALUE1>" "<DEVICE_VALUE2>")`. Make sure the devices have compatible software versions.
+    You can export multiple backends using `export DEVICES=("<DEVICE_VALUE1>" "<DEVICE_VALUE2>")`. Make sure the devices have compatible software versions.
 
 !!! info "Courses"
     If you are using the quantum computers during a course, a custom environment may have been prepared for it. In that case use the **Jupyter for courses** app instead.
