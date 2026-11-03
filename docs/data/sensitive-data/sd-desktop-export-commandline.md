@@ -65,7 +65,7 @@ Keep the Data Gateway application running until the file transfer is complete.
 Example:
 
 ```bash
-cp -r $HOME/Projects/SD-Connect/project-number/buckets/ .
+cp -r $HOME/Projects/SD-Connect/project_number/buckets/ .
 ```
 Where: 
 
@@ -73,7 +73,7 @@ Where:
 |------------|-------------|
 | `cp` | Copy files or directories |
 | `-r` | Copy directories and their contents recursively |
-| `project-number` | Your CSC project number |
+| `project_number` | Your CSC project number |
 | `buckets` | The name of the bucket containing your files and folders in SD Connect |
 | `.` | The current directory (your virtual desktop volume) |
 
