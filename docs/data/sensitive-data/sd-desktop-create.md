@@ -12,7 +12,7 @@
 ___
 
 !!! Note
-   If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". **We can provide general introduction to the service, guidance and, if needed, arrange an online support session**.
+    If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". **We can provide general introduction to the service, guidance and, if needed, arrange an online support session**.
 
 
 ___
@@ -89,13 +89,16 @@ Here:
 
 ## 2. Create virtual desktop
 
-A virtual desktop is a secure computer that you access through your web browser. Like a regular computer, it has an operating system, applications, memory and storage, but it runs remotely in the SD Desktop service rather than on your own computer. You use the virtual desktop to access and analyse your sensitive research data in a secure environment. 
+A virtual desktop is a secure computer that you access through your web browser. Like a regular computer, it has an operating system, applications, memory and storage, but it runs remotely in the SD Desktop service rather than on your own computer. You use the virtual desktop to access and analyse your sensitive
+data in a secure environment. 
 
-Desktops have only 80 GB of storage by default. If you save more than 80 GB of data directly to your desktop, it becomes unresponsive and you may lose your data. To avoid this, please **create and attach a volume to your desktop and save your data there**, do not skip the last step. 
+- Desktops have only 80 GB of storage by default. If you save more than 80 GB of data directly to your desktop, it becomes unresponsive and you may lose your data. To avoid this, please **create and attach a volume to your desktop and save your data there**, do not skip the last step. 
 
-You can create up to three desktops within a single CSC project, with up to 10 project members allowed to connect simultaneously to each desktop. As the storage volume, your virtual desktop is accessible to all project members upon creation.
+- You can create up to three desktops within a single CSC project, with up to 10 project members allowed to connect simultaneously to each desktop. As the storage volume, your virtual desktop is accessible to all project members upon creation.
 
-You can choose between different virtual desktops options based on your needs. Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
+- You can choose between different virtual desktops options based on your needs. 
+
+- Before starting a virtual desktop, ensure that your CSC project has sufficient Cloud Billing Units available to cover the expected usage (see more information below). To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
 
 
@@ -128,7 +131,8 @@ Before requesting a Small GPU desktop, please provide the following information 
 
 To support efficient capacity planning, we recommend reviewing ongoing GPU requirements at least every three months. If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. P
 
-Please note: Only storage volumes created separately through the SD Desktop user interface can be moved between supported virtual desktops. The 3 TB local ephemeral disk included with GPU desktops is instance-specific and cannot be transferred between desktop types. When a GPU virtual desktop is deleted, the ephemeral disk and all data stored on it are permanently deleted.
+!!! Note
+    Please note: Only storage volumes created separately through the SD Desktop user interface can be moved between supported virtual desktops. The 3 TB local ephemeral disk included with GPU desktops is instance-specific and cannot be transferred between desktop types. When a GPU virtual desktop is deleted, the ephemeral disk and all data stored on it are permanently deleted.
 
 As GPU resources are among the most heavily utilized resources in CSC's cloud environment, please stop, shelve, or delete GPU desktops when they are no longer actively needed so that resources remain available for other workloads.
 
