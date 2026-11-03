@@ -11,10 +11,9 @@ The LUMI-Q VLQ is a superconducting star IQM quantum computer deployed as a join
 | Manufacturer | IQM |
 | Qubit technology | Superconducting |
 | Topology | Star (one-to-all connectivity) |
-| Native gates | Two-qubit Controlled-Z (CZ) and one-qubit Phased RX (PRX), MOVE (For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).
-) |
+| Native gates | Two-qubit Controlled-Z (CZ) and one-qubit Phased RX (PRX), MOVE (For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).) |
 | Known hardware issues | None |
-| Terms of use | None |
+| Terms of use | IT4I VLQ [AuP](https://docs.it4i.cz/en/docs/clusters/vlq/access#portallexistech). Communicated via email by IT4I |
 
 ## Runtime identifiers
 
@@ -30,7 +29,7 @@ VLQ's qubits are connected to a central computational resonator providing one-to
 
 ## Access
 
-If you do not yet have a VLQ project see the [Access](../access.md) page for info on applying for one.
+If you do not yet have a VLQ project see the [Access](../access.md) page for info on applying for one. Once the project with VLQ allocation has been created you (PI) will receive project id and resource id (string). After this follow the instructions [here](https://docs.it4i.cz/en/docs/clusters/vlq/access#portallexistech) to gain access to the VLQ allocation. 
 
 ## Configure the environment
 
@@ -49,11 +48,11 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
 ## Get your access token
 
-For VLQ you need to get your own access token using MyAccessID. This can be done via the below python script.
+For VLQ you need to get your own access token using MyAccessID. This can be done via the below Python script.
 
 === "Batch"
 
-    For jobs submitter through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
+    For jobs submitted through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
 
     ```python
     from pathlib import Path
@@ -69,7 +68,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
-    To use the offline token to get an access token without going through the browser login include the following in your python script
+    To use the offline token to get an access token without going through the browser login include the following in your Python script
 
     ```python
     from pathlib import Path
@@ -89,7 +88,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     token=session.get_access_token()
     ```
 
-    The quantum job python script can then be run using e.g. the below batch script:
+    The quantum job Python script can then be run using e.g. the below batch script:
 
     Below is an example batch script you can use for VLQ.
 
@@ -105,14 +104,14 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
     module load Local-quantum
-    module load --ignore_cache lumi-q-qiskit/vlq
+    module load lumi-q-qiskit/vlq
 
     python your_python_script.py
     ```
 
 === "Interactive"
 
-    For interactive jobs you can use the method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
+    For interactive jobs you can use the method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access#execute-on-vlq).
 
     ```python
     # Import packages
@@ -125,13 +124,12 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
-For VLQ access you will need a project and resource name. These will be communicated to the project PI over email.
+## Running on VLQ
 
-!!! info "Next step"
-    See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
+See [IT4I VLQ docs](https://it4innovations.github.io/quantum-as-a-service/usage) for running quantum jobs.
 
 ## Further Reading
-* [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
+* [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
 * [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank }
