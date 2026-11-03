@@ -116,10 +116,12 @@ Byobu allows you to log out from a session and reconnect later, making it a reli
 
 Only the CSC Project Manager is authorized to export results from the virtual desktop via the data gateway. Project members can import files but cannot export data.
 
-Export a File
+Open the terminal in the same location in which the files that you want to export are and then type: 
+
+With this command you can create a bucket in SD Connect in which yow want to export a single file:
 
 ```bash
-data-gateway-cli export <bucket> <file>
+data-gateway-cli export <SD Connect bucket name> <file you want to export>
 ```
  example
 
@@ -127,7 +129,12 @@ data-gateway-cli export <bucket> <file>
 data-gateway-cli export study2026 results.csv
 ```
 
-Export a Directory
+With this command you can create or specific the name of the bucket in SD Connect in which yow want to export a folder and all its content: 
+
+```bash
+data-gateway-cli export <SD Connect bucket name> <folder you want to export>
+```
+
 
 ```bash
 data-gateway-cli export study2026 results_directory
