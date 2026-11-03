@@ -18,24 +18,7 @@ The LUMI-Q VLQ is a superconducting star IQM quantum computer deployed as a join
 
 ## Runtime identifiers
 
-Due to the differing access method of VLQ you do not need to (and should not) specify runtime identifiers when running quantum jobs on VLQ from LUMI. Below is an example batch script you can use for VLQ.
-
-```bash
-#!/bin/bash
-
-#SBATCH --job-name=quantumjob   # Job name
-#SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=standard   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:05:00         # Run time (hh:mm:ss)
-
-module use /appl/local/quantum/modulefiles
-module load lumi-q-qiskit/vlq
-
-python your_python_script.py
-```
+Due to the differing access method of VLQ you do not need to (and should not) specify runtime identifiers when running quantum jobs on VLQ from LUMI.
 
 ## Topology
 
@@ -104,6 +87,27 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     TOKEN_FILE.chmod(0o600)
 
     token=session.get_access_token()
+    ```
+
+    The quantum job python script can then be run using e.g. the below batch script:
+
+    Below is an example batch script you can use for VLQ.
+
+    ```bash
+    #!/bin/bash
+
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=standard   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
+
+    module load Local-quantum
+    module load --ignore_cache lumi-q-qiskit/vlq
+
+    python your_python_script.py
     ```
 
 === "Interactive"
