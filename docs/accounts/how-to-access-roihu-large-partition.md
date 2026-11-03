@@ -11,6 +11,11 @@ the results for evaluation by CSC.
 
 The process is described in detail below.
 
+!!! note "Not available for student projects"
+    Roihu large access, including trial access, is intended for research projects.
+    Student and course projects are not eligible. Student projects can continue
+    using standard Roihu access.
+
 ## Test access to the large partition on Roihu
 
 To request the 30-day test period, proceed as follows:
