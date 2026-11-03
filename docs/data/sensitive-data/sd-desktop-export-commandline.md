@@ -24,20 +24,29 @@ On this page:
 
 Use the following command to import files from both **SD Connect** and **SD Apply** (if you have the required access rights) to your virtual desktop external volume: 
 
-To open the data Gateway application programmatically type:
+ First, you need to open the data Gateway application programmatically and type:
 
 ```bash
 data-gateway-cli import
 ```
 
-Now the connection between SD Connect and SD Desktop is open. List the content of the project folder with this command to see the files and folder you have stored in SD Connect: 
-
+Now the secure connection between SD Connect and your virtual desktop is open. List the content of the project folder with this command to see the files and folder you have stored in SD Connect: 
 
 
 ```bash
 
-$HOME/Projects/SD-Connect/prject-number/
+$HOME/Projects/SD-Connect/project-number/
 ```
+
+
+Now change directory and move to your virtual desktop volume, the volumes attached to the virtual desktop are listed as numbers, so if you have only one volume you can access it via volume1: 
+
+```bash
+
+cp /media/volume1
+```
+
+
 
 
 
