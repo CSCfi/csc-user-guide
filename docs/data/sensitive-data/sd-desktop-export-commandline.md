@@ -46,9 +46,23 @@ Now change directory and move to your virtual desktop volume, the volumes attach
 cp /media/volume1
 ```
 
+Now you can copy the files stored in SD Connect visible to you via the Projects folder to the volume. During the copying pahe they wil also be decrypted. Leave teh data agteway applcaiiton open during this time. 
+
+```bash
+
+cp -r  $HOME/Projects/SD-Connect/project-number/buckets/ .
+```
 
 
+Where: 
 
+cp means copy
+-r means the entire file or directory
+project-number is the CCS project number
+bucket is the bucket in SD Connect in which you have uplaoded files or folders
+
+
+cp -r $HOME/Projects/SD-Connect/project-2000XXX/experiment-04-10-2026/ .
 
 
 
