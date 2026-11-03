@@ -376,6 +376,10 @@ The same works on shared-node and GPU partitions, for example:
 srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --bbf bb.spec --pty bash -i
 ```
 
+For interactive sessions started with `sinteractive`, use its `-d` option instead,
+which mounts the storage at `/sbf/data`. See
+[`sinteractive` on Roihu](running/interactive-usage.md#sinteractive-on-roihu).
+
 !!! warning "Steps must use `srun`!"
     When running a multinode job with sbatch, if each step is expected to run with the disaggregated
     disk, then the steps must be started with srun. Otherwise, only the compute node that runs the 
