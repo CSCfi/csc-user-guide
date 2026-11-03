@@ -143,7 +143,7 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the quantum 
 
 ## Calibration data
 
-Calibration data (or quality metrics set) may be necessary for publishing work produced on the available quantum computers. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+Calibration data (or quality metrics set) may be necessary for publishing work produced on the available quantum computers. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in JSON format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
 
 ??? default "Brief description of the figures which are given when querying (Click to show)"
 
@@ -169,7 +169,7 @@ Calibration data (or quality metrics set) may be necessary for publishing work p
 For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
-## Quantum job on Lumi-web interface
+## Quantum job on LUMI web interface
 
 The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ target=_blank } allows users to run quantum jobs on the available quantum computers through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/){ target=_blank }.
 
