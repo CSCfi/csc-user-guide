@@ -69,33 +69,20 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
 For VLQ you need to get your own access token using MyAccessID. This can be done via the below python script.
 
-=== "Interactive"
-
-    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
-
-    ```python
-    # Import packages
-    from py4lexis.session import LexisSession
-
-    # Authentication
-    lexis_session = LexisSession()
-    token = lexis_session.get_access_token()
-    ```
-
-    This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
-
 === "Batch"
 
     For jobs submitter through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
 
     ```python
-    from py4lexis.core.session import LexisSession
+    from pathlib import Path
+    from py4lexis.session import LexisSession
+
+    TOKEN_FILE = Path("offline_token")
 
     lexis_session = LexisSession(offline_access=True)
     print("Generating new token.")
-    offline_token = lexis_session.get_refresh_token()
-    with open("offline_token", "w") as text_file:
-        text_file.write(offline_token)
+    TOKEN_FILE.write_text(lexis_session.get_refresh_token())
+    TOKEN_FILE.chmod(0o600)
     ```
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
@@ -114,14 +101,26 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
         suppress_welcome=True,
     )
 
-    PROJECT = "VLQ-CSC"
-    RESOURCE = "VLQ-FI"
-
     TOKEN_FILE.write_text(session.get_refresh_token())
     TOKEN_FILE.chmod(0o600)
 
     token=session.get_access_token()
     ```
+
+=== "Interactive"
+
+    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
+
+    ```python
+    # Import packages
+    from py4lexis.session import LexisSession
+
+    # Authentication
+    lexis_session = LexisSession()
+    token = lexis_session.get_access_token()
+    ```
+
+    This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
 !!! info "Next step"
     See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
