@@ -31,11 +31,19 @@ In this section, you will start preparing your secure working environment by cre
 
 **A storage volume is a secure storage space where you import and store a working copy of the data you want to analyse**. Think of a volume as a virtual USB stick: you can attach it to one virtual desktop at a time and move it between virtual desktops within the same CSC project. You can create up to five volumes per CSC project. 
 
-Your data remains stored on the volume if the virtual desktop becomes unresponsive. If you delete the virtual desktop, the volume is automatically detached and remains available for you to attach to another virtual desktop (**notice: this feature is available only for virtual desktops created after 28 September 2028**) or for permanently deleting it in a separate step.
+- Your data remains stored on the volume if the virtual desktop becomes unresponsive.
+  
+-  If you delete the virtual desktop, the volume is automatically detached and remains available for you to attach to another virtual desktop (**notice: this feature is available only for virtual desktops created after 28 September 2028**) or for permanently deleting it in a separate step.
 
-In the next steps, you will be guided to **choose a volume size that matches the total amount of storage you expect to need for your data, scripts, and analysis results**: 200 GB, 500 GB, or 1 TB. Select only the storage space you need rather than choosing the largest option by default. If you are unsure which size is suitable or need more than 1 TB of storage, contact us for support and describe the type and amount of data you plan to analyse. A volume **can only be extended** with additional storage before any data or files are imported on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+In the next steps, you will be guided to **choose a volume size that matches the total amount of storage you expect to need for your data, scripts, and analysis results**: 200 GB, 500 GB, or 1 TB. 
 
-Volumes consume your CSC project resources, 4.7 Could-type Billing units /TiB/ hour, from the moment they are created, whether or not they are attached to a virtual desktop. Plan in advance how many resources your CSC project needs.  Check billing unit consumption:
+- Select only the storage space you need rather than choosing the largest option by default.
+  
+- If you are unsure which size is suitable or need more than 1 TB of storage, contact us for support and describe the type and amount of data you plan to analyse.
+  
+-  A volume **can only be extended** with additional storage before any data or files are imported on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+
+- Volumes consume your CSC project resources, 4.7 Could-type Billing units /TiB/ hour, from the moment they are created, whether or not they are attached to a virtual desktop. Plan in advance how many resources your CSC project needs.  Check billing unit consumption below: 
 
 
 | Name   | Size (GB) | Cost Billing Units per year |
