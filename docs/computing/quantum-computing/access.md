@@ -1,9 +1,9 @@
 # Setting up a LUMI project and accounts for accessing the Quantum devices
-This page outlines the steps to set up a LUMI account and project for accessing the **Aalto Q20** and **VTT Q50** quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md){ target=_blank }.
+This page outlines the steps to set up a LUMI account and project for accessing the available quantum computers. It is assumed that you have some knowledge of supercomputing systems. If you're new, start with the [overview of CSC supercomputers](../../computing/index.md){ target=_blank }.
 
 ## 1. Request a quantum computing project
 
-To access Q20 or Q50, you must first request a LUMI project with allocated quantum computing resources. To apply for an academic project with quantum computing time, see the [open call for quantum academic projects](https://fiqci.fi/resource-call){ target=_blank }.
+To access the available quantum computers, you must first request a LUMI project with allocated quantum computing resources. To apply for an academic project with quantum computing time, see the [open call for quantum academic projects](https://fiqci.fi/resource-call){ target=_blank }.
 
 Some devices carry additional terms of use that the project PI is responsible for ensuring are followed. Check the [device pages](./devices/overview.md) for device specific terms.
 

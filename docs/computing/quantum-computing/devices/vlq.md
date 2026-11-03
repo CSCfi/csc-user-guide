@@ -11,32 +11,14 @@ The LUMI-Q VLQ is a superconducting star IQM quantum computer deployed as a join
 | Manufacturer | IQM |
 | Qubit technology | Superconducting |
 | Topology | Star (one-to-all connectivity) |
-| Native gates | Two-qubit Controlled-Z (CZ) and one-qubit Phased RX (PRX), MOVE |
+| Native gates | Two-qubit Controlled-Z (CZ) and one-qubit Phased RX (PRX), MOVE (For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).
+) |
 | Known hardware issues | None |
 | Terms of use | None |
 
-For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).
-
 ## Runtime identifiers
 
-Due to the differing access method of VLQ you do not need to (and should not) specify runtime identifiers when running quantum jobs on VLQ from LUMI. Below is an example batch script you can use for VLQ.
-
-```bash
-#!/bin/bash
-
-#SBATCH --job-name=quantumjob   # Job name
-#SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=standard   # Partition (queue) name
-#SBATCH --ntasks=1              # One task (process)
-#SBATCH --mem-per-cpu=2G       # memory allocation
-#SBATCH --cpus-per-task=1     # Number of cores (threads)
-#SBATCH --time=00:05:00         # Run time (hh:mm:ss)
-
-module use /appl/local/quantum/modulefiles
-module load lumi-q-qiskit/vlq
-
-python your_python_script.py
-```
+Due to the differing access method of VLQ you do not need to (and should not) specify runtime identifiers when running quantum jobs on VLQ from LUMI.
 
 ## Topology
 
@@ -50,7 +32,7 @@ VLQ's qubits are connected to a central computational resonator providing one-to
 
 If you do not yet have a VLQ project see the [Access](../access.md) page for info on applying for one.
 
-### Configure the environment
+## Configure the environment
 
 === "LUMI"
 
@@ -63,58 +45,26 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
 === "Local"
 
-    VLQ also provides API access so it can be accessed outside of LUMI. Locally it is recommended to create the environment using Uv.
+    VLQ also provides API access so it can be accessed outside of LUMI. Locally it is recommended to follow the instructions in [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access#set-up-python-environment).
 
-    ```bash
-    # Create project 
-    uv init vlq --python=3.12
-
-    cd vlq
-
-    # Add packages
-    uv add py4lexis \
-            "python-http-irods-client @ git+https://opencode.it4i.eu/lexis-platform/data/python-http-irods-client.git@1.3.6" \
-            --index "https://opencode.it4i.eu/api/v4/projects/107/packages/pypi/simple"
-
-    uv add "python-http-irods-client @ git+https://opencode.it4i.eu/lexis-platform/data/python-http-irods-client.git@1.3.6"
-
-    uv add qaas chardet
-
-    uv add notebook matplotlib pylatexenc # for using python notebooks and visualising circuits
-    ```
-
-### Get your access token
+## Get your access token
 
 For VLQ you need to get your own access token using MyAccessID. This can be done via the below python script.
 
-=== "Interactive"
-
-    For unteractive jobs you can use the standard method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
-
-    ```python
-    # Import packages
-    from py4lexis.session import LexisSession
-    from qaas.client import QProvider, QBackend, QJob
-
-    # Authentication
-    lexis_session = LexisSession()
-    token = lexis_session.get_access_token()
-    ```
-
-    This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
-
 === "Batch"
 
-    For jobs submitter through the Slurm batch scheduler it is recommended to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
+    For jobs submitter through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
 
     ```python
-    from py4lexis.core.session import LexisSession
+    from pathlib import Path
+    from py4lexis.session import LexisSession
+
+    TOKEN_FILE = Path("offline_token")
 
     lexis_session = LexisSession(offline_access=True)
     print("Generating new token.")
-    offline_token = lexis_session.get_refresh_token()
-    with open("offline_token", "w") as text_file:
-        text_file.write(offline_token)
+    TOKEN_FILE.write_text(lexis_session.get_refresh_token())
+    TOKEN_FILE.chmod(0o600)
     ```
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
@@ -124,7 +74,6 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     ```python
     from pathlib import Path
     from py4lexis.session import LexisSessionToken
-    from qaas.client import QProvider
 
     TOKEN_FILE = Path("offline_token")
 
@@ -134,51 +83,56 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
         suppress_welcome=True,
     )
 
-    PROJECT = "VLQ-CSC"
-    RESOURCE = "VLQ-FI"
-
     TOKEN_FILE.write_text(session.get_refresh_token())
     TOKEN_FILE.chmod(0o600)
 
     token=session.get_access_token()
     ```
 
-### Get the backend
+    The quantum job python script can then be run using e.g. the below batch script:
 
-To get the backend you need to define your VLQ project and resource names.
+    Below is an example batch script you can use for VLQ.
 
-```python
-# Configure resources
-PROJECT = "YOUR-VLQ-PROJECT-NAME"
-RESOURCE = "YOUR-VLQ-RESOURCE-NAME"
-```
+    ```bash
+    #!/bin/bash
 
-Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is not accessible with Cirq.
+    #SBATCH --job-name=quantumjob   # Job name
+    #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
+    #SBATCH --partition=standard   # Partition (queue) name
+    #SBATCH --ntasks=1              # One task (process)
+    #SBATCH --mem-per-cpu=2G       # memory allocation
+    #SBATCH --cpus-per-task=1     # Number of cores (threads)
+    #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
-=== "Qiskit"
+    module load Local-quantum
+    module load --ignore_cache lumi-q-qiskit/vlq
 
-    ```python
-    # Initialize backend
-    provider = QProvider(PROJECT, token)
-    backend = provider.get_backend(RESOURCE)
+    python your_python_script.py
     ```
 
-=== "IQM Pulla"
+=== "Interactive"
+
+    For interactive jobs you can use the method documented in the [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access).
 
     ```python
-    # Initialize backend
-    provider = QProvider(PROJECT, token)
-    pulla = provider.get_pulla(RESOURCE)
+    # Import packages
+    from py4lexis.session import LexisSession
+
+    # Authentication
+    lexis_session = LexisSession()
+    token = lexis_session.get_access_token()
     ```
 
-## Running quantum jobs
+    This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
-Once you have successfully obtained an access token and fetched the VLQ backend you are ready to run quantum jobs. For info on running quantum jobs see [Running quantum jobs](../running-quantum-jobs/overview.md).
+For VLQ access you will need a project and resource name. These will be communicated to the project PI over email.
 
+!!! info "Next step"
+    See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
 
 ## Further Reading
-* [Running quantum jobs](../running-quantum-jobs/overview.md)
-* [Pulse level access](../running-quantum-jobs/pulse-job.md)
+* [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
+* [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank }
 * [Cirq adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }
