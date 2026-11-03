@@ -64,10 +64,10 @@ You can also join the **[CSC Research Support Coffee](https://csc.fi/en/training
 | **SD Connect: download fails shortly after starting** | Data uploaded by sequencing facilities to your CSC project before 28 September 2026, and visible in buckets labelled **"By the End of 2026"**, may currently be inaccessible or downloads may fail shortly after starting. | This issue can be resolved by converting the bucket with the Conversion Tool. Alternatively, a workaround is available; please contact us for support. |
 | **SD Desktop: black screen when accessing the virtual desktop** | When accessing the virtual desktop in your browser, you may see a black screen for up to one minute while the virtual desktop loads. If the virtual desktop does not appear and you see an **X** on the black screen, the display may be asleep. | Move your mouse pointer to the **left side of the black screen**, click anywhere in that area, and the display should wake up. |
 | **SD Desktop: Data Gateway connection needs to be refreshed** | You may see a message indicating that the Data Gateway connection needs to be refreshed. | Log out from the virtual desktop and SD Desktop, wait a few minutes, then sign in again. |
-| **SD Desktop: SD Apply access from Data Gateway not working** | Accessing **SD Apply** from Data Gateway is currently not working. You may see an empty folder instead of the expected content. | No workaround is currently available. |
+| **SD Desktop: SD Apply access from Data Gateway not working** | Restored November 4 | - |
 | **SD Desktop: backup server is currently unavailable** | Data export is available only through the Data Gateway (web interface or CLI). | Exported files can be downloaded via SD Connect by any project member. |
-| **SD Desktop: Byobu terminal stops** | Long-running jobs using Byobu stop when logging out of the virtual desktop. | As a temporary workaround, close the browser window instead. |
-| **SD Desktop: executable not running** | Executable stored on external volumes may not run as expected. | A simple workaround is available, and a permanent fix is being developed. |
+| **SD Desktop: Byobu terminal stops** | Resorted on virtual desktop created after November 4.  | As a  workaround, type loginctl enable-linger |
+| **SD Desktop: executable not running** | Resorted on virtual desktop crated after November 4. | A simple workaround is available, and a permanent fix is being developed. |
 
 
 ### 5. Materials and release pages
