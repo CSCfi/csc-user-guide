@@ -2,7 +2,7 @@
 
 # Programmatic data import and export in the virtual desktop
 
-The virtual desktop is an isolated environment with no direct internet access. The only way to import data for analysis or exports restuls fromt eh secure environment is through the Data Gateway application, which is available also via the command line.
+The virtual desktop is an isolated environment with no direct internet access. The only way to import data for analysis or exports results from the secure environment is through the Data Gateway application, which is available also via the command line.
 
 Any project remember can import files using stored in from SD Connect or SD Apply via Data Gateway. The imported files are automatically decrypted.
 
@@ -24,9 +24,23 @@ On this page:
 
 Use the following command to import files from both **SD Connect** and **SD Apply** (if you have the required access rights) to your virtual desktop external volume: 
 
+To open the data Gateway application programmatically type:
+
 ```bash
 data-gateway-cli import
 ```
+
+Now the connection between SD Connect and SD Desktop is open. List the content of the project folder with this command to see the files and folder you have stored in SD Connect: 
+
+
+
+```bash
+
+$HOME/Projects/SD-Connect/prject-number/
+```
+
+
+
 
 
 To import files exclusively from **SD Apply**:
