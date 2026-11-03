@@ -13,7 +13,7 @@ The LUMI-Q VLQ is a superconducting star IQM quantum computer deployed as a join
 | Topology | Star (one-to-all connectivity) |
 | Native gates | Two-qubit Controlled-Z (CZ) and one-qubit Phased RX (PRX), MOVE (For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).) |
 | Known hardware issues | None |
-| Terms of use | None |
+| Terms of use | IT4I VLQ ToU. Communicated via email |
 
 ## Runtime identifiers
 
