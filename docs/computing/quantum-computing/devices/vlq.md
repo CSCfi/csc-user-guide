@@ -124,8 +124,9 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
-!!! info "Next step"
-    See [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
+## Running on VLQ
+
+See [IT4I VLQ docs](https://it4innovations.github.io/quantum-as-a-service/usage) for running quantum jobs.
 
 ## Further Reading
 * [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
