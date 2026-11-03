@@ -39,12 +39,12 @@
         - [VTT Q50](quantum-computing/devices/q50.md)
         - [LUMI-Q VLQ](quantum-computing/devices/vlq.md)
     - [Running quantum jobs](quantum-computing/running-quantum-jobs/overview.md)
+        - Access models
+            - [Batch script](quantum-computing/running-quantum-jobs/access-models/batch.md)
+            - [Interactive job](quantum-computing/running-quantum-jobs/access-models/srun.md)
+            - [Jupyter notebook](quantum-computing/running-quantum-jobs/access-models/jupyter-notebook.md)
         - [Circuit level job](quantum-computing/running-quantum-jobs/circuit-job.md)
         - [Pulse level job](quantum-computing/running-quantum-jobs/pulse-job.md)
-    - Access models
-        - [Batch script](quantum-computing/running-quantum-jobs/access-models/batch.md)
-        - [Interactive job](quantum-computing/running-quantum-jobs/access-models/srun.md)
-        - [Jupyter notebook](quantum-computing/running-quantum-jobs/access-models/jupyter-notebook.md)
     - [FiQCI partition](quantum-computing/fiqci-partition.md)
 - [FirecREST HPC API](firecrest/)
 - [AI tools](ai-tools/)
