@@ -132,7 +132,7 @@ sinteractive --account <project> --time 2:00:00
 ```
 By default, on Roihu this command reserves 2 cores with 1 GiB of memory each.
 
-Use `--cores` to reserve more cores and `--mem` to reserve more memory, for example `--cores 4 --mem 8000`.
+Use `--cores` to reserve more cores and `--mem` to reserve more memory, for example `--cores 4 --mem 8G`.
 
 Give `module load r-env` to initialize the R environment.
 
