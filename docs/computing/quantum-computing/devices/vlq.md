@@ -86,7 +86,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
 === "Batch"
 
-    For jobs submitter through the Slurm batch scheduler it is recommended to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
+    For jobs submitter through the Slurm batch scheduler one needs to save an offline scoped token to a file from which it can be read at run time. You can run this either as an interactive job on LUMI before submitting your batch job or locally on your machine and transfer the token to LUMI yourself.
 
     ```python
     from py4lexis.core.session import LexisSession
