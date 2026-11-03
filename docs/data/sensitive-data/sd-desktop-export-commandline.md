@@ -80,7 +80,7 @@ Where:
 Example:
 
 ```bash
-cp -r $HOME/Projects/SD-Connect/project-2000XXX/experiment-04-10-2026/ .
+cp -r $HOME/Projects/SD-Connect/project_2000XXX/experiment-04-10-2026/ .
 ```
 
 ## Import Files Only from SD Apply
