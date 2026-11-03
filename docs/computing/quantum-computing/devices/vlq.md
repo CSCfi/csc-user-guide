@@ -29,7 +29,7 @@ VLQ's qubits are connected to a central computational resonator providing one-to
 
 ## Access
 
-If you do not yet have a VLQ project see the [Access](../access.md) page for info on applying for one.
+If you do not yet have a VLQ project see the [Access](../access.md) page for info on applying for one. Once the project with VLQ allocation has been created you (PI) will receive project id and resource id (string). After this follow the instructions [here](https://docs.it4i.cz/en/docs/clusters/vlq/access#portallexistech) to gain access to the VLQ allocation. 
 
 ## Configure the environment
 
@@ -123,8 +123,6 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     ```
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
-
-For VLQ access you will need a project and resource name. These will be communicated to the project PI over email.
 
 !!! info "Next step"
     See [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
