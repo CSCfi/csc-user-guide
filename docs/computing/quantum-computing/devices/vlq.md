@@ -127,10 +127,10 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 For VLQ access you will need a project and resource name. These will be communicated to the project PI over email.
 
 !!! info "Next step"
-    See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
+    See [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
 
 ## Further Reading
-* [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
+* [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
 * [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank }
