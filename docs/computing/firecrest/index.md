@@ -4,7 +4,10 @@ The FirecREST HPC API provides a standardized RESTful HTTP interface for accessi
 
 It is an ideal solution for building automated access to computing resources, as well as for creating and running personal web-based client applications that consume computing resources.
 
-FirecREST HPC API is available for [LUMI](https://api.lumi.csc.fi/v1/) and [Roihu](https://api.roihu.csc.fi/v1/).
+FirecREST HPC API is available for:
+
+- LUMI at `https://api.lumi.csc.fi/v1/` and
+- Roihu at `https://api.roihu.csc.fi/v1/`.
 
 ## How to get access to the API?
 
