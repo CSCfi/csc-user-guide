@@ -64,7 +64,7 @@ Calibration data (quality metrics) may be needed when publishing results, and sh
 
 ## Viewing QPU usage
 
-QPU usage is shown in the [MyCSC dashboard](https://my.csc.fi/dashboard){ target=_blank }. On LUMI, use the `project-qpu-allocations` script — note that `lumi-allocations` does not display QPU usage correctly.
+QPU usage is shown in the [MyCSC dashboard](https://my.csc.fi/dashboard){ target=_blank }. On LUMI, use the `project-qpu-allocations` script — note that `lumi-allocations` does not display QPU usage correctly. Neither option currently displays VLQ allocation. We'll update the documentation once that is possible.
 
 ```bash
 /appl/local/quantum/resource-checker/project-qpu-allocations
