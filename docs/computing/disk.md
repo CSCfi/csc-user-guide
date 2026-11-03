@@ -226,7 +226,7 @@ shared between nodes.
 
 ### Login nodes
 
-Each login node on both Roihu-CPU and Roihu-GPU provides 80 GB of local storage under `$TMPDIR`.
+On both Roihu-CPU and Roihu-GPU login nodes, `$TMPDIR` (`/tmp/<username>`) has a quota of 80 GiB per user.
 
 The local storage is intended for compiling applications and performing pre- and post-processing
 that require heavy I/O operations, for example packing and unpacking archive files.
