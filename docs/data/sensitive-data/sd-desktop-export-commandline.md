@@ -109,7 +109,7 @@ Common use cases include:
 - Monitoring job progress without keeping the terminal window active.
 - Working with multiple terminal sessions simultaneously using Byobu's session management features.
 
-Byobu allows you to log out from a session and reconnect later, making it a reliable option for batch processing, data preparation, machine learning workloads, and other long-running analyses comaptred to shell. 
+Byobu allows you to log out from a session and reconnect later, making it a reliable option for batch processing, data preparation, machine learning workloads, and other long-running analyses compared to shell. 
 
 
 ## 4. Exporting results
