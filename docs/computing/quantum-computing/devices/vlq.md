@@ -152,7 +152,7 @@ Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is
 
     # Initialize backend
     provider = QProvider(PROJECT, token)
-    pulla = provider.get_pulla(RESOURCE)
+    p = provider.get_pulla(RESOURCE)
     ```
 
 ## Running quantum jobs
