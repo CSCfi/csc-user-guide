@@ -159,6 +159,7 @@ hifiasm/0.25.0
 hisat2/2.2.1
 hmmer/3.4
 htslib/1.23.1
+humann/3.9
 humann/4.0.0a2
 hybpiper/2.3.4
 hyphy/2.5.51hf
@@ -234,8 +235,10 @@ stringtie/3.0.3
 structure/2.3.4
 structureharvester/0.7
 tophat/2.1.2
+transdecoder/5.7.1
 trimmomatic/0.39
 trinity/2.15.1.FULL
+trinotate/4.0.2
 vcftools/0.1.17
 vsearch/2.22.1
 wtdbg2/2.5

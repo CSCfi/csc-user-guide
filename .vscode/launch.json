@@ -1,25 +1,30 @@
-// These assume that Conda is installed in the default location
-// and that 'docs-env' has the requirements installed.
 {
   "version": "0.2.0",
   "configurations": [
-
     {
       "name": "ProperDocs",
       "type": "debugpy",
       "request": "launch",
-      "program": "${userHome}/miniconda3/envs/docs-env/bin/properdocs",
-      "args": ["serve"],
-      "env": {"PROPERDOCS_ENV": "preview"},
+      "module": "properdocs",
+      "args": [
+        "serve"
+      ],
+      "env": {
+        "PROPERDOCS_ENV": "preview"
+      },
       "console": "integratedTerminal"
     },
     {
       "name": "ProperDocs with testing-hook",
       "type": "debugpy",
       "request": "launch",
-      "program": "${userHome}/miniconda3/envs/docs-env/bin/properdocs",
-      "args": ["serve"],
-      "env": {"PROPERDOCS_ENV": "test"},
+      "module": "properdocs",
+      "args": [
+        "serve"
+      ],
+      "env": {
+        "PROPERDOCS_ENV": "test"
+      },
       "console": "integratedTerminal"
     }
   ]
