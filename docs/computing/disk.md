@@ -350,7 +350,7 @@ To request flash storage to be mounted in an sbatch job you must add the followi
 request block of your script:
 
 ```bash
-#SBATCH --bb="#BB_LUA SBF storagesize=20GB path=/sbf/data"
+#SBATCH --bb="#BB_LUA SBF storagesize=20G path=/sbf/data"
 ```
 
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 
