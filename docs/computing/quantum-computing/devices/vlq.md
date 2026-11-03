@@ -50,7 +50,7 @@ VLQ's qubits are connected to a central computational resonator providing one-to
 
 If you do not yet have a VLQ project see the [Access](../access.md) page for info on applying for one.
 
-### Configure the environment
+## Configure the environment
 
 === "LUMI"
 
@@ -65,7 +65,7 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
     VLQ also provides API access so it can be accessed outside of LUMI. Locally it is recommended to follow the instructions in [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access#set-up-python-environment).
 
-### Get your access token
+## Get your access token
 
 For VLQ you need to get your own access token using MyAccessID. This can be done via the below python script.
 
@@ -122,47 +122,12 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     token=session.get_access_token()
     ```
-
-### Get the backend
-
-To get the backend you need to define your VLQ project and resource names.
-
-```python
-# Configure resources
-PROJECT = "YOUR-VLQ-PROJECT-NAME"
-RESOURCE = "YOUR-VLQ-RESOURCE-NAME"
-```
-
-Now you can fetch the VLQ backend. Note that unlike VTT Q50 and Aalto Q20 VLQ is not accessible with Cirq and instead of the iqm-client package one uses the quantum as a service (QaaS) package from IT4I. See here for [QaaS docs](https://it4innovations.github.io/quantum-as-a-service/). 
-
-=== "Qiskit"
-
-    ```python
-    from qaas.client import QProvider
-
-    # Initialize backend
-    provider = QProvider(PROJECT, token)
-    backend = provider.get_backend(RESOURCE)
-    ```
-
-=== "IQM Pulla"
-
-    ```python
-    from qaas.client import QProvider
-
-    # Initialize backend
-    provider = QProvider(PROJECT, token)
-    p = provider.get_pulla(RESOURCE)
-    ```
-
-## Running quantum jobs
-
-Once you have successfully obtained an access token and fetched the VLQ backend you are ready to run quantum jobs. For info on running quantum jobs see [Running quantum jobs](../running-quantum-jobs.md).
-
+    
+!!! info "Next step"
+    See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
 
 ## Further Reading
-* [Running quantum jobs](../running-quantum-jobs.md)
-* [Pulse level access](../pulse-level-access.md)
+* [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
 * [Qiskit adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank }
 * [Cirq adapter for IQM devices](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }
