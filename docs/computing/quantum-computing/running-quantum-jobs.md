@@ -55,7 +55,7 @@ Here is an example batch script to submit a quantum job. Replace `<DEVICE_VALUE>
 
 #SBATCH --job-name=quantumjob   # Job name
 #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=standard   # Partition (queue) name
+#SBATCH --partition=small   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --mem-per-cpu=2G       # memory allocation
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
