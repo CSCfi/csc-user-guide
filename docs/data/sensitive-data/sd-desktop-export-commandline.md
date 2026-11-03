@@ -16,7 +16,7 @@ On this page:
    
 [3. Data analysis via Byobu terminal](#3-data-analysis-via-byobu-terminal)
 
-[4. Results export](#4-exporting-restuls)
+[4. Exporting results](#4-exporting-results)
 
 
 ## 1. Importing a working copy of the dataset on the external volume
@@ -35,14 +35,6 @@ To import files exclusively from **SD Apply**:
 data-gateway-cli import -sdapply
 ```
 
-If new files have been added to SD Connect, refresh the Data Gateway session by entering:
-
-```bash
-update
-```
-
-and pressing **Enter**.
-
 
 To exit the application, press:
 
@@ -52,7 +44,7 @@ Ctrl+C
 
 ## 2. Set correct permissions
 
-When the data import has completed, please set correct access rights or permissions
+When the data import has completed, please set correct access rights or permissions. 
 
 
 ## 3. Data analysis via Byobu terminal 
