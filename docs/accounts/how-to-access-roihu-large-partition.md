@@ -4,17 +4,18 @@ Projects running well-scaling codes can get access to the large partition
 (6-60 nodes) on Roihu-CPU, by applying for it in MyCSC.
 Access to the gpularge partition (1-10 nodes) on Roihu-GPU follows the same pattern.
 
+Projects running well-scaling codes can get access to the large partition
+(6-60 nodes) on Roihu-CPU, by applying for it in MyCSC.
+Access to the gpularge partition (1-10 nodes) on Roihu-GPU follows the same pattern.
+Roihu large/gpularge access, including trial access, is intended for research projects.
+Student projects are not eligible for large/gpularge access.
+
 First, a 30-day test period for the large or gpularge partition is requested. Second,
 during the test period, the scalability and parallel performance of the code
 are demonstrated with appropriate test runs. Finally, the project manager submits
 the results for evaluation by CSC.
 
 The process is described in detail below.
-
-!!! note "Not available for student projects"
-    Roihu large access, including trial access, is intended for research projects.
-    Student and course projects are not eligible. Student projects can continue
-    using standard Roihu access.
 
 ## Test access to the large partition on Roihu
 
