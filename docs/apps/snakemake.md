@@ -151,7 +151,7 @@ The resources are reserved in advance, both for Snakemake and the workflow jobs 
 On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default and can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
 
 ```bash
-sinteractive --account <project> --cores 4 --mem 12G # 12 GB of memory
+sinteractive --account <project> --cores 4 --mem 12G # 12 GiB of memory
 module load bio-apps/v202603
 module load snakemake/9.14.0
 cd <to_folder_with_snakefile>

@@ -44,7 +44,7 @@ a good environment without queuing in between tasks.
 
 You can open an interactive batch job session with the command below.
 On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default, and you can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
-Here we reserve one core and 16 GB of memory:
+Here we reserve one core and 16 GiB of memory:
 
 ```bash
 sinteractive --account <project> --cores 1 --mem 16G

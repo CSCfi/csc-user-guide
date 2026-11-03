@@ -103,7 +103,7 @@ wget https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014476-Su
 In this example the job is executed as an interactive job. On the Roihu `interactive`
 partition you get 1 GiB of memory per reserved core by default, and you can request more
 with `--mem` (up to 32 cores / 64 GiB / 36 hours). Here we reserve 8 cores to match
-`--nproc 8` in our job script below, and 16 GB of memory:
+`--nproc 8` in our job script below, and 16 GiB of memory:
 
 ```bash
 sinteractive --account <project> --cores 8 --mem 16G
