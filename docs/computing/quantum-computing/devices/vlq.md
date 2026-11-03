@@ -122,6 +122,8 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
     This will attempt to open a browser window where you are prompted to login. If no window opens copy paste the printed URL to a browser.
 
+For VLQ access you will need a project and resource name. These will be communicated to the project PI over email.
+
 !!! info "Next step"
     See [Quantum as a Service (IT4I) docs](https://it4innovations.github.io/quantum-as-a-service/usage)
 
