@@ -122,7 +122,7 @@ Note that Roihu-CPU and Roihu-GPU have different processor architectures, so bui
 To build on a compute node, we can reserve an interactive Slurm job as follows:
 
 ```bash
-sinteractive --cores 4 --mem 4000 --time 0:15:00
+sinteractive --cores 4 --mem 4G --time 0:15:00
 ```
 
 ### Temporary directory
