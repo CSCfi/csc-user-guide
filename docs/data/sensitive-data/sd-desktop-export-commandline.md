@@ -10,13 +10,13 @@ Only the CSC Project Manager is authorized to export files from the virtual desk
 
 On this page:
 
-[1. Importing a working copy of the dataset on the external volume]
+[1. Importing a working copy of the dataset on the external volume](#1-importing-a-working-copy-of-the-dataset-on-the-external-volume)
 
-[2. Set correct permissions]
+[2. Set correct permissions](#2-set-correct-permissions)
    
-[3. Data analysis via Byobu terminal]
+[3. Data analysis via Byobu terminal](#3-data-analysis-via-byobu-terminal)
 
-[4. Results export]
+[4. Results export](#4-exporting-restuls)
 
 
 ## 1. Importing a working copy of the dataset on the external volume
@@ -69,7 +69,7 @@ Common use cases include:
 Byobu allows you to log out from a session and reconnect later, making it a reliable option for batch processing, data preparation, machine learning workloads, and other long-running analyses comaptred to shell. 
 
 
-## 4. Exporting Files
+## 4. Exporting results
 
 Only the CSC Project Manager is authorized to export results from the virtual desktop via the data gateway. Project members can import files but cannot export data.
 
