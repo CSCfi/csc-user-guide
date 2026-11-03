@@ -3,10 +3,6 @@
 Projects running well-scaling codes can get access to the large partition
 (6-60 nodes) on Roihu-CPU, by applying for it in MyCSC.
 Access to the gpularge partition (1-10 nodes) on Roihu-GPU follows the same pattern.
-
-Projects running well-scaling codes can get access to the large partition
-(6-60 nodes) on Roihu-CPU, by applying for it in MyCSC.
-Access to the gpularge partition (1-10 nodes) on Roihu-GPU follows the same pattern.
 Roihu large/gpularge access, including trial access, is intended for research projects.
 Student projects are not eligible for large/gpularge access.
 
