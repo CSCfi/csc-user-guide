@@ -27,7 +27,7 @@ module use /appl/local/quantum/modulefiles
 export DEVICES=("<DEVICE_VALUE>")
 source $RUN_SETUP
 
-python -u your_python_script.py
+python -u your_python_script.py # your quantum code lives in this python file
 ```
 
 !!! info "Exporting multiple backend"
