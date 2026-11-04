@@ -132,6 +132,59 @@ for instructions on how to enable high-performance libraries in the input script
     srun gpaw python input.py
     ```
 
+## Development installation on Roihu
+
+It is possible to install a development version of GPAW on top of the GPAW module,
+using all preinstalled libraries available.
+
+### Installation
+
+!!! info "Roihu-CPU and Roihu-GPU"
+    The instructions below work for both Roihu-CPU and Roihu-GPU, but it is
+    recommended to include the target platform in the environment name (like
+    `venv-gpaw-cpu`), because binaries compiled for
+    Roihu-CPU and Roihu-GPU are not compatible.
+
+```bash
+# Create a new virtual environment for gpaw
+module load gpaw/26.7.0
+python3 -m venv --system-site-packages venv-gpaw-cpu
+
+# Load gpaw venv
+source venv-gpaw-cpu/bin/activate
+
+# Setup constraints for pip to avoid overriding high-performance system packages with less optimized versions
+pip list --format=freeze | grep -v -E '^(gpaw|ase)' | tee $(dirname $(which pip))/../constraints.txt
+
+# Clone the gpaw development repository
+git clone https://gitlab.com/gpaw/gpaw.git
+cd gpaw
+
+# Use gpaw siteconfig from the container
+export GPAW_CONFIG=/gpaw_container/siteconfig.py
+
+# Install GPAW, with a constraint to ensure we use system-provided packages.
+# Leave the '-e' out if you don't want an editable install
+rm -rf build _build _gpaw.*.so gpaw.egg-info
+GPAW_BUILD_JOBS=8 pip install --no-build-isolation --constraint $(dirname $(which pip))/../constraints.txt -v --log build-cpu.log --config-settings editable_mode=compat -e .
+
+# Check the installed gpaw
+gpaw info
+```
+
+### Usage
+
+The installed development version can be used by replacing loading the module
+```bash
+# Load gpaw module
+module load gpaw/version
+```
+with activating the virtual environment
+```bash
+# Load gpaw venv
+source venv-gpaw-cpu/bin/activate
+```
+
 ## More information
 
 - [GPAW home page](https://gpaw.readthedocs.io/)
