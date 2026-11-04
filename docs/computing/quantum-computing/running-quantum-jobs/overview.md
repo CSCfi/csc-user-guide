@@ -49,7 +49,7 @@ There are multiple ways to reach the quantum computers from LUMI:
 
 ## Example job
 
-See [Circuit level job](./circuit-job.md) for a complete Qiskit and Cirq script, or [Pulse level job](./pulse-job.md) for a pulse level example.
+See the [Circuit level job page](./circuit-job.md) for a complete Qiskit and Cirq script, or the [Pulse level job page](./pulse-job.md) for a pulse level example.
 
 !!! warning "Save your Job ID!"
     There is currently no way to list previous job IDs, so always print your job ID after submission and save it somewhere. The same applies to the calibration set ID.
