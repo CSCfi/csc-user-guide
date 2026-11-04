@@ -56,7 +56,7 @@ See the [Circuit level job page](./circuit-job.md) for a complete Qiskit and Cir
 
 ## Testing before you run
 
-Quantum resources are scarce, so prepare your code in advance. `qiskit-on-iqm` provides a [fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution){ target=_blank } you can run locally on your laptop. For HPC scale simulation on LUMI see [CSC Qiskit docs](../../../apps/qiskit.md).
+Quantum resources are scarce, so prepare your code in advance. `qiskit-on-iqm` provides a [fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution){ target=_blank } you can run locally on your laptop. For HPC scale simulation on LUMI, see [CSC Qiskit docs](../../../apps/qiskit.md).
 
 ## Calibration data
 
