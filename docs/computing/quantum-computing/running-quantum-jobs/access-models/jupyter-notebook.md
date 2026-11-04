@@ -25,6 +25,8 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
     source $RUN_SETUP
     ```
 
+!["Quantum jobs with Jupyter"](../../../../img/lumi-web-quantum.png)
+
 !!! info "Exporting multiple backend"
     You can export multiple backends using `export DEVICES=("<DEVICE_VALUE1>" "<DEVICE_VALUE2>")`. Make sure the devices have compatible software versions.
 
