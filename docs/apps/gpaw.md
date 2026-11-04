@@ -81,11 +81,13 @@ for instructions on how to enable high-performance libraries in the input script
     #SBATCH --job-name=gpaw
     #SBATCH --account=<project>
     #SBATCH --partition=small
-    #SBATCH --time=00:30:00
     #SBATCH --nodes=1
-    #SBATCH --ntasks-per-node=2
-    #SBATCH --cpus-per-task=1
-    #SBATCH --mem-per-cpu=1000M
+    #SBATCH --ntasks-per-node=2 --cpus-per-task=1
+    #SBATCH --mem-per-cpu=1G
+    #SBATCH --time=00:30:00
+
+    # Load gpaw module
+    module load gpaw/version
 
     # Set the number of threads based on cpus-per-task
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
@@ -107,13 +109,16 @@ for instructions on how to enable high-performance libraries in the input script
     #SBATCH --account=<project>
     #SBATCH --partition=medium
     ##SBATCH --partition=large  # uncomment if using 6 or more nodes
-    #SBATCH --time=00:30:00
     #SBATCH --nodes=1
     #SBATCH --ntasks-per-node=192 --cpus-per-task=2  # The product should be 384
+    #SBATCH --time=00:30:00
 
     # Test different values of
     # --ntasks-per-node and --cpus-per-task above
     # for your use case and use the values that give the best performance
+
+    # Load gpaw module
+    module load gpaw/version
 
     # Set the number of threads based on cpus-per-task
     export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
