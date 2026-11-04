@@ -368,13 +368,13 @@ srun -p medium --nodes 1 --account <project> --bb="#BB_LUA SBF storagesize=10G p
 Alternatively you can pass the request in a file using the `--bbf` flag, for example:
 
 ```bash
-srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
+srun -p medium --nodes 1 --account <project> --bbf bb.spec --pty bash -i
 ```
 
 The same works on shared-node and GPU partitions, for example:
 
 ```bash
-srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --bbf bb.spec --pty bash -i
+srun -p gpumedium --nodes 1 --account <project> --gres=gpu:gh200:1 --bbf bb.spec --pty bash -i
 ```
 
 For interactive sessions started with `sinteractive`, use its `-d` option instead,

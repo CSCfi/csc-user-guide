@@ -176,6 +176,9 @@ srun --ntasks=1 --time=00:10:00 --mem=1G --pty \
      bash
 ```
 
+!!! warning "Notifications by email not enabled yet"
+     The notifications by email are not enabled yet and the `--mail-type` option does not do anything at the moment.
+
 Once the resources are available, you can work normally in the shell. The
 Bash prompt shows the name of the compute node:
 
