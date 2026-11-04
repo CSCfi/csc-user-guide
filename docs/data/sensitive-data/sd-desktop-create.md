@@ -133,7 +133,7 @@ data in a secure environment.
 - :material-alert:{ .lg .middle } **Big Memory and GPU virtual desktops**
   { .error-card }
     ___
-    Big Memory and GPU desktop options require a separate approval and allocation process before creation**. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity.
+    Big Memory and GPU desktop options require a separate approval and allocation process before creation. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity and to ensure capacity is available for current and future users. If an allocation is no longer required, we may contact you to discuss alternative options.
  
 </div>
 
@@ -167,12 +167,12 @@ Here:
 1. **Select a name** for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
    
 3. **Operating system.**  **Linux Ubuntu24** is already preselected by default.
-4. 
-5. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
    
-6. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+4. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
    
-7. Click **Create**. The window will now close and desktop creation will start.
+5. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+   
+6. Click **Create**. The window will now close and desktop creation will start.
 
 After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 15 minutes, during which the status label **Creating** will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready for the next step and for being accessed. 
 
