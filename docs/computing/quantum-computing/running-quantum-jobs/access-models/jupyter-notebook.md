@@ -5,6 +5,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
 1. From the dashboard, open the **Jupyter** app and select your project and partition. If you have an active reservation, select it under *Reservation*.
 2. Under **Settings** click on **Advanced**, set **Custom Python type** to *Script*, and paste one of the scripts below into the **Script or path to script** textbox. Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/overview.md) on the device page.
 3. Click **Launch**.
+4. Now you have access to the Jupyter environment where you can create new notebooks or upload your existing ones with your quantum code.
 
 === "Qiskit"
 
