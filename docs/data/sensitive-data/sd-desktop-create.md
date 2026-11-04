@@ -132,11 +132,9 @@ data in a secure environment.
 
 - :material-alert:{ .lg .middle } **Big Memory and GPU virtual desktops**
   { .error-card }
-
     ___
-
-Big Memory and GPU desktop options require a separate approval and allocation process before creation**. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity.
-    
+    Big Memory and GPU desktop options require a separate approval and allocation process before creation**. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity.
+ 
 </div>
 
 
