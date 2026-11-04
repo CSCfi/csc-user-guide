@@ -1,6 +1,22 @@
+---
+tags:
+  - Academic
+catalog:
+  name: MATLAB
+  description: High-level technical computing language
+  license_type: Academic
+  disciplines:
+    - Mathematics and Statistics
+  available_on:
+    - web_interfaces:
+        - Roihu
+    - Roihu
+---
+
 # Parallel Computing with MATLAB on the Roihu HPC Cluster
 
 This document provides the steps to configure MATLAB to submit jobs to a cluster, retrieve results, and debug errors.
+
 [TOC]
 
 ## Initial Configuration
