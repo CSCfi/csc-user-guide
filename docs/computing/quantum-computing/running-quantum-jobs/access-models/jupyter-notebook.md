@@ -32,7 +32,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
 
     !["Quantum jobs with Jupyter for courses"](../../../../img/helmi_with_jupyter_for_courses_gui.png)
 
-See [Circuit job](../circuit-job.md) for an example circuit level job python script and [Pulse job](../pulse-job.md) for a Pulse level job example.
+See [Circuit job](../circuit-job.md) for an example circuit level job Python script and [Pulse job](../pulse-job.md) for a Pulse level job example.
 
 ## Further Reading
 * [Circuit level access](../circuit-job.md)
