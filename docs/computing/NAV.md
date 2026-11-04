@@ -37,6 +37,7 @@
     - [Devices](quantum-computing/devices/overview.md)
         - [Aalto Q20](quantum-computing/devices/q20.md)
         - [VTT Q50](quantum-computing/devices/q50.md)
+        - [LUMI-Q VLQ](quantum-computing/devices/vlq.md)
     - [First quantum job](quantum-computing/first-quantum-job.md)
     - [Running quantum jobs](quantum-computing/running-quantum-jobs.md)
     - [Pulse level access](quantum-computing/pulse-level-access.md)
