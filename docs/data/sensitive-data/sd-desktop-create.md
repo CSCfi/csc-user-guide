@@ -135,19 +135,16 @@ data in a secure environment.
 
     ___
 
-    Big Memory and GPU desktop options require a separate approval and allocation process before creation. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity and to ensure capacity is available for current and future users. If an allocation is no longer required, we may contact you to discuss alternative options.
+    Big Memory and GPU desktop options require a separate approval and allocation process before creation. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity and to ensure capacity is available for current and future users. 
  
 </div>
 
 
 Before creating a Big Memory or GPU desktop option, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
 
-- Expected usage period and timeline
-- Purpose of the workload 
-- Software or applications to be used
-- Type of analysis, computation, or processing to be performed
-- Justification for requiring Bug Memory or GPU resources instead of a standard desktop
-
+- Expected usage timeline
+- Software or applications to be used, including type of analysis to be performed
+- Justification for requiring Big Memory or GPU resources instead of a standard desktop
 
 If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. 
 
