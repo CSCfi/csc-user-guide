@@ -2,7 +2,7 @@
 
 Quantum jobs are submitted from LUMI. Your Python script builds a circuit and sends it to the quantum computer.
 
-Q20 and Q50 support [Qiskit](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank } and [Cirq](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }. VLQ is accessed differently , see the [VLQ page](../devices/vlq.md).
+Aalto Q20 and VTT Q50 support [Qiskit](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank } and [Cirq](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }. LUMI-Q VLQ is accessed differently, see the [VLQ page](../devices/vlq.md).
 
 !!! info "Device-specific values"
     The examples use the placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the values listed under "Runtime identifiers" on the [Aalto Q20](../devices/q20.md#runtime-identifiers) or [VTT Q50](../devices/q50.md#runtime-identifiers) page.
@@ -64,7 +64,7 @@ Calibration data (quality metrics) may be needed when publishing results, and sh
 
 ## Viewing QPU usage
 
-QPU usage is shown in the [MyCSC dashboard](https://my.csc.fi/dashboard){ target=_blank }. On LUMI, use the `project-qpu-allocations` script — note that `lumi-allocations` does not display QPU usage correctly. Neither option currently displays VLQ allocation. We'll update the documentation once that is possible.
+QPU usage is shown in the [MyCSC dashboard](https://my.csc.fi/dashboard){ target=_blank }. On LUMI, use the `project-qpu-allocations` script — note that `lumi-allocations` does not display QPU usage correctly. Neither option currently displays VLQ allocation. The documentation will be updated once that is possible.
 
 ```bash
 /appl/local/quantum/resource-checker/project-qpu-allocations

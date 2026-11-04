@@ -3,7 +3,7 @@
 The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ target=_blank } can be used to run quantum jobs interactively in a Jupyter notebook. For logging in, see the [LUMI documentation](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/){ target=_blank }.
 
 1. From the dashboard, open the **Jupyter** app and select your project and partition. If you have an active reservation, select it under *Reservation*.
-2. Under **Settings** click on **Advanced**, set **Custom Python type** to *Script*, and paste one of the scripts below into the **Script or paht to script** textbox. Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/overview.md) on the device page.
+2. Under **Settings** click on **Advanced**, set **Custom Python type** to *Script*, and paste one of the scripts below into the **Script or path to script** textbox. Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/overview.md) on the device page.
 3. Click **Launch**.
 
 === "Qiskit"

@@ -1,6 +1,6 @@
 # Pulse level access
 
-Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to the available quantum computers is enabled through the IQM Pulla python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
+Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to the available quantum computers is enabled through the IQM Pulla Python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
 
 !!! info "Device-specific values"
     The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](../devices/q20.md#runtime-identifiers) or [VTT Q50](../devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](../devices/vlq.md).
@@ -32,7 +32,7 @@ provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID
 backend = provider.get_backend()
 ```
 
-!!! "VLQ Pulla backend"
+!!! info "VLQ Pulla backend"
     For VLQ see the [VLQ page](../devices/vlq.md) for instructions for fetching the VLQ Pulla backend as well as loading the VLQ module.
 
 ## Define a quantum circuit
@@ -63,9 +63,9 @@ settings.set_shots(shots)
 job_definition, context = compiler.compile(circuits, settings=settings)
 ```
 
-## Visualise pulse scheduling (optional)
+## Visualize pulse scheduling (optional)
 
-Optionally it is possible to visualise the pulse scheduling before submitting the job.
+Optionally it is possible to visualize the pulse scheduling before submitting the job.
 
 ```python
 from iqm.pulse.playlist.visualisation.base import inspect_playlist
