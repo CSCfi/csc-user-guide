@@ -5,7 +5,7 @@ Quantum jobs are submitted from LUMI. Your Python script builds a circuit and se
 Aalto Q20 and VTT Q50 support [Qiskit](https://docs.meetiqm.com/iqm-client/user_guide_qiskit){ target=_blank } and [Cirq](https://docs.meetiqm.com/iqm-client/user_guide_cirq){ target=_blank }. VLQ supports Qiskit but is accessed in a different way; see the [VLQ page](../devices/vlq.md) for details. All devices support IQM Pulla for [pulse level access](./pulse-job.md).
 
 !!! info "Device-specific values"
-    The examples use the placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the values listed under "Runtime identifiers" on the [Aalto Q20](../devices/q20.md#runtime-identifiers) or [VTT Q50](../devices/q50.md#runtime-identifiers) page.
+    The examples on this page use the placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the values listed under "Runtime identifiers" on the [Aalto Q20](../devices/q20.md#runtime-identifiers) or [VTT Q50](../devices/q50.md#runtime-identifiers) page.
 
 ## Environment
 
