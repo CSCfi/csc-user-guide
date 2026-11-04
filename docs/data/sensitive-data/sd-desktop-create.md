@@ -127,9 +127,20 @@ data in a secure environment.
 
 ### Requesting Big Memory or GPU virtual desktops
 
-Bug Memory or GPU desktops option require a separate approval and allocation process. GPU resources at CSC remain limited and are allocated on a first-come, first-served basis for as long as the virtual machine is running. While current capacity is expected to meet demand, GPU resources should be requested only when there is a clear technical need.
 
-Before requesting a Small GPU desktop, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Big Memory and GPU virtual desktops**
+  { .error-card }
+
+    ___
+
+Big Memory and GPU desktop options require a separate approval and allocation process before creation**. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust or revoke allocations if needed to maintain service capacity.
+    
+</div>
+
+
+Before creating a Big Memory or GPU desktop option, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
 
 - Expected usage period and timeline
 - Purpose of the workload 
@@ -137,7 +148,6 @@ Before requesting a Small GPU desktop, please provide the following information 
 - Type of analysis, computation, or processing to be performed
 - Justification for requiring Bug Memory or GPU resources instead of a standard desktop
 
-To support efficient capacity planning, we recommend reviewing ongoing GPU requirements at least every three months. 
 
 If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. 
 
