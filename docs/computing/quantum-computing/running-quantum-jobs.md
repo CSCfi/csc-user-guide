@@ -1,14 +1,14 @@
 !!! warning "Q20 Service in MyCSC"
     There are currently some issues with the Q20 service for projects that have Q20 allocations. If you cannot find the Aalto-Q20 service or are otherwise experiencing issues please contact the CSC Service Desk at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
-# Running on Q20 and Q50
+# Running quantum jobs
 
-Currently, Q20 and Q50 support job submissions using Qiskit or Cirq. These scripts must be submitted as standard Python files.
+Currently,Aalto Q20 and VTT Q50 support job submissions using Qiskit or Cirq. These scripts must be submitted as standard Python files. For running on the LUMI-Q VLQ quantum computer see the [VLQ page](./devices/vlq.md).
 
 To run jobs on the quantum computers, follow these steps to set up the correct environment on LUMI:
 
 !!! info "Device-specific values"
-    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page.
+    The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](./devices/q20.md#runtime-identifiers) or [VTT Q50](./devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](./devices/vlq.md).
 
 !!! info 
     Run these commands either in your batch script or within an interactive session started via `srun`
@@ -22,7 +22,7 @@ To run jobs on the quantum computers, follow these steps to set up the correct e
 
 The `fiqci-vtt-qiskit` and `fiqci-vtt-cirq` modules provide pre-configured Python environments for running jobs on the quantum computers.
 
-### Creating your own Python environment
+## Creating your own Python environment
 
 If you prefer a custom Python environment instead of the `fiqci-vtt-qiskit`/`fiqci-vtt-cirq` modules, you can build your own container using the [LUMI container wrapper tool](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/).
 
@@ -37,7 +37,7 @@ module load custom_python_module
 Loading `fiqci-vtt-standard` gives your container access to `$RUN_SETUP`, the environment variable used throughout this page (e.g. `source $RUN_SETUP`) to configure the connection to the device.
 
 
-### Supported software versions
+## Supported software versions
 
 The current supported software versions are:
 
@@ -46,16 +46,16 @@ The current supported software versions are:
 | IQM client | fiqci-vtt-qiskit/fiqci-vtt-cirq | ≥ 34.0.0, < 35.0.0 |
 
 
-### Submitting a Job
+## Submitting a Job
 
-Here is an example batch script to submit a quantum job. Replace `<DEVICE_VALUE>` with your device(s) identifier, [see the note above](#running-on-q20-and-q50).
+Here is an example batch script to submit a quantum job. Replace `<DEVICE_VALUE>` with your device(s) identifier, [see the note above](#running-quantum-jobs).
 
 ```bash
 #!/bin/bash
 
 #SBATCH --job-name=quantumjob   # Job name
 #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=standard   # Partition (queue) name
+#SBATCH --partition=small   # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --mem-per-cpu=2G       # memory allocation
 #SBATCH --cpus-per-task=1     # Number of cores (threads)
@@ -83,17 +83,17 @@ srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition standard bash -c "s
 
 The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or Cirq with the quantum computers.
 
-!!! info "Running on Q50"
-    When submitting a job on Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
+!!! info "Running on VTT Q50"
+    When submitting a job on VTT Q50, the user's slurm_job_account (project on which the job is run) is mapped to the project_id and this information is transferred to VTT for accounting purposes.
 
 
-### Loading Modules and Setting Backend
+## Loading Modules and Setting Backend
 
 === "Qiskit"
 
     To load the Qiskit module use `module load fiqci-vtt-qiskit`.
 
-    In Qiskit python scripts you will need to include the following. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-on-q20-and-q50).
+    In Qiskit python scripts you will need to include the following. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-quantum-jobs).
 
     ```python
     import os
@@ -109,7 +109,7 @@ The `fiqci-vtt-*` module sets up the correct python environment to use Qiskit or
 
 === "Cirq"
 
-    To load the Cirq module use `module load fiqci-vtt-cirq`. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-on-q20-and-q50).
+    To load the Cirq module use `module load fiqci-vtt-cirq`. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with your device's identifiers, [see the note above](#running-quantum-jobs).
 
     ```python
     import os
@@ -143,7 +143,7 @@ A set of Qiskit and Cirq examples and scripts for guidance in using the quantum 
 
 ## Calibration data
 
-Calibration data (or quality metrics set) may be necessary for publishing work produced on Q20/Q50. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in json format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
+Calibration data (or quality metrics set) may be necessary for publishing work produced on the available quantum computers. It also gives an idea as to the current status of the quantum computers. Calibration data is available on the [FiQCI page](https://fiqci.fi/status). Additionally, in `fiqci-examples` there is a helper script to manually fetch the calibration data. The script can be found [here](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py). This file can be added to your own python scripts and will return data in JSON format. Note that querying the latest calibration data may give an incomplete or outdated set of figures. Therefore calibration set IDs should be saved along with Job IDs.
 
 ??? default "Brief description of the figures which are given when querying (Click to show)"
 
@@ -169,13 +169,13 @@ Calibration data (or quality metrics set) may be necessary for publishing work p
 For further information on the calibration data contact [fiqci-feedback@postit.csc.fi](mailto:fiqci-feedback@postit.csc.fi) or the [CSC Service Desk](../../support/contact.md), reachable at [servicedesk@csc.fi](mailto:servicedesk@csc.fi).
 
 
-## Quantum job on Lumi-web interface
+## Quantum job on LUMI web interface
 
-The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ target=_blank } allows users to run quantum jobs on  Q20 and Q50 through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/){ target=_blank }.
+The [LUMI Web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ target=_blank } allows users to run quantum jobs on the available quantum computers through a web interface. Details for logging in to the LUMI web interface can be read through the [LUMI Documentation page](https://docs.lumi-supercomputer.eu/firststeps/loggingin-webui/){ target=_blank }.
 
 After successfully authenticating, you should now have access to your dashboard. Click on the Jupyter app, select your project and the partition. If you have an active reservation, you can use it by selecting it under reservation.
 
-It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack. Replace `<DEVICE_VALUE>` with your device's identifier, [see the note above](#running-on-q20-and-q50).
+It is recommended to use the `Advanced settings`. Under the `Custom init` option select Text, and under the `Script to start` textbox enter the following script to configure the environment to use the quantum software stack. Replace `<DEVICE_VALUE>` with your device's identifier, [see the note above](#running-quantum-jobs).
 
 === "Qiskit"
 
