@@ -27,16 +27,28 @@ Some features of the software include:
 
 ## Available
 
-### Roihu
+=== "Roihu-CPU"
 
-- Roihu-CPU: 25.7.0
-- Check all available versions (and default version) with `module avail gpaw`
-- The installation includes the following libraries: MPI, OpenMP, ScaLAPACK, ELPA, FFTW, libxc, libvdwxc, DFT-D3, DFT-D4
-- See [GPAW documentation on parallel runs](https://gpaw.readthedocs.io/documentation/parallel_runs/parallel_runs.html#parallelization-options)
-  for instructions on how to enable high-performance libraries in the input script
-- The PAW setups are installed through `gpaw_data` package
-- Use `gpaw info` for detailed version information
+    | Version | Module            | Notes |
+    |:------- |:----------------- |:----- |
+    | 25.7.0  | `gpaw/25.7.0`     | Plain installation. Same as `gpaw/pilot-25.7.0`. |
+    | 26.7.0  | `gpaw/26.7.0`     | Containerized installation. |
 
+    The installations include the following libraries: MPI, OpenMP, ScaLAPACK, ELPA, FFTW, libxc, libvdwxc, DFT-D3, DFT-D4.
+
+=== "Roihu-GPU"
+
+    | Version | Module            | Notes |
+    |:------- |:----------------- |:----- |
+    | 26.7.0  | `gpaw/26.7.0`     | Containerized installation. |
+
+    The installations include the following libraries: MPI, OpenMP, ScaLAPACK, FFTW, libxc, libvdwxc, DFT-D3, DFT-D4.
+
+=== "LUMI"
+
+    GPAW is available as [a user-installable module](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/g/GPAW/).
+    See [the LUMI installation instructions in GPAW documentation](https://gpaw.readthedocs.io/platforms/Cray/lumi.html)
+    for detailed instructions.
 
 ## License
 
@@ -51,6 +63,11 @@ a specific GPAW version:
 ```bash
 module load gpaw/version
 ```
+
+Use `gpaw info` to check the GPAW version and the included libraries.
+
+See [GPAW documentation on parallel runs](https://gpaw.readthedocs.io/documentation/parallel_runs/parallel_runs.html#parallelization-options)
+for instructions on how to enable high-performance libraries in the input script
 
 !!! warning "Note"
     GPAW calculations are run with the `gpaw python` command.
