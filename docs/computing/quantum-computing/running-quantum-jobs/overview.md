@@ -44,8 +44,8 @@ module load custom_python_module
 There are multiple ways to reach the quantum computers from LUMI:
 
 - [Batch jobs](./access-models/batch.md): the standard way, for scripts submitted through SLURM.
-- [Interactive jobs](./access-models/srun.md): interactive terminal session.
-- [Jupyter notebook](./access-models/jupyter-notebook.md): interactive work through the LUMI web interface.
+- [Interactive jobs](./access-models/srun.md): an interactive terminal session.
+- [Jupyter Notebook](./access-models/jupyter-notebook.md): interactive work through the LUMI web interface.
 
 ## Example job
 
