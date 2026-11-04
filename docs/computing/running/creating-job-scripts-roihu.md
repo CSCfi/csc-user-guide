@@ -98,7 +98,7 @@ The number of nodes used for the job can be set with option `--nodes`:
 #SBATCH --nodes=1
 ```
 
-This does **not** mean that the all the resources of the node(s) would be reserved, but that
+This does **not** mean that all the resources of the node(s) would be reserved, but that
 all the tasks and CPU cores will be allocated from a single node in this case. In general,
 here one could give a range `--nodes=<minnodes>-<maxnodes>` to define the spread of nodes
 across which the resources would be allocated.
@@ -337,7 +337,7 @@ Each MIG has one-seventh of the compute capacity and one-eighth of the GPU memor
 The maximum number of CPU cores and the amount of CPU memory available to a job is less than on a partition with full GPUs.
 These limits will be documented once the MIG configuration has been finalized.
 
-You can reserve at most one GPU slice per job. GPU slices are requested using the following options::
+You can reserve at most one GPU slice per job. GPU slices are requested using the following options:
 
 ```bash
 #SBATCH --partition=gpuinteractive
@@ -427,7 +427,7 @@ with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
 only a single core per NUMA domain or L3 cache (look at
-[Roihu technical description](../systems-roihu.md) for details.
+[Roihu technical description](../systems-roihu.md) for details).
 Note that billing is, however, always based on full nodes.
 
 When undersubscribing nodes, one should always set
@@ -435,7 +435,7 @@ When undersubscribing nodes, one should always set
 even with pure MPI jobs. By default, Slurm scatters MPI tasks
 `--cpus-per-task` apart, i.e. with `--cpus-per-task=16` the MPI task
 **0** is bound to CPU core **0**, the MPI task **1** is bound to CPU
-core **15** _etc._. Memory bandwidth (and application performance) is
+core **16** _etc._. Memory bandwidth (and application performance) is
 the best when the tasks are executing on maximally scattered cores. As
 an example, in order to use 32 GB / core, one can run only with 24
 tasks per node as

@@ -28,7 +28,7 @@ full nodes.
 If possible, run a _short_ simulation with an increasing number of resources (cores)
 and evaluate how much faster your job gets. It should get at least
 1.5 times faster when you double the resources (cores). Don't allocate
-more resources to your job that it can use efficiently. If scaling tests are not
+more resources to your job than it can use efficiently. If scaling tests are not
 practical, first run your job with less resources, and note the performance.
 Try increasing the resources and confirm that the job (or a similar job)
 completes faster.
@@ -43,10 +43,12 @@ If your workload writes or reads a large number of small files then you may
 see poor I/O performance even if the total volume is not that big. Please
 consider the following items to mitigate potential bottlenecks:
 
-* Use local storage for especially AI workloads instead of scratch. Only some
-  nodes have [fast local disk](creating-job-scripts-roihu.md#local-temporary-storage),
-  but we've seen 10-fold performance improvement by switching to use it. Check
-  your performance: don't use the resource if it doesn't help.
+* Use local storage especially for AI workloads instead of scratch. All
+  nodes on Roihu have some amounts of [fast local disk space](creating-job-scripts-roihu.md#local-temporary-storage)
+  available for use in batch jobs.
+  On some applications, we've seen 10-fold performance improvements
+  by using the local storage instead of Lustre.
+  Check your performance first: don't use the resource if it doesn't help.
   [AI batch job example](../../support/tutorials/ml-data.md#fast-local-drive)
 * Investigate if you can choose how your application does I/O (e.g. OpenFoam
   can use the collated file format) and don't write unnecessary information
