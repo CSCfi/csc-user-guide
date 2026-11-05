@@ -54,9 +54,8 @@ It works like the desktop version and it's available on Roihu-CPU and LUMI.
 Available on Roihu-CPU and LUMI.
 
 3. **[MATLAB Parallel Server](matlab-parallel-server.md)** is best for batch computing.
-You send jobs from your local MATLAB to the supercomputer.
+You send jobs from your local MATLAB to the Roihu supercomputer.
 Your local toolboxes work on the supercomputer too.
-Available on Roihu-CPU only.
 
 All options support MATLAB versions R2023b to R2026b.
 
