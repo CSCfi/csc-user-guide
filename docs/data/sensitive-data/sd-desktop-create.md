@@ -127,17 +127,24 @@ data in a secure environment.
 
 ### Requesting Big Memory or GPU virtual desktops
 
-Bug Memory or GPU desktops option require a separate approval and allocation process. GPU resources at CSC remain limited and are allocated on a first-come, first-served basis for as long as the virtual machine is running. While current capacity is expected to meet demand, GPU resources should be requested only when there is a clear technical need.
 
-Before requesting a Small GPU desktop, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
+<div class="grid cards" markdown>
 
-- Expected usage period and timeline
-- Purpose of the workload 
-- Software or applications to be used
-- Type of analysis, computation, or processing to be performed
-- Justification for requiring Bug Memory or GPU resources instead of a standard desktop
+- :material-alert:{ .lg .middle } **Big Memory and GPU virtual desktops**
+  { .error-card }
 
-To support efficient capacity planning, we recommend reviewing ongoing GPU requirements at least every three months. 
+    ___
+
+    Big Memory and GPU desktop options require a separate approval and allocation process before creation. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust, revoke or reassign allocations if needed to maintain service capacity and to ensure capacity is available for current and future users. 
+ 
+</div>
+
+
+Before creating a Big Memory or GPU desktop option, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
+
+- Expected usage timeline
+- Software or applications to be used, including type of analysis to be performed
+- Justification for requiring Big Memory or GPU resources instead of a standard desktop
 
 If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. 
 
@@ -159,12 +166,12 @@ Here:
 1. **Select a name** for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
    
 3. **Operating system.**  **Linux Ubuntu24** is already preselected by default.
-4. 
-5. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
    
-6. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+4. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
    
-7. Click **Create**. The window will now close and desktop creation will start.
+5. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+   
+6. Click **Create**. The window will now close and desktop creation will start.
 
 After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 15 minutes, during which the status label **Creating** will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready for the next step and for being accessed. 
 

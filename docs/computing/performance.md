@@ -36,7 +36,7 @@ Job Wall-clock time: 00:09:39
 Memory Utilized: 76.45 GB (estimated maximum)
 Memory Efficiency: 10.27% of 744.72 GB (744.72 GB/node)
 Job consumed 46.32 CSC billing units, billed on CPU usage
-Billed project: project_2001659
+Billed project: project_2001234
 CPU usage: 46.32 CPU BU
 Mem usage: 0.00 CPU BU
 ```

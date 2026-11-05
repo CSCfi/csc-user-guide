@@ -31,7 +31,7 @@ High-throughput workflows are often limited by I/O rather than by compute, so pa
 The Lustre file systems at CSC are optimized for reading and writing a moderate number of large files, and they perform poorly when a workload reads or writes large numbers of small files.
 A common bottleneck occurs at task startup, when many tasks simultaneously open the same set of files, which can overload the file system and slow down not only your own jobs but the whole system for other users.
 Some workflow tools also generate a large number of small intermediate and log files, which compounds the problem.
-Whenever possible, reduce the number of files by keeping intermediate data in memory, bundling small files into archives, or directing heavy I/O to [local disk ares](../disk.md#temporary-local-disk-areas) instead of the shared parallel file system.
+Whenever possible, reduce the number of files by keeping intermediate data in memory, bundling small files into archives, or directing heavy I/O to [local disk areas](../disk.md#temporary-local-disk-areas) instead of the shared parallel file system.
 
 Containers are an effective way to reduce the file-count problem described above.
 Software stacks that consist of a large number of small files, such as Python with its external packages or R with its libraries, are particularly problematic on the parallel file system, both when installed there and when imported at task startup.

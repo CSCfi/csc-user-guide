@@ -254,7 +254,7 @@ SSH authentication agents help managing your keys and their passphrases. It can 
 Different authentication agents work with different tools:
 
 * [Pageant](https://the.earth.li/~sgtatham/putty/0.83/htmldoc/Chapter9.html#pageant): PuTTY, WinSCP, FileZilla, MobaXterm, Cyberduck
-* Window ssh-agent: PowerShell, Cyberduck, MobaXterm
+* Windows ssh-agent: PowerShell, Cyberduck, MobaXterm
 * MobAgent: MobaXterm
 
 ### Adding SSH keys to authentication agents
