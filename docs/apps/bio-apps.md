@@ -22,13 +22,22 @@ application module tree to your `MODULEPATH`, after which you can find and load
 individual applications with the normal module commands. Loading `bio-apps` does
 **not** load any application itself — it only makes them available for loading.
 
+!!! info "Not all bioinformatics tools are in bio-apps"
+    The applications in bio-apps are installed with [Spack](https://spack.io/). Some
+    tools are better suited to being installed as
+    [containers](../computing/containers/overview.md) or with
+    [Tykky](../computing/containers/tykky.md). These are provided as separate modules
+    outside bio-apps, and you do not need to load `bio-apps` to use them. See the
+    application's page in the [CSC application catalog](by_discipline.md#biosciences)
+    for how to load it.
+
 ## Available
 
 Bio-apps is available on Roihu:
 
 * `bio-apps/v202603`
 
-The same `bio-apps/v202603` command works on both **CPU** and **GPU (GH200)** nodes.
+The same `bio-apps/v202603` module works on both **CPU** and **GPU (GH200)** nodes.
 The node you are on selects the matching software: a broad set of applications on
 CPU nodes, and a small set of GPU-accelerated tools on GPU nodes.
 
@@ -149,6 +158,7 @@ Each entry shows the module name and its versions; load a version with
 - [gapseq](gapseq.md) 2.1.0
 - [gatk](gatk.md) 4.5.0.0, 4.7.0.0
 - [getorganelle](getorganelle.md) 1.7.7.1
+- [gone2](gone2.md) 2.0.2
 - [hifiasm](hifiasm.md) 0.25.0
 - [hisat2](hisat2.md) 2.2.1
 - [hmmer](hmmer.md) 3.4
@@ -184,7 +194,7 @@ Each entry shows the module name and its versions; load a version with
 - [phylip](phylip.md) 3.697
 - [picard](picard.md) 3.3.0
 - [plink](plink.md) 1.9.0
-- [plink2](plink.md) 2.0.0-a.6.9
+- [plink2](plink.md) 2.0.0-a.6.9, 2.0.0-b.1.3
 - [prodigal](prodigal.md) 2.6.3
 - [py-bakta](bakta.md) 1.11.4
 - [py-biopython](biopython.md) 1.85
@@ -264,12 +274,12 @@ using or redistributing it.
 
 ## Citation
 
-See above. See each application page for citation guidelines.
+See each application's page for citation guidelines.
 
 ## Support
 
-Application-specific usage instructions will be made available on the corresponding
-page in the [CSC application catalog](by_discipline.md#biosciences).
+Usage instructions are on each application's page, linked in the lists above and in
+the [CSC application catalog](by_discipline.md#biosciences).
 
 For problems related to the Bio-apps module tree or an included application,
 [contact CSC Service Desk](../support/contact.md).

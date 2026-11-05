@@ -27,8 +27,8 @@ Free to use and open source under GNU GPLv3. See the
 
 ## Available
 
-* Roihu-CPU: 1.9.0 (module `plink`) and 2.0.0-a.6.9 (module `plink2`), via the
-  `bio-apps` module.
+* Roihu-CPU: 1.9.0 (module `plink`), and 2.0.0-a.6.9 and 2.0.0-b.1.3 (module
+  `plink2`), via the `bio-apps` module.
 
 ## Usage
 
@@ -39,11 +39,11 @@ command and PLINK 2.0 with the `plink2` command:
 ```bash
 module load bio-apps/v202603
 module load plink/1.9.0
-module load plink2/2.0.0-a.6.9
+module load plink2/2.0.0-b.1.3
 ```
 
-PLINK 2.0 is faster and supports more data types, but it is still an alpha release,
-and some PLINK 1.9 features are not yet available in it.
+PLINK 2.0 is faster and supports more data types, but some PLINK 1.9 features are
+not yet available in it.
 
 For example, convert a VCF file to the PLINK 1 binary format and compute allele
 frequencies with PLINK 1.9:
@@ -80,7 +80,7 @@ job, so always set `--memory` (in MiB) to fit within your job's memory.
 #SBATCH --mem=16G
 
 module load bio-apps/v202603
-module load plink2/2.0.0-a.6.9
+module load plink2/2.0.0-b.1.3
 
 plink2 --pfile data --freq --memory 15000 --out data
 ```
