@@ -22,11 +22,6 @@ application module tree to your `MODULEPATH`, after which you can find and load
 individual applications with the normal module commands. Loading `bio-apps` does
 **not** load any application itself — it only makes them available for loading.
 
-!!! warning "Bio-apps environment is not yet fully tested"
-    Some software in the bio-apps environment is not yet fully tested, and might not
-    have a corresponding page in Docs CSC yet. Use these apps with caution, and reach out to
-    [CSC Service Desk](../support/contact.md) for any issues that you face.
-
 ## Available
 
 Bio-apps is available on Roihu:
@@ -105,165 +100,158 @@ The collection contains applications for, among other things:
 
 ### CPU nodes
 
-The following modules are included in `bio-apps/v202603` on Roihu **CPU** nodes:
+The following modules are included in `bio-apps/v202603` on Roihu **CPU** nodes.
+Each entry shows the module name and its versions; load a version with
+`module load <name>/<version>`. Names with a link have a documentation page.
 
-```text
-abyss/2.3.10
-admixtools/8.0.2
-admixture/1.4.0
-angsd/0.940
-antismash/8.0.4
-astral/5.7.1
-augustus/3.5.0
-bamtools/2.5.2
-barrnap/0.9
-bbmap/39.59
-bcftools/1.23.1
-beast2/2.6.7
-bedops/2.4.42
-bedtools2/2.31.1
-blast-plus/2.17.0
-boost/1.86.0
-bowtie/1.3.1
-bowtie2/2.5.4
-bracken/2.8
-bracken/2.9
-braker4/0.5.0-beta
-busco/5.4.3
-busco/6.1.0
-bwa/0.7.19
-bwa-mem2/2.3
-canu/2.2
-cdhit/4.8.1
-checkm2/1.1.0
-clumpp/1.1.2
-clustal-omega/1.2.4
-clustalw/2.1
-comebin/1.1.0
-cufflinks/2.2.1
-demix-check/1.0.20250120
-diamond/2.1.10
-eggnog-mapper/2.1.15
-emboss/6.6.0
-exonerate/2.4.0
-fastp/1.0.1
-fastp/1.3.6
-fastqc/0.12.1
-fastx-toolkit/0.0.14
-freebayes/1.3.6
-gapseq/2.1.0
-gatk/4.5.0.0
-gatk/4.7.0.0
-getorganelle/1.7.7.1
-hifiasm/0.25.0
-hisat2/2.2.1
-hmmer/3.4
-htslib/1.23.1
-humann/3.9
-humann/4.0.0a2
-hybpiper/2.3.4
-hyphy/2.5.51hf
-igv/2.19.7
-interproscan/5.76-107.0
-iq-tree/2.4.0
-iqtree3/3.1.4
-jellyfish/2.2.7
-kraken2/2.17.1
-kraken2/2.17.2
-mafft/7.525
-magscot/1.1
-mash/2.3
-megahit/1.2.9
-meme/5.5.7
-metabat/2.15
-minibwa/0.7
-minimap2/2.30
-mmseqs2/18-8cc5c
-mothur/1.48.0
-mrbayes/3.2.7a
-mummer4/4.0.1
-muscle/3.8.31
-muscle5/5.1.0
-ncbi-toolkit/28_0_12
-nextflow/25.10.2-standalone
-nextflow/26.04.6-standalone
-ngs-primerplex/1.3.4
-openmpi/5.0.10-gcc14.3.0
-perl-bioperl/1.7.8
-phylip/3.697
-picard/3.3.0
-plink/1.07
-plink2/2.0.0-a.6.9
-prodigal/2.6.3
-py-bakta/1.11.4
-py-biopython/1.85
-py-concoct/1.1.0
-py-cutadapt/4.7
-py-dbcan/5.2.9
-py-deeptools/3.5.3
-py-fdstools/2.2.1
-py-gtdbtk/2.7.2
-py-htseq/2.0.3
-py-instrain/1.6.3
-py-ipyrad/0.9.102
-py-metaphlan/4.2.4
-py-micom/0.39.0
-py-multiqc/1.28
-py-samestr/1.2025.111
-py-semibin/2.6.0
-py-steadiercom/0.1.5
-raxml/8.2.12
-raxml-ng/2.0.2
-revbayes/1.4.1
-roary/3.13.0
-salmon/2.8.0
-samtools/1.21
-samtools/1.24
-sanspanz/3.20250512
-seqkit/2.10.0
-seqkit/2.13.0
-seqtk/1.4
-snakemake/7.32.4
-snakemake/9.14.0
-sortmerna/7.0.0
-spades/4.2.0
-spades/4.3.0
-sra-tools/3.3.0
-star/2.7.11b
-strauto/1.0
-stringtie/3.0.3
-structure/2.3.4
-structureharvester/0.7
-tophat/2.1.2
-transdecoder/5.7.1
-trimmomatic/0.39
-trinity/2.15.1.FULL
-trinotate/4.0.2
-vcftools/0.1.17
-vsearch/2.22.1
-wtdbg2/2.5
-xhmm/20160104
-yak/0.1
-```
+<div class="tool-columns" markdown>
+
+- [abyss](abyss.md) 2.3.10
+- [admixtools](admixtools.md) 8.0.2
+- [admixture](admixture.md) 1.4.0
+- [angsd](angsd.md) 0.940
+- [antismash](antismash.md) 8.0.4
+- [astral](astral.md) 5.7.1
+- [augustus](augustus.md) 3.5.0
+- [bamtools](bamtools.md) 2.5.2
+- [barrnap](barrnap.md) 0.9
+- [bbmap](bbmap.md) 39.59
+- [bcftools](bcftools.md) 1.23.1, 1.24
+- beast2 2.6.7
+- [bedops](bedops.md) 2.4.42
+- [bedtools2](bedtools2.md) 2.31.1
+- [blast-plus](blast.md) 2.17.0
+- boost 1.86.0
+- [bowtie](bowtie.md) 1.3.1
+- [bowtie2](bowtie2.md) 2.5.4
+- [bracken](bracken.md) 2.8, 2.9
+- [braker4](braker.md) 0.5.0-beta
+- [busco](busco.md) 5.4.3, 6.1.0
+- [bwa](bwa.md) 0.7.19
+- [bwa-mem2](bwa-mem2.md) 2.3
+- [canu](canu.md) 2.2
+- [cdhit](cd-hit.md) 4.8.1
+- [checkm2](checkm2.md) 1.1.0
+- [clumpp](clumpp.md) 1.1.2
+- [clustal-omega](clustal-omega.md) 1.2.4
+- [clustalw](clustalw.md) 2.1
+- [comebin](comebin.md) 1.1.0
+- [cufflinks](cufflinks.md) 2.2.1
+- [demix-check](demix-check.md) 1.0.20250120
+- [diamond](diamond.md) 2.1.10
+- [eggnog-mapper](eggnog-mapper.md) 2.1.15
+- [emboss](emboss.md) 6.6.0
+- [exonerate](exonerate.md) 2.4.0
+- [fastp](fastp.md) 1.0.1, 1.3.6
+- [fastqc](fastqc.md) 0.12.1
+- [fastx-toolkit](fastx-toolkit.md) 0.0.14
+- [freebayes](freebayes.md) 1.3.6
+- [gapseq](gapseq.md) 2.1.0
+- [gatk](gatk.md) 4.5.0.0, 4.7.0.0
+- [getorganelle](getorganelle.md) 1.7.7.1
+- [hifiasm](hifiasm.md) 0.25.0
+- [hisat2](hisat2.md) 2.2.1
+- [hmmer](hmmer.md) 3.4
+- htslib 1.23.1
+- [humann](humann.md) 3.9, 4.0.0a2
+- [hybpiper](hybpiper.md) 2.3.4
+- [hyphy](hyphy.md) 2.5.51hf
+- [igv](igv.md) 2.19.7
+- [interproscan](interpro.md) 5.76-107.0
+- [iq-tree](iq-tree.md) 2.4.0
+- [iqtree3](iq-tree.md) 3.1.4
+- [jellyfish](jellyfish.md) 2.2.7
+- [kraken2](kraken.md) 2.17.1, 2.17.2
+- [mafft](mafft.md) 7.525
+- [magscot](magscot.md) 1.1
+- [mash](mash.md) 2.3
+- [megahit](megahit.md) 1.2.9
+- [meme](meme.md) 5.5.7
+- [metabat](metabat.md) 2.15
+- [minibwa](minibwa.md) 0.7
+- [minimap2](minimap2.md) 2.30
+- [mmseqs2](mmseqs2.md) 18-8cc5c
+- [mothur](mothur.md) 1.48.0
+- [mrbayes](mrbayes.md) 3.2.7a
+- [mummer4](mummer4.md) 4.0.1
+- [muscle](muscle.md) 3.8.31
+- [muscle5](muscle5.md) 5.1.0
+- [ncbi-toolkit](ncbi-toolkit.md) 28_0_12
+- [nextflow](nextflow.md) 25.10.2-standalone, 26.04.6-standalone
+- [ngs-primerplex](ngs-primerplex.md) 1.3.4
+- openmpi 5.0.10-gcc14.3.0
+- [perl-bioperl](bioperl.md) 1.7.8
+- [phylip](phylip.md) 3.697
+- [picard](picard.md) 3.3.0
+- [plink](plink.md) 1.9.0
+- [plink2](plink.md) 2.0.0-a.6.9
+- [prodigal](prodigal.md) 2.6.3
+- [py-bakta](bakta.md) 1.11.4
+- [py-biopython](biopython.md) 1.85
+- [py-concoct](concoct.md) 1.1.0
+- [py-cutadapt](cutadapt.md) 4.7, 5.1, 5.2
+- [py-dbcan](dbcan.md) 5.2.9
+- [py-deeptools](deeptools.md) 3.5.3
+- [py-fdstools](fdstools.md) 2.2.1
+- [py-gtdbtk](gtdbtk.md) 2.7.2
+- py-htseq 2.0.3
+- [py-instrain](instrain.md) 1.6.3
+- [py-ipyrad](ipyrad.md) 0.9.102
+- [py-metaphlan](metaphlan.md) 4.2.4
+- [py-micom](micom.md) 0.39.0
+- [py-multiqc](multiqc.md) 1.28, 1.35
+- [py-samestr](samestr.md) 1.2025.111
+- [py-semibin](semibin.md) 2.6.0
+- [py-steadiercom](steadiercom.md) 0.1.5
+- [raxml](raxml.md) 8.2.12
+- [raxml-ng](raxml-ng.md) 2.0.2
+- [revbayes](revbayes.md) 1.4.1
+- [roary](roary.md) 3.13.0
+- [salmon](salmon.md) 2.8.0
+- [samtools](samtools.md) 1.21, 1.24
+- [sanspanz](pannzer.md) 3.20250512
+- [seqkit](seqkit.md) 2.10.0, 2.13.0
+- [seqtk](seqtk.md) 1.4
+- [snakemake](snakemake.md) 7.32.4, 9.14.0
+- [sortmerna](sortmerna.md) 7.0.0
+- [spades](spades.md) 4.2.0, 4.3.0
+- [sra-tools](sra-tools.md) 3.3.0
+- [star](star.md) 2.7.11b
+- [strauto](strauto.md) 1.0
+- [stringtie](stringtie.md) 3.0.3
+- [structure](structure.md) 2.3.4
+- [structureharvester](structureharvester.md) 0.7
+- [tophat](tophat.md) 2.1.2
+- [transdecoder](transdecoder.md) 5.7.1
+- [trimmomatic](trimmomatic.md) 0.39
+- [trinity](trinity.md) 2.15.1.FULL
+- [trinotate](trinotate.md) 4.0.2
+- [vcftools](vcftools.md) 0.1.17
+- [vsearch](vsearch.md) 2.22.1
+- [wtdbg2](wtdbg2.md) 2.5
+- [xhmm](xhmm.md) 20160104
+- [yak](yak.md) 0.1
+
+</div>
 
 ### GPU nodes (GH200)
 
 On Roihu **GPU** nodes, `bio-apps/v202603` provides a small set of
 GPU-accelerated tools:
 
-```text
-comebin/1.1.0
-dorado/2.1.1
-foldseek/10-941cd33
-mhm2/2.2.2.0-20260904
-mmseqs2/18-8cc5c
-mrbayes/3.2.8
-nextflow/25.10.2-standalone
-nextflow/26.04.6-standalone
-py-medaka/2.2.2
-snakemake/7.32.4
-snakemake/9.14.0
-```
+<div class="tool-columns" markdown>
+
+- [comebin](comebin.md) 1.1.0
+- [dorado](dorado.md) 2.1.1
+- [foldseek](foldseek.md) 10-941cd33
+- [mhm2](mhm2.md) 2.2.2.0-20260904
+- [mmseqs2](mmseqs2.md) 18-8cc5c
+- [mrbayes](mrbayes.md) 3.2.8
+- [nextflow](nextflow.md) 25.10.2-standalone, 26.04.6-standalone
+- [py-medaka](medaka.md) 2.2.2
+- [snakemake](snakemake.md) 7.32.4, 9.14.0
+
+</div>
 
 ## License
 
@@ -285,3 +273,13 @@ page in the [CSC application catalog](by_discipline.md#biosciences).
 
 For problems related to the Bio-apps module tree or an included application,
 [contact CSC Service Desk](../support/contact.md).
+
+<style>
+.tool-columns > ul {
+  columns: 16rem auto;
+  column-gap: 2rem;
+}
+.tool-columns li {
+  break-inside: avoid;
+}
+</style>
