@@ -3,7 +3,7 @@ tags:
   - Other
 catalog:
   name: CryoSPARC
-  description: Tool to analyse Cryo-EM data on Puhti/Mahti
+  description: Tool to analyse Cryo-EM data on Roihu
   license_type: Other
   disciplines:
     - Biosciences
@@ -11,8 +11,6 @@ catalog:
 ---
 
 # CryoSPARC
-
---8<-- "puhti-mahti-cleanup-notice.md"
 
 CryoSPARC (Cryo-EM Single Particle Ab-Initio Reconstruction and Classification)
 is a state-of-the-art scientific software platform for processing cryo-electron
@@ -23,8 +21,7 @@ more. It can also process negative stain electron microscopy data.
 
 ## Available
 
-The software can be installed on Puhti and Mahti. CSC recommends using Mahti
-for CryoSPARC usage due to its large needs of scratch disk space.
+The software can be installed on Roihu now. Please note that only the latest version, CryoSPARC v5.1.0, is compatible with the Roihu GPU environment due to its support for the ARM architecture. 
 
 ## License
 
@@ -36,27 +33,20 @@ commercial usage.
 
 ## Installation
 
-Note that every user needs to install their own instance of cryoSPARC. Shared
-installations are not recommended. Request port numbers for your CryoSPARC
-usage by sending an e-mail to [CSC Service Desk](../support/contact.md). The
-port number and login node will be reserved to you on Puhti and/or Mahti.
+Note that every user needs to install their own master instance of cryoSPARC. Shared installations are not recommended. Request port numbers for your CryoSPARC usage by sending an e-mail to [CSC Service Desk](../support/contact.md). The port number and login node will be reserved to you on Roihu.
 
-The CryoSPARC installation tar file contains over 160k files, which exceeds the
-default file quota (100k) for `/projappl` disk space. Thus, users need to apply
-for an extension to the default quota when installing CryoSPARC.
+The CryoSPARC installation tar file contains over 160k files, which exceeds the default file quota (150k) for `/projappl` disk space. Thus, users need to apply for an extension to the default quota when installing CryoSPARC.
 
 CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC
 internal instructions and use the correct lane templates, you do not need to
-install worker at all. The internal installation instructions on Puhti or Mahti
+install worker at all. The internal installation instructions on Roihu
 are available at path:
 
 ```bash
-/appl/soft/bio/cryosparc/documentation/cryoSPARC_at_CSC.pdf
+/appl/soft/manual/bio/aarch64/cryosparc/lane_config/cryoSPARC_on_Roihu_runbook.pdf
 ```
 
-Setting up SSH keys and adding your public key to MyCSC are required to be able
-to log in to Puhti and Mahti with SSH. SSH keys enable passwordless login,
-which is also helpful for CryoSPARC usage.
+Setting up SSH keys,adding your public key to MyCSC and creating short-lived SSH certificates are required to be able to log in to Roihu with SSH. 
 
 Please consult our documentation on:
 
@@ -64,7 +54,7 @@ Please consult our documentation on:
 - [How to set up SSH keys](../computing/connecting/ssh-keys.md)
 
 !!! note "CryoSPARC cannot be used from HPC web interfaces"
-    CryoSPARC users may not use web interfaces for logging in to Puhti/Mahti as
+    CryoSPARC users may not use web interfaces for logging in to Roihu as
     login nodes are randomly assigned. Please note that each user is assigned
     to a specific login node with a specific port range for CryoSPARC usage.
 
