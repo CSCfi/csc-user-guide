@@ -161,6 +161,17 @@ if you have any questions regarding GPU utilization.
 
 ### Tools for monitoring GPU utilization
 
+#### Job monitoring tool in the Roihu web user interface
+
+You can find a report of the GPU usage of your jobs in the [Job
+monitoring tool in the Roihu web user
+interface](../../computing/webinterface/index.md#job-monitoring).
+
+Here is an example of the output for a job using four GPUs:
+
+![Job monitor showing GPU utilization for four GPUs](../../img/job-monitor-gpu4.png)
+
+
 #### `seff` command for a completed job (Roihu-GPU)
 
 The easiest way to check the GPU utilization of a job on Roihu-GPU is
@@ -170,8 +181,8 @@ to use the `seff` command:
 seff <job_id>
 ```
 
-In this example we can see that maximum utilization is 85%, but
-average is 81.34% (this is an OK level, but not ideal):
+In this example we can see that the maximum utilization is 85%, but
+the average is 81.34% (this is an OK level, but not ideal):
 
 ```
 GPU job efficiency:
@@ -186,9 +197,6 @@ GPU memory
 ```
 
 Note that GPU statistics will not be reported for very short jobs.
-
-You can also see the same GPU statistics in the [Job monitoring tool in the
-Roihu web user interface](../../computing/webinterface.md#job-monitoring).
 
 #### `nvidia-smi` for a running job (Roihu-GPU)
 
@@ -325,7 +333,7 @@ resources are shared over many jobs and can depend on various factors
 independent of the monitored job. Fortunately, measuring the energy
 usage of just the GPUs is easier, as they are typically not shared
 among many jobs. As the GPU is by far the biggest energy user it
-provides a good approximation of the total energy usage.
+provides a good indicator of the total energy usage.
 
 ### Tools for monitoring GPU energy usage
 
@@ -352,6 +360,9 @@ GPU energy
 
 Note that GPU statistics will not be reported for very short jobs.
 
+You can also see the GPU power usage over time in the [Job monitoring
+tool in the Roihu web user
+interface](../../computing/webinterface/index.md#job-monitoring).
 
 ### `gpu-energy` tool (LUMI)
 
