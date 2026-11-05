@@ -14,7 +14,7 @@ Edit profile information:
     
 ### When you change your organisation
 
-If you are changing to another organisation,
+If you are changing to another organisation, most importantly, make sure the project data is saved and other project members have access to the data. After the data is safely stored
 [contact us](../support/contact.md) and provide a full description of your situation including a list of required changes.
 
 
