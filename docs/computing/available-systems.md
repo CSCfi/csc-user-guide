@@ -27,7 +27,7 @@ tasks, and will provide enhanced support for processing sensitive and confidenti
 LUMI is one of the three European pre-exascale supercomputers. It's an HPE Cray
 EX supercomputer consisting of several partitions targeted for different use
 cases. The largest partition of the system is the "LUMI-G" partition consisting
-of GPU accelerated nodes using a future-generation AMD Instinct GPUs. In
+of GPU accelerated nodes using AMD Instinct GPUs. In
 addition to this, there is a smaller CPU-only partition, "LUMI-C" that features
 AMD EPYC "Milan" CPUs and an auxiliary partition for data analytics with large
 memory nodes and some GPUs for data visualization. Besides partitions dedicated

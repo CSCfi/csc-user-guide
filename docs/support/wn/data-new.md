@@ -1,5 +1,18 @@
 # Data management
 
+
+
+## SD Connect and SD Desktop, 11.2026
+
+- Service improvements and bug fixes, see the release notes for details: [SD Connect](../../data/sensitive-data/releases-sd-connect.md) and [SD Desktop](../../data/sensitive-data/releases-sd-desktop.md). 
+
+- Updated SD Desktop computing options, including new Big Memory and GPU virtual desktop options available [upon request](../../data/sensitive-data/sd-desktop-create.md).
+
+
+
+─────────────────────────────────────────────────────────────
+
+
 ## SD Connect and SD Desktop major service upgrade, 09.2026
 
 A new version of SD Connect and SD Desktop is now available. The upgrade introduces significant improvements, but some changes require users to take action to continue using certain features.

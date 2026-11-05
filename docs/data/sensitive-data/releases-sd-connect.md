@@ -4,22 +4,30 @@ This page provides an accessible overview of the major SD Connect releases, focu
 
 Version shortcuts:
 
-[SD Connect v3.0.0 Upcoming ](#sd-connect-v300)
+[SD Connect v.3.0.2](#sd-connect-v302)
 
-[SD Connect v2.0.0 Currently in use](#sd-connect-v200-currently-in-use)
+[SD Connect v3.0.0 ](#sd-connect-v300)
 
-[SD Connect v1.0.0 Discontinued](#sd-connect-v100-discontinued)
+[SD Connect v2.0.0](#sd-connect-v200-currently-in-use)
 
+[SD Connect v1.0.0](#sd-connect-v100-discontinued)
+
+## SD Connect v3.0.2 
+
+This release includes the following improvements:
+
+- Restored access for project owners to download files uploaded by collaborators to shared buckets via CLI.
+  
+- Corrected an issue where buckets containing files uploaded before September 28 displayed the retention label "by the end of 2026" only after the user opened the bucket.
 
 
 ## SD Connect v3.0.0 
 
-Available from September 28, 2026. 
 
 
 ## Overview
 
-Major upgrade required because of a technical change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. 
+Major upgrade required because of a technical change: transition from the Swift protocol to a new based on S3‑compatible technology. CSC’s current storage system will stop supporting the old upload and download method by the end of 2026. This SD Connect version improves long term stability but is not fully backward compatible, this might require file conversion. Available from September 28, 2026. 
 
 
 

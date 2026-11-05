@@ -23,7 +23,8 @@
         - [Work with your virtual desktop](sd-desktop-working.md)
         - [Customisation - software & tools](sd-desktop-software.md)
         - [Import data](sd-desktop-access.md)
-        - [Export data via user interface](sd-desktop-export.md)
+        - [Export results](sd-desktop-export.md)
+        - [Programmatic import and export](sd-desktop-export-commandline.md)
         - [Troubleshooting](sd-desktop-troubleshooting.md)
 - Research data - Publish and reuse
     - [Publish with Federated EGA](federatedega.md)
