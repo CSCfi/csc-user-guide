@@ -161,6 +161,35 @@ if you have any questions regarding GPU utilization.
 
 ### Tools for monitoring GPU utilization
 
+#### `seff` command for a completed job (Roihu-GPU)
+
+The easiest way to check the GPU utilization of a job on Roihu-GPU is
+to use the `seff` command:
+
+```bash
+seff <job_id>
+```
+
+In this example we can see that maximum utilization is 85%, but
+average is 81.34% (this is an OK level, but not ideal):
+
+```
+GPU job efficiency:
+------------------------------------------------------------------------
+GPU load
+      Hostname        GPU Id      Mean (%)    stdDev (%)       Max (%)
+        rg1101             0         81.34          8.65         85.00
+------------------------------------------------------------------------
+GPU memory
+      Hostname        GPU Id    Mean (GiB)  stdDev (GiB)     Max (GiB)
+        rg1101             0          5.39          0.36          5.42
+```
+
+Note that GPU statistics will not be reported for very short jobs.
+
+You can also see the same GPU statistics in the [Job monitoring tool in the
+Roihu web user interface](../../computing/webinterface.md#job-monitoring).
+
 #### `nvidia-smi` for a running job (Roihu-GPU)
 
 When the job is running you can run `nvidia-smi` over `ssh` on the
@@ -300,11 +329,29 @@ provides a good approximation of the total energy usage.
 
 ### Tools for monitoring GPU energy usage
 
-Roihu-GPU doesn't yet have any built-in support for monitoring the GPU
-energy usage. In the meantime users can use the 
-[NVIDIA Management Library](http://developer.nvidia.com/nvidia-management-library-nvml) 
-or the corresponding [Python bindings in pyNVML](https://pypi.org/project/nvidia-ml-py/) 
-to fetch GPU energy information.
+#### `seff` command for a completed job (Roihu-GPU)
+
+On Roihu-GPU you can use the `seff` tool:
+
+```bash
+seff <job_id>
+```
+
+The GPU energy shows the total GPU energy usage so far by the job.
+
+Example output where we have used a single node with 4 GPUs:
+
+```
+GPU energy
+      Hostname        GPU Id   Energy (Wh)
+        rg2101             0         40.34
+        rg2101             1         36.95
+        rg2101             2         43.37
+        rg2101             3         41.42
+```
+
+Note that GPU statistics will not be reported for very short jobs.
+
 
 ### `gpu-energy` tool (LUMI)
 
