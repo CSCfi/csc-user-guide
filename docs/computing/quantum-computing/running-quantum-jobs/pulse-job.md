@@ -89,7 +89,7 @@ print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 
 For submitting jobs see [Running quantum jobs](overview.md#access-models).
 
-## Further Reading
+## Further reading
 * [Batch jobs](./access-models/batch.md)
 * [Interactive jobs](./access-models/batch.md)
 * [Jupyter notebook](./access-models/jupyter-notebook.md)

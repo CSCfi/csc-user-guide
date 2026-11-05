@@ -37,7 +37,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
 
 See [Circuit job](../circuit-job.md) for an example circuit level job Python script and [Pulse job](../pulse-job.md) for a Pulse level job example.
 
-## Further Reading
+## Further reading
 * [Circuit level access](../circuit-job.md)
 * [Pulse level access](../pulse-job.md)
 * [Batch jobs](./batch.md)

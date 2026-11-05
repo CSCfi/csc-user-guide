@@ -60,11 +60,13 @@ Quantum resources are scarce, so prepare your code in advance. `qiskit-on-iqm` p
 
 ## Calibration data
 
-Calibration data (quality metrics) may be needed when publishing results, and shows the current state of the devices. It is available on the [FiQCI status page](https://fiqci.fi/status){ target=_blank }, and can be fetched programmatically with the [helper script in `fiqci-examples`](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py){ target=_blank }. Save the calibration data and calibration set ID together with your job ID.
+Calibration data for quantum computers consists of quality metrics that show the current state of the devices.
+If you publish results obtained on a quantum computer, you may need to attach calibration data from the date the results were obtained on.
+It is available on the [FiQCI status page](https://fiqci.fi/status){ target=_blank }, and can be fetched programmatically with the [helper script in `fiqci-examples`](https://github.com/FiQCI/fiqci-examples/blob/main/scripts/get_calibration_data.py){ target=_blank }. We recommend that you save the calibration data and the calibration set ID together with your job ID.
 
 ## Viewing QPU usage
 
-QPU usage is shown in the [MyCSC dashboard](https://my.csc.fi/dashboard){ target=_blank }. On LUMI, use the `project-qpu-allocations` script — note that `lumi-allocations` does not display QPU usage correctly. Neither option currently displays VLQ allocation. The documentation will be updated once that is possible.
+QPU usage is shown on the [MyCSC dashboard](https://my.csc.fi/dashboard){ target=_blank }. On LUMI, use the `project-qpu-allocations` script — note that `lumi-allocations` does not display QPU usage correctly. Neither option currently displays VLQ allocation. The documentation will be updated once that is possible.
 
 ```bash
 /appl/local/quantum/resource-checker/project-qpu-allocations
@@ -73,7 +75,7 @@ QPU usage is shown in the [MyCSC dashboard](https://my.csc.fi/dashboard){ target
 /appl/local/quantum/resource-checker/project-qpu-allocations <project_xxxx>
 ```
 
-## Further Reading
+## Further reading
 * [Devices](../devices/overview.md)
 * [Additional examples (fiqci-examples)](https://github.com/FiQCI/fiqci-examples){ target=_blank }
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }

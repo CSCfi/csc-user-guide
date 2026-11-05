@@ -40,7 +40,7 @@ Submit it with `sbatch batch_script.sh`. The job can be monitored with `squeue -
 
 See [Circuit job](../circuit-job.md) for an example circuit level job python script and [Pulse job](../pulse-job.md) for a Pulse level job example.
 
-## Further Reading
+## Further reading
 * [Circuit level access](../circuit-job.md)
 * [Pulse level access](../pulse-job.md)
 * [Jupyter notebook](./jupyter-notebook.md)
