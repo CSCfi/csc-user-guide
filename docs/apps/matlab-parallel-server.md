@@ -71,6 +71,14 @@ c.AdditionalProperties.WallTime = '1-05:30';
 Optional flags:
 
 ```matlab
+% Specify memory to use, per core (default: 4GB)
+c.AdditionalProperties.MemPerCPU = '6GB';
+
+
+% Specify the partition
+c.AdditionalProperties.Partition = 'partition-name';
+
+
 % Specify a constraint
 c.AdditionalProperties.Constraint = 'feature-name';
 
@@ -84,20 +92,11 @@ c.AdditionalProperties.GPUsPerNode = 1;
 
 
 % Specify a particular GPU card
-c.AdditionalProperties.GPUCard = 'gpu-card';
-
-
-% Specify memory to use, per core (default: 4GB)
-c.AdditionalProperties.MemPerCPU = '6GB';
+c.AdditionalProperties.GPUCard = 'gh200';
 
 
 % Specify number of nodes (default: 1)
 c.AdditionalProperties.NumNodes = 2;
-
-
-% Specify the partition
-c.AdditionalProperties.Partition = 'partition-name';
-
 
 % Specify cores per node
 c.AdditionalProperties.ProcsPerNode = 4;
