@@ -172,10 +172,10 @@ Here is an example of the output for a job using four GPUs:
 ![Job monitor showing GPU utilization for four GPUs](../../img/job-monitor-gpu4.png)
 
 
-#### `seff` command for a completed job (Roihu-GPU)
+#### `seff` command (Roihu-GPU)
 
-The easiest way to check the GPU utilization of a job on Roihu-GPU is
-to use the `seff` command:
+Another way to check the GPU utilization of a job on Roihu-GPU is to
+use the `seff` command:
 
 ```bash
 seff <job_id>
@@ -185,8 +185,6 @@ In this example we can see that the maximum utilization is 85%, but
 the average is 81.34% (this is an OK level, but not ideal):
 
 ```
-GPU job efficiency:
-------------------------------------------------------------------------
 GPU load
       Hostname        GPU Id      Mean (%)    stdDev (%)       Max (%)
         rg1101             0         81.34          8.65         85.00
@@ -337,7 +335,7 @@ provides a good indicator of the total energy usage.
 
 ### Tools for monitoring GPU energy usage
 
-#### `seff` command for a completed job (Roihu-GPU)
+#### `seff` command (Roihu-GPU)
 
 On Roihu-GPU you can use the `seff` tool:
 
