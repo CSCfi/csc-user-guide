@@ -17,20 +17,16 @@ catalog:
 
 # VisIt
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 VisIt is an open source, versatile software for scientific visualization.
 VisIt is available on Roihu, and we recommend
 [the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
-    You can now also enable
-    [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
-    for much better performance. In this case, select the
-    _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
-    interface. On LUMI, select the regular _Desktop_ app and `lumid`
-    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+For workloads requiring more performance out of VisIt, GPU-accelerated visualization is also available
+on both Roihu and LUMI. On Roihu, select the
+[Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+app instead of *Desktop*. On LUMI, select the *Desktop* app with the `lumid`
+partition (see the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 [TOC]
 
@@ -42,49 +38,75 @@ VisIt is free also for commercial use and has been released under
 ## Available
 
 * Roihu-CPU: 3.5.0
+* Roihu Accelerated Visualization Desktop: 3.3.3
 * LUMI: 3.2.2
 
-## Parallel use
+## Usage
 
-VisIt can be run interactively in parallel configuration using several
-processors. Log in to Puhti and submit the following to launch VisIt on a
-compute node
+---
+
+### Interactive usage in the web interface
+
+=== "Roihu-CPU"
+
+    Open the Roihu web interface and select **Apps → Desktop**.
+
+    In a Desktop session, open up a terminal and type:
+
+    ```bash
+    module load visit/3.5.0
+    visit
+    ```
+
+    **Parallel use:** To use two parallel engine processes:
+
+    ```bash
+    visit -l mpirun -np 2
+    ```
+
+    Note that running VisIt with many processors does not necessarily bring speed
+    benefits.
+    It will depend on VisIt's particular data reader if (and to what extent)
+    the data can be distributed between the processors.
+
+=== "Roihu accelerated"
+
+    Select **Apps → Accelerated visualization** in the Roihu web
+    interface and launch **VisIt (Accelerated)** from the top left applications menu.
+
+=== "LUMI"
+
+    Open the LUMI web interface and select **Apps → Desktop**.
+
+    Use the `interactive` partition for CPU rendering or `lumid`
+    for GPU-accelerated graphics. Launch VisIt from **Apps → Other**.
+
+---
+
+### X11 forwarding
+
+You can also run the VisIt GUI over SSH with X11 forwarding, although the
+Roihu Desktop app is recommended for better graphical performance and better responsiveness.
+Connect to Roihu-CPU from a computer with an X11 server:
 
 ```bash
-module load visit/3.1.3
-visit -l srun -np 2 -p test -t 00:10:00 -la --mem-per-cpu=2G -la --account=<your project>
+ssh -X <username>@roihu-cpu.csc.fi
 ```
 
-The job reservation parameters are:
+Then load VisIt and start it on an allocated compute node:
 
-* `-np <number of cores>`
-* `-p <queue>`
-* `-t <time>` (hours:minutes:seconds)
-* `-la --mem-per-cpu=<memory per processor>` (in GB)
-* `-la --account=<the billing project for the job>`
-  
-Note that running VisIt with many processors does not necessarily bring speed
-benefits. It will depend on VisIt's particular data reader if (and to what
-extent) the data can be distributed between the processors.
+```bash
+module load visit/3.5.0
+srun --ntasks=1 --cpus-per-task=2 --mem=4G \
+     --time=00:20:00 --partition=interactive \
+     --x11=first \
+     --account=<project> --pty visit
+```
 
-## Using host profile of local VisIt installation
-
-The VisIt client can be run on your local desktop computer while having VisIt
-components that process the data remotely on Puhti. Local VisIt host profiles
-can be used to launch jobs on Puhti compute nodes. Local and remote VisIt
-versions have to match.
-
-An example of a working host profile is screen captured below. Note that job
-reservation parameters that are not directly available as profile options
-should be given as _Advanced/Launcher arguments_, see the last screen capture.
-
-![Puhti screen capture 1](../img/host_profile_1.png)
-
-![Puhti screen capture 2](../img/host_profile_2.png)
-
-![Puhti screen capture 3](../img/host_profile_3.png)
-
-![Puhti screen capture 4](../img/host_profile_4.png)
+See the [X11 forwarding instructions](../computing/connecting/ssh-unix.md)
+and [interactive usage guide](../computing/running/interactive-usage.md)
+for details. Replace `<username>` and `<project>` with your own credentials
+and CSC project.
 
 ## More Information
 
