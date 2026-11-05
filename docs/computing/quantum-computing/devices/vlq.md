@@ -128,7 +128,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
 
 See [IT4I VLQ docs](https://it4innovations.github.io/quantum-as-a-service/usage) for running quantum jobs.
 
-## Further Reading
+## Further reading
 * [IT4I VLQ docs for running quantum jobs](https://it4innovations.github.io/quantum-as-a-service/usage)
 * [IT4I VLQ docs](https://docs.it4i.cz/en/docs/clusters/vlq/access)
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }
