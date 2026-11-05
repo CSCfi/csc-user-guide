@@ -26,7 +26,7 @@ Free to use and open source under the
 
 ## Available
 
-* Roihu: 1.23.1, via the `bio-apps` module.
+* Roihu-CPU: 1.23.1 and 1.24, via the `bio-apps` module.
 
 ## Usage
 
@@ -35,7 +35,7 @@ bio-apps module tree and then the BCFtools module:
 
 ```bash
 module load bio-apps/v202603
-module load bcftools/1.23.1
+module load bcftools/1.24
 ```
 
 BCFtools provides many subcommands, for example `bcftools view`, `bcftools call`,
@@ -66,7 +66,7 @@ used for compression of compressed BCF (`-Ob`) or VCF (`-Oz`) output rather than
 #SBATCH --mem-per-cpu=2G
 
 module load bio-apps/v202603
-module load bcftools/1.23.1
+module load bcftools/1.24
 
 bcftools mpileup -Ou -f reference.fa aln.bam | bcftools call -mv -Oz -o calls.vcf.gz
 ```
