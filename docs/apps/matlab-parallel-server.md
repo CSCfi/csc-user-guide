@@ -19,6 +19,10 @@ This document provides the steps to configure MATLAB to submit jobs to a cluster
 
 [TOC]
 
+## License
+
+For licensing, see [MATLAB license](matlab.md#license)
+
 ## Initial Configuration
 
 This setup is intended for job submissions when MATLAB is installed on your machine and jobs are run remotely on the cluster.  This setup needs to be done once per cluster and per version of MATLAB installed on your machine.
