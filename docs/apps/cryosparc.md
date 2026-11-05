@@ -46,7 +46,8 @@ are available at path:
 /appl/soft/manual/bio/aarch64/cryosparc/lane_config/cryoSPARC_on_Roihu_runbook.pdf
 ```
 
-Setting up SSH keys,adding your public key to MyCSC and creating short-lived SSH certificates are required to be able to log in to Roihu with SSH. 
+Before you can log in to Roihu using SSH, you need to configure your SSH keys, register your public key in MyCSC, and create a short-lived SSH certificate.
+
 
 Please consult our documentation on:
 
