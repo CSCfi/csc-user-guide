@@ -39,7 +39,7 @@ configCluster
 
 Submission to the cluster requires SSH credentials. You will be prompted for username.  An SSH Agent must be running to serve the private key and certificate.  See the [CSC SSH certificate instructions](../computing/connecting/ssh-keys.md#signing-public-key) for a complete set of instructions.
 
-NOTE: The certificate for the identity file expires after 24 hours and will need to be regenerated once it does.
+**NOTE**: The certificate for the identity file expires after 24 hours and will need to be regenerated once it does.
 
 Jobs will now run on the cluster rather than on your local machine.
 
@@ -57,22 +57,22 @@ Prior to submitting the job, various scheduler flags can be assigned, such as qu
 ```matlab
 % Get a handle to the cluster
 c = parcluster;
+```
 
+Required flags:
 
-% REQUIRED
-
-
+```matlab
 % Specify an account
-c.AdditionalProperties.AccountName = 'account-name';
+c.AdditionalProperties.AccountName = '<project>';
 
 
 % Specify the wall time (e.g., 1 day, 5 hours, 30 minutes)
 c.AdditionalProperties.WallTime = '1-05:30';
+```
 
+Optional flags:
 
-% OPTIONAL
-
-
+```matlab
 % Specify a constraint
 c.AdditionalProperties.Constraint = 'feature-name';
 
