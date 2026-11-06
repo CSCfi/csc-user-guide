@@ -21,7 +21,9 @@ more. It can also process negative stain electron microscopy data.
 
 ## Available
 
-The software can be installed on Roihu now. Please note that only the latest version, CryoSPARC v5.1.0, is compatible with the Roihu GPU environment due to its support for the ARM architecture. 
+The software can be installed on Roihu. Please note that only the latest version,
+CryoSPARC v5.1.0, is compatible with the Roihu GPU environment due to its support
+for the ARM architecture.
 
 ## License
 
@@ -33,9 +35,14 @@ commercial usage.
 
 ## Installation
 
-Note that every user needs to install their own master instance of cryoSPARC. Shared installations are not recommended. Request port numbers for your CryoSPARC usage by sending an e-mail to [CSC Service Desk](../support/contact.md). The port number and login node will be reserved to you on Roihu.
+Note that every user needs to install their own master instance of cryoSPARC.
+Shared installations are not recommended. Request port numbers for your CryoSPARC
+usage by sending an e-mail to [CSC Service Desk](../support/contact.md). The port
+number and login node will be reserved to you on Roihu.
 
-The CryoSPARC installation tar file contains over 160k files, which exceeds the default file quota (150k) for `/projappl` disk space. Thus, users need to apply for an extension to the default quota when installing CryoSPARC.
+The CryoSPARC installation tar file contains over 160k files, which exceeds the
+default file quota (150k) for `/projappl` disk space. Thus, users need to apply
+for an extension to the default quota when installing CryoSPARC.
 
 CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC
 internal instructions and use the correct lane templates, you do not need to
@@ -46,7 +53,8 @@ are available at path:
 /appl/soft/manual/bio/aarch64/cryosparc/lane_config/cryoSPARC_on_Roihu_runbook.pdf
 ```
 
-Before you can log in to Roihu using SSH, you need to configure your SSH keys, register your public key in MyCSC, and create a short-lived SSH certificate.
+Before you can log in to Roihu using SSH, you need to configure your SSH keys,
+register your public key in MyCSC, and create a short-lived SSH certificate.
 
 
 Please consult our documentation on:
