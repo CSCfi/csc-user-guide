@@ -26,8 +26,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 
 ### 1. Create a CSC account
 
-- !!! warning status "Team manager"
-- !!! warning info "Team member"
+- !!! warning status "Team manager and Team member"
 
 </hgroup>
 
@@ -96,7 +95,7 @@ In the next view, under Terms of Use for the project:
 
 ### 3. Fill in the Description of Processing Activity (GDPR) form
 
-- !!! warning status "Team manager"
+- !!! warning status "Team manager or Team member"
 
 </hgroup>
 
@@ -158,8 +157,7 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 ### 8. Project Lifetime, Billing Units, and Data Retention
 
-- !!! warning status "Team manager"
-- !!! warning info "Team member"
+- !!! warning status "Team manager and Team member"
 
 </hgroup>
 
@@ -201,8 +199,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 ### 9. Plan resources consumption and access data
 
-- !!! warning status "Team manager"
-- !!! warning info "Team member"
+- !!! warning status "Team manager and Team member"
 
 </hgroup>
 
