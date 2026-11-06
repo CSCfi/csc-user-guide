@@ -1,11 +1,40 @@
 # Roihu supercomputer
 
-Roihu is CSC's supercomputer designed for demanding scientific computing,
-offering powerful CPU and GPU resources for a wide range of research applications.
-The system combines high-performance computing capabilities with fast storage,
-a high-speed interconnect, and a comprehensive scientific software environment.
+## Schedule
 
-This page provides an overview of Roihu's hardware, storage, network, and software capabilities.
+```mermaid
+graph LR;
+    A{{"<b>September 2025</b>
+        Roihu installation
+        in progress"}} --> B;
+    B{{"<b>April 2026</b>
+        Pilot phase
+        starts"}} --> C;
+    C{{"<b>June 2026</b>
+        Roihu general
+        availability (GA)"}} --> D;
+    D{{"<b>End of July 2026</b>
+        Puhti <i>computing
+        services</i> shut down"}} --> E;
+    E{{"<b>End of August 2026</b>
+        Mahti <i>computing
+        services</i> shut down"}} --> F;
+    F{{"<b>Mid October 2026</b>
+        Puhti <i>storage
+        services</i> shut down"}} --> G;
+    G{{"<b>Mid October 2026</b>
+        Mahti <i>storage services</i>
+        shut down"}}
+    style A fill:#dceeceff;
+    style B fill:#dceeceff;
+    style C fill:#dceeceff;
+    style D fill:#dceeceff;
+    style E fill:#dceeceff;
+    style F fill:#dceeceff;
+    style G fill:#dceeceff;
+```
+
+Puhti and Mahti have been retired as of 15 October 2026, and are no longer accessible.
 
 ## Compute
 

@@ -1,5 +1,10 @@
 # Applications
 
+## r-env (R 4.6.1) now available in Roihu-GPU, 9.11.2026
+
+The R module [r-env](../../apps/r-env.md) is now available in Roihu-GPU with R version 4.6.1. Please note that due to incompatibility with the Roihu-GPU architecture, RStudio is not 
+available on the GPU side, and the R package selection is not identical to Roihu-CPU. Especially note that currently the R packages `torch` and `sf` and any packages requiring them are not yet available on Roihu-GPU due to installation issues, but we are working on including them.
+
 ## Amber26 and AmberTools26, 28.10.2026
 
 [Amber](../../apps/amber.md) version 26 is now available on Roihu-CPU and
