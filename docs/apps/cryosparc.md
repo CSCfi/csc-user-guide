@@ -21,9 +21,9 @@ more. It can also process negative stain electron microscopy data.
 
 ## Available
 
-The software can be installed on Roihu. Please note that only the latest version,
-CryoSPARC v5.1.0, is compatible with the Roihu GPU environment due to its support
-for the ARM architecture.
+The software can be installed on Roihu. Please note that CryoSPARC v5.1.0 or
+later is required, as earlier versions do not support the ARM architecture of
+the Roihu GPU nodes.
 
 ## License
 
@@ -35,7 +35,7 @@ commercial usage.
 
 ## Installation
 
-Note that every user needs to install their own master instance of cryoSPARC.
+Note that every user needs to install their own master instance of CryoSPARC.
 Shared installations are not recommended. Request port numbers for your CryoSPARC
 usage by sending an e-mail to [CSC Service Desk](../support/contact.md). The port
 number and login node will be reserved to you on Roihu.
@@ -44,7 +44,7 @@ The CryoSPARC installation tar file contains over 160k files, which exceeds the
 default file quota (150k) for `/projappl` disk space. Thus, users need to apply
 for an extension to the default quota when installing CryoSPARC.
 
-CSC maintains a centralised installation of cryoSPARC worker. If you follow CSC
+CSC maintains a centralised installation of CryoSPARC worker. If you follow CSC
 internal instructions and use the correct lane templates, you do not need to
 install worker at all. The internal installation instructions on Roihu
 are available at path:
@@ -56,11 +56,11 @@ are available at path:
 Before you can log in to Roihu using SSH, you need to configure your SSH keys,
 register your public key in MyCSC, and create a short-lived SSH certificate.
 
-
 Please consult our documentation on:
 
 - [How to connect to CSC supercomputers](../computing/connecting/index.md)
 - [How to set up SSH keys](../computing/connecting/ssh-keys.md)
+- [How to sign your public key (SSH certificate)](../computing/connecting/ssh-keys.md#signing-public-key)
 
 !!! note "CryoSPARC cannot be used from HPC web interfaces"
     CryoSPARC users may not use web interfaces for logging in to Roihu as
