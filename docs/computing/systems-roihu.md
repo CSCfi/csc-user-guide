@@ -1,5 +1,12 @@
 # Roihu supercomputer
 
+Roihu is CSC's supercomputer designed for demanding scientific computing,
+offering powerful CPU and GPU resources for a wide range of research applications.
+The system combines high-performance computing capabilities with fast storage,
+a high-speed interconnect, and a comprehensive scientific software environment.
+
+This page provides an overview of Roihu's hardware, storage, network, and software capabilities.
+
 ## Compute
 
 Roihu has a total of 486 CPU nodes and 132 GPU nodes. The
