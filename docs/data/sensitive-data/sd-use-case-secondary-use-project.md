@@ -26,8 +26,7 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 
 ### 1. Create a CSC account
 
-- !!! warning status "Team manager"
-- !!! warning info "Team member"
+- !!! warning status "Team manager and Team member"
 
 </hgroup>
 
@@ -96,7 +95,7 @@ In the next view, under Terms of Use for the project:
 
 ### 3. Fill in the Description of Processing Activity (GDPR) form
 
-- !!! warning status "Team manager"
+- !!! warning status "Team manager or Team member"
 
 </hgroup>
 
@@ -146,7 +145,7 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 - Login to [SD Connect service](https://sd-connect.csc.fi/).
 - Copy your Share ID.
-- Send the Share ID to the Sensitive Data support team via the support email you have opened.
+- Send the Share ID to the **Sensitive Data support team via the support email** you have opened.
 
 You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
 
@@ -158,8 +157,7 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 ### 8. Project Lifetime, Billing Units, and Data Retention
 
-- !!! warning status "Team manager"
-- !!! warning info "Team member"
+- !!! warning status "Team manager and Team member"
 
 </hgroup>
 
@@ -201,8 +199,7 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 ### 9. Plan resources consumption and access data
 
-- !!! warning status "Team manager"
-- !!! warning info "Team member"
+- !!! warning status "Team manager and Team member"
 
 </hgroup>
 
