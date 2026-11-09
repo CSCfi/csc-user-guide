@@ -23,7 +23,8 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 1.48.0, via the `bio-apps` module.
+* Roihu-CPU: 1.48.0, via the `bio-apps` module.
+* [Chipster](https://chipster.csc.fi) graphical user interface
 
 ## Usage
 
@@ -41,10 +42,11 @@ To see the available versions:
 module spider mothur
 ```
 
-To run Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours):
+To run Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md).
+On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default; add `--mem` if you need more (up to 32 cores / 64 GiB / 36 hours):
 
 ```bash
-sinteractive --account <project> --cores 5
+sinteractive --account <project> --cores 4 --mem 8G
 module load bio-apps/v202603
 module load mothur/1.48.0
 mothur

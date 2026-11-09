@@ -77,7 +77,7 @@ To upload and automatically encrypt sensitive data to SD Connect using command l
 [Here you can find step-by-step instructions](https://github.com/CSCfi/allas-cli-utils) for installing `a-commands` and  `sd-lock-util` command.
 
 !!! Note
-    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Puhti, Mahti, and LUMI). However, these systems are intended to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
+    If you need to upload non-sensitive data (such as scripts, containers, or software for use in SD Desktop), note that these tools are also available on CSC's supercomputers (Roihu and LUMI). However, these systems are intended to non-sensitive data only. Sensitive data must be uploaded to SD Connect through the appropriate channels.
 
 ### Step 2: Opening connection to SD Connect
 

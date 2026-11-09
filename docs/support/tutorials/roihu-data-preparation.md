@@ -1,21 +1,6 @@
 # Preparing data for Roihu: Data management and temporary storage options
 
-!!! warning "This tutorial is deprecated"
-     This tutorial was in use before Roihu became generally available, for preparing
-     for Roihu data migration, and for using Allas or LUMI-O during the transfer
-     if strictly needed.
-
-     Now that Roihu is available for use, please follow instead the
-     [Roihu data migration guide for direct transfers](./roihu-data.md) from Mahti/Puhti to Roihu.
-
-!!! note "Mahti and Puhti schedule"
-     **Roihu is now available for use**, and can be added as a service for computational projects in MyCSC.
-
-     Mahti and Puhti storage services will shut down 15 October 2026.
-
-     However, we strongly encourage all users to prioritize moving their data by the **end of August 2026**,
-     because between September and October 2026, the storage services will not be covered by service
-     contracts and availability cannot be guaranteed.
+--8<-- "puhti-mahti-retired-notice.md"
 
 This tutorial helps you prepare your data for the transition from Mahti and Puhti to Roihu.
 The main recommendation is to plan the migration in advance, review what data you need to keep,

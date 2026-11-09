@@ -26,29 +26,32 @@ Note, `seff` won't show data for *running* jobs that have been launched without
 aggregate data on GPU usage efficiency.
 
 ```
-[kkayttaj@puhti-login11 logs]$ seff 29221065
-Job ID: 29221065
-Cluster: puhti
-User/Group: kkayttaj/kkayttaj
+[username@roihu-cpu-login1 logs]$ seff 1398962
+Job ID: 1398962
+Cluster: roihu
+Partition: medium
+User/Group: username/username
 State: COMPLETED (exit code 0)
-Nodes: 2
-Cores per node: 40
-CPU Utilized: 16:01:21
-CPU Efficiency: 97.17% of 16:29:20 core-walltime
-Job Wall-clock time: 00:12:22
-Memory Utilized: 23.68 GB (estimated maximum)
-Memory Efficiency: 6.38% of 371.09 GB (185.55 GB/node)
-Job consumed 24.14 CSC billing units based on following used resources
+Nodes: 1
+Cores per node: 384
+CPU Utilized: 1-19:57:35
+CPU Efficiency: 96.07% of 1-21:45:36 core-walltime
+Job Wall-clock time: 00:07:09
+Memory Utilized: 73.23 GB (estimated maximum)
+Memory Efficiency: 9.83% of 744.72 GB (744.72 GB/node)
+Job consumed 34.32 CSC billing units, billed on CPU usage 
 Billed project: project_2001659
-CPU usage: 16.49 CPU BU
-Mem usage: 7.65 CPU BU
+CPU usage: 34.32 CPU BU
+Mem usage: 0.00 CPU BU
 ```
 
-Notes on the data above: CPU efficiency has been very good (97%). Memory
-efficiency is, however, quite poor (6%). In this case it is OK because the job
-requests two full nodes and is able to all CPU resources very efficiently. In
-other words, no other user would be able to use the leftover memory on these
-nodes anyway, since all CPU resources are exhausted.
+Notes on the data above: CPU efficiency has been very good (96%). Memory
+efficiency is, however, quite poor (10%). In this case it is OK because the job
+requests a full node and is able to use all CPU resources very efficiently. In
+other words, no other user would be able to use the leftover memory on this
+node anyway, since all CPU resources are exhausted. Since full-node jobs on
+Roihu are billed at a flat per-node-hour rate, the memory usage does not add
+to the billed amount (`Mem usage: 0.00 CPU BU`).
 
 If your job is not able to make use of full nodes, it is important to request
 memory more carefully. A few GB safety margin for the total memory is advised
@@ -71,36 +74,37 @@ where `-o` flag specifies output as:
 * `reqmem` = Memory that you asked from Slurm.
 * `maxrss` = Maximum amount of memory used at any time by any process in that
   job. This applies directly for serial jobs. For parallel jobs, you need to
-  multiply with the number of cores (max. 40 on Puhti, as this is reported only
-  for that node that used the most memory).
+  multiply with the number of cores (max. 384 on Roihu-CPU, as this is
+  reported only for that node that used the most memory).
 * `averss` = The average memory used per process (or core). To get the total
-  memory usage, multiply this with the number of cores (max. 40 on Puhti, i.e.
-  a full node) in case you request memory with `--mem=<value>` and not
+  memory usage, multiply this with the number of cores (max. 384 on Roihu-CPU,
+  i.e. a full node) in case you request memory with `--mem=<value>` and not
   `--mem-per-cpu=<value>`.
 * `elapsed` = Time it took for the job to complete.
 
 So, for example, the same job as above:
 
 ```
-[user@puhti-login11 ~]$ sacct -j 22361601 -o jobid,reqmem,maxrss,averss,elapsed
+[username@roihu-cpu-login1 ~]$ sacct -j 1398962 -o jobid,reqmem,maxrss,averss,elapsed
 JobID            ReqMem     MaxRSS     AveRSS    Elapsed 
 ------------ ---------- ---------- ---------- ---------- 
-22361601          8000M                         00:06:17 
-22361601.ba+                 7286K      7286K   00:06:17 
-22361601.ex+                 2349K      2349K   00:06:17 
-22361601.0                 145493K  139994035   00:06:17 
+1398962         762590M                         00:07:09 
+1398962.bat+                13084K     13084K   00:07:09 
+1398962.ext+                                    00:07:09 
+1398962.0                  199960K  182518997   00:07:08 
 ```
 
 Note the following:
 
-* Lines containing job steps suffixed with `.ba+` and `.ex+` are related to
+* Lines containing job steps suffixed with `.bat+` and `.ext+` are related to
   setting up the batch job, you don't need to worry about them at this point.
-* You've requested 200 MB per core, i.e. a total of 40 x 200 MB = 8000 MB
-  (= 7.81 GB as reported by `seff`).
-* Your job has used a maximum of 145493 KB, i.e. 142 MB memory per core. 
-  Multiplying by the number of cores (40) gives the total memory usage as 5683
-  MB = 5.55 GB (as also reported by `seff`).
-* A batch job of 6 minutes is too short! If you have many such jobs, run them
+* You've requested 762590 MB (≈744.72 GB) of memory for the whole job
+  (= 744.72 GB as reported by `seff`), which is the full amount available on a
+  Roihu M-node.
+* Your job has used a maximum of 199960 KB, i.e. 195.27 MB memory per core.
+  Multiplying by the number of cores (384) gives the total memory usage as
+  74985 MB = 73.23 GB (as also reported by `seff`).
+* A batch job of 7 minutes is too short! If you have many such jobs, run them
   sequentially in the same job as separate job steps. Now the overhead of
   setting up the job is significant compared to the actual computation.
 

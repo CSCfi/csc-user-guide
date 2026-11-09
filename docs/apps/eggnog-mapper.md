@@ -25,7 +25,7 @@ Free to use and open source under [GNU GPLv3](https://github.com/eggnogdb/eggnog
 
 ## Available
 
-* Roihu: 2.1.15, via the `bio-apps` module.
+* Roihu-CPU: 2.1.15, via the `bio-apps` module.
 
 ## Usage
 
@@ -39,22 +39,10 @@ module load eggnog-mapper/2.1.15
 
 ### Databases
 
-eggNOG-mapper requires the eggNOG reference databases, which are **not** bundled with
-the module.
-
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases at a central location on Roihu.
-    This is still being set up. Until it is available, download your own copy to a
-    writable location (for example your project's `/scratch`).
-
-Download the databases with `download_eggnog_data.py` and point eggNOG-mapper at them
-with `--data_dir` (or the `EGGNOG_DATA_DIR` environment variable):
-
-```bash
-download_eggnog_data.py -y --data_dir /scratch/<project>/eggnog_db
-```
-
-The `-y` flag in the above command can be included e.g. in scripts and batch jobs to skip a confirmation prompt before the download proceeds.
+eggNOG-mapper requires the eggNOG reference databases. CSC provides a shared copy on
+Roihu (eggNOG 5.0.2, with the MMseqs2, Pfam and novel families databases), and the
+`eggnog-mapper` module sets the `EGGNOG_DATA_DIR` environment variable to it, so
+`emapper.py` finds the databases without further options.
 
 ### Running eggNOG-mapper
 
@@ -77,7 +65,6 @@ module load bio-apps/v202603
 module load eggnog-mapper/2.1.15
 
 emapper.py --cpu $SLURM_CPUS_PER_TASK \
-    --data_dir /scratch/<project>/eggnog_db \
     -i proteins.fasta -o annotation
 ```
 

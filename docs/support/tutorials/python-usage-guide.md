@@ -299,11 +299,11 @@ There are several Python libraries for parallel computing. Below are a few sugge
 The `multiprocessing` package is likely the easiest to use. Being part of the
 Python standard library, it is included in all Python installations by default.
 `joblib` provides some more flexibility in comparison. These two packages are suitable for
-single-node parallelization (max. 40 cores).
+single-node parallelization (up to 384 cores on a Roihu-CPU node).
 
 `dask` is the most versatile of the bunch and has several options for
 parallelization. Please see the [CSC Dask tutorial](./dask-python.md) for
-examples of both single-node (max. 40 cores) and multi-node parallelization.
+examples of both single-node (up to 384 cores on a Roihu-CPU node) and multi-node parallelization.
 
 In addition, there are examples of
 [using different parallelization options on Roihu](https://github.com/csc-training/geocomputing/tree/master/python/roihu)

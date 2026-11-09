@@ -7,21 +7,17 @@ and [more information on Roihu](../../computing/systems-roihu.md).
 
 ## Mahti/Puhti shutdown
 
-### 1. When will Puhti/Mahti be shut down?
+### 1. When were Puhti and Mahti shut down?
 
-Puhti compute resources were shut down one month after Roihu general
-availability, on 31 July 2026. Jobs can no longer be submitted on
-Puhti. Puhti storage and login nodes are planned to remain accessible until
+Puhti compute resources were shut down on 31 July 2026, followed by
+Mahti compute resources on 31 August 2026.
+
+Login nodes and storage services on both systems were shut down on
 15 October 2026.
 
-Mahti compute resources were shut down on 31 August 2026. Mahti storage and
-login nodes are planned to remain accessible until 15 October 2026.
-
-We strongly encourage users to move any required data without delay,
-as Mahti and Puhti storage services will not be covered by service contracts between
-September and October, and availability cannot be fully guaranteed.
-
-[Read more about the shutdown schedule here](../../computing/systems-roihu.md#schedule).
+**Puhti and Mahti are now permanently retired and no longer accessible.**
+Users should use [Roihu](../../computing/systems-roihu.md) for their
+computing needs.
 
 ### 2. I heard that Puhti will be donated for continued use. Can I apply for hardware?
 
@@ -29,7 +25,7 @@ The application deadline was in March 2026 and has now passed.
 
 ## Accessing Roihu
 
-### 3. Will logging in to Roihu be different than for Puhti/Mahti?
+### 3. Will logging in to Roihu be different than for Puhti/Mahti? Why is the certificate needed?
 
 In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH.
 
@@ -40,14 +36,16 @@ Short talk: SSH authentication changes to Roihu
 * [Slides](https://a3s.fi/media/SSH_CA_USER_COFFEE-20260422.pdf)
 * [Recording](https://video.csc.fi/media/t/0_el9fzv7f)
 
-### 4. Is there a web interface for Roihu like Puhti and Mahti have?
+CSC is obliged to follow export restriction legislation from the EU and Finland, as well as restrictions put on dual-use technology (GPUs) by chip vendors. The restrictions dictate who can and cannot use these technologies (also remotely, via a supercomputer). In order to be more certain that our users' credentials have not been stolen, and that the people logged into Roihu are who we expect them to be, we have implemented a once-per-24h multi-factor authentication (MFA) requirement (i.e., the SSH certificates). In case a user's computer is hacked, and the SSH key is stolen, the hope is that the MFA will prevent malicious users from accessing Roihu.
+
+### 4. Is there a web interface for Roihu like Puhti and Mahti had?
 
 Yes. The Roihu web interface provides easy access to the computing and
 storage resources of Roihu. Like the web interfaces for Mahti, Puhti and LUMI, the Roihu web
 interface is particularly aimed at interactive workloads and running
 graphical applications like Jupyter Notebooks, RStudio, etc.
 
-Roihu web interface is available at www.roihu.csc.fi, similarly to Mahti, Puhti and LUMI.
+Roihu web interface is available at www.roihu.csc.fi, similarly to LUMI.
 
 See documentation on the [Roihu web interface](../../computing/webinterface/index.md).
 
@@ -101,65 +99,26 @@ The default disk quotas in Roihu are as follows:
 |**projappl**|15 GiB  |150 000 files  |
 |**scratch** |250 GiB |500 000 files  |
 
-Do note that the default quotas in Roihu are more restrictive than on Mahti and Puhti. Only apply for more quota if you strictly need to.
+Do note that the default quotas in Roihu are more restrictive than they were on Mahti and Puhti. Only apply for more quota if you strictly need to.
 
 See documentation on [increasing disk quotas.](../../computing/disk.md#increasing-quotas)
 
-### 8. Will users' data be automatically migrated to Roihu? How should I migrate my data from Puhti/Mahti?
+### 8. How do I migrate data from Allas to Roihu?
 
-No, users will have to move their data to Roihu themselves, if needed.
+Allas can be accessed from Roihu in an almost identical manner to Puhti and Mahti.
 
-With data migration, the main take-home message of the guide is to only move
-data that you truly need. Dumping everything from Puhti and/or Mahti scratch to
-Roihu "just in case" is not acceptable. Roihu will implement a similar data
-cleanup cycle as Puhti and, as stated above, prior quota extensions on Puhti
-and/or Mahti will not be carried over to Roihu.
+See our tutorial for [using Allas in Roihu](../../data/Allas/allas-roihu.md).
 
-Migration of data should primarily happen directly from Puhti/Mahti to Roihu, between July and August 2026.
-Mahti and Puhti storage will be fully shut down 15 October 2026.
+### 9. How should I run large or long-running data transfers, and how long do they take?
 
-See the detailed schedule of Puhti and Mahti shutdown in the [Roihu docs page](../../computing/systems-roihu.md#schedule).
-
-See the [data migration guide](../tutorials/roihu-data.md), for how you can move data directly from Mahti and Puhti to Roihu.
-
-Short talk: Roihu data migration tips:
-
-* [Slides](https://kannu.csc.fi/s/2ezpNEC77H4SttC)
-* [Recording](https://video.csc.fi/media/t/0_9ylmo5py)
-
-### 9. Do I need to migrate data from Allas to Roihu?
-
-Allas is not affected in this update. You can keep your current data there.
-If you have your data in Allas, you can access that data from Roihu too.
-That data does not need to be migrated, as Allas will remain available during and after the Roihu transition.
-
-It is not recommended to transfer data from Mahti/Puhti to Roihu via Allas or your local workstation.
-Instead, CSC recommends using command-line based tools such as
-[`rsync`](../../support/tutorials/roihu-data.md#3-recommended-data-migration-methods)
-to directly transfer data from Puhti/Mahti/LUMI to Roihu.
-
-### 10. How should I run large or long-running data transfers, and how long do they take?
-
-It is ok to use rsync on the Mahti/Puhti login nodes. Please read the [data migration guide](../tutorials/roihu-data.md)
-carefully, and consider compressing your data before transferring it, to save time and resources
-used in the migration. Only move data that you truly need.
-
-For long transfers, use `screen` or `tmux` on Mahti/Puhti so the transfer is not interrupted if your connection drops.
-See the [guide for running long transfer processes safely](../tutorials/roihu-data.md#42-running-long-transfer-processes-safely),
-or our [tmux usage tutorial](../tutorials/tmux.md).
+For long transfers, use `screen` or `tmux` on Roihu so the transfer is not interrupted if your connection drops.
+See our [tmux usage tutorial](../tutorials/tmux.md).
 
 Transfer times depend on the amount and size of files: large numbers of small files take longer, so consider
 archiving them into a single file first. As a ballpark, a single ~100 GB file takes about 10 minutes to transfer
 directly between the systems.
 
-### 11. I have multiple projects in Mahti and Puhti. Should I move data for each project individually?
-
-You can add Roihu as a service to each project individually.
-Data transfer can be done on a project-by-project basis, so the answer really depends on your workflow.
-If multiple projects need access to the same data, you might be interested in the new ["Dataset project" service](../../computing/roihu-disk.md#dataset-directory),
-where you can apply for a special disk area for storing data that multiple (or all) projects on the system can access.
-
-### 12. I uploaded data from Puhti/Mahti to Allas. Now I'm downloading it to Roihu and get an error saying `corrupted on transfer: md5 hashes differ`.
+### 10. I uploaded data from Puhti/Mahti to Allas. Now I'm downloading it to Roihu and get an error saying `corrupted on transfer: md5 hashes differ`.
 
 Uploads from Puhti/Mahti to Allas use by default the Swift protocol, while on Roihu the S3 protocol is the default.
 In case of `rclone`, this means that the default rclone remote in Roihu is now `s3allas:`, not `allas:` that is used for Swift-based connections.
@@ -172,7 +131,7 @@ If your data in Allas is in Swift format, for objects larger than 5 GB, S3-based
 
 ## Roihu hardware and software
 
-### 13. What kind of hardware does Roihu have?
+### 11. What kind of hardware does Roihu have?
 
 See the [Roihu system description](../../computing/systems-roihu.md) for details.
 
@@ -189,21 +148,21 @@ while software built on the ARM login nodes will only run on the GPU nodes.
 Similarly, CPU and GPU Slurm jobs can only be submitted from the x86 and ARM
 login nodes, respectively.
 
-### 14. What operating system does Roihu have?
+### 12. What operating system does Roihu have?
 
 The operating system of Roihu is Red Hat Enterprise Linux (RHEL) 9.
 
-### 15. Is Tykky available on Roihu?
+### 13. Is Tykky available on Roihu?
 
 Yes, [Tykky](../../computing/containers/tykky.md) (tool for creating
 containerized Conda etc. environments with wrapper scripts) is also
 available on Roihu.
 
-### 16. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
+### 14. Sensitive data and Roihu: What is the Roihu-integration with SD Desktop and how will it work?
 
 Roihu will eventually support a secure workflow for sensitive data processing. The technical implementation will include the capability to submit jobs from the SD Desktop to Roihu. However, setting up the workflow specific for secure sensitive data processing service for Roihu will take several months. As a result, this functionality is expected to become available only towards the end of 2026 or the beginning of 2027.
 
-### 17. Is there a list of pre-installed software/modules available?
+### 15. Is there a list of pre-installed software/modules available?
 
 Yes, a list of installed software is available in the [application section](../../apps/by_availability.md#roihu).
 The goal is to provide the same software as on Puhti and Mahti as far as possible, with some necessary
@@ -221,18 +180,18 @@ everything that users might want.
 
 ## Installing and running software on Roihu
 
-### 18. Do Roihu's Slurm partitions have the same memory/time limits as on Mahti and Puhti?
+### 16. Do Roihu's Slurm partitions have the same memory/time limits as on Mahti and Puhti?
 
 There are some differences in the available partition names and the corresponding hardware, when compared to Mahti and Puhti.
 
 You can see the available partitions and the corresponding limits in the [Slurm partition documentation for Roihu](../../computing/running/batch-job-partitions.md#roihu-partitions).
 
-### 19. Does Roihu have a longrun partition? What is the maximum runtime?
+### 17. Does Roihu have a longrun partition? What is the maximum runtime?
 
 There is a longrun partition on Roihu. The maximum time for a job in the Roihu longrun partition is 10 days.
 The small partition for partial or single nodes has a time limit of 72 hours.
 
-### 20. NVMe, temporary storage and local scratch in Roihu
+### 18. NVMe, temporary storage and local scratch in Roihu
 
 All Roihu compute and login nodes provide temporary local NVMe storage through `$TMPDIR`.
 Unlike on Puhti and Mahti, it does not need to be requested with `--gres=nvme`, and `$LOCAL_SCRATCH` should not be used as a direct replacement.
@@ -240,9 +199,9 @@ Any existing job scripts using local NVMe storage on Puhti and Mahti will need t
 
 The available capacity depends on the node type, and additional temporary NVMe storage can be requested for some jobs.
 
-See the [Roihu temporary local storage documentation](../../computing/roihu-disk.md#temporary-local-disk-areas) for capacities and usage instructions.
+See the [Roihu temporary local storage documentation](../../computing/disk.md#temporary-local-disk-areas) for capacities and usage instructions.
 
-### 21. My application or institution needs an IP address to enable access to Roihu. What should I use?
+### 19. My application or institution needs an IP address to enable access to Roihu. What should I use?
 
 IPv4  
 `86.50.172.16/29` (.16-.23; 8 addresses) reserved for login nodes  
@@ -253,6 +212,6 @@ IPv6
 `2001:708:10:6822::1:0/112 (:1:0000-:1:ffff)` reserved for login nodes    
 `2001:708:10:6822::2:0/112 (:2:0000-:2:ffff)` reserved for web interface nodes and services    
 
-### 22. I did not find an answer to my question here. Who should I contact?
+### 20. I did not find an answer to my question here. Who should I contact?
 
 Please send email to [CSC Service Desk](../contact.md). We are happy to help!

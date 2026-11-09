@@ -19,10 +19,10 @@ When you start FileZilla, a graphical file transfer interface opens to your
 screen. To open a connection to CSC, open the _Site Manager_ panel (click the
 icon or select _File_ > _Site Manager_).
 
-For example, use the following settings for connecting to Puhti:
+For example, use the following settings for connecting to Roihu:
 
 - Protocol: SFTP - SSH File Transfer Protocol
-- Host: `puhti.csc.fi`
+- Host: `roihu-cpu.csc.fi`
 - Port: `22`
 - Logon type: Key file
 - User: your CSC username
@@ -48,7 +48,7 @@ if you trust the host, and then prompt you for your SSH key passphrase.
 
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
-site the remote file system (e.g. files on Puhti). You can change your location
+site the remote file system (e.g. files on Roihu). You can change your location
 by interactive browsing or by typing a directory path to the _Local site_ or
 _Remote site_ fields.
 
@@ -75,7 +75,7 @@ Explorer, you will probably find using WinSCP Explorer interface easier.
 Start WinSCP and enter your login information, for example:
 
 - File protocol: SFTP
-- Host name: `puhti.csc.fi`
+- Host name: `roihu-cpu.csc.fi`
 - Port number: 22
 - User name: your CSC username
 - Password: leave empty, as you will be using your

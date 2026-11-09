@@ -1,6 +1,6 @@
 # Introduction to parallel jobs using R
 
-This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's supercomputers (Roihu and Mahti). Links are also provided for further reading.
+This tutorial aims to discuss some of the key concepts and terms behind parallelising an analysis in R, and to offer practical tips for planning parallel R analyses on CSC's supercomputers. Links are also provided for further reading.
  For example batch job scripts, please see the [templates for parallel R batch jobs](../tutorials/parallel-r-examples.md).
 
 The term *parallelisation* is a broad one and there are many ways to parallelise an analysis. For example, one could:
@@ -43,7 +43,7 @@ Certain R packages (such as [`data.table`](https://r-datatable.com/), [`mgcv`](h
 
 **Combining multiprocessing and multithreading**
 
-It is also possible to run jobs that combine multiprocessing and multithreading. Here, several cores are allocated to each process. Each process can then run several threads, so that each thread runs on a single core. The number of processes times the number of threads per process should equal the number of cores used by the job. For example, a job using a single node with 40 cores in total could use 10 processes and four threads per process.
+It is also possible to run jobs that combine multiprocessing and multithreading. Here, several cores are allocated to each process. Each process can then run several threads, so that each thread runs on a single core. The number of processes times the number of threads per process should equal the number of cores used by the job. For example, a job using 40 cores in total could use 10 processes and four threads per process.
 
 ## Multiple concurrent jobs: array jobs
 

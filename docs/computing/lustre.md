@@ -33,7 +33,7 @@ with multiple OSTs/MDTs to provide parallel I/O capabilities.
   dates. For each file MDT includes information about the layout of
   data in the OSTs such as the OST numbers and object identifiers.
 
-!["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and DST servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
+!["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and MDS servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
 
 *Lustre file system view*
 
@@ -83,7 +83,7 @@ correspond to stripe boundaries.
 
 If in the above example, we had a file of 5 MB, then the OST 0 would
 have an extra 1 MB of data. If the data would be distributed evenly
-between four processes, each process would have 1.5 MB and the access
+between four processes, each process would have 1.25 MB and the access
 would not be stripe aligned: first process needs to access OST 0 and
 1, next process OST 1 and 2, *etc.* processes are not aligned. This
 could now cause network contention issues.
@@ -165,41 +165,23 @@ of data transferred between the storage system and compute nodes.
 Lustre compression is **not yet supported on Roihu**, and will be
 announced later.
 
-## Differences between Roihu, Puhti and Mahti
+## Lustre configuration on Roihu
 
-Roihu, Puhti, and Mahti have similar storage areas
-[home](disk.md#home-directory), [project](disk.md#projappl-directory)
-and [scratch](disk.md#scratch-directory), however, their the Lustre
-configuration is not the same.
+Roihu has three storage areas built on Lustre: [home](disk.md#home-directory),
+[project](disk.md#projappl-directory) and [scratch](disk.md#scratch-directory).
 
-|  Name        | Roihu      |            | Puhti      |            | Mahti.     |            |
-|--------------|------------|------------|------------|------------|------------|------------|
-|**Disk area** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** | **# OSTs** | **# MDTs** |
-| home         |  4         | 4          | 24         |   4        |    8       |   1        |
-| projappl     |  4         | 4          | 24         |   4        |    8       |   1        |
-| scratch      | 24         | 4          | 24         |   4        |   24       |   2        |
+| Disk area | # OSTs | # MDTs |
+|-----------|--------|--------|
+| home      | 4      | 4      |
+| projappl  | 4      | 4      |
+| scratch   | 24     | 4      |
 
+`scratch` is served by a separate set of OSTs and MDTs from `home` and
+`projappl`, so that metadata performance on one storage area does not
+interfere with the others.
 
-One main difference between the systems is the separation between the storage area.
-For Mahti there are separate MDTs between
-`scratch`, `home`, and `projappl`, thus the metadata performance does
-not interfere from the different file systems. Moreover, the `scratch` on
-Mahti can have better performance than the other storage areas if your
-application and the data size is big enough because of more OSTs and MDTs. 
-Similarly on Roihu `scratch` is separate from `home` and `projappl`. On
-Puhti however, all the OSTs and MDTs are shared across the storage areas, thus the
-performance should be similar between them.
-
-The peak I/O performance for Mahti is around to 100 GB/sec for write
-and 115 GB/sec for read. However, this performance was achieved on
-dedicated system with 64 compute nodes, which means around to 1.5
-GB/sec per compute node. If more nodes are used or many jobs do
-significant I/O, then you will not achieve 1.5 GB/sec, including also
-that maybe the I/O pattern of an application is not efficient. The
-corresponding performance for Puhti is half of that of Mahti.
-
-Peak performance on Roihu `scratch` is improved over previous systems, boasting 
-peak I/O values of 219 GB/sec for write and 180 GB/sec for read.
+Peak I/O performance on Roihu `scratch` has been measured at 204 GiB/sec for write and
+168 GiB/sec for read.
 
 ## Best practices
 
@@ -217,7 +199,7 @@ peak I/O values of 219 GB/sec for write and 180 GB/sec for read.
 * If an application opens a file for reading, then open the file in read mode
   only.
 
-* Increase striping count for parallel access, especially on large files:
+* Increase the stripe count for parallel access, especially on large files:
     * The striping factor should be a factor of the number of used processes
       performing parallel I/O
     * A rule of thumb is to use as striping the square root of the file size

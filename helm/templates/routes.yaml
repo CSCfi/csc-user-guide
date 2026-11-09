@@ -1,0 +1,39 @@
+{{- range $lang := dict "code" "" | append .Values.components.translator.languages }}
+{{- $basename := $lang.code
+                 | empty
+                 | ternary (include "docs-csc.origName" $)
+                           (include "docs-csc.altName" $) -}}
+{{- $resourcename := $lang.code
+                     | empty
+                     | ternary $basename
+                               (printf "%s-%s" $basename $lang.code)
+                     | printf "%s-rahtiapp"
+                     | trunc 63 | trimSuffix "-" -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" $ | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+  annotations:
+{{- list $
+         "route.openshift.io/v1"
+         "Route"
+         $resourcename
+    | include "networking.ipAllowlistAnnotation"
+    | indent 4 }}
+spec:
+  host: {{ include "networking.redundantHost" $ }}
+  path: {{ printf "/%s" $lang.code }}
+  to:
+    kind: Service
+    name: {{ $basename }}
+  port:
+    targetPort: 8000-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  wildcardPolicy: None
+---
+{{- end }}

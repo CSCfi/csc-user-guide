@@ -2,8 +2,8 @@
 
 On CSC supercomputers, programs are run by submitting them to partitions,
 which are logical sets of nodes managed by the Slurm workload manager.
-This page lists the available Slurm partitions on the Roihu, Puhti, and Mahti
-supercomputers and explains their intended uses. Below are the general
+This page lists the available Slurm partitions on the Roihu supercomputer
+and explains their intended uses. Below are the general
 guidelines for using the Slurm partitions on our systems:
 
 1. **Use the `test` and `gputest` partitions for testing your code, not production.**
@@ -78,7 +78,7 @@ Roihu provides the following partitions for submitting jobs to GPU nodes:
 | `gpularge`       | G               | 36 hours   | 1 - 10 | 4        | 4 per node    | GPU                                     | 212 GiB per reserved GPU | [scalability test](../../accounts/how-to-access-roihu-large-partition.md) |
 
 Each full GPU node has 4 GH200 GPUs. Each reserved GPU grants access to up to **72 CPU cores**, and
-95 GiB of HBM3 memory + 117 GiB of LPDDR5 memory, for a total of **212GiB available memory** per reserved GPU.
+95 GiB of HBM3 memory + 117 GiB of LPDDR5 memory, for a total of **212 GiB available memory** per reserved GPU.
 
 The memory amounts listed here are the allocatable amounts available to jobs;
 some memory is reserved for system use.
@@ -99,6 +99,9 @@ and automatically provides Roihu-CPU resources when run from a Roihu-CPU login n
 |-------------------|-----------------|------------|--------|---------------|-----------------------------------------|-----------------------|
 | `interactive`     | R               | 36 hours   | 1      | 32 per job    | M                                       | 64 GiB per job        |
 
+Memory and CPU cores can be requested independently on the `interactive` partition.
+If you don't request memory explicitly, you are given 1 GiB per reserved CPU core.
+
 #### Roihu-GPU interactive use
 
 The `gpuinteractive` partition on Roihu allows running
@@ -118,7 +121,7 @@ and automatically provides a GPU slice when run from a Roihu-GPU login node.
 
 !!! note "GPU slices not yet fully configured"
     GPU slices are not yet configured on the system, and reserving GPUs through `sinteractive`, or through Slurm on the partition
-    will instead provide full GPUs.
+    will instead provide a full GPU, 72 CPU cores and 212 GiB memory.
 
 #### Vizinteractive
 
@@ -153,7 +156,7 @@ The amount of local storage available to a single user depends on the [partition
     | N (full nodes)          | 600 GiB            | 5000 / 1400 MB/s    |
     | G (GPU nodes)           | 150 GiB            | 5000 / 1400 MB/s    |
     | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
-    | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 13.3 TiB           | 6700 / 4000 MB/s    |
 
     Reservable local scratch has not yet been implemented on visualization nodes (V).
     Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
@@ -162,15 +165,15 @@ The amount of local storage available to a single user depends on the [partition
 
 === "Reservable (`$LOCAL_SCRATCH`)"
 
-    | Node type               | Maximum reservable | Read / Write speeds |
-    |:------------------------|-------------------:|---------------------|
-    | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
-    | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
+    | Node type               | Maximum reservable      | Read / Write speeds |
+    |:------------------------|------------------------:|---------------------|
+    | Hugemem (XL) nodes      | 13,000 GiB (≃ 12.7 TiB) | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | Not yet available       | -                   |
 
     Reserving local scratch on the visualization nodes is not yet
     implemented; use `$TMPDIR` on these nodes until this feature is added.
 
-Read more about: [Local storage on Roihu nodes](../roihu-disk.md#temporary-local-disk-areas)
+Read more about: [Local storage on Roihu nodes](../disk.md#temporary-local-disk-areas)
 
 <!-- Links -->
 [LUMI documentation]: https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/

@@ -1,5 +1,7 @@
 # GNU xargs and parallel workflows for many small, independent runs
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 ## Overview
 
 This tutorial is one approach to

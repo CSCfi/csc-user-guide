@@ -83,7 +83,7 @@ doesn't need to login.
 FileSender can also be used from the command-line using a Python 3 utility
 script.
 
-Assuming you are on a Linux server (e.g. Puhti or Mahti):
+Assuming you are on a Linux server (e.g. Roihu):
 
 1. Download the `filesender.py` Python tool:
 

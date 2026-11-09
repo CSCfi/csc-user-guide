@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Language Research and Other Digital Humanities and Social Sciences
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -21,7 +20,6 @@ summarising, joining and otherwise processing large data files efficiently.
 
 ## Available
 
-* Puhti: 2.2.0
 * Roihu: 2.2.0
 
 ## License

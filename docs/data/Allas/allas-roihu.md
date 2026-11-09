@@ -228,7 +228,7 @@ With the command `a-list`, we can now see the objects that were previously uploa
 ```bash
 [kkayttaj@roihu-cpu-login2 kkayttaj]$ a-list
 2001659-roihu-scratch
-[kkayttaj@roihu-login1 kkayttaj]$ a-list 2001659-roihu-scratch
+[kkayttaj@roihu-cpu-login1 kkayttaj]$ a-list 2001659-roihu-scratch
 2001659-roihu-scratch/genomes/zebrafish.tar
 2001659-roihu-scratch/genomes/zebrafish/Danio_rerio.GRCz10.fa
 ```

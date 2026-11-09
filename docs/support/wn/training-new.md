@@ -132,7 +132,7 @@ on GPUs.
 
 ## How does LUMI-C differ from Mahti? 6.4.2022
 
-[A brief overview of key differences between LUMI-C and CSC supercomputers](../../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
+A brief overview of key differences between LUMI-C and CSC supercomputers, notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
 
 ## Tutorial on managing data on scratch disks, 5.4.2022
 

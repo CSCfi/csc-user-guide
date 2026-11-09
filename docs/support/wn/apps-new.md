@@ -1,5 +1,15 @@
 # Applications
 
+## Amber26 and AmberTools26, 28.10.2026
+
+[Amber](../../apps/amber.md) version 26 is now available on Roihu-CPU and
+Roihu-GPU. Additionally, AmberTools26 utilities are now provided as a
+containerized Conda environment by the `python-ambertools/26.0` module. The
+AmberTools module is loaded automatically when you load an Amber module. On
+LUMI, the same containerized AmberTools26 installation is available as the
+`ambertools/26.0` module. It is loaded automatically together with the
+`amber/24-cpu` and `amber/24-gpu` modules.
+
 ## CPU versions of PyTorch and TensorFlow available on Roihu, 3.9.2026
 
 CPU editions of all installed [PyTorch](../../apps/pytorch.md) and
@@ -668,8 +678,8 @@ instead.
 
 A wrapper for HyperQueue called `sbatch-hq` has been created to enable easy and efficient
 task farming, *i.e.* high-throughput computing workflows where the intention is to run many
-similar (non-MPI parallel, independent) commands/programs. [See the HyperQueue page for more
-details](../../apps/hyperqueue.md#task-farming-with-sbatch-hq).
+similar (non-MPI parallel, independent) commands/programs. See the HyperQueue page for more
+details.
 
 ## PyTorch 1.13, 9.12.2022
 
@@ -704,7 +714,7 @@ and Mahti. [See release notes here](https://manual.gromacs.org/2022.3/release-no
 
 Users can now install software on CSC supercomputers using the Spack package
 manager. [See here for a short tutorial on how to use the user Spack module at
-CSC](../tutorials/user-spack.md).
+CSC](../tutorials/roihu-user-spack.md).
 
 ## Installing packages from Bioconda using Tykky, 10.10.2022
 

@@ -33,7 +33,7 @@ BioPerl is licensed under the same terms as Perl itself which is dually-licensed
 
 ## Available
 
-* Roihu: BioPerl 1.7.8 (module `perl-bioperl`), via the `bio-apps` module.
+* Roihu-CPU: BioPerl 1.7.8 (module `perl-bioperl`), via the `bio-apps` module.
 
 ## Usage
 

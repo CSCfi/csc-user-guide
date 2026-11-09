@@ -206,7 +206,7 @@ There is no single software perfect for every task and taste. The right software
 
 [**SNAP**](../../../apps/snap.md) - ESA Sentinel Application Platform. Tool for processing of Sentinel data (+ support for other data sources). GUI, CLI (Graph Processing Tool, GPT) and Python interfaces. [SNAP GPT example for Roihu](https://github.com/csc-training/geocomputing/tree/master/snap).
 
-[**allas**]](../../../apps/allas.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
+[**allas**](../../../data/Allas/index.md) - tools for working with S3 storage, inc CSC Allas, CDSE S3 etc: `rclone` and `s3cmd`.
 
 If you need further applications, you can ask CSC to install them for you. 
  

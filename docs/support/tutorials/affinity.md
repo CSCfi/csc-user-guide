@@ -1,7 +1,7 @@
 # Inspecting and Controlling CPU Affinity
 
 This tutorial describes how CPU affinities can be inspected and controlled in job scripts on CSC supercomputers.
-The tutorial scripts are written for the Roihu supercomputer, but are generally also applicable on Puhti, Mahti and LUMI.
+The tutorial scripts are written for the Roihu supercomputer, but are generally also applicable on LUMI.
 
 
 ## What is CPU Affinity?

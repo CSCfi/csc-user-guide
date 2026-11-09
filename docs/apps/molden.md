@@ -8,8 +8,9 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
-    - Puhti
-    - Mahti
+    - web_interfaces:
+        - Roihu
+    - Roihu
 ---
 
 # Molden
@@ -18,8 +19,7 @@ Molden is a general molecular and electronic structure processing program. It ca
 
 ## Available
 
-- Puhti: 6.7
-- Mahti: 6.7
+- Roihu-CPU: 7.3
 
 ## License
 
@@ -31,10 +31,10 @@ Molden is a general molecular and electronic structure processing program. It ca
 Initialize with:
 
 ```bash
-module load molden/6.7
+module load molden/7.3
 ```
 
-Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Puhti web interface desktop](../computing/webinterface/desktop.md) (recommended).
+Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Roihu web interface desktop](../computing/webinterface/desktop.md) (recommended).
 
 ## References
 

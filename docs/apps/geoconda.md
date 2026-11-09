@@ -13,6 +13,8 @@ catalog:
 
 # Geoconda
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 Geoconda is a collection of python packages that facilitate the
 development of python scripts for geoinformatics applications. It
 includes following python packages:
@@ -37,7 +39,7 @@ includes following python packages:
 -   [esda](https://github.com/pysal/esda) - Exploratory Spatial Data Analysis. NEW 2025
 -   [fiona] - reads and writes spatial data files.   
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
--   [geocube](https://corteva.github.io/geocube/stable/readme.html) - convert geopandas vector data into rasterized xarray data. NEW 2025
+-   [geocube](https://vylor.github.io/geocube/stable/) - convert geopandas vector data into rasterized xarray data. NEW 2025
 -   [geodatasets](https://geodatasets.readthedocs.io/) download and cache spatial data example files. NEW 2025
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [geoparquet-io](https://geoparquet.io/) - fast reader for GeoParquet files. NEW 2026
@@ -103,7 +105,7 @@ includes following python packages:
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
 -   [urbanaccess](https://udst.github.io/urbanaccess) - for computing GTFS transit and OpenStreetMap pedestrian networks for accessibility analysis. Only in 3.12.10
 -   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details. 3.14.3 includes also Whitebox Workflows for Python.
--   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+-   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://vylor.github.io/rioxarray/stable/). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [cf_xarray](https://cf-xarray.readthedocs.io/en/latest/) - interpret Climate and Forecast metadata convention attributes present on xarray objects. NEW 2026
     -   [flox](https://flox.readthedocs.io/en/latest/) - fast GroupBy reductions for Xarray. NEW 2026
     -   [xarray-spatial](https://xarray-spatial.readthedocs.io/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)

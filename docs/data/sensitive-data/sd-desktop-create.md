@@ -12,7 +12,7 @@
 ___
 
 !!! Note
-   If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". **We can provide general introduction to the service, guidance and, if needed, arrange an online support session**.
+    If you are new to SD services or unsure which virtual desktop or volume to choose, please contact [CSC Service Desk](../../support/contact.md) with the subject "SD Services". **We can provide general introduction to the service, guidance and, if needed, arrange an online support session**.
 
 
 ___
@@ -31,11 +31,19 @@ In this section, you will start preparing your secure working environment by cre
 
 **A storage volume is a secure storage space where you import and store a working copy of the data you want to analyse**. Think of a volume as a virtual USB stick: you can attach it to one virtual desktop at a time and move it between virtual desktops within the same CSC project. You can create up to five volumes per CSC project. 
 
-Your data remains stored on the volume if the virtual desktop becomes unresponsive. If you delete the virtual desktop, the volume is automatically detached and remains available for you to attach to another virtual desktop (**notice: this feature is available only for virtual desktops created after 28 September 2028**) or for permanently deleting it in a separate step.
+- Your data remains stored on the volume if the virtual desktop becomes unresponsive.
+  
+-  If you delete the virtual desktop, the volume is automatically detached and remains available for you to attach to another virtual desktop (**notice: this feature is available only for virtual desktops created after 28 September 2028**) or for permanently deleting it in a separate step.
 
-In the next steps, you will be guided to **choose a volume size that matches the total amount of storage you expect to need for your data, scripts, and analysis results**: 200 GB, 500 GB, or 1 TB. Select only the storage space you need rather than choosing the largest option by default. If you are unsure which size is suitable or need more than 1 TB of storage, contact us for support and describe the type and amount of data you plan to analyse. A volume **can only be extended** with additional storage before any data or files are imported on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+In the next steps, you will be guided to **choose a volume size that matches the total amount of storage you expect to need for your data, scripts, and analysis results**: 200 GB, 500 GB, or 1 TB. 
 
-Volumes consume your CSC project resources, 4.7 Could-type Billing units /TiB/ hour, from the moment they are created, whether or not they are attached to a virtual desktop. Plan in advance how many resources your CSC project needs.  Check billing unit consumption:
+- Select only the storage space you need rather than choosing the largest option by default.
+  
+- If you are unsure which size is suitable or need more than 1 TB of storage, contact us for support and describe the type and amount of data you plan to analyse.
+  
+-  A volume **can only be extended** with additional storage before any data or files are imported on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
+
+- Volumes consume your CSC project resources, 4.7 Could-type Billing units /TiB/ hour, from the moment they are created, whether or not they are attached to a virtual desktop. Plan in advance how many resources your CSC project needs.  Check billing unit consumption below: 
 
 
 | Name   | Size (GB) | Cost Billing Units per year |
@@ -70,7 +78,7 @@ Here:
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
     
      A volume **can only be extended** with additional storage before any data or files are saved on it. To request a storage extension, contact CSC Service Desk (subject: SD Desktop).
 
@@ -89,28 +97,61 @@ Here:
 
 ## 2. Create virtual desktop
 
-A virtual desktop is a secure computer that you access through your web browser. Like a regular computer, it has an operating system, applications, memory and storage, but it runs remotely in the SD Desktop service rather than on your own computer. You use the virtual desktop to access and analyse your sensitive research data in a secure environment. 
+A virtual desktop is a secure computer that you access through your web browser. Like a regular computer, it has an operating system, applications, memory and storage, but it runs remotely in the SD Desktop service rather than on your own computer. You use the virtual desktop to access and analyse your sensitive
+data in a secure environment. 
 
-Desktops have only 80 GB of storage by default. If you save more than 80 GB of data directly to your desktop, it becomes unresponsive and you may lose your data. To avoid this, please **create and attach a volume to your desktop and save your data there**, do not skip the last step. 
+- Desktops have only 80 GB of storage by default. If you save more than 80 GB of data directly to your desktop, it becomes unresponsive and you may lose your data. To avoid this, please **create and attach a volume to your desktop and save your data there**, do not skip the last step. 
 
-You can create up to three desktops within a single CSC project, with up to 10 project members allowed to connect simultaneously to each desktop. As the storage volume, your virtual desktop is accessible to all project members upon creation.
+- You can create up to three desktops within a single CSC project, with up to 10 project members allowed to connect simultaneously to each desktop. As the storage volume, your virtual desktop is accessible to all project members upon creation.
 
-You can choose between different virtual desktops options based on your needs. Desktops consume **Cloud Billing Units** from your CSC project while they are running. To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
+- You can choose between different virtual desktops options based on your needs. 
+
+- Before starting a virtual desktop, ensure that your CSC project has sufficient Cloud Billing Units available to cover the expected usage (see more information below). To avoid unnecessary usage, [pause](./sd-desktop-manage.md#pausing-or-unpausing-a-virtual-desktop) or [delete](./sd-desktop-manage.md#deleting-a-virtual-desktop) desktops when not in use. Desktops that remain inactive trigger email notifications after 14 days of inactivity.
 
 
 
 #### Virtual desktop options
 
-|  | Use  | Technical specifications | Corresponding Pouta Flavor | Cloud Billing Units consumption |
+| Computation option | Use  | Technical specifications | Corresponding Pouta Flavor | Cloud Billing Units consumption |
 |-|-|-|-|-|
-|  **Small computation** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 Cloud Billing Units/h |
-|  **Medium computation**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.92 Cloud Billing Units/h |
-| **Heavy computation**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 20; Memory 87 GB; Root disk 80 GB  | hpc.4.20 core | 39 Cloud Billing Units/h|
-| **Small GPU computation**| This option is available only upon request. Please contact servicedesk@csc.fi (subject 'SD Desktop') before creation to confirm availability and receive further details | 1 GPU  | 78 Cloud Billing Units/h |  |
-| **Big Picture project**| This option is available only upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details | 1 GPU | 195 Cloud Billing Units/h |  |
+|  **Small** | Ideal for analyzing sensitive data using office software (for example: similar to simple statistical analysis with Excel, watching videos, listening to audio files, and working on text files). You can compare this desktop to your laptop. | Core 6; Memory 15 GB; Root disk 80 GB; | standard.xlarge | 5.2 Cloud Billing Units/h |
+|  **Medium**  | Ideal for running complex statistical or genome analysis (for example: using the command line to run specific scripts). You can compare this desktop to a powerful laptop provided by your organization's IT unit. | Core 8; Memory 30 GB; Root disk 80 GB | standard.xxlarge | 10.92 Cloud Billing Units/h |
+| **Heavy**| Ideal for running non-interactive programmatic analysis (machine learning) that requires heavy computation. Please do not choose this option for simple analysis, as it consumes considerable resources. | Core 16; Memory 83 GB; Root disk 80 GB  | hpc.7.16 core Redundant power: yes; CPU: AMD EPYC 9754 128-Core Processor; Network: Redundant 100 Gb/s; Disk storage: Stored in the central storage Notes: Single-node failure may cause downtime, but instances are recoverable. | 33 Cloud Billing Units/h|
+| **Big memory**| **This option is available only upon request providing the [required information](#requesting-big-memory-or-gpu-virtual-desktops)**.| Core 32; Memory 170 GB; Root disk 80 GB  | hpc.7.32 core  Redundant power: yes; CPU: AMD EPYC 9754 128-Core Processor; Network: Redundant 100 Gb/s; Disk storage: Stored in the central storage Notes: Single-node failure may cause downtime, but instances are recoverable. | 65 Cloud Billing Units/h|
+| **GPU**| **This option is available only upon request providing [required information](#requesting-big-memory-or-gpu-virtual-desktops)** |  Cores 12; GPU 1; Memory 219, Root disk 80, Ephemeral disk 3000 GB.  | gpu4.1gpu Redundant power: yes; GPU: NVIDIA L40S (48 GB);CPU: Intel(R) Xeon(R) Gold 6542Y Network: Redundant 100 Gb/s; Disk flavor: Local NVMe disks, RAID-1; Stored in the central storage; Notes: Instance can be lost due to a single-node or disk failure.| 195 Cloud Billing Units/h |
+| **Big Picture project**| This option is limited only to Big Picture project members upon request. Please contact servicedesk@csc.fi  (subject 'SD Desktop') before creation to confirm availability and receive further details |  | |  195 Cloud Billing Units/h |
 
 !!! note
-    All virtual GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. 
+    All virtual Big Memory or GPU desktops created **without prior approval** will be deleted to ensure optimal use of limited resources. Please contact servicedesk@csc.fi (subject "Sensitive Data") for more information and planning. 
+
+
+### Requesting Big Memory or GPU virtual desktops
+
+
+<div class="grid cards" markdown>
+
+- :material-alert:{ .lg .middle } **Big Memory and GPU virtual desktops**
+  { .error-card }
+
+    ___
+
+    Big Memory and GPU desktop options require a separate approval and allocation process before creation. GPU resources at CSC are limited and allocated on a first-come, first-served basis. To ensure fair and efficient use of resources, allocations and requirements will be reviewed every three months. CSC reserves the right to adjust, revoke or reassign allocations if needed to maintain service capacity and to ensure capacity is available for current and future users. 
+ 
+</div>
+
+
+Before creating a Big Memory or GPU desktop option, please provide the following information by writing to servicedesk@csc.fi (subjet SD Desktop):
+
+- Expected usage timeline
+- Software or applications to be used, including type of analysis to be performed
+- Justification for requiring Big Memory or GPU resources instead of a standard desktop
+
+If GPU resources are only occasionally needed, consider keeping a Heavy Computation desktop as your primary environment and using a GPU desktop only when required. External storage volumes can be moved between supported virtual desktops (created after 28 of September 2026), allowing data to be accessed between environments when needed. 
+
+As GPU resources are among the most heavily utilized resources in CSC's cloud environment, please stop, shelve, or delete GPU desktops when they are no longer actively needed so that resources remain available for other workloads.
+
+!!! Note
+    Please note: only storage volumes created separately through the SD Desktop user interface can be moved between supported virtual desktops. The 3 TB local ephemeral disk included with GPU desktops is instance-specific and cannot be transferred between desktop types. When a GPU virtual desktop is deleted, the ephemeral disk and all data stored on it are permanently deleted.
 
 
 
@@ -125,12 +166,12 @@ Here:
 1. **Select a name** for your desktop. Choose a clear and descriptive name - especially if you're working on multiple projects - and make sure it only contains letters or numbers, with no special characters or spaces.
    
 3. **Operating system.**  **Linux Ubuntu24** is already preselected by default.
-4. 
-5. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
    
-6. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+4. **Select a pre-built desktop option** based on your needs. [See options above](#virtual-desktop-options)
    
-7. Click **Create**. The window will now close and desktop creation will start.
+5. Write **optional** description or note about the desktop to help your team members understand its purpose and contents.
+   
+6. Click **Create**. The window will now close and desktop creation will start.
 
 After returning to the main page, you’ll see a list of your desktops in **Desktops tab**. Creating a desktop can take up to 15 minutes, during which the status label **Creating** will appear next to its name. If you try to open it too soon, you’ll get an error message. Once the status changes to **Running**, the desktop is ready for the next step and for being accessed. 
 
@@ -146,7 +187,7 @@ After returning to the main page, you’ll see a list of your desktops in **Desk
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Desktop storage limit**
-  { .csc-grid-card-error }
+  { .error-card }
     
     Desktops have 80 GB of storage by default. **If you save more than 80 GB of data to your desktop, it becomes unresponsive and you may lose your data**. To avoid this, please create and attach a **volume** to your desktop and save your data there.
 

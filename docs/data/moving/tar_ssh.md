@@ -17,23 +17,23 @@ For general information about tar, see
 
 ## Examples
 
-### Transferring data between your local computer and Puhti
+### Transferring data between your local computer and Roihu
 
 All following commands are executed on a local workstation, which is assumed to
 have the required tools (`tar`, `ssh` and, optionally, `gzip`/`bzip2`) installed.
-Puhti is used as the example remote server.
+Roihu is used as the example remote server.
 
 The general syntax is:
 
 ```bash
-tar c <directory_to_transfer> | ssh <username>@puhti.csc.fi 'cat > <target_path_on_puhti>'
+tar c <directory_to_transfer> | ssh <username>@roihu-cpu.csc.fi 'cat > <target_path_on_roihu>'
 ```
 
 For example, the command to copy a directory `myfiles` from your local machine
-to the directory `/scratch/project_2001234` on Puhti would be:
+to the directory `/scratch/project_2001234` on Roihu would be:
 
 ```bash
-tar c myfiles | ssh <username>@puhti.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
+tar c myfiles | ssh <username>@roihu-cpu.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
 ```
 
 !!! info "Note"
@@ -53,27 +53,27 @@ tar c myfiles | ssh <username>@puhti.csc.fi 'cat > /scratch/project_2001234/myfi
 To extract the tar archive at the same time, replace the `cat` command as:
 
 ```bash
-tar c myfiles | ssh <username>@puhti.csc.fi 'tar x -C /scratch/project_2001234'
+tar c myfiles | ssh <username>@roihu-cpu.csc.fi 'tar x -C /scratch/project_2001234'
 ```
 
 Conversely, you could also copy data located on the remote server to your local
 machine using a command like:
 
 ```bash
-ssh <username>@puhti.csc.fi 'tar c -C <parent_directory_on_puhti> <directory_to_transfer>' > <archive_on_local_machine>
+ssh <username>@roihu-cpu.csc.fi 'tar c -C <parent_directory_on_roihu> <directory_to_transfer>' > <archive_on_local_machine>
 ```
 
 For example, the command to copy a folder `myfiles` located in
 `/scratch/project_2001234` to your local machine would be:
 
 ```bash
-ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > myfiles.tar
+ssh <username>@roihu-cpu.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > myfiles.tar
 ```
 
 To extract the archive at the same time:
 
 ```bash
-ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' | tar x
+ssh <username>@roihu-cpu.csc.fi 'tar c -C /scratch/project_2001234 myfiles' | tar x
 ```
 
 !!! info "Enable compression"
@@ -101,23 +101,23 @@ certificate) to the supercomputer you're first connecting to.
 
 After this, data can be transferred directly between CSC supercomputers using
 same syntax as above. For example, the command to transfer a directory
-`/scratch/project_2001234/myfiles` on Puhti to the corresponding location on
-Mahti would be:
+`/scratch/project_2001234/myfiles` on Roihu to directory
+`/scratch/project_462000123` on LUMI would be:
 
 ```bash
-tar c -C /scratch/project_2001234 myfiles | ssh <username>@mahti.csc.fi 'cat > /scratch/project_2001234/myfiles.tar'
+tar c -C /scratch/project_2001234 myfiles | ssh <username>@lumi.csc.fi 'cat > /scratch/project_462000123/myfiles.tar'
 ```
 
-The same could be accomplished while working on Mahti as follows:
+The same could be accomplished while working on LUMI as follows:
 
 ```bash
-ssh <username>@puhti.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > /scratch/project_2001234/myfiles.tar
+ssh <username>@roihu-cpu.csc.fi 'tar c -C /scratch/project_2001234 myfiles' > /scratch/project_462000123/myfiles.tar
 ```
 
 ## Performance comparison
 
 Below is a rough comparison of the time taken to transfer a directory with many
-small files to Puhti. Each file is 100 KiB in size and no compression is
+small files to Roihu. Each file is 100 KiB in size and no compression is
 applied.
 
 | Number of files        | `tar` + `ssh` | `scp`    |

@@ -2,7 +2,7 @@
 template: home.html
 ---
 
-<div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
+<div class="grid cards docs-quick-links docs-quick-links--landing" markdown>
 
 - ## Overview
 

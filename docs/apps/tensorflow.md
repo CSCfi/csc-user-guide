@@ -54,6 +54,10 @@ If you think that some important package should be included in the
 module provided by CSC, please [contact our
 servicedesk](../support/contact.md).
 
+If adding a few packages with `pip` is not enough, you can also build
+your own containers, for example by [extending CSC's machine learning
+containers](../computing/containers/overview.md#ml-containers).
+
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
 commands such as `python`, `python3`, `pip` and `pip3` should work as

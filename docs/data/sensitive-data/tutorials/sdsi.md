@@ -1,5 +1,7 @@
 # Submitting jobs from SD Desktop to the HPC environment of CSC
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 The limited computing capacity of a SD Desktop virtual machines can prevent running heavy analysis tasks
 for sensitive data. This document describes, how heavy computing tasks can be submitted from SD Desktop
 to the Puhti HPC cluster.

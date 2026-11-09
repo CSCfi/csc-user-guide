@@ -23,7 +23,7 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu: 0.9.102 (module `py-ipyrad`), via the `bio-apps` module.
+* Roihu-CPU: 0.9.102 (module `py-ipyrad`), via the `bio-apps` module.
 
 ## Usage
 
@@ -42,10 +42,12 @@ For iPyrad tasks that are not computationally heavy, an
 [interactive batch job](../computing/running/interactive-usage.md) provides 
 a good environment without queuing in between tasks.
 
-You can open an interactive batch job session with the command below. On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours), so request enough cores for the memory you need — here 9 cores (about 17 GB):
+You can open an interactive batch job session with the command below.
+On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default, and you can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
+Here we reserve one core and 16 GiB of memory:
 
 ```bash
-sinteractive --account <project> --cores 9
+sinteractive --account <project> --cores 1 --mem 16G
 ```
 
 iPyrad processing can now be started with the command:

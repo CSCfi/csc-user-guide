@@ -10,8 +10,6 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
-        - Mahti
         - Roihu
     - LUMI
 ---
@@ -32,8 +30,7 @@ kernel for working with the [Julia language](./julia.md).
 
 ## Available
 
-- Mahti
-- Puhti
+- Roihu
 - LUMI
 
 ## License
