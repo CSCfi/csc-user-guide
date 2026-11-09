@@ -68,7 +68,8 @@ Follow these instructions to upload data to the buckets:
 
 !!! warning "Note"
     - Make sure you **use only SD Connect user interface or command line tools** for uploading data. If you use Allas user interface or command line tools, the data won't be encrypted, and the data storage is not compatible with the Findata regulation.
-    - **Do not share the buckets directly with users**, even if they provide their Share ID. CSC is responsible for ensuring that only authorized users can access the data. Access granted via a Share ID extends to the entire CSC project, which may include members not covered by the data permit. Only the Sensitive Data support team can verify that the project was created specifically for the shared dataset and contains only users authorized to process the data.
+    - **Do not share the buckets directly with users** using a Share ID provided by the user. Access granted via a Share ID extends to the entire CSC project, which may include members not covered by the data permit. Only the Sensitive Data support team can verify that the project was created specifically for the shared dataset and contains only users authorized to process the data.
+    - Only "Read to SD Desktop" permission for data sharing in SD Connect is compatible with the Findata regulation.
 
 ---
 
