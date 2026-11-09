@@ -130,7 +130,6 @@ Each entry shows the module name and its versions; load a version with
 - [bedops](bedops.md) 2.4.42
 - [bedtools2](bedtools2.md) 2.31.1
 - [blast-plus](blast.md) 2.17.0
-- boost 1.86.0
 - [bowtie](bowtie.md) 1.3.1
 - [bowtie2](bowtie2.md) 2.5.4
 - [bracken](bracken.md) 2.8, 2.9
@@ -162,7 +161,6 @@ Each entry shows the module name and its versions; load a version with
 - [hifiasm](hifiasm.md) 0.25.0
 - [hisat2](hisat2.md) 2.2.1
 - [hmmer](hmmer.md) 3.4
-- htslib 1.23.1
 - [humann](humann.md) 3.9, 4.0.0a2
 - [hybpiper](hybpiper.md) 2.3.4
 - [hyphy](hyphy.md) 2.5.51hf
@@ -189,7 +187,6 @@ Each entry shows the module name and its versions; load a version with
 - [ncbi-toolkit](ncbi-toolkit.md) 28_0_12
 - [nextflow](nextflow.md) 25.10.2-standalone, 26.04.6-standalone
 - [ngs-primerplex](ngs-primerplex.md) 1.3.4
-- openmpi 5.0.10-gcc14.3.0
 - [perl-bioperl](bioperl.md) 1.7.8
 - [phylip](phylip.md) 3.697
 - [picard](picard.md) 3.3.0
@@ -204,7 +201,7 @@ Each entry shows the module name and its versions; load a version with
 - [py-deeptools](deeptools.md) 3.5.3
 - [py-fdstools](fdstools.md) 2.2.1
 - [py-gtdbtk](gtdbtk.md) 2.7.2
-- py-htseq 2.0.3
+- [py-htseq](htseq.md) 2.0.3, 2.1.2
 - [py-instrain](instrain.md) 1.6.3
 - [py-ipyrad](ipyrad.md) 0.9.102
 - [py-metaphlan](metaphlan.md) 4.2.4
@@ -234,7 +231,7 @@ Each entry shows the module name and its versions; load a version with
 - [tophat](tophat.md) 2.1.2
 - [transdecoder](transdecoder.md) 5.7.1
 - [trimmomatic](trimmomatic.md) 0.39
-- [trinity](trinity.md) 2.15.1.FULL
+- [trinity](trinity.md) 2.15.1.FULL, 2.15.2.FULL
 - [trinotate](trinotate.md) 4.0.2
 - [vcftools](vcftools.md) 0.1.17
 - [vsearch](vsearch.md) 2.22.1
