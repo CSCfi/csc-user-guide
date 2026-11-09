@@ -42,6 +42,7 @@ More detail on each dataset:
 All datasets have a README file with dataset name in Finnish and English and links to full dataset description and license.
 
 Puhti had also:
+
 * SYKE, All open spatial datasets available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot). Will be added during 2026.
 * NLS ortho images are not copied to Roihu. Access these via [Paituli STAC](https://paituli.csc.fi/stac).   
 * [Historical Landsat satellite image mosaics](https://ckan.ymparisto.fi/dataset/historical-landsat-satellite-image-mosaics-href-historialliset-landsat-kuvamosaiikit-href): 1985, 1990, 1995. These will not be added to Roihu. [Paituli STAC](https://paituli.csc.fi/stac) includes SYKE's yearly Landsat mosaics, get data via STAC.
