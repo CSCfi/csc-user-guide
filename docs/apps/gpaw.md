@@ -132,12 +132,11 @@ for instructions on how to enable high-performance libraries in the input script
     srun gpaw python input.py
     ```
 
-## Development installation on Roihu
+## Custom GPAW environment on Roihu
 
-It is possible to install a development version of GPAW on top of the GPAW module,
-using all preinstalled libraries available.
-
-### Installation
+It is possible to create a Python virtual environment on top of the GPAW module.
+This is useful for installing additional Python packages alongside GPAW
+and/or installing a development version of GPAW.
 
 !!! info "Roihu-CPU and Roihu-GPU"
     The instructions below work for both Roihu-CPU and Roihu-GPU, but it is
@@ -145,44 +144,74 @@ using all preinstalled libraries available.
     `venv-gpaw-cpu`), because binaries compiled for
     Roihu-CPU and Roihu-GPU are not compatible.
 
-```bash
-# Create a new virtual environment for gpaw
-module load gpaw/26.7.0
-python3 -m venv --system-site-packages venv-gpaw-cpu
 
+### Creating and using a Python virtual environment
+
+Use the gpaw module to create a new virtual environment:
+
+```bash
+module load gpaw/26.7.0
+python -m venv --system-site-packages venv-gpaw-cpu
+module unload gpaw/26.7.0
+```
+
+To load this environment, use the activate script:
+```bash
+source venv-gpaw-cpu/bin/activate
+```
+
+!!! warning "Entrypoint scripts with virtual environment"
+
+    Note that so-called entrypoint scripts like `gpaw` and `ase`
+    are short-hands for `python -m gpaw` and `python -m ase`, respectively,
+    but the difference is that `gpaw`/`ase` run in **the installation-time environment**
+    whereas `python -m <module>` runs in **the currently active environment**,
+    which is often desired.
+
+    The entrypoint scripts get created in the virtual environment only
+    when installing the corresponding packages in the environment.
+    Therefore, when you load the newly created environment, the `gpaw`
+    executable is not available, but you can execute it with `python -m gpaw` instead.
+
+
+### Installing additional Python packages
+
+Load the environment and install extra packages with pip:
+
+```bash
 # Load gpaw venv
 source venv-gpaw-cpu/bin/activate
 
-# Setup constraints for pip to avoid overriding high-performance system packages with less optimized versions
-pip list --format=freeze | grep -v -E '^(gpaw|ase)' | tee $(dirname $(which pip))/../constraints.txt
+# Install a python package
+# Note:
+# - The constraint ensures that the provided high-performance numpy and scipy
+#   are not reinstalled by pip with less-optimal versions
+pip install --constraint /gpaw_container/config/constraints.txt <package>
+```
+
+### Installing a development version of GPAW
+
+Load the environment, clone the gpaw code, and install it with pip:
+
+```bash
+# Load gpaw venv
+source venv-gpaw-cpu/bin/activate
 
 # Clone the gpaw development repository
 git clone https://gitlab.com/gpaw/gpaw.git
 cd gpaw
 
-# Use gpaw siteconfig from the container
-export GPAW_CONFIG=/gpaw_container/siteconfig.py
-
-# Install GPAW, with a constraint to ensure we use system-provided packages.
-# Leave the '-e' out if you don't want an editable install
+# Install GPAW
+# Note:
+# - The constraint ensures that the provided high-performance numpy and scipy
+#   are not reinstalled by pip with less-optimal versions
+# - The GPAW config is set to the siteconfig file tailored for Roihu
+# - This installs in editable mode (leave the '-e' out if you don't want an editable install)
 rm -rf build _build _gpaw.*.so gpaw.egg-info
-GPAW_BUILD_JOBS=8 pip install --no-build-isolation --constraint $(dirname $(which pip))/../constraints.txt -v --log build-cpu.log --config-settings editable_mode=compat -e .
+GPAW_BUILD_JOBS=8 GPAW_CONFIG=/gpaw_container/config/siteconfig.py pip install --constraint /gpaw_container/config/constraints.txt --no-build-isolation -v --log build-cpu.log --config-settings editable_mode=compat -e .
 
 # Check the installed gpaw
 gpaw info
-```
-
-### Usage
-
-The installed development version can be used by replacing loading the module
-```bash
-# Load gpaw module
-module load gpaw/version
-```
-with activating the virtual environment
-```bash
-# Load gpaw venv
-source venv-gpaw-cpu/bin/activate
 ```
 
 ## More information
