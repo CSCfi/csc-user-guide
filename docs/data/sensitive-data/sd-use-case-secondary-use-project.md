@@ -145,7 +145,7 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 - Login to [SD Connect service](https://sd-connect.csc.fi/).
 - Copy your Share ID.
-- Send the Share ID to the Sensitive Data support team via the support email you have opened.
+- Send the Share ID to the **Sensitive Data support team via the support email** you have opened.
 
 You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
 
