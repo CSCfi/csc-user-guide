@@ -5,6 +5,7 @@ Each device page documents the access model, software, and hardware specifics fo
 
 - [Aalto Q20](./q20.md)
 - [VTT Q50](./q50.md)
+- [LUMI-Q VLQ](./vlq.md)
 
 ## Device status
 

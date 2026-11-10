@@ -25,7 +25,7 @@ Free to use and open source. See the [MetaBAT license](https://bitbucket.org/ber
 
 ## Available
 
-* Roihu: 2.15, via the `bio-apps` module.
+* Roihu-CPU: 2.15, via the `bio-apps` module.
 
 ## Usage
 
@@ -44,6 +44,9 @@ with `jgi_summarize_bam_contig_depths`):
 jgi_summarize_bam_contig_depths --outputDepth depth.txt aln.sorted.bam
 metabat2 -i assembly.fa -a depth.txt -o bins/bin -t 8
 ```
+
+To combine the bins of MetaBAT2 with those of other binning tools, use
+[MAGScoT](magscot.md).
 
 ### Example batch script
 

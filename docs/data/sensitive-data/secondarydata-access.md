@@ -1,41 +1,57 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Start here: Accessing secondary use health or social data via Sensitive Data services 
+# Start here: Accessing secondary use health and social data via Sensitive Data services 
 
 ## CSC project enables service usage
 
-Using CSC services is based on CSC projects managed in MyCSC customer portal. Every CSC project has a primary user i.e. **project manager** who creates the project and manages its resources and lifetime. A project manager is usually the leader of the research team. He also acts as a contact person between CSC and the research team. When a project processes dataset for which a permit has been granted by Findata or a single register, CSC adds project members and activates the SD Desktop service.
+Using CSC services is based on CSC projects managed in MyCSC customer portal. Every CSC project has a primary user i.e. **project manager** who creates the project and manages its resources and lifetime. A project manager is usually the leader of the research team. He also acts as a contact person between CSC and the research team.
 
+When a project processes dataset for which a data permit has been granted by Findata or by any other data controller from public registers, a specific **Secondary Use type project** is needed, for which **CSC approves the project members and allows data access based on the data permit**. Sensitive Data (SD) Desktop and Sensitive Data (SD) Connect form a registered environment for secondary use of health and social data (register data) when accessed under this project type.
 
-### 1. Test regular SD Desktop 
+Contents:
 
-You can create a test project and test regular SD Desktop independently to make sure that SD Desktop is suitable for your needs. [Instructions how to access regular SD Desktop](sd-use-case-new-user-project-manager.md). 
+ * [Key features](./secondarydata-access.md#key-features)
 
-If you need software that is not available on the SD Desktop by default, please contact [Service Desk](../../support/contact.md) (*Subject: Sensitive Data, Secondary use*) well in advance - even before applying for a data permit.
+ * [Limitations](./secondarydata-access.md#limitations)
 
-!!! Note
-    [SD Connect](sd_connect.md), a service used for storing sensitive research data, is **not accessible for registry data processing**. It is not possible to directly import any additional data, script, or software into the virtual desktop. 
+ * [Before you start](./secondarydata-access.md#before-you-start)
 
+ * [Your next steps in this guide](./secondarydata-access.md#your-next-steps-in-this-guide)
 
+---
 
-### 2. Apply for permit 
+## Key features
 
-#### Applying for Findata permit
+* SD Desktop is a computing environment audited against the Findata regulation.
 
-Accessing secondary use health or social data from public registries requires a permit from the **Findata** authority. Instructions for applying for the data permit can be found on [Findata's website](https://findata.fi/en/permits/){ target="_blank" }.
+* To comply with the regulation, the CSC Secondary use project type must be used.
 
-After acquiring the permit, you can start the service access process with CSC. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop:
+* Secondary use data from the registers can only be accessed on SD Desktop.
 
-[Step by step tutorial for accessing datasets from Findata on SD Desktop](findata-permit.md)
+* SD Connect can be used to upload additional software and data to the environment.
 
-!!! Note
-    As Findata states in their data permits, the permit holder must check that the disclosed data corresponds with the permit as soon as possible after receiving access to the disclosed data. A suspected errors must be reported to the data permit authority within 3 months of the permit holder having obtained access to the disclosed data. **The 3 month period to report errors starts already, when Findata transfers the data to CSC,** regardless of whether the permit holder has a virtual machine ready to access the data or not. Thus, we recommend starting the preparations for the data access early on.
+---
 
-#### Applying single register permit
+## Limitations
 
-Accessing secondary use health or social data from single registries requires a permit from the register in question. You can get more information from registers.
+* Each secondary use dataset must have its own CSC project, i.e. its own isolated environment. Additional research data can be imported to the environment, but in principle, combination of datasets must be performed by the data controller in accordance with the Secondary Use Act.
 
-After acquiring the permit, you can start the service access process with CSC. This process differs slightly from access process with Findata permit. Next, we will walk you through the steps that need to be completed in order to access the dataset on SD Desktop:
+* The data controllers must transfer their data to SD Desktop in collaboration with CSC, following the process described [here](sd-use-case-secondary-use-data-controller.md). Secondary use data must never be uploaded directly to the CSC Secondary Use project.
 
-[Step by step tutorial for accessing datasets from single register on SD Desktop](single-register-permit.md)
+* SD Desktop and SD Connect are the only services allowed in this CSC project type. This means, for example, that no jobs can be sent to HPC platforms.
 
+* Data export from SD Desktop is restricted. Only the CSC project manager can export data from SD Desktop to SD Connect, and **the project manager is responsible of making sure that only *anonymous results* are exported from the workspace, in accordance with [Findata's insctructions](https://findata.fi/en/services-and-instructions/producing-anonymous-results/)**. More detailed instructions for exporting your results are provided [here](../../data/sensitive-data/sd-desktop-secondary-export.md).
+
+---
+
+## Before you start
+
+* You need to have a data permit issued by Findata or another register before starting the service access process at CSC. This is required for the project creation.
+
+* After your data permit expires, you will no longer have access to your virtual desktop. To continue working with the same project, you need to send an amendment application to the data controller. Otherwise, make sure to export all your results before the validity period of your data permit ends. The expired project and all data will be deleted after 90 days according to CSC's data retention policy.
+
+---
+
+## Your next steps in this guide
+
+- [Accessing SD services with CSC Secondary use project](sd-use-case-secondary-use-project.md)

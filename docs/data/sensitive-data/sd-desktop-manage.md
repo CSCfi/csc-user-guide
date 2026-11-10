@@ -13,7 +13,7 @@ With the SD Desktop service, you can easily manage your virtual desktops and vol
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     These options are available only on virtual desktops created after February 2, 2023. Please [contact service desk](../../support/contact.md) if you are working with older desktops. 
 
@@ -33,7 +33,7 @@ When you want to save, access or delete the data in a volume, you need to [attac
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     Volumes can not be transferred between CSC projects for security reasons.
 
@@ -159,7 +159,7 @@ ___
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Pausing is not intended as a long‑term method for storing data**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ---
     
@@ -208,7 +208,7 @@ If your virtual desktop or software becomes unresponsive, you can restart it. Al
 <div class="grid cards" markdown>
 
 - :material-information:{ .lg .middle } **Info**
-  { .csc-grid-card-info }
+  { .info-card }
     
     ---
   
@@ -238,7 +238,7 @@ At the end of your analysis, you can delete entire virtual desktop, and all file
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Warning**
-  { .csc-grid-card-error }
+  { .error-card }
     
     You cannot undo this action. Please contact all the project members before deleting a virtual desktop.
     
@@ -263,7 +263,7 @@ At the end of your analysis, you can delete a volume, and all files saved to it 
 <div class="grid cards" markdown>
 
 - :material-close-circle:{ .lg .middle } **Warning**
-  { .csc-grid-card-error }
+  { .error-card }
 
     You cannot undo this action. Please contact all the project members before deleting a volume. 
 

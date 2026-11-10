@@ -13,8 +13,6 @@
     - [Making pull requests on the command line](#making-pull-requests-on-the-command-line)
     - [Making pull requests in the desktop application](#making-pull-requests-in-the-desktop-application)
   - [Previewing the website using ProperDocs](#previewing-the-website-using-properdocs)
-  - [Building the website using the included Dockerfile](#building-the-website-using-the-included-dockerfile)
-  - [Hosting the website on OpenShift](#hosting-the-website-on-openshift)
   - [Finding pages that might be outdated](#finding-pages-that-might-be-outdated)
 
 ## Starting as a writer
@@ -31,7 +29,7 @@ deploying the documentation. There are more resources available, though:
 - [STYLEGUIDE.md](STYLEGUIDE.md) &mdash; Content and formatting instructions
 - [FAQ.md](FAQ.md) &mdash; More in-depth explanations of common questions you might encounter while contributing
 - [GETTING_STARTED.md](GETTING_STARTED.md) &mdash; Setting up a local development environment
-- [Reference card](docs.csc.fi/ref) &mdash; On the available elements
+- [Reference card](https://csc-guide-preview.rahtiapp.fi/origin/master/ref/) &mdash; On the available elements
     - [Markdown source for Reference card](docs/ref.md)
 
 ## For the impatient
@@ -58,12 +56,12 @@ must use pull requests.
  - Create your own branch from master (or work in an already existing branch, if agreed)
  - Create / bring there the content you want to work with. Pay attention to file naming!
  - Make sure the data is 100% correct (no Taito or other old references, language is correct, commands work, style is same as in other articles)
- - When creating a new article, add it also to the properdocs.yml navigation OR in the index.md file in that folder (in case of FAQs for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-panel).
+ - When creating a new article, add also a link to it in one of the _NAV.md_ files (see the [root _NAV.md_ file](docs/NAV.md)) OR in the index.md file in that folder (in case of FAQs for example). See also the [FAQ](FAQ.md#how-to-include-my-new-page-in-the-navigation-sidebar).
     - For new software (Applications) pages, see [this FAQ entry](FAQ.md#how-do-i-add-a-new-applications-page) on how to include them on the Applications index pages. **Do not edit these index pages by hand!**
  - Make a pull request for your work to be added to Master
     - Look at the test results of your PR: if they are red, check what's wrong and commit to the PR directly to fix it. See the [FAQ](FAQ.md#my-pr-did-not-pass-the-tests-what-to-do) for instructions.
     - Assign one or more reviewers, try to choose someone who knows the _content_. See also the [FAQ](FAQ.md#how-and-who-should-i-ask-to-review-my-pr).
-        - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.2.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
+        - Please add a link to the rahtiapp-preview page `https://csc-guide-preview.rahtiapp.fi/origin/<your-branch-name>/rest-of-url/`) in the Pull Request description to help reviewer.
     - You can also add a label to your PR. For example, if your edit is minor (e.g. fixed link or typo), you can add the label "trivial change" to expedite the reviewing process.
     - Pull requests which do not meet the requirements will not be accepted. Note that you can keep committing to a pull request after it has been submitted.
         - If your commits aren't showing up on the pull request, i.e., the pull request isn't updating when making new commits, try switching the base branch ('Edit' button, top-right) from `master` to something else and then back again.
@@ -96,7 +94,7 @@ If you see an approved branch:
 ### Previewing active branches
 
 The GitHub web interface gives a preview (also while editing) but it does not render all syntax used in ProperDocs correctly.
-A full preview for ongoing work is available for all branches: <https://csc-guide-preview.2.rahtiapp.fi/origin/>. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
+A full preview for ongoing work is available for all branches: <https://csc-guide-preview.rahtiapp.fi/origin/>. For more details, see the [FAQ](FAQ.md#how-can-i-preview-my-edits).
 
 ### Making pull requests in the web GUI
 
@@ -192,92 +190,6 @@ Pull requests can be created as follows:
 See the [FAQ](FAQ.md#how-can-i-preview-my-edits) for how to preview the Docs CSC website locally using ProperDocs.
 
 A newbie-friendly guide on how to set up the necessary tools on Windows is available [here](GETTING_STARTED.md).
-
-## Building the website using the included Dockerfile
-
-**This has some drawbacks, see [below](#development-container) for an alternative.**
-
-You can also create a Docker container to host the docs. First build
-an image from the included Dockerfile.
-
-```bash
-sudo docker build -t csc-user-guides .
-```
-
-This will build a container image called 'csc-user-guides'. Once the
-image is built, you can run it.
-
-```bash
-sudo docker run --rm -it -p 80:8000 --name csc-user-guides csc-user-guides
-```
-
-This will run a web server on your laptop in port 80. You can view the
-content of the user guides by pointing your browser to
-[localhost](http://localhost).
-
-### Development container
-
-A [Containerfile](development/Containerfile.development) is included for building a container image with live-reload support.
-
-#### Usage with rootless _Podman_
-
-First, build the container image with the command
-
-```bash
-podman build -t docs-development -f development/Containerfile.development .
-```
-
-Then, start a container&mdash;bind-mounting the repository directory (`./`) to `/csc-user-guide` inside the container and publishing the port `8000`&mdash;with
-
-```bash
-podman run -it -v ./:/csc-user-guide -p 8000:8000 localhost/docs-development:latest serve
-```
-
-The site should be up at `localhost:8000` momentarily.
-
-If you define an alias `properdocs` for the Podman command like so
-
-```bash
-alias properdocs='podman run -it -v ./:/csc-user-guide -p 8000:8000 localhost/docs-development:latest'
-```
-
-running the container is almost like running a regular installation of _ProperDocs_:
-
-```console
-$ properdocs --help
-Usage: properdocs [OPTIONS] COMMAND [ARGS]...
-
-  ProperDocs - Project documentation with Markdown.
-
-Options:
-  -V, --version         Show the version and exit.
-  -q, --quiet           Silence warnings
-  -v, --verbose         Enable verbose output
-  --color / --no-color  Force enable or disable color and wrapping for the output. Default
-                        is auto-detect.
-  -h, --help            Show this message and exit.
-
-Commands:
-  build      Build the ProperDocs documentation.
-  get-deps   Show required PyPI packages inferred from plugins in properdocs.yml.
-  gh-deploy  Deploy your documentation to GitHub Pages.
-  new        Create a new ProperDocs project.
-  serve      Run the builtin development server.
-```
-
-#### Building with upgraded Python dependencies
-
-The file [development/packages.txt](development/packages.txt) contains the currently used Python packages without explicit versions. To build an image with the latest versions for the packages available to _pip_ on the base image (`ubi9`), include `--build-args upgrade=true` for the build command (possibly using a different tag, such as `docs-upgrade`):
-
-```bash
-podman build -t docs-upgrade -f development/Containerfile.development --build-args upgrade=true .
-```
-
-The image now has the latest available Python packages installed instead of the versions frozen in [requirements.txt](requirements.txt). The upgraded environment can now be, for example, frozen into `requirements.txt` with
-
-```bash
-podman run --entrypoint '["/bin/bash", "-c", "pip3.12 freeze"]' localhost/docs-upgrade:latest > requirements.txt
-```
 
 ## Finding pages that might be outdated
 
