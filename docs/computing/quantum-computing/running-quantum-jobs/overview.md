@@ -37,7 +37,7 @@ module load custom_python_module
 
 | Software | LUMI module name | Versions |
 |----------|------------------|----------|
-| IQM client | fiqci-vtt-qiskit / fiqci-vtt-cirq | ≥ 34.0.0, < 35.0.0 |
+| IQM client | fiqci-vtt-qiskit / fiqci-vtt-cirq | ≥ 36.0.0, < 37.0.0 |
 
 ## Access models
 
