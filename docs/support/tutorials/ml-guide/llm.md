@@ -2,7 +2,7 @@
 
 This guide gives some examples and hints on how to work with large
 language models (LLMs) on CSC's supercomputers. It is part of our
-[Machine learning guide](ml-guide.md).
+[Machine learning guide](index.md).
 
 ## LLMs and GPU memory
 
@@ -14,7 +14,7 @@ cases you will need to use a GPU.
 In order to use an LLM (or any neural network) with a GPU, the model
 needs to be loaded into the GPU memory (VRAM). LLMs can be very large
 and here the size of the GPU memory becomes critical. You can refer to
-[our table of GPU stats](gpu-ml.md) for the full details, but our GPUs
+[our table of GPU stats](gpu.md) for the full details, but our GPUs
 have VRAM memory as follows:
 
 - 64 GB on LUMI (single GCD of an AMD MI250x)
@@ -145,7 +145,7 @@ on one or two full nodes on Roihu:
 (The repository also has scripts for LUMI if you check the [file
 listing][2].)
 
-Our [Multi-GPU and multi-node ML guide](ml-multi.md#accelerate) also
+Our [Multi-GPU and multi-node ML guide](multi.md#accelerate) also
 has Slurm script examples for using Accelerate with FSDP.
 
 There are two things to note when using Accelerate: 

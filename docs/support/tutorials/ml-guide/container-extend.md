@@ -1,8 +1,8 @@
 # Extend CSC-based ML containers using sandbox on Roihu
-This guide is also part of our [Machine learning guide](ml-guide.md).
+This guide is also part of our [Machine learning guide](index.md).
 ## Motivation
 
-Using the [pre-installed PyTorch modules on Roihu](../../apps/pytorch.md) is convenient for many workflows. However, when working with different libraries, users may need PyTorch versions or other libraries that have not been installed by CSC.
+Using the [pre-installed PyTorch modules on Roihu](../../../apps/pytorch.md) is convenient for many workflows. However, when working with different libraries, users may need PyTorch versions or other libraries that have not been installed by CSC.
 
 For example, the latest `fairchem-core` release requires a recent PyTorch version. In this guide, we demonstrate how to build a custom Apptainer container based on the CSC `ml-base` image and install **PyTorch 2.13.0 with CUDA 13.0** together with **`fairchem-core` 2.22.0**.
 
@@ -55,7 +55,7 @@ The `--sandbox` option creates a writable directory containing the extracted con
 
 !!! warning
 
-    Do not create a sandbox on the shared Lustre file system (for example on `/scratch`, `/projappl` or `/home`) as [it will create a lot of small files which can slow down the system for all users](../../computing/lustre.md#best-practices)!
+    Do not create a sandbox on the shared Lustre file system (for example on `/scratch`, `/projappl` or `/home`) as [it will create a lot of small files which can slow down the system for all users](../../../computing/lustre.md#best-practices)!
 
 ## Create the `users` directory
 
