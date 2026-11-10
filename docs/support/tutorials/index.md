@@ -85,15 +85,15 @@
 
 ## Machine learning and AI
 
-* [Machine learning guide, what CSC service to use for machine learning](ml-guide.md)
-* [Getting started with machine learning at CSC](ml-starting.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
-* [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning](ml-multi.md)
-* [Hyperparameter search](hyperparameter_search.md)
-* [Managing machine learning workflows on CSC's supercomputers](ml-workflows.md)
-* [Working with large language models on supercomputers](ml-llm.md)
-* [Extend CSC-based ML containers using sandbox](ml-container-extend.md)
+* [Machine learning guide, what CSC service to use for machine learning](ml-guide/index.md)
+* [Getting started with machine learning at CSC](ml-guide/starting.md)
+* [GPU-accelerated machine learning](ml-guide/gpu.md)
+* [Data storage for machine learning](ml-guide/data.md)
+* [Multi-GPU and multi-node machine learning](ml-guide/multi.md)
+* [Hyperparameter search](ml-guide/hyperparameter_search.md)
+* [Managing machine learning workflows on CSC's supercomputers](ml-guide/workflows.md)
+* [Working with large language models on supercomputers](ml-guide/llm.md)
+* [Extend CSC-based ML containers using sandbox](ml-guide/container-extend.md)
 
 ## Pouta - cloud
 
