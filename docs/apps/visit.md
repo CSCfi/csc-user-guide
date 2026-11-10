@@ -130,7 +130,7 @@ visit -nowin -cli -s my_script.py
     session or an X11-forwarded interactive session, not in a normal batch
     job. In batch jobs, scripts that only read, process, query or export data
     work. For rendering in batch jobs, consider
-    [ParaView's `pvbatch`](paraview.md#batch-jobs-with-pvbatch).
+    [ParaView's `pvbatch`](paraview.md#usage).
 
 ### Supported file formats
 
