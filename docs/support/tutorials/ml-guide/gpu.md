@@ -165,11 +165,11 @@ if you have any questions regarding GPU utilization.
 
 You can find a report of the GPU usage of your jobs in the [Job
 monitoring tool in the Roihu web user
-interface](../../computing/webinterface/index.md#job-monitoring).
+interface](../../../computing/webinterface/index.md#job-monitoring).
 
 Here is an example of the output for a job using four GPUs:
 
-![Job monitor showing GPU utilization for four GPUs](../../img/job-monitor-gpu4.png)
+![Job monitor showing GPU utilization for four GPUs](../../../img/job-monitor-gpu4.png)
 
 
 #### `seff` command (Roihu-GPU)
@@ -360,7 +360,7 @@ Note that GPU statistics will not be reported for very short jobs.
 
 You can also see the GPU power usage over time in the [Job monitoring
 tool in the Roihu web user
-interface](../../computing/webinterface/index.md#job-monitoring).
+interface](../../../computing/webinterface/index.md#job-monitoring).
 
 ### `gpu-energy` tool (LUMI)
 
