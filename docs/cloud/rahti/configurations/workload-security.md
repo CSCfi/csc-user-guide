@@ -1,6 +1,6 @@
 # Workload Security
 
-Kubernetes constrains what a pod may request through [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-admission/), applied per namespace with the `pod-security.kubernetes.io/enforce` label. On Rahti, this label is set to restricted for all user workloads. Containers must run as non-root, drop all Linux capabilities except `NET_BIND_SERVICE`, disallow privilege escalation, use an allowed seccomp profile, and avoid host namespaces. Pods that violate these rules are rejected at admission time rather than failing later at runtime. In OKD, other mechanisms are implemented to harden the platform further. See below section.
+Kubernetes constrains what a pod may request through [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-admission/), applied per namespace with the `pod-security.kubernetes.io/enforce` label. On Rahti, this label is set to restricted for all user workloads. Containers must run as non-root, drop all Linux capabilities except `NET_BIND_SERVICE`, disallow privilege escalation, use an allowed seccomp profile, and avoid host namespaces. Pods that violate these rules are rejected at admission time rather than failing later at runtime. In OKD, other mechanisms are implemented to harden the platform further. See section below.
 
 ## What SecurityContextConstraints are
 
