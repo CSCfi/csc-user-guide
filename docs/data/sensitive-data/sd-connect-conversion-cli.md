@@ -1,9 +1,17 @@
 # SD Connect Conversion command line tool
 
+## On This page: 
 
-## Step 1: Verify that you have enough quota 
+- [Step 1: Verify that you have enough quota](#step-1-verify-that-you-have-enough-quota)
 
-You will need enough quota to complete the conversion. First you need to know the amount of data you have in Urgent buckets per project.
+- [Step 2: Migrating SD Connect buckets in Roihu](#step-2-migrating-sd-connect-buckets-in-roihu)
+
+Please note: the bucket name Conversion Tool  CLI can be run locally (recommended for smaller datasets) or on the Roihu supercomputer. While Roihu is not suitable for processing sensitive data, it can be used to run the Conversion Tool, providing faster conversions through CSC's network.
+
+
+## Step 1: Verify that you have enough quota
+
+You will need enough storage quota to complete the conversion. First you need to know the amount of data you have in Urgent buckets per project.
 
 1. Log into SD Connect and select a project.
 2. Add the sizes with **Urgent** label you have in your project together. Repeat for other projects.

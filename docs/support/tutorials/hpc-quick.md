@@ -38,6 +38,15 @@ Roihu has two distinct partitions, **Roihu-CPU** and **Roihu-GPU**, for
 CPU-only and GPU workloads. The two partitions have separate login nodes and
 software stacks.
 
+If you are new to CSC supercomputing, we recommend starting with
+the [CSC Computing Environment self-learning course](https://csc.fi/en/training-calendar/csc-computing-environment-self-learning/).
+It provides an introduction to CSC's computing services and the
+basics of working in an HPC environment.
+The [course materials](https://csc-training.github.io/csc-env-eff/)
+are also available without registration.
+
+If you are already familiar with CSC supercomputers and want to start working on Roihu, you can go directly to the [Getting started with Roihu](./roihu.md) guide.
+
 * [Learn more about Roihu here!](../../computing/systems-roihu.md)
 * [Getting started with Roihu](./roihu.md)
 

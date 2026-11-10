@@ -12,15 +12,15 @@ timeZone: Europe/Helsinki
 
 base:
   image: ubi9/ubi-minimal
-  tag:  9.8-1790754119
+  tag:  9.8-1791898448
 
 builder:
   image: ubi9/python-312
-  tag: 9.8-1789950416
+  tag: 9.8-1791998425
 
 server:
   image: ubi9/nginx-126
-  tag: 9.8-1789518899
+  tag: 9.8-1792401364
 
 restic:
   image: ghcr.io/restic/restic

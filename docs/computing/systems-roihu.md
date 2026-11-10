@@ -1,40 +1,11 @@
 # Roihu supercomputer
 
-## Schedule
+Roihu is CSC's supercomputer designed for demanding scientific computing,
+offering powerful CPU and GPU resources for a wide range of research applications.
+The system combines high-performance computing capabilities with fast storage,
+a high-speed interconnect, and a comprehensive scientific software environment.
 
-```mermaid
-graph LR;
-    A{{"<b>September 2025</b>
-        Roihu installation
-        in progress"}} --> B;
-    B{{"<b>April 2026</b>
-        Pilot phase
-        starts"}} --> C;
-    C{{"<b>June 2026</b>
-        Roihu general
-        availability (GA)"}} --> D;
-    D{{"<b>End of July 2026</b>
-        Puhti <i>computing
-        services</i> shut down"}} --> E;
-    E{{"<b>End of August 2026</b>
-        Mahti <i>computing
-        services</i> shut down"}} --> F;
-    F{{"<b>Mid October 2026</b>
-        Puhti <i>storage
-        services</i> shut down"}} --> G;
-    G{{"<b>Mid October 2026</b>
-        Mahti <i>storage services</i>
-        shut down"}}
-    style A fill:#dceeceff;
-    style B fill:#dceeceff;
-    style C fill:#dceeceff;
-    style D fill:#dceeceff;
-    style E fill:#dceeceff;
-    style F fill:#dceeceff;
-    style G fill:#dceeceff;
-```
-
-Puhti and Mahti have been retired as of 15 October 2026, and are no longer accessible.
+This page provides an overview of Roihu's hardware, storage, network, and software capabilities.
 
 ## Compute
 
@@ -115,8 +86,10 @@ See [Roihu dataset project](roihu-dataset-project.md) for details.
 Each Roihu CPU and GPU node provides 960 GB of local NVMe storage
 for temporary files created during jobs.
 
-High-memory (XL) and visualization (VIZ) nodes provide additional capacity and
-faster performance in their local storage, with a total of 13 TiB of local NVMe storage per node.
+High-memory (XL) and visualization (VIZ) nodes provide additional high-performance local NVMe storage.
+
+Each node has two 7.68 TB NVMe drives, providing 15.36 TB of
+raw physical storage capacity.
 
 There are two kinds of node-local storage. **Automatic temporary storage**
 (`$TMPDIR`) is available in every job without a reservation and free of
@@ -134,24 +107,26 @@ they use:
     | N (full nodes)          | 600 GiB            | 5000 / 1400 MB/s    |
     | G (GPU nodes)           | 150 GiB            | 5000 / 1400 MB/s    |
     | Hugemem (XL) nodes      | 578 GiB            | 6700 / 4000 MB/s    |
-    | V (visualization nodes) | 14 TiB             | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | 13.3 TiB           | 6700 / 4000 MB/s    |
 
 === "Reservable (`$LOCAL_SCRATCH`)"
 
-    | Node type               | Maximum reservable | Read / Write speeds |
-    |:------------------------|-------------------:|---------------------|
-    | Hugemem (XL) nodes      | 13 TiB             | 6700 / 4000 MB/s    |
-    | V (visualization nodes) | 6.5 TiB per user   | 6700 / 4000 MB/s    |
+    | Node type               | Maximum reservable      | Read / Write speeds |
+    |:------------------------|------------------------:|---------------------|
+    | Hugemem (XL) nodes      | 13,000 GiB (≃ 12.7 TiB) | 6700 / 4000 MB/s    |
+    | V (visualization nodes) | Not yet available       | -                   |
 
 Reservable local scratch has not yet been implemented on visualization nodes (V).
 Until it is available, jobs on these nodes can use the full `$TMPDIR` allocation shown above.
 
 Once reservable local scratch is implemented, the amount of `$TMPDIR` available per user on visualization nodes will be reduced.
 
-Users can also request local disk mounts from a
-centralized pool of fast storage resources. This fast storage capacity is
-provided over the network and appears as local scratch storage from within a
-Slurm job. The total capacity of the disaggregated NVMe resource is 307.2 TB.
+Users can also request temporary storage from a shared pool of
+disaggregated NVMe resources, providing approximately 180 TB of
+total usable capacity.
+The storage is accessed over the network and appears as local
+scratch storage within a Slurm job.
+See the [Roihu disk areas](disk.md#disaggregated-storage) documentation for details.
 
 ## Network
 

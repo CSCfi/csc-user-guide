@@ -14,7 +14,7 @@ libraries. See the documentation of the library for
 instructions on how to build against it. Note
 that most modules set `LIBRARY_PATH` and `LD_LIBRARY_PATH` environment
 variables so that the `-llibrary` linker flag is often enough. Most
-modules set also `<library>_INSTALL_ROOT` environment variables that
+modules set also `<library>_INSTROOT` environment variables that
 can be utilized in custom build scripts. As an example, the `fftw`
 library can be used as follows:
 
@@ -24,7 +24,7 @@ module load fftw
 ```
 
 and the directory containing `include`, `lib`, *etc.* is found under the
-`FFTW_INSTALL_ROOT` environment variable.
+`FFTW_INSTROOT` environment variable.
 
 
 ## Libraries on Roihu-CPU

@@ -1,7 +1,8 @@
 {% macro render_content(html_string) %}
 {{ html_string | default("<p></p>") | replace("{{ base_url }}", base_url) | trim }}
 {% endmacro %}
-{% if config.extra.announcement is defined %}
+{% if config.extra.announcement is defined and
+      config.extra.announcement.visible %}
 {% set scheme = config.extra.announcement.color_scheme %}
 {% set color = "var(--c-" ~ scheme ~ "-800)" if scheme is not none else "var(--docs-note-color)" %}
 {% set background_color = "var(--c-" ~ scheme ~ "-200)" if scheme is not none else "hsl(from currentColor h 97.5% 92.5%)" %}

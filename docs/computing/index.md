@@ -1,4 +1,6 @@
-# Overview
+# Computing
+
+## Overview
 
 Roihu and LUMI are CSC's supercomputers. Roihu, CSC's national supercomputer,
 has been available for CSC users since June 2026, replacing the retired Puhti
@@ -64,15 +66,6 @@ For more details, see the [connecting](connecting/index.md) page.
 Roihu can also be accessed via its [web interface](webinterface/index.md)
 at [www.roihu.csc.fi](https://www.roihu.csc.fi).
 
-### Scalability
-
-Don't allocate more resources to your job than it can use efficiently. This
-needs to be verified for each new code and job type (different input) by a
-scaling test. The policy is that the job should be **at least 1.5 times faster**
-when you double the resources (cores). [Instructions for performing a scalability
-test](../support/tutorials/cmdline-handson.md#scaling-test-for-an-mpi-parallel-job).
-Please also consider [other important factors related to performance.](performance.md)
-
 ## Projects and quotas
 
 Working in CSC supercomputers is based on projects. The computing and storage
@@ -119,6 +112,15 @@ The [disk areas](disk.md) of your projects can be checked with the command:
 ```text
 csc-workspaces
 ```
+
+## Scalability
+
+Don't allocate more resources to your job than it can use efficiently. This
+needs to be verified for each new code and job type (different input) by a
+scaling test. The policy is that the job should be **at least 1.5 times faster**
+when you double the resources (cores). [Instructions for performing a scalability
+test](../support/tutorials/cmdline-handson.md#scaling-test-for-an-mpi-parallel-job).
+Please also consider [other important factors related to performance.](performance.md)
 
 ## Using CSC supercomputers
 

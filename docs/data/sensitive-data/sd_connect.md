@@ -54,8 +54,8 @@ You can browse through the main topics of the manual using the navigation bar on
 - **Consider network connection when transferring large files. Transfer speed can vary significantly depending on the connection type, available bandwidth and network traffic**. For example, a 50 GB file upload takes approximately 1 hour and 30 minutes using a connection with measured speeds of 60 Mbps download and 80 Mbps upload.
 
 
-!!! Note
-    SD Connect is unsuitable for data processing under the Act on the Secondary Use of Health and Social Data. Please check [SD Desktop for secondary use](./sd-desktop-audited.md) to learn about the precise requirements.
+!!! Note 
+    When processing data under the Secondary Use of Health and Social Data Act, specific audited processes must be followed to comply with the law and Findata's regulation. For processing secondary use health and social data, please check the instructions in a separate guide: [Accessing secondary use data via SD services](secondarydata-access.md) to learn about the precise requirements for accessing datasets provided by the Findata authority or public registers.
 
 
 ## Features in SD Connect

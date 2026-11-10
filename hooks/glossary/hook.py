@@ -39,18 +39,20 @@ class GlossaryHook(DocsHook):
 
         try:
             snippets_config = config.mdx_configs["pymdownx.snippets"]
-            base_path = snippets_config["base_path"]
+            base_paths = snippets_config["base_path"]
             glossaries = snippets_config["auto_append"]
         except (AttributeError, KeyError):
             pass
         else:
             for glossary in glossaries:
-                glossary_file = pathlib.Path(base_path) / glossary
+                for base_path in base_paths:
+                    glossary_file = pathlib.Path(base_path) / glossary
 
-                self._skip_if_clean(
-                    glossary_file,
-                    functools.partial(handle_glossary, glossary_file)
-                )
+                    if glossary_file.exists():
+                        self._skip_if_clean(
+                            glossary_file,
+                            functools.partial(handle_glossary, glossary_file)
+                        )
 
     def on_page_markdown(self, markdown, page, **_): # pylint: disable=missing-function-docstring
         if page.file.src_uri == "support/glossary.md":
