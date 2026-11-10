@@ -25,7 +25,7 @@ versions:
 
 | Module                              | LUMI  | Notes           |
 :-------------------------------------|:-----:|-----------------|
-| `fiqci-qiskit`             | X     | Default version. Supports Q50 and Q20   |
+| `fiqci-qiskit`             | X     | Supports Q50 and Q20   |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
