@@ -55,6 +55,9 @@ module load bio-apps/v202603
 module load snakemake/7.32.4
 ```
 
+The Snakemake modules include [pandas](https://pandas.pydata.org/), so your Snakefile
+can use it, for example to read a sample sheet.
+
 !!! info "Note"
     Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the syntax might be different.
 
