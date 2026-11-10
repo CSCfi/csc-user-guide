@@ -38,10 +38,10 @@ described below.
   ParaView can also be installed with EasyBuild, see [LUMI](#lumi).
 
 !!! note "Deprecated ParaView version on Roihu accelerated"
-    The GPU-accelerated ParaView in the Roihu web interface (5.13.3) is older
-    than the `paraview` module on Roihu-CPU (6.0.1) and has been deprecated.
-    The 5.13.3 version is subject for removal in the near future. Please ensure your
-    workload and any ParaView state files can be accessed on the 6.0.1 version.
+    The 5.13.3 version of ParaView on Roihu Accelerated Visualization Desktop
+    is subject for removal in the near future. Please ensure that your workflows
+    and any existing ParaView state files created with this version are compatible
+    with and can be opened using ParaView version 6.0.1.
 
 ## License
 
