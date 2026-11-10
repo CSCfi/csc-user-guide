@@ -120,10 +120,13 @@ Each entry shows the module name and its versions; load a version with
 - [admixture](admixture.md) 1.4.0
 - [angsd](angsd.md) 0.940
 - [antismash](antismash.md) 8.0.4
+- [aster](aster.md) 1.25
 - [astral](astral.md) 5.7.1
 - [augustus](augustus.md) 3.5.0
 - [bamtools](bamtools.md) 2.5.2
 - [barrnap](barrnap.md) 0.9
+- [basespace-cli](bs.md) 1.7.1
+- [bayescan](bayescan.md) 2.1
 - [bbmap](bbmap.md) 39.59
 - [bcftools](bcftools.md) 1.23.1, 1.24
 - beast2 2.6.7
@@ -149,13 +152,16 @@ Each entry shows the module name and its versions; load a version with
 - [diamond](diamond.md) 2.1.10
 - [eggnog-mapper](eggnog-mapper.md) 2.1.15
 - [emboss](emboss.md) 6.6.0
+- [entrezdirect](edirect.md) 26.6.20261102
 - [exonerate](exonerate.md) 2.4.0
+- [famsa](famsa.md) 2.5.2
 - [fastp](fastp.md) 1.0.1, 1.3.6
 - [fastqc](fastqc.md) 0.12.1
 - [fastx-toolkit](fastx-toolkit.md) 0.0.14
 - [freebayes](freebayes.md) 1.3.6
 - [gapseq](gapseq.md) 2.1.0
 - [gatk](gatk.md) 4.5.0.0, 4.7.0.0
+- [genomescope2](genomescope2.md) 2.1.0
 - [getorganelle](getorganelle.md) 1.7.7.1
 - [gone2](gone2.md) 2.0.2
 - [hifiasm](hifiasm.md) 0.25.0
@@ -189,12 +195,16 @@ Each entry shows the module name and its versions; load a version with
 - [ngs-primerplex](ngs-primerplex.md) 1.3.4
 - [perl-bioperl](bioperl.md) 1.7.8
 - [phylip](phylip.md) 3.697
+- [phylonet](phylonet.md) 3.8.5
+- [phyparts](phyparts.md) 0.0.1
 - [picard](picard.md) 3.3.0
 - [plink](plink.md) 1.9.0
 - [plink2](plink.md) 2.0.0-a.6.9, 2.0.0-b.1.3
 - [prodigal](prodigal.md) 2.6.3
+- [prokka](prokka.md) 1.15.6
 - [py-bakta](bakta.md) 1.11.4
 - [py-biopython](biopython.md) 1.85
+- [py-clipkit](clipkit.md) 2.12.1, 2.14.0
 - [py-concoct](concoct.md) 1.1.0
 - [py-cutadapt](cutadapt.md) 4.7, 5.1, 5.2
 - [py-dbcan](dbcan.md) 5.2.9
@@ -204,9 +214,12 @@ Each entry shows the module name and its versions; load a version with
 - [py-htseq](htseq.md) 2.0.3, 2.1.2
 - [py-instrain](instrain.md) 1.6.3
 - [py-ipyrad](ipyrad.md) 0.9.102
+- [py-macs2](macs2.md) 2.2.9.1
+- [py-macs3](macs2.md) 3.0.4, 3.1.0
 - [py-metaphlan](metaphlan.md) 4.2.4
 - [py-micom](micom.md) 0.39.0
 - [py-multiqc](multiqc.md) 1.28, 1.35
+- [py-phykit](phykit.md) 2.1.94, 2.8.0
 - [py-samestr](samestr.md) 1.2025.111
 - [py-semibin](semibin.md) 2.6.0
 - [py-steadiercom](steadiercom.md) 0.1.5
@@ -215,6 +228,7 @@ Each entry shows the module name and its versions; load a version with
 - [revbayes](revbayes.md) 1.4.1
 - [roary](roary.md) 3.13.0
 - [salmon](salmon.md) 2.8.0
+- [sambamba](sambamba.md) 1.0.1
 - [samtools](samtools.md) 1.21, 1.24
 - [sanspanz](pannzer.md) 3.20250512
 - [seqkit](seqkit.md) 2.10.0, 2.13.0
@@ -230,6 +244,7 @@ Each entry shows the module name and its versions; load a version with
 - [structureharvester](structureharvester.md) 0.7
 - [tophat](tophat.md) 2.1.2
 - [transdecoder](transdecoder.md) 5.7.1
+- [treemix](treemix.md) 1.13
 - [trimmomatic](trimmomatic.md) 0.39
 - [trinity](trinity.md) 2.15.1.FULL, 2.15.2.FULL
 - [trinotate](trinotate.md) 4.0.2
