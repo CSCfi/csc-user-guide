@@ -23,7 +23,7 @@ Currently supported [cirq-on-iqm](https://docs.meetiqm.com/iqm-client/user_guide
 
 | Module                               | LUMI  | Notes           |
 |:-------------------------------------|:-----:|-----------------|
-| `fiqci-cirq/18.0`                | X     | Default version. Supports Q50 and Q20  |
+| `fiqci-cirq`                | X     | Supports Q50 and Q20  |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
