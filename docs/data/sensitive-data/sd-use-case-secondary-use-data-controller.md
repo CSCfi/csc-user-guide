@@ -39,6 +39,9 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 - Sensitive Data support team adds you to a CSC project that is created specifically for data transfers from your organisation.
 - Check your email for a notification and log in to MyCSC to find the project. You will need the project number and project name to identify the correct project in SD Connect.
 
+!!! warning "Note"
+    This project may be used only to deliver data to users who will process secondary use data in SD Desktop. Data must be uploaded to buckets provided by CSC in accordance with the instructions on this page. Any other data will be removed from the project by the Sensitive Data support team.
+
 ---
 
 ### 3. Login to SD Connect
@@ -64,7 +67,9 @@ Follow these instructions to upload data to the buckets:
 - [SD Connect command line tool for large datasets (over 100 GB)](sd-connect-command-line-interface.md)
 
 !!! warning "Note"
-    Make sure you use only SD Connect user interface or command line tools for uploading data. If you use Allas user interface or command line tools, the data won't be encrypted, and the data storage is not compatible with the Findata regulation.
+    - Make sure you **use only SD Connect user interface or command line tools** for uploading data. If you use Allas user interface or command line tools, the data won't be encrypted, and the data storage is not compatible with the Findata regulation.
+    - **Do not share the buckets directly with users** using a Share ID provided by the user. Access granted via a Share ID extends to the entire CSC project, which may include members not covered by the data permit. Only the Sensitive Data support team can verify that the project was created specifically for the shared dataset and contains only users authorized to process the data.
+    - **Only "Read to SD Desktop" permission** for data sharing in SD Connect is compatible with the Findata regulation.
 
 ---
 

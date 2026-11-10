@@ -17,7 +17,7 @@ Follow the official instructions to connect to the LUMI system: [Connecting to L
 
 ## 4. Run your quantum jobs
 
-Once connected, read the [Running quantum jobs](./running-quantum-jobs.md) section for instructions on submitting to a device.
+Once connected, read the [Running quantum jobs](./running-quantum-jobs/overview.md) section for instructions on submitting to a device.
 
 ## Support
 
