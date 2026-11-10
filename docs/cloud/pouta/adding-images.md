@@ -19,7 +19,13 @@ interface.
 
 #### Through the command line
 
-Launching an instance on the command line:
+!!! info
+
+    Ensure you have sourced the OpenStack RC file and can communicate with your OpenStack environment.
+
+Launching an instance on the command line (see also [Launch a virtual
+machine](command-line-tools.md#launch-a-virtual-machine) for the
+minimal version of this command):
 
 ```bash
 openstack server create --flavor <flavor> \
@@ -30,9 +36,11 @@ openstack server create --flavor <flavor> \
 --security-group <additional security group> <name of server>
 ```
 
-Login and make any necessary changes. To ensure consistent snapshots,
-snapshots should only be created from instances which are powered off.
-First power off your instance:
+[Log in to the virtual machine](connecting-to-vm.md) and make any
+necessary changes, for example installing software or applying
+updates. Once you are done, return to your own terminal. Snapshots
+should only be created from instances which are powered off, to
+ensure a consistent result, so power off your instance:
 
 ```bash
 openstack server stop <name of vm>
