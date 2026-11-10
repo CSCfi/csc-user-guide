@@ -13,4 +13,4 @@ typically either:
 The default resource settings should be fine for most cases.
 
 Also checkout the [MLflow section in our Machine learning
-guide](../../support/tutorials/ml-workflows.md#mlflow).
+guide](../../support/tutorials/ml-guide/workflows.md#mlflow).
