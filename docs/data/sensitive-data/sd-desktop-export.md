@@ -16,6 +16,14 @@ When exporting files with Data Gateway, you can:
 - As an advanced option, you can also export files to a specific folder inside the selected bucket.
 
 
+<div class="grid cards" markdown>
+  
+- :material-alert:{ .lg .middle } **Note**
+  { .warning-card }
+
+    If you are processing data under the Act on the Secondary Use of Health and Social Data, please follow the [specific guidance](sd-desktop-secondary-export.md) concerning the anonymity of your results before the export.
+
+</div>
 
 ### 1. Export files to a bucket via Data Gateway application
 

@@ -27,7 +27,7 @@ In supercomputers, QGIS could be used for example to visualize the resulting fil
 __QGIS__ is available with following versions:
 
 * 3.44.9 in Roihu, includes also [GDAL](gdal.md) and [PDAL](pdal.md). It also has PCRaster library installed to the container, but [PCRaster QGIS plug-in](https://jvdkwast.github.io/qgis-processing-pcraster/) should be added by each user.
-* 3.31 in LUMI, includes also [GDAL](gdal.md), [GrassGIS](grass.md), [PDAL](pdal.md) and [SagaGIS](saga-gis.md). 
+* 3.44.15 in LUMI, includes also [GDAL](gdal.md) and [GrassGIS](grass.md). 
 
 ## Usage
 
@@ -65,7 +65,7 @@ qgis
 
 ### SagaGIS toolbox in QGIS
 
-SagaGIS tools are not available by default with QGIS 3.31 in Processing Toolbox, but can be added with installing `Saga Next Gen` plug-in. This is a new plug-in and all tools might not work yet.  
+SagaGIS tools are not available by default with QGIS 3.31+ in Processing Toolbox, but can be added with installing `Saga Next Gen` plug-in. This is a new plug-in and all tools might not work yet.  
 
 ### PyQGIS
 
@@ -103,10 +103,10 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 
 ## Installation
-* 3.44 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
-* 3.31 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+* 3.44.9 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
+* 3.44.15 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
 
-`wrap-container -w /usr/bin docker://qgis/qgis:latest --prefix install_dir`
+`wrap-container -w /usr/bin docker://qgis/qgis:ltr --prefix install_dir`
 
 
 ## References
