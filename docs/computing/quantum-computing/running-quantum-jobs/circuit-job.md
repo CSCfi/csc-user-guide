@@ -2,6 +2,27 @@
 
 A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with the values from [Runtime identifiers](../devices/overview.md) on your device's page. `<CORTEX_URL>` is the name of an environment variable set by the `fiqci-vtt-*` module.
 
+## Import packages
+
+=== "Qiskit"
+
+    Load the module with `module load fiqci-vtt-qiskit`.
+
+    ```python
+    import os
+    from iqm.qiskit_iqm import IQMProvider
+    from qiskit import QuantumCircuit, QuantumRegister, transpile
+    ```
+
+=== "Cirq"
+
+    Load the module with `module load fiqci-vtt-cirq`.
+
+    ```python
+    import os
+    from iqm.cirq_iqm.iqm_sampler import IQMSampler
+    ```
+
 ## Get the backend
 
 !!! info "VLQ backend"
@@ -27,20 +48,18 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
     ```python
     import os
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
+    import cirq
 
     cortex_url = os.getenv("<CORTEX_URL>")
     sampler = IQMSampler(cortex_url, quantum_computer="<QUANTUM_COMPUTER_ID>")
     ```
 
-## Define and run your circuit
+
+## Define a quantum circuit
 
 === "Qiskit"
 
     ```python
-    from qiskit import QuantumCircuit, QuantumRegister, transpile
-
-    shots = 1000
-
     qreg = QuantumRegister(2, "QB")
     circuit = QuantumCircuit(qreg, name="Bell pair circuit")
     circuit.h(qreg[0])
@@ -48,8 +67,42 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
     circuit.measure_all()
 
     transpiled_circuit = transpile(circuit, backend=backend)
+    ```
 
-    job = backend.run(transpiled_circuit, shots=shots)
+=== "Cirq"
+
+    ```python
+    qubits = cirq.NamedQubit.range(2, prefix="QB")
+    circuit = cirq.Circuit(
+        cirq.H(qubits[0]),
+        cirq.CNOT(qubits[0], qubits[1]),
+        cirq.measure(*qubits, key="m"),
+    )
+    ```
+
+## Transpile the circuit
+
+Transpiling compiles the circuit into a compatible format with the backend. This includes translating into supported gates and complying with the backends topology.
+
+=== "Qiskit"
+
+    ```python
+    transpiled_circuit = transpile(circuit, backend=backend)
+    ```
+
+=== "Cirq"
+
+    ```python
+    routed_circuit, _, _ = sampler.device.route_circuit(circuit)
+    decomposed_circuit = sampler.device.decompose_circuit(routed_circuit)
+    ```
+
+## Submit to the backend
+
+=== "Qiskit"
+
+    ```python
+    job = backend.run(transpiled_circuit, shots=1000)
     print("Job ID:", job.job_id())
 
     print(job.result().get_counts())
@@ -58,18 +111,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 === "Cirq"
 
     ```python
-    import cirq
-
-    shots = 1000
-
-    qubits = cirq.NamedQubit.range(2, prefix="QB")
-    circuit = cirq.Circuit(
-        cirq.H(qubits[0]),
-        cirq.CNOT(qubits[0], qubits[1]),
-        cirq.measure(*qubits, key="m"),
-    )
-
-    result = sampler.run(circuit, repetitions=shots)
+    result = sampler.run(decomposed_circuit, repetitions=1000)
     print("Job ID:", result.metadata.job_id)
 
     print(result.histogram(key="m"))

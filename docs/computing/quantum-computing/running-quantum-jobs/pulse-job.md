@@ -1,6 +1,6 @@
 # Pulse level access
 
-Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to the available quantum computers is enabled through the IQM Pulla Python package. IQM Pulla is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
+Pulse level access gives the user a lower level of control over their quantum jobs. Instead of only defining jobs via circuits using gates with pulse level access the user has control over the control pulses of the quantum computer. Pulse level access to the available quantum computers is enabled through the IQM Client Python package. IQM Client with pulse level access is already installed in the module for each quantum computer. Below you'll find an overview on running pulse level jobs from LUMI on the available quantum computers. For more advanced documentation on using IQM Pulla see [IQM's documentation](https://docs.iqm.tech/iqm-pulla/index.html){ target=_blank }
 
 !!! info "Device-specific values"
     The examples on this page use placeholders `<DEVICE_VALUE>`, `<QUANTUM_COMPUTER_ID>`, and `<CORTEX_URL>`. Replace them with the runtime identifiers for your target device, listed under "Runtime identifiers" on the [Aalto Q20](../devices/q20.md#runtime-identifiers) or [VTT Q50](../devices/q50.md#runtime-identifiers) page. For VLQ see the [VLQ instructions](../devices/vlq.md).
@@ -33,7 +33,7 @@ client = backend.client
 !!! info "VLQ Pulla backend"
     For VLQ see the [VLQ page](../devices/vlq.md) for instructions for fetching the VLQ Pulla backend as well as loading the VLQ module.
 
-## Define a quantum circuit
+## Run a job with pulse level access
 
 ```python
 qc = QuantumCircuit(3, 3)
@@ -41,17 +41,9 @@ qc.h(0)
 qc.cx(0, 1)
 qc.cx(0, 2)
 qc.measure_all()
-```
 
-## Transpile to backend
-
-```python
 qc_transpiled = transpile(qc, backend=backend, optimization_level=3)
-```
 
-## Convert to Pulla
-
-```python
 circuits, compiler = qiskit_to_iqm(backend, qc_transpiled)
 
 shots = 100
@@ -59,22 +51,7 @@ settings = compiler.get_settings(circuits=circuits)
 settings.set_shots(shots)
 
 run_definition, context = compiler.compile(circuits, settings=settings)
-```
 
-## Visualize pulse scheduling (optional)
-
-Optionally it is possible to visualize the pulse scheduling before submitting the job.
-
-```python
-from iqm.pulse.playlist.visualisation.base import inspect_playlist
-from IPython.core.display import HTML
-
-HTML(inspect_playlist(job_definition.sweep_definition.playlist, [0]))
-```
-
-## Submit through Pulla
-
-```python
 job = client.submit_playlist(job_definition, context=context)
 job.wait_for_completion()
 qiskit_result = sweep_job_to_qiskit(job, shots=shots)
@@ -82,6 +59,7 @@ qiskit_result = sweep_job_to_qiskit(job, shots=shots)
 print(f"Raw results:\n{job.result().circuit_measurement_results}\n")
 print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 ```
+
 
 ## Submitting through LUMI
 
