@@ -2,7 +2,7 @@
 template: home.html
 ---
 
-<div class="grid cards csc-quick-links csc-quick-links--landing" markdown>
+<div class="grid cards docs-quick-links docs-quick-links--landing" markdown>
 
 - ## Overview
 
@@ -43,7 +43,7 @@ template: home.html
     
     [Python Usage Guide :material-arrow-right:](support/tutorials/python-usage-guide.md)
 
-    [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide.md)
+    [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide/index.md)
 
     [Sensitive Data Services Guide :material-arrow-right:](data/sensitive-data/index.md)
 

@@ -122,7 +122,7 @@ Note that Roihu-CPU and Roihu-GPU have different processor architectures, so bui
 To build on a compute node, we can reserve an interactive Slurm job as follows:
 
 ```bash
-sinteractive --cores 4 --mem 4000 --time 0:15:00
+sinteractive --cores 4 --mem 4G --time 0:15:00
 ```
 
 ### Temporary directory
@@ -322,7 +322,7 @@ From: satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13
 ```
 
 Our machine learning guide also contains a [tutorial on how to extend
-our `ml-base` container using a sandbox](../../support/tutorials/ml-container-extend.md).
+our `ml-base` container using a sandbox](../../support/tutorials/ml-guide/container-extend.md).
 
 
 ## Reading datasets from SquashFS file

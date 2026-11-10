@@ -1,4 +1,6 @@
-# Overview
+# Installing software
+
+## Overview
 
 It is possible to install own software on CSC supercomputers if you cannot find a software
 suitable for your needs from the [list of pre-installed applications](../apps/index.md)
@@ -92,7 +94,7 @@ More complicated environments should always be containerized. This is accomplish
 easily with [Tykky](containers/tykky.md).
 
 Similarly, the pre-installed R module provided by CSC is a containerized environment
-containing more than 1300 packages. If these do not suit your needs, you can install your
+containing more than 1500 packages. If these do not suit your needs, you can install your
 own packages into a project-specific location under `/projappl` and add this to your library
 trees in R. [See here for specific details](../apps/r-env.md#r-package-installations).
 

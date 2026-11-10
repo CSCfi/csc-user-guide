@@ -65,7 +65,6 @@
 ## Chemistry
 
 * [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
-* [Using Gabedit for Gaussian jobs on Puhti](gabedit_gaussian.md)
 * [High-throughput computing with GROMACS](gromacs-throughput.md)
 * [Spring School on Computational Chemistry](https://zenodo.org/records/11172973)
 
@@ -86,15 +85,15 @@
 
 ## Machine learning and AI
 
-* [Machine learning guide, what CSC service to use for machine learning](ml-guide.md)
-* [Getting started with machine learning at CSC](ml-starting.md)
-* [GPU-accelerated machine learning](gpu-ml.md)
-* [Data storage for machine learning](ml-data.md)
-* [Multi-GPU and multi-node machine learning](ml-multi.md)
-* [Hyperparameter search](hyperparameter_search.md)
-* [Managing machine learning workflows on CSC's supercomputers](ml-workflows.md)
-* [Working with large language models on supercomputers](ml-llm.md)
-* [Extend CSC-based ML containers using sandbox](ml-container-extend.md)
+* [Machine learning guide, what CSC service to use for machine learning](ml-guide/index.md)
+* [Getting started with machine learning at CSC](ml-guide/starting.md)
+* [GPU-accelerated machine learning](ml-guide/gpu.md)
+* [Data storage for machine learning](ml-guide/data.md)
+* [Multi-GPU and multi-node machine learning](ml-guide/multi.md)
+* [Hyperparameter search](ml-guide/hyperparameter_search.md)
+* [Managing machine learning workflows on CSC's supercomputers](ml-guide/workflows.md)
+* [Working with large language models on supercomputers](ml-guide/llm.md)
+* [Extend CSC-based ML containers using sandbox](ml-guide/container-extend.md)
 
 ## Pouta - cloud
 

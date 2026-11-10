@@ -18,6 +18,11 @@ You can see your level of assurance in MyCSC, under your profile page. Look for 
 
 If your assurance level is **low**, you cannot access Roihu, or some of CSC's Sensitive data services.
 
+We offer the following options for identity vetting:
+identity verification using a passport (CANDOUR ID), authentication with Finnish online banking credentials, or authentication with Mobile ID (Mobiilivarmenne).
+
+### Using Candour ID with your passport
+
 You can raise the assurance level through an identity vetting service [Candour Ltd.](https://candour.fi/), by following
 the instructions below. This process raises your assurance level to high.
 
@@ -43,3 +48,15 @@ Please follow our instructions carefully:
 If you have problems with the process, follow the tutorial in the Candour ID app or contact CSC Service Desk.
 
 You can find our Privacy Notice [here](https://research.csc.fi/privacy-notice-for-remote-identification-service).
+
+
+### Using Finnish banking credentials or Mobile Certificate (Mobiilivarmenne)
+
+1. Log in to [MyCSC](http://my.csc.fi) portal. 
+1. Go to your Profile page.
+1. In the LEVEL OF IDENTITY ASSURANCE section, select Raise identity assurance level.
+1. Choose Finnish bank identification/Mobile ID as your identification method.
+1. You will be redirected to your bank's authentication service/Mobile ID.
+1. Complete the identification using your credentials.
+1. After successful authentication, you will be redirected back to MyCSC.
+1. Your assurance level will be updated automatically.

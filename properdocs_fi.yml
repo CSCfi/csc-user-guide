@@ -1,0 +1,42 @@
+INHERIT: ./properdocs.yml
+site_url: !ENV [SITE_URL, "https://docs.csc.fi/fi"]
+site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalveluille, tallennusratkaisuille ja ohjelmistoille, mukaan lukien UKK ja tutoriaalit
+
+extra:
+  announcement:
+    content: |-
+      <p>Tervetuloa viikoittaiseen kahvitaukotapaamiseen tutkimustukemme kanssa Zoomissa! <a href="https://csc.fi/koulutuskalenteri/viikoittaiset-kahvitaukotapaamiset-tutkimustukemme-kanssa-joka-keskiviikko-1400-2/" target="_blank">Lisätietoja täältä.</a></p>
+  analytics:
+    feedback:
+      title: Onko tämä sivu hyödyllinen?
+      ratings:
+        - name: "Kyllä"
+          type: Positive
+          description: Kyllä! Tämä sivu on hyödyllinen.
+          note: >-
+            Kiitos palautteestasi!
+        - name: "Ei"
+          type: Negative
+          description: Ei! Tätä sivua pitäisi parantaa.
+          note: >-
+            Kiitos! Arvostamme palautettasi.
+  short_description: Käyttöoppaat ja tutoriaalit
+  alternate:
+    - name: Suomeksi (tekoäly)
+      link: /fi/
+      lang: fi
+    - name: In English
+      link: /
+      lang: en
+
+plugins:
+  git-revision-date-localized:
+    enabled: false
+
+theme:
+  language: fi-CSC
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.indexes
+    - navigation.path

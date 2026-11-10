@@ -1,298 +1,204 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Export data programmatically from the virtual desktop
+# Programmatic data import and export in the virtual desktop
 
-<div class="grid cards" markdown>
-  
-- :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+The virtual desktop is an isolated environment with no direct internet access. The only way to import data for analysis or exports results from the secure environment is through the Data Gateway application, which is available also via the command line.
 
-    SD Desktop and SD Connect services were upgraded in September 2026, and the export instructions on this page are currently outdated. New instructions for exporting with command line will be provided here as soon as possible. The user interface for Data Gateway was also upgraded and it now supports exporting multiple files and folder structures. Read more about the upgrade on a separate [info page](major-upgrade.md) and follow the [export instructions for the user interface](sd-desktop-export.md).
+Any project remember can import files using stored in from SD Connect or SD Apply via Data Gateway. The imported files are automatically decrypted.
 
-</div>
+Only the CSC Project Manager is authorized to export files from the virtual desktop. Exported files are automatically encrypted and transferred to SD Connect, where any project members can access and download them. 
 
-## Background information
+On this page:
 
-### Data export from SD Desktop requires manual encryption
+[1. Importing a working copy of the dataset on the external volume](#1-importing-a-working-copy-of-the-dataset-on-the-external-volume)
 
-The SD Connect update on October 2024, added automated key management to SD Desktop. This feature enables direct uploads and downloads via SD Connect. 
-However the tools that export data (e.g. results) from SD Desktop to SD Connect are not yet compatible with the automatic key management.
-Instead, *the data export from SD Desktop is still a manual process requiring Crypt4GH tools and generating your own encryption key pair*.
-Since SD Connect may store files encrypted using these two methods, yet with the same .c4gh extension,
-  we recommend creating a dedicated folder for SD Desktop exports. This helps distinguish:
-
-- files encrypted manually with your own encryption key pair (exported from SD Desktop).
-- files automatically encrypted files by using via SD Connect, with encryption keys managed by the service.
-
-### Only project managers can export data
-
-Your virtual desktop is isolated from the internet for security reasons. Only the CSC project manager can export results or data from the secure workspace using **Data Gateway** 
-application or the airlock command line tool (command line). The results are exported to SD Connect, where they will be available for download to your computer.
-After the download, the files must still manually decrypted.
- 
-!!! Note
-    - Only one file can be exported at a time. To export multiple files, first compress them into a single folder. 
-    - Files larger than 30 GB need to be split into smaller parts before exporting.
-
-## Step by step
-
-In this example, we first generate your key pair (a password-protected _private key_ and a _public key_ that can be shared with collaborators). We upload the public key to 
-SD Connect and import it to SD Desktop. In SD Desktop, we encrypt the files to be exported with the public key and export them to SD Connect /Allas using the airlock CLI. 
-Finally we download the files from SD Connect/Allas and decrypt them on our local environment using the correspondent secret encryption key. 
-
-1. Download and install the Crypt4GH encryption CLI tool
-2. Generate your encryption key pair
-3. Upload your public key to SD Connect /Allas
-4. Import the public key inside the virtual desktop
-5. Encrypt the files with your public key
-6. Export the files from SD Desktop via airlock
-7. Download the file from SD Connect /Allas and change extension
-8. Decrypt the file with crypt4GH encryption CLI tool
-9. Advanced: Backup copies and support
-
-
-!!! info "Support available"
-    Please reach out to us at servicedesk@csc.fi (subject: SD Desktop). We will guide you through the export process in an online meeting.
-
-
-## 1. Download and install the Crypt4GH encryption CLI tool
-
-For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
-
-**Python 3.6+ is required** to use the Crypt4GH encryption utility. If you need help installing Python, please follow [these instructions](https://www.python.org/downloads/release/python-3810/).
-
-1. Install the Crypt4GH encryption CLI tool
-
-      You can install Crypt4GH directly with pip tool:
-
-      ```bash
-      pip install crypt4gh     
-      ```
-
-      or, if you prefer the latest sources from GitHub:
-
-      ```bash
-      pip install -r crypt4gh/requirements.txt
-      pip install ./crypt4gh
-      ```
-
-      or even:
-
-      ```bash
-      pip install git+https://github.com/EGA-archive/crypt4gh.git
-      ```
-
-      The usual `-h` flag shows you the different options that the tool accepts:
-
-      ```bash
-      $ crypt4gh -h
-
-      Utility for the cryptographic GA4GH standard, reading from stdin and outputting to stdout.
-
-      Usage:
-         {PROG} [-hv] [--log <file>] encrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--range <start-end>]
-         {PROG} [-hv] [--log <file>] decrypt [--sk <path>] [--sender_pk <path>] [--range <start-end>]
-         {PROG} [-hv] [--log <file>] rearrange [--sk <path>] --range <start-end>
-         {PROG} [-hv] [--log <file>] reencrypt [--sk <path>] --recipient_pk <path> [--recipient_pk <path>]... [--trim]
-
-      Options:
-         -h, --help             Prints this help and exit
-         -v, --version          Prints the version and exits
-         --log <file>           Path to the logger file (in YML format)
-         --sk <keyfile>         Curve25519-based Private key.
-                              When encrypting, if neither the private key nor C4GH_SECRET_KEY are specified, we generate a new key
-         --recipient_pk <path>  Recipient's Curve25519-based Public key
-         --sender_pk <path>     Peer's Curve25519-based Public key to verify provenance (akin to signature)
-         --range <start-end>    Byte-range either as  <start-end> or just <start> (Start included, End excluded)
-         -t, --trim             Keep only header packets that you can decrypt
-
-      Environment variables:
-         C4GH_LOG         If defined, it will be used as the default logger
-         C4GH_SECRET_KEY  If defined, it will be used as the default secret key (ie --sk ${C4GH_SECRET_KEY})
-      ```
-
-      You may notice that crypt4gh uses `--sk` option for the private key. This might seem odd but apparently, crypt4gh uses term _secure key_ 
-      for private key, hence `sk`, and consequently `pk` refers to public key instead of the private key.
-
-
-
-## 2. Generate your encryption key pair
-
-
-      You use `crypt4gh-keygen` command to create your private and public keys:
-
-      ```bash
-      $ crypt4gh-keygen --sk mykey.sec --pk mykey.pub
-      Generating public/private Crypt4GH key pair.
-      Enter passphrase for mykey.sec (empty for no passphrase): 
-      Enter passphrase for mykey.sec (again): 
-      Your private key has been saved in mykey.sec
-      Your public key has been saved in mykey.pub
-      ```
-
-      where `--sk mykey.sec` is your private (secret, sk) key and `--pk mykey.pub` is your public key (pk). 
-      The tool will ask you to enter a password (passphrase) for your private key. For security reasons, the password 
-      is not shown when you type it, so the tool will ask you to enter it a second time to make sure you made no typing errors 
-      (or, you make the same errors twice). Please, use a strong password!
-
-    !!! Note
-        If you lose or forget your private key, or the password to it, you will be unable to decrypt the files. Do not share your private key or your password.
-
-    !!! Note
-        You need to create your keys only once and use them for all your encryption needs, but you can of course, choose to generate separate keys for encryption as you wish.
-
-
-   - The keys will be saved in the same folder where the application resides (e.g. **Downloads** folder). 
-   - We recommend saving the key pair in a dedicated folder and renaming them descriptive names (e.g., `export_public.pub` and `export_secret.key`). Common issues arise when keys are misplaced or mismatched.
-   - We recommend testing if the key pair works by encrypting and decrypting some test file.
-
+[2. Set correct permissions](#2-set-correct-permissions)
    
-!!! warning
-    - If you lose or forget your secret key or password, you won’t be able to decrypt your files.
-    - **Do not share** your secret key or password.
-    - You need to **create your keys only once** for all encryption needs, but you may generate separate keys for different projects if desired.
+[3. Data analysis via Byobu terminal](#3-data-analysis-via-byobu-terminal)
+
+[4. Exporting results](#4-exporting-results)
 
 
-
-## 3. Upload the public key to SD Connect 
-
-You can import the public encryption key by uploading it via SD Connect user interface.
-
-1. [Log in](./sd-connect-login.md) to SD Connect user interface.
-2. Select the correct CSC project in the top left corner.
-3. Click **Upload** in the top right corner.
-4. In the new window, name the destination folder for your files (e.g. **project_export**).
-5. Click **Select Files** to open a browser window and choose the public encryption key  (e.g. .pub file). Click **Upload** to start automatic encryption and upload.
-6. Once the upload is finished, the encryption key will be now visible from your virtual desktop.
+## 1. Importing a working copy of the dataset on the external volume
 
 
-## 4. Import the public key inside the virtual desktop 
+Use the Data Gateway application via command line to import files from **SD Connect** and **SD Apply** (if you have the required access rights) to a volume attached to your virtual desktop.
 
-1. [Access](./sd-desktop-access-vm.md) your virtual desktop.
-2. Open the Data Gateway application, access the directory where the public key was stored.
-3. Use the copy/paste function to paste your public key into the virtual desktop (or the terminal), it will be automatically decrypted.
+#### Step 1: start the Data Gateway connection
 
-## 5. Encrypt the file
+Open the Data Gateway application by running:
 
-### Exporting multiple files 
+```bash
+data-gateway-cli import
+```
 
-To export multiple files, it is often handy to first collect them first into a single folder, then pack the folder with `tar` or `zip` commands. After that you can encrypt all the data as a single file.
+This establishes a secure connection between your virtual desktop and **SD Connect** or SD Apply, where your files are stored encrypted. Now you will notice on the side navication bar that a folder called Project has been opened. 
 
+#### Step 2:  View the contents of your SD Connect project
 
-### Encrypt the file or folder
+To see the files and folders available in your CSC project and stored in SD Connect, run:
 
-1. Open the terminal (right-click) and use your public key to encrypt the files you want to export. Crypt4GH is pre-installed on each virtual desktop and accessible in command line.
+```bash
+ls $HOME/Projects/SD-Connect/project-number/
+```
 
-    The syntax for the encryption command is:
+Replace `project-number` with your CSC project number.
 
-    ```text
-    crypt4gh encrypt --recipient_pk public-key < input > output
-    ```
+## 3. Navigate to your virtual desktop volume
 
-    Here:
-    - `public-key` is your public key file (e.g., `your-username.pub`).
-    - `input` is the file you wish to export (e.g., `my_results.csv`).
-    - `output` is the encrypted file (e.g., `my_results.csv.c4gh`).
+You can now make a working copy of the files stored in SD Connect inside your virtual desktop, specifically save them on the volume attached to it.
 
-    **Example:**
+Volumes attached to the virtual desktop are mounted as `volume1`, `volume2`, etc.
 
-    ```text
-    crypt4gh encrypt --recipient_pk your-username.pub < my_results.csv > my_results.csv.c4gh
-    ```
+If you have only one attached volume, navigate to it with:
 
-## 6. Export the encrypted files from the virtual Desktop
+```bash
+cd /media/volume1
+```
 
-Once the file are encrypted, only the CSC project manager can export them via the _Data Gateway_ application or using the _Airlock_ command line client.
+## 4. Copy files from SD Connect
 
-!!! Note
-    The Airlock client supports exporting files up to 30 GB. Larger files or datasets must be split into smaller segments before export.
+You can copy files from SD Connect via the secure connection created by the Data Gatewaty to your virtual desktop volume. Files are automatically decrypted during the copy process.
 
-1. Open the terminal (right-click) and use the following syntax:
+Keep the Data Gateway application running until the file transfer is complete.
 
-    ```text
-    airlock-client <<username>> <<data_output_bucket>> <<filename>>
-    ```
+Example:
 
-    - `username` is your CSC account username.
-    - `data_output_bucket` is the name you assign to the bucket where the results will be exported. The Airlock client will create this bucket automatically within the same CSC project as your Desktop.
-    - `filename` is the name of the encrypted file you wish to export.
+```bash
+cp -r $HOME/Projects/SD-Connect/project_number/buckets/ .
+```
+Where: 
 
-    **Example:**
+| Component | Description |
+|------------|-------------|
+| `cp` | Copy files or directories |
+| `-r` | Copy directories and their contents recursively |
+| `project_number` | Your CSC project number |
+| `buckets` | The name of the bucket containing your files and folders in SD Connect |
+| `.` | The current directory (your virtual desktop volume) |
 
-    ```text
-    airlock-client cscuser analysis-2022 results-03.csv.c4gh
-    ```
+Example:
 
-2. Press **Enter** and enter your password when prompted.
+```bash
+cp -r $HOME/Projects/SD-Connect/project_2000XXX/experiment-04-10-2026/ .
+```
 
-!!! Note
-    If you attempt to upload an unencrypted file, the Data Gateway application or Airlock client will automatically encrypt it with the Sensitive Data services public key for security reasons and export it to SD Connect. You will be able to download this file, but you will not be able to decrypt it. The file is however compatible with other SD Desktop virtual machines.
+## Import Files Only from SD Apply
 
+If you only need to access data stored in **SD Apply**, run:
 
+```bash
+data-gateway-cli import -sdapply
+```
 
-## 7. Download the files from SD Connect/ Allas programmatically and decrypt them with your encryption key
+## Exit the Data Gateway Application
 
-You can use any Allas compatible tool or interface to download the encrypted file to your local computer.
-For example with _rclone_ command line tools, the download command (once the Allas connection has been opened)
-could be for example following:
+To close the connection, press:
 
 ```text
-rclone copy allas:analysis-2022/results-03.csv.c4gh ./
+Ctrl+C
 ```
-This command copies file _results-03.csv.c4gh_ to your local computer, After this you still need do the decryption as a separate step. (see below)
 
-If you have the CSC developed Allas commands (`a-put` and `a-get`) installed in your local computer you can combine the download  and decryption
-steps into single command. This is done by defining the secret key with option `--sk`. For example:
+## Notes
 
-```text
-a-get --sk export_secret.key analysis-2022/results-03.csv.c4gh
+- Keep the Data Gateway application open while copying files.
+- Files are available through the mounted `Projects` directory only while the secure connection is active.
+- Files are automatically decrypted when copied to your virtual desktop volume.
+
+## 2. Set correct permissions
+
+After copying files to volume, adjust permissions for folders and files to enable access for other project members. By default, permissions are limited to your access only.
+
+With the steps below, you ensure that all project members have read and write access to all files and folders. This prevents possible access issues when the volume is used on different virtual desktop, where file ownership information may be handled differently.
+
+
+1. If you haven't **SD Tools installer** already installed on your virtual desktop, follow these [instructions (Steps 1-2)](./sd-desktop-software.md#step-1-send-a-request).
+2. Launch **SD Tools installer**. Remember that you've to have **Data Gateway** application open for it to work.
+3. Install **CSC Tools** by clicking corresponding button. Wait for confirmation.
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_1.png)
+
+4. Open terminal from to left side of the desktop. Type in `pre-volume-detach`. This command fixes the access permissions. 
+![Gateway copy to volume](https://a3s.fi/docs-files/sensitive-data/SD_Desktop/Desktop_CSCTools_2.png)
+6. Next, the command tells if there are other project members who should run this command as well. You should inform them if this happens. 
+7. You are then asked whether you want to make a backup copy of your home directory to the volume, allowing you to import its contents to the new virtual machine. Type y or n (Yes/No).
+8. Next, the command asks whether you want to make a backup copy of your shared directory, which contains software installations. Type y or n (Yes/No). 
+
+
+## 3. Data analysis via Byobu terminal 
+
+The virtual desktop includes the Byobu terminal, which provides a persistent command-line environment for running data analysis tasks. Byobu is particularly useful for long-running jobs, as processes continue running even if log out from the virtual desktop unlike standard shell session. 
+
+Common use cases include:
+
+- Running Python, R, or shell scripts on large datasets.
+- Executing computationally intensive analyses that may take several hours or days.
+- Monitoring job progress without keeping the terminal window active.
+- Working with multiple terminal sessions simultaneously using Byobu's session management features.
+
+Byobu allows you to log out from a session and reconnect later, making it a reliable option for batch processing, data preparation, machine learning workloads, and other long-running analyses compared to shell. 
+
+
+## 4. Exporting results
+
+# Export Files to SD Connect
+
+Only the CSC Project Manager is authorized to export results from the virtual desktop using the Data Gateway application. Project members can import files but cannot export data.
+
+Before exporting, open a terminal in the directory containing the file or folder you want to export.
+
+## Export a Single File
+
+Open a terminal in the directory containing the file or folder you want to export and use the following command to export a file to an SD Connect bucket:
+
+```bash
+data-gateway-cli export <SD-Connect-bucket-name> <file-name>
 ```
-The command above asks the password of the secret key and produces a ready-to-use decrypted file to your local computer (_results-03.csv_ in this case).
+
+Example:
+
+```bash
+data-gateway-cli export study2026 results.csv
+```
+The file results.csv will be encrypted and exported to an SD Connect bucket named study2026. If the specified bucket does not already exist in SD Connect, it will be created automatically.
+Once the export is complete, the file will be available to all members of your CSC project. Project members can then download the file through SD Connect to their own computers. The file is automatically decrypted during the download process.
+
+## Export a Folder
+
+To export a folder and all of its contents to an SD Connect bucket, use:
+
+```bash
+data-gateway-cli export <SD-Connect-bucket-name> <folder-name>
+```
+
+Example:
+
+```bash
+data-gateway-cli export study2026 results-november-2026
+```
+
+In this case, the directory called restuls-november-2026 will be exported to Sd Connect bucket named study 2026, with the entire content. All the files will be automatically encrypted. If the specified bucket does not already exist in SD Connect, it will be created automatically. Also in this case, once the export is complete, the file will be available to all members of your CSC project. Project members can then download the folder through SD Connect to their own computers. The file is automatically decrypted during the download process.
+
+Command Explanation
+
+| Component | Description |
+|------------|-------------|
+| `data-gateway-cli export` | Starts the export process |
+| `SD-Connect-bucket-name` | Name of the destination bucket in SD Connect |
+| `file-name` | File to be exported |
+| `folder-name` | Folder to be exported, including all its contents |
+
+## Notes
+
+- Only CSC Project Managers can export data from the virtual desktop.
+- Project members can import data but cannot perform exports.
+- The export command uploads the selected file or folder to the specified SD Connect bucket.
+- If the bucket does not exist, it is created automatically during the export process.
+- Ensure you are in the correct directory before running the export command, or provide the full path to the file or folder.
 
 
 
-## 8. Decrypt the files with the Crypt4gh CLI tools
 
-!!! Note
-    Below is a step by step example for decrypting one file.
 
-To decrypt a file you will need a private key which corresponds to one of the public keys used in encryption phase. Let's assume in our example that the research group A is decrypting a file you've sent them. To decrypt a file they use `crypt4gh decrypt` command:
-
-      ```bash
-      crypt4gh decrypt --sk groupA.sec <dog.jpg.c4gh >dog.jpg
-      ```
-
-      where `--sk groupA.sec` is a corresponding private key to one of the public keys used in the encryption. The `crypt4gh` command uses only 
-      standard input (stdin) and standard output (stdout) so you must use shell redirections: `<` denotes an input file and `>` and denotes an output file, 
-      hence `<dog.jpg.c4gh` reads in an encrypted file called `dog.jpg.c4gh` and `>dog.jpg` writes out a decrypted file named `dog.jpg`.
-
-      The command will ask the user to enter the password (passphrase) of your private key. For security reasons the password is not displayed when you type it.
-
-!!! Note
-    In case you are decrypting the file in SD Desktop and the CSC Sensitive Data public key has been used in encryption, decryption will be done automatically, and you do not need to specify any decryption keys.
-
-If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
-
-[More information about data encryption](sd-connect-command-line-interface.md)
-
-    
-## Advanced: Back-up copies
-
-If project members need to make back-up copies from important files, the project manager can launch a back-up server process that project members 
-can utilise to have backups. For details, see: [SD Desktop Back-up server tutorial](./tutorials/backup_sd_desktop.md).
-
-## More support:
-
-To encrypt and upload files via command line, please check [this tutorial](sequencing_center_tutorial.md) illustrating how to use the crpt4gh 
-tool to upload files in Allas (visible from SD Connect).
-
-Below more information about the crypt4GH CLI:
-
-For documentation and more information, you can check the [Crypt4GH Encryption Utility](https://github.com/EGA-archive/crypt4gh.git) page.
-
-If you need to decrypt a large number of files, please check the tutorial [Decrypting all files in a directory](./tutorials/decrypt-directory.md).
-
-## Your next steps in this guide
 
 * [Troubleshooting](./sd-desktop-troubleshooting.md)
     

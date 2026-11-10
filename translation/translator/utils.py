@@ -8,7 +8,7 @@ import functools
 
 import yaml
 
-from .constants import DEFAULTS, LANG_CODE_MAP
+from .constants import DEFAULTS
 
 
 logger = logging.getLogger(__name__)
@@ -28,24 +28,9 @@ def _get_attrs(obj, attr_names):
             in dir(obj)
             if attr in attr_names}
 
+
 def _commit_reducer(hashes, commit):
     return hashes + list(commit)
-
-
-def _check_language(lang_code):
-    """Asserts that 'lang_code' has a corresponding language name.
-    """
-    assert lang_code in LANG_CODE_MAP, f"Language '{lang_code}' not found."
-
-
-def get_language(lang_code):
-    """Returns the name of the language corresponding to 'lang_code'.
-
-    Raises AssertionError.
-    """
-    _check_language(lang_code)
-
-    return LANG_CODE_MAP[lang_code]
 
 
 def check_environment(*env_var_names):
