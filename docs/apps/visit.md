@@ -17,76 +17,129 @@ catalog:
 
 # VisIt
 
---8<-- "puhti-mahti-cleanup-notice.md"
-
 VisIt is an open source, versatile software for scientific visualization.
 VisIt is available on Roihu, and we recommend
 [the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
 for running the GUI.
 
-!!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
-    You can now also enable
-    [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
-    for much better performance. In this case, select the
-    _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
-    interface. On LUMI, select the regular _Desktop_ app and `lumid`
-    partition ([more information](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
+For workloads requiring more performance out of VisIt, GPU-accelerated
+visualization is also available on both Roihu and LUMI. On Roihu, select the
+[Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+app instead of *Desktop*. On LUMI, select the *Desktop* app with the `lumid`
+partition (see the
+[LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
 
 [TOC]
+
+## Available
+
+* Roihu-CPU: 3.4.1
+* Roihu Accelerated Visualization Desktop: 3.3.3
+* LUMI: 3.2.2
 
 ## License
 
 VisIt is free also for commercial use and has been released under
-[BSD Open Source License](https://github.com/visit-dav/visit/blob/develop/LICENSE)
+[BSD Open Source License](https://github.com/visit-dav/visit/blob/develop/LICENSE).
 
-## Available
+## Usage
 
-* Roihu-CPU: 3.5.0
-* LUMI: 3.2.2
+### Interactive usage in the web interface
 
-## Parallel use
+=== "Roihu-CPU"
 
-VisIt can be run interactively in parallel configuration using several
-processors. Log in to Puhti and submit the following to launch VisIt on a
-compute node
+    Open the Roihu web interface and select **Apps → Desktop**. Reserve at
+    least 4 cores and 8 GiB of memory, plus about two to three times the size
+    of the data you open.
+
+    In a Desktop session, open a terminal and type:
+
+    ```bash
+    module load visit/3.4.1
+    visit
+    ```
+
+    **Parallel use:** to use four parallel compute engine processes within
+    your Desktop session, reserve at least 4 cores and start VisIt with:
+
+    ```bash
+    visit -np 4 -l srun -la "--overlap"
+    ```
+
+=== "Roihu accelerated"
+
+    Select **Apps → Accelerated visualization** in the Roihu web
+    interface and launch **VisIt (Accelerated)** from the top left
+    applications menu.
+
+=== "LUMI"
+
+    Open the LUMI web interface and select **Apps → Desktop**.
+
+    Use the `interactive` partition for CPU rendering or `lumid`
+    for GPU-accelerated graphics. Launch VisIt from **Apps → Other**.
+
+### X11 forwarding
+
+You can also run the VisIt GUI over SSH with X11 forwarding, although the
+Roihu Desktop app is recommended for better graphical performance and
+responsiveness. Connect to Roihu-CPU from a computer with an X11 server:
 
 ```bash
-module load visit/3.1.3
-visit -l srun -np 2 -p test -t 00:10:00 -la --mem-per-cpu=2G -la --account=<your project>
+ssh -X <username>@roihu-cpu.csc.fi
 ```
 
-The job reservation parameters are:
+Then start an interactive shell on a compute node and run VisIt there:
 
-* `-np <number of cores>`
-* `-p <queue>`
-* `-t <time>` (hours:minutes:seconds)
-* `-la --mem-per-cpu=<memory per processor>` (in GB)
-* `-la --account=<the billing project for the job>`
-  
-Note that running VisIt with many processors does not necessarily bring speed
-benefits. It will depend on VisIt's particular data reader if (and to what
-extent) the data can be distributed between the processors.
+```bash
+srun --account=<project> --partition=interactive --time=01:00:00 \
+     --ntasks=4 --mem=8G --x11=first --resv-ports=0 --pty bash
+module load visit/3.4.1
+visit -np 4 -l srun -la "--overlap"
+```
 
-## Using host profile of local VisIt installation
+The `--resv-ports=0` option and `-la "--overlap"` are both needed for the
+parallel compute engine. Without them, the engine waits for resources that the
+interactive shell already holds. For a single engine process, start just
+`visit`.
 
-The VisIt client can be run on your local desktop computer while having VisIt
-components that process the data remotely on Puhti. Local VisIt host profiles
-can be used to launch jobs on Puhti compute nodes. Local and remote VisIt
-versions have to match.
+!!! warning "Run the whole of VisIt on compute nodes"
+    Do not start VisIt on a login node and launch the compute engine on a
+    compute node. Compute nodes cannot connect back to VisIt on the login
+    node, so the engine fails with a networking error.
 
-An example of a working host profile is screen captured below. Note that job
-reservation parameters that are not directly available as profile options
-should be given as _Advanced/Launcher arguments_, see the last screen capture.
+See the [X11 forwarding instructions](../computing/connecting/ssh-unix.md)
+and [interactive usage guide](../computing/running/interactive-usage.md)
+for details. Replace `<username>` and `<project>` with your own user name and
+CSC project.
 
-![Puhti screen capture 1](../img/host_profile_1.png)
+### Python scripting
 
-![Puhti screen capture 2](../img/host_profile_2.png)
+VisIt has a Python 3.11 command-line interface with NumPy available. NumPy
+also works in Python expressions and queries that run in the compute engine.
+To run a script without the GUI:
 
-![Puhti screen capture 3](../img/host_profile_3.png)
+```bash
+module load visit/3.4.1
+visit -nowin -cli -s my_script.py
+```
 
-![Puhti screen capture 4](../img/host_profile_4.png)
+!!! note "Rendering images requires a desktop session"
+    VisIt on Roihu-CPU can only render images when a display is available.
+    Run scripts that save images (`SaveWindow()`) in a terminal of a Desktop
+    session or an X11-forwarded interactive session, not in a normal batch
+    job. In batch jobs, scripts that only read, process, query or export data
+    work. For rendering in batch jobs, consider
+    [ParaView's `pvbatch`](paraview.md#usage).
 
-## More Information
+### Supported file formats
+
+VisIt reads a large number of file formats. The Roihu-CPU module includes,
+among others, support for Silo, HDF5, NetCDF, ADIOS2, Conduit Blueprint,
+MFEM and the VTK formats.
+
+## More information
 
 * [VisIt homepage (source code, binaries, manuals and tutorials, example data files)](https://visit-dav.github.io/visit-website/)
+* [VisIt user manual](https://visit-sphinx-github-user-manual.readthedocs.io/)
 * [User community website](http://visitusers.org)
