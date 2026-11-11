@@ -15,7 +15,7 @@
 
 ## General instructions
 
-- Whenever possible, use the [local disk](roihu-disk.md#login-nodes) on the login node for compiling software.
+- Whenever possible, use the [local disk](disk.md#login-nodes) on the login node for compiling software.
     - Compiling on the local disk is much faster and shifts load from the shared file system.
     - The local disk is cleaned frequently, so please move your files elsewhere after compiling.
 
@@ -36,13 +36,13 @@ These environments are available under the following [modules](modules.md):
 | Compiler suite               | Modules                                                  |
 | :--------------------------- | :------------------------------------------------------- |
 | GNU 15.2.0                   | `gcc/15.2.0 openmpi/5.0.10`                              |
-| AMD AOCC 5.0.0               | `aocc/5.0.0 openmpi/5.0.10`                              |
+| AMD AOCC 5.1.0               | `aocc/5.1.0 openmpi/5.0.10`                              |
 
 The first compiler suite is loaded by default.
 You can change the environment by loading the listed modules, for example,
 
 ```bash
-module load aocc/5.0.0 openmpi/5.0.10
+module load aocc/5.1.0 openmpi/5.0.10
 ```
 
 List all available versions of the compiler suites:
@@ -301,5 +301,5 @@ many of the available software on CSC supercomputers have been
 installed using Spack.
 
 [See here for a short tutorial on how
-to install software on CSC supercomputers using Spack](../support/tutorials/user-spack.md).
+to install software on CSC supercomputers using Spack](../support/tutorials/roihu-user-spack.md).
 -->

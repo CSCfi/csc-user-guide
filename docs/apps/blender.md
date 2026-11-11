@@ -10,10 +10,8 @@ catalog:
   available_on:
     - web_interfaces:
         - LUMI
-        - Puhti
         - Roihu
     - LUMI
-    - Puhti
     - Roihu
 ---
 
@@ -27,7 +25,6 @@ game creation.
 ## Available
 
 * Roihu: 4.5.10
-* Puhti: 3.2, 3.6
 * LUMI: 3.5.1
 
 ## License

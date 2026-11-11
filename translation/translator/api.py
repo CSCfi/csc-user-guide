@@ -6,7 +6,7 @@ import logging
 from openai import OpenAI, OpenAIError, APITimeoutError
 
 from .constants import DEFAULTS
-from .utils import check_environment, get_language
+from .utils import check_environment
 from .prompt import get_prompt
 from .pages import PageContentWrapper
 
@@ -14,8 +14,8 @@ from .pages import PageContentWrapper
 logger = logging.getLogger(__name__)
 
 try:
-    check_environment("LANG_CODE")
-    prompt = get_prompt(os.getenv("LANG_CODE"))
+    check_environment("LANG_NAME")
+    prompt = get_prompt()
 
     client = OpenAI()
     client.timeout.connect = DEFAULTS.openai.timeout
@@ -56,7 +56,7 @@ def translate_markdown(content, openai_model=DEFAULTS.openai.model,
 def translate_batch(items, translator=translate_markdown):
     """Process multiple Markdown files in one translation request.
     """
-    target_lang_name = get_language(os.getenv("LANG_CODE"))
+    target_lang_name = os.getenv("LANG_NAME")
     wrapped_content = PageContentWrapper(items)
 
     if wrapped_content.is_empty():

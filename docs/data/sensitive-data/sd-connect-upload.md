@@ -20,7 +20,7 @@ Files uploaded to SD Connect are automatically encrypted during upload and decry
 <div class="grid cards" markdown>
 
 - :material-alert:{ .lg .middle } **Note**
-  { .csc-grid-card-warning }
+  { .warning-card }
 
     ___
 
@@ -56,7 +56,7 @@ When creating buckets in SD Connect, specific naming rules must be followed to e
 <div class="grid cards" markdown>
 
 - :material-check-circle:{ .lg .middle } **Bucket names must:**
-  { .csc-grid-card-success }
+  { .success-card }
 
     ---
 
@@ -67,7 +67,7 @@ When creating buckets in SD Connect, specific naming rules must be followed to e
 
 
 - :material-close-circle:{ .lg .middle } **Bucket names must not contain:**
-  { .csc-grid-card-error }
+  { .error-card }
 
     ---
 

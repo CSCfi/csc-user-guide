@@ -1,5 +1,6 @@
 # Visual Studio Code
-The Visual Studio Code interactive app can be used for editing and running code on Roihu or Mahti.
+
+The Visual Studio Code interactive app can be used for editing and running code on Roihu.
 Make sure to load the correct modules before launching the session for the debugger to work
 correctly.
 
@@ -38,7 +39,7 @@ The [Julia for Visual Studio Code](https://www.julia-vscode.org/) extension can 
 Due to licensing, the VSCode app in the web interface uses the
 [Open VSX Registry](https://open-vsx.org/) for extensions, rather than the official
 [Visual Studio Marketplace](https://marketplace.visualstudio.com). This means that some extensions
-are not available in the extensions tab in VSCode. Some examples are the C/C++ and GithHub Copilot
+are not available in the extensions tab in VSCode. Some examples are the C/C++ and GitHub Copilot
 extensions. However, installing these extensions manually from extension package files is possible.
 
 To install the extension:
@@ -48,7 +49,7 @@ To install the extension:
    installed, the download option may not be available.  
 ![downloading cpptools VSIX](../../img/ood-vscode-cpptools-vsix.png).
 3. Select the *Linux x64* version in the menu that appears.
-4. Upload the extension package, e.g. `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Roihu or Mahti,
+4. Upload the extension package, e.g. `ms-vscode.cpptools-1.x.x@linux-x64.vsix` to Roihu,
    for example using the file browser in the web interface.
 5. Open VSCode __in the web interface__ and navigate to the extensions tab.
 6. In the extensions tab in VS Code, click the three dots at the top to open a menu.
@@ -61,4 +62,4 @@ To install the extension:
 
 ## Troubleshooting
 
-- If VSCode does not work properly you can clear the settings and launch the application again. This can be done done by deleting the folder `~/.local/share/csc-vscode`.
+- If VSCode does not work properly you can clear the settings and launch the application again. This can be done by deleting the folder `~/.local/share/csc-vscode`.

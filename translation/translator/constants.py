@@ -3,9 +3,6 @@
 from types import SimpleNamespace
 
 
-LANG_CODE_MAP = {
-    "fi": "Finnish"
-}
 DEFAULTS = SimpleNamespace(
     snapshots_filename="snapshots.json",
     excludes_filename="exclude.txt",

@@ -1,0 +1,113 @@
+{% macro page_url(src) %}
+  {{ (pages|selectattr("src_uri", "eq", src)|first).page.url|url }}
+{% endmacro %}
+{% macro footer_link(text, href, icon=none, target="_blank" ) -%}
+  {% if not icon is none %}
+    <span class="twemoji">{% include ".icons/material/" + icon + ".svg" %}</span>
+  {% endif %}
+    <a class="docs-footer-link" href="{{ href }}" target="{{ target }}">{{ text }}</a>
+{%- endmacro %}
+<style scoped>
+  [data-md-color-scheme="docs-ui"] {
+    .docs-footer-container {
+      background-color: var(--md-default-fg-color--lightest);
+      font-size: medium;
+    }
+    .docs-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .docs-footer-column {
+      margin: 1em;
+    }
+    .docs-footer-heading {
+      font-size: larger;
+      font-weight: var(--docs-font-weight--bold);
+      margin-bottom: 1rem;
+    }
+    .docs-footer-content {
+      font-weight: var(--docs-font-weight--regular);
+      margin-bottom: 1rem;
+    }
+    .docs-footer-content ul {
+      list-style-type: none;
+      padding: unset;
+    }
+    .docs-footer-content .twemoji :is(svg) {
+      height: 1em;
+      fill: var(--md-footer-fg-color);
+    }
+    .docs-footer-link {
+      text-decoration: underline;
+      transition: background-color 125ms;
+    }
+    .docs-footer-link:is(:active, :hover) {
+      color: var(--md-accent-fg-color);
+    }
+    @media screen and (min-width: 50em) {
+      .docs-footer {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 3% 10%;
+      }
+      .docs-footer-column {
+        flex-grow: 0;
+      }
+    }
+  }
+</style>
+<div class="docs-footer-container">
+  <div class="docs-footer">
+    <div class="docs-footer-column">
+      <div class="docs-footer-heading">{{ lang.t("contact_information") }}</div>
+      <div class="docs-footer-content">
+        <strong>{{ lang.t("csc.full_name") }}</strong><br>{{ lang.t("csc.mail_address") }}
+      </div>
+      <div class="docs-footer-content">
+        {{ footer_link("(09) 457 2001 (" ~ lang.t('switchboard') ~ ")", "tel:+35894572001", icon="phone") }}
+      </div>
+      <div class="docs-footer-content">
+        {{ footer_link(lang.t("csc.info_at") ~ " CSC.fi", "https://www.csc.fi/" ~ lang.t("meta.lang_code") ~ "/" ~ lang.t("csc.info_path")) }}
+      </div>
+    </div>
+    <div class="docs-footer-column">
+      <div class="docs-footer-heading">{{ lang.t("customer_service") }}</div>
+      <div class="docs-footer-content">{{ lang.t("csc.open_hours") }}</div>
+      <div class="docs-footer-content">
+        <ul>
+          <li>{{ footer_link(lang.t("contact_form"), "https://research.csc.fi/support", icon="form-textbox") }}</li>
+          <li>{{ footer_link(lang.t("csc.email"), "mailto:" ~ lang.t("csc.email"), icon="email") }}</li>
+          <li>{{ footer_link("(09) 457 2821", "tel:+35894572821", icon="phone") }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="docs-footer-column">
+      <div class="docs-footer-heading">Info</div>
+      <div class="docs-footer-content">
+        <ul>
+          <li>{{ footer_link(lang.t("maintenance_breaks"), "https://research.csc.fi/service-breaks/" ) }}</li>
+          <li>{{ footer_link(lang.t("accessibility_statement"), page_url("support/accessibility.md"), target="_self") }}</li>
+          <li>{{ footer_link(lang.t("user_communications_archives"), page_url("support/contact.md")+"#archives", target="_self") }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% if config.extra.environment == "preview" or
+        lang.t("meta.lang_code") != "en" %}
+    {% include "partials/disclaimer.html" %}
+  {% endif %}
+  {% if page and page.git and lang.t("meta.lang_code") == "en" %}
+    {% from "partials/commit.html" import commit_link %}
+    <style scoped>
+      .preview-commit {
+        font-size: small;
+        text-align: center;
+      }
+      .preview-commit a {
+        text-decoration: underline;
+      }
+    </style>
+    {{ commit_link(page.git.head, config.repo_url, status=page.git.status) }}
+  {% endif %}
+</div>

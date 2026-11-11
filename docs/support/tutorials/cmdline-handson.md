@@ -130,8 +130,9 @@ command will set it up (replace <project> with the same project as in the batch 
 ```
 sinteractive --account <project> --time 2:00:00
 ```
-By default, on Roihu this command reserves 2 cores with 1.875 GB of memory each. 
-More cores and therefore more memory can be reserved with `--cores`, for example `--cores 4`.
+By default, on Roihu this command reserves 2 cores with 1 GiB of memory each.
+
+Use `--cores` to reserve more cores and `--mem` to reserve more memory, for example `--cores 4 --mem 8G`.
 
 Give `module load r-env` to initialize the R environment.
 
@@ -508,7 +509,7 @@ cores/mpitasks (*e.g.* 2,4,8,16, ... this is the `--ntasks` or `--ntasks-per-nod
 and rerun
 the job. The output files will be named with the number of cores used to
 run them (`$SLURM_NPROCS`). Instead of the small partition you can
-also use the `test` partition. In Roihu, there are 348 cores available per node. 
+also use the `test` partition. In Roihu, there are 384 cores available per node. 
 Jobs larger than that  need to switch to `large` partition. In multinode jobs, always 
 limit the number of *Nodes*, so that the job is not spread onto
 more nodes than necessary as it

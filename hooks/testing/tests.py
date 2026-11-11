@@ -94,6 +94,6 @@ class DocsTests:
 
             logger.info(summary)
             for line in case["results"]:
-                logger.warning(line)
+                logger.warning(line.strip())
             if len(case["results"]) > 0:
-                logger.info(case["description"])
+                logger.info(case["description"].strip())

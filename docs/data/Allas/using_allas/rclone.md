@@ -31,7 +31,7 @@ The most frequently used Rclone commands:
 *    [rclone moveto](https://rclone.org/commands/rclone_moveto/) – Move the file or directory from the source to the destination.
 *    [rclone copyurl](https://rclone.org/commands/rclone_copyurl/) – Copy the URL's content to the destination without saving it in the tmp storage.
 
-A more extensive list can be found on the [Rclone manual pages](https://rclone.org/docs/) or by typing the command `rclone` in Puhti.
+A more extensive list can be found on the [Rclone manual pages](https://rclone.org/docs/) or by typing the command `rclone` in Roihu.
 
 ## Authentication on CSC supercomputers
 
@@ -85,7 +85,7 @@ Following remotes are available:
 
 ### Rclone with swift 
 
-If need to use rclone with Swift based Allas connection, for example for accessing data that your stored to Allas from Puhti and Mahti, the connection
+If you need to use rclone with a Swift-based Allas connection, for example for accessing data that you stored to Allas from Puhti and Mahti, the connection
 is activated with commands:
 ```text
 module load allas

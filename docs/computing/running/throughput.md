@@ -31,7 +31,7 @@ High-throughput workflows are often limited by I/O rather than by compute, so pa
 The Lustre file systems at CSC are optimized for reading and writing a moderate number of large files, and they perform poorly when a workload reads or writes large numbers of small files.
 A common bottleneck occurs at task startup, when many tasks simultaneously open the same set of files, which can overload the file system and slow down not only your own jobs but the whole system for other users.
 Some workflow tools also generate a large number of small intermediate and log files, which compounds the problem.
-Whenever possible, reduce the number of files by keeping intermediate data in memory, bundling small files into archives, or directing heavy I/O to [local disk ares](../disk.md#temporary-local-disk-areas) instead of the shared parallel file system.
+Whenever possible, reduce the number of files by keeping intermediate data in memory, bundling small files into archives, or directing heavy I/O to [local disk areas](../disk.md#temporary-local-disk-areas) instead of the shared parallel file system.
 
 Containers are an effective way to reduce the file-count problem described above.
 Software stacks that consist of a large number of small files, such as Python with its external packages or R with its libraries, are particularly problematic on the parallel file system, both when installed there and when imported at task startup.
@@ -131,7 +131,7 @@ Python:
 
 * [Python parallel jobs](../../support/tutorials/python-usage-guide.md#python-parallel-jobs)
 * [CSC Dask tutorial](../../support/tutorials/dask-python.md)
-* [CSC machine learning guide](../../support/tutorials/ml-guide.md)
+* [CSC machine learning guide](../../support/tutorials/ml-guide/index.md)
 
 R:
 
@@ -170,8 +170,6 @@ Instead of submitting each task as a separate Slurm job or job step, you allocat
 It can schedule tasks at sub-node granularity and scales to large numbers of tasks across many nodes.
 To handle dependencies between tasks, [HyperQueue's Python API](https://it4innovations.github.io/hyperqueue/stable/python/), lets you build a task graph where each task can declare the tasks it depends on.
 HyperQueue can also act as the task executor for workflow managers such as Snakemake and Nextflow.
-
-For simple command-list task farming, the CSC utility `sbatch-hq` wraps HyperQueue so you can submit an ensemble of similar independent tasks directly from a file of commands.
 
 ### Snakemake
 

@@ -1,0 +1,56 @@
+{{- $resourcename := include "docs-csc.backupsName" . -}}
+{{- $ossecretname := include "docs-csc.osAppCredSecretName" . -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ $resourcename }}
+  labels:
+{{ include "docs-csc.labels" . | indent 4 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 4 }}
+spec:
+  suspend: {{ .Values.components.backups.suspend | default false }}
+  schedule: {{ .Values.components.backups.schedule | default "0 0 * * 1-5" | squote }}
+  timeZone: {{ .Values.timeZone | default "Etc/UTC" | squote }}
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      podReplacementPolicy: Failed
+      template:
+        metadata:
+          labels:
+{{ include "docs-csc.labels" . | indent 12 }}
+{{ $resourcename | list $ | include "docs-csc.componentLabels" | indent 12 }}
+        spec:
+          restartPolicy: OnFailure
+          volumes:
+            - name: work
+              emptyDir: {}
+          containers:
+            - name: {{ include "docs-csc.backupsContainerName" . }}
+              image: {{ $resourcename | list $ | include "docs-csc.fullImageName" | squote }}
+              imagePullPolicy: Always
+              env:
+                - name: RESTIC_REPOSITORY
+                  value: {{ .Values.components.backups.restic.repository | squote }}
+                - name: RESTIC_HOST
+                  value: {{ .Values.components.backups.restic.host | squote }}
+                - name: RESTIC_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ include "docs-csc.backupsSecretName" . }}
+                      key: backups.restic.password
+                - name: OS_AUTH_URL
+                  value: {{ .Values.os.authUrl | squote }}
+                - name: OS_APPLICATION_CREDENTIAL_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ $ossecretname }}
+                      key: os.applicationCredential.id
+                - name: OS_APPLICATION_CREDENTIAL_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ $ossecretname }}
+                      key: os.applicationCredential.secret
+              volumeMounts:
+                - name: work
+                  mountPath: /opt/app-root/src

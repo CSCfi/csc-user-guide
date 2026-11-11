@@ -1,6 +1,8 @@
 
 # Parallel R batch job examples
 
+--8<-- "puhti-mahti-cleanup-notice.md"
+
 The `r-env` module can be used for parallel computing in several ways. These include multi-core and array submissions, as well as MPI (Message Passing Interface)-based jobs using multiple nodes.
 
 This page provides examples on how to run various kinds of parallel R batch jobs. To get started with parallel R and for further tips, please see the [introduction to parallel R jobs](../tutorials/parallel-r.md).  

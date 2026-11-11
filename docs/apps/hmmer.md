@@ -29,7 +29,7 @@ Free to use and open source under the [BSD 3-Clause License](https://github.com/
 
 ## Available
 
-* Roihu: 3.4, via the `bio-apps` module.
+* Roihu-CPU: 3.4, via the `bio-apps` module.
 
 ## Usage
 
@@ -55,16 +55,15 @@ hmmsearch -h
 
 ### Pfam database
 
-!!! info "Shared reference databases"
-    CSC plans to provide shared reference databases (such as Pfam-A) at a central
-    location on Roihu. This is still being set up. Until it is available, download
-    and use your own copy of the database.
+CSC provides the Pfam-A HMM database (Pfam 38.2) on Roihu, already prepared for
+searching with `hmmpress`. The `hmmer` module sets the `HMMER_DB` environment variable
+to its directory, so you can search against `$HMMER_DB/Pfam-A.hmm`.
 
-You can search a protein sequence against a Pfam-A HMM database, or against your own HMM databases.
-After downloading a Pfam-A HMM file, prepare it for searching with `hmmpress`:
+You can also search against your own HMM databases. Prepare them for searching with
+`hmmpress` first:
 
 ```bash
-hmmpress Pfam-A.hmm
+hmmpress my_models.hmm
 ```
 
 With native HMMER, you can speed up the `hmmscan` and `hmmsearch` commands by using several
@@ -72,13 +71,15 @@ processors. The number of processors, e.g. 4, to be used is indicated with the o
 but the number is better replaced with an environment variable which already has it, *i.e.* 
 `$SLURM_CPUS_PER_TASK`, so it's always in sync with the batch script request.
 
-You can run the search in an [interactive session](../computing/running/interactive-usage.md). On the Roihu `interactive` partition each reserved core provides 1.875 GB of memory (up to 32 cores / 60 GB / 36 hours), so request enough cores for the memory you need, for example:
+You can run the search in an [interactive session](../computing/running/interactive-usage.md).
+On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default, and you can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
+For example:
 
 ```bash
-sinteractive --account <project> --cores 4
+sinteractive --account <project> --cores 4 --mem 8G
 module load bio-apps/v202603
 module load hmmer/3.4
-hmmscan --cpu $SLURM_CPUS_PER_TASK Pfam-A.hmm protein.fasta > result.txt
+hmmscan --cpu $SLURM_CPUS_PER_TASK $HMMER_DB/Pfam-A.hmm protein.fasta > result.txt
 ```
 
 HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is an example batch job script using 4 processor cores:
@@ -99,7 +100,7 @@ HMMER jobs should be run as interactive batch jobs or normal batch jobs. Here is
 module load bio-apps/v202603
 module load hmmer/3.4
 
-hmmscan --cpu $SLURM_CPUS_PER_TASK Pfam-A.hmm protein.fasta > result.txt
+hmmscan --cpu $SLURM_CPUS_PER_TASK $HMMER_DB/Pfam-A.hmm protein.fasta > result.txt
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`).

@@ -47,7 +47,7 @@ apptainer exec container.sif mycommand
 ```
 
 We can make directories from the host available inside the container by using bind mounts.
-On Roihu, we can bind mount the different [disk areas](../roihu-disk.md) to the container manually as follows:
+On Roihu, we can bind mount the different [disk areas](../disk.md) to the container manually as follows:
 
 ```bash
 apptainer exec --bind="/users,/projappl,/scratch,/dataset,$TMPDIR,$LOCAL_SCRATCH" container.sif mycommand
@@ -122,7 +122,7 @@ Note that Roihu-CPU and Roihu-GPU have different processor architectures, so bui
 To build on a compute node, we can reserve an interactive Slurm job as follows:
 
 ```bash
-sinteractive --cores 4 --mem 4000 --time 0:15:00
+sinteractive --cores 4 --mem 4G --time 0:15:00
 ```
 
 ### Temporary directory
@@ -132,7 +132,7 @@ Apptainer will use it to identify the directory as its temporary directory when 
 Roihu sets the `TMPDIR` environment variable automatically on login nodes and in all jobs.
 The local disk does not need to be reserved separately and it does not consume billing units.
 The available capacity depends on the node: 80 GB on login nodes and from 20 GiB to several terabytes in jobs, depending on the allocation type.
-See [Roihu disk areas](../roihu-disk.md#automatic-local-temporary-storage) for the exact amounts.
+See [Roihu disk areas](../disk.md#automatic-local-temporary-storage) for the exact amounts.
 Lustre parallel file system cannot (and should not) be used as the temporary directory.
 
 ### Cache directory
@@ -322,7 +322,7 @@ From: satama.csc.fi/r_installation_aida/ml-base:rocky9.7_gcc12_py3.12_cuda13
 ```
 
 Our machine learning guide also contains a [tutorial on how to extend
-our `ml-base` container using a sandbox](../../support/tutorials/ml-container-extend.md).
+our `ml-base` container using a sandbox](../../support/tutorials/ml-guide/container-extend.md).
 
 
 ## Reading datasets from SquashFS file

@@ -8,7 +8,6 @@ catalog:
   disciplines:
     - Miscellaneous
   available_on:
-    - Puhti
     - Roihu
 ---
 
@@ -22,7 +21,6 @@ images into videos.
 
 ## Available
 
-* Puhti: 4.4.1
 * Roihu: 7.1
 
 ## License

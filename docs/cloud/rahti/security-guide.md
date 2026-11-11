@@ -15,9 +15,7 @@ By default, Rahti applies the following  policies:
 - **Random UID/GID**: when your Pod is deployed in Rahti, a UID from the range allocated to your Rahti project is assigned automatically. The number is usually something like `1000620000`. You cannot assign a UID/GID outside that range, for example `1001`, as it requires special privileges.
 
 - **[Restricted-v2 policy](https://connect.redhat.com/en/blog/important-openshift-changes-pod-security-standards)**:
-    - `allowPrivilegeEscalation` cannot be set to `true`. Leave it empty or set it to `false`.
-    - All capabilities must be dropped by setting `capabilities.drop` to `ALL`. The only capability that may be added back is `NET_BIND_SERVICE`.
-    - Either leave `seccompProfile` empty or set `seccompProfile.type` to `RuntimeDefault`.
+    - Rahti enforces restricted policies for the users' workload. Read more in [Workload security](./configurations/workload-security.md) page.
 
 - **[Default Pod resource limits](./configurations/resource-quota.md#default-pod-resource-limits)**
 

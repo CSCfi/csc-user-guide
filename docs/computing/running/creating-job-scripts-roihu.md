@@ -98,7 +98,7 @@ The number of nodes used for the job can be set with option `--nodes`:
 #SBATCH --nodes=1
 ```
 
-This does **not** mean that the all the resources of the node(s) would be reserved, but that
+This does **not** mean that all the resources of the node(s) would be reserved, but that
 all the tasks and CPU cores will be allocated from a single node in this case. In general,
 here one could give a range `--nodes=<minnodes>-<maxnodes>` to define the spread of nodes
 across which the resources would be allocated.
@@ -337,7 +337,7 @@ Each MIG has one-seventh of the compute capacity and one-eighth of the GPU memor
 The maximum number of CPU cores and the amount of CPU memory available to a job is less than on a partition with full GPUs.
 These limits will be documented once the MIG configuration has been finalized.
 
-You can reserve at most one GPU slice per job. GPU slices are requested using the following options::
+You can reserve at most one GPU slice per job. GPU slices are requested using the following options:
 
 ```bash
 #SBATCH --partition=gpuinteractive
@@ -401,40 +401,24 @@ tar xf my-large-dataset.tar.gz -C $TMPDIR
 
 As a new feature on Roihu, it is possible to request local disk mounts from a centralized pool of fast storage resources.
 This fast storage capacity is provided over the network and
-appears as local scratch from within a Slurm job.
-
-!!! warning "Disaggregated storage is currently only available on full node jobs"
-    
-    At present this storage can only be requested if you are the sole tenant on a compute node, i.e.
-    if you are submitting to the `medium` and `large` partitions on the CPU side, or by requesting
-    nodes with the `--exclusive` flag on the GPU partitions.
-
-    Improper requests for disaggregated storage may fail with the job reported as `CANCELLED by 350`, 
-    without producing standard output or error logs.
-    Support for shared-node jobs is expected in Q3 2026 or when the service is ready.
+appears as local scratch from within a Slurm job. It can be requested on all partitions,
+including shared-node jobs.
 
 Request this local storage using the following flag in the batch script:
 
 ```bash
-#SBATCH --bb="#BB_LUA SBF storagesize=<local_storage_space> path=/run/sbb/<username>"
+#SBATCH --bb="#BB_LUA SBF storagesize=<local_storage_space> path=/sbf/data"
 ```
 
-For example, requesting 100 GiB storage
-(remember to update `<username>` to your username in the sbatch header):
+For example, requesting 100 GiB storage:
 
 ```bash
-#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
+#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/sbf/data"
 ```
 
-For reserving disaggregated storage on the GPU partitions, include the `--exclusive` flag. Note that you will be
-billed for the full node regardless of how many GPUs you reserve.
-
-```bash
-#SBATCH --exclusive
-#SBATCH --bb="#BB_LUA SBF storagesize=100G path=/run/sbb/<username>"
-```
-
-Then, this storage is available in path `/run/sbb/$USER` during the job script.
+Then, this storage is available in path `/sbf/data` during the job script. The path must begin
+with `/sbf/`. Each job gets its own private mount, so several jobs on the same node can use the
+same path.
 
 ### Undersubscribing full nodes on Roihu-CPU
 
@@ -443,7 +427,7 @@ with full node (2 GB / core) it is possible to use also a subset of
 cores within a node. Also, if the application is memory bound, memory
 bandwidth and the application performance can be improved by using
 only a single core per NUMA domain or L3 cache (look at
-[Roihu technical description](../systems-roihu.md) for details.
+[Roihu technical description](../systems-roihu.md) for details).
 Note that billing is, however, always based on full nodes.
 
 When undersubscribing nodes, one should always set
@@ -451,7 +435,7 @@ When undersubscribing nodes, one should always set
 even with pure MPI jobs. By default, Slurm scatters MPI tasks
 `--cpus-per-task` apart, i.e. with `--cpus-per-task=16` the MPI task
 **0** is bound to CPU core **0**, the MPI task **1** is bound to CPU
-core **15** _etc._. Memory bandwidth (and application performance) is
+core **16** _etc._. Memory bandwidth (and application performance) is
 the best when the tasks are executing on maximally scattered cores. As
 an example, in order to use 32 GB / core, one can run only with 24
 tasks per node as

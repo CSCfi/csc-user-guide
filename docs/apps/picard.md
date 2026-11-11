@@ -24,7 +24,7 @@ Free to use and open source under [MIT License](https://github.com/broadinstitut
 
 ## Available
 
-* Roihu: 3.3.0, via the `bio-apps` module.
+* Roihu-CPU: 3.3.0, via the `bio-apps` module.
 
 ## Usage
 

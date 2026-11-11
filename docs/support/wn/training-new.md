@@ -24,7 +24,7 @@ In order to streamline technical development for the Docs CSC platform, some vis
 ## New guide for working with large language models on CSC's supercomputers, 6.9.2024
 
 We have created a new [guide for working with large language models
-(LLMs) on CSC's supercomputers](../tutorials/ml-llm.md). The guide
+(LLMs) on CSC's supercomputers](../tutorials/ml-guide/llm.md). The guide
 discusses LLMs and GPU memory, fine-tuning and inference. The linked
 GitHub repository has examples for fine-tuning popular models on Puhti
 and Mahti. LUMI examples and more in-depth topics will be added later.
@@ -126,13 +126,13 @@ you narrow down the most appropriate tools for your use case.
 Even experienced machine learning users might have a hard time taking the leap
 into the supercomputer environment as things work a bit differently than in the
 personal computing environment. We have now created [a guide to help people get
-started with doing machine learning at CSC](../tutorials/ml-starting.md). The
+started with doing machine learning at CSC](../tutorials/ml-guide/starting.md). The
 guide shows, step by step, how to get your codes and data to Puhti and running
 on GPUs.
 
 ## How does LUMI-C differ from Mahti? 6.4.2022
 
-[A brief overview of key differences between LUMI-C and CSC supercomputers](../../computing/lumi-vs-mahti.md), notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
+A brief overview of key differences between LUMI-C and CSC supercomputers, notably Mahti, has been published. See this page to quickly understand which aspects you should be mindful of when starting as a new LUMI user as well as where to get more information!
 
 ## Tutorial on managing data on scratch disks, 5.4.2022
 
@@ -148,10 +148,10 @@ A [tutorial on how to connect to databases on Rahti from CSC supercomputers](../
 
 ## New machine learning guide released, 20.12.2021
 
-Our [Machine learning guide](../tutorials/ml-guide.md) has been updated and
+Our [Machine learning guide](../tutorials/ml-guide/index.md) has been updated and
 expanded. It now includes subsections on:
 
-* [GPU-accelerated machine learning](../tutorials/gpu-ml.md)
-* [Data storage for machine learning](../tutorials/ml-data.md)
-* [Multi-GPU and multi-node machine learning](../tutorials/ml-multi.md)
-* [Hyperparameter search](../tutorials/hyperparameter_search.md)
+* [GPU-accelerated machine learning](../tutorials/ml-guide/gpu.md)
+* [Data storage for machine learning](../tutorials/ml-guide/data.md)
+* [Multi-GPU and multi-node machine learning](../tutorials/ml-guide/multi.md)
+* [Hyperparameter search](../tutorials/ml-guide/hyperparameter_search.md)

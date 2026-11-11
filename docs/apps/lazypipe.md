@@ -20,15 +20,15 @@ Lazypipe is a stand-alone pipeline for identifying viruses in host-associated or
 
 ## License
 
-Free to use and open source under [MIT License](https://raw.githubusercontent.com/OverZealous/lazypipe/master/LICENSE).
+Free to use and open source under [GNU GPLv3](https://github.com/weinstein-bioinfo/LazypipeX/blob/main/LICENSE).
 
 ## Available
 
-Lazypipe 3.1 is available in Roihu. 
+Lazypipe 3.1 is available on Roihu. 
 
 ## Usage
 
-Up to date instructions for using Lazypipe are provided be the Lazypipe developers:
+Up to date instructions for using Lazypipe are provided by the Lazypipe developers:
 
    * [Running Lazypipe on Roihu](https://www.helsinki.fi/en/projects/lazypipe/running-lazypipex-roihu)
 

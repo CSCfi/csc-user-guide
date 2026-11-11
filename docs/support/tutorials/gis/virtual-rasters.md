@@ -79,7 +79,7 @@ File list should include preferably full paths, but for local files also relativ
 
 **Linux** 
 
-`find /appl/data/geo/mml/dem2m/ -name "*.**tif**" > file_list.txt`
+`find /dataset/project_2019680/mml/dem2m/ -name "*.**tif**" > file_list.txt`
 
 **Windows**
 
