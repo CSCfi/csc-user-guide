@@ -58,6 +58,7 @@ Additionally for example `curl` and `wget` can be used for downloading public ob
 | [Cyberduck](./using_allas/cyberduck.md) | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 | [WinSCP](https://winscp.net/eng/index.php)  |  | <font color="green">&#x2714;</font> |  |  <font color="green">&#x2714;</font> | 
 | [S3browser](https://s3browser.com/) |  |  <font color="green">&#x2714;</font> |  | <font color="green">&#x2714;</font>  |
+| [S3 Explorer](https://s3explorer.accessdevops.com/) |  | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> | <font color="green">&#x2714;</font> |
 
 WinSCP has generally rather slow data transfer speed for S3, so likely not suitable for bigger amounts of data.
 
