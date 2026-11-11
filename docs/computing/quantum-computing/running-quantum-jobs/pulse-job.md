@@ -16,8 +16,7 @@ from qiskit import QuantumCircuit
 from qiskit.compiler import transpile
 from iqm.iqm_client.util import print_env_vars
 from iqm.qiskit_iqm import IQMProvider
-from iqm.pulla.pulla import Pulla
-from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
+from iqm.qiskit_iqm.pulse_level_utils import qiskit_to_iqm, sweep_job_to_qiskit
 ```
 
 ## Define Pulla client and backend
@@ -26,10 +25,9 @@ from iqm.pulla.utils_qiskit import qiskit_to_pulla, sweep_job_to_qiskit
 
 DEVICE_CORTEX_URL = os.getenv('<CORTEX_URL>')
 
-p = Pulla(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
-
 provider = IQMProvider(DEVICE_CORTEX_URL, quantum_computer="<QUANTUM_COMPUTER_ID>")
 backend = provider.get_backend()
+client = backend.client
 ```
 
 !!! info "VLQ Pulla backend"
@@ -54,13 +52,13 @@ qc_transpiled = transpile(qc, backend=backend, optimization_level=3)
 ## Convert to Pulla
 
 ```python
-circuits, compiler = qiskit_to_pulla(p, backend, qc_transpiled)
+circuits, compiler = qiskit_to_iqm(backend, qc_transpiled)
 
 shots = 100
 settings = compiler.get_settings(circuits=circuits)
 settings.set_shots(shots)
 
-job_definition, context = compiler.compile(circuits, settings=settings)
+run_definition, context = compiler.compile(circuits, settings=settings)
 ```
 
 ## Visualize pulse scheduling (optional)
@@ -77,7 +75,7 @@ HTML(inspect_playlist(job_definition.sweep_definition.playlist, [0]))
 ## Submit through Pulla
 
 ```python
-job = p.submit_playlist(job_definition, context=context)
+job = client.submit_playlist(job_definition, context=context)
 job.wait_for_completion()
 qiskit_result = sweep_job_to_qiskit(job, shots=shots)
 
