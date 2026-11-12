@@ -9,8 +9,6 @@
 
 You (Team A) and other team (Team B) are actively collaborating. You both want to upload data to the same workspace and be able to modify content.
 
-!!! warning "If you are transferring health and social data for secondary use, please follow [separate instructions](sd-use-case-secondary-use-data-controller.md) on data sharing."
-
 ## Solution
 
 In this case you can share your bucket to Team B with **Collaborate** -permission. That way both teams have equal rights to modify files inside the shared bucket.
