@@ -63,7 +63,7 @@ You can browse through the main topics of the manual using the navigation bar on
 
 ## 3. Uploading and encrypting data
 
-Files uploaded to SD Connect are automatically encrypted during upload and decrypted during download using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
+Files uploaded to SD Connect are automatically encrypted during upload using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
 
