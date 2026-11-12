@@ -9,6 +9,8 @@
 ## Use case
 You (Team A) have datasets that other team (Team B) needs access to. They wish to view your data and analyse it in their own environment. You are willing to give them a copy of your dataset.
 
+!!! warning "If you are transferring health and social data for secondary use, please follow [separate instructions](sd-use-case-secondary-use-data-controller.md) on data sharing."
+
 ## Solution
 In this case you can share your data to Team B with **Transfer data** -permission. This allows Team B members to view your data, copy it and download the copy for themselves. Team B can have their own copy for analysis without affecting your original dataset.
 
