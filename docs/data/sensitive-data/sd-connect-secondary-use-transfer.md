@@ -2,6 +2,10 @@
 
 # Transfer health and social data for secondary use via SD Connect
 
+## Prerequisites
+
+- [Access SD Connect as a Data Controller for secondary use of health and social data](sd-use-case-secondary-use-data-controller.md)
+
 ## On this page:
 
 - [1. SD Connect overview](#1-sd-connect-overview)
