@@ -220,6 +220,7 @@ plugins:
 markdown_extensions:
   - toc:
       permalink: true
+      permalink_title: Link to this heading
   - md_in_html
   - footnotes
   - admonition
