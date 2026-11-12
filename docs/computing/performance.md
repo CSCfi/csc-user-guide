@@ -1,5 +1,15 @@
 # Performance Analysis
 
+Roihu has three ways to check how efficiently your jobs use the resources they
+reserved:
+
+* The [`seff` command](#quick-start-efficiency-report-with-seff) summarizes the
+  CPU, memory and GPU use of a single job and the billing units it consumed.
+* The [Job monitoring app](#job-monitoring-app) in the Roihu web interface shows
+  how your finished jobs used their resources over time.
+* The [efficiency banner](#efficiency-banner-at-login) shown when you log in
+  summarizes the efficiency of all your recent jobs.
+
 ## Quick Start: Efficiency Report with seff
 
 Slurm job efficiency report (command: `seff`) gives a quick summary of
@@ -20,6 +30,10 @@ used (CPU Efficiency) and how much of the allocated memory was actually used
     ```bash
     seff $SLURM_JOBID
     ```
+
+    The job is still running at that point, so the report only includes the
+    job steps that have already finished (those started with `srun`). Run
+    `seff` again after the job has ended to get the complete figures.
 
 ```console title="Example output for a single node job"
 [kkayttaj@roihu-cpu-login2 perf]$ seff 307386
@@ -68,11 +82,113 @@ Mem usage: 0.00 CPU BU
 - **Memory Utilized / Memory Efficiency** shows peak memory used versus what was
   reserved. High memory efficiency values are especially important on core-based
   partitions like `small`, where jobs share a node and unused reserved memory
-  can't be used by other jobs, increasing queue times.
+  can't be used by other jobs, increasing queue times. If the job ran several
+  tasks, `seff` estimates the peak as the peak of the largest task multiplied
+  by the number of tasks, and marks it `(estimated maximum)`. Note that `seff`
+  reports memory in GiB, although it labels the values GB.
 
 - **Billing Units** shows how the job was charged, and which resource determined
   the price. Up to date information about billing units can be found on the
-  [Billing page](./hpc-billing.md).
+  [Billing page](./hpc-billing.md). Local scratch reserved with `--gres=nvme`
+  is shown on its own `NVME usage` line. Reserved
+  [disaggregated storage](disk.md#disaggregated-storage) is not yet included
+  in the `seff` figures, although it is billed.
+
+### GPU jobs
+
+Jobs on the GPU partitions are billed for the reserved GPUs only, so `seff`
+shows a `GPU usage` line instead of the CPU and memory lines. It also adds a GPU
+efficiency report with the mean, standard deviation and maximum of the load and
+memory use of each GPU, and the energy each GPU used. The GPU figures come from
+the job monitoring system, so they are also available for running jobs. If
+there is no monitoring data for the job, for example because it was very
+short, the report says `GPU Efficiency: not available`.
+
+See the machine learning guide for examples of the
+[GPU load and memory](../support/tutorials/ml-guide/gpu.md#tools-for-monitoring-gpu-utilization)
+and [GPU energy](../support/tutorials/ml-guide/gpu.md#tools-for-monitoring-gpu-energy-usage)
+output.
+
+## Job monitoring app
+
+Roihu records the resource use of each job at 10-second intervals. The
+[Job monitoring app](webinterface/index.md#job-monitoring) in the
+[Roihu web interface](https://www.roihu.csc.fi) shows this data for your
+finished jobs, so you can see not only how much of its resources a job used,
+but also how the use changed over the job's lifetime. Open the app from _Jobs_ >
+_Job monitoring_ in the top navbar.
+
+The app lists your completed jobs from the last 60 days with their efficiency:
+
+* **CPU %** is the average share of time the reserved CPU cores were busy.
+* **Mem %** is the peak memory use as a share of the reserved memory.
+* **GPU %** is the average load of the reserved GPUs.
+
+Values below 50% are shown in red, values from 50% to 75% in yellow and values
+of 75% or more in green.
+
+Select a job ID to open the report for that job. The report starts with a table
+of the resources the job had on each node, how much of them it used and the
+resulting efficiency. Above the table, the report tells you whether your
+resource requests need attention:
+
+* GPU jobs are assessed on their GPU load only, as the GPUs are what the job is
+  billed for.
+* Jobs that reserve part of a node should use at least 75% of both their CPU
+  cores and their memory, as the reserved resources are not available to other
+  jobs.
+* Jobs that reserve whole nodes are flagged only if both their CPU and memory
+  efficiency are below 75%, as no other job can use the rest of the node anyway.
+
+Below the table, charts show the use of each resource during the job: GPU load,
+memory and power, CPU load per node and per core, IO wait, and memory use. They
+help you find problems that a single efficiency value hides, for example a job
+that only uses one of its GPUs, or a job that spends long periods waiting for
+the file system (high IO wait) instead of computing.
+
+Reports become available a few minutes after a job has finished. Jobs that ran
+for less than a minute are not recorded, and you can only see your own jobs.
+
+Compared with `seff`, the app shows how the resource use changed over time,
+while `seff` reports the totals Slurm records for the job, including the billing
+units. As they measure the use in different ways, their efficiency values can
+differ slightly.
+
+## Efficiency banner at login
+
+When you log in to Roihu with SSH, a banner summarizes the efficiency of your
+jobs over the last week, the last month and all time:
+
+```text
+┏━━━ Efficiency ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                             ┃
+┃ Your job efficiency: ● good                                                 ┃
+┃                                                                             ┃
+┃     All time:   412 jobs,   301 efficient jobs,  71.3% average efficiency   ┃
+┃   Last month:    58 jobs,    47 efficient jobs,  76.8% average efficiency   ┃
+┃    Last week:    12 jobs,    10 efficient jobs,  81.2% average efficiency   ┃
+┃                                                                             ┃
+┃ Job reports at: https://roihu.csc.fi/pun/sys/dashboard/custom/job_table     ┃
+┃ For help:       https://docs.csc.fi/support/contact/                        ┃
+┃                                                                             ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
+
+The banner uses the same data as the [Job monitoring app](#job-monitoring-app):
+
+* The efficiency of a job is the highest of its CPU, memory and GPU efficiency.
+  The banner currently is generous in its assessment, counting a job towards the efficient totals when this is at least 50%. This will likely be raised in the future.
+* The rating at the top is based on your average efficiency over the last
+  month: good for 75% or more, average for 50% or more, and poor below that. If
+  you had no jobs last month, the rating uses your all-time average.
+* Jobs on the `interactive` and `gpuinteractive` partitions are not counted,
+  as interactive sessions mostly wait for user input.
+
+To keep logins fast, the banner is shown from a saved copy that is updated in
+the background at most once an hour. It therefore shows the figures from an
+earlier login, and it is not shown at your first login.
+
+Open the Job monitoring app to see which jobs used their resources poorly.
 
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).

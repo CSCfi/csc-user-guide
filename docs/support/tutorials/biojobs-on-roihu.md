@@ -411,6 +411,9 @@ There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
 you should consider using the fast local disk (`$TMPDIR`) available on all
 compute nodes, or [disaggregated storage](../../computing/disk.md#disaggregated-storage).
+The [Job monitoring app](../../computing/performance.md#job-monitoring-app) in the
+Roihu web interface shows the CPU load and IO wait of your finished jobs over time.
+High IO wait while the CPU load is low shows that the job is waiting for the disk.
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,
@@ -428,7 +431,7 @@ job, the memory request has been way too large (92GB requested vs. 6GB used).
 
 ```text
 Memory Utilized: 5.98 GB
-Memory Efficiency: 6.25% of 92.59 GB
+Memory Efficiency: 6.46% of 92.59 GB
 ```
 
 The other command to check the status and resource usage of past jobs is `sacct`. It is handy
