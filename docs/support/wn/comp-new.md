@@ -1,11 +1,19 @@
 # Computing environment
 
-## Job efficiency banner at login, 12.11.2026
+## Roihu job efficiency banner at login, 16.11.2026
 
 When you log in to Roihu with SSH, a banner now summarizes the efficiency of
 your jobs over the last week, the last month and all time. See
 [Performance analysis](../../computing/performance.md#efficiency-banner-at-login)
 for what the figures mean.
+
+## Roihu web interface updated to release 6, 12.11.2026
+
+* The Job monitoring app should now work better for large jobs.
+* The interactive app forms will now warn when a partition is unavailable.
+* ParaView 6.0 has been added to Accelerated Visualization.
+* Avogadro 2 no longer crashes when inserting molecules.
+* Open OnDemand updated to 4.2.6.
 
 ## Roihu web interface updated to release 5, 29.10.2026
 
