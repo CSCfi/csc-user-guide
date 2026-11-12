@@ -14,11 +14,6 @@
 
 Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive research data. It automatically encrypts files during upload and decrypts them during download through an easy-to-use interface. For uploads larger than 100 GB, a command-line tool is available which also provides automated key management.
 
-SD Connect also supports collaborative research, allowing data collection and sharing within the platform. Files stored are encrypted and can be accessed for analysis, annotation, or editing through SD Desktop.
-
-You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
-
-
 <div class="grid cards" markdown>
 
 - :material-check-circle:{ .lg .middle } **Key features**
@@ -65,10 +60,10 @@ You can browse through the main topics of the manual using the navigation bar on
 
 Files uploaded to SD Connect are automatically encrypted during upload using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
-SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders. This has several implications for how your data should be organized and managed:
+SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders, and each bucket can contain up to 500.000 segmented files. This has several implications for how your data should be organized and managed:
 
-- **Once files are uploaded to SD Connect, they cannot be edited or modified**. It is therefore important to plan the bucket structure in advance. To simplify data management and avoid issues, it is recommended to create a separate bucket for each dataset or experiment. Avoid placing too many files in a single bucket, each bucket can contain up to 500.000 segmented files.
-
+- **Once files are uploaded to SD Connect, they cannot be edited or modified**.
+  
 - **Uploading files into folders is not supported.** 
 
 - **Upload duration**: Uploading large files or large batches may take several hours. Uploads are automatically stopped after 8 hours.
