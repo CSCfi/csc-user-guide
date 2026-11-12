@@ -15,6 +15,8 @@ In this case you can share your bucket to Team B with **Collaborate** -permissio
 
 ![Collaborate Infograph](https://a3s.fi/docs-files/sensitive-data/SD_Connect/UseCase_Collaborate.png)
 
+!!! warning "If you are transferring health and social data for secondary use, please follow [separate instructions](sd-use-case-secondary-use-data-controller.md) on data sharing."
+
 
 ## Step by step tutorial
 
