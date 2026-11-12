@@ -6,6 +6,8 @@
 
 You (Team A) have data that other team (Team B) needs access to. They wish to view and analyze your data, but you want to prevent them from downloading a copy of it.
 
+!!! warning "If you are transferring health and social data for secondary use, please follow [separate instructions](sd-use-case-secondary-use-data-controller.md) on data sharing."
+
 ## Solution
 
 To prevent Team B from downloading the original data, create two separate projects in MyCSC:
