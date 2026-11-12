@@ -12,7 +12,7 @@
 
 ## 1. SD Connect overview
 
-Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive research data. It automatically encrypts files during upload and decrypts them during download through an easy-to-use interface. For uploads larger than 100 GB, a command-line tool is available which also provides automated key management.
+Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive data. It automatically encrypts files during upload through an easy-to-use interface. For uploads larger than 100 GB, a command-line tool is available which also provides automated key management.
 
 <div class="grid cards" markdown>
 
@@ -27,16 +27,6 @@ Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive 
     - Enhanced login security with multi-factor authentication (MFA).
     - Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data.
  
-
-
-- :material-close-circle:{ .lg .middle } **Limitations**
-  { .error-card }
-
-
-    Known temporary issues:
-
-    - Firefox in private mode is not supported.
-  
 </div>
 
 ---
