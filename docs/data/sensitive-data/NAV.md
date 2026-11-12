@@ -38,6 +38,7 @@
         - [Access with a Secondary Use project](sd-use-case-secondary-use-project.md)
         - [Export anonymous results](sd-desktop-secondary-export.md)
     - [Instructions for data controllers](sd-use-case-secondary-use-data-controller.md)
+    - [Transferring secondary use data via SD Connect](sd-connect-secondary-use.md)
 - [Terminology](sd-terminology.md)
 - SD Services – Version history
     - [SD Connect releases](releases-sd-connect.md)
