@@ -233,7 +233,7 @@ Each entry shows the module name and its versions; load a version with
 - [sanspanz](pannzer.md) 3.20250512
 - [seqkit](seqkit.md) 2.10.0, 2.13.0
 - [seqtk](seqtk.md) 1.4
-- [snakemake](snakemake.md) 7.32.4, 9.14.0
+- [snakemake](snakemake.md) 7.32.4, 9.14.0, 9.16.2, 9.27.1
 - [sortmerna](sortmerna.md) 7.0.0
 - [spades](spades.md) 4.2.0, 4.3.0
 - [sra-tools](sra-tools.md) 3.3.0
@@ -271,7 +271,7 @@ GPU-accelerated tools:
 - [mrbayes](mrbayes.md) 3.2.8
 - [nextflow](nextflow.md) 25.10.2-standalone, 26.04.6-standalone
 - [py-medaka](medaka.md) 2.2.2
-- [snakemake](snakemake.md) 7.32.4, 9.14.0
+- [snakemake](snakemake.md) 7.32.4, 9.14.0, 9.16.2, 9.27.1
 
 </div>
 
