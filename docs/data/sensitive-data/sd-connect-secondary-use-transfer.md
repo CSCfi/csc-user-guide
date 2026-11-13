@@ -11,7 +11,7 @@
 1. [Overview](#1-delivering-secondary-use-data-via-sd-connect---overview): Delivering secondary use data via SD Connect
 2. [Login to SD Connect](#2-login-to-sd-connect)
 3. [Upload and encrypt data](#3-upload-and-encrypt-data)
-4. [Manage datasets](#4-manage-datasets)
+4. [Manage datasets](#4-manage-datasets): Add data, delete files and cancel access
 
 ---
 
@@ -39,7 +39,9 @@ With secondary use data, it is essential to **follow the practises presented in 
 
     ---
 
-    - Each dataset must be uploaded to a dedicated bucket created by the Sensitive Data services team based on the data permits.
+    - Each dataset must be uploaded to **a dedicated bucket created by the Sensitive Data services team**. Please, wait for the bucket information before uploading any files for a new dataset.
+    - It is also crucial, that **the bucket is shared to a CSC project created specifically for the dataset** it includes. The Sensitive Data services team manages the data access by approving all project members to the researchers' Secondary Use type CSC projects based on the data permit and by verifying that the Share ID used in sharing the bucket is from the correct project.
+    - Only the **Read to SD Desktop** access permission for the shared buckets is allowed for the secondary use data. Please, do not change the permissions set by the Sensitive Data services team or share buckets by yourself.
  
 </div>
 
