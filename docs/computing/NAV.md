@@ -34,6 +34,7 @@
 - [Web interface](webinterface/)
 - [Quantum computing](quantum-computing/overview.md)
     - [Access through LUMI](quantum-computing/access.md)
+    - [Applying for access](quantum-computing/apply-for-access.md)
     - [Devices](quantum-computing/devices/overview.md)
         - [Aalto Q20](quantum-computing/devices/q20.md)
         - [VTT Q50](quantum-computing/devices/q50.md)
