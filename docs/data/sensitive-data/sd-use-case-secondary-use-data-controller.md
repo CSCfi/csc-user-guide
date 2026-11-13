@@ -38,7 +38,7 @@ Creating a CSC account is possible only if you have a Haka or Virtu account. If 
 - Check your email for a notification and log in to MyCSC to find the project. You will need the project number and project name to identify the correct project in SD Connect.
 
 !!! warning "Note"
-    This project may be used only to deliver data to users who will process secondary use data in SD Desktop. Data must be uploaded to buckets provided by CSC in accordance with the instructions on this page. Any other data will be removed from the project by the Sensitive Data support team.
+    This project may be used only to deliver data to users who will process secondary use data in SD Desktop. Data must be uploaded to buckets provided by CSC in accordance with the instructions in the [user guide](sd-connect-secondary-use-transfer.md) for secondary use data transfer. Any other data will be removed from the project by the Sensitive Data support team.
 
 ---
 
