@@ -1,6 +1,6 @@
 [Table of contents of user guide :material-arrow-right:](sd-services-toc.md)
 
-# Uploading secondary use health and social data for research use via SD Connect
+# Access SD Connect as a Data Controller for secondary use of health and social data
 
 ## Use case
 
