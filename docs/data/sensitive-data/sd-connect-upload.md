@@ -24,7 +24,9 @@ Files uploaded to SD Connect are automatically encrypted during upload and decry
 
     ___
 
-    All members of a CSC project can upload and download files via SD Connect. To restrict access, files can be shared with another CSC project (Academic type) using **Read to SD Desktop** permission. For assistance, please contact servicedesk@csc.fi (subject: SD Connect). 
+    All members of a CSC project can upload and download files via SD Connect. To restrict access, files can be shared with another CSC project (Academic type) using **Read to SD Desktop** permission. For assistance, please contact servicedesk@csc.fi (subject: SD Connect).
+
+    For uploading health and social data for secondary use, please follow [separate instructions](sd-connect-secondary-use-transfer.md).
 
 </div>
 
