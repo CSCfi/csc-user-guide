@@ -16,8 +16,6 @@ Your organisation has issued a data permit for a research group to process healt
 1. [Create or apply for a CSC account](#1-create-or-apply-for-a-csc-account)
 2. [Join a CSC project](#2-join-a-csc-project)
 3. [Login to SD Connect](#3-login-to-sd-connect)
-4. [Upload each dataset to a dedicated bucket](#4-upload-each-dataset-to-a-dedicated-bucket)
-5. [Manage datasets](#5-manage-datasets)
 
 ---
 
