@@ -27,7 +27,7 @@ Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive 
 
     - User-friendly interface fully compatible with Chrome web browser.
     - Accessible via web browser from your computer (Mac, Linux, or Windows) and any location (no need to install specific programs or use a VPN).
-    - Uploads up to 100 GB are automatically encrypted and decrypted during upload and download via a web browser. For larger uploads, a programmatic tool (SD-lock/unlock) is available. Automated encryption key management.
+    - Uploads up to 100 GB are automatically encrypted during upload via a web browser. For larger uploads, a programmatic tool (SD-lock/unlock) is available. Automated encryption key management.
     - Enhanced login security with multi-factor authentication (MFA).
     - Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data.
  
