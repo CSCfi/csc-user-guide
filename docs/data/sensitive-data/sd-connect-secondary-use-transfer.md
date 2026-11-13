@@ -21,8 +21,6 @@ Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive 
 
 With secondary use data, it is essential to **follow the practises presented in this user guide to comply with the Findata regulation and the Secodary Use Act**. Researches can access the data delivered for them only on SD Desktop service and via a specific Secondary Use type CSC project, which restricts the data access only to the authorized individuals and for the duration of the data permit.
 
-You can browse through the main topics of the manual using the navigation bar on the left side of this page or the search function.
-
 <div class="grid cards" markdown>
 
 - :material-check-circle:{ .lg .middle } **Key features**
