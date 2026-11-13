@@ -27,5 +27,5 @@ In the application form for quantum resources, you need to specify the amount of
 You can use the [FiQCI resource estimator](https://fiqci.fi/resource-estimator/){ target=_blank } as a guideline on how much QPU time a quantum job requires. The FiQCI resource estimator currently supports estimating resource usage for VTT Q50 and Aalto Q20 but not for LUMI-Q VLQ. IT4Innovations National Supercomputing Center at VSB – Technical University of Ostrava has published a guide for [estimating consumption on VLQ](https://docs.it4i.cz/en/docs/clusters/vlq/vlq-consumption-guide){ target=_blank }.
 
 ## Further reading
-- [Device overview](https://docs.csc.fi/computing/quantum-computing/devices/overview/)
-- [Running quantum jobs](https://docs.csc.fi/computing/quantum-computing/running-quantum-jobs/overview/)
+- [Device overview](../devices/overview.md)
+- [Running quantum jobs](../running-quantum-jobs/overview.md)
