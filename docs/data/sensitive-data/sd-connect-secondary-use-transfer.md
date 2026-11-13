@@ -8,14 +8,14 @@
 
 ## On this page:
 
-1. [Delivering secondary use data via SD Connect - overview](#1-delivering-secondary-use-data-via-sd-connect---overview)
+1. [Overview](#1-delivering-secondary-use-data-via-sd-connect---overview): Delivering secondary use data via SD Connect
 2. [Login to SD Connect](#2-login-to-sd-connect)
 3. [Uploading and encrypting data](#3-uploading-and-encrypting-data)
 4. [Manage datasets](#4-manage-datasets)
 
 ---
 
-## 1. Delivering secondary use data via SD Connect - overview
+## 1. Overview
 
 Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive data. It automatically encrypts files during upload through an easy-to-use interface. For uploads larger than 100 GB, a command-line tool is available which also provides automated key management.
 
@@ -36,8 +36,6 @@ With secondary use data, it is essential to **follow the practises presented in 
  
 - :material-alert:{ .lg .middle } **Restrictions for secondary use**
   { .warning-card }
-
-  ---
 
   - Each dataset must be uploaded to a dedicated bucket created by the Sensitive Data services team based on the data permits.
  
