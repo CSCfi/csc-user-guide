@@ -34,6 +34,13 @@ With secondary use data, it is essential to **follow the practises presented in 
     - Enhanced login security with multi-factor authentication (MFA).
     - Supports encryption and storage of any file type: text files, images, audio files, video, and genetic data.
  
+- :material-alert:{ .lg .middle } **Restrictions for secondary use**
+  { .warning-card }
+
+  ---
+
+  - Each dataset must be uploaded to a dedicated bucket created by the Sensitive Data services team based on the data permits.
+ 
 </div>
 
 ---
