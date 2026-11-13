@@ -112,11 +112,13 @@ The datasets will remain in your control after they are uploaded to the buckets 
 
 You can add data to any existing dataset by [uploading new files to the bucket](#31-upload-and-encrypt-files-to-an-existing-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
 
+---
+
 ### 4.2 Removing corrupted or incorrect files
 
-You can remove data from any existing dataset by deleting files from the bucket. 
+You can remove data from any existing dataset by deleting files from the bucket.
 
-NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
+!!! warning If the researchers are no longer allowed to use these files in their analysis, you need to also request them to remove any possible working copies of the files from their SD Desktop environment.
 
 #### 4.2.1 Deleting a file
 
@@ -129,6 +131,8 @@ NOTE! If the users are no longer allowed to use these files in their analysis, y
 3. Confirm by clicking **Delete items** from the notification.
 ![SD Connect Confirm delete](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteConfirm.png)
 
+---
+
 #### 4.2.2 Deleting multiple files
 
 1. Select the correct project and bucket.
@@ -140,17 +144,27 @@ NOTE! If the users are no longer allowed to use these files in their analysis, y
 4. Confirm by clicking **Delete items** from the notification.
 ![SD Connect Confirm delete](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteConfirmMultiple.png)
 
+---
+
 #### 4.2.3 Deleting subfolder
 
 1. Select the correct project and bucket.
 2. Find correct subfolder and open it.
 3. Delete all files inside the subfolder, [see instructions](#422-deleting-multiple-files). Subfolder is deleted automatically when all files in it are deleted.
 
+---
+
 ### 4.3 Cancelling the data access
 
-You can terminate the data access any time by [removing the sharing of the bucket](#432-delete-sharing-permission) and/or [deleting the data files](#422-deleting-multiple-files). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
+!!! warning If the researchers are no longer allowed to use these files in their analysis, you need to also request them to remove any possible working copies of the files from their SD Desktop environment.
+
+#### 4.3.1 Delete the data files
+
+You can cancel the data access permanently by [deleting the data files](#422-deleting-multiple-files). 
 
 #### 4.3.2 Delete sharing permission
+
+In addition, you can cancel the data access either permanently or temporarily by deleting the sharing permissions from the bucket.
 
 1. Select correct project from the top-left corner. Click **Share** button on the right side of the bucket.
 ![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
