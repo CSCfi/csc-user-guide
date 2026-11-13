@@ -19,7 +19,7 @@
 
 Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive data. It automatically encrypts files during upload through an easy-to-use interface. For uploads larger than 100 GB, a command-line tool is available which also provides automated key management.
 
-With secondary use data, it is essential to **follow the practises presented in this user guide to comply with the Findata regulation and the Secodary Use Act**. Researches can access the data delivered for them only on SD Desktop service and via a specific Secondary Use type CSC project, which restricts the data access only to the approved individuals and for the duration of the data permit.
+With secondary use data, it is essential to **follow the practises presented in this user guide to comply with the Findata regulation and the Secodary Use Act**. Researches can access the data delivered for them only on SD Desktop service and via a specific Secondary Use type CSC project, which restricts the data access only to the authorized individuals and for the duration of the data permit.
 
 <div class="grid cards" markdown>
 
