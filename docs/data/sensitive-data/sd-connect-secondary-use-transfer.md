@@ -10,7 +10,7 @@
 
 1. [Overview](#1-delivering-secondary-use-data-via-sd-connect---overview): Delivering secondary use data via SD Connect
 2. [Login to SD Connect](#2-login-to-sd-connect)
-3. [Uploading and encrypting data](#3-uploading-and-encrypting-data)
+3. [Uploade and encrypt data](#3-upload-and-encrypt-data)
 4. [Manage datasets](#4-manage-datasets)
 
 ---
@@ -58,7 +58,7 @@ With secondary use data, it is essential to **follow the practises presented in 
 
 ---
 
-## 3. Uploading and encrypting data
+## 3. Upload and encrypt data
 
 Files uploaded to SD Connect are automatically encrypted during upload using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
 
