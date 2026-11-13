@@ -148,7 +148,7 @@ NOTE! If the users are no longer allowed to use these files in their analysis, y
 
 ### 4.3 Cancelling the data access
 
-You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
+You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](#422-deleting-multiple-files). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
 
 #### 4.3.2 Delete sharing permission
 
