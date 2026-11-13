@@ -10,7 +10,7 @@
 
 1. [Overview](#1-delivering-secondary-use-data-via-sd-connect---overview): Delivering secondary use data via SD Connect
 2. [Login to SD Connect](#2-login-to-sd-connect)
-3. [Uploade and encrypt data](#3-upload-and-encrypt-data)
+3. [Upload and encrypt data](#3-upload-and-encrypt-data)
 4. [Manage datasets](#4-manage-datasets)
 
 ---
