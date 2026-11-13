@@ -15,7 +15,7 @@
 
 ---
 
-## 1. SD Connect overview
+## 1. SD Connect for secondary use data delivery - overview
 
 Sensitive Data (SD) Connect enables the secure storage and sharing of sensitive data. It automatically encrypts files during upload through an easy-to-use interface. For uploads larger than 100 GB, a command-line tool is available which also provides automated key management.
 
