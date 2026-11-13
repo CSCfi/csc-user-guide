@@ -53,6 +53,10 @@ After this, the command line options of each `hmmer` command can be checked with
 hmmsearch -h
 ```
 
+The module also provides the Easel tools that come with HMMER, such as `esl-reformat`
+for converting between sequence and alignment formats and `esl-sfetch` for retrieving
+sequences from a large sequence file.
+
 ### Pfam database
 
 CSC provides the Pfam-A HMM database (Pfam 38.2) on Roihu, already prepared for

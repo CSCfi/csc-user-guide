@@ -17,6 +17,9 @@ ASTRAL is a tool for estimating an unrooted species tree given a set of unrooted
 trees. It is statistically consistent under the multi-species coalescent model and is
 suitable for species-tree estimation in the presence of incomplete lineage sorting.
 
+This page covers ASTRAL-III. Its successor ASTRAL-IV, and ASTRAL-Pro3 for gene trees
+with multi-copy genes, are available in the [ASTER](aster.md) package.
+
 [TOC]
 
 ## License

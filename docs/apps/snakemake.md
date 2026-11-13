@@ -25,8 +25,8 @@ If you are still wondering about workflows at more general level or which workfl
 
 Versions available at CSC:
 
-* Roihu-CPU: 7.32.4, 9.14.0 (via the `bio-apps` module)
-* Roihu-GPU: 7.32.4, 9.14.0 (via the `bio-apps` module)
+* Roihu-CPU: 7.32.4, 9.14.0, 9.16.2, 9.27.1 (via the `bio-apps` module)
+* Roihu-GPU: 7.32.4, 9.14.0, 9.16.2, 9.27.1 (via the `bio-apps` module)
 
 ## License
 
@@ -44,7 +44,7 @@ The Snakemake module is the easiest option. Load the bio-apps module tree and th
 
 ```bash
 module load bio-apps/v202603
-module load snakemake/9.14.0
+module load snakemake/9.27.1
 snakemake --help   #  to get information on more options.
 ```
 
@@ -54,6 +54,9 @@ To load a specific version, for example Snakemake 7:
 module load bio-apps/v202603
 module load snakemake/7.32.4
 ```
+
+The Snakemake modules include [pandas](https://pandas.pydata.org/), so your Snakefile
+can use it, for example to read a sample sheet.
 
 !!! info "Note"
     Please pay attention to the version of Snakemake you are using. If you are using earlier versions of Snakemake (e.g., v7.xx.x) the syntax might be different.
@@ -153,7 +156,7 @@ On the Roihu `interactive` partition you get 1 GiB of memory per reserved core b
 ```bash
 sinteractive --account <project> --cores 4 --mem 12G # 12 GiB of memory
 module load bio-apps/v202603
-module load snakemake/9.14.0
+module load snakemake/9.27.1
 cd <to_folder_with_snakefile>
 snakemake -s Snakefile --jobs 4
 ```
@@ -174,7 +177,7 @@ The resources are reserved in advance, both for Snakemake and the workflow as **
 #SBATCH --mem-per-cpu=2G
 
 module load bio-apps/v202603
-module load snakemake/9.14.0
+module load snakemake/9.27.1
 
 snakemake -s Snakefile --jobs 4
 ```
@@ -203,7 +206,7 @@ Here is a bash script for running the above toy example with SLURM executor:
 #SBATCH --error=slurm-%j.err
 
 module load bio-apps/v202603
-module load snakemake/9.14.0
+module load snakemake/9.27.1
 
 snakemake --jobs 4  -s Snakefile --executor slurm --default-resources slurm_account=<project> slurm_partition=small
 ```
@@ -256,7 +259,7 @@ The resources are reserved in advance, both for Snakemake and the workflow as **
 
 module load hyperqueue
 module load bio-apps/v202603
-module load snakemake/9.14.0
+module load snakemake/9.27.1
 
 export HQ_SERVER_DIR="$PWD/hq-server/$SLURM_JOB_ID"
 mkdir -p "$HQ_SERVER_DIR"
