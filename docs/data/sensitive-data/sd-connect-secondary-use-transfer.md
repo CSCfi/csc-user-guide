@@ -118,7 +118,7 @@ You can add data to any existing dataset by [uploading new files to the bucket](
 
 You can remove data from any existing dataset by deleting files from the bucket.
 
-!!! warning If the researchers are no longer allowed to use these files in their analysis, you need to also request them to remove any possible working copies of the files from their SD Desktop environment.
+!!! warning "If the researchers are no longer allowed to use these files in their analysis, you need to also request them to remove any possible working copies of the files from their SD Desktop environment."
 
 #### 4.2.1 Deleting a file
 
@@ -156,11 +156,13 @@ You can remove data from any existing dataset by deleting files from the bucket.
 
 ### 4.3 Cancelling the data access
 
-!!! warning If the researchers are no longer allowed to use these files in their analysis, you need to also request them to remove any possible working copies of the files from their SD Desktop environment.
+!!! warning "If the researchers are no longer allowed to use these files in their analysis, you need to also request them to remove any possible working copies of the files from their SD Desktop environment."
 
 #### 4.3.1 Delete the data files
 
 You can cancel the data access permanently by [deleting the data files](#422-deleting-multiple-files). 
+
+---
 
 #### 4.3.2 Delete sharing permission
 
