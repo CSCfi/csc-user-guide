@@ -144,7 +144,7 @@ NOTE! If the users are no longer allowed to use these files in their analysis, y
 
 1. Select the correct project and bucket.
 2. Find correct subfolder and open it.
-3. Delete all files inside the subfolder, [see instructions](#2-deleting-multiple-files). Subfolder is deleted automatically when all files in it are deleted.
+3. Delete all files inside the subfolder, [see instructions](#422-deleting-multiple-files). Subfolder is deleted automatically when all files in it are deleted.
 
 ### 4.3 Cancelling the data access
 
