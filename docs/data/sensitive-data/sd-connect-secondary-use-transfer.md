@@ -150,6 +150,18 @@ NOTE! If the users are no longer allowed to use these files in their analysis, y
 
 You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
 
+#### 4.3.2 Delete sharing permission
+
+1. Select correct project from the top-left corner. Click **Share** button on the right side of the bucket.
+![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
+
+2. In the Share window **scroll down to This project is shared to title**. Delete permission by clicking **Delete** button on the right side of the project.
+![Change permissions](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareDeletePermission1.png)
+
+3. A notification will open above the project list. **You may have to scroll up to see it.** Confirm your choise by clicking **Delete Permissions** button.
+![Accept](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareDeletePermission2.png)
+
+
 ---
 
 <div class="grid cards" markdown>
