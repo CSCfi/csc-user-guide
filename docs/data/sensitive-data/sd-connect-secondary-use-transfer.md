@@ -108,16 +108,45 @@ Data users create their CSC projects based on their data permits and can access 
 
 The datasets will remain in your control after they are uploaded to the buckets and shared with the users. You can upload more data, remove files, and also remove the data access from the users.
 
-### 1. Delivering additional data
+### 4.1 Delivering additional data
 
-You can add data to any existing dataset by [uploading new files to the bucket](#4-upload-each-dataset-to-a-dedicated-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
+You can add data to any existing dataset by [uploading new files to the bucket](#31-upload-and-encrypt-files-to-an-existing-bucket) created for the data permit. Remember to use unique file names to avoid overwriting the old files.
 
-### 2. Removing corrupted or incorrect files
+### 4.2 Removing corrupted or incorrect files
 
-You can remove data from any existing dataset by [deleting files from the bucket](sd-connect-delete.md). NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
+You can remove data from any existing dataset by deleting files from the bucket. 
 
+NOTE! If the users are no longer allowed to use these files in their analysis, you need to also request that they remove any possible working copies of the files from their SD Desktop environment.
 
-### 3. Cancelling the data access
+#### 4.2.1 Deleting a file
+
+1. Select the correct project and bucket.
+![SD Connect Select bucket](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_UploadExistingBucket1.png)
+
+2. Click **Delete** on right side of each file you want to delete.
+![Delete a file](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Delete.png)
+
+3. Confirm by clicking **Delete items** from the notification.
+![SD Connect Confirm delete](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteConfirm.png)
+
+#### 4.2.2 Deleting multiple files
+
+1. Select the correct project and bucket.
+2. Select **Display options** from top right corner of file list. Then select **Hide pagination** from the same menu. Now all files are displayed on one page. 
+![SD Connect Display options](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteMultiple1.png)
+
+3. Select **checkbox** on top left corner of the file list. Click **Delete** from the toolbar appearing on top of file list.
+![SD Connect Delete files](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteMultiple2.png)
+4. Confirm by clicking **Delete items** from the notification.
+![SD Connect Confirm delete](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_DeleteConfirmMultiple.png)
+
+#### 4.2.3 Deleting subfolder
+
+1. Select the correct project and bucket.
+2. Find correct subfolder and open it.
+3. Delete all files inside the subfolder, [see instructions](#2-deleting-multiple-files). Subfolder is deleted automatically when all files in it are deleted.
+
+### 4.3 Cancelling the data access
 
 You can terminate the data access any time by [removing the sharing of the bucket](sd-connect-share.md#4-delete-sharing-permission) and/or [deleting the data files](sd-connect-delete.md). However, same applies here as with removing files: if the data can no longer be used in any analysis, the users need to be instructed to remove all working copies of the data.
 
