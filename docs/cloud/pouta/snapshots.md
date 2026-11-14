@@ -1,9 +1,5 @@
 # Snapshots
 
-Table of Contents
-
-[TOC]
-
 This article describes how to use [snapshots](https://docs.openstack.org/arch-design/common/glossary.html#term-snapshot){target="_blank"} to capture and store 
 the file system state of a Pouta virtual machine.
 
@@ -14,12 +10,12 @@ before taking snapshots. This is the best way to make sure
 the file system is captured in a consistent state.
 
 Please note that snapshots may not always be the optimal method of
-getting an instance into a predefined state. For more robust solution,
+getting an instance into a predefined state. For a more robust solution,
 configuration automation tools such as [Ansible](https://github.com/ansible/ansible){target="_blank"}
 and [Puppet](https://github.com/puppetlabs/puppet){target="_blank"} are recommended.
 Instead of using snapshots, these tools are used to create
 the environment from scratch and then restore the content
-of previous environment.
+of the previous environment.
 
 There is no limit to the number of snapshots you can take,
 but as a general courtesy you should keep snapshots to a minimum
@@ -44,18 +40,18 @@ when creating a new instance. Image snapshots are more common.
 
 #### Instance snapshot from the web interface
 
-Select 'Instances' tab, under 'Compute', from the left hand side menu (**1**).
+Select **Instances** tab, under **Compute**, from the left-hand side menu (**1**).
 Select the virtual machine you want to take a snapshot of from the list
-and click the 'Create Snapshot' button in the 'Actions' column (**2**).
+and click the **Create Snapshot** button in the **Actions** column (**2**).
 
 ![Creating a snapshot from the web interface.](../img/cloud_pouta_vm_snapshot_1.svg)
 
-Give the snapshot a descriptive name (**3**) and click 'Create Snapshot' (**4**)
+Give the snapshot a descriptive name (**3**) and click **Create Snapshot** (**4**)
 to start the process.
 
 ![Naming the snapshot and launching creation.](../img/cloud_pouta_vm_snapshot_2.svg)
 
-You can access a list of snapshots from the 'Images' tab.
+You can access a list of snapshots from the **Images** tab.
 
 #### Instance snapshot from the CLI
 
@@ -144,11 +140,12 @@ can typically be used as bootable images.
 #### Launching a snapshot from the web interface
 
 Image snapshots are used just like any other image. You can launch one
-from the 'Images' view or from the 'Instances' view ('Launch Instance' button).
+from the **Images** view or from the **Instances** view (**Launch Instance** button).
 
-Enter the basic information for the new instance (**1**). Select 'Boot from snapshot'
-(**2**) as the boot source for the instance and to 'Instance Snapshot' select
-from the list of snapshots (**3**) the one you wish to launch.
+Enter the basic information for the new instance (**1**). Select **Boot from
+snapshot** (**2**) as the boot source for the instance, then, for **Instance
+Snapshot** (**3**), select the one you wish to launch from the list of
+snapshots.
 
 ![Launch a snapshot based instance.](../img/cloud_pouta_vm_snapshot_3.svg)
 
@@ -197,7 +194,7 @@ Last parameter of the command is the name of the new instance. Again, the output
 ```
 
 After launching a new instance from a snapshot (either from the web interface or the CLI)
-the 'Instances' view looks like below.
+the **Instances** view looks like below.
 
 ![Running instances](../img/cloud_pouta_vm_snapshot_4.svg)
 
@@ -213,9 +210,9 @@ A few points to bear in mind:
 It is possible to download an image, including image snapshots, but only from the CLI. The steps are the following:
 
 !!! Info
-    In order to run this commands you need to [install the openstack client](install-client.md) and [login into Pouta](install-client.md#configure-your-terminal-environment-for-openstack).
+    In order to run these commands you need to [install the openstack client](install-client.md) and [login into Pouta](install-client.md#configure-your-terminal-environment-for-openstack).
 
-2. List all the images in the project:
+1. List all the images in the project:
 
     ```sh
     $ openstack image list
@@ -248,13 +245,13 @@ It is possible to download an image, including image snapshots, but only from th
 
 #### Volume snapshot from the web interface
 
-Select 'Volumes' tab, under Volumes, from the left hand side menu (**1**). Select the volume 
-you want to take a snapshot of from the list and extend the 'Actions' menu.
-Choose the 'Create Snapshot' item from the list (**2**).
+Select **Volumes** tab, under Volumes, from the left-hand side menu (**1**). Select the volume 
+you want to take a snapshot of from the list and extend the **Actions** menu.
+Choose the **Create Snapshot** item from the list (**2**).
 
 ![Volume snapshot from the web interface](../img/cloud_pouta_vm_snapshot_5.svg)
 
-Give the snapshot a descriptive name (**3**) and click 'Create Volume Snapshot' (**4**)
+Give the snapshot a descriptive name (**3**) and click **Create Volume Snapshot** (**4**)
 to start the process.
 
 ![Naming the snapshot and launching creation.](../img/cloud_pouta_vm_snapshot_6.svg)
@@ -327,9 +324,9 @@ launched from the volume snapshot.
 Again launching a volume snapshot instance works just like launching any other image.
 
 Enter the basic information for the new instance (**1**). Select
-'Boot from volume snapshot (creates a new volume)' (**2**) as the boot
-source for the instance and to 'Volume Snapshot' select
-from the list of snapshots (**3**) the one you wish to launch.
+**Boot from volume snapshot (creates a new volume)** (**2**) as the boot
+source for the instance, then, for **Volume Snapshot** (**3**), select
+the one you wish to launch from the list of snapshots.
 
 ![Launch a volume snapshot based instance.](../img/cloud_pouta_vm_snapshot_7.svg)
 
@@ -340,7 +337,7 @@ information in the official OpenStack [documentation](https://docs.openstack.org
 
 #### Downloading a volume snapshot
 
-It is not possible to download a volume snapshot directly from OpenStack, not from the web interface neither from the CLI. But it is possible to indirectly download the contents of a snapshot. The basic idea is to create a volume from the volume snapshot, and then mount said new volume into a VM. Once that is done, it will be possible to download individual files or the whole volume in a single file.
+It is not possible to download a volume snapshot directly from OpenStack, neither from the web interface nor from the CLI. But it is possible to indirectly download the contents of a snapshot. The basic idea is to create a volume from the volume snapshot, and then mount said new volume into a VM. Once that is done, it will be possible to download individual files or the whole volume in a single file.
 
 1. Create the volume from the snapshot:
 
@@ -352,7 +349,7 @@ It is not possible to download a volume snapshot directly from OpenStack, not fr
     !!! Info "Using the CLI"
         `openstack volume create --snapshot b4f95381-e56d-4080-95e4-935c66528005 test-snapshot`
 
-        The id `b4f95381-e56d-4080-95e4-935c66528005` corresponds to the snapshot we want to restore, and `test-snapshot` is the name of the new created volume.
+        The id `b4f95381-e56d-4080-95e4-935c66528005` corresponds to the snapshot we want to restore, and `test-snapshot` is the name of the newly created volume.
 
 1. Now you need to attach the volume to a VM. You can use an existing VM or [create a new VM](launch-vm-from-web-gui.md). Once you have a VM ready, you need to attach the volume to it:
 
@@ -389,7 +386,7 @@ It is not possible to download a volume snapshot directly from OpenStack, not fr
     $ ssh salto "sudo tar czf - /mnt/" > file.tar.gz
     ```
 
-1. After you get the files you needed to get, you need to clean up:
+1. After you have retrieved the files you need, clean up:
 
     * Unmount the volume `umount /mnt`.
     * Detach the volume from the VM.
