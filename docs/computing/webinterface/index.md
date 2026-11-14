@@ -91,6 +91,9 @@ few minutes after a job completes before reports become available.
 The job-specific report pages show a summary of the job's resource usage as well as plotted time series data
 for CPU, GPU and memory metrics throughout the job's runtime.
 
+See [Performance analysis](../performance.md#job-monitoring-app) for how to read the efficiency values and
+the reports.
+
 
 ### Project view
 

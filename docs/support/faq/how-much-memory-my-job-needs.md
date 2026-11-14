@@ -59,6 +59,13 @@ to avoid the job crashing due to out-of-memory error. Start small with short
 test jobs, and increase the memory accordingly if your job crashes. This is
 better than requesting a huge amount "just in case".
 
+## Job monitoring app
+
+The [Job monitoring app](../../computing/performance.md#job-monitoring-app) in
+the Roihu web interface shows the memory use of your finished jobs over the
+whole run, both in GiB and as a share of the reserved memory. It shows each node
+of a multi-node job separately, so you can see the actual peak on each node.
+
 ## Custom queries to Slurm accounting
 
 You can check the time and memory usage of a completed job also with `sacct`

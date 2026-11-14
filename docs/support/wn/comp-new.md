@@ -1,5 +1,12 @@
 # Computing environment
 
+## Roihu job efficiency banner at login, 16.11.2026
+
+When you log in to Roihu with SSH, a banner now summarizes the efficiency of
+your jobs over the last week, the last month and all time. See
+[Performance analysis](../../computing/performance.md#efficiency-banner-at-login)
+for what the figures mean.
+
 ## Roihu web interface updated to release 6, 12.11.2026
 
 * The Job monitoring app should now work better for large jobs.

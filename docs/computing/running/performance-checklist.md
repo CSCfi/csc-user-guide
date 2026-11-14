@@ -5,6 +5,17 @@ for your jobs and the system. If you know how to improve job performance,
 please contribute to the list!
 
 
+## Check your job resource utilization
+
+After a job has finished, check how much of the reserved resources it actually
+used. `seff <jobid>` summarizes the CPU, memory and GPU efficiency and the
+billing units of the job. The Job monitoring app in the Roihu web interface
+shows how the use changed during the job, for example long periods of high IO
+wait or idle GPUs. If the efficiency is low, reserve fewer resources, or use
+the checks below to find the bottleneck. See
+[Performance analysis](../performance.md).
+
+
 ## Check CPU Affinity
 
 CPU affinity describes how a running program is placed on
