@@ -412,7 +412,7 @@ indicate that the program is waiting for disk access to catch up. In these cases
 you should consider using the fast local disk (`$TMPDIR`) available on all
 compute nodes, or [disaggregated storage](../../computing/disk.md#disaggregated-storage).
 The [Job monitoring app](../../computing/performance.md#job-monitoring-app) in the
-Roihu web interface shows the CPU load and IO wait of your finished jobs over time.
+Roihu web interface shows the CPU load and I/O wait of your finished jobs over time.
 High IO wait while the CPU load is low shows that the job is waiting for the disk.
 
 Low efficiency could also be due to reserving more than one core and the application
