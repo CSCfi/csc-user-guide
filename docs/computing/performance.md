@@ -177,7 +177,8 @@ jobs over the last week, the last month and all time:
 The banner uses the same data as the [Job monitoring app](#job-monitoring-app):
 
 * The efficiency of a job is the highest of its CPU, memory and GPU efficiency.
-  The banner currently is generous in its assessment, counting a job towards the efficient totals when this is at least 50%. This will likely be raised in the future.
+  The banner currently is generous in its assessment, counting a job towards the
+  efficient totals when this is at least 50%. This will likely be raised in the future.
 * The rating at the top is based on your average efficiency over the last
   month: good for 75% or more, average for 50% or more, and poor below that. If
   you had no jobs last month, the rating uses your all-time average.
