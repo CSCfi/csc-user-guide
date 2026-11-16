@@ -141,7 +141,7 @@ resource requests need attention:
   efficiency are below 75%, as no other job can use the rest of the node anyway.
 
 Below the table, charts show the use of each resource during the job: GPU load,
-memory and power, CPU load per node and per core, IO wait, and memory use. They
+memory and power, CPU load per node and per core, I/O wait, and memory use. They
 help you find problems that a single efficiency value hides, for example a job
 that only uses one of its GPUs, or a job that spends long periods waiting for
 the file system (high I/O wait) instead of computing.
