@@ -84,8 +84,7 @@ Mem usage: 0.00 CPU BU
   partitions like `small`, where jobs share a node and unused reserved memory
   can't be used by other jobs, increasing queue times. If the job ran several
   tasks, `seff` estimates the peak as the peak of the largest task multiplied
-  by the number of tasks, and marks it `(estimated maximum)`. Note that `seff`
-  reports memory in GiB, although it labels the values GB.
+  by the number of tasks, and marks it `(estimated maximum)`.
 
 - **Billing Units** shows how the job was charged, and which resource determined
   the price. Up to date information about billing units can be found on the
