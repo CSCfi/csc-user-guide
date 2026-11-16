@@ -413,7 +413,10 @@ you should consider using the fast local disk (`$TMPDIR`) available on all
 compute nodes, or [disaggregated storage](../../computing/disk.md#disaggregated-storage).
 The [Job monitoring app](../../computing/performance.md#job-monitoring-app) in the
 Roihu web interface shows the CPU load and I/O wait of your finished jobs over time.
-High IO wait while the CPU load is low shows that the job is waiting for the disk.
+High I/O wait while the CPU load is low suggests that the job is waiting for the
+disk. I/O wait is a CPU metric, so it can also be high when only some of the
+job's threads are waiting for I/O, or because of I/O from other jobs on a
+shared node.
 
 Low efficiency could also be due to reserving more than one core and the application
 scaling poorly. Check especially if the percentage matches the number of cores reserved,

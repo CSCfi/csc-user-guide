@@ -97,8 +97,9 @@ Mem usage: 0.00 CPU BU
 
 Jobs on the GPU partitions are billed for the reserved GPUs only, so `seff`
 shows a `GPU usage` line instead of the CPU and memory lines. It also adds a GPU
-efficiency report with the mean, standard deviation and maximum of the load and
-memory use of each GPU, and the energy each GPU used. The GPU figures come from
+efficiency report with the mean, standard deviation and maximum of the
+[load](#job-monitoring-app) and the allocated memory of each GPU, and the energy
+each GPU used. The GPU figures come from
 the job monitoring system, so they are also available for running jobs. If
 there is no monitoring data for the job, for example because it was very
 short, the report says `GPU Efficiency: not available`.
@@ -121,10 +122,17 @@ The app lists your completed jobs from the last 60 days with their efficiency:
 
 * **CPU %** is the average share of time the reserved CPU cores were busy.
 * **Mem %** is the peak memory use as a share of the reserved memory.
-* **GPU %** is the average load of the reserved GPUs.
+* **GPU %** is the average load of the reserved GPUs. The load of a GPU is the
+  share of time during which at least one kernel was running on it, the same
+  value `nvidia-smi` reports as `GPU-Util`. It tells you how much of the time
+  the GPU was busy, not how much of its compute capacity the job used, so a
+  job can reach a high GPU load while using only part of the GPU.
 
-Values below 50% are shown in red, values from 50% to 75% in yellow and values
-of 75% or more in green.
+Each value is colored by how efficiently the job used that resource:
+
+* **Red:** less than 50%
+* **Yellow:** at least 50% but less than 75%
+* **Green:** 75% or more
 
 Select a job ID to open the report for that job. If a job ID is not a link,
 there is no report available for that job. The report starts with a table
@@ -143,8 +151,8 @@ resource requests need attention:
 Below the table, charts show the use of each resource during the job: GPU load,
 memory and power, CPU load per node and per core, I/O wait, and memory use. They
 help you find problems that a single efficiency value hides, for example a job
-that only uses one of its GPUs, or a job that spends long periods waiting for
-the file system (high I/O wait) instead of computing.
+that only uses one of its GPUs or has high I/O wait, which can indicate that the
+job is waiting for the file system instead of computing.
 
 Reports become available a few minutes after a job has finished. Jobs that ran
 for less than a minute are not recorded, and you can only see your own jobs.
