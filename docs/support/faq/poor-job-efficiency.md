@@ -46,7 +46,7 @@ seff <JOBID>
   See [GPU utilization](../tutorials/ml-guide/gpu.md#gpu-utilization) in the
   machine learning guide. If your program cannot use GPUs, run it on the CPU
   partitions.
-* **The job spends its time waiting for the file system.** High IO wait in the
+* **The job spends its time waiting for the file system.** High I/O wait in the
   Job monitoring app is a sign of this, often caused by reading or writing many
   small files. Use [fast local storage](local_scratch_for_data_processing.md)
   instead, and see
