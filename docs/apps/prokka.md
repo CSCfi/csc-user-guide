@@ -23,14 +23,16 @@ Free to use and open source under [GNU GPLv3](https://www.gnu.org/licenses/gpl-3
 
 ## Available
 
-* Roihu-CPU: 1.15.6
+* Roihu-CPU: 1.15.6, via the `bio-apps` module.
 
 ## Usage
 
-To activate the Prokka environment, run the command:
+Prokka is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the bio-apps
+module tree and then the Prokka module:
 
 ```bash
-module load prokka
+module load bio-apps/v202603
+module load prokka/1.15.6
 ```
 
 After that you can launch Prokka with the command `prokka`.
@@ -55,37 +57,27 @@ A sample batch job script (`batch_job_file.bash`) is provided below:
 ```bash
 #!/bin/bash
 #SBATCH --job-name=prokka
+#SBATCH --account=<project>
 #SBATCH --output=output_%j.txt
 #SBATCH --error=errors_%j.txt
-#SBATCH --time=24:00:00
-#SBATCH --ntasks=1
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=16000
 #SBATCH --partition=small
-#SBATCH --account=your_project_name
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G
 
-# Set the number of threads based on cpus-per-task
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+module load bio-apps/v202603
+module load prokka/1.15.6
 
-# Place and bind threads to single cores
-# Comment the following lines if binding is not desired
-export OMP_PLACES=cores
-export OMP_PROC_BIND=spread
-
-# Set up Prokka
-module load prokka
-
-# Run Prokka
 prokka --cpus $SLURM_CPUS_PER_TASK --outdir results_case1 --prefix mygenome contigs_case1.fa
 ```
 
 In the batch job example above one Prokka task (`--ntasks=1`) is executed.
-The job reserves 8 cores (`--cpus-per-task=8`) with a total of 16 GB of memory (`--mem=16000`).
+The job reserves 8 cores (`--cpus-per-task=8`) with a total of 16 GiB of memory (`--mem=16G`).
 The maximum duration of the job is 24 hours (`--time=24:00:00`). All the cores are assigned from
-one computing node (`--nodes=1`). In addition to the resource reservations, you have to define
-the billing project for your batch job. This is done by replacing `your_project_name` with
-the name of your project. You can use the command `csc-projects` to see what CSC projects you have access to.
+one computing node (`--nodes=1`). Replace `<project>` with your CSC project (for example
+`project_2001234`). You can use the command `csc-projects` to see what CSC projects you have access to.
 
 You can submit the batch job file to the batch job system with the command:
 
@@ -94,6 +86,10 @@ sbatch batch_job_file.bash
 ```
 
 See the [Roihu user guide](../computing/running/getting-started.md) for more information about running batch jobs.
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 

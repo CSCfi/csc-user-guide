@@ -11,7 +11,7 @@ Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identi
 
 #SBATCH --job-name=quantumjob   # Job name
 #SBATCH --account=project_<id>  # Project for billing (slurm_job_account)
-#SBATCH --partition=standard    # Partition (queue) name
+#SBATCH --partition=small    # Partition (queue) name
 #SBATCH --ntasks=1              # One task (process)
 #SBATCH --mem-per-cpu=2G        # Memory allocation
 #SBATCH --cpus-per-task=1       # Number of cores (threads)
