@@ -4,7 +4,7 @@ An [interactive batch job](../../computing/running/interactive-usage.md) on
 Roihu allows you to start a shell session on a CPU node with up to:
 
 * 32 cores
-* 64 GB of memory
+* 64 GiB of memory
 * 36 hours of run time
 
 To launch an interactive session on Roihu, execute the command:
@@ -32,21 +32,20 @@ Interactive CPU batch jobs launched with `sinteractive` on Roihu automatically
 provide access to 20 GiB of
 [fast local disk](../../computing/disk.md#temporary-local-disk-areas)
 (`$TMPDIR`), which is suitable for processing small files efficiently. For
-larger needs, users should instead request
-[disaggregated storage](../../computing/disk.md#disaggregated-storage) using
-`srun` directly, as shown further below.
+larger needs, add
+[disaggregated storage](../../computing/disk.md#disaggregated-storage) to the
+session with the `-d` option of `sinteractive`, as shown further below.
 
 To demonstrate the use of the disaggregated storage, let's study a sample
 directory called `big_data`. The directory contains about 100 GB of data in
 120 000 files. Initially, the data is packaged as a single tar archive in the
 scratch directory of project 2001234 (`/scratch/project_2001234/big_data.tar`)
 
-First, we launch an interactive batch job with 2 cores, 4000 MB of memory and
-250 GB of disaggregated storage.
+First, we launch an interactive batch job with 2 cores, 4 GiB of memory and
+250 GiB of disaggregated storage.
 
 ```bash
-srun --partition=interactive --account=<project> --cpus-per-task=2 --mem=4000 --time=02:00:00 \
-  --bb="#BB_LUA SBF storagesize=250G path=/sbf/data" --pty bash -i
+sinteractive --account <project> --cores 2 --mem 4G --time 02:00:00 -d 250G
 ```
 
 The analysis is then done in three steps:

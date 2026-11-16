@@ -88,7 +88,7 @@ and can be deleted, but the access tokens for those can not be revoked.
 
 The [IDA storage service](../../data/ida/using_ida.md) can also be used from
 the web interface. However, some key features, such as moving data from the
-staging area to the frozen area, are only possible though the
+staging area to the frozen area, are only possible through the
 [IDA web interface](https://ida.fairdata.fi).
 
 To use IDA from the Roihu web interface, it must first be configured for

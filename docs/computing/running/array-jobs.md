@@ -41,7 +41,7 @@ You can also include step size in the job range definition. The array job defini
 would run five jobs with `$SLURM_ARRAY_TASK_ID` values: 1, 21, 41, 61 and 81.
 
 In some cases, it may be reasonable to limit the number of simultaneously running processes.
-This is done with the notation `%max_number_of_jobs`. For example, in a case were you have
+This is done with the notation `%max_number_of_jobs`. For example, in a case where you have
 100 jobs but a license for only five simultaneous processes, you could ensure that you will
 not run out of license using the definition
 

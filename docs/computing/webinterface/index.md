@@ -112,18 +112,9 @@ specific instructions, see the [Interactive apps](apps.md) page.
 
 ### Partitions and resources
 
-!!! warning ""
-    Only a few partitions of Puhti and Mahti are available for use in the web
-    interfaces. Some apps also have a more limited set of partitions available
-    than others.  
-    The maximum length of jobs in the web interface is 16 hours to keep the
-    queueing times for interactive resources short. If you have work that
-    requires longer jobs than that, we recommend that you run your software as
-    [batch jobs](../running/getting-started.md).
-
 In the **Roihu web interface**, the `interactive`, `small`, `test`, `gpuinteractive`, and `gputest`
 partitions are available. In the [Accelerated Visualization app](accelerated-visualization.md), the
 `vizinteractive` partition is used, and will reserve one Nvidia L40 GPU. On the `gpuinteractive` and
 `gputest` partitions, one Nvidia GH200 GPU will be allocated. See the [Roihu partitions
-page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues on
-Roihu.
+page](../running/batch-job-partitions.md#roihu-partitions) for general information about queues and
+the maximum runtimes on each partition.

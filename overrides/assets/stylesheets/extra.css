@@ -85,6 +85,10 @@
     a { text-decoration: underline; }
     blockquote { border-radius: .2rem; }
 
+    h1, h2, h3, h4, h5, h6 {
+      a.headerlink { text-decoration: none; }
+    }
+
     .md-button {
       text-decoration: none;
       color: var(--md-primary-fg-color);
@@ -305,7 +309,7 @@
     .twemoji { color: var(--grid-card-color); }
   }
 
-    .grid.docs-quick-links {
+  .grid.docs-quick-links {
     text-wrap: balance;
 
     :is(h1,h2,h3,h4,h5,h6) {

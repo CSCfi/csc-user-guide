@@ -171,6 +171,14 @@ plugins:
       "computing/pdb.md": "apps/pdb.md"
       "data/Allas/allas-examples.md": "data/Allas/allas-roihu.md"
       "data/sensitive-data/single-register-submission.md": "data/sensitive-data/sd-use-case-secondary-use-data-controller.md"
+      "support/tutorials/ml-container-extend.md": "support/tutorials/ml-guide/container-extend.md"
+      "support/tutorials/ml-data.md": "support/tutorials/ml-guide/data.md"
+      "support/tutorials/gpu-ml.md": "support/tutorials/ml-guide/gpu.md"
+      "support/tutorials/hyperparameter_search.md": "support/tutorials/ml-guide/hyperparameter_search.md"
+      "support/tutorials/ml-llm.md": "support/tutorials/ml-guide/llm.md"
+      "support/tutorials/ml-multi.md": "support/tutorials/ml-guide/multi.md"
+      "support/tutorials/ml-starting.md": "support/tutorials/ml-guide/starting.md"
+      "support/tutorials/ml-workflows.md": "support/tutorials/ml-guide/workflows.md"
       # files moved to Allas:
       # (note the '<filename>.<original extension>.md' hack, as these are not Markdown files)
       "data/sensitive-data/federated-ega-pricing.pdf.md": "https://a3s.fi/docs-files/sensitive-data/PDF_instructions/federated-ega-pricing.pdf"
@@ -190,12 +198,18 @@ plugins:
       # Pouta
       "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
       # Quantum
+      "computing/quantum-computing/running-quantum-jobs.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
+      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/circuit-job.md"
+      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
+      "computing/quantum-computing/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/circuit-job.md"
+      "computing/quantum-computing/running-quantum-jobs.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
+      "computing/quantum-computing/pulse-level-access.md": "computing/quantum-computing/running-quantum-jobs/pulse-job.md"
       "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/overview.md"
       "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
-      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/first-quantum-job.md"
+      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
       "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/devices/overview.md"
-      "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/fiqci-partition.md"
-      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs.md"
+      "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/overview.md"
+      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
       "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
       "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
       "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
@@ -204,40 +218,43 @@ plugins:
       "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
 
 markdown_extensions:
-  - md_in_html
-  - footnotes
-  - admonition
-  - abbr
-  - attr_list
-  - def_list
-  - pymdownx.details
-  - pymdownx.blocks.caption
-  - pymdownx.tabbed:
-      alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  - pymdownx.snippets:
-      base_path:
-        - includes/snippets
-        - docs/data/sensitive-data
-      auto_append:
-        - glossaries/hpc.md
-        - glossaries/cloud.md
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      use_pygments: true
-      pygments_lang_class: true
-      anchor_linenums: true
-      line_spans: __span
-  - pymdownx.inlinehilite
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  toc:
+    permalink: true
+    permalink_title: Link to this heading
+  md_in_html: {}
+  footnotes: {}
+  admonition: {}
+  abbr: {}
+  attr_list: {}
+  def_list: {}
+  pymdownx.details: {}
+  pymdownx.blocks.caption: {}
+  pymdownx.tabbed:
+    alternate_style: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify
+      kwds:
+        case: lower
+  pymdownx.snippets:
+    base_path:
+      - includes/snippets
+      - docs/data/sensitive-data
+    auto_append:
+      - glossaries/hpc.md
+      - glossaries/cloud.md
+  pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  pymdownx.highlight:
+    use_pygments: true
+    pygments_lang_class: true
+    anchor_linenums: true
+    line_spans: __span
+  pymdownx.inlinehilite: {}
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   name: materialx
@@ -369,6 +386,7 @@ not_in_nav: |
   /support/tutorials/*.md
   /support/tutorials/env-guide/*.md
   /support/tutorials/gis/*.md
+  /support/tutorials/ml-guide/*.md
   !/support/tutorials/index.md
 
   # Training material

@@ -96,7 +96,7 @@ Machine learning framework for Python.
     to all three systems.
 
     **17.11.2023** PyTorch 2.1 added to Puhti, Mahti and LUMI. Horovod has
-    been removed, we recommend using [PyTorch DDP](../support/tutorials/ml-multi.md) 
+    been removed, we recommend using [PyTorch DDP](../support/tutorials/ml-guide/multi.md) 
     instead. [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/) 
     was added to the Puhti and Mahti version.
     
@@ -161,7 +161,7 @@ normal.
 
     If you are new to using machine learning on CSC's supercomputers,
     please read our new tutorial [Getting started with machine learning
-    at CSC](../support/tutorials/ml-starting.md), which covers how to run
+    at CSC](../support/tutorials/ml-guide/starting.md), which covers how to run
     a simple PyTorch project on Roihu using the web user interface.
 
 
@@ -245,7 +245,7 @@ proportion of the available CPU cores in a single node:
 
 
 Please read the section on [Efficient GPU utilization in our Machine
-learning guide](../support/tutorials/gpu-ml.md) to learn how to use
+learning guide](../support/tutorials/ml-guide/gpu.md) to learn how to use
 the GPU efficiently.
 
 
@@ -253,7 +253,7 @@ the GPU efficiently.
 
 If you are working with big datasets, or datasets that contain a lot
 of files, please read [the data section of our Machine learning
-guide](../support/tutorials/ml-data.md). In particular, please **do
+guide](../support/tutorials/ml-guide/data.md). In particular, please **do
 not read a huge number of files from the shared file system**, use
 fast local disk or package your data into larger files instead!
 
@@ -261,13 +261,13 @@ For multi-GPU and multi-node jobs we recommend using the PyTorch
 Distributed Data-Parallel framework. You can read more about this and
 find examples of how to use PyTorch DDP on CSC's supercomputers in the
 [Multi-GPU and multi-node section of our Machine learning
-guide](../support/tutorials/ml-multi.md)
+guide](../support/tutorials/ml-guide/multi.md)
 
 
 ### PyTorch profiler
 
 If your PyTorch program is slow, or you notice that it has a [low GPU
-utilization](../support/tutorials/gpu-ml.md#gpu-utilization) you can
+utilization](../support/tutorials/ml-guide/gpu.md#gpu-utilization) you can
 use the [PyTorch
 profiler](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html)
 to analyze the time and memory consumption of your program.
@@ -358,6 +358,6 @@ that it cannot really utilize the GPU fully.
 
 ## More information
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../support/tutorials/ml-guide/index.md)
 - [PyTorch documentation](https://pytorch.org/docs/stable/index.html)
 - [LUMI AI Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide)

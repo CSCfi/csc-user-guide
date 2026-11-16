@@ -44,7 +44,7 @@ restored later.
 
 To save the settings, check the *Save settings* checkbox at the end of the form. A modal will appear
 where you can either choose to save as a new saved settings, or overwrite an existing saved setting.
-Enter a name for the saved settings and press save. After that you will be launch the application,
+Enter a name for the saved settings and press save. After that you can launch the application,
 which will save the settings.
 
 ![saving settings in form](../../img/ood-save-settings.png)

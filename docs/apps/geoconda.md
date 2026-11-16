@@ -39,7 +39,7 @@ includes following python packages:
 -   [esda](https://github.com/pysal/esda) - Exploratory Spatial Data Analysis. NEW 2025
 -   [fiona] - reads and writes spatial data files.   
 -   [geoalchemy2]  - provides extensions to [SQLAlchemy] for working with spatial databases, primarily PostGIS.
--   [geocube](https://corteva.github.io/geocube/stable/readme.html) - convert geopandas vector data into rasterized xarray data. NEW 2025
+-   [geocube](https://vylor.github.io/geocube/stable/) - convert geopandas vector data into rasterized xarray data. NEW 2025
 -   [geodatasets](https://geodatasets.readthedocs.io/) download and cache spatial data example files. NEW 2025
 -   **[geopandas]** - GeoPandas extends the datatypes used by [pandas].
 -   [geoparquet-io](https://geoparquet.io/) - fast reader for GeoParquet files. NEW 2026
@@ -105,7 +105,7 @@ includes following python packages:
 -   [swiftclient, keystoneclient](https://docs.openstack.org/python-swiftclient/latest/) - for working with SWIFT storage, for example Allas. [Allas Swift example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/blob/master/python/allas/working_with_allas_from_Python_Swift.py).
 -   [urbanaccess](https://udst.github.io/urbanaccess) - for computing GTFS transit and OpenStreetMap pedestrian networks for accessibility analysis. Only in 3.12.10
 -   [whiteboxtools](https://www.whiteboxgeo.com/) -  wide-scope processing of geospatial data, many tools operate in parallel, see [CSC whiteboxtools page](whiteboxtools.md) for details. 3.14.3 includes also Whitebox Workflows for Python.
--   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://corteva.github.io/rioxarray). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
+-   **[xarray](http://xarray.pydata.org)** - for multidimensional raster data, inc. [rioxarray](https://vylor.github.io/rioxarray/stable/). [STAC example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/STAC).
     -   [cf_xarray](https://cf-xarray.readthedocs.io/en/latest/) - interpret Climate and Forecast metadata convention attributes present on xarray objects. NEW 2026
     -   [flox](https://flox.readthedocs.io/en/latest/) - fast GroupBy reductions for Xarray. NEW 2026
     -   [xarray-spatial](https://xarray-spatial.readthedocs.io/) - efficient common raster analysis functions for xarray. [xarray-spatial example in CSC geocomputing Github](https://github.com/csc-training/geocomputing/tree/master/python/zonal_stats)
@@ -119,7 +119,7 @@ includes following python packages:
     
 Additionally geoconda includes:
 
--   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [Mahti web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
+-   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). Not in 3.14.3.
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
@@ -139,10 +139,7 @@ If you think that some important GIS package for Python is missing from here, yo
 The `geoconda` module is available:
 
 * 3.14.4 (Python 3.14.4, PDAL 2.10.0, GDAL 3.12.2, created May 2026), in LUMI
-* 3.14.3 (Python 3.14.3, PDAL 2.10.0, GDAL 3.12.2, created March 2026), in Mahti
 * 3.11.10 (Python 3.11.10, PDAL 2.8.0, GDAL 3.9.2, created November 2024), in LUMI.
-* 3.11.9 (Python 3.11.9, PDAL 2.7.2, GDAL 3.9.1, created August 2024), in Mahti.
-* 3.10.6 (Python 3.10.6, PDAL 2.4.1, GDAL 3.5.0, created September 2022), in Mahti.
 
 Version number is the same as the Python version.
 
@@ -179,21 +176,19 @@ You can add more Python packages to `geoconda` by following the instructions in 
 
 You can edit your Python code with:
 
-* [Visual Studio Code in Mahti or LUMI web interface](../computing/webinterface/vscode.md)
-* Jupyter Notebook or Lab in [Mahti](../computing/webinterface/jupyter.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
-* Spyder in [Mahti](../computing/webinterface/desktop.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
+* [Visual Studio Code in LUMI web interface](../computing/webinterface/vscode.md)
+* Jupyter Notebook or Lab in [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
+* Spyder in [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
 
-To open Spyder in Mahti or LUMI web interface with remote desktop:
+To open Spyder in LUMI web interface with remote desktop:
 
-1. Log in to [Mahti](https://mahti.csc.fi) or [LUMI](https://www.lumi.csc.fi/) web interface.
+1. Log in to [LUMI](https://www.lumi.csc.fi/) web interface.
 2. Open Remote desktop: Apps -> Desktop.
-3. After launching the remote desktop:
-    * on Mahti, open `Terminal` (Desktop icon)
-    * on LUMI, open `Terminal Emulator` from the Menu in the bottom left corner
+3. After launching the remote desktop, open `Terminal Emulator` from the Menu in the bottom left corner
 4. Start spyder:
-    * On LUMI, remember to first run `module use /appl/local/csc/modulefiles`
 
 ```bash
+module use /appl/local/csc/modulefiles
 module load geoconda
 spyder
 ```
@@ -228,13 +223,13 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Geoconda was installed to Mahti using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+Geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
 conda-containerize new --mamba --prefix install_dir --post download_wbt -w miniconda/envs/env1/lib/python3.11/site-packages/whitebox/WBT/whitebox_tools geoconda_3.11.10.yml
 ```
 
-Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked on Mahti using `list-packages` command after loading the `geoconda` module.
+Geoconda conda environment files and `download_wbt` and `start_wbt.py` needed for WhiteboxTools are available in [CSCs geocomputing repository](https://github.com/csc-training/geocomputing/tree/master/supercomputer_installations/geoconda). Note that for reproducibility, you'll need to define the package versions in the environment file, which can be checked using `list-packages` command after loading the `geoconda` module.
 
 
 ## References

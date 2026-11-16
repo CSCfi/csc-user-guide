@@ -226,7 +226,7 @@ shared between nodes.
 
 ### Login nodes
 
-Each login node on both Roihu-CPU and Roihu-GPU provides 80 GB of local storage under `$TMPDIR`.
+On both Roihu-CPU and Roihu-GPU login nodes, `$TMPDIR` (`/tmp/<username>`) has a quota of 80 GiB per user.
 
 The local storage is intended for compiling applications and performing pre- and post-processing
 that require heavy I/O operations, for example packing and unpacking archive files.
@@ -250,7 +250,8 @@ to the following amount of local disk space:
 
 #### Automatic local temporary storage
 
-For shared-node, full-node, and GPU allocations, local temporary storage is available under `$TMPDIR`.
+Local temporary storage is available under `$TMPDIR` on all
+Roihu compute nodes without a separate Slurm reservation.
 
 | Allocation type           | Path      | Available temporary storage |
 |:--------------------------|-----------|----------------------------:|
@@ -258,7 +259,7 @@ For shared-node, full-node, and GPU allocations, local temporary storage is avai
 | N (Full nodes)            | `$TMPDIR` | 600 GiB                     |
 | G (GPU nodes)             | `$TMPDIR` | 150 GiB                     |
 | XL (Hugemem nodes)        | `$TMPDIR` | 578 GiB                     |
-| VIZ (Visualization nodes) | `$TMPDIR` | 14 TiB                      |
+| VIZ (Visualization nodes) | `$TMPDIR` | ~13.3 TiB                   |
 
 The disk space can be accessed under `$TMPDIR`, and does not need to be separately reserved in
 your job script to be usable. Using the local disk does not consume [billing units](../accounts/billing.md).
@@ -273,18 +274,18 @@ On top of this, they provide local scratch storage under `$LOCAL_SCRATCH` for la
 This storage is not available automatically. You must reserve it in your Slurm job script using the appropriate `GRES` option.
 Reserved `$LOCAL_SCRATCH` storage consumes billing units.
 
-| Allocation type           | Path             | Maximum reservable local scratch |
-|:--------------------------|------------------|---------------------------------:|
-| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13000 GB                         |
-| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | TBA                              |
+| Allocation type           | Path             | Maximum reservable local scratch  |
+|:--------------------------|------------------|----------------------------------:|
+| XL (Hugemem nodes)        | `$LOCAL_SCRATCH` | 13,000 GiB (≃ 12.7 TiB)           |
+| VIZ (Visualization nodes) | `$LOCAL_SCRATCH` | Not yet available                 |
 
 Reserve local storage by including the following flag in your Slurm script:
 
 ```text
-#SBATCH --gres=nvme:<amount-in-GB>
+#SBATCH --gres=nvme:<amount-in-GiB>
 ```
 
-For example, to reserve the maximum amount of 13 TB, use:
+For example, to reserve the maximum amount of 13 000 GiB (approximately 12.7 TiB), use:
 
 ```text
 #SBATCH --gres=nvme:13000
@@ -293,7 +294,7 @@ For example, to reserve the maximum amount of 13 TB, use:
 Local scratch in a job can be accessed through the environment variable `$LOCAL_SCRATCH`, which points to a user and job-id specific disk area
 you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
 
-??? info "Example Slurm script for using local scratch memory in hugemem nodes"
+??? info "Example Slurm script for using local scratch storage in hugemem nodes"
      ```
      #!/bin/bash
      #SBATCH --job-name=example
@@ -303,7 +304,7 @@ you can use in `/local_scratch/${USER}/${SLURM_JOB_ID}/`.
      #SBATCH --nodes=1
      #SBATCH --ntasks-per-node=1
      #SBATCH --cpus-per-task=1
-     #SBATCH --gres=nvme:100 # Reserves 100 GB local scratch memory
+     #SBATCH --gres=nvme:100 # Reserves 100 GiB local scratch storage
 
      # Go to the local scratch directory
      cd "$LOCAL_SCRATCH"
@@ -349,7 +350,7 @@ To request flash storage to be mounted in an sbatch job you must add the followi
 request block of your script:
 
 ```bash
-#SBATCH --bb="#BB_LUA SBF storagesize=20GB path=/sbf/data"
+#SBATCH --bb="#BB_LUA SBF storagesize=20G path=/sbf/data"
 ```
 
 Where `storagesize` specifies the amount of storage you need and `path` the location that the 
@@ -367,14 +368,18 @@ srun -p medium --nodes 1 --account <project> --bb="#BB_LUA SBF storagesize=10G p
 Alternatively you can pass the request in a file using the `--bbf` flag, for example:
 
 ```bash
-srun -p medium --nodes 1 --account project_2001659 --bbf bb.spec --pty bash -i
+srun -p medium --nodes 1 --account <project> --bbf bb.spec --pty bash -i
 ```
 
 The same works on shared-node and GPU partitions, for example:
 
 ```bash
-srun -p gpumedium --nodes 1 --account project_2001659 --gres=gpu:gh200:1 --bbf bb.spec --pty bash -i
+srun -p gpumedium --nodes 1 --account <project> --gres=gpu:gh200:1 --bbf bb.spec --pty bash -i
 ```
+
+For interactive sessions started with `sinteractive`, use its `-d` option instead,
+which mounts the storage at `/sbf/data`. See
+[`sinteractive` on Roihu](running/interactive-usage.md#sinteractive-on-roihu).
 
 !!! warning "Steps must use `srun`!"
     When running a multinode job with sbatch, if each step is expected to run with the disaggregated

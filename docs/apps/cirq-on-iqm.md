@@ -15,7 +15,7 @@ catalog:
 
 Cirq on IQM is an open-source cirq adapter for IQM quantum computers. It is
 installed as `fiqci-cirq` on LUMI. It is used for running quantum circuits on the
-[quantum computers](../computing/quantum-computing/running-quantum-jobs.md).
+[quantum computers](../computing/quantum-computing/running-quantum-jobs/overview.md).
 
 ## Available
 
@@ -23,7 +23,7 @@ Currently supported [cirq-on-iqm](https://docs.meetiqm.com/iqm-client/user_guide
 
 | Module                               | LUMI  | Notes           |
 |:-------------------------------------|:-----:|-----------------|
-| `fiqci-cirq/18.0`                | X     | Default version. Supports Q50 and Q20  |
+| `fiqci-cirq`                | X     | Supports Q50 and Q20  |
 
 
 All modules are based on Tykky using LUMI-container-wrapper.
@@ -116,4 +116,4 @@ Submit the script with `sbatch <script_name>.sh`.
 ## More information
 
 - [Cirq-IQM documentation](https://docs.meetiqm.com/iqm-client/user_guide_cirq)
-- [Quantum-Computing](../computing/quantum-computing/running-quantum-jobs.md)
+- [Quantum-Computing](../computing/quantum-computing/running-quantum-jobs/overview.md)

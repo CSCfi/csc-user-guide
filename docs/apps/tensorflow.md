@@ -166,7 +166,7 @@ the available CPU cores in a single node:
     ```
 
 Please read the section on [Efficient GPU utilization in our Machine
-learning guide](../support/tutorials/gpu-ml.md) to learn how to use
+learning guide](../support/tutorials/ml-guide/gpu.md) to learn how to use
 the GPU efficiently.
 
 
@@ -174,18 +174,18 @@ the GPU efficiently.
 
 If you are working with big datasets, or datasets that contain a lot
 of files, please read [the data section of our Machine learning
-guide](../support/tutorials/ml-data.md). In particular, please **do
+guide](../support/tutorials/ml-guide/data.md). In particular, please **do
 not read a huge number of files from the shared file system**, use
 fast local disk or package your data into larger files instead!
 
 For multi-GPU and multi-node please read the [Multi-GPU and multi-node
 section of our Machine learning
-guide](../support/tutorials/ml-multi.md)
+guide](../support/tutorials/ml-guide/multi.md)
 
 
 ## More information
 
-- [CSC's Machine learning guide](../support/tutorials/ml-guide.md)
+- [CSC's Machine learning guide](../support/tutorials/ml-guide/index.md)
 - [TensorFlow overview](https://www.tensorflow.org/overview/)
 - [Get Started with TensorFlow](https://www.tensorflow.org/tutorials)
 - [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf)

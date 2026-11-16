@@ -56,10 +56,6 @@ Dataset projects are used to share data between CSC projects in Roihu. A dataset
 
 Use a dataset project when you need to maintain one shared copy of data that several projects can read.
 
-!!! note "Dataset project access begins in early August" 
-     You can already apply for a dataset project in MyCSC.
-     Based on the applications, the first dataset projects will be approved and granted access in early August 2026.
-
 Each dataset directory has one owning project with write access. Other projects (or even all projects on the system) can be granted read access to the same dataset directory.
 
 A dataset project is valid for one year. After that, you need to apply for an extension if you want to keep using it.

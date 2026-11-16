@@ -41,7 +41,7 @@ Desk](../../support/contact.md).
 
 ### How do I install an R package?
 
-The R environment has over 1500 pre-installed R packages packages ready to use. The easiest
+The R environment has over 1500 pre-installed R packages ready to use. The easiest
 way to check if a package is available is to try to load it with `library(packagename)`. If a
 package is missing, you can install it yourself for your project by following the [instructions for R package
 installation](../../apps/r-env.md#r-package-installations), or you can [contact CSC Service

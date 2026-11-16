@@ -80,6 +80,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
     pre-installed software and licenses are other factors which may make using
     CSC supercomputers attractive for you.
 
+
 ## How to access CSC supercomputers?
 
 ### Web interface
@@ -269,7 +270,7 @@ at CSC.
 === "Training materials and tutorials"
     - [*CSC Computing Environment* course materials](https://csc-training.github.io/csc-env-eff/)
     - [Linux basics tutorial](../tutorials/env-guide/index.md)
-    - [Machine learning guide](ml-guide.md)
+    - [Machine learning guide](ml-guide/index.md)
     - [Using Python on CSC supercomputers](python-usage-guide.md)
     - [Managing data on scratch disks](clean-up-data.md)
     - Other [tutorials](index.md) and

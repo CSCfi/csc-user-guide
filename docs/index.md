@@ -43,7 +43,7 @@ template: home.html
     
     [Python Usage Guide :material-arrow-right:](support/tutorials/python-usage-guide.md)
 
-    [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide.md)
+    [Machine Learning Guide :material-arrow-right:](support/tutorials/ml-guide/index.md)
 
     [Sensitive Data Services Guide :material-arrow-right:](data/sensitive-data/index.md)
 

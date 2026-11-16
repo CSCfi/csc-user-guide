@@ -24,7 +24,7 @@ catalog:
 __GRASS__ is available with following versions:
 
 * 8.5 with grassgis module in Roihu
-* 7.8.7 with [qgis/3.31 module](qgis.md) in LUMI
+* 8.4.2 with [qgis/3.44.15 module](qgis.md) in LUMI, no GUI, only CLI and PyGRASS
 
 
 ## Usage
@@ -91,7 +91,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_5-ubuntu_wxgui --prefix 8.5
 ```
 
-* GRASS 7.x was installed to LUMI as part of [QGIS installation](qgis.md#installation).
+* GRASS 8.4.2 was installed to LUMI as part of [QGIS installation](qgis.md#installation).
 
 
 ## References

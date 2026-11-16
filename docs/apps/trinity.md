@@ -30,17 +30,23 @@ Free to use and open source under the [BSD 3-Clause License](https://github.com/
 
 ## Available
 
-* Roihu-CPU: 2.15.2
+* Roihu-CPU: 2.15.1.FULL and 2.15.2.FULL, via the `bio-apps` module.
 
 ## Usage
 
 ### Using Trinity
 
-Trinity is set up with the command:
+Trinity is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Trinity module:
 
 ```bash
-module load trinity
+module load bio-apps/v202603
+module load trinity/2.15.2.FULL
 ```
+
+The module also puts Trinity's helper scripts, such as `TrinityStats.pl` and
+`align_and_estimate_abundance.pl`, on your `PATH`, and sets `$TRINITY_HOME` to the
+Trinity installation.
 
 
 Trinity should be used [interactively in a compute node](../computing/running/interactive-usage.md) 
@@ -59,7 +65,8 @@ or preferably through the batch job system. Below is an example batch job file f
 #SBATCH --account=project_1234567
 #SBATCH --partition=small
 
-module load trinity/2.15.2
+module load bio-apps/v202603
+module load trinity/2.15.2.FULL
 
 Trinity --seqType fq --max_memory 22G --left reads.left.fq --right \
 reads.right.fq --SS_lib_type RF --CPU $SLURM_CPUS_PER_TASK \

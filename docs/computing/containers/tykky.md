@@ -279,11 +279,11 @@ conda-containerize new --prefix <install_dir> env.yml
 
 ## Moving and deleting Tykky installation
 
-For deleting a Tykky installation, remove the <install_dir> folder.
+For deleting a Tykky installation, remove the `<install_dir>` folder.
 
 Tykky installations can also be moved:
 
-* Inside the same supercomputer, from folder to folder, move the <install_dir> folder with `mv` to new location. 
+* Inside the same supercomputer, from folder to folder, move the `<install_dir>` folder with `mv` to new location.
 * Between Roihu and another supercomputer (e.g. LUMI) use `rsync`. For example, to copy an installation from Roihu to LUMI, log in to LUMI and change to the folder where you want to move the Tykky installation, then use:
 
 ```

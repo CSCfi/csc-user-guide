@@ -36,13 +36,13 @@ These environments are available under the following [modules](modules.md):
 | Compiler suite               | Modules                                                  |
 | :--------------------------- | :------------------------------------------------------- |
 | GNU 15.2.0                   | `gcc/15.2.0 openmpi/5.0.10`                              |
-| AMD AOCC 5.0.0               | `aocc/5.0.0 openmpi/5.0.10`                              |
+| AMD AOCC 5.1.0               | `aocc/5.1.0 openmpi/5.0.10`                              |
 
 The first compiler suite is loaded by default.
 You can change the environment by loading the listed modules, for example,
 
 ```bash
-module load aocc/5.0.0 openmpi/5.0.10
+module load aocc/5.1.0 openmpi/5.0.10
 ```
 
 List all available versions of the compiler suites:

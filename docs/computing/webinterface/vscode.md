@@ -39,7 +39,7 @@ The [Julia for Visual Studio Code](https://www.julia-vscode.org/) extension can 
 Due to licensing, the VSCode app in the web interface uses the
 [Open VSX Registry](https://open-vsx.org/) for extensions, rather than the official
 [Visual Studio Marketplace](https://marketplace.visualstudio.com). This means that some extensions
-are not available in the extensions tab in VSCode. Some examples are the C/C++ and GithHub Copilot
+are not available in the extensions tab in VSCode. Some examples are the C/C++ and GitHub Copilot
 extensions. However, installing these extensions manually from extension package files is possible.
 
 To install the extension:
@@ -62,4 +62,4 @@ To install the extension:
 
 ## Troubleshooting
 
-- If VSCode does not work properly you can clear the settings and launch the application again. This can be done done by deleting the folder `~/.local/share/csc-vscode`.
+- If VSCode does not work properly you can clear the settings and launch the application again. This can be done by deleting the folder `~/.local/share/csc-vscode`.

@@ -9,9 +9,7 @@ catalog:
     - Geosciences
   available_on:
     - web_interfaces:
-        - LUMI
         - Roihu
-    - LUMI
     - Roihu
 ---
 
@@ -24,7 +22,6 @@ catalog:
 __SAGA GIS__ is available:
 
 * 9.10.2 in [r-env module](r-env-for-gis.md) with SagaGIS R packages, **in Roihu**
-* 7.3.0 - [qgis module](qgis.md) without SagaGIS R packages, **in LUMI**
 
 ## Usage 
 
@@ -48,16 +45,6 @@ saga_cmd -h
 
 ```
 
-#### SAGA GIS command line interface in LUMI
-
-With `qgis` module in LUMI, SagaGIS commands can be used normally, for example:
-
-```
-module use /appl/local/csc/modulefiles
-module load qgis
-saga_cmd -h
-```
-
 ### SAGA GIS Graphical User Interface
 
 #### SAGA GIS Graphical User Interface in Roihu
@@ -72,23 +59,6 @@ To use SAGA GIS, open it in Roihu web interface:
 module load r-env
 saga_gui
 
-```
-
-#### SAGA GIS Graphical User Interface in LUMI
-
-For using SAGA GIS, open it in LUMI web interface:
-
-1. Log in to [LUMI web interface](https://lumi.csc.fi). 
-2. Open [Desktop app](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/). 
-3. After launching the Desktop, open the newest version of SAGA GIS from the Menu in the bottom left corner (under Other).
-    * You can drag-and-drop the icon to your desktop for easier access in the future
-
-If you want to use the CLI in the Desktop app, open `Terminal Emulator` from the Menu in the bottom left corner and load the QGIS module:
-```
-module use /appl/local/csc/modulefiles
-module load qgis
-saga_gui
-saga_cmd
 ```
 
 ## Spatial datasets at CSC computing environment

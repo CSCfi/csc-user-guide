@@ -63,7 +63,7 @@ There are three ways to access the CSD System:
 
 -   Local installation (Windows or Linux, takes up a lot of disk space)
 -   Using the CSD System via the [Roihu web interface](../computing/webinterface/index.md)
--   WebCSD (limited functionality), point your browser to [CCDC webserver](https://www.ccdc.cam.ac.uk/structures)
+-   WebCSD (limited functionality), point your browser to [CCDC webserver](https://www.ccdc.cam.ac.uk/structures/)
 
 Initialize CSD on Roihu-CPU:
 

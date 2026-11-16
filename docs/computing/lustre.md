@@ -33,7 +33,7 @@ with multiple OSTs/MDTs to provide parallel I/O capabilities.
   dates. For each file MDT includes information about the layout of
   data in the OSTs such as the OST numbers and object identifiers.
 
-!["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and DST servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
+!["Schematic picture of compute nodes accessing OSTs and MDTs via OSS and MDS servers via network. The acronyms and relations are explained also in the text."](../img/lustre.png 'Lustre file system view')
 
 *Lustre file system view*
 
@@ -83,7 +83,7 @@ correspond to stripe boundaries.
 
 If in the above example, we had a file of 5 MB, then the OST 0 would
 have an extra 1 MB of data. If the data would be distributed evenly
-between four processes, each process would have 1.5 MB and the access
+between four processes, each process would have 1.25 MB and the access
 would not be stripe aligned: first process needs to access OST 0 and
 1, next process OST 1 and 2, *etc.* processes are not aligned. This
 could now cause network contention issues.
@@ -180,8 +180,8 @@ Roihu has three storage areas built on Lustre: [home](disk.md#home-directory),
 `projappl`, so that metadata performance on one storage area does not
 interfere with the others.
 
-Peak I/O performance on Roihu `scratch` is 219 GB/sec for write and
-180 GB/sec for read.
+Peak I/O performance on Roihu `scratch` has been measured at 204 GiB/sec for write and
+168 GiB/sec for read.
 
 ## Best practices
 
@@ -199,7 +199,7 @@ Peak I/O performance on Roihu `scratch` is 219 GB/sec for write and
 * If an application opens a file for reading, then open the file in read mode
   only.
 
-* Increase striping count for parallel access, especially on large files:
+* Increase the stripe count for parallel access, especially on large files:
     * The striping factor should be a factor of the number of used processes
       performing parallel I/O
     * A rule of thumb is to use as striping the square root of the file size
