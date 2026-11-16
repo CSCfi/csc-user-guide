@@ -8,6 +8,8 @@ catalog:
   disciplines:
     - Chemistry
   available_on:
+    - web_interfaces:
+        - Roihu
     - Roihu
 ---
 
