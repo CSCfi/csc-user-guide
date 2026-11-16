@@ -524,8 +524,8 @@ data analytics and machine learning, for example:
     - `yarl` <span class="v">1.23.0</span>
     - `zict` <span class="v">3.0.0</span>
     - `zipp` <span class="v">3.23.1</span>
-
-</div>
+    
+    </div>
 
 <style>
 .pkg-table {
