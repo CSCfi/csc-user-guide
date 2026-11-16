@@ -188,7 +188,10 @@ To keep logins fast, the banner is shown from a saved copy that is updated in
 the background at most once an hour. It therefore shows the figures from an
 earlier login, and it is not shown at your first login.
 
-Open the Job monitoring app to see which jobs used their resources poorly.
+Open the Job monitoring app to see which jobs used their resources poorly. If
+your rating is poor, see
+[this FAQ entry](../support/faq/poor-job-efficiency.md) for common causes and
+fixes.
 
 To get more detailed information about the performance of your program, you
 should use one of the profiling tools available (see below).
