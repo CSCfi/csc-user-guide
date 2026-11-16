@@ -224,7 +224,7 @@ Python scripts can be edited directly on a CSC supercomputer using a
 [console-based text editor](./env-guide/text-and-image-processing.md)
 like `vim` or `emacs`. In addition to these terminal-based editors,
 several graphical programming environments,
-such as Jupyter notebooks, Visual Studio Code and Spyder,
+such as Jupyter notebooks and Visual Studio Code,
 can be used on a supercomputer through
 [our web interface](../../computing/webinterface/index.md).
 
@@ -284,8 +284,7 @@ There are two ways to run VSCode on CSC supercomputers:
 [Spyder](https://www.spyder-ide.org/) is a scientific Python development
 environment. The [python-data](../../apps/python-data.md) and
 [python-geo](../../apps/python-geo.md) modules
-have Spyder included. The best option for using it is through the
-[Roihu web interface remote desktop](../../computing/webinterface/desktop.md).
+have Spyder included.
 
 ## Python parallel jobs
 
