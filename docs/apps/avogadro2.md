@@ -39,15 +39,14 @@ Avogadro2 is a graphical program. Use it in the [Desktop app](../computing/webin
 6. If a **Version Update** window appears, select **Ignore**.
 
 !!! note
-    Avogadro2 is used for preparing structures and inputs, and for viewing results. Run the calculations as batch jobs, see the pages of the programs, for example [ORCA](orca.md) and [Gaussian](gaussian.md).
+    Run the calculations as batch jobs, see [ORCA](orca.md) and [Gaussian](gaussian.md).
 
 ### Importing a structure
 
-The simplest way to get a start structure is the fragment library. No file is needed.
+Select **Build → Insert → Molecule...** to pick a structure from the fragment library:
 
-1. Select **Build → Insert → Molecule...**. The **Insert Fragment...** window opens.
-2. Type a name in the **Filter** field, or expand a category (for example `aromatics` or `amino_acids`). The preview shows the selected molecule.
-3. Click **Insert** once. The **Files** panel shows the formula (for benzene `C6H6`).
+1. Type a name in the **Filter** field, or expand a category (for example `aromatics`). The preview shows the molecule.
+2. Click **Insert**. The **Files** panel shows the formula (for benzene `C6H6`).
 
 To use your own structure file:
 
@@ -73,7 +72,7 @@ The structure in the Avogadro2 window is used as the coordinates of the input fi
 
 ### Running the calculation
 
-ORCA is not installed centrally at CSC. Each user installs a private copy, see the [ORCA](orca.md) page. Jobs must be submitted from the CPU login node (`roihu-cpu`).
+ORCA is not installed centrally at CSC. Install a private copy, see the [ORCA](orca.md) page. Submit the job from the Roihu CPU login node.
 
 Create a batch script `job.sh` in the same directory as `job.inp`. If you saved the input with another name, use that name in the script. The values below match the example above (4 cores, 6 GiB, `%MaxCore 1536`). Replace the text in angle brackets (`<...>`) with your own values:
 
@@ -111,11 +110,9 @@ When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`
 
 ### Tips
 
-- Avogadro2 runs inside the Desktop session. Keep the session open while you use it.
 - A terminal window opens together with Avogadro2 and closes when you quit Avogadro2.
 - Copy-paste between your local computer and the desktop works via the noVNC clipboard. Open the **Clipboard** menu from the tab on the left edge of the desktop window, paste your text there, and then paste normally inside the desktop.
 - The file dialog may open in another directory. Type the full path of the file in the **File name** field to go there directly.
-- Open Babel is included, so many structure file formats can be read and written.
 
 ## References
 
