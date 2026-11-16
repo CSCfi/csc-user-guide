@@ -126,7 +126,8 @@ The app lists your completed jobs from the last 60 days with their efficiency:
 Values below 50% are shown in red, values from 50% to 75% in yellow and values
 of 75% or more in green.
 
-Select a job ID to open the report for that job. The report starts with a table
+Select a job ID to open the report for that job. If a job ID is not a link,
+there is no report available for that job. The report starts with a table
 of the resources the job had on each node, how much of them it used and the
 resulting efficiency. Above the table, the report tells you whether your
 resource requests need attention:
