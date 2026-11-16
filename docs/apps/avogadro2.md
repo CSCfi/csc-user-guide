@@ -15,7 +15,7 @@ catalog:
 
 # Avogadro2
 
-[Avogadro2](https://two.avogadro.cc/) is a graphical molecular editor and analysis tool. It is used to build molecular structures, to generate input files for quantum chemistry programs, and to visualize results, for example the molecular orbitals and vibrational modes of an ORCA calculation.
+[Avogadro2](https://two.avogadro.cc/) is a graphical molecular editor and analysis tool. It is used to build molecular structures, to generate input files for quantum chemistry programs, and to analyze results, for example the molecular orbitals and vibrational modes of an ORCA calculation.
 
 ## Available
 
@@ -101,7 +101,7 @@ sbatch job.sh
 
 When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`. Then open `job.out` in Avogadro2 to view the results, see below. For the available partitions and other options, see the [Roihu batch job partitions](../computing/running/batch-job-partitions.md) page.
 
-### Analysing ORCA output
+### Analyzing ORCA output
 
 1. Open the ORCA output file with **File → Open** and select the `.out` file.
 2. Molecular orbitals: select **Analyze → Molecular Orbitals...**. The window lists the orbitals with their energies (eV) and occupations. Select an orbital, for example `HOMO` or `LUMO`, set the **Quality** and click **Render**. This requires `PrintMOs PrintBasis` in the ORCA input. The option **Print Molecular Orbitals** of the input generator adds them.
