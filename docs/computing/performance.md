@@ -184,9 +184,10 @@ The banner uses the same data as the [Job monitoring app](#job-monitoring-app):
 * Jobs on the `interactive` and `gpuinteractive` partitions are not counted,
   as interactive sessions mostly wait for user input.
 
-To keep logins fast, the banner is shown from a saved copy that is updated in
-the background at most once an hour. It therefore shows the figures from an
-earlier login, and it is not shown at your first login.
+To keep logins fast, the banner uses cached statistics that are refreshed
+in the background at most once an hour. The figures are therefore from an
+earlier login rather than the current one, and no banner is shown at your
+first login.
 
 Open the Job monitoring app to see which jobs used their resources poorly. If
 your rating is poor, see
