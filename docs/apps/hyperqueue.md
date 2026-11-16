@@ -137,7 +137,7 @@ managers, such as [Snakemake or Nextflow](#using-snakemake-or-nextflow-with-hype
 
 #### Example: Multinode job on Roihu-CPU with local disks
 
-We can use [temporary local disk areas](../computing/disk.md#temporary-local-disk-areas)
+We can use [temporary local disk areas](../supercomputing/disk.md#temporary-local-disk-areas)
 with HyperQueue to perform I/O intensive tasks. Since a HyperQueue task can run on any
 allocated node, the local disk of each node must have a copy of all the files that the
 task may use. A typical workflow consists of

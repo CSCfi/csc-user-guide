@@ -1,7 +1,7 @@
 # Conda best practices for CSC supercomputers
 
 !!! warning "Do not install Conda environments directly on the parallel file system of CSC supercomputers!"
-    [CSC has deprecated the use of Conda environments](../../computing/usage-policy.md#conda-installations)
+    [CSC has deprecated the use of Conda environments](../../supercomputing/usage-policy.md#conda-installations)
     that are installed _directly_ on the parallel file system of CSC supercomputers
     (e.g. `/scratch`, `/projappl`, `$HOME`). This is due to performance issues of
     Conda-based environments on shared file systems, causing long start-up delays
@@ -32,7 +32,7 @@ we recommend:
 2. **Create a containerized Conda or pip environment using CSC's Tykky tool**
 
     CSC has developed
-    [a tool for wrapping Conda or pip installations](../../computing/containers/tykky.md)
+    [a tool for wrapping Conda or pip installations](../../supercomputing/containers/tykky.md)
     into a smaller set of files using Apptainer and SquashFS technologies. The tool is
     available as a pre-installed module and is also used for CSC's own installations.
 
@@ -46,6 +46,6 @@ we recommend:
     Apptainer format. Inside the container you can naturally use for example
     Conda to manage the packages without causing any file system issues.
 
-    Use [Tykky](../../computing/containers/tykky.md) to convert an existing Docker
+    Use [Tykky](../../supercomputing/containers/tykky.md) to convert an existing Docker
     container to Apptainer or read our documentation on
-    [how to create your own Apptainer container](../../computing/containers/overview.md#building-container-images).
+    [how to create your own Apptainer container](../../supercomputing/containers/overview.md#building-container-images).

@@ -30,9 +30,9 @@ Free to use and open source under the [MIT License](https://github.com/igvteam/i
 ## Usage
 
 IGV is a graphical application, so it is best run through the
-[Roihu web interface remote desktop](../computing/webinterface/desktop.md):
+[Roihu web interface remote desktop](../supercomputing/webinterface/desktop.md):
 
-1. Open the [Desktop app](../computing/webinterface/desktop.md) in the Roihu web interface.
+1. Open the [Desktop app](../supercomputing/webinterface/desktop.md) in the Roihu web interface.
 2. Open a terminal from `Applications` -> `Terminal Emulator`.
 3. Load the modules and start the IGV GUI with the `igv.sh` launch script:
 

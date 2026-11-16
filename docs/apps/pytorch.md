@@ -150,7 +150,7 @@ servicedesk](../support/contact.md).
 
 If adding a few packages with `pip` is not enough, you can also build
 your own containers, for example by [extending CSC's machine learning
-containers](../computing/containers/overview.md#ml-containers).
+containers](../supercomputing/containers/overview.md#ml-containers).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -208,7 +208,7 @@ pip list
 
     Note that login nodes are not intended for heavy computing, please use slurm
     batch jobs instead. See our [instructions on how to use the batch job
-    system](../computing/running/getting-started.md).
+    system](../supercomputing/running/getting-started.md).
 
 ### Example batch script
 
@@ -322,7 +322,7 @@ script](https://github.com/CSCfi/pytorch-ddp-examples/blob/master/run-ddp-gpu1-p
 
 After running the job you can view the output of the profiler using
 TensorBoard.  Start a TensorBoard session in the [web interface of the
-supercomputer](../computing/webinterface/apps.md) you are using. If
+supercomputer](../supercomputing/webinterface/apps.md) you are using. If
 the PyTorch profiler isn't opened automatically you may be able to
 find it as *PYTORCH_PROFILER* in the tab bar. If the tab isn't visible
 by default, it can be found at the pull-down menu on the right-hand

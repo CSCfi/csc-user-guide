@@ -26,7 +26,7 @@ only have one home directory.
 
 The `/dataset` directory is not included in a normal computational project in Roihu.
 To use it, apply for a separate
-[Roihu dataset project](../../computing/roihu-dataset-project.md).
+[Roihu dataset project](../../supercomputing/roihu-dataset-project.md).
 
 When logging in to Roihu, you should change to your project's
 scratch directory because the home directory is not intended for storing data
@@ -37,7 +37,7 @@ GB). A directory exceeding its capacity causes various problems (see
 disk area to store your active research data (default quota 250 GB on Roihu), while
 projappl is intended, for example, for project-wide installations of custom
 software and libraries (default quota 15 GB on Roihu). See
-[more information about the disk areas](../../computing/disk.md).
+[more information about the disk areas](../../supercomputing/disk.md).
 
 !!! note "CSC does not back up your data!"
     None of the disk areas are automatically backed up by CSC. This means that

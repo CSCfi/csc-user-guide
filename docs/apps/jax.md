@@ -59,13 +59,13 @@ On Roihu-GPU there is only a single module with a full set of
 packages. The module on Roihu-GPU has been renamed to `python-jax`.
 
 All modules are based on containers using Apptainer (previously known
-as Singularity). Wrapper scripts have been provided via [tykky](../computing/containers/tykky.md)
+as Singularity). Wrapper scripts have been provided via [tykky](../supercomputing/containers/tykky.md)
 so that common commands such as `python`, `python3`, `pip` and `pip3` and
 those provided by installed packages should work as normal.
 For other commands, you may need to prefix them with
 `apptainer_wrapper exec`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../computing/containers/overview.md#running-containers).
+containers](../supercomputing/containers/overview.md#running-containers).
 
 
 ## Additional packages
@@ -81,7 +81,7 @@ servicedesk](../support/contact.md).
 
 If adding a few packages with `pip` is not enough, you can also build
 your own containers, for example by [extending CSC's machine learning
-containers](../computing/containers/overview.md#ml-containers).
+containers](../supercomputing/containers/overview.md#ml-containers).
 
 ## License
 
@@ -125,7 +125,7 @@ module avail jax         # on LUMI
     Note that the login nodes are not intended for heavy computing,
     please use slurm batch jobs instead. See our [instructions on how
     to use the batch job
-    system](../computing/running/getting-started.md).
+    system](../supercomputing/running/getting-started.md).
 
 !!! note
 

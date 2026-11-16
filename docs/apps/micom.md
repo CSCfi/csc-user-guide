@@ -62,7 +62,7 @@ python my_micom_analysis.py
 Replace `<project>` with your CSC project (for example `project_2001234`). MICOM can use
 multiple threads; set the number of workers in your script to match `--cpus-per-task`.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

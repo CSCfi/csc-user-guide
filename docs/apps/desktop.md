@@ -32,11 +32,11 @@ Desktop is available as an interactive application via the web interface for
 ## More information
 
 More information on Desktop, interactive applications, and the web interfaces
-can be found under the [Supercomputing section](../computing/index.md):
+can be found under the [Supercomputing section](../supercomputing/index.md):
 
-- [Desktop](../computing/webinterface/desktop.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Desktop](../supercomputing/webinterface/desktop.md)
+- [Interactive applications](../supercomputing/webinterface/apps.md)
+- [Web interfaces](../supercomputing/webinterface/index.md)
 
 For information about the Desktop app on LUMI, see the
 [LUMI user guide](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/).

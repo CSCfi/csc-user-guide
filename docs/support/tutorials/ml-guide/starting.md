@@ -15,7 +15,7 @@ but for a newcomer it might be a bit difficult to know how to get started.
 **This guide will show you, step by step, how to get your codes and data to the
 Roihu supercomputer and running on GPUs**.
 
-CSC has two supercomputers: [Roihu](../../../computing/systems-roihu.md)
+CSC has two supercomputers: [Roihu](../../../supercomputing/systems-roihu.md)
 and [LUMI](https://docs.lumi-supercomputer.eu/hardware/). In this
 guide we will focus on using Roihu as it has the widest selection of
 software and the easiest to access for a Finnish academic user.
@@ -248,7 +248,7 @@ To run a program in Slurm we need to define a batch job script. This is just a
 text file with a set of Slurm options defining the resources we need for our
 program and the actual commands needed to run it. You can read more about
 defining [batch job scripts in our separate documentation
-page](../../../computing/running/creating-job-scripts-roihu.md).
+page](../../../supercomputing/running/creating-job-scripts-roihu.md).
 
 In the file `run-cifar10.sh` in our code directory, you can find an example
 batch job script:
@@ -349,7 +349,7 @@ parameters. But please don't submit hundreds of jobs at the same time.
 Now, that you've gotten started, you might be interested in checking out the
 rest of our documentation. For example:
 
-* [Running jobs with Slurm](../../../computing/running/getting-started.md)
+* [Running jobs with Slurm](../../../supercomputing/running/getting-started.md)
 * [Applications on Roihu](../../../apps/index.md), in particular
   [PyTorch](../../../apps/pytorch.md) and [TensorFlow](../../../apps/tensorflow.md).
 * [CSC's Machine learning guide](index.md)

@@ -29,7 +29,7 @@ Avogadro2 is free and open source software, distributed under the [BSD 3-clause 
 
 ## Usage
 
-Avogadro2 is a graphical program. Use it in the [Desktop app](../computing/webinterface/desktop.md) of the Roihu web interface.
+Avogadro2 is a graphical program. Use it in the [Desktop app](../supercomputing/webinterface/desktop.md) of the Roihu web interface.
 
 1. Log in to the [Roihu web interface](https://www.roihu.csc.fi).
 2. Select **Apps → Desktop**.
@@ -101,7 +101,7 @@ cd /scratch/<project>/benzene
 sbatch job.sh
 ```
 
-When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`. Then open `job.out` in Avogadro2 to view the results, see below. For the available partitions and other options, see the [Roihu batch job partitions](../computing/running/batch-job-partitions.md) page.
+When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`. Then open `job.out` in Avogadro2 to view the results, see below. For the available partitions and other options, see the [Roihu batch job partitions](../supercomputing/running/batch-job-partitions.md) page.
 
 ### Analyzing ORCA output
 

@@ -86,7 +86,7 @@ interproscan.sh -i proteins.fasta -o results.gff3 -f GFF3 -appl Pfam
 
 The `interproscan.sh` launcher reserves up to 14 GB of memory for Java alone, so don't
 run InterProScan on the login nodes. Use an
-[interactive session](../computing/running/interactive-usage.md) with enough memory, for
+[interactive session](../supercomputing/running/interactive-usage.md) with enough memory, for
 example `sinteractive --account <project> --cores 8 --mem 24G --time 04:00:00`
 (24 GiB), or a batch job.
 
@@ -113,7 +113,7 @@ interproscan.sh -i proteins.fasta -o results.tsv -f TSV -cpu $SLURM_CPUS_PER_TAS
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

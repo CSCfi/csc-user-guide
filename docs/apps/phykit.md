@@ -55,8 +55,8 @@ Run `phykit -h` to list all commands, and `phykit <command> -h` for the options 
 command.
 
 Most PhyKIT commands finish in seconds. Run analyses of large datasets in an
-[interactive session](../computing/running/interactive-usage.md) or as a
-[batch job](../computing/running/creating-job-scripts-roihu.md).
+[interactive session](../supercomputing/running/interactive-usage.md) or as a
+[batch job](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Support
 

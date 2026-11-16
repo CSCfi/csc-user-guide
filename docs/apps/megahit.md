@@ -77,7 +77,7 @@ file is named as `megahit_job.sh`, then the submission command is:
 sbatch megahit_job.sh 
 ```
 
-More information about running batch jobs can be found from [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+More information about running batch jobs can be found from [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Support
 

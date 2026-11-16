@@ -11,7 +11,7 @@ enabled. Please see
   is some delay before the information is synced to Roihu.
 - To access Roihu using an SSH client, you must set up SSH keys and add your
   public key to MyCSC. Roihu also requires SSH certificates that must be renewed every 24 hours.
-  See [instructions](../../computing/connecting/ssh-keys.md) and a
+  See [instructions](../../supercomputing/connecting/ssh-keys.md) and a
   [tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html).
 - You can check which projects you have in [MyCSC](https://my.csc.fi), and in
   the *Services* list of that project you can see which services are enabled.

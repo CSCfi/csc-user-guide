@@ -112,7 +112,7 @@ For example, this HOST entry, available for Schrödinger jobs as _test_ (from `n
 will use the Slurm partition _test_ (from `-p test`), allocate a maximum of 10 minutes of time,
 2 GB of memory and consume resources from Project_2042424. If you need different resources you
 can edit this file e.g. by adding a new entry. The requests must be within the
-[partition limits](../../computing/running/batch-job-partitions.md).
+[partition limits](../../supercomputing/running/batch-job-partitions.md).
 
 If your `schrodinger.hosts` file **on Puhti** does not have the `--account=<project>` defined,
 delete the file and rerun the script to create it (`module load maestro` will print out the
@@ -155,7 +155,7 @@ sure you don't ask for too many (sub)jobs. As a rule of thumb, each subjob
 should last at least 1 hour, and for very large jobs preferably 24 hours.
 Running a lot of very short jobs is inefficient in many ways and may degrade
 the performance of the system for all users, see our [high-throughput computing
-guidelines](../../computing/running/throughput.md). For large workflows, you'll
+guidelines](../../supercomputing/running/throughput.md). For large workflows, you'll
 need to edit your scripts, see below.
 
 ### Quantum ESPRESSO
@@ -243,7 +243,7 @@ workflow to take more than 3 days (queuing included). A "driver process"
 that is not using a lot of CPU is also allowed on a login node, but
 a subjob is not. Never submit jobs on Puhti _login nodes_ with
 `-HOST localhost`. It's ok if you create your own batch script or
-[interactive session](../../computing/running/interactive-usage.md) _and_ use
+[interactive session](../../supercomputing/running/interactive-usage.md) _and_ use
 localhost on a compute node, but that's for special cases only and not
 discussed on this page.
 
@@ -335,7 +335,7 @@ sense to copy the files to a "temporary" location at the start of the job.
 
 ## Running the Maestro GUI on Puhti
 
-[The _Desktop_ app in the Puhti web interface](../../computing/webinterface/desktop.md)
+[The _Desktop_ app in the Puhti web interface](../../supercomputing/webinterface/desktop.md)
 can be used to run the Maestro GUI on Puhti. The performance may, however, be
 slower than running the GUI locally (recommended). Running the GUI on Puhti over
 SSH using X11 forwarding over SSH is **not recommended** as it performs extremely
@@ -437,7 +437,7 @@ An efficient support request will help us to solve your issue faster.
 ## Recap of Maestro usage on Puhti
 
 1. Always test your workflow first with a **small** sample.
-      * Please mind the [Slurm partition limits](../../computing/running/batch-job-partitions.md).
+      * Please mind the [Slurm partition limits](../../supercomputing/running/batch-job-partitions.md).
 2. Don't run the Maestro GUI on a login node.
       * If you _must_ run the GUI on Puhti, use the Puhti web interface _Desktop_ app.
 3. Don't specify too many subjobs – an optimal subjob takes 1-24 hours.
@@ -446,7 +446,7 @@ An efficient support request will help us to solve your issue faster.
       * If the driver process is heavy, use e.g. `-HOST "longrun:1 normal_72h:9"` for 10 subjobs.
 6. Never run anything in parallel on the login node.
       * Do not use `localhost` in your script unless you write your own batch script or run
-        Maestro in an [interactive session](../../computing/running/interactive-usage.md).
+        Maestro in an [interactive session](../../supercomputing/running/interactive-usage.md).
 7. Submit all jobs from your `/scratch` area.
 8. If your local computer uses Windows, edit `\` to `/` in your script.
 9. Use the same version of Maestro locally and on Puhti.

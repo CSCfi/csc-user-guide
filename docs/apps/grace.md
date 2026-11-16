@@ -38,7 +38,7 @@ module load grace
 And start with `xmgrace` or show a plot directly with `xmgrace input.xvg`.
 
 Note, that you need remote graphics to work with Grace. An easy way is through the
-[Roihu web interface remote desktop](../computing/webinterface/desktop.md).
+[Roihu web interface remote desktop](../supercomputing/webinterface/desktop.md).
 
 ## More information
 

@@ -31,7 +31,7 @@ For using SagaGIS, any of the modules listed about must be activated first, chec
 
 
 ### SAGA GIS command line interface 
-SAGA GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md).
+SAGA GIS command line tools can be used in an [interactive session](../supercomputing/running/interactive-usage.md) or [batch jobs](../supercomputing/running/getting-started.md).
 
 #### SAGA GIS command line interface with r-env module
 
@@ -52,7 +52,7 @@ saga_cmd -h
 To use SAGA GIS, open it in Roihu web interface:
 
 1. Log in to [Roihu web interface](https://roihu.csc.fi).
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
+2. Open [Desktop app](../supercomputing/webinterface/desktop.md). 
 3. After launching the Desktop, double-click SAGA GIS icon OR open `Terminal` (Desktop icon) and start SAGA GIS:
 
 ```

@@ -60,7 +60,7 @@ qiime
 
 ## Additional plugins
 
-CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../computing/containers/tykky.md).
+CSC only maintains the basic distributions of QIIME2. If you need plugins not included in the basic distributions, you will need to install your own QIIME2 using the [Tykky tool](../supercomputing/containers/tykky.md).
 
 First select the distribution (amplicon/metagenome/pathogenome/tiny) that best meets your needs.
 
@@ -103,7 +103,7 @@ batch jobs.
 QIIME2 jobs can be very disk intensive, especially its handling of temporary files, so it is best to
 reserve fast local disk for them.
 
-For interactive batch jobs, see [sinteractive](../computing/running/interactive-usage.md) documentation.
+For interactive batch jobs, see [sinteractive](../supercomputing/running/interactive-usage.md) documentation.
 
 For example, the batch job script below runs the denoising step of the
 [QIIME moving pictures tutorial](https://docs.qiime2.org/2019.7/tutorials/moving-pictures/#option-1-dada2 )
@@ -156,7 +156,7 @@ The job is submitted to the batch job system with `sbatch` command. For example,
 ```bash
 sbatch qiime_job.sh
 ```
-More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../computing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../supercomputing/running/getting-started.md).
 
 !!! warning "Note"
     The use of `tab-qiime` to enable command completion for QIIME is known to cause problems on Roihu, and should be avoided.

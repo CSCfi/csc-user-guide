@@ -79,7 +79,7 @@ macs3 callpeak -t chip.bam -c control.bam -f BAM -g hs -n mysample --outdir macs
 `macs3 callpeak` uses one core, so reserving more does not make it faster. Replace
 `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

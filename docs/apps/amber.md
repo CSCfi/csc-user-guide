@@ -84,12 +84,12 @@ Run only GPU-aware binaries in the GPU partitions. If you're unsure, check with
 `seff <slurm_jobid>` that GPUs *were* used and that the job was significantly
 faster than without GPUs. If running on multiple GPUs, please ensure that the
 job scales (see
-[performance checklist](../computing/running/performance-checklist.md)).
+[performance checklist](../supercomputing/running/performance-checklist.md)).
 
 ### AmberTools Python tools
 
 Many AmberTools utilities are Python-based. On Roihu, these are provided as a
-[containerized](../computing/containers/tykky.md)
+[containerized](../supercomputing/containers/tykky.md)
 [Conda environment](https://anaconda.org/conda-forge/ambertools) by the
 `python-ambertools` module. Loading an Amber module will also automatically
 load the AmberTools module. You can also load it separately:
@@ -110,7 +110,7 @@ MMPBSA.py -O -i mmpbsa.in -cp complex.prmtop -rp receptor.prmtop -lp ligand.prmt
 
 !!! info "Note"
     Do not run anything heavy on the login node! See the
-    [usage policy](../computing/usage-policy.md#login-nodes) for details.
+    [usage policy](../supercomputing/usage-policy.md#login-nodes) for details.
     Resource-intensive processes should be run as
     [batch jobs](#example-batch-scripts) or in an
     [interactive session](#interactive-jobs).
@@ -294,8 +294,8 @@ LUMI's MI250X GCDs.
 Sometimes it is more convenient to run small jobs, like system preparations,
 interactively. Interactive jobs prevent excessive load on the login node and
 should be used in these cases. You can request a shell on a compute node in the
-[HPC web interfaces](../computing/webinterface/index.md), from the
-command line with [sinteractive](../computing/running/interactive-usage.md), or
+[HPC web interfaces](../supercomputing/webinterface/index.md), from the
+command line with [sinteractive](../supercomputing/running/interactive-usage.md), or
 manually with:
 
 ```bash

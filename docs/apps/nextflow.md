@@ -27,7 +27,7 @@ default `local` executor runs processes on the machine where Nextflow is
 launched; on CSC systems the SLURM and HyperQueue
 [executors](https://www.nextflow.io/docs/latest/executor.html) are the best fit.
 For choosing a workflow tool more generally, see our
-[high-throughput computing and workflows page](../computing/running/throughput.md).
+[high-throughput computing and workflows page](../supercomputing/running/throughput.md).
 
 [TOC]
 
@@ -79,7 +79,7 @@ nextflow -h
 
 **Local installations**
 
-By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../apps/by_discipline.md) or [own custom module installations](../computing/modules.md#using-your-own-module-files). See also how to [create containers](../computing/containers/overview.md#building-container-images).
+By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../apps/by_discipline.md) or [own custom module installations](../supercomputing/modules.md#using-your-own-module-files). See also how to [create containers](../supercomputing/containers/overview.md#building-container-images).
 
 **On-the-fly Apptainer installations**
 
@@ -117,12 +117,12 @@ Depending on the partition, the `$TMPDIR` space on a node will have anywhere fro
 
 Nextflow pipelines can be run in different ways in the supercomputer environment:
 
-1. [In interactive mode](../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
+1. [In interactive mode](../supercomputing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or testing very small workflows.
 2. With batch job and local executor. Useful for small and medium size workflows.
 3. With batch job and SLURM executor. This can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, with many small jobs. Could be used, if each job step for each file takes at least 30 min.
 4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Well-suited for cases, when the workflow includes a lot of small job steps with many input files (high-throughput computing).
 
-For general introduction to batch jobs, see [example job scripts for Roihu](../computing/running/example-job-scripts-roihu.md).
+For general introduction to batch jobs, see [example job scripts for Roihu](../supercomputing/running/example-job-scripts-roihu.md).
 
 !!! Note
     Whenever you're unsure how to run your workflow efficiently, don't hesitate
@@ -177,7 +177,7 @@ executor >  local (5)
 
 **Local executor (interactive)**
 
-To run Nextflow in an [interactive session](../computing/running/interactive-usage.md):
+To run Nextflow in an [interactive session](../supercomputing/running/interactive-usage.md):
 
 ```bash
 sinteractive --account <project> --cores 2   # replace <project> with your project
@@ -227,7 +227,7 @@ The first batch job file reserves resources only for Nextflow itself. Nextflow t
 !!! warning
     Please do not use SLURM executor, if your workflow includes a lot of short processes. It would overload SLURM. Use HyperQueue executor instead.
 
-To enable the SLURM executor, set the `process.xx` settings in [nextflow.config file](https://www.nextflow.io/docs/latest/config.html). The settings are similar to [batch job files](../computing/running/example-job-scripts-roihu.md).
+To enable the SLURM executor, set the `process.xx` settings in [nextflow.config file](https://www.nextflow.io/docs/latest/config.html). The settings are similar to [batch job files](../supercomputing/running/example-job-scripts-roihu.md).
 
 ```bash title="nextflow.config"
 profiles {
@@ -350,6 +350,6 @@ If you use Nextflow in your work, please cite:
 * [Nextflow official documentation](https://www.nextflow.io/docs/latest/index.html)
 * [Master thesis by Antoni Gołoś comparing automated workflow approaches on supercomputers](https://urn.fi/URN:NBN:fi:aalto-202406164397)
 * [Full code Nextflow example from Antoni Gołoś with 3 different executors](https://github.com/antonigoo/LIPHE-processing/tree/nextflow/workflow)
-* [General guidelines for high-throughput computing in CSC's HPC environment](../computing/running/throughput.md)
+* [General guidelines for high-throughput computing in CSC's HPC environment](../supercomputing/running/throughput.md)
 * [Official HyperQueue documentation](https://it4innovations.github.io/hyperqueue/stable/)
 * [CSC's HyperQueue documentation](../apps/hyperqueue.md)

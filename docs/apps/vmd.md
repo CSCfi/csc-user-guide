@@ -39,17 +39,17 @@ module load vmd/1.9.3
 
 Note, that you need remote graphics to work with VMD. Due to the heavy graphics
 required by VMD, we recommend using it through the
-[Roihu web interface remote desktop](../computing/webinterface/desktop.md).
+[Roihu web interface remote desktop](../supercomputing/webinterface/desktop.md).
 **Please don't run VMD on the login nodes.**
 
 !!! info "Running VMD with GPU-accelerated graphics on Roihu"
     For even better performance, you can run VMD with
-    [GPU acceleration](../computing/webinterface/accelerated-visualization.md)
+    [GPU acceleration](../supercomputing/webinterface/accelerated-visualization.md)
     in the Roihu web interface. In this case, select
     _Accelerated Visualization_ instead of the plain _Desktop_ app.
 
 It is in principle also possible to run VMD over X11. In this case, see the
-[instructions on starting an interactive application with X11 graphics](../computing/running/interactive-usage.md#starting-an-interactive-application-with-x11-graphics).
+[instructions on starting an interactive application with X11 graphics](../supercomputing/running/interactive-usage.md#starting-an-interactive-application-with-x11-graphics).
 However, using X11 to run VMD is very slow and thus discouraged.
 
 ## References

@@ -31,8 +31,8 @@ Julia-Jupyter is available as an interactive application via the web interface f
 
 ## More information
 
-More information on Julia-Jupyter, interactive applications, and the web interfaces can be found under the [Supercomputing section](../computing/index.md):
+More information on Julia-Jupyter, interactive applications, and the web interfaces can be found under the [Supercomputing section](../supercomputing/index.md):
 
-- [Julia-Jupyter](../computing/webinterface/julia-on-jupyter.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Julia-Jupyter](../supercomputing/webinterface/julia-on-jupyter.md)
+- [Interactive applications](../supercomputing/webinterface/apps.md)
+- [Web interfaces](../supercomputing/webinterface/index.md)

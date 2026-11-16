@@ -117,7 +117,7 @@ includes following python packages:
     
 Additionally geoconda includes:
 
--   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../computing/webinterface/index.md) and [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
+-   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../supercomputing/webinterface/index.md) and [Jupyter app](../supercomputing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
 -   [spyder] - Scientific Python Development Environment with graphical interface (similar to RStudio for R). Not in 3.14.3.
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
@@ -174,7 +174,7 @@ You can add more Python packages to `geoconda` by following the instructions in 
 
 You can edit your Python code with:
 
-* [Visual Studio Code in LUMI web interface](../computing/webinterface/vscode.md)
+* [Visual Studio Code in LUMI web interface](../supercomputing/webinterface/vscode.md)
 * Jupyter Notebook or Lab in [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface 
 * Spyder in [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/) web interface with remote desktop. Not in 3.14.3.
 

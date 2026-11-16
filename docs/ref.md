@@ -371,21 +371,21 @@ Links from pages nested inside the directory (aka "Folder") tree need to "climb"
 references, in order to reach their target page.
 
 For example, a link on the page _docs/data/sensitive-data/tutorials/vscode.md_
-pointing to the page _docs/computing/webinterface/vscode.md_ would need to first climb three steps up to reach _docs/_, and then descend down to _computing/webinterface/vscode.md_ from there:
+pointing to the page _docs/supercomputing/webinterface/vscode.md_ would need to first climb three steps up to reach _docs/_, and then descend down to _computing/webinterface/vscode.md_ from there:
 
 1. Climb up to _docs/_ from _docs/data/sensitive-data/tutorials/_ with
     - `../` = _docs/data/sensitive-data/_
     - `../../` = _docs/data/_
     - `../../../` = _docs/_
 1. Descend down to the target page
-    - `../../../computing/webinterface/vscode.md`
+    - `../../../supercomputing/webinterface/vscode.md`
 
 ```markdown title="docs/data/sensitive-data/tutorials/vscode.md"
-[VSCode in interactive web apps](../../../computing/webinterface/vscode.md)
+[VSCode in interactive web apps](../../../supercomputing/webinterface/vscode.md)
 ```
 
 !!! warning "Attempts to climb above _docs/_ will just result in _docs/_"
-    That is, for the example above, while even a monstrosity like `../../../../../../../../../computing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
+    That is, for the example above, while even a monstrosity like `../../../../../../../../../supercomputing/webinterface/vscode.md` would work in a _preview build_, **it wouldn't pass the integration tests for the master branch**, as MkDocs doesn't recognize such links and thus issues a warning.
 
 For pages where the common ancestor directory is not as far up the tree as in the example above, there is no need to climb all the way up to _docs/_ (although it's perfectly fine to do so).
 

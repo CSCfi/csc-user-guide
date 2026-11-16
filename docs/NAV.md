@@ -1,5 +1,5 @@
 - [Accounts](accounts/)
-- [Supercomputing](computing/)
+- [Supercomputing](supercomputing/)
 - [Cloud services](cloud/)
 - [Data](data/)
 - [Quantum computing](quantum-computing/overview.md)

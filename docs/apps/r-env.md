@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../computing/containers/overview.md#running-containers).
+`r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../supercomputing/containers/overview.md#running-containers).
 
 -   R is an open-source language and environment for data analytics, statistical computing, and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -38,7 +38,7 @@ catalog:
     
     **22.7.2025** R version 4.5.1 is now available in `r-env` in Puhti and Mahti and is set as the default version.  
     
-    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../computing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
+    **7.4.2025** `r-env` is now also available on Mahti, including RStudio in the [Mahti web interface](../supercomputing/webinterface/index.md). The module works in general similarly as `r-env` on Puhti, but please note that the documentation below has not yet been updated for Mahti. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. If you have any questions on using R on Mahti, please contact [CSC Service Desk](../support/contact.md).    
 
 ## Available
 
@@ -99,16 +99,16 @@ There are several ways to use R with the `r-env` module:
 
   -   RStudio Server, which runs in [interactive jobs on a compute node](#interactive-use-on-a-compute-node) 
 
-  -   R console in the command line in an [interactive shell session on a compute node](../computing/running/interactive-usage.md) 
+  -   R console in the command line in an [interactive shell session on a compute node](../supercomputing/running/interactive-usage.md) 
 
-  -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes). 
+  -   On the login node, using the R console. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../supercomputing/usage-policy.md#login-nodes). 
 
 !!! note ""
-    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Roihu](../computing/running/batch-job-partitions.md#roihu-cpu-partitions).
+    Interactive jobs running in the `interactive` partition have specific limits on resources (time, memory, CPU cores). See [available resources on Roihu](../supercomputing/running/batch-job-partitions.md#roihu-cpu-partitions).
 
 **Non-interactive use**
 
-  -   Non-interactive [batch jobs](../computing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general)
+  -   Non-interactive [batch jobs](../supercomputing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general)
 
 !!! info "How should I use R with `r-env`?"
     - **Interactive use** is meant for preparing your code and smaller analyses up to a few hours and may use limited resources.  
@@ -120,7 +120,7 @@ There are several ways to use R with the `r-env` module:
 
 The`r-env` module can be used to remotely launch RStudio Server on your web browser.
 
-**The recommended way to launch RStudio is to use the [supercomputer web interface](../computing/webinterface/index.md)**. See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
+**The recommended way to launch RStudio is to use the [supercomputer web interface](../supercomputing/webinterface/index.md)**. See also the separate documentation for the [web interface RStudio](../supercomputing/webinterface/rstudio.md).
 
 It is also possible to launch RStudio Server via SSH tunnelling on Roihu. This option requires authentication using a Secure Shell (SSH) key. Detailed instructions are provided in a [separate tutorial for using RStudio Server](../support/tutorials/rstudio-or-jupyter-notebooks.md).
 
@@ -132,14 +132,14 @@ It is also possible to launch RStudio Server via SSH tunnelling on Roihu. This o
 To use R interactively from the command line on a compute node, first start an [interactive shell session](https://csc-training.github.io/csc-env-eff/hands-on/batch_jobs/interactive.html).  
 
 ??? info "How to start an interactive shell session (click to show instructions)"    
-    **Option 1.** In the [supercomputer web interfaces](../computing/webinterface/index.md), open a shell session with the *Compute node shell* tool.
+    **Option 1.** In the [supercomputer web interfaces](../supercomputing/webinterface/index.md), open a shell session with the *Compute node shell* tool.
     
-    **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../computing/connecting/index.md#using-an-ssh-client), open a shell session using the [`sinteractive` command](../computing/running/interactive-usage.md). 
+    **Option 2.** When [connecting to the supercomputer with an SSH client on your own workstation](../supercomputing/connecting/index.md#using-an-ssh-client), open a shell session using the [`sinteractive` command](../supercomputing/running/interactive-usage.md). 
     You can either use `sinteractive -i`, which will prompt for the choices, or enter the resources reserved yourself in the sinteractive command. To see all the options, run `sinteractive --help`.
 
     === "Roihu-CPU"
           Define the number of CPU cores (default 2, maximum 32), memory (default 1 GB per core, maximum 64 GiB in total), and time (given as `hh:mm:ss`) to reserve. The following example reserves 4 CPU cores, 8 GiB of memory and 1 hour of runtime.  
-          Each user has 20 GB of temporary disk space by default in the `interactive` partition. If more temporary space is needed, use the option `--tmp` to reserve [fast disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage), mounted
+          Each user has 20 GB of temporary disk space by default in the `interactive` partition. If more temporary space is needed, use the option `--tmp` to reserve [fast disaggregated storage](../supercomputing/running/creating-job-scripts-roihu.md#disaggregated-storage), mounted
           at `/sfb/data` (maximum 2048 GiB).
           
           ``` bash
@@ -153,7 +153,7 @@ To use R interactively from the command line on a compute node, first start an [
           sinteractive --account <project> --time 1:00:00
           ```
           
-    For more information, please see the [`sinteractive` documentation](../computing/running/interactive-usage.md)).
+    For more information, please see the [`sinteractive` documentation](../supercomputing/running/interactive-usage.md)).
 
 Once you have opened an interactive shell session, you can **launch a command line version of R** as follows (note that the command needs to be run on a compute node):
 
@@ -170,7 +170,7 @@ Once you have opened an interactive shell session, you can **launch a command li
 
 ### Interactive use on a login node
 
-It is also possible to use the R console on the login node for **light tasks**. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../computing/usage-policy.md#login-nodes).
+It is also possible to use the R console on the login node for **light tasks**. Use this option only for moving data, checking package availability and installing packages. Login nodes are [not intended for heavy computing](../supercomputing/usage-policy.md#login-nodes).
 
 To launch the R console on a login node, run the following commands:
 
@@ -190,13 +190,13 @@ To launch the R console on a login node, run the following commands:
 Running R scripts non-interactively using batch job files gives access to more resources and emphasizes efficiency over interactivity. Batch jobs are recommended in particular for all long and 
 resource-heavy tasks.   
 
-In addition to the following examples, see the [general batch job documentation](../computing/running/getting-started.md) for more information. If you are new to batch jobs, check the materials 
+In addition to the following examples, see the [general batch job documentation](../supercomputing/running/getting-started.md) for more information. If you are new to batch jobs, check the materials 
 of the [CSC Computing Environment course on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/) and [this tutorial on running interactive R jobs and R batch jobs](../support/tutorials/cmdline-handson.md).   
 
 #### Basic R batch job script
 
 Below is an example for submitting a serial R batch job that uses one core. Note that the `test` partition is used, which has a time limit of 15 minutes and is used for testing purposes only. 
-Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../computing/running/batch-job-partitions.md#roihu-partitions).
+Actual R batch jobs should in most cases be run in the `small` partition. See here for details on the available batch job partitions on [Roihu](../supercomputing/running/batch-job-partitions.md#roihu-partitions).
 
 !!! info "More than one CPU core?"
     By default, R uses one CPU core. When you are working with an R script or package that can take advantage of multiple cores and parallel processing, take a look 
@@ -226,7 +226,7 @@ We define the batch job script to execute the R script (here `myscript.R`).
     ```
 === "Roihu-GPU"
     GPU partitions on Roihu should only be used when the R packages or functions are able to use a GPU.
-    See more about creating GPU batch job scripts in [Roihu GPU batch job documentation](../computing/running/example-job-scripts-roihu.md/#roihu-gpu). 
+    See more about creating GPU batch job scripts in [Roihu GPU batch job documentation](../supercomputing/running/example-job-scripts-roihu.md/#roihu-gpu). 
     CPU and GPU memory are set automatically to the maximum (96 GB GPU memory, 120 GB of CPU memory when using one GPU).
     
     ``` bash
@@ -254,11 +254,11 @@ In the above example for Roihu-CPU, one task (`--ntasks=1`) is executed with 1 C
 The command `module load r-env` loads the latest `r-env` version [available](#available). To specify which module version is loaded, use `module load r-env/<version>`, for example `module load r-env/461`.
 
 !!! warning "Important: make sure your R batch job has enough disk space for temporary files"
-    Each user has [20 GiB of temporary storage on the local disk](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) by default on the partitions `small`, `interactive`, and `test`.
+    Each user has [20 GiB of temporary storage on the local disk](../supercomputing/running/creating-job-scripts-roihu.md#local-temporary-storage) by default on the partitions `small`, `interactive`, and `test`.
     This storage is accessed with the environment variable `$TMPDIR`.
         
     If your R jobs produce very many or very large temporary files exceeding 20 GiB,
-    please reserve fast storage from the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage).  
+    please reserve fast storage from the [disaggregated storage](../supercomputing/running/creating-job-scripts-roihu.md#disaggregated-storage).  
         
     To reserve diaggregated storage, add the following line to the batch job script. Here, `storagesize` specifies the amount of storage and `path` the location that the storage will be mounted at. 
     The path must begin with `/sbf/`.
@@ -309,7 +309,7 @@ installed_packages <- library()$results[,1]
     
     To install a package **yourself for your project:**  
     
-    First create a new folder inside your project's [`projappl`](../computing/disk.md#projappl-directory) directory. The folder can be named as you wish, but note that the folder should be specific to the R version you are using. 
+    First create a new folder inside your project's [`projappl`](../supercomputing/disk.md#projappl-directory) directory. The folder can be named as you wish, but note that the folder should be specific to the R version you are using. 
     A different `r-env` and R version require a new installation. To create the folder in R:
     
     ``` r
@@ -356,7 +356,7 @@ echo "R_LIBS=/projappl/<project>/project_rpackages_<rversion>" >> ~/.Renviron
 
 ### Using fast local storage
 
-When a job reads and writes large numbers of files (I/O-intensive analyses), [fast local storage](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage) should be used to host the files during the job.
+When a job reads and writes large numbers of files (I/O-intensive analyses), [fast local storage](../supercomputing/running/creating-job-scripts-roihu.md#local-temporary-storage) should be used to host the files during the job.
 
 === "Roihu-CPU"
     On Roihu CPU partitions `small`, `interactive`, and `test`, **each user has 20 GiB of temporary local storage by default**. This storage is suitable for I/O-intensive tasks and accessed with
@@ -365,7 +365,7 @@ When a job reads and writes large numbers of files (I/O-intensive analyses), [fa
 === "Roihu-GPU"
     On Roihu GPU-partition, **the maximum capacity of temporary local storage is 150 GiB**. This storage is accessed with the environment variable `$TMPDIR`. 
     
-For larger amounts of storage for temporary files or I/O intensive tasks, you can use the [disaggregated storage](../computing/running/creating-job-scripts-roihu.md#disaggregated-storage).
+For larger amounts of storage for temporary files or I/O intensive tasks, you can use the [disaggregated storage](../supercomputing/running/creating-job-scripts-roihu.md#disaggregated-storage).
 
 To reserve diaggregated storage in a batch job, add the following line to the batch job script. Here, `storagesize` specifies the amount of storage (in this case 100 GiB) and `path` the location that the storage will be mounted at. 
 The path must begin with `/sbf/`.

@@ -46,7 +46,7 @@ rb-mpi my_analysis.Rev
 ```
 
 Started without a script, `rb-mpi` opens the interactive Rev console. Run the console
-and short tests in an [interactive session](../computing/running/interactive-usage.md),
+and short tests in an [interactive session](../supercomputing/running/interactive-usage.md),
 not on the login node.
 
 ### Running in parallel
@@ -80,7 +80,7 @@ srun rb-mpi my_analysis.Rev
 This example runs four MPI processes, one for each replicate of an analysis with
 `nruns=4`. Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

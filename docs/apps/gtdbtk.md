@@ -105,10 +105,10 @@ Replace `<project>` with your CSC project (for example `project_2001234`).
 Running `--full_tree` (placement into the complete, undecorated reference tree)
 requires around **950 GiB of memory**. This still fits within the `small` partition's
 1500 GiB ceiling; the
-[`hugemem` partition](../computing/running/creating-job-scripts-roihu.md) is an
+[`hugemem` partition](../supercomputing/running/creating-job-scripts-roihu.md) is an
 alternative. The default split-tree approach is recommended for almost all use.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md)
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md)
 for more information about running batch jobs.
 
 ## Support

@@ -39,7 +39,7 @@ The main GPU-related statistics are summarized in the table below.
     are shown in parenthesis.
 
 Please read our [usage policy for the GPU
-nodes](../../../computing/usage-policy.md#gpu-nodes). Also consider that
+nodes](../../../supercomputing/usage-policy.md#gpu-nodes). Also consider that
 the Slurm queuing situation may vary between the different
 supercomputers at different times, so it may be worth checking out all
 the options.
@@ -57,7 +57,7 @@ including [PyTorch](../../../apps/pytorch.md), [JAX](../../../apps/jax.md)
 and [TensorFlow](../../../apps/tensorflow.md).  Please read the detailed
 instructions for the specific application that you are interested in.
 
-You need to use the [module system](../../../computing/modules.md) to
+You need to use the [module system](../../../supercomputing/modules.md) to
 load the application you want, for example:
 
 ```bash
@@ -79,11 +79,11 @@ then [install additional packages for personal use with the `pip` package
 manager](../python-usage-guide.md#installing-python-packages-to-existing-modules).
 
 For more complex software requirements, we recommend using
-[tykky](../../../computing/containers/tykky.md) or [creating your own
+[tykky](../../../supercomputing/containers/tykky.md) or [creating your own
 Apptainer
-container](../../../computing/containers/overview.md#building-container-images). For
+container](../../../supercomputing/containers/overview.md#building-container-images). For
 Roihu we have provided a set of [base Apptainer
-images](../../../computing/containers/overview.md#ml-containers) that you
+images](../../../supercomputing/containers/overview.md#ml-containers) that you
 can build on when creating your own containers. Also see our [tutorial
 on how to extend our `ml-base` container using a
 sandbox](container-extend.md).
@@ -133,7 +133,7 @@ access](../../../accounts/how-to-access-roihu-large-partition.md)
 
 For more detailed information about the different partitions, see our page about
 [the available batch job partitions on CSC's
-supercomputers](../../../computing/running/batch-job-partitions.md) and [Slurm partitions on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
+supercomputers](../../../supercomputing/running/batch-job-partitions.md) and [Slurm partitions on LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 
 ## GPU utilization
 
@@ -165,7 +165,7 @@ if you have any questions regarding GPU utilization.
 
 You can find a report of the GPU usage of your jobs in the [Job
 monitoring tool in the Roihu web user
-interface](../../../computing/webinterface/index.md#job-monitoring).
+interface](../../../supercomputing/webinterface/index.md#job-monitoring).
 
 Here is an example of the output for a job using four GPUs:
 
@@ -318,7 +318,7 @@ pipeline.
 
 See also:
 
-- [How to launch TensorBoard using the Roihu web interface](../../../computing/webinterface/apps.md)
+- [How to launch TensorBoard using the Roihu web interface](../../../supercomputing/webinterface/apps.md)
 - [PyTorch profiler tutorial](../../../apps/pytorch.md#pytorch-profiler)
 
 ## GPU energy usage
@@ -360,7 +360,7 @@ Note that GPU statistics will not be reported for very short jobs.
 
 You can also see the GPU power usage over time in the [Job monitoring
 tool in the Roihu web user
-interface](../../../computing/webinterface/index.md#job-monitoring).
+interface](../../../supercomputing/webinterface/index.md#job-monitoring).
 
 ### `gpu-energy` tool (LUMI)
 

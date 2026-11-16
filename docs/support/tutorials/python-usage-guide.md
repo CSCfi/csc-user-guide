@@ -169,12 +169,12 @@ It is also possible to create your own Python environments.
        `--system-site-packages` flag when creating the virtual environment.
 
     2. Another option is to create a pip environment inside a
-       [container](../../computing/containers/overview.md).
+       [container](../../supercomputing/containers/overview.md).
        The most straightforward way to do so is by using the
-       [Tykky container wrapper](../../computing/containers/tykky.md).
+       [Tykky container wrapper](../../supercomputing/containers/tykky.md).
        To find out how to easily containerize your environment,
        see the
-       [Tykky instructions for pip-based installations](../../computing/containers/tykky.md#pip-based-installations).
+       [Tykky instructions for pip-based installations](../../supercomputing/containers/tykky.md#pip-based-installations).
 
     3. An alternative to using Tykky is creating a pip environment
        inside a custom Apptainer container. This is a practical choice if, for
@@ -182,8 +182,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../computing/containers/overview.md#running-containers)
-        * [Creating Apptainer containers](../../computing/containers/overview.md#building-container-images),
+        * [Running Apptainer containers](../../supercomputing/containers/overview.md#running-containers)
+        * [Creating Apptainer containers](../../supercomputing/containers/overview.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---
@@ -196,15 +196,15 @@ It is also possible to create your own Python environments.
     [**CSC has deprecated the use of conda**](conda.md)
     for direct installations on supercomputers.
     However, you can still create and use
-    [containerized](../../computing/containers/overview.md)
+    [containerized](../../supercomputing/containers/overview.md)
     conda environments.
 
     1. The most straightforward way to create a containerized conda
        environment is by using the
-       [Tykky container wrapper](../../computing/containers/tykky.md).
+       [Tykky container wrapper](../../supercomputing/containers/tykky.md).
        To find out how to easily containerize your environment,
        see the
-       [Tykky instructions for conda-based installations](../../computing/containers/tykky.md#conda-based-installation).
+       [Tykky instructions for conda-based installations](../../supercomputing/containers/tykky.md#conda-based-installation).
 
     2. An alternative to using Tykky is creating a conda environment
        inside a custom Apptainer container. This is a practical choice if, for
@@ -212,8 +212,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../computing/containers/overview.md#running-containers)
-        * [Creating Apptainer containers](../../computing/containers/overview.md#building-container-images),
+        * [Running Apptainer containers](../../supercomputing/containers/overview.md#running-containers)
+        * [Creating Apptainer containers](../../supercomputing/containers/overview.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---
@@ -226,7 +226,7 @@ like `vim` or `emacs`. In addition to these terminal-based editors,
 several graphical programming environments,
 such as Jupyter notebooks, Visual Studio Code and Spyder,
 can be used on a supercomputer through
-[our web interface](../../computing/webinterface/index.md).
+[our web interface](../../supercomputing/webinterface/index.md).
 
 In addition to editing code directly on a supercomputer, it is also
 possible to [develop code remotely](./remote-dev.md) using some
@@ -249,14 +249,14 @@ write and run Python code in individual cells.
 The notebooks combine code, equations, visualizations and narrative text
 in a single document. 
 
-The [Jupyter interactive application](../../computing/webinterface/jupyter.md)
+The [Jupyter interactive application](../../supercomputing/webinterface/jupyter.md)
 on our web interface allows using Jupyter on CSC supercomputers.
 Many of our Python environments, including
 [`python-data`](../../apps/python-data.md), [`python-geo`](../../apps/python-geo.md)
 as well as deep learning modules like [`python-pytorch`](../../apps/pytorch.md)
 include the main Jupyter packages, so they can be used in the application.
 The documentation page for the application includes a
-[list of supported environments](../../computing/webinterface/jupyter.md#supported-python-environments-in-the-roihu-web-interface).
+[list of supported environments](../../supercomputing/webinterface/jupyter.md#supported-python-environments-in-the-roihu-web-interface).
 
 ### Visual Studio Code
 
@@ -268,7 +268,7 @@ default with all CSC- and custom-made Python environments.
 
 There are two ways to run VSCode on CSC supercomputers:
 
-1. [As an interactive app on our web interface](../../computing/webinterface/vscode.md)
+1. [As an interactive app on our web interface](../../supercomputing/webinterface/vscode.md)
 2. [Remotely using the Remote-SSH plugin](./remote-dev.md#visual-studio-code-with-remote-ssh-plugin) (unsupported)
 
 !!! info "Using custom environments in VSCode"
@@ -285,7 +285,7 @@ There are two ways to run VSCode on CSC supercomputers:
 environment. The [python-data](../../apps/python-data.md) and
 [python-geo](../../apps/python-geo.md) modules
 have Spyder included. The best option for using it is through the
-[Roihu web interface remote desktop](../../computing/webinterface/desktop.md).
+[Roihu web interface remote desktop](../../supercomputing/webinterface/desktop.md).
 
 ## Python parallel jobs
 

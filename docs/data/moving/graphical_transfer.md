@@ -27,7 +27,7 @@ For example, use the following settings for connecting to Roihu:
 - Logon type: Key file
 - User: your CSC username
 - Key file: Path to your
-  [SSH private key](../../computing/connecting/ssh-keys.md) on your local
+  [SSH private key](../../supercomputing/connecting/ssh-keys.md) on your local
   machine
 
 ![FileZilla interface](../../img/filezilla.png 'FileZilla interface')
@@ -42,9 +42,9 @@ if you trust the host, and then prompt you for your SSH key passphrase.
     it holds a valid SSH certificate. FileZilla will then fetch it from the
     agent automatically.
 
-    [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    [See the SSH certificate instructions here](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
     For streamlining the process down the line, we recommend using the
-    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
+    [CSC certificate helper tool](../../supercomputing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
 
 Once the connection is opened, FileZilla shows two interactive file listings
 side by side. On the left side you have your local file system and on the right
@@ -79,7 +79,7 @@ Start WinSCP and enter your login information, for example:
 - Port number: 22
 - User name: your CSC username
 - Password: leave empty, as you will be using your
-  [SSH key](../../computing/connecting/ssh-keys.md)
+  [SSH key](../../supercomputing/connecting/ssh-keys.md)
 
 ![WinSCP site settings without password but use ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add-1.png 'No password to WinSCP')
 
@@ -96,9 +96,9 @@ _OK_.
     3. If using Pageant, leave private key and certificate file fields empty (important) and toggle the _Attempt authentication using Pageant_
     option in the _SSH_ > _Authentication_ tab (on by default). 
 
-    [See the SSH certificate instructions here](../../computing/connecting/ssh-keys.md#signing-public-key).
+    [See the SSH certificate instructions here](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
     For streamlining the process down the line, we recommend using the
-    [CSC certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
+    [CSC certificate helper tool](../../supercomputing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
 
 ![WinSCP advanced site settings to add ssh private key](https://a3s.fi/docs-files/winscp-ssh-key-add.png 'Add SSH key to WinSCP')
 

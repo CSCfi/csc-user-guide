@@ -11,7 +11,7 @@ For all options, see the [Avogadro2](../../apps/avogadro2.md), [Gaussian](../../
 3. In **My Interactive Sessions**, click **Launch Desktop** when the session is **Running**.
 4. On the desktop, double-click the **Avogadro 2** icon. If a **Version Update** window appears, select **Ignore**.
 
-See the [Desktop](../../computing/webinterface/desktop.md) page for more.
+See the [Desktop](../../supercomputing/webinterface/desktop.md) page for more.
 
 ## 2. Build ethanol
 
@@ -75,8 +75,8 @@ Run the calculation as a batch job. Submit it from the Roihu CPU login node (`ro
 
 Keep the Desktop session open and open a second terminal on the CPU login node, in one of two ways:
 
-- In the [Roihu web interface](../../computing/webinterface/shell.md), start **Login node shell (Roihu-CPU)** from the pinned apps in a new browser tab.
-- From your own computer, connect with SSH: `ssh <username>@roihu-cpu.csc.fi`. See [Connecting](../../computing/connecting/index.md).
+- In the [Roihu web interface](../../supercomputing/webinterface/shell.md), start **Login node shell (Roihu-CPU)** from the pinned apps in a new browser tab.
+- From your own computer, connect with SSH: `ssh <username>@roihu-cpu.csc.fi`. See [Connecting](../../supercomputing/connecting/index.md).
 
 === "Gaussian"
 

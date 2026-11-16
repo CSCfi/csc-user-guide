@@ -28,7 +28,7 @@
   truly need**.
     * Good data hygiene reduces transfer time and load on the file system, as
       well as eliminates the risk of moving redundant or duplicate data. Roihu
-      has the same [disk cleaning policy](../../computing/usage-policy.md#disk-cleaning)
+      has the same [disk cleaning policy](../../supercomputing/usage-policy.md#disk-cleaning)
       as Puhti, meaning that files that have not been accessed in 180 days
       (or 90 days for projects with a scratch quota of 5 TiB or more) will be
       deleted.
@@ -106,21 +106,21 @@ Data transfer between Puhti/Mahti/LUMI and Roihu requires SSH connection with **
 
 Before you start, make sure you have:
 
-1. Created a SSH key, uploaded the public key to my.csc.fi and you know the path to the private SSH key on your laptop. [Instructions](../../computing/connecting/ssh-keys.md)
-2. A tool for SSH connections. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md) and [Windows](../../computing/connecting/ssh-windows.md).
-3. SSH agent installed and running. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agent).
+1. Created a SSH key, uploaded the public key to my.csc.fi and you know the path to the private SSH key on your laptop. [Instructions](../../supercomputing/connecting/ssh-keys.md)
+2. A tool for SSH connections. Instructions for [Linux/macOS](../../supercomputing/connecting/ssh-unix.md) and [Windows](../../supercomputing/connecting/ssh-windows.md).
+3. SSH agent installed and running. Instructions for [Linux/macOS](../../supercomputing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../supercomputing/connecting/ssh-windows.md#authentication-agent).
 
 For connecting:
 
-1. Get signed **[SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key)** for Roihu.
+1. Get signed **[SSH certificate](../../supercomputing/connecting/ssh-keys.md#signing-public-key)** for Roihu.
     * If you plan to use SSH connection to Roihu also later, it is recommended to use Option 2 for getting SSH certificate. The provided script adds the SSH certificate automatically to the SSH agent. It requires more steps first time, but is easier later.
     * If you mainly plan to use Roihu web interface, use Option 1.
     * The certificate is valid for 24 hours, so make sure to repeat this process as needed.
 2. Add the SSH key and certificate to SSH agent. 
     * If you used option 2 in previous step, then the script did this for you.
-    * If you used option 1 in previous step, add manually your SSH keys and certificate to the SSH agent. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../computing/connecting/ssh-windows.md#authentication-agents-with-roihu).
+    * If you used option 1 in previous step, add manually your SSH keys and certificate to the SSH agent. Instructions for [Linux/macOS](../../supercomputing/connecting/ssh-unix.md#authentication-agent) and [Windows](../../supercomputing/connecting/ssh-windows.md#authentication-agents-with-roihu).
     * In Windows, with Pageant, add both the unsigned private key for Puhti/Mahti and the signed key for Roihu.
-3. Log in to Puhti with SSH agent forwarding turned on. Instructions for [Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and [Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding).
+3. Log in to Puhti with SSH agent forwarding turned on. Instructions for [Linux/macOS](../../supercomputing/connecting/ssh-unix.md#ssh-agent-forwarding) and [Windows](../../supercomputing/connecting/ssh-windows.md#ssh-agent-forwarding).
 
 Before continuing to data transfer, first test that your SSH forwarding is working with:
 
@@ -462,7 +462,7 @@ based approaches above. The following options should therefore be considered as
    [graphical file transfer utilities](../../data/moving/graphical_transfer.md)
    to upload the data to Roihu since you've already downloaded it locally.
 2. If you have a LUMI project, you could use the Puhti/Mahti web interface
-   [Cloud storage configuration](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
+   [Cloud storage configuration](../../supercomputing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
    app to set up a connection to LUMI-O, upload your data there, and then fetch
    it from LUMI-O to Roihu.
 

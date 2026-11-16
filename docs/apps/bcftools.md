@@ -73,7 +73,7 @@ bcftools mpileup -Ou -f reference.fa aln.bam | bcftools call -mv -Oz -o calls.vc
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

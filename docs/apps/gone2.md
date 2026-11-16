@@ -70,7 +70,7 @@ example `data.vcf_GONE2_Ne`.
 
 The module also provides `gone2_tui`, which runs the same analysis and shows its
 progress and the Ne curve live in the terminal. Use it in an
-[interactive session](../computing/running/interactive-usage.md), and `gone2` in batch
+[interactive session](../supercomputing/running/interactive-usage.md), and `gone2` in batch
 jobs.
 
 GONE2 on Roihu accepts at most 2,000,000 SNPs and 2,000 individuals (1,000 with
@@ -103,7 +103,7 @@ Replace `<project>` with your CSC project (for example `project_2001234`), and `
 with a recombination rate suited to your species, or leave out `-r` and provide a
 `data.map` file.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

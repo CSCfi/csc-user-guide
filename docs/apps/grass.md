@@ -31,7 +31,7 @@ __GRASS__ is available with following versions:
 
 ### GRASS GIS Command Line Interface 
 
-GRASS GIS command line tools can be used in an [interactive session](../computing/running/interactive-usage.md) or [batch jobs](../computing/running/getting-started.md). See [examples for using GRASS GIS commands in Roihu with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
+GRASS GIS command line tools can be used in an [interactive session](../supercomputing/running/interactive-usage.md) or [batch jobs](../supercomputing/running/getting-started.md). See [examples for using GRASS GIS commands in Roihu with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
 
@@ -40,7 +40,7 @@ GRASS GIS command line tools can be used in an [interactive session](../computin
 The easiest option for using GRASS GIS is to open it in web interface.
 
 1. Log in to [Roihu](https://roihu.csc.fi). 
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
+2. Open [Desktop app](../supercomputing/webinterface/desktop.md). 
 3. After launching the Desktop, double-click GRASS-GIS icon for the newest version.
  
 If you want to use a specific version, open `Terminal` (Desktop icon) and start GRASS GIS:
@@ -85,7 +85,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-* GRASS 8.5 was installed with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis):
+* GRASS 8.5 was installed with [Tykky's wrap-container functionality](../supercomputing/containers/tykky.md#container-based-installations) using the [GRASS Docker image from Dockerhub provided by OSGEO](https://hub.docker.com/r/osgeo/grass-gis):
   
 ```
 wrap-container -w /usr/local/bin,/usr/bin/python3 docker://osgeo/grass-gis:releasebranch_8_5-ubuntu_wxgui --prefix 8.5

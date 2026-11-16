@@ -112,7 +112,7 @@ or onsite courses.
 
 ## Documentation on High-throughput computing and workflows updated, 6.6.2022
 
-Our documentation on [high-throughput computing and workflows](../../computing/running/throughput.md)
+Our documentation on [high-throughput computing and workflows](../../supercomputing/running/throughput.md)
 has been updated and extended. The page contains important instructions and
 guidelines on how to run workflows and tasks with heavy IO patterns in CSC's
 computing environment. By carefully selecting the most appropriate technology
