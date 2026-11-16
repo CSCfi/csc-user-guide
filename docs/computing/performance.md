@@ -144,7 +144,7 @@ Below the table, charts show the use of each resource during the job: GPU load,
 memory and power, CPU load per node and per core, IO wait, and memory use. They
 help you find problems that a single efficiency value hides, for example a job
 that only uses one of its GPUs, or a job that spends long periods waiting for
-the file system (high IO wait) instead of computing.
+the file system (high I/O wait) instead of computing.
 
 Reports become available a few minutes after a job has finished. Jobs that ran
 for less than a minute are not recorded, and you can only see your own jobs.
