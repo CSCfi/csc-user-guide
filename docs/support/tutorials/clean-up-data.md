@@ -127,8 +127,6 @@ All projects don't automatically have one, only the ones which have something to
 # Check if your project has a path_summary.txt file
 my_project="project_2001659" # Replace with your own project name
 ls "/scratch/purge_lists/${my_project:?}/"
-# Or if you are in an FMI project on Puhti:
-ls "/fmi/scratch/purge_lists/${my_project:?}/"
 ```
 
 If you see a `path_summary.txt` file in the directory, read ahead to discover what files
@@ -143,8 +141,6 @@ If you want a quick, copy-pasteable solution, use the small script below:
 for g in $(/usr/bin/groups) ; do
   if [ -d "/scratch/$g" -a ! -L "/scratch/$g" ]; then
     dir="/scratch/purge_lists/$g" ;
-  elif [ -d "/fmi/scratch/$g" ]; then
-    dir="/fmi/scratch/purge_lists/$g";
   else
     continue;
   fi ;
