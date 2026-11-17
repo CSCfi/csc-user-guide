@@ -72,6 +72,8 @@ VisIt is free also for commercial use and has been released under
     interface and launch **VisIt (Accelerated)** from the top left
     applications menu.
 
+    ![Launching Visit in Roihu web interface accelerated desktop](../img/visit_accelerated_desktopview.png 'Launching VisIt in Roihu web interface accelerated desktop')
+
 === "LUMI"
 
     Open the LUMI web interface and select **Apps → Desktop**.
