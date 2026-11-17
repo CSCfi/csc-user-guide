@@ -70,7 +70,7 @@ Use a separate directory for each calculation. In the file dialog of **Save Inpu
 
 ## 5. Run the calculation
 
-Run the calculation as a batch job. Submit it from the Roihu CPU login node (`roihu-cpu.csc.fi`). Roihu-CPU nodes are x86 and Roihu-GPU nodes are ARM, so Gaussian and ORCA jobs should be submitted from the CPU login node. The login nodes share the same files, so the input file that you saved in the Desktop is also there.
+Run the calculation as a batch job. Submit it from the Roihu CPU login node (`roihu-cpu.csc.fi`). The login nodes share the same files, so the input file that you saved in the Desktop is also there.
 
 Keep the Desktop session open and open a second terminal on the CPU login node, in one of two ways:
 
