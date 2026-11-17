@@ -213,7 +213,7 @@ The frequency calculation also gives the orbitals at the optimized geometry.
 
 === "Gaussian"
 
-    Open `ethanol_freq.fchk` from step 8 in Avogadro2. <!-- VERIFY: orbitals from the fchk file in Avogadro2 -->
+    Open `ethanol_freq.fchk` from step 8 in Avogadro2.
 
 === "ORCA"
 
