@@ -41,6 +41,8 @@ Avogadro2 is a graphical program. Use it in the [Desktop app](../computing/webin
 !!! note
     Run the calculations as batch jobs, see [ORCA](orca.md) and [Gaussian](gaussian.md).
 
+For a complete example, see the [tutorial](../support/tutorials/avogadro2-gaussian-orca.md).
+
 ### Importing a structure
 
 Select **Build → Insert → Molecule...** to pick a structure from the fragment library:
@@ -125,3 +127,4 @@ The Avogadro project plans a separate Avogadro2 paper. Until it appears, cite th
 
 - [Avogadro2 project page](https://two.avogadro.cc/)
 - [Avogadro2 documentation](https://avogadro.cc/docs/)
+- [Tutorial: Using Avogadro2 with Gaussian and ORCA](../support/tutorials/avogadro2-gaussian-orca.md)
