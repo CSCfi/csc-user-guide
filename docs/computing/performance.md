@@ -164,6 +164,10 @@ differ slightly.
 
 ## Efficiency banner at login
 
+!!! info "Coming soon"
+    The efficiency banner is not yet in use on Roihu, but it will be enabled
+    soon.
+
 When you log in to Roihu with SSH, a banner summarizes the efficiency of your
 jobs over the last week, the last month and all time:
 
