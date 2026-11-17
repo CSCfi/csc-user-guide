@@ -66,7 +66,7 @@ Open the generator from the **Input** menu. Use the same values for both program
 
     ![ORCA input dialog](../../img/avogadro2-orca-dialog.png)
 
-Use a separate directory for each calculation. In the file dialog of **Save Input...**, type `/scratch/<project>` in the **File name** field and press Enter to go to the project directory. Then click **Create New Folder** (the folder icon with a plus sign at the top right) and create `ethanol_opt`. <!-- VERIFY: Create New Folder in the Save Input dialog --> The generators only write the input file. The program must be available on Roihu.
+Use a separate directory for each calculation. In the file dialog of **Save Input...**, type `/scratch/<project>` in the **File name** field and press Enter to go to the project directory. Then click **Create New Folder** (the folder icon with a plus sign at the top right), type `ethanol_opt` as the name of the new folder, press Enter, and double-click the folder to open it. The generators only write the input file. The program must be available on Roihu.
 
 ## 5. Run the calculation
 
@@ -142,22 +142,28 @@ Both lines should be printed.
 
 ## 7. View the optimized structure
 
-In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA).
+In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA). The file dialog may open in another directory, so type the full path of the file in the **File name** field. If Avogadro2 asks to save the changes, select **Discard**. The input file is already saved.
 
-The file holds all optimization steps. Click the clapperboard icon in the toolbar to open the **Player**, and use the slider or the **<** and **>** buttons to step through the geometries. The last frame is the optimized structure. Compare it with the first frame, for example the C–O bond length.
+=== "Gaussian"
+
+    The window shows the optimized structure. The Player has one frame.
+
+=== "ORCA"
+
+    The file holds all optimization steps. Click the clapperboard icon in the toolbar to open the **Player**, and use the slider or the **<** and **>** buttons to step through the geometries. The last frame is the optimized structure. Compare it with the first frame, for example the C–O bond length.
+
+    To see the energy of each step, select **Analyze → Plot Conformer Data...**. The plot shows the energy relative to the lowest-energy step (the last one) against the frame number. The plot counts the frames from 0, and the Player from 1. The green point marks the frame shown in the main window.
+
+    ![Relative energy of the optimization steps](../../img/avogadro2-energy-plot.png)
 
 ![Optimized ethanol](../../img/avogadro2-optimized-ethanol.png)
-
-To see the energy of each step, select **Analyze → Plot Conformer Data...**. The plot shows the energy relative to the lowest-energy step (the last one) against the frame number. The plot counts the frames from 0, and the Player from 1. The green point marks the frame shown in the main window.
-
-![Relative energy of the optimization steps](../../img/avogadro2-energy-plot.png)
 
 ## 8. Frequency calculation
 
 A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure:
 
-1. In Avogadro2, open the output file of the optimization (`ethanol.log` or `ethanol.out`, see step 7) and select the last frame in the **Player**. The window now holds the optimized structure. Do not run the force-field optimization again.
-2. Open the input generator and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9). <!-- VERIFY: Gaussian calculation type name -->
+1. In Avogadro2, open the output file of the optimization (see step 7). For ORCA, select the last frame in the **Player**. The window now holds the optimized structure. Do not run the force-field optimization again.
+2. Open the input generator (it starts with default values) and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9). <!-- VERIFY: Gaussian calculation type name -->
 3. Click **Save Input...** and save the file in the same directory as `ethanol_freq.com` (Gaussian) or `ethanol_freq.inp` (ORCA).
 
 Submit the job as in step 5, with the new name:
