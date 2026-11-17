@@ -167,7 +167,7 @@ In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (
 A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure:
 
 1. In Avogadro2, open the output file of the optimization (see step 7). For ORCA, select the last frame in the **Player**. The window now holds the optimized structure. Do not run the force-field optimization again.
-2. Open the input generator (it starts with default values) and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9).
+2. Open the input generator (it starts with default values) and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9). The preview shows `Freq` in the keyword line.
 3. Click **Save Input...** and save the file in the same directory as `ethanol_freq.com` (Gaussian) or `ethanol_freq.inp` (ORCA).
 
 Submit the job as in step 5, with the new name:
@@ -203,7 +203,7 @@ When the job has finished, open the result in Avogadro2:
 
 Select **Analyze → Vibrational Modes...**.
 
-A minimum has no imaginary frequencies. An imaginary frequency is shown as a negative number. One imaginary frequency means a transition state, or a structure that needs more optimization. Select a mode to animate it, or select **Analyze → Plot Spectra...** for the IR spectrum.
+A minimum has no imaginary frequencies. An imaginary frequency is shown as a negative number. ORCA also lists six zero frequencies first (translations and rotations). One imaginary frequency means a transition state, or a structure that needs more optimization. Select a mode to animate it, or select **Analyze → Plot Spectra...** for the IR spectrum.
 
 To optimize and calculate the frequencies in one job, add `Freq` to the job line of the input of step 4 (`#p B3LYP/6-31G(d) Opt Freq` for Gaussian, `!Opt r2SCAN-3c Freq` for ORCA).
 
@@ -219,7 +219,7 @@ The frequency calculation also gives the orbitals at the optimized geometry.
 
     The option **Print Molecular Orbitals** adds `PrintMOs PrintBasis` to the input, so the orbitals are in `ethanol_freq.out`. Open it in Avogadro2.
 
-Select **Analyze → Molecular Orbitals...**. The window lists the orbitals with their energies and occupations. Select **HOMO** or **LUMO**, set the **Quality**, and click **Render**. <!-- VERIFY: orbitals in the ORCA Freq output -->
+Select **Analyze → Molecular Orbitals...**. The window lists the orbitals with their energies and occupations. The list starts with the highest orbital, so scroll down to **HOMO** and **LUMO**. Select **HOMO** or **LUMO**, set the **Quality**, and click **Render**.
 
 ![HOMO of ethanol](../../img/avogadro2-homo.png)
 
