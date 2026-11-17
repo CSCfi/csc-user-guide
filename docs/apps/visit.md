@@ -81,6 +81,8 @@ VisIt is free also for commercial use and has been released under
     Use the `interactive` partition for CPU rendering or `lumid`
     for GPU-accelerated graphics. Launch VisIt from **Apps → Other**.
 
+---
+
 ### X11 forwarding
 
 You can also run the VisIt GUI over SSH with X11 forwarding, although the
