@@ -115,6 +115,7 @@ When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`
 - A terminal window opens together with Avogadro2 and closes when you quit Avogadro2.
 - Copy-paste between your local computer and the desktop works via the noVNC clipboard. Open the **Clipboard** menu from the tab on the left edge of the desktop window, paste your text there, and then paste normally inside the desktop.
 - The file dialog may open in another directory. Type the full path of the file in the **File name** field to go there directly.
+- Avogadro2 shows only the final geometry of a Gaussian optimization log. The energies of the steps are in the log: `grep 'SCF Done' <jobname>.log`.
 
 ## References
 

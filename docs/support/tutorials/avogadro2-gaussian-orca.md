@@ -146,7 +146,11 @@ In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (
 
 === "Gaussian"
 
-    The window shows the optimized structure. The Player has one frame.
+    The window shows the optimized structure. The Player has one frame. The energy of each step is in the log:
+
+    ```bash
+    grep 'SCF Done' ethanol.log
+    ```
 
 === "ORCA"
 
