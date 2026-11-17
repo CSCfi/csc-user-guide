@@ -7,6 +7,7 @@ catalog:
   license_type: Other
   disciplines:
     - Mathematics and Statistics
+    - Data Analytics and Machine Learning
   available_on:
     - Roihu
 ---
