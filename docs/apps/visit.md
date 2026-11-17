@@ -60,10 +60,10 @@ VisIt is free also for commercial use and has been released under
     ```
 
     **Parallel use:** to use four parallel compute engine processes within
-    your Desktop session, reserve at least 4 cores and start VisIt with:
+    your Desktop session, reserve at least 4 cores and start VisIt on a command line with:
 
     ```bash
-    visit -np 4 -l srun -la "--overlap"
+    visit -np 4 -l srun
     ```
 
 === "Roihu accelerated"
