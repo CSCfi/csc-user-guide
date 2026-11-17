@@ -27,12 +27,6 @@ Select **Extensions → Open Babel → Optimize Geometry**. This gives a reasona
 
 ## 4. Create the input file
 
-Create the directory first. Avogadro2 does not create directories, and **Save Input...** fails if the directory does not exist. In the terminal window that opens with Avogadro2:
-
-```bash
-mkdir -p /scratch/<project>/ethanol_opt
-```
-
 Open the generator from the **Input** menu. Use the same values for both programs: 4 processor cores and 6 GiB of memory.
 
 === "Gaussian"
@@ -72,11 +66,16 @@ Open the generator from the **Input** menu. Use the same values for both program
 
     ![ORCA input dialog](../../img/avogadro2-orca-dialog.png)
 
-Use a separate directory for each calculation. The generators only write the input file. The program must be available on Roihu.
+Use a separate directory for each calculation. In the file dialog of **Save Input...**, type `/scratch/<project>` in the **File name** field and press Enter to go to the project directory. Then click **Create New Folder** (the folder icon with a plus sign at the top right) and create `ethanol_opt`. <!-- VERIFY: Create New Folder in the Save Input dialog --> The generators only write the input file. The program must be available on Roihu.
 
 ## 5. Run the calculation
 
-Run the calculation as a batch job. Submit it from the Roihu CPU login node.
+Run the calculation as a batch job. Submit it from the Roihu CPU login node (`roihu-cpu.csc.fi`). Roihu-CPU nodes are x86 and Roihu-GPU nodes are ARM, so Gaussian and ORCA jobs should be submitted from the CPU login node. The login nodes share the same files, so the input file that you saved in the Desktop is also there.
+
+Keep the Desktop session open and open a second terminal on the CPU login node, in one of two ways:
+
+- In the [Roihu web interface](../../computing/webinterface/shell.md), start **Login node shell (Roihu-CPU)** from the pinned apps in a new browser tab.
+- From your own computer, connect with SSH: `ssh <username>@roihu-cpu.csc.fi`. See [Connecting](../../computing/connecting/index.md).
 
 === "Gaussian"
 
@@ -145,16 +144,20 @@ Both lines should be printed.
 
 In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA).
 
-Compare the structure with the start geometry, for example the C–O bond length.
+The file holds all optimization steps. Click the clapperboard icon in the toolbar to open the **Player**, and use the slider or the **<** and **>** buttons to step through the geometries. The last frame is the optimized structure. Compare it with the first frame, for example the C–O bond length.
 
 ![Optimized ethanol](../../img/avogadro2-optimized-ethanol.png)
+
+To see the energy of each step, select **Analyze → Plot Conformer Data...**. The plot shows the energy relative to the lowest-energy step (the last one) against the frame number. The plot counts the frames from 0, and the Player from 1. The green point marks the frame shown in the main window.
+
+![Relative energy of the optimization steps](../../img/avogadro2-energy-plot.png)
 
 ## 8. Frequency calculation
 
 A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure:
 
-1. In Avogadro2, open the output file of the optimization (`ethanol.log` or `ethanol.out`, see step 7). The window holds the optimized structure. Do not run the force-field optimization again. <!-- VERIFY: window holds the final optimization geometry -->
-2. Open the input generator as in step 4 and change two settings: set **Filename Base** to `ethanol_freq`, and set **Calculation Type** to `Frequencies` (Gaussian) or `Freq` (ORCA). <!-- VERIFY: Gaussian calculation type name -->
+1. In Avogadro2, open the output file of the optimization (`ethanol.log` or `ethanol.out`, see step 7) and select the last frame in the **Player**. The window now holds the optimized structure. Do not run the force-field optimization again.
+2. Open the input generator and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9). <!-- VERIFY: Gaussian calculation type name -->
 3. Click **Save Input...** and save the file in the same directory as `ethanol_freq.com` (Gaussian) or `ethanol_freq.inp` (ORCA).
 
 Submit the job as in step 5, with the new name:
@@ -178,6 +181,28 @@ When the job has finished, open `ethanol_freq.log` (Gaussian) or `ethanol_freq.o
 A minimum has no imaginary frequencies. An imaginary frequency is shown as a negative number. One imaginary frequency means a transition state, or a structure that needs more optimization. Select a mode to animate it, or select **Analyze → Plot Spectra...** for the IR spectrum.
 
 To optimize and calculate the frequencies in one job, add `Freq` to the job line of the input of step 4 (`#p B3LYP/6-31G(d) Opt Freq` for Gaussian, `!Opt r2SCAN-3c Freq` for ORCA).
+
+## 9. Molecular orbitals
+
+The frequency calculation also gives the orbitals at the optimized geometry.
+
+=== "Gaussian"
+
+    Convert the checkpoint file to a formatted checkpoint file, and open `ethanol_freq.fchk` in Avogadro2:
+
+    ```bash
+    module load gaussian
+    formchk ethanol_freq.chk
+    ```
+    <!-- VERIFY: formchk on Roihu and orbitals from the fchk file in Avogadro2 -->
+
+=== "ORCA"
+
+    The option **Print Molecular Orbitals** adds `PrintMOs PrintBasis` to the input, so the orbitals are in `ethanol_freq.out`. Open it in Avogadro2.
+
+Select **Analyze → Molecular Orbitals...**. The window lists the orbitals with their energies and occupations. Select **HOMO** or **LUMO**, set the **Quality**, and click **Render**. <!-- VERIFY: orbitals in the ORCA Freq output -->
+
+![HOMO of ethanol](../../img/avogadro2-homo.png)
 
 ## Hints
 
