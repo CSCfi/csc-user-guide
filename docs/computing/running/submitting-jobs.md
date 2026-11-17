@@ -67,6 +67,10 @@ parameters that can be used to select which data is displayed.
     sacct --starttime now-7days > sacct-output.txt
     ```
 
+To check how efficiently a job used the resources it reserved, use the `seff`
+command or the Job monitoring app in the Roihu web interface. See
+[Performance analysis](../performance.md).
+
 !!! info "Submitting jobs across architectures on Roihu"
     On Roihu, the CPU nodes are x86 and the GPU nodes are ARM, so normally you
     should submit CPU jobs from `roihu-cpu.csc.fi` and GPU jobs from
