@@ -33,7 +33,7 @@ partition (see the
 
 ## Available
 
-* Roihu-CPU: 3.4.1
+* Roihu-CPU: 3.5.0, 3.4.1
 * Roihu Accelerated Visualization Desktop: 3.3.3
 * LUMI: 3.2.2
 
@@ -55,7 +55,7 @@ VisIt is free also for commercial use and has been released under
     In a Desktop session, open a terminal and type:
 
     ```bash
-    module load visit/3.4.1
+    module load visit/3.5.0
     visit
     ```
 
@@ -94,7 +94,7 @@ Then start an interactive shell on a compute node and run VisIt there:
 ```bash
 srun --account=<project> --partition=interactive --time=01:00:00 \
      --ntasks=4 --mem=8G --x11=first --resv-ports=0 --pty bash
-module load visit/3.4.1
+module load visit/3.5.0
 visit -np 4 -l srun -la "--overlap"
 ```
 
@@ -124,19 +124,11 @@ module load visit/3.4.1
 visit -nowin -cli -s my_script.py
 ```
 
-!!! note "Rendering images requires a desktop session"
-    VisIt on Roihu-CPU can only render images when a display is available.
-    Run scripts that save images (`SaveWindow()`) in a terminal of a Desktop
-    session or an X11-forwarded interactive session, not in a normal batch
-    job. In batch jobs, scripts that only read, process, query or export data
-    work. For rendering in batch jobs, consider
-    [ParaView's `pvbatch`](paraview.md#usage).
-
 ### Supported file formats
 
 VisIt reads a large number of file formats. The Roihu-CPU module includes,
 among others, support for Silo, HDF5, NetCDF, ADIOS2, Conduit Blueprint,
-MFEM and the VTK formats.
+MFEM, VLSV and the VTK formats.
 
 ## More information
 
