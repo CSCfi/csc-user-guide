@@ -219,7 +219,7 @@ Python-geo conda environment files and `download_wbt` and `start_wbt.py` needed 
 
 ## References
 
--   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+-   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/roihu)
 -   [Multiprocessing Basics](https://pymotw.com/2/multiprocessing/basics.html)
 -   [Automating GIS processes course materials](https://automating-gis-processes.github.io) by University of Helsinki
 -   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) by Henrikki Tenkanen / Aalto University
