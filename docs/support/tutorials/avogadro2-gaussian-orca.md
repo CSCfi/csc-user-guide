@@ -167,7 +167,7 @@ In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (
 A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure:
 
 1. In Avogadro2, open the output file of the optimization (see step 7). For ORCA, select the last frame in the **Player**. The window now holds the optimized structure. Do not run the force-field optimization again.
-2. Open the input generator (it starts with default values) and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9). <!-- VERIFY: Gaussian calculation type name -->
+2. Open the input generator (it starts with default values) and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9).
 3. Click **Save Input...** and save the file in the same directory as `ethanol_freq.com` (Gaussian) or `ethanol_freq.inp` (ORCA).
 
 Submit the job as in step 5, with the new name:
@@ -186,7 +186,22 @@ Submit the job as in step 5, with the new name:
     ${ORCADIR}/orca ethanol_freq.inp > ethanol_freq.out
     ```
 
-When the job has finished, open `ethanol_freq.log` (Gaussian) or `ethanol_freq.out` (ORCA) in Avogadro2 and select **Analyze → Vibrational Modes...**. <!-- VERIFY: Vibrational Modes works with the Gaussian log -->
+When the job has finished, open the result in Avogadro2:
+
+=== "Gaussian"
+
+    Avogadro2 does not read the frequencies from the Gaussian log. Convert the checkpoint file to a formatted checkpoint file, and open `ethanol_freq.fchk`:
+
+    ```bash
+    module load gaussian
+    formchk ethanol_freq.chk
+    ```
+
+=== "ORCA"
+
+    Open `ethanol_freq.out`.
+
+Select **Analyze → Vibrational Modes...**.
 
 A minimum has no imaginary frequencies. An imaginary frequency is shown as a negative number. One imaginary frequency means a transition state, or a structure that needs more optimization. Select a mode to animate it, or select **Analyze → Plot Spectra...** for the IR spectrum.
 
@@ -198,13 +213,7 @@ The frequency calculation also gives the orbitals at the optimized geometry.
 
 === "Gaussian"
 
-    Convert the checkpoint file to a formatted checkpoint file, and open `ethanol_freq.fchk` in Avogadro2:
-
-    ```bash
-    module load gaussian
-    formchk ethanol_freq.chk
-    ```
-    <!-- VERIFY: formchk on Roihu and orbitals from the fchk file in Avogadro2 -->
+    Open `ethanol_freq.fchk` from step 8 in Avogadro2. <!-- VERIFY: orbitals from the fchk file in Avogadro2 -->
 
 === "ORCA"
 
