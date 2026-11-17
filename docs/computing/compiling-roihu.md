@@ -199,7 +199,7 @@ provided in `cuda` and `nvhpc` modules.
 
 The CUDA compiler (`nvcc`) takes care of compiling CUDA kernels code for the target
 GPU device and passes the rest to the host compiler.
-By default, the host compiler is the system GCC, also when the `nvhpc` module is loaded.
+By default, the host compiler is GCC, also when the `nvhpc` module is loaded.
 To use the GCC from the loaded module as the host compiler, use the `gcc` environment
 described above.
 
