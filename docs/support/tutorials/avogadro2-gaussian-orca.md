@@ -28,22 +28,28 @@ Select **Extensions → Open Babel → Optimize Geometry**. This gives a reasona
 
 ## 4. Create the input file
 
-Open the generator from the **Input** menu. Use the same values for both programs: 4 processor cores and 6 GiB memory.
+Create the directory first. Avogadro2 does not create directories, and **Save Input...** fails if the directory does not exist. In the terminal window that opens with Avogadro2:
+
+```bash
+mkdir -p /scratch/<project>/ethanol_opt
+```
+
+Open the generator from the **Input** menu. Use the same values for both programs: 4 processor cores and 6 GiB of memory.
 
 === "Gaussian"
 
-    Select **Input → Gaussian...**. <!-- VERIFY: menu entry and setting names -->
+    Select **Input → Gaussian...**.
 
     | Setting | Value |
     |---|---|
-    | Calculation type | Equilibrium Geometry |
-    | Theory | B3LYP |
-    | Basis | 6-31G(d) |
-    | Charge / Multiplicity | 0 / 1 |
+    | Filename Base | ethanol |
     | Processor Cores | 4 |
-    | Memory | 6 GiB |
+    | Memory | 6 (GB) |
+    | Calculation Type | Equilibrium Geometry |
+    | Theory | B3LYP, 6-31G(d) |
+    | Charge / Multiplicity | 0 / 1 |
 
-    Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.com`.
+    The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`. Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.com`. `subg16` reads the input as `<jobname>.com`, so type the full name in the **File name** field.
 
     ![Gaussian input dialog](../../img/avogadro2-gaussian-dialog.png)
     <!-- SCREENSHOT 2a: avogadro2-gaussian-dialog.png -->
@@ -77,9 +83,10 @@ Run the calculation as a batch job. Submit it from the Roihu CPU login node.
     ```bash
     cd /scratch/<project>/ethanol_opt
     module load gaussian
-    subg16 ethanol.com
+    subg16 00:30:00 ethanol <project>
     ```
-    <!-- VERIFY: module name, subg16 syntax, and how cores and memory are given, against gaussian.md -->
+
+    The arguments are the run time, the job name (the input file `ethanol.com` without the extension), and the billing project. The number of cores and the memory are read from `%NProcShared` and `%mem` in the input file.
 
 === "ORCA"
 
@@ -108,7 +115,7 @@ Run the calculation as a batch job. Submit it from the Roihu CPU login node.
     sbatch job.sh
     ```
 
-The job is small and should finish in a few minutes.
+The calculation takes less than a minute. The time in the queue can be longer.
 
 ## 6. Check the result
 
@@ -132,7 +139,7 @@ Press `Ctrl+C` to stop `tail`.
 
 ## 7. View the optimized structure
 
-In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA). <!-- VERIFY: Avogadro2 shows the final geometry from both files -->
+In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA). <!-- VERIFY: ORCA ethanol.out opens in Avogadro2 and shows the final geometry -->
 
 Compare the structure with the start geometry, for example the C–O bond length.
 
