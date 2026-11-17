@@ -156,7 +156,7 @@ In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (
 
     The file holds all optimization steps. Click the clapperboard icon in the toolbar to open the **Player**, and use the slider or the **<** and **>** buttons to step through the geometries. The file opens at the first frame, and the last frame is the optimized structure. Compare it with the first frame, for example the C–O bond length.
 
-    To see the energy of each step, select **Analyze → Plot Conformer Data...** and the plot type **Energy**. The plot shows the energy relative to the lowest-energy step (the last one) against the frame number. The plot counts the frames from 0, and the Player from 1. The green point marks the frame shown in the main window.
+    To see the energy of each step, select **Analyze → Plot Conformer Data...** and the plot type **Energy**. The plot shows the energy relative to the lowest-energy step (the last one) against the frame number.
 
     ![Relative energy of the optimization steps](../../img/avogadro2-energy-plot.png)
 
