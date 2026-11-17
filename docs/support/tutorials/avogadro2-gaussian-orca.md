@@ -164,7 +164,7 @@ In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (
 
 ## 8. Frequency calculation
 
-A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure:
+A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure and the same model chemistry (method and basis set) as the optimization:
 
 1. In Avogadro2, open the output file of the optimization (see step 7). For ORCA, select the last frame in the **Player**. The window now holds the optimized structure. Do not run the force-field optimization again.
 2. Open the input generator (it starts with default values) and use the settings of step 4, except **Filename Base** `ethanol_freq`, **Calculation Type** `Frequencies` (Gaussian) or `Freq` (ORCA), and **Print Molecular Orbitals** on (ORCA, see step 9). The preview shows `Freq` in the keyword line.
