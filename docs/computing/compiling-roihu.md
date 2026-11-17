@@ -263,7 +263,7 @@ nvcc -gencode arch=compute_90a,code=sm_90a $Xcompiler $Xlinker -Xcompiler -mcpu=
 ### Compiling application using OpenMP offload, OpenACC, and C++ standard parallelism
 
 It is recommended to use the NVIDIA HPC compilers for
-compiling codes using OpenMP offload, OpenACC, and C++ standard parallelism.
+compiling codes using OpenMP offload, OpenACC, or C++ standard parallelism.
 
 Start by loading NVIDIA HPC compilers:
 
