@@ -1,6 +1,6 @@
 # Using Avogadro2 with Gaussian and ORCA on Roihu
 
-Avogadro2 is a molecular editor. On Roihu it runs in the Desktop app of the web interface, so you can build a molecule, create an input file, and open the result in one place. In this tutorial you build ethanol, optimize it, and run a B3LYP geometry optimization with Gaussian or ORCA.
+Avogadro2 is a molecular editor. On Roihu it runs in the Desktop app of the web interface, so you can build a molecule, create an input file, and open the result in one place. In this tutorial you build ethanol, optimize it, and run a geometry optimization with Gaussian (B3LYP) or ORCA (r2SCAN-3c).
 
 For all options, see the [Avogadro2](../../apps/avogadro2.md), [Gaussian](../../apps/gaussian.md) and [ORCA](../../apps/orca.md) pages.
 
@@ -15,12 +15,11 @@ See the [Desktop](../../computing/webinterface/desktop.md) page for more.
 
 ## 2. Build ethanol
 
-Select **Build → Insert → Molecule...**, type `ethanol` in the **Filter** field, and click **Insert**. <!-- VERIFY: ethanol is in the fragment library -->
+Select **Build → Insert → Molecule...**, type `ethanol` in the **Filter** field, select `ethanol.cjson` in the `alcohols` category, and click **Insert**.
 
-To draw it instead, use the draw tool: two carbon atoms and one oxygen atom in a chain. Avogadro2 adds the hydrogen atoms. <!-- VERIFY: hydrogens are added automatically; else Build → Add Hydrogens -->
+To draw a molecule instead, see [Building a structure](../../apps/avogadro2.md#building-a-structure).
 
 ![Ethanol in Avogadro2](../../img/avogadro2-ethanol-build.png)
-<!-- SCREENSHOT 1: avogadro2-ethanol-build.png (1-2 arrows maximum) -->
 
 ## 3. Optimize with a force field
 
@@ -52,25 +51,26 @@ Open the generator from the **Input** menu. Use the same values for both program
     The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`. Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.com`. `subg16` reads the input as `<jobname>.com`, so type the full name in the **File name** field.
 
     ![Gaussian input dialog](../../img/avogadro2-gaussian-dialog.png)
-    <!-- SCREENSHOT 2a: avogadro2-gaussian-dialog.png -->
 
 === "ORCA"
 
     Select **Input → ORCA...**.
 
-    | Setting (tab) | Value |
-    |---|---|
-    | Calculation type (Basic) | Equilibrium Geometry |
-    | Theory (Basic) | B3LYP |
-    | Basis (Basis) | def2-SVP |
-    | Charge / Multiplicity (Basic) | 0 / 1 |
-    | Processor Cores | 4 |
-    | Memory | 6 GiB |
+    On the **Basic** tab:
 
-    The input has `%pal nprocs 4` and `%MaxCore 1536` (MB per process). Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.inp`.
+    | Setting | Value |
+    |---|---|
+    | Filename Base | ethanol |
+    | Processor Cores | 4 |
+    | Memory | 6 (GiB) |
+    | Calculation Type | Opt |
+    | Theory | r2SCAN-3c (default) |
+    | Charge / Multiplicity | 0 / 1 |
+    | Print Molecular Orbitals | off |
+
+    r2SCAN-3c is a composite method with its own basis set, so no basis set is given in the keyword line. The input has `nprocs = 4` in the `%pal` block and `%MaxCore 1536` (MB per process). Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.inp`.
 
     ![ORCA input dialog](../../img/avogadro2-orca-dialog.png)
-    <!-- SCREENSHOT 2b: avogadro2-orca-dialog.png -->
 
 Use a separate directory for each calculation. The generators only write the input file. The program must be available on Roihu.
 
@@ -119,56 +119,74 @@ The calculation takes less than a minute. The time in the queue can be longer.
 
 ## 6. Check the result
 
+Check the job with:
+
+```bash
+squeue -u $USER
+```
+
+The job is finished when it is no longer in the list. Then check the end of the output:
+
 === "Gaussian"
 
     ```bash
-    tail -f ethanol.log
+    grep -E 'Optimization completed|Normal termination' ethanol.log
     ```
-
-    The optimization is finished when the file contains `Optimization completed` and ends with `Normal termination`.
 
 === "ORCA"
 
     ```bash
-    tail -f ethanol.out
+    grep -E 'OPTIMIZATION RUN DONE|ORCA TERMINATED NORMALLY' ethanol.out
     ```
 
-    The optimization is finished when the file contains `OPTIMIZATION RUN DONE` and ends with `ORCA TERMINATED NORMALLY`.
-
-Press `Ctrl+C` to stop `tail`.
+Both lines should be printed.
 
 ## 7. View the optimized structure
 
-In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA). <!-- VERIFY: ORCA ethanol.out opens in Avogadro2 and shows the final geometry -->
+In Avogadro2, select **File → Open** and open the output file: `ethanol.log` (Gaussian) or `ethanol.out` (ORCA).
 
 Compare the structure with the start geometry, for example the C–O bond length.
 
 ![Optimized ethanol](../../img/avogadro2-optimized-ethanol.png)
-<!-- SCREENSHOT 3: avogadro2-optimized-ethanol.png -->
 
 ## 8. Frequency calculation
 
-A frequency calculation confirms that the optimized structure is a minimum. Add `Freq` to the job line of the input file:
+A frequency calculation confirms that the optimized structure is a minimum. It must use the optimized structure:
+
+1. In Avogadro2, open the output file of the optimization (`ethanol.log` or `ethanol.out`, see step 7). The window holds the optimized structure. Do not run the force-field optimization again. <!-- VERIFY: window holds the final optimization geometry -->
+2. Open the input generator as in step 4 and change two settings: set **Filename Base** to `ethanol_freq`, and set **Calculation Type** to `Frequencies` (Gaussian) or `Freq` (ORCA). <!-- VERIFY: Gaussian calculation type name -->
+3. Click **Save Input...** and save the file in the same directory as `ethanol_freq.com` (Gaussian) or `ethanol_freq.inp` (ORCA).
+
+Submit the job as in step 5, with the new name:
 
 === "Gaussian"
 
-    ```text
-    # B3LYP/6-31G(d) Opt Freq
+    ```bash
+    subg16 00:30:00 ethanol_freq <project>
     ```
 
 === "ORCA"
 
-    ```text
-    ! B3LYP def2-SVP Opt Freq
+    Change the last line of `job.sh` and submit it again:
+
+    ```bash
+    ${ORCADIR}/orca ethanol_freq.inp > ethanol_freq.out
     ```
 
-A minimum has no imaginary frequencies. An imaginary frequency is printed as a negative number. One imaginary frequency means a transition state, or a structure that needs more optimization.
+When the job has finished, open `ethanol_freq.log` (Gaussian) or `ethanol_freq.out` (ORCA) in Avogadro2 and select **Analyze → Vibrational Modes...**. <!-- VERIFY: Vibrational Modes works with the Gaussian log -->
 
-Open the output in Avogadro2 and select **Analyze → Vibrational Modes...** to animate the modes, or **Analyze → Plot Spectra...** for the IR spectrum.
+A minimum has no imaginary frequencies. An imaginary frequency is shown as a negative number. One imaginary frequency means a transition state, or a structure that needs more optimization. Select a mode to animate it, or select **Analyze → Plot Spectra...** for the IR spectrum.
 
-## Common problems
+To optimize and calculate the frequencies in one job, add `Freq` to the job line of the input of step 4 (`#p B3LYP/6-31G(d) Opt Freq` for Gaussian, `!Opt r2SCAN-3c Freq` for ORCA).
 
-- **SCF does not converge:** check the charge, the multiplicity and the start geometry.
-- **Job stops at the time limit:** increase `--time` and start again from the last geometry.
+## Hints
+
+Start with a cheap method and refine the result step by step. This saves resources while the structure is still far from the minimum:
+
+1. Optimize with a force field in Avogadro2 (step 3).
+2. Optimize with a small basis set or a composite method, as in this tutorial.
+3. Calculate the final energy with a larger basis set or a more accurate method at the optimized geometry.
+
+Use the output of each step as the start structure of the next step (open it in Avogadro2, see step 8), and check that each calculation finished normally before you continue.
 
 See the [Gaussian](../../apps/gaussian.md) and [ORCA](../../apps/orca.md) pages for more.
