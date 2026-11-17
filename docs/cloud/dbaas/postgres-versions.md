@@ -1,15 +1,11 @@
 # PostgreSQL versions
 
-Currently Pukki supports two major versions of PostgreSQL, 14 and 17. We recommend always using
+Currently Pukki supports only one major version of PostgreSQL, 17. We recommend always using
 the most recent version available when creating new database instances, and existing ones can
 be upgraded to use newer minor or major versions. For more detailed information on differences
 between all PostgreSQL versions, consult the
 [PostgreSQL documentation](https://www.postgresql.org/docs/release/).
 See also [this page](operations.md) for more information regarding database upgrades in Pukki.
-
-!!! warning "PostgreSQL 14 is approaching its end-of-life date"
-
-    As PostgreSQL 14's end-of-life date is set to arrive on 12th of November, 2026, support for it will be removed from Pukki by then. Users are recommended to upgrade their PostgreSQL 14 instances to PostgreSQL 17 before the EOL date, as restoring database instances from PostgreSQL 14 backups will stop working. [Further information can be found on this page](postgres-14-eol.md).
 
 ## Minor version upgrades
 
@@ -24,7 +20,6 @@ When this happens, a full reindex of all databases on the instance is required
 to prevent issues with data consistency. This reindexing can take a considerable
 amount of time, especially with large databases containing complex indexes.
 Currently upgrading from 17.5 or earlier to 17.6 or newer triggers the reindexing.
-Upgrading between minor versions of PostgreSQL 14 also triggers the reindexing.
 
 ## Major version upgrades
 
