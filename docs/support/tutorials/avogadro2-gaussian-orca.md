@@ -42,7 +42,7 @@ Open the generator from the **Input** menu. Set the processor cores to 4 and the
     | Theory | B3LYP, 6-31G(d) |
     | Charge / Multiplicity | 0 / 1 |
 
-    The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`. Click **Save Input...**. The file dialog proposes `ethanol.gjf`, but `subg16` needs the extension `.com`. Type `/scratch/<project>/ethanol_opt/ethanol.com` in the **File name** field and click **Save**.
+    The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`.
 
     ![Gaussian input dialog](../../img/avogadro2-gaussian-dialog.png)
 
@@ -62,11 +62,11 @@ Open the generator from the **Input** menu. Set the processor cores to 4 and the
     | Charge / Multiplicity | 0 / 1 |
     | Print Molecular Orbitals | off |
 
-    r2SCAN-3c is a composite method with its own basis set, so no basis set is given in the keyword line. The input has `nprocs = 4` in the `%pal` block and `%MaxCore 1536` (MB per process). Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.inp`.
+    r2SCAN-3c is a composite method with its own basis set, so no basis set is given in the keyword line. The input has `nprocs = 4` in the `%pal` block and `%MaxCore 1536` (MB per process).
 
     ![ORCA input dialog](../../img/avogadro2-orca-dialog.png)
 
-Use a separate directory for each calculation. In the file dialog of **Save Input...**, type `/scratch/<project>` in the **File name** field and press Enter to go to the project directory. Then click **Create New Folder** (the folder icon with a plus sign at the top right), type `ethanol_opt` as the name of the new folder, press Enter, and double-click the folder to open it. The generators only write the input file. The program must be available on Roihu.
+Click **Save Input...**. Use a separate directory for each calculation. In the file dialog, type `/scratch/<project>` in the **File name** field and press Enter to go to the project directory. Then click **Create New Folder** (the folder icon with a plus sign at the top right), type `ethanol_opt` as the name of the new folder, press Enter, and double-click the folder to open it. Type the file name `ethanol.com` for Gaussian (the dialog proposes `ethanol.gjf`, but `subg16` needs the extension `.com`) or `ethanol.inp` for ORCA, and click **Save**. The generators only write the input file. The program must be available on Roihu.
 
 ## 5. Run the calculation
 
