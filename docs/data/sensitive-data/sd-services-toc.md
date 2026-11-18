@@ -67,7 +67,7 @@ hide:
 
 ## 2 Secondary use of health and social data (register data) via a CSC project Secondary Use type
 
-### 2.1 Access secondary use data with a data permit on SD Desktop
+### 2.1 Access secondary use data on SD Desktop with a data permit
 
 * [Start here to access secondary use data with SD services](secondarydata-access.md)
     * [Access with a Secondary Use project](sd-use-case-secondary-use-project.md)
