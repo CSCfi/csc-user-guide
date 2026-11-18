@@ -213,7 +213,7 @@ plugins:
       "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
       "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
       "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
-      "support/tutorials/gabedit_gaussian.md": "apps/gaussian.md"
+      "support/tutorials/gabedit_gaussian.md": "support/tutorials/avogadro2-gaussian-orca.md"
       "computing/quantum-computing/projects.md": "computing/quantum-computing/overview.md"
       "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
 
