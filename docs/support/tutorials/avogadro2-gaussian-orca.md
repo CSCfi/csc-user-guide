@@ -1,6 +1,6 @@
 # Using Avogadro2 with Gaussian and ORCA on Roihu
 
-Avogadro2 is a molecular editor. On Roihu it runs in the Desktop app of the web interface, so you can build a molecule, create an input file, and open the result in one place. In this tutorial you build ethanol, optimize it, and run a geometry optimization with Gaussian (B3LYP) or ORCA (r2SCAN-3c).
+Avogadro2 is a program for building, visualizing and analyzing molecules, with input generators for several quantum chemistry programs. On Roihu it runs in the Desktop app of the web interface, so you can build a molecule, create an input file, and open the result in one place. In this tutorial you build ethanol, optimize it, and run a geometry optimization with Gaussian (B3LYP) or ORCA (r2SCAN-3c).
 
 For all options, see the [Avogadro2](../../apps/avogadro2.md), [Gaussian](../../apps/gaussian.md) and [ORCA](../../apps/orca.md) pages.
 
@@ -9,7 +9,7 @@ For all options, see the [Avogadro2](../../apps/avogadro2.md), [Gaussian](../../
 1. In the [Roihu web interface](https://www.roihu.csc.fi), select **Apps → Desktop**.
 2. Select your **Project** and the **Partition** `interactive`, set **Memory (GiB)** to 4, and click **Launch**.
 3. In **My Interactive Sessions**, click **Launch Desktop** when the session is **Running**.
-4. In the desktop, double-click **Avogadro 2**. If a **Version Update** window appears, select **Ignore**.
+4. On the desktop, double-click the **Avogadro 2** icon. If a **Version Update** window appears, select **Ignore**.
 
 See the [Desktop](../../computing/webinterface/desktop.md) page for more.
 
@@ -70,7 +70,7 @@ Use a separate directory for each calculation. In the file dialog of **Save Inpu
 
 ## 5. Run the calculation
 
-Run the calculation as a batch job. Submit it from the Roihu CPU login node (`roihu-cpu.csc.fi`). The login nodes share the same files, so the input file that you saved in the Desktop is also there.
+Run the calculation as a batch job. Submit it from the Roihu CPU login node (`roihu-cpu.csc.fi`). The login nodes share the same files, so the input file that you saved in the Desktop session is also there.
 
 Keep the Desktop session open and open a second terminal on the CPU login node, in one of two ways:
 
