@@ -59,3 +59,8 @@ seff <JOBID>
 If you cannot find the cause, [contact CSC Service Desk](../contact.md). For
 larger efforts, see the
 [CSC optimization service](../../computing/performance.md#csc-optimization-service).
+
+## More information
+
+* [Performance analysis](../../computing/performance.md)
+* [Performance checklist](../../computing/running/performance-checklist.md)
