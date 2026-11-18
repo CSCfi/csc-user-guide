@@ -41,8 +41,9 @@ Open the generator from the **Input** menu. Set the processor cores to 4 and the
     | Calculation Type | Equilibrium Geometry |
     | Theory | B3LYP, 6-31G(d) |
     | Charge / Multiplicity | 0 / 1 |
+    | Write Checkpoint File | on |
 
-    The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`.
+    The preview shows `%NProcShared=4`, `%mem=6GB`, `%Chk=ethanol.chk` and the route line `#p B3LYP/6-31G(d) Opt`.
 
     ![Gaussian input dialog](../../img/avogadro2-gaussian-dialog.png)
 
