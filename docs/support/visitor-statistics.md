@@ -21,6 +21,7 @@ information such as:
 - pages you visit and the order in which you visit them
 - the page or search engine that referred you to the site
 - clicks on outbound links and downloads of files
+- search queries entered into the search field
 - your approximate location (country or city), derived from an anonymized IP address
 - technical information about your browser, operating system, device type,
   screen resolution and browser language
