@@ -6,6 +6,7 @@ catalog:
   description: Integrated development environment for R
   license_type: Other
   disciplines:
+    - Data Analytics and Machine Learning
     - Mathematics and Statistics
   available_on:
     - web_interfaces:
@@ -19,7 +20,7 @@ RStudio is an integrated development environment (IDE) for R. More information o
 
 ## Available
 
-For running R and RStudio on Roihu, please see the user documentation for [`r-env`](r-env.md).
+For running R and RStudio on Roihu, please see the user documentation for [`r-env`](r-env.md). The recommended way to launch RStudio is to use the [supercomputer web interface](../computing/webinterface/index.md). See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
 
 ## License
 
