@@ -42,7 +42,7 @@ Open the generator from the **Input** menu. Set the processor cores to 4 and the
     | Theory | B3LYP, 6-31G(d) |
     | Charge / Multiplicity | 0 / 1 |
 
-    The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`. Click **Save Input...** and save the file as `/scratch/<project>/ethanol_opt/ethanol.com`. `subg16` reads the input as `<jobname>.com`, so type the full name in the **File name** field.
+    The preview shows `%NProcShared=4`, `%mem=6GB` and the route line `#p B3LYP/6-31G(d) Opt`. Click **Save Input...**. The file dialog proposes `ethanol.gjf`, but `subg16` needs the extension `.com`. Type `/scratch/<project>/ethanol_opt/ethanol.com` in the **File name** field and click **Save**.
 
     ![Gaussian input dialog](../../img/avogadro2-gaussian-dialog.png)
 
