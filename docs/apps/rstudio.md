@@ -20,7 +20,7 @@ RStudio is an integrated development environment (IDE) for R. More information o
 
 ## Available
 
-For running R and RStudio on Roihu and the available versions, please see the user documentation for [`r-env`](r-env.md).
+For running R and RStudio on Roihu and the available versions, please see the [user documentation for `r-env`](r-env.md).
 
 ## License
 
@@ -28,4 +28,4 @@ See [the Licenses section of `r-env`](r-env.md#licenses).
 
 ## Usage
 
-The recommended way to launch RStudio is to use the [supercomputer web interface](../computing/webinterface/index.md). See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
+The recommended way to launch RStudio is to use the [Roihu web interface](../computing/webinterface/index.md). See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
