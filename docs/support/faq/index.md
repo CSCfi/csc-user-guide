@@ -25,6 +25,7 @@
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
 * [Why is my job queuing so long?](why-is-my-job-queueing-so-long.md)
 * [How to estimate how much memory my job needs?](how-much-memory-my-job-needs.md)
+* [The login banner says my job efficiency is poor. What should I do?](poor-job-efficiency.md)
 * [When will my batch job run?](when-will-my-job-run.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 * [Sending email when a job starts/finishes is not working](email_not_working.md )

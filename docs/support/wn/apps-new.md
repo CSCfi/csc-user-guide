@@ -1,5 +1,9 @@
 # Applications
 
+## Avogadro2 available in the Roihu web interface, 17.11.2026
+
+[Avogadro2](../../apps/avogadro2.md) 2.0.0 is now available in the Desktop app of the Roihu web interface. Use it to build structures, to generate ORCA input files and to analyze results.
+
 ## r-env (R 4.6.1) now available in Roihu-GPU, 11.11.2026
 
 The R module [r-env](../../apps/r-env.md) is now available in Roihu-GPU with R version 4.6.1. Please note that due to incompatibility with the Roihu-GPU architecture, RStudio is not 

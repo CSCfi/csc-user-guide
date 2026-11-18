@@ -218,40 +218,43 @@ plugins:
       "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
 
 markdown_extensions:
-  - md_in_html
-  - footnotes
-  - admonition
-  - abbr
-  - attr_list
-  - def_list
-  - pymdownx.details
-  - pymdownx.blocks.caption
-  - pymdownx.tabbed:
-      alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  - pymdownx.snippets:
-      base_path:
-        - includes/snippets
-        - docs/data/sensitive-data
-      auto_append:
-        - glossaries/hpc.md
-        - glossaries/cloud.md
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      use_pygments: true
-      pygments_lang_class: true
-      anchor_linenums: true
-      line_spans: __span
-  - pymdownx.inlinehilite
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  toc:
+    permalink: true
+    permalink_title: Link to this heading
+  md_in_html: {}
+  footnotes: {}
+  admonition: {}
+  abbr: {}
+  attr_list: {}
+  def_list: {}
+  pymdownx.details: {}
+  pymdownx.blocks.caption: {}
+  pymdownx.tabbed:
+    alternate_style: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify
+      kwds:
+        case: lower
+  pymdownx.snippets:
+    base_path:
+      - includes/snippets
+      - docs/data/sensitive-data
+    auto_append:
+      - glossaries/hpc.md
+      - glossaries/cloud.md
+  pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  pymdownx.highlight:
+    use_pygments: true
+    pygments_lang_class: true
+    anchor_linenums: true
+    line_spans: __span
+  pymdownx.inlinehilite: {}
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   name: materialx

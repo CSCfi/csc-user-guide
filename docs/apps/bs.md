@@ -19,18 +19,20 @@ Illumina BaseSpace command line client, `bs`, can be used to retrieve data from 
 
 ## License
 
-Software is free to use.
+Proprietary software by Illumina, free to use.
 
 ## Available
 
-* Roihu-CPU: 1.7.0 
+* Roihu-CPU: 1.7.1 (module `basespace-cli`), via the `bio-apps` module.
 
 ## Usage
 
-First load the basespace module:
+The BaseSpace client is part of the [bio-apps](bio-apps.md) collection on Roihu. Load
+the bio-apps module tree and then the BaseSpace module:
 
 ```bash
-module load basespace
+module load bio-apps/v202603
+module load basespace-cli/1.7.1
 ```
 
 When the module is loaded, the Illumina BaseSpace command line client starts with the command:
@@ -64,9 +66,13 @@ Single dataset can be downloaded to Roihu with the command:
 bs download dataset -i dataset_id -o local_download_dir
 ```
 
+## Support
+
+[CSC Service Desk](../support/contact.md)
+
 ## More information
 
-More detailed information about using Illumina BaseSpace client can be found form the links below:
+More detailed information about using Illumina BaseSpace client can be found from the links below:
 
 * [bs examples](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-examples)
 * [bs overview](https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-overview)

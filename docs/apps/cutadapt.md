@@ -20,39 +20,63 @@ unwanted sequence from your high-throughput sequencing reads.
 
 ## License
 
-Free to use and open source under [MIT License](https://github.com/marcelm/cutadapt/blob/main/LICENSE)
+Free to use and open source under [MIT License](https://github.com/marcelm/cutadapt/blob/main/LICENSE).
 
 ## Available
 
-- Roihu-CPU: 5.1.0
+* Roihu-CPU: 4.7, 5.1 and 5.2 (module `py-cutadapt`), via the `bio-apps` module.
 
 ## Usage
 
-On Roihu, Cutadapt can be taken in use by loading the module:
+Cutadapt is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Cutadapt module:
 
 ```bash
-module load cutadapt
+module load bio-apps/v202603
+module load py-cutadapt/5.2
 ```
 
-You can check the available versions with the command:
+Remove an adapter from the 3' end of single-end reads:
 
 ```bash
-module spider cutadapt
+cutadapt -a AGATCGGAAGAGC -o trimmed.fastq.gz reads.fastq.gz
 ```
 
-You can load a specific version with the command:
+For paired-end reads, give the adapter of the second read with `-A` and the second
+output file with `-p`:
 
 ```bash
-module load cutadapt/5.1.0
+cutadapt -a AGATCGGAAGAGC -A AGATCGGAAGAGC -o trimmed_1.fastq.gz -p trimmed_2.fastq.gz \
+  reads_1.fastq.gz reads_2.fastq.gz
 ```
 
-The basic syntax is:
+Cutadapt uses one core by default. Use `-j` to set the number of cores.
+
+### Example batch script
 
 ```bash
-cutadapt --help
+#!/bin/bash
+#SBATCH --job-name=cutadapt
+#SBATCH --account=<project>
+#SBATCH --output=output_%j.txt
+#SBATCH --error=errors_%j.txt
+#SBATCH --partition=small
+#SBATCH --time=02:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=8G
+
+module load bio-apps/v202603
+module load py-cutadapt/5.2
+
+cutadapt -j $SLURM_CPUS_PER_TASK -a AGATCGGAAGAGC -A AGATCGGAAGAGC \
+  -o trimmed_1.fastq.gz -p trimmed_2.fastq.gz reads_1.fastq.gz reads_2.fastq.gz
 ```
 
-Cutadapt should be run either in an interactive session or as a batch job.
+Replace `<project>` with your CSC project (for example `project_2001234`).
+
+See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 
@@ -60,4 +84,4 @@ Cutadapt should be run either in an interactive session or as a batch job.
 
 ## More information
 
-- [Cutadapt home page](https://cutadapt.readthedocs.io/en/stable/).
+* [Cutadapt documentation](https://cutadapt.readthedocs.io/en/stable/)

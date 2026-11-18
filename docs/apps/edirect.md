@@ -37,14 +37,16 @@ Free to use for all users. [Public Domain notice](https://www.ncbi.nlm.nih.gov/b
 
 ## Available
 
-Roihu-CPU: 26.0
+* Roihu-CPU: 26.6.20261102 (module `entrezdirect`), via the `bio-apps` module.
 
 ## Usage
 
-The `edirect` commands listed above are activated by loading the `edirect` module.
+Entrez Direct is part of the [bio-apps](bio-apps.md) collection on Roihu. Load the
+bio-apps module tree and then the Entrez Direct module:
 
 ```bash
-module load edirect
+module load bio-apps/v202603
+module load entrezdirect/26.6.20261102
 ```
 
 After that you can, e.g., use `esearch` and `efetch` to retrieve protein or nucleotide sequence entries, whose annotation matches the given search terms. In search terms, you can also use wildcard character `*` to match any string. The search is case-insensitive: "Mus" and "mus" will produce the same matches. You can also focus your search to certain fields of the search database (Keywords, Author, Organism, Accession, Gene name, Protein name, Sequence length etc.). In the case of sequence length, a range should be defined with syntax `from:to`. For example: `120:125`.
@@ -56,23 +58,17 @@ For example, search:
 esearch -db nucleotide -query barc
 ```
 
-will report that 267791 hits were found.
-
-```xml
-<ENTREZ_DIRECT>
-  <Db>nucleotide</Db>
-  <WebEnv>NCID_1_7176041_130.14.18.48_9001_1567161450_1478919739_0MetA0_S_MegaStore</WebEnv>
-  <QueryKey>1</QueryKey>
-  <Count>267791</Count>
-  <Step>1</Step>
-</ENTREZ_DIRECT>
-```
+The `<Count>` field of the output shows the number of hits.
 
 In this case it might be reasonable to refine the search before the search definition is further piped to `efetch` command for the actual data retrieval. One search can include several search terms that are combined using logical operators (`AND`, `OR`, `NOT`). The matching sequences can be saved in several formats, for example, fasta or Genebank formats are supported. The command below retrieves just one entry, _Lyngbya majuscula_ barbamide biosynthesis gene cluster that contains gene with name _braC_.
 
 ```bash
 esearch -db nucleotide -query "barc [GENE] AND Lyngbya majuscula [ORGN]" | efetch -format gb > barc_Lm.gb
 ```
+
+## Support
+
+[CSC Service Desk](../support/contact.md)
 
 ## More information
 
