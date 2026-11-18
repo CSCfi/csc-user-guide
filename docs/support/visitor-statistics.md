@@ -43,6 +43,6 @@ buttons at the bottom of each page.
 
 ## More information
 
-For more information on how CSC processes data, see the [CSC Privacy Notice](https://research.csc.fi/security/).
+For more information on how CSC processes data, see [CSC Privacy Notices](https://csc.fi/en/security-privacy-data-policy-and-open-source-policy/privacy/).
 
 If you have questions about the statistics we collect, contact [CSC Service Desk](contact.md).
