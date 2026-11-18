@@ -37,6 +37,9 @@ older major version is to restore an old backup from before the upgrade.
 
 ## Changes between PostgreSQL 14 and 17
 
+This information is kept here as it might be relevant for older database instances that might
+have been upgraded from PostgreSQL 14 to 17.
+
 Most of the changes to PostgreSQL between versions 14 and 17 won't be visible to the user. Many of
 them are focused on server side performance, logging, and more advanced and specific SQL features.
 However, PostgreSQL 15 brought a very specific change to default permissions, which affects how

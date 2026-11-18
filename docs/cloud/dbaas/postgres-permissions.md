@@ -1,5 +1,9 @@
 # PostgreSQL permissions
 
+Note that while PostgreSQL 14 is EOL and no longer available in Pukki, some of the information
+regarding it on this page is kept around in case it's useful for users with database instances
+that have been upgraded from major version 14 to 17.
+
 ## PostgreSQL 17 permissions
 
 In PostgreSQL 17 database instances, you need to explicitly grant users access to a database to
