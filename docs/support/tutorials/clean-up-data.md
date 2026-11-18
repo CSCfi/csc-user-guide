@@ -1,348 +1,229 @@
 # Managing data on supercomputer scratch disks
 
-An important task for all users on CSC supercomputers is to manage what data resides in project
-folders in `scratch`. These are only intended as temporary storage space for data that is in
-active use. All other data should be removed, or stored in other more suitable storage systems.
-Users are not expected to use all of their quota, the maximum quota is only meant for
-short-term bursts.
+The `scratch` disk area is only meant for data that is in active use. All other data should be
+removed or moved to more suitable storage. Your project's `scratch` quota is meant for
+short-term peaks, not for permanent use.
 
-Also note that:
+Keeping `scratch` tidy matters because:
 
-* A Lustre parallel file system starts to lose performance when more than approximately 70% of
-  disk space is used, and the more the disks fill up, the slower the performance will get.
-  CSC has allocated more quota than there is space, hence it is not even possible for all users
-  to use their `scratch` folders for longer term storage.
-* There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
-* Removing files decreases the Storage BU consumption of your project, since `scratch`
-  usage is [billed](../../computing/hpc-billing.md#storage) per TiB-hour.
+* There are **no backups** of `scratch`. Do not trust it to store all of your research data.
+* A Lustre file system slows down for everyone once it is more than about 70% full. CSC has
+  allocated more quota than there is disk space, so `scratch` cannot be used for long-term
+  storage.
+* `scratch` usage is [billed](../../computing/hpc-billing.md#storage) per TiB-hour, so
+  removing files saves your project's Storage BUs.
 
-We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
-Please do the following tasks:
+Please do the following:
 
-* **Remove files** that are not needed anymore in your project's `scratch` folder.
-  Note that we cannot bring back files that you delete by mistake so do these operations carefully!
-* **Compress files** if it reduces file size. Ascii text files usually compress very well.
-  Test with one file first. If the file size drops by 50%, go ahead and compress all similar files.
-  [See here for available compression tools](env-guide/packing-and-compression-tools.md).
-* **Move files** not in active use now, but that need to be available later during the project.
-  The typical model is to move the files to [Allas](../../data/Allas/index.md).
-  We recommend to use [a-tools](../../data/Allas/using_allas/a_commands.md) for small to
-  medium sized data transfers, in particular when you have a large amount of small files.
-  These tools make the usage of Allas safer, and can make your data management easier.
-  For very large data transfers we recommend using [rclone](../../data/Allas/using_allas/rclone.md).
-  A tutorial for data transfer is available at [Allas HPC tutorial](../../data/Allas/allas-roihu.md).
-* **Archive files** that should be available longer than the lifetime of compute projects.
-  Options for this can be for example your organizations own storage systems, or
-  [IDA safe storage for research data](https://www.fairdata.fi/en/).
+* **Remove files** that you no longer need. Deleted files cannot be restored, so be careful!
+* **Compress files** if it reduces their size. Text files usually compress well. Test with one
+  file first, and if it shrinks by 50% or more, compress all similar files.
+  [See the available compression tools](env-guide/packing-and-compression-tools.md).
+* **Move files** that you need later in the project, but not right now, to
+  [Allas](../../data/Allas/index.md). See the [Allas HPC tutorial](../../data/Allas/allas-roihu.md).
+  We recommend [a-tools](../../data/Allas/using_allas/a_commands.md) for small and medium
+  transfers, and [rclone](../../data/Allas/using_allas/rclone.md) for very large ones.
+* **Archive files** that need to outlive your compute project, for example in your
+  organization's own storage or in [IDA](https://www.fairdata.fi/en/).
 
 ## Identifying where you have data
 
-If you have a large amount of files, analyzing how much data you have in different folders can
-be time consuming and also heavy on the file system. Our recommendations for tools that can
-show the amount of data in folders:
+Checking how much data is in different folders can be slow and heavy on the file system:
 
-* **Avoid** using `find` options like `-size` or similar
-* **Avoid** using `du`
-* **Do** use `lue` or `lfs find --lazy`
-
-CSC has developed an approximate tool called LUE (Lustre usage explorer) for reporting amount of
-data in folders. [Read the documentation at LUE](../../support/tutorials/lue.md) before using it.
-`lfs find --lazy` has some edge-case where it can be as bad as `du` or silently fail to get correct
-size information. Run `man lfs-find` for further instructions and information on its limitations.
-
-!!! Note
-    No matter what tool you use you should never try to list or process all files in your project
-    or `scratch` folder with a single command. Instead you should run commands on specific
-    subdirectories with limited amount of files and data. The total amount of used data is
-    available from the `csc-workspaces` command.
+* **Avoid** `du` and `find` with options like `-size`.
+* **Use** [LUE (Lustre usage explorer)](lue.md) or `lfs find --lazy` instead.
+  Note that `lfs find --lazy` may in some cases be as slow as `du`, or silently report
+  wrong sizes. See `man lfs-find` for details.
+* Run commands on specific subdirectories, never on your whole project folder at once.
+  The total usage of your project is shown by the `csc-workspaces` command.
 
 ## Automatic removal of files
 
-There is a [policy](../../computing/usage-policy.md#disk-cleaning) of removing files
-older than **180 days** (`scratch` quota less than 5 TiB) or **90 days** (`scratch` quota
-5 TiB or more) from `scratch` (not `projappl`) to ensure that only actively used data
-resides on the disk.
+According to the [disk cleaning policy](../../computing/usage-policy.md#disk-cleaning), files
+are automatically removed from `scratch` (not `projappl` or `dataset`) if they are older than:
 
-Files that will be deleted in the next clean up are listed in so called "purge lists" files.
-These are split up by project, and can be found on Lustre at one of the locations below.
-Only members of the project groups can access the project directories.
-If your project is newly created, your project might not yet have its own subdirectory in
-the `purge_lists` directory, in which case it won't participate in the automatic cleaning.
+* **180 days**, if your project's `scratch` quota is less than 5 TiB
+* **90 days**, if your project's `scratch` quota is 5 TiB or more
 
-* `/scratch/purge_lists/<PROJECT NAME>/path_summary.txt`
+Before each cleaning round, CSC creates a *purge list* of the files that will be removed. Each
+project has its own directory, readable only by project members:
+`/scratch/purge_lists/<project>/`.
 
-In case the `path_summary.txt` file does not exist, your project did not have any files that matched
-the clean-up criteria, and thus nothing will be deleted from it. To indicate that the file is
-intentionally missing, CSC will place a file named `nothing-to-remove-for-your-project` in your
-project's purge_lists subdirectory, so check for the existence of this file as well.
+### Is my project affected?
 
-As part of the automated cleaning process, the files will change names. Before the cleaning has
-begun, each project that is part of the clean-up will have a file named `path_summary.txt`.
-In special cases where a project is exempt from the upcoming cleaning, or requires more time to
-transfer files, the administrators will rename the file to something else, usually
-`path_summary.txt-later-delete`. Once a project has been processed by the automated cleaning,
-the file will be renamed to `path_summary.txt-stashed`. These files are still readable to projects,
-so that it is possible to refer to the list also after the cleaning is performed.
-The previous round's files will be archived when the next round of cleaning is about to begin.
-You can check whether your project's purge list has been updated recently by checking its last
-modification date. In the example below, the file is a few months old, so it is clearly from
-the prior round of cleaning:
+Check what your project's purge list directory contains (replace `project_2001234` with your
+own project):
 
 ```bash
-$ stat -c %y /scratch/purge_lists/project_2001659/path_summary.txt-stashed
-2023-05-23 00:35:28.000000000 +0300
-$ date +%F
-2023-08-04
+ls /scratch/purge_lists/project_2001234/
 ```
 
-Another file which is put into each project's `purge_lists` directory is the `total_size.txt` file.
-This file contains a precalculated size estimate based on the numbers inside the `path_summary.txt`
-files. This file exists for every project, and is created automatically when the purge lists are
-generated. The file might look like this:
+| What you see                                  | What it means                                     |
+|-----------------------------------------------|---------------------------------------------------|
+| `path_summary.txt`                            | Files **will be removed**. Review them below.     |
+| `nothing-to-remove-for-your-project`          | Nothing will be removed.                          |
+| `No such file or directory`                   | Your project is not included in this cleaning.    |
+
+If your project has files to remove, `total_size.txt` in the same directory shows how much data
+they contain in total. This helps you estimate how long it would take to copy the data elsewhere:
 
 ```bash
-$ cat /scratch/purge_lists/project_2001659/total_size.txt
+$ cat /scratch/purge_lists/project_2001234/total_size.txt
 Total size: 798343125192 bytes = 743.515 GiB = 0.726 TiB
 ```
 
-With this information, you are able to estimate how much time might be required to back up the
-data elsewhere, if you want to keep everything on the purge list outside of the `scratch` file
-system.
+??? info "Check all your projects at once"
+    The script below checks every project you are a member of:
 
-## Using LCleaner and the web interface to check which files will be automatically removed
+    ```bash
+    for g in $(/usr/bin/groups) ; do
+      if [ -d "/scratch/$g" -a ! -L "/scratch/$g" ]; then
+        dir="/scratch/purge_lists/$g" ;
+      else
+        continue;
+      fi ;
+      echo -n "- Project '$g': ";
+      if [ ! -d "${dir:?}" ]; then
+        echo "doesn't have a purge_lists subdirectory. No files will be removed.";
+        continue;
+      fi ;
+      if [ -f "${dir:?}/path_summary.txt" ]; then
+        echo "has files that will be removed." ;
+      elif [ -f "${dir:?}/nothing-to-remove-for-your-project" ]; then
+        echo "is not included in the automatic cleaning.";
+      else
+        echo "is unclear, based on this script. Check with Service Desk what to do.";
+      fi ;
+    done
+    ```
 
-LCleaner is a tool developed by CSC, which is intended to help you to discover what files your
-project has that have been targeted for automatic removal.
+??? info "Other purge list file names"
+    The `path_summary.txt` file is renamed during the cleaning process:
 
-Run `lcleaner --help` on the login nodes to see what options LCleaner supports.
+    * `path_summary.txt-later-delete` (or similar): your project has been exempted from the
+      upcoming cleaning, or given more time to transfer files.
+    * `path_summary.txt-stashed`: the cleaning has already been done for your project. The
+      file stays readable so that you can still check what was removed.
 
-### LCleaner examples
+    Files from the previous round are archived when the next round begins. To check whether a
+    purge list is from the current round, look at its modification date:
 
-#### Check if your project has a path_summary.txt file
+    ```bash
+    $ stat -c %y /scratch/purge_lists/project_2001234/path_summary.txt-stashed
+    2023-05-23 00:35:28.000000000 +0300
+    ```
 
-The first thing to check, is whether your project indeed has a `path_summary.txt` file.
-All projects don't automatically have one, only the ones which have something to clean up.
+## Reviewing your purge list
+
+`path_summary.txt` is not meant to be read directly. You can review it either in the web
+interface or on the command line.
+
+### In the web interface
+
+The [Roihu web interface](https://www.roihu.csc.fi) provides a graphical tool,
+**File Deletion Explorer**, for inspecting purge lists. You can find it in the
+web interface under the _Tools_ drop-down menu.
+
+The tool can visualize the contents of your purge list as a treemap, show the size
+distribution of the files, and analyze file name suffixes. You can also filter files by their
+path and name, and save the filtered lists as text files for later use on the command line.
+
+### On the command line with LCleaner
+
+Use the `lcleaner` tool on a login node to turn `path_summary.txt` into a readable list of
+files. First, set these two variables. All commands below use them:
 
 ```bash
-# Check if your project has a path_summary.txt file
-my_project="project_2001659" # Replace with your own project name
-ls "/scratch/purge_lists/${my_project:?}/"
+my_project="project_2001234"   # Replace with your own project
+list="/scratch/purge_lists/${my_project}/path_summary.txt"
 ```
 
-If you see a `path_summary.txt` file in the directory, read ahead to discover what files
-are on the list. However, if you find a file named `nothing-to-remove-for-your-project`,
-your project doesn't have anything that will be automatically removed.
-
-If you want a quick, copy-pasteable solution, use the small script below:
+**List all files** that will be removed and save the list to your home directory. If
+`path_summary.txt` is large (over 100 MB), this can take a while, so it is best to save the
+list once and search the saved copy:
 
 ```bash
-# Check all of the projects you belong to in one go:
-
-for g in $(/usr/bin/groups) ; do
-  if [ -d "/scratch/$g" -a ! -L "/scratch/$g" ]; then
-    dir="/scratch/purge_lists/$g" ;
-  else
-    continue;
-  fi ;
-  echo -n "- Project '$g': ";
-  if [ ! -d "${dir:?}" ]; then
-    echo "doesn't have a purge_lists subdirectory. No files will be removed.";
-    continue;
-  fi ;
-  if [ -f "${dir:?}/path_summary.txt" ]; then
-    echo "has files that will be removed." ;
-  elif [ -f "${dir:?}/nothing-to-remove-for-your-project" ]; then
-    echo "is not included in the automatic cleaning.";
-  else
-    echo "is unclear, based on this script. Check with Service desk what to do.";
-  fi ;
-done
-```
-
-#### List your files
-
-To get a simple list of all file paths in your purge list, simply give the `path_summary.txt` file
-path as an argument:
-
-```bash
-# List all files in your purge list:
-lcleaner "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-```
-
-If your `path_summary.txt` is big (over 100 MB in size), it may take some time to execute the tool.
-You can save time and resources by saving the result into an output file:
-
-```bash
-# List all files in your purge list into an output file in your home folder:
-lcleaner --out-file ~/purge_list "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-
-# Alternatively, you can redirect the standard output with the bash shell:
-lcleaner "/scratch/purge_lists/${my_project:?}/path_summary.txt" > ~/purge_list
-
-# Check the output with less, or your preferred text editor
+lcleaner --out-file ~/purge_list "$list"
 less ~/purge_list
 ```
 
-If you want to search for a specific file or directory, you can use `grep` to achieve that.
-You can either search the `path_summary.txt` file directly, or if you saved the output of `lcleaner`
-somewhere, using the commands above, you can use that file.
+**Show the biggest files** first, with their sizes in bytes (here the top 10):
 
 ```bash
-# Search for directories to check if they are included in the purge list
-my_project="project_2001659" # Replace with your own project name!
-grep "/scratch/${my_project:?}/important-dir" "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-# Or search the purge_list if you saved it:
-grep "/scratch/${my_project:?}/important-dir" ~/purge_list
-
-# If there are no matches, grep will not print anything.
+lcleaner --sort-by-size --limit 10 --csv "$list"
 ```
 
-#### Find the biggest files on the list
-
-LCleaner has an option to sort the files by size. This option is called `--sort-by-size` and always
-sorts in a decending order (i.e., biggest files first). If you want to see the size of the files
-when they are printed, use the `--csv` option. By default, only the file paths are printed.
-You can also limit the output to include a given number of files with the `--limit N` parameter,
-where `N` is the number of lines you want to see.
+**Check whether a specific directory** is on the list (no output means no matches):
 
 ```bash
-# Print the file paths to be purged in size order:
-lcleaner --sort-by-size "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-
-# Print the 10 biggest files:
-lcleaner --sort-by-size --limit 10 "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-
-# Print the 10 biggest files, and their sizes in bytes:
-lcleaner --sort-by-size --limit 10 --csv "/scratch/purge_lists/${my_project:?}/path_summary.txt"
+grep "/scratch/${my_project}/important-dir" ~/purge_list
 ```
 
-#### Delete your purge list files
+Copy any files you want to keep to [Allas](../../data/Allas/index.md) or other storage before
+the cleaning.
 
-We encourage you to delete the files you do not need, instead of waiting for the automatic cleaning
-to take place. If you are happy with purging all of the files that were listed in the
-`path_summary.txt` file, you can run the following command:
+## Deleting the files yourself
 
-!!! warning-label
-    **The commands in this section will delete your files!** Be sure that you have reviewed the
-    list of files to remove carefully! Also make sure that you have backed up the files you
-    wish to save (outside the cluster) prior to running the commands. This operation is
-    irreversible.
+Instead of waiting for the automatic cleaning, please delete files you do not need yourself.
 
-!!! Note
-    The deletion process may take a considerable amount of time (several hours, depending on the
-    amount of files), so it is best to start it within a `screen` or `tmux` session, so that you
-    can disconnect from your SSH session while the deletion keeps running.
+!!! warning "The commands below delete files permanently"
+    Review the list carefully and make sure you have copied everything you want to keep
+    before running them.
+
+Deleting many files can take several hours. Start a `tmux` session first, so that the
+deletion keeps running even if you disconnect:
 
 ```bash
-# Start a screen session
-screen
-# Delete all of the files on your purge list:
-# Replace the "/path/to/my/path_summary.txt" with the path to your project's path_summary.txt
-lcleaner -0 /path/to/my/path_summary.txt | xargs -0 -n 50 rm -vf --
-# Then you can press "Ctrl + a" and then "d" to disconnect from the screen and keep
-# the deletion running in the background.
-# Run "screen -r" to reattach your screen.
-# Close the screen session by typing "exit" in the shell.
+tmux new -s cleanup
 ```
 
-If you want to delete only a part of the files, e.g., inside a certain directory, you can for
-example use a command like this:
+Inside the session, set the variables for your project:
 
 ```bash
-# Delete only files on the list which are inside /scratch/$my_project/delete-this-dir/
-screen lcleaner -0 /path/to/my/path_summary.txt | grep -zZ "/scratch/${my_project:?}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
-# Ctrl + a, d to detach from the screen.
+my_project="project_2001234"   # Replace with your own project
+list="/scratch/purge_lists/${my_project}/path_summary.txt"
 ```
 
-#### LCleaner output formats
-
-If you want to see the size of the files that are about to be purged, you can use either the JSON
-or the CSV formats. Be aware that if you want to run multiple output formats at the same time,
-you need to specify an output file path as well.
-Using the `-0` or `--nullbyte` parameters will output the file paths separated by a null byte,
-which may be useful to avoid problems with whitespace in the file paths.
+**Delete all files** on the purge list:
 
 ```bash
-# Print your purge list as CSV output with file paths and sizes.
-# Note that the CSV format also prints a header row.
-lcleaner --csv "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-
-# Print your purge list as JSON output with file paths and sizes:
-lcleaner --json "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-# TIP: You can pipe the output into the jq program to prettify the output.
-# The dot at the end is a mandatory argument to jq.
-lcleaner --json "/scratch/purge_lists/${my_project:?}/path_summary.txt" | jq .
-
-# Output both JSON and CSV into purge_list.json and purge_list.csv:
-lcleaner --json --csv --out-file purge_list "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-
-# Output file paths separated by null bytes:
-lcleaner -0 "/scratch/purge_lists/${my_project:?}/path_summary.txt"
-# Usually you will want to pipe null-byte-separated output into "xargs -0" and do some
-# further processing with it. For example like this:
-lcleaner -0 --limit 3 "/scratch/purge_lists/${my_project:?}/path_summary.txt" \
-  | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
+lcleaner -0 "$list" | xargs -0 -n 50 rm -vf --
 ```
 
-Output examples:
+**Delete only the files inside one directory**:
 
-```
-# Plain text:
-[westersu@puhti-login11 ~]$ lcleaner path_summary.txt | head -3
-/scratch/westersu/my-old-files/file1
-/scratch/westersu/my-old-files/file2
-/scratch/westersu/my-old-files/file3
-
-# CSV:
-[westersu@puhti-login11 ~]$ lcleaner --csv path_summary.txt | head -4
-"path","size"
-"/scratch/westersu/my-old-files/file1","1704"
-"/scratch/westersu/my-old-files/file2","452"
-"/scratch/westersu/my-old-files/file3","4951"
-
-# JSON, piped into jq:
-[westersu@puhti-login11 ~]$ lcleaner --json path_summary.txt | jq .
-{
-  "lustre_files": [
-    {
-      "size": 1704,
-      "path": "/scratch/westersu/my-old-files/file1"
-    },
-    ...
-  ]
-}
-
-# Null byte xargs:
-[westersu@puhti-login11 ~]$ lcleaner -0 --limit 3 path_summary.txt \
->   | xargs -0 -Ifilepath echo "I should run: rm -vf 'filepath'"
-I should run: rm -vf '/scratch/westersu/my-old-files/file1'
-I should run: rm -vf '/scratch/westersu/my-old-files/file2'
-I should run: rm -vf '/scratch/westersu/my-old-files/file3'
+```bash
+lcleaner -0 "$list" | grep -zZ "/scratch/${my_project}/delete-this-dir/" | xargs -0 -n 50 rm -vf --
 ```
 
-### Notes on LCleaner usage
+Press `Ctrl-b` and then `d` to detach from the session and leave the deletion running.
+To check on it later, [log in to the same login node](../../computing/connecting/index.md#connecting-to-a-specific-node)
+and run `tmux attach -t cleanup`.
+Type `exit` to close the session when the deletion is done. See the
+[tmux tutorial](tmux.md) for more details.
 
-This section details some things that may be good to know about how LCleaner behaves, or
-why the command examples above are architected the way they are.
+## More LCleaner options and troubleshooting
 
-- Sometimes `lcleaner` prints errors about lines it wasn't able to parse.
-  If there are errors, a warning will be printed at the end, indicating that there was at least
-  one error. The warnings will say something like: "We detected N errors during the execution.
-  Please check the logs, for more information!"
-  The errors indicate which line number the problematic text was on, so you can go
-  and check it manually.
-    - Tip: To print only a specific line, e.g., line 123 of the `path_summary.txt`, you can use
-      this command: `sed -n 123p /path/to/path_summary.txt`
-- To capture the logging of `lcleaner`, you can redirect the standard error output stream into
-  a file. This may be useful if you experience problems, and would like help to troubleshoot
-  the situation.
-    - `lcleaner --log-level debug path_summary.txt 2> ~/lcleaner-debug-$(date +%s).log`
-- The use of `-0` both with `lcleaner` and `xargs` in the example commands on this page is
-  recommended in order to avoid problems with file names that include whitespace.
-- LCleaner also has some administrative functionality, which is not intended and in some cases
-  will not work for unprivileged users. Anything which mentions the `--admin-mode` flag can safely
-  be ignored.
+Run `lcleaner --help` to see all options. The most useful ones are:
 
-### Troubleshooting LCleaner
+| Option                    | Effect                                                        |
+|---------------------------|---------------------------------------------------------------|
+| `--csv`                   | Print file paths and sizes as CSV (with a header row)         |
+| `--json`                  | Print file paths and sizes as JSON (prettify with `jq .`)     |
+| `--sort-by-size`          | Sort the biggest files first                                  |
+| `--limit N`               | Print only the first `N` files                                |
+| `--out-file NAME`         | Write output to a file. Required when combining `--csv` and `--json` |
+| `-0`, `--nullbyte`        | Separate paths with null bytes, for safe use with `xargs -0` |
 
-If you notice any bugs, please report them to [CSC Service Desk](../contact.md).
+Options mentioning `--admin-mode` are for CSC administrators and can be ignored.
+
+If `lcleaner` reports that it could not parse some lines, the error messages tell you the line
+numbers. You can view a line, e.g. line 123, with `sed -n 123p "$list"`.
+
+To save a debug log, for example to send to support:
+
+```bash
+lcleaner --log-level debug "$list" 2> ~/lcleaner-debug-$(date +%s).log
+```
+
+Please report bugs to [CSC Service Desk](../contact.md).
