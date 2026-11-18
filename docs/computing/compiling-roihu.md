@@ -189,7 +189,7 @@ Use the following flags to generate code for the Grace CPU and the Hopper GPU:
 | :--------------------------------------- | :------------------------------------------------------------------- | :---------------- |
 | GNU (`gcc`, `g++`, `gfortran`)           | `-mcpu=grace`                                                        | Host (CPU) code   |
 | NVIDIA HPC (`nvc`, `nvc++`, `nvfortran`) | `-gpu=cc90 -tp=grace` (`-gpu` takes only effect together with `-acc`, `-mp=gpu`, or `-stdpar`) | Device (GPU) and host (CPU) code |
-| NVIDIA CUDA Compiler Driver (`nvcc`) | `-gencode arch=compute_90a,code=sm_90a -Xcompiler -mcpu=grace` | Device (GPU) and host (CPU) code |
+| NVIDIA CUDA Compiler Driver (`nvcc`)     | `-gencode arch=compute_90a,code=sm_90a -Xcompiler -mcpu=grace`       | Device (GPU) and host (CPU) code |
 
 ### Compiling CUDA applications
 
