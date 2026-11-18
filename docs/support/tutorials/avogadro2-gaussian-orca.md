@@ -27,7 +27,7 @@ Select **Extensions → Open Babel → Optimize Geometry**. This gives a reasona
 
 ## 4. Create the input file
 
-Open the generator from the **Input** menu. Use the same values for both programs: 4 processor cores and 6 GiB of memory.
+Open the generator from the **Input** menu. Set 4 processor cores and 6 for the total memory (GB in Gaussian, GiB in ORCA).
 
 === "Gaussian"
 
