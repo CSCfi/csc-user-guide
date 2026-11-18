@@ -177,3 +177,4 @@ used in your studies!
 - [ORCA 6 Tutorials](https://www.faccts.de/docs/orca/6.0/tutorials/)
 - [ORCA YouTube channel](https://www.youtube.com/@orcaquantumchemistry)
 - [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home)
+- [Tutorial: Using Avogadro2 with Gaussian and ORCA](../support/tutorials/avogadro2-gaussian-orca.md)
