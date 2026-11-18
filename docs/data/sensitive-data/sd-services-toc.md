@@ -67,10 +67,15 @@ hide:
 
 ## 2 Secondary use of health and social data (register data) via a CSC project Secondary Use type
 
-* [Start here: Accessing secondary use health or social data via Sensitive Data services](secondarydata-access.md)
-    * [Create a Secondary Use project](sd-use-case-secondary-use-project.md)
+* [Start here to access secondary use data with SD services](secondarydata-access.md)
+    * [Access with a Secondary Use project](sd-use-case-secondary-use-project.md)
     * [Export anonymous results](sd-desktop-secondary-export.md)
-* [Instructions for data controllers](sd-use-case-secondary-use-data-controller.md) 
+* [Start here to transfer data for secondary use as a Data Controller](sd-use-case-secondary-use-data-controller.md)
+    * [Transfer secondary use data via SD Connect](sd-connect-secondary-use-transfer.md)
+        * [Overview](sd-connect-secondary-use-transfer.md#1-overview): Delivering secondary use data to SD Desktop
+        * [Login to SD Connect](sd-connect-secondary-use-transfer.md#2-login-to-sd-connect)
+        * [Upload and encrypt data](sd-connect-secondary-use-transfer.md#3-upload-and-encrypt-data)
+        * [Manage datasets](sd-connect-secondary-use-transfer.md#4-manage-datasets): Add data, remove files and cancel data access
  
 ## 3. Additional Resources
 
