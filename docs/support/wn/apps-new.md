@@ -2,7 +2,7 @@
 
 ## Avogadro2 available in the Roihu web interface, 17.11.2026
 
-[Avogadro2](../../apps/avogadro2.md) 2.0.0 is now available in the Desktop app of the Roihu web interface. Use it to build structures, to generate ORCA input files and to analyze results.
+[Avogadro2](../../apps/avogadro2.md) 2.0.0 is now available in the Desktop app of the Roihu web interface. Use it to build structures, to generate Gaussian and ORCA input files and to analyze results. See the [tutorial](../tutorials/avogadro2-gaussian-orca.md) for an example with Gaussian and ORCA.
 
 ## r-env (R 4.6.1) now available in Roihu-GPU, 11.11.2026
 

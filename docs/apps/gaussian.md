@@ -223,3 +223,4 @@ disk is the preferred option for these types of calculations when available.
 
 - [Online Gaussian user reference](http://gaussian.com/man/)
 - [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
+- [Tutorial: Using Avogadro2 with Gaussian and ORCA](../support/tutorials/avogadro2-gaussian-orca.md)
