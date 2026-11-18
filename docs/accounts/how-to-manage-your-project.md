@@ -30,7 +30,16 @@ Please note, maximum duration of [Student projects](../support/tutorials/student
 1. Accept the changes by clicking the 'Apply' button
 1. Your project lifetime is now extended by one year.
 
+## Vice Project Manager
 
+Vice Project Managers are subject to the same prerequisites and responsibilities as the Project Manager. They may perform the Project’s administrative duties; however, ultimate accountability for the Project remains with the Project Manager. Each project may have up to two Vice Project Managers.
+
+1. Login to [MyCSC](https://my.csc.fi).
+1. Choose _Projects_ in the navigation menu on the left.
+1. Select the project for which you want to modify the Vice Project Manager settings.
+1. In the _Project Members_ section, you may assign project members the role of Vice Project Manager or revert them to regular project members.
+
+   
 ## Project closure
 
 CSC Projects will automatically close on their end date. Before the CSC Project ends, all project members will receive multiple email notifications about the closure. The Project Manager can extend the CSC Project before it is closed.
