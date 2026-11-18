@@ -142,10 +142,10 @@ visit -nowin -cli -s my_script.py
 
 ```bash
 #!/bin/bash
-#SBATCH --time=10:00
-#SBATCH --job-name=test
+#SBATCH --time=00:10:00
+#SBATCH --job-name=visit-python-example
 #SBATCH --account=project_2012345
-#SBATCH --partition=test
+#SBATCH --partition=small
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=1
 #SBATCH --nodes=1
@@ -158,7 +158,7 @@ visit -np 8 -l srun -nowin -cli -s my_script.py
 Or from the command line:
 
 ```bash
-srun --interactive -p test -t 10:00 -n 4 -A project_2001659 bash -c "visit -np 4 -l srun -nowin -cli -s ./my_script.py"
+srun --interactive -p small -t 00:10:00 -n 8 -A project_2001659 bash -c "visit -np 8 -l srun -nowin -cli -s ./my_script.py"
 ```
 
 ### Supported file formats
