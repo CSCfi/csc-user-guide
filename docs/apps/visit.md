@@ -34,7 +34,7 @@ partition (see the
 ## Available
 
 * Roihu-CPU: 3.5.0, 3.4.1
-* Roihu Accelerated Visualization Desktop: 3.3.3
+* Roihu Accelerated Visualization Desktop: 3.5.0
 * LUMI: 3.2.2
 
 ## License
@@ -124,8 +124,41 @@ also works in Python expressions and queries that run in the compute engine.
 To run a script without the GUI:
 
 ```bash
-module load visit/3.4.1
+module load visit/3.5.0
 visit -nowin -cli -s my_script.py
+```
+
+
+!!! info "Note"
+    Do not run anything heavy on the login node! See the
+    [usage policy](../computing/usage-policy.md#login-nodes) for details.
+    Resource-intensive processes should be run as
+    [batch jobs](#example-batch-scripts) or in an
+    [interactive session](#interactive-jobs).
+
+    See example batch job scripts below.
+
+#### Example batch script for Python scripting
+
+```bash
+#!/bin/bash
+#SBATCH --time=10:00
+#SBATCH --job-name=test
+#SBATCH --account=project_2012345
+#SBATCH --partition=test
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --nodes=1
+
+module load visit/3.5.0 
+
+visit -np 8 -l srun -nowin -cli -s my_script.py
+```
+
+Or from the command line:
+
+```bash
+srun --interactive -p test -t 10:00 -n 4 -A project_2001659 bash -c "visit -np 4 -l srun -nowin -cli -s ./my_script.py"
 ```
 
 ### Supported file formats
@@ -134,8 +167,11 @@ VisIt reads a large number of file formats. The Roihu-CPU module includes,
 among others, support for Silo, HDF5, NetCDF, ADIOS2, Conduit Blueprint,
 MFEM, VLSV and the VTK formats.
 
+## Support
+
+[CSC Service Desk](../support/contact.md)
+
 ## More information
 
 * [VisIt homepage (source code, binaries, manuals and tutorials, example data files)](https://visit-dav.github.io/visit-website/)
 * [VisIt user manual](https://visit-sphinx-github-user-manual.readthedocs.io/)
-* [User community website](http://visitusers.org)
