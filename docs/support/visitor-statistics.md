@@ -1,7 +1,7 @@
 # Visitor statistics
 
 To understand how our documentation is used and to keep improving it,
-we collect anonymous visitor statistics. This explains what we collect
+we collect anonymous visitor statistics. This page explains what we collect
 and how.
 
 ## We do not use cookies
