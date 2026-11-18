@@ -41,6 +41,8 @@ Avogadro2 is a graphical program. Use it in the [Desktop app](../computing/webin
 !!! note
     Run the calculations as batch jobs, see [ORCA](orca.md) and [Gaussian](gaussian.md).
 
+For a complete example, see the [tutorial](../support/tutorials/avogadro2-gaussian-orca.md).
+
 ### Importing a structure
 
 Select **Build → Insert → Molecule...** to pick a structure from the fragment library:
@@ -113,6 +115,8 @@ When the job has finished, the end of `job.out` shows `ORCA TERMINATED NORMALLY`
 - A terminal window opens together with Avogadro2 and closes when you quit Avogadro2.
 - Copy-paste between your local computer and the desktop works via the noVNC clipboard. Open the **Clipboard** menu from the tab on the left edge of the desktop window, paste your text there, and then paste normally inside the desktop.
 - The file dialog may open in another directory. Type the full path of the file in the **File name** field to go there directly.
+- Avogadro2 shows only the final geometry of a Gaussian optimization log. The energies of the steps are in the log: `grep 'SCF Done' <jobname>.log`.
+- For the frequencies and orbitals of a Gaussian job, convert the checkpoint file with `formchk <jobname>.chk` and open `<jobname>.fchk`.
 
 ## References
 
@@ -125,3 +129,4 @@ The Avogadro project plans a separate Avogadro2 paper. Until it appears, cite th
 
 - [Avogadro2 project page](https://two.avogadro.cc/)
 - [Avogadro2 documentation](https://avogadro.cc/docs/)
+- [Tutorial: Using Avogadro2 with Gaussian and ORCA](../support/tutorials/avogadro2-gaussian-orca.md)
