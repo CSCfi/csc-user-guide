@@ -188,9 +188,8 @@ Use the following flags to generate code for the Grace CPU and the Hopper GPU:
 | Compiler                                 | Flag                                                                 | Applies to        |
 | :--------------------------------------- | :------------------------------------------------------------------- | :---------------- |
 | GNU (`gcc`, `g++`, `gfortran`)           | `-mcpu=grace`                                                        | Host (CPU) code   |
-| NVIDIA HPC (`nvc`, `nvc++`, `nvfortran`) | `-tp=grace`                                                          | Host (CPU) code   |
-| NVIDIA HPC                               | `-gpu=cc90` (only takes effect with `-acc`, `-mp=gpu`, or `-stdpar`) | Device (GPU) code |
-| `nvcc`                                   | `-gencode arch=compute_90a,code=sm_90a` (`nvcc`)                     | Device (GPU) code |
+| NVIDIA HPC (`nvc`, `nvc++`, `nvfortran`) | `-gpu=cc90 -tp=grace` (`-gpu` takes only effect together with `-acc`, `-mp=gpu`, or `-stdpar`) | Device (GPU) and host (CPU) code |
+| NVIDIA CUDA Compiler Driver (`nvcc`) | `-gencode arch=compute_90a,code=sm_90a -Xcompiler -mcpu=grace` | Device (GPU) and host (CPU) code |
 
 ### Compiling CUDA applications
 
@@ -220,10 +219,11 @@ Code generated with `arch=compute_90a` or `code=sm_90a` is not backwards or forw
 compatible with other GPU architectures. If this is a concern for you, use the
 more generic `arch=compute_90,code=sm_90` options.
 
-!!! info "Expert feature: using nvc++ as the host compiler"
-    It is possible to use the NVIDIA HPC C++ compiler as the host compiler for `nvcc`
-    with `-ccbin=nvc++`. This is intended only for users who need it, for example to
-    combine CUDA with OpenACC or OpenMP offload in the same code.
+!!! info "Expert feature: using nvc++ as the host compiler in the NVHPC environment"
+    In the NVHPC environment, it is possible to use the NVIDIA HPC C++ compiler
+    as the host compiler for `nvcc` with `-ccbin=nvc++`. This is intended only
+    for users who need it, for example to combine CUDA with OpenACC or OpenMP
+    offload in the same code.
 
     ```bash
     nvcc -ccbin=nvc++ -gencode arch=compute_90a,code=sm_90a example.cu
