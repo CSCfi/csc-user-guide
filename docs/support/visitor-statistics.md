@@ -45,4 +45,4 @@ buttons at the bottom of each page.
 
 For more information on how CSC processes data, see the [CSC Privacy Notice](https://research.csc.fi/security/).
 
-If you have questions about the statistics we collect, contact us at servicedesk@csc.fi
+If you have questions about the statistics we collect, contact [CSC Service Desk](contact.md).
