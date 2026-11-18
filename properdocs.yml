@@ -421,6 +421,7 @@ not_in_nav: |
   /support/glossary.md
   /support/support-howto.md
   /support/translation.md
+  /support/visitor-statistics.md
 
 # /ref.md is visible in preview and staging builds:
 exclude_docs: |
