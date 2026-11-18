@@ -203,31 +203,47 @@ class Translations:
                 self.__translations.discard(page)
             self.__translations.add(page)
 
+    def __new_or_symlinked(self, diff_obj):
+        return (SymlinkedTranslation(diff_obj,
+                                     self.__src_prefix,
+                                     self.__dest_prefix)
+                if self.__is_symlink(diff_obj.b_path)
+                else NewTranslation(diff_obj,
+                                    self.__src_prefix,
+                                    self.__dest_prefix,
+                                    self.__cache))
+
     def include(self, *sources: [Diff | pathlib.Path]) -> None:
         """Adds source pages for processing. Diff takes precedence over
         pathlib.Path if source describes the same page.
         """
         for src in sources:
-            page = None
+            pages = []
 
             if isinstance(src, Diff):
                 diff_obj = src
                 match diff_obj.change_type:
                     case FileWas.ADDED | FileWas.MODIFIED:
-                        page = (SymlinkedTranslation(diff_obj,
-                                                    self.__src_prefix,
-                                                    self.__dest_prefix)
-                                if self.__is_symlink(diff_obj.b_path)
-                                else NewTranslation(diff_obj,
-                                                    self.__src_prefix,
-                                                    self.__dest_prefix,
-                                                    self.__cache))
+                        pages = [self.__new_or_symlinked(diff_obj)]
+
+                    case FileWas.MOVED if (diff_obj.a_blob.binsha
+                                           == diff_obj.b_blob.binsha):
+                        pages = [MovedTranslation(diff_obj,
+                                                  self.__dest_prefix)]
 
                     case FileWas.MOVED:
-                        page = MovedTranslation(diff_obj, self.__dest_prefix)
+                        # Moved and modified: drop the stale translation at
+                        # the old path and handle the new path as a new page.
+                        logger.info("'%s' was moved to '%s' and modified.",
+                                    diff_obj.rename_from,
+                                    diff_obj.rename_to)
+                        pages = [DeletedTranslation(diff_obj,
+                                                    self.__dest_prefix),
+                                 self.__new_or_symlinked(diff_obj)]
 
                     case FileWas.DELETED:
-                        page = DeletedTranslation(diff_obj, self.__dest_prefix)
+                        pages = [DeletedTranslation(diff_obj,
+                                                    self.__dest_prefix)]
 
                     case _:
                         continue
@@ -241,12 +257,12 @@ class Translations:
                         not path_obj.name.endswith(".md"))):
                     continue
 
-                page = NewTranslation.for_path(path_obj,
-                                               self.__src_prefix,
-                                               self.__dest_prefix,
-                                               self.__cache)
+                pages = [NewTranslation.for_path(path_obj,
+                                                 self.__src_prefix,
+                                                 self.__dest_prefix,
+                                                 self.__cache)]
 
-            if page is not None:
+            for page in pages:
                 self.__add_page(page, replace=isinstance(src, Diff))
 
     def complete(self, dump_path: str):
