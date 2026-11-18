@@ -27,7 +27,7 @@ Select **Extensions → Open Babel → Optimize Geometry**. This gives a reasona
 
 ## 4. Create the input file
 
-Open the generator from the **Input** menu. Set 4 processor cores and 6 for the total memory (GB in Gaussian, GiB in ORCA).
+Open the generator from the **Input** menu. Set the processor cores to 4 and the total memory to 6.
 
 === "Gaussian"
 
@@ -37,7 +37,7 @@ Open the generator from the **Input** menu. Set 4 processor cores and 6 for the 
     |---|---|
     | Filename Base | ethanol |
     | Processor Cores | 4 |
-    | Memory | 6 (GB) |
+    | Memory | 6 |
     | Calculation Type | Equilibrium Geometry |
     | Theory | B3LYP, 6-31G(d) |
     | Charge / Multiplicity | 0 / 1 |
@@ -56,7 +56,7 @@ Open the generator from the **Input** menu. Set 4 processor cores and 6 for the 
     |---|---|
     | Filename Base | ethanol |
     | Processor Cores | 4 |
-    | Memory | 6 (GiB) |
+    | Memory | 6 |
     | Calculation Type | Opt |
     | Theory | r2SCAN-3c (default) |
     | Charge / Multiplicity | 0 / 1 |
