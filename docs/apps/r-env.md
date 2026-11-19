@@ -6,6 +6,7 @@ catalog:
   description: R and RStudio Server
   license_type: Other
   disciplines:
+    - Data Analytics and Machine Learning
     - Mathematics and Statistics
   available_on:
     - Roihu
