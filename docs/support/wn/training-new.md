@@ -1,5 +1,12 @@
 # Training & tutorials
 
+## Computing section in Docs CSC reorganized, 19.11.2026
+
+The _Computing_ section of Docs CSC has been renamed
+[_Supercomputing_](../../supercomputing/index.md), and
+[_Quantum computing_](../../quantum-computing/overview.md) is now its own
+top-level section. Old links redirect automatically to the new locations.
+
 ## Finnish translation for Docs CSC, 27.4.2026
 
 CSC’s end user guides and tutorials portal Docs CSC got an automatic Finnish translation, powered by a large language model. With this requested feature, the goal is to ensure that Finnish-speaking users can access the same information as English-speaking users, with translations kept continuously up to date. The translation became a part of the existing Docs CSC service component on 27.04.2026. 
