@@ -136,7 +136,7 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 <hgroup markdown>
 
-### 7. Retrieve your project's Share ID from SD Connect
+### 6. Retrieve your project's Share ID from SD Connect
 
 - !!! warning status "Team manager"
 
@@ -154,17 +154,17 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 <hgroup markdown>
 
-### 8. Project Lifetime, Billing Units, and Data Retention
+### 7. Project Lifetime, Billing Units, and Data Retention
 
 - !!! warning status "Team manager and Team member"
 
 </hgroup>
 
-#### 8.1 Default project lifetime
+#### 7.1 Default project lifetime
 
 The default lifetime of a CSC project is **one year**, after which the project is automatically closed and all data is deleted.
 
-#### 8.2 When your project runs out of Billing Units
+#### 7.2 When your project runs out of Billing Units
 
 When a CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
 
@@ -175,7 +175,7 @@ To prevent this, the project manager should:
 
 When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
 
-#### 8.3 Closing project 
+#### 7.3 Closing project 
 
 Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC. The project will also close automatically, when [your data permit expires](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
@@ -196,19 +196,19 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 <hgroup markdown>
 
-### 9. Plan resources consumption and access data
+### 8. Plan resources consumption and access data
 
 - !!! warning status "Team manager and Team member"
 
 </hgroup>
 
-#### 9.1 Resource consumption
+#### 8.1 Resource consumption
 
 Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](sd-billing-units.md).
 
 ---
 
-#### 9.2 Login to the services
+#### 8.2 Login to the services
 
 After your team has a resource consumption plan, you can start using the services (links to related user guides):
 
@@ -224,7 +224,7 @@ SD Desktop:
 
 ---
 
-#### 9.3 Access and review data
+#### 8.3 Access and review data
 
 CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual desktops via the Data Gateway application](sd-desktop-access.md).
 
