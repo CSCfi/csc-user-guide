@@ -83,7 +83,7 @@ Create a CSC account if you have a Haka or Virtu account. If you do not have one
 
 ---
 
-#### 2.3 Terms of Use and Data Processing Agreement
+#### 2.4 Terms of Use and Data Processing Agreement
 
 In the next view, under Terms of Use for the project:
 
