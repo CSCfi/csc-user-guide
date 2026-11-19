@@ -371,7 +371,7 @@ Links from pages nested inside the directory (aka "Folder") tree need to "climb"
 references, in order to reach their target page.
 
 For example, a link on the page _docs/data/sensitive-data/tutorials/vscode.md_
-pointing to the page _docs/supercomputing/webinterface/vscode.md_ would need to first climb three steps up to reach _docs/_, and then descend down to _computing/webinterface/vscode.md_ from there:
+pointing to the page _docs/supercomputing/webinterface/vscode.md_ would need to first climb three steps up to reach _docs/_, and then descend down to _supercomputing/webinterface/vscode.md_ from there:
 
 1. Climb up to _docs/_ from _docs/data/sensitive-data/tutorials/_ with
     - `../` = _docs/data/sensitive-data/_
