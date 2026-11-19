@@ -9,7 +9,7 @@ Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identi
 
 ```bash
 module use /appl/local/quantum/modulefiles
-module --ignore_cache load "fiqci-vtt-qiskit"
+module --ignore_cache load "fiqci-qiskit"
 
 srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition standard \
     bash -c "export DEVICES=("<DEVICE_VALUE>") && source $RUN_SETUP && python -u your_python_script.py" # your quantum code lives in this python file

@@ -11,7 +11,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-qiskit
+    module load fiqci-qiskit
     export DEVICES=("<DEVICE_VALUE>")
     source $RUN_SETUP
     ```
@@ -20,7 +20,7 @@ The [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/){ tar
 
     ```bash
     module use /appl/local/quantum/modulefiles
-    module load fiqci-vtt-cirq
+    module load fiqci-cirq
     export DEVICES=("<DEVICE_VALUE>")
     source $RUN_SETUP
     ```
