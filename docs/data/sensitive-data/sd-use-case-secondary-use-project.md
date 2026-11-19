@@ -15,10 +15,9 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 3. [Fill in the Description of Processing Activity (GDPR) form](#3-fill-in-the-description-of-processing-activity-gdpr-form)
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
-6. CSC activates SD services for your project, please wait
-7. [Retrieve your project's Share ID from SD Connect](#7-retrieve-your-projects-share-id-from-sd-connect)
-8. [Project Lifetime, Billing Units, and Data Retention](#8-project-lifetime-billing-units-and-data-retention)
-9. [Plan resources consumption and access data](#9-plan-resources-consumption-and-access-data)
+6. [Retrieve your project's Share ID from SD Connect](#6-retrieve-your-projects-share-id-from-sd-connect)
+7. [Project Lifetime, Billing Units, and Data Retention](#7-project-lifetime-billing-units-and-data-retention)
+8. [Plan resources consumption and access data](#8-plan-resources-consumption-and-access-data)
 
 ---
 
@@ -77,6 +76,13 @@ Create a CSC account if you have a Haka or Virtu account. If you do not have one
 
 ---
 
+#### 2.3 Confirm the selected services for the project
+- **SD Desktop and SD Connect** services are selected for this project type as a default.
+- Other services can't be used with this project type, so they are not listed in this view.
+- Click **Next**.
+
+---
+
 #### 2.3 Terms of Use and Data Processing Agreement
 
 In the next view, under Terms of Use for the project:
@@ -125,13 +131,6 @@ When you first access your project, you’ll be prompted to complete the Descrip
     ### 5. CSC adds members to your project
     - Please wait that Sensitive Data Support team adds your research team to your project
     - Note! All team members must have a [CSC account](#1-create-a-csc-account), so they can become project members.
-
----
-
-!!! Note ""
-    ### 6. CSC activates SD services for your project
-    - Please wait that Sensitive Data Support team activates SD services for your project.
-    - You will receive an email notification, when everything is ready.
 
 ---
 
@@ -225,7 +224,7 @@ SD Desktop:
 
 ---
 
-### 9.3 Access and review data
+#### 9.3 Access and review data
 
 CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual desktops via the Data Gateway application](sd-desktop-access.md).
 
