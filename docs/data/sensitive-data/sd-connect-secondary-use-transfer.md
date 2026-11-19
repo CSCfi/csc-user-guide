@@ -66,7 +66,7 @@ With secondary use data, it is essential to **follow the practises presented in 
 
 Files uploaded to SD Connect are automatically encrypted during upload using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be [uploaded programmatically](sd-connect-command-line-interface.md#command-line-tools-and-automated-key-management).
 
-!!! warning ""
+!!! warning "Command line tools and automated key management"
       Please contact the [CSC Service Desk](../../support/contact.md) (subject: Sensitive data) before uploading data programmatically to ensure that the tools and interfaces provided by the service will function correctly in your environment and are up-to-date.
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders, and each bucket can contain up to 500.000 segmented files. This has several implications for how your data should be organized and managed:
