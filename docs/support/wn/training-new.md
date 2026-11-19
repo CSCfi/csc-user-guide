@@ -4,7 +4,7 @@
 
 The _Computing_ section of Docs CSC has been renamed
 [_Supercomputing_](../../supercomputing/index.md), and
-[_Quantum computing_](../../quantum-computing/overview.md) is now its own
+[_Quantum computing_](../../quantum-computing/index.md) is now its own
 top-level section. Old links redirect automatically to the new locations.
 
 ## Finnish translation for Docs CSC, 27.4.2026
