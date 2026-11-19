@@ -7,7 +7,7 @@ Pulse level access gives the user a lower level of control over their quantum jo
 
 ## Import packages
 
-Load the module with `module load fiqci-vtt-qiskit`.
+Load the module with `module load fiqci-qiskit`.
 
 ```python
 import os
