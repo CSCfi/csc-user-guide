@@ -35,7 +35,7 @@ template: home.html
 
     ---
 
-    [Quantum Computing Guide :material-arrow-right:](quantum-computing/overview.md)
+    [Quantum Computing Guide :material-arrow-right:](quantum-computing/index.md)
 
     [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
 

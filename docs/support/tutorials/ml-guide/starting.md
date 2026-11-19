@@ -349,7 +349,7 @@ parameters. But please don't submit hundreds of jobs at the same time.
 Now, that you've gotten started, you might be interested in checking out the
 rest of our documentation. For example:
 
-* [Running jobs with Slurm](../../../supercomputing/running/getting-started.md)
+* [Running jobs with Slurm](../../../supercomputing/running/index.md)
 * [Applications on Roihu](../../../apps/index.md), in particular
   [PyTorch](../../../apps/pytorch.md) and [TensorFlow](../../../apps/tensorflow.md).
 * [CSC's Machine learning guide](index.md)

@@ -39,7 +39,7 @@ After that you can launch Prokka with the command `prokka`.
 
 Prokka jobs should be run either in an [interactive session](../supercomputing/running/interactive-usage.md)
 or as a batch job. More information about running batch jobs can be found from the [batch job section of
-the Roihu user guide](../supercomputing/running/getting-started.md).
+the Roihu user guide](../supercomputing/running/index.md).
 
 You should always define the number of cores that Prokka will use with option `--cpus` to match the number
 of cores reserved for the job. You can use the environment variable `$SLURM_CPUS_PER_TASK` to match the reserved
@@ -85,7 +85,7 @@ You can submit the batch job file to the batch job system with the command:
 sbatch batch_job_file.bash
 ```
 
-See the [Roihu user guide](../supercomputing/running/getting-started.md) for more information about running batch jobs.
+See the [Roihu user guide](../supercomputing/running/index.md) for more information about running batch jobs.
 
 ## Support
 

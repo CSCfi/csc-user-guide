@@ -81,9 +81,9 @@ manager](../python-usage-guide.md#installing-python-packages-to-existing-modules
 For more complex software requirements, we recommend using
 [tykky](../../../supercomputing/containers/tykky.md) or [creating your own
 Apptainer
-container](../../../supercomputing/containers/overview.md#building-container-images). For
+container](../../../supercomputing/containers/index.md#building-container-images). For
 Roihu we have provided a set of [base Apptainer
-images](../../../supercomputing/containers/overview.md#ml-containers) that you
+images](../../../supercomputing/containers/index.md#ml-containers) that you
 can build on when creating your own containers. Also see our [tutorial
 on how to extend our `ml-base` container using a
 sandbox](container-extend.md).

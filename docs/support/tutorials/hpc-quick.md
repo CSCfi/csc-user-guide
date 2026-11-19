@@ -118,7 +118,7 @@ interface to interact directly with the supercomputer's
 seem archaic, it is truly powerful once you get used to it.
 
 The CLI allows you to
-[submit your computations as batch jobs](../../supercomputing/running/getting-started.md)
+[submit your computations as batch jobs](../../supercomputing/running/index.md)
 to the Slurm job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
 on the *compute nodes* as opposed to the *login nodes*,
@@ -177,7 +177,7 @@ applications we have various
 [high-performance libraries](../../supercomputing/hpc-libraries.md) and other
 utilities available to facilitate this. Note that some installations, such as
 complex Python environments, benefit from
-[containerization](../../supercomputing/containers/overview.md).
+[containerization](../../supercomputing/containers/index.md).
 
 You may also wish to develop your own scripts and programs instead of using existing
 software. It is most efficient to start writing and testing your code on your
@@ -257,11 +257,11 @@ at CSC.
     - [Changing your password](../../accounts/how-to-change-password.md)
     - [MyCSC customer portal](https://my.csc.fi)
 
-=== "Computing"
+=== "Supercomputing"
     - [Overview](../../supercomputing/index.md)
     - [Usage policy](../../supercomputing/usage-policy.md)
     - [Connecting to supercomputers](../../supercomputing/connecting/index.md)
-    - [Running batch jobs](../../supercomputing/running/getting-started.md) and
+    - [Running batch jobs](../../supercomputing/running/index.md) and
       [available batch job partitions](../../supercomputing/running/batch-job-partitions.md)
     - [Pre-installed applications](../../apps/index.md) and
       [how to install custom software](../../supercomputing/installing.md)

@@ -14,7 +14,7 @@ catalog:
 
 # r-env
 
-`r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../supercomputing/containers/overview.md#running-containers).
+`r-env` provides R and RStudio Server, and several other features to facilitate their use. It runs in an [Apptainer container](../supercomputing/containers/index.md#running-containers).
 
 -   R is an open-source language and environment for data analytics, statistical computing, and graphics. More information on R can be found on [the R Project website](https://www.r-project.org/about.html). Many useful [R manuals are also hosted on CRAN](https://cran.r-project.org/manuals.html).
 
@@ -108,7 +108,7 @@ There are several ways to use R with the `r-env` module:
 
 **Non-interactive use**
 
-  -   Non-interactive [batch jobs](../supercomputing/running/getting-started.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general)
+  -   Non-interactive [batch jobs](../supercomputing/running/index.md) without limits on the reserved computing resources (other than those applying on the specific CSC's supercomputer in general)
 
 !!! info "How should I use R with `r-env`?"
     - **Interactive use** is meant for preparing your code and smaller analyses up to a few hours and may use limited resources.  
@@ -190,7 +190,7 @@ To launch the R console on a login node, run the following commands:
 Running R scripts non-interactively using batch job files gives access to more resources and emphasizes efficiency over interactivity. Batch jobs are recommended in particular for all long and 
 resource-heavy tasks.   
 
-In addition to the following examples, see the [general batch job documentation](../supercomputing/running/getting-started.md) for more information. If you are new to batch jobs, check the materials 
+In addition to the following examples, see the [general batch job documentation](../supercomputing/running/index.md) for more information. If you are new to batch jobs, check the materials 
 of the [CSC Computing Environment course on batch jobs](https://csc-training.github.io/csc-env-eff/part-1/batch-jobs/) and [this tutorial on running interactive R jobs and R batch jobs](../support/tutorials/cmdline-handson.md).   
 
 #### Basic R batch job script

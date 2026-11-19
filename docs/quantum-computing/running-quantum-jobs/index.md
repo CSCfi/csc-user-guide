@@ -76,6 +76,6 @@ QPU usage is shown on the [MyCSC dashboard](https://my.csc.fi/dashboard){ target
 ```
 
 ## Further reading
-* [Devices](../devices/overview.md)
+* [Devices](../devices/index.md)
 * [Additional examples (fiqci-examples)](https://github.com/FiQCI/fiqci-examples){ target=_blank }
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }

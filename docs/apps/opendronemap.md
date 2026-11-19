@@ -23,7 +23,7 @@ __OpenDroneMap__ is available in Roihu with following versions:
 
 
 ## Usage
-OpenDroneMap is available as a [Singularity](../supercomputing/containers/overview.md#running-containers) container
+OpenDroneMap is available as a [Singularity](../supercomputing/containers/index.md#running-containers) container
 
 To run OpenDroneMap: 
 
@@ -89,7 +89,7 @@ apptainer build opendronemap_3.5.6.sif docker://opendronemap/odm:3.5.6
 * [OpenDroneMap homepage](https://opendronemap.org)
 * [OpenDroneMap Docs](https://docs.opendronemap.org/)
 * [OpenDroneMap Github](https://github.com/OpenDroneMap/ODM)
-* [Singularity containers in CSC](../supercomputing/containers/overview.md#running-containers)
+* [Singularity containers in CSC](../supercomputing/containers/index.md#running-containers)
 
 
 

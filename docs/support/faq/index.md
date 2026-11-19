@@ -41,7 +41,7 @@
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
 
-## Computing
+## Supercomputing
 * [How is the computing time calculated?](how-is-the-computing-time-calculated.md)
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)

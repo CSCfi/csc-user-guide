@@ -15,7 +15,7 @@ and algorithms. The [Finnish Quantum-Computing Infrastructure](https://fiqci.fi)
 
 FiQCI currently provides access to quantum computers reachable through the supercomputing environment.
 
-See the [Devices](devices/overview.md) section for more details and hardware specifications of each machine.
+See the [Devices](devices/index.md) section for more details and hardware specifications of each machine.
 
 For further reading:
 

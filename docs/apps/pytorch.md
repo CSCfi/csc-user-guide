@@ -150,7 +150,7 @@ servicedesk](../support/contact.md).
 
 If adding a few packages with `pip` is not enough, you can also build
 your own containers, for example by [extending CSC's machine learning
-containers](../supercomputing/containers/overview.md#ml-containers).
+containers](../supercomputing/containers/index.md#ml-containers).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
@@ -208,7 +208,7 @@ pip list
 
     Note that login nodes are not intended for heavy computing, please use slurm
     batch jobs instead. See our [instructions on how to use the batch job
-    system](../supercomputing/running/getting-started.md).
+    system](../supercomputing/running/index.md).
 
 ### Example batch script
 

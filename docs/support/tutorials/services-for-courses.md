@@ -200,7 +200,7 @@ If you're unsure which services would be suitable for your course,
     assignments.
 
     The system support both traditional command-line
-    [batch processing compute tasks](../../supercomputing/running/getting-started.md),
+    [batch processing compute tasks](../../supercomputing/running/index.md),
     as well as web-based tools such as Jupyter Notebooks and RStudio via the
     [web interfaces](../../supercomputing/webinterface/index.md). Course organizers
     are even able to create customized Jupyter Notebook environments for their

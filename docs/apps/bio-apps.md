@@ -25,7 +25,7 @@ individual applications with the normal module commands. Loading `bio-apps` does
 !!! info "Not all bioinformatics tools are in bio-apps"
     The applications in bio-apps are installed with [Spack](https://spack.io/). Some
     tools are better suited to being installed as
-    [containers](../supercomputing/containers/overview.md) or with
+    [containers](../supercomputing/containers/index.md) or with
     [Tykky](../supercomputing/containers/tykky.md). These are provided as separate modules
     outside bio-apps, and you do not need to load `bio-apps` to use them. See the
     application's page in the [CSC application catalog](by_discipline.md#biosciences)

@@ -92,7 +92,7 @@ When the batch job file is ready, it can be submitted to the batch queue system 
 sbatch batch_job_file
 ```
 
-Look here for [more information about running batch jobs](../supercomputing/running/getting-started.md).
+Look here for [more information about running batch jobs](../supercomputing/running/index.md).
 
 Please also check the [Trinity website](https://github.com/trinityrnaseq/trinityrnaseq/wiki) to get hints for estimating the required resources.
 

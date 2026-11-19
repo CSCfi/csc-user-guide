@@ -69,7 +69,7 @@ the discussion here](gpu.md).
 If you are a new user, please read [how to access
 Roihu](../../../supercomputing/index.md#accessing-csc-supercomputers), and
 [how to submit computing
-jobs](../../../supercomputing/running/getting-started.md). If you have opted
+jobs](../../../supercomputing/running/index.md). If you have opted
 for LUMI read the [LUMI Get Started
 page](https://docs.lumi-supercomputer.eu/firststeps/). LUMI users may
 also be interested in the [AI Software Environment provided by the

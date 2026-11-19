@@ -290,9 +290,9 @@ Base containers are built on top of Rocky Linux 9.
 
 More details on working with containers in CSC's computing environment can be found from the links below:
 
-- [Overview of containers](../../supercomputing/containers/overview.md)
-- [Running containers](../../supercomputing/containers/overview.md#running-containers)
-- [Creating containers](../../supercomputing/containers/overview.md#building-container-images)
+- [Overview of containers](../../supercomputing/containers/index.md)
+- [Running containers](../../supercomputing/containers/index.md#running-containers)
+- [Creating containers](../../supercomputing/containers/index.md#building-container-images)
 - [Tykky container wrapper](../../supercomputing/containers/tykky.md)
 
 ### Spack

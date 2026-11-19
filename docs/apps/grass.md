@@ -31,7 +31,7 @@ __GRASS__ is available with following versions:
 
 ### GRASS GIS Command Line Interface 
 
-GRASS GIS command line tools can be used in an [interactive session](../supercomputing/running/interactive-usage.md) or [batch jobs](../supercomputing/running/getting-started.md). See [examples for using GRASS GIS commands in Roihu with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
+GRASS GIS command line tools can be used in an [interactive session](../supercomputing/running/interactive-usage.md) or [batch jobs](../supercomputing/running/index.md). See [examples for using GRASS GIS commands in Roihu with GRASS bash scripting, Python scripting or PyGRASS](https://github.com/csc-training/geocomputing/tree/master/grass). See also the references section at the end of this page.
 
 ### GRASS GIS Graphical User Interface
 

@@ -3,7 +3,7 @@
 ## General
 
 * [Getting started with supercomputing at CSC](hpc-quick.md)
-* [Getting started with Quantum computers](../../quantum-computing/overview.md)
+* [Getting started with Quantum computers](../../quantum-computing/index.md)
 * [Managing data on supercomputer scratch disks](clean-up-data.md)
 * [CSC Quick reference (pdf)](../../img/csc-quick-reference/csc-quick-reference.pdf)
 * [Linux basics for CSC](env-guide/index.md)
@@ -11,7 +11,7 @@
 * [Using csc-env command](using_csc_env.md)
 * [Developing scripts remotely](remote-dev.md)
 * [Using CSC HPC environment efficiently](https://csc-training.github.io/csc-env-eff/)
-* [How to run existing containers](../../supercomputing/containers/overview.md#running-containers)
+* [How to run existing containers](../../supercomputing/containers/index.md#running-containers)
 * [Getting disk usage using Lue](lue.md)
 * [Running Julia batch jobs on CSC clusters](../../apps/julia.md#running-julia-batch-jobs-on-csc-clusters)
 * [Using Python on CSC supercomputers](python-usage-guide.md)

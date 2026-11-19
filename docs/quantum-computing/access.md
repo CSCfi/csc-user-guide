@@ -5,7 +5,7 @@ This page outlines the steps to set up a LUMI account and project for accessing 
 
 To access the available quantum computers, you must first request a LUMI project with allocated quantum computing resources. To apply for an academic project with quantum computing time, see the [open call for quantum academic projects](https://fiqci.fi/resource-call){ target=_blank }.
 
-Some devices carry additional terms of use that the project PI is responsible for ensuring are followed. Check the [device pages](./devices/overview.md) for device specific terms.
+Some devices carry additional terms of use that the project PI is responsible for ensuring are followed. Check the [device pages](./devices/index.md) for device specific terms.
 
 ## 2. Add project members
 
@@ -17,7 +17,7 @@ Follow the official instructions to connect to the LUMI system: [Connecting to L
 
 ## 4. Run your quantum jobs
 
-Once connected, read the [Running quantum jobs](./running-quantum-jobs/overview.md) section for instructions on submitting to a device.
+Once connected, read the [Running quantum jobs](./running-quantum-jobs/index.md) section for instructions on submitting to a device.
 
 ## Support
 

@@ -169,7 +169,7 @@ It is also possible to create your own Python environments.
        `--system-site-packages` flag when creating the virtual environment.
 
     2. Another option is to create a pip environment inside a
-       [container](../../supercomputing/containers/overview.md).
+       [container](../../supercomputing/containers/index.md).
        The most straightforward way to do so is by using the
        [Tykky container wrapper](../../supercomputing/containers/tykky.md).
        To find out how to easily containerize your environment,
@@ -182,8 +182,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../supercomputing/containers/overview.md#running-containers)
-        * [Creating Apptainer containers](../../supercomputing/containers/overview.md#building-container-images),
+        * [Running Apptainer containers](../../supercomputing/containers/index.md#running-containers)
+        * [Creating Apptainer containers](../../supercomputing/containers/index.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---
@@ -196,7 +196,7 @@ It is also possible to create your own Python environments.
     [**CSC has deprecated the use of conda**](conda.md)
     for direct installations on supercomputers.
     However, you can still create and use
-    [containerized](../../supercomputing/containers/overview.md)
+    [containerized](../../supercomputing/containers/index.md)
     conda environments.
 
     1. The most straightforward way to create a containerized conda
@@ -212,8 +212,8 @@ It is also possible to create your own Python environments.
        For more information about using Apptainer containers, please see the
        related documentation:
 
-        * [Running Apptainer containers](../../supercomputing/containers/overview.md#running-containers)
-        * [Creating Apptainer containers](../../supercomputing/containers/overview.md#building-container-images),
+        * [Running Apptainer containers](../../supercomputing/containers/index.md#running-containers)
+        * [Creating Apptainer containers](../../supercomputing/containers/index.md#building-container-images),
         including how to convert Docker containers to Apptainer containers.
 
     ---

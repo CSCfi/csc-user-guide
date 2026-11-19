@@ -43,7 +43,7 @@ can [apply for more quota](../../accounts/how-to-increase-disk-quotas.md).
     prolonged startup times and disk slowness affecting all users.
 
     If you need to use Conda on CSC supercomputers, we require that you
-    [containerize](../../supercomputing/containers/overview.md) your environment,
+    [containerize](../../supercomputing/containers/index.md) your environment,
     see [usage policy](../../supercomputing/usage-policy.md#conda-installations). To
     easily containerize your Conda environments, please see the
     [Tykky container wrapper tool](../../supercomputing/containers/tykky.md).

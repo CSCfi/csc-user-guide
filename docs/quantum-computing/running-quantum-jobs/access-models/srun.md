@@ -2,7 +2,7 @@
 
 Quantum jobs can be submitted through SLURM on LUMI interactively with `srun` using any LUMI partition.
 
-Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/overview.md) on the device page.
+Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/index.md) on the device page.
 
 
 ## Interactive run with srun

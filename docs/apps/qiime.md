@@ -156,7 +156,7 @@ The job is submitted to the batch job system with `sbatch` command. For example,
 ```bash
 sbatch qiime_job.sh
 ```
-More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../supercomputing/running/getting-started.md).
+More information about running batch jobs can be found from the [batch job section of the Roihu user guide](../supercomputing/running/index.md).
 
 !!! warning "Note"
     The use of `tab-qiime` to enable command completion for QIIME is known to cause problems on Roihu, and should be avoided.

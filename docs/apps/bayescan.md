@@ -91,7 +91,7 @@ sbatch script
 
 In many cases BayeScan will not benefit from using more than 8 cores, so check performance if using more.
 
-More instructions for running batch jobs can be found in [CSC batch job instructions](../supercomputing/running/getting-started.md)
+More instructions for running batch jobs can be found in [CSC batch job instructions](../supercomputing/running/index.md)
 
 ## Support
 

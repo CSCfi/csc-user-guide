@@ -65,7 +65,7 @@ those provided by installed packages should work as normal.
 For other commands, you may need to prefix them with
 `apptainer_wrapper exec`. For more information, see [CSC's general
 instructions on how to run Apptainer
-containers](../supercomputing/containers/overview.md#running-containers).
+containers](../supercomputing/containers/index.md#running-containers).
 
 
 ## Additional packages
@@ -81,7 +81,7 @@ servicedesk](../support/contact.md).
 
 If adding a few packages with `pip` is not enough, you can also build
 your own containers, for example by [extending CSC's machine learning
-containers](../supercomputing/containers/overview.md#ml-containers).
+containers](../supercomputing/containers/index.md#ml-containers).
 
 ## License
 
@@ -125,7 +125,7 @@ module avail jax         # on LUMI
     Note that the login nodes are not intended for heavy computing,
     please use slurm batch jobs instead. See our [instructions on how
     to use the batch job
-    system](../supercomputing/running/getting-started.md).
+    system](../supercomputing/running/index.md).
 
 !!! note
 

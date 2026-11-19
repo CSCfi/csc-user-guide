@@ -184,7 +184,7 @@ Finally, the [Julia on HPC Clusters](https://juliahpc.github.io) lists general n
 ## Running Julia batch jobs on CSC clusters
 This section contains examples for running various Julia batch jobs on Roihu-CPU, Roihu-GPU and LUMI clusters.
 They demonstrate the usage of the Julia environment described [above](#usage) for various batch jobs.
-They are adapted from the general instructions of running jobs on [Roihu](../supercomputing/running/getting-started.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
+They are adapted from the general instructions of running jobs on [Roihu](../supercomputing/running/index.md) and on [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 Note that we do not use `srun` to start processes in the batch script.
 Instead we use Julia for process management or call `srun` inside the Julia code.
 

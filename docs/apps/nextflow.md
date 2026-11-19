@@ -79,7 +79,7 @@ nextflow -h
 
 **Local installations**
 
-By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../apps/by_discipline.md) or [own custom module installations](../supercomputing/modules.md#using-your-own-module-files). See also how to [create containers](../supercomputing/containers/overview.md#building-container-images).
+By default, Nextflow expects that the analysis tools are available locally. Tools can be activated from existing [modules](../apps/by_discipline.md) or [own custom module installations](../supercomputing/modules.md#using-your-own-module-files). See also how to [create containers](../supercomputing/containers/index.md#building-container-images).
 
 **On-the-fly Apptainer installations**
 

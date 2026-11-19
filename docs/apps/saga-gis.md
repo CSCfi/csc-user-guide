@@ -31,7 +31,7 @@ For using SagaGIS, any of the modules listed about must be activated first, chec
 
 
 ### SAGA GIS command line interface 
-SAGA GIS command line tools can be used in an [interactive session](../supercomputing/running/interactive-usage.md) or [batch jobs](../supercomputing/running/getting-started.md).
+SAGA GIS command line tools can be used in an [interactive session](../supercomputing/running/interactive-usage.md) or [batch jobs](../supercomputing/running/index.md).
 
 #### SAGA GIS command line interface with r-env module
 

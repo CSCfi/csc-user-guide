@@ -80,7 +80,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
 ## Submitting through LUMI
 
-For submitting jobs see [Running quantum jobs](overview.md#access-models).
+For submitting jobs see [Running quantum jobs](index.md#access-models).
 
 ## Further reading
 * [Batch jobs](./access-models/batch.md)

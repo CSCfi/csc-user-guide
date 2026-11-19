@@ -632,7 +632,7 @@ list-packages
 
     Note that login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
-    system](../supercomputing/running/getting-started.md).
+    system](../supercomputing/running/index.md).
 
 Please also check [CSC's general Python documentation](python.md).
 

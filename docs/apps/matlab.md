@@ -254,11 +254,11 @@ C = funcGPU(1000);
 
 ## Extending the MATLAB environment
 
-CSC's MATLAB installation runs inside an [Apptainer container](../supercomputing/containers/overview.md).
+CSC's MATLAB installation runs inside an [Apptainer container](../supercomputing/containers/index.md).
 If you need software that the installation does not provide, such as a Python interpreter, extra system libraries, or command-line tools that your MATLAB code calls, you can build your own container image on top of CSC's MATLAB image and use it with the `matlab` module.
 
 Since MATLAB is available on Roihu-CPU, build the container on the Roihu-CPU login node or on a Roihu-CPU compute node.
-See [Building container images](../supercomputing/containers/overview.md#building-container-images) for general instructions and best practices about building containers on CSC supercomputers.
+See [Building container images](../supercomputing/containers/index.md#building-container-images) for general instructions and best practices about building containers on CSC supercomputers.
 
 ### Writing the definition file
 

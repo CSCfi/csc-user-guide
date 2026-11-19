@@ -37,7 +37,7 @@ Containers are an effective way to reduce the file-count problem described above
 Software stacks that consist of a large number of small files, such as Python with its external packages or R with its libraries, are particularly problematic on the parallel file system, both when installed there and when imported at task startup.
 Packaging such software into a single container image collapses these many small files into one file, which the parallel file system handles much more efficiently and which speeds up task startup considerably.
 When running a high-throughput workload, run the task-farming or workflow tool inside a single long-running container rather than launching a separate container for each individual task, as starting many containers adds significant overhead.
-See the [containers documentation](../containers/overview.md) for how to build and run containers at CSC.
+See the [containers documentation](../containers/index.md) for how to build and run containers at CSC.
 
 ## Task farming on HPC
 

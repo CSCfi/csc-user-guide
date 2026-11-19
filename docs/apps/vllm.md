@@ -50,7 +50,7 @@ servicedesk](../support/contact.md).
 
 If adding a few packages with `pip` is not enough, you can also build
 your own containers, for example by [extending CSC's machine learning
-containers](../supercomputing/containers/overview.md#ml-containers).
+containers](../supercomputing/containers/index.md#ml-containers).
 
 All modules are based on containers using Apptainer (previously known
 as Singularity). Wrapper scripts have been provided so that common
