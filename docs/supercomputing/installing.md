@@ -74,9 +74,9 @@ most cases, ready-made Docker containers can be easily converted into an Apptain
 Another option is to build your own container from scratch. More details on working with
 containers in CSC's computing environment can be found from the links below:
 
-- [Overview of containers](containers/overview.md)
-- [Running containers](containers/overview.md#running-containers)
-- [Creating containers](containers/overview.md#building-container-images)
+- [Overview of containers](containers/index.md)
+- [Running containers](containers/index.md#running-containers)
+- [Creating containers](containers/index.md#building-container-images)
 - [Tykky container wrapper](containers/tykky.md)
 
 ## Python/R environments

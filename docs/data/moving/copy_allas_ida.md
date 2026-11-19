@@ -34,7 +34,7 @@ csc-workspaces
 ```
 
 For more details about Roihu disk areas, see
-[Supercomputer disk areas](../../computing/disk.md).
+[Supercomputer disk areas](../../supercomputing/disk.md).
 
 For example, create a new directory `copydir` for the data under the scratch
 area of `project_2000013` (replace this with your own project ID):
@@ -205,7 +205,7 @@ If you don't want to copy a complete IDA directory to Allas or if you want to re
 Scratch disk area in Roihu is recommended as it is by default much larger than
 other areas, e.g. user's home folder. Also, you can request even larger scratch
 quota if the default is not enough. For more details about Roihu disk areas,
-see [Supercomputer disk areas](../../computing/disk.md).
+see [Supercomputer disk areas](../../supercomputing/disk.md).
 
 For example, create a new directory `xferdir` for the data under the scratch
 area of `project_2000012` (replace this with your own project ID):

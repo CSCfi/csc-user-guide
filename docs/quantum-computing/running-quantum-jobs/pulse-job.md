@@ -85,7 +85,7 @@ print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 
 ## Submitting through LUMI
 
-For submitting jobs see [Running quantum jobs](overview.md#access-models).
+For submitting jobs see [Running quantum jobs](index.md#access-models).
 
 ## Further reading
 * [Batch jobs](./access-models/batch.md)

@@ -140,9 +140,9 @@ When the worker SLURM jobs finish, they will be displayed as CANCELLED on SLURM,
 
 For better understanding of how Dask splits the computations internally, the computations can be followed from [Dask Dashboard](https://docs.dask.org/en/stable/diagnostics-distributed.html) or [JupyterLab Dask extension](https://github.com/dask/dask-labextension). Dask Dashboard should be available whenever Dask is available, JupyterLab Dask extension requires extra installations (in Roihu it is available in [python-geo](../../apps/python-geo.md) module). 
 
-Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../computing/webinterface/jupyter.md) in Roihu web interface, pay attention to computing resource reservation: 
+Both `LocalCluster` and `SLURMCluster` type clusters work. When [starting JupyterLab session](../../supercomputing/webinterface/jupyter.md) in Roihu web interface, pay attention to computing resource reservation: 
 
-* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../computing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Roihu. With `LocalCluster` maximum of one HPC node can be used, so 384 cores in Roihu.
+* If using `LocalCluster`, reserve computing resources for it, notice the [interactive job](../../supercomputing/running/interactive-usage.md) limits. Bigger resource requests are possible with `small` partition in Roihu. With `LocalCluster` maximum of one HPC node can be used, so 384 cores in Roihu.
 * If using `SLURMCluster`, at this phase only master node resources are reserved, 1 core should be enough.
 
 ### Dask Dashboard on separate browser tab

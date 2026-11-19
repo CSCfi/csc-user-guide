@@ -27,8 +27,8 @@ Usage is possible for both academic and commercial purposes.
 In order to use the tool, the CUDA code has to be compiled with the extra flags
 `-g` and `-G`.
 
-Running the tool can be done either in an [interactive session](../computing/running/interactive-usage.md) or in a 
-[batch job](../computing/running/submitting-jobs.md). The application is started as (prepend `compute-sanitizer` by `srun`
+Running the tool can be done either in an [interactive session](../supercomputing/running/interactive-usage.md) or in a 
+[batch job](../supercomputing/running/submitting-jobs.md). The application is started as (prepend `compute-sanitizer` by `srun`
 in a batch job): 
 
 ```bash

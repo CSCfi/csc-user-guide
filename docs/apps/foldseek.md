@@ -107,7 +107,7 @@ foldseek easy-search queries/ $FOLDSEEK_DB/afdb_swissprot_pad results.m8 tmp --g
 GPU searches must run on a GPU node. Use a batch job on a GPU partition (see the
 [example batch script](#example-batch-script)) for searches against the large
 databases. For short tests, you can also start an interactive session with
-[`sinteractive`](../computing/running/interactive-usage.md) on `roihu-gpu.csc.fi`,
+[`sinteractive`](../supercomputing/running/interactive-usage.md) on `roihu-gpu.csc.fi`,
 but interactive sessions will get a GPU slice with only 12 GiB of GPU memory once
 slicing is configured, so use a small database such as `afdb_swissprot_pad` there.
 
@@ -140,9 +140,9 @@ foldseek easy-search queries/ $FOLDSEEK_DB/afdb_swissprot_pad results.m8 tmp --g
 ```
 
 Replace `<project>` with your CSC project (for example `project_2001234`). See
-[creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md)
+[creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md)
 for more about batch jobs, and the
-[GPU partitions](../computing/running/batch-job-partitions.md) for the available GPU
+[GPU partitions](../supercomputing/running/batch-job-partitions.md) for the available GPU
 resources.
 
 ## Support

@@ -62,7 +62,7 @@ Software to access and analyse CSD entries:
 There are three ways to access the CSD System:
 
 -   Local installation (Windows or Linux, takes up a lot of disk space)
--   Using the CSD System via the [Roihu web interface](../computing/webinterface/index.md)
+-   Using the CSD System via the [Roihu web interface](../supercomputing/webinterface/index.md)
 -   WebCSD (limited functionality), point your browser to [CCDC webserver](https://www.ccdc.cam.ac.uk/structures/)
 
 Initialize CSD on Roihu-CPU:
@@ -91,9 +91,9 @@ national license (see [License](#license)).
 ### Using CSD on Roihu via the web interface
 
 The graphical CSD programs run on Roihu in the
-[Roihu web interface](../computing/webinterface/index.md) (Open OnDemand).
+[Roihu web interface](../supercomputing/webinterface/index.md) (Open OnDemand).
 You only need a web browser and a CSC user account. Nothing is installed on your computer.
-Use the [Accelerated visualization](../computing/webinterface/accelerated-visualization.md) app.
+Use the [Accelerated visualization](../supercomputing/webinterface/accelerated-visualization.md) app.
 
 !!! warning "Note"
     Use the Accelerated Visualization app, not the Desktop app. See [Known issues](#known-issues).

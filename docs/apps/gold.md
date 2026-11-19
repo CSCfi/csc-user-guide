@@ -43,7 +43,7 @@ module load ccdc/2026.1
 ```
 
 GOLD can be used either from the command-line or via a graphical user interface
-(GUI (Graphical User Interface)) called Hermes. The best way to run a GUI (Graphical User Interface) remotely on Roihu is to use the [Accelerated visualization](../computing/webinterface/accelerated-visualization.md) app of the Roihu web interface.
+(GUI (Graphical User Interface)) called Hermes. The best way to run a GUI (Graphical User Interface) remotely on Roihu is to use the [Accelerated visualization](../supercomputing/webinterface/accelerated-visualization.md) app of the Roihu web interface.
 
 ### Interactive use in the web interface
 
@@ -60,8 +60,8 @@ somewhat slow compared to a local installation.
 ### Example batch scripts
 
 Longer (non-interactive) jobs are best run as batch jobs. See
-[Create Roihu batch jobs](../computing/running/creating-job-scripts-roihu.md)
-and the [available partitions](../computing/running/batch-job-partitions.md)
+[Create Roihu batch jobs](../supercomputing/running/creating-job-scripts-roihu.md)
+and the [available partitions](../supercomputing/running/batch-job-partitions.md)
 for the partition names and resource options.
 
 === "Roihu-CPU"

@@ -151,7 +151,7 @@ python $COMEBIN_INSTROOT/bin/COMEBin/main.py train --data comebin_out/data_augme
   --num_threads $SLURM_CPUS_PER_TASK
 ```
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs, and the [GPU partitions](../computing/running/batch-job-partitions.md#roihu-gpu-partitions) for the available GPU resources.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs, and the [GPU partitions](../supercomputing/running/batch-job-partitions.md#roihu-gpu-partitions) for the available GPU resources.
 
 ## Support
 

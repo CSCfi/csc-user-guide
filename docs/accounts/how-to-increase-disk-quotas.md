@@ -2,7 +2,7 @@
 
 ## Increasing the storage capacity in Roihu
 
-The quotas of the [scratch](../computing/disk.md#scratch-directory) and [projappl](../computing/disk.md#projappl-directory) directories of Roihu can be
+The quotas of the [scratch](../supercomputing/disk.md#scratch-directory) and [projappl](../supercomputing/disk.md#projappl-directory) directories of Roihu can be
 increased if needed.
 
 You can use MyCSC to manage these quotas.

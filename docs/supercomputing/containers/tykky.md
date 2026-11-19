@@ -263,7 +263,7 @@ wrap-container -w /path/inside/container <container> --prefix <install_dir>
 With very large installations the resources available on the login node might
 not be enough, resulting in Tykky failing with a `MemoryError`. In this case, the
 installation needs to be done on a compute node, for example using an
-[interactive session](../../computing/running/interactive-usage.md#sinteractive-on-roihu):
+[interactive session](../../supercomputing/running/interactive-usage.md#sinteractive-on-roihu):
 
 ```bash
 # Start interactive session (provides 20 GiB of local disk under $TMPDIR)

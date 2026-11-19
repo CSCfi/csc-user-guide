@@ -18,7 +18,7 @@ the required packages are [macFUSE and SSHFS](https://osxfuse.github.io/).
 Please note that you need to have set up SSH keys and uploaded your public key
 to MyCSC in order to work with remote disk mounts, just as when connecting over
 regular SSH.
-[Read how to set up SSH keys here](../../computing/connecting/ssh-keys.md).
+[Read how to set up SSH keys here](../../supercomputing/connecting/ssh-keys.md).
 
 ## Using sshfs in Linux
 

@@ -20,10 +20,10 @@ ssh yourcscusername@roihu-cpu.csc.fi
 
 Where `yourcscusername` is the username you get from CSC. In addition to
 an SSH key, Roihu also requires a
-[signed SSH certificate](../../computing/connecting/ssh-keys.md#signing-public-key).
+[signed SSH certificate](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
 
 You can find more detailed instructions in our User Guide: [Connecting
-to CSC supercomputers](../../computing/connecting/index.md).
+to CSC supercomputers](../../supercomputing/connecting/index.md).
 
 
 ## What is Roihu?
@@ -34,12 +34,12 @@ and a large number of compute nodes.
 
 When you log in, you end up in one of several login nodes (Roihu has
 separate login nodes for CPU and GPU work; see
-[Connecting to CSC supercomputers](../../computing/connecting/index.md)
+[Connecting to CSC supercomputers](../../supercomputing/connecting/index.md)
 for details). Login nodes are meant for things like moving data and
 setting up and managing your batch jobs. You should not run actual jobs
 on the login nodes. They are shared by everybody, and running big
 jobs on them can make the system slow and unresponsive for all
-(More details in our [usage policy](../../computing/usage-policy.md)).
+(More details in our [usage policy](../../supercomputing/usage-policy.md)).
 
 Jobs should be run in the compute nodes. This is done using the *batch
 job system* also called a *scheduler* or a *workload manager*. The
@@ -50,7 +50,7 @@ or write a batch jobs script and use command `sbatch`. We will
 discuss this in more detail later.
 
 To check what kind of compute nodes are available in Roihu, see the
-User Guide: [Technical details about Roihu](../../computing/systems-roihu.md).
+User Guide: [Technical details about Roihu](../../supercomputing/systems-roihu.md).
 
 
 ## Software environment
@@ -97,7 +97,7 @@ module avail
 To see which modules to load, see the instruction page for each software
 
 For more information on the module system, please see the user guide:
-[The module system](../../computing/modules.md).
+[The module system](../../supercomputing/modules.md).
 
 
 ## Planning your job
@@ -212,7 +212,7 @@ can use `sinteractive` command to open an interactive shell:
 sinteractive -i
 ```
 
-For more detailed instructions, see the User Guide: [Interactive usage](../../computing/running/interactive-usage.md)
+For more detailed instructions, see the User Guide: [Interactive usage](../../supercomputing/running/interactive-usage.md)
 
 Longer jobs that take more resources are best run as batch jobs.
 
@@ -295,7 +295,7 @@ run inside one node.
 ```
 
 You can check the available partitions in the User Guide: [Available
-batch job partitions](../../computing/running/batch-job-partitions.md)
+batch job partitions](../../supercomputing/running/batch-job-partitions.md)
 
 By default various outputs and error messages that would be printed to
 the screen if the application was run interactively, are saved in a
@@ -334,7 +334,7 @@ them as an array job. Array jobs offer an easy way to launch and manage
 a group of similar jobs.
 
 Running array jobs is described in detail in the User Guide: 
-[Array jobs](../../computing/running/array-jobs.md)
+[Array jobs](../../supercomputing/running/array-jobs.md)
 
 ## Managing jobs
 
@@ -410,8 +410,8 @@ Most important things to check are the CPU efficiency and memory utilization.
 There are many things that can cause poor CPU efficiency. It could, for example,
 indicate that the program is waiting for disk access to catch up. In these cases
 you should consider using the fast local disk (`$TMPDIR`) available on all
-compute nodes, or [disaggregated storage](../../computing/disk.md#disaggregated-storage).
-The [Job monitoring app](../../computing/performance.md#job-monitoring-app) in the
+compute nodes, or [disaggregated storage](../../supercomputing/disk.md#disaggregated-storage).
+The [Job monitoring app](../../supercomputing/performance.md#job-monitoring-app) in the
 Roihu web interface shows the CPU load and I/O wait of your finished jobs over time.
 High I/O wait while the CPU load is low suggests that the job is waiting for the
 disk. I/O wait is a CPU metric, so it can also be high when only some of the

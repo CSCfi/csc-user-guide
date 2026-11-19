@@ -14,7 +14,7 @@ Also note that:
   to use their `scratch` folders for longer term storage.
 * There are **no backups** of `scratch` disk area. Do not trust it to store all of your research data.
 * Removing files decreases the Storage BU consumption of your project, since `scratch`
-  usage is [billed](../../computing/hpc-billing.md#storage) per TiB-hour.
+  usage is [billed](../../supercomputing/hpc-billing.md#storage) per TiB-hour.
 
 We kindly ask all users to help to keep disk usage manageable, and performance reasonable.
 Please do the following tasks:
@@ -58,7 +58,7 @@ size information. Run `man lfs-find` for further instructions and information on
 
 ## Automatic removal of files
 
-There is a [policy](../../computing/usage-policy.md#disk-cleaning) of removing files
+There is a [policy](../../supercomputing/usage-policy.md#disk-cleaning) of removing files
 older than **180 days** (`scratch` quota less than 5 TiB) or **90 days** (`scratch` quota
 5 TiB or more) from `scratch` (not `projappl`) to ensure that only actively used data
 resides on the disk.

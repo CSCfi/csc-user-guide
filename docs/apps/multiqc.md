@@ -49,13 +49,13 @@ in the current directory. Use `-o` to write them to another directory and `-n` t
 change the report name.
 
 To view the report, download it to your own computer, for example with the
-[file browser of the web interface](../computing/webinterface/file-browser.md), and
+[file browser of the web interface](../supercomputing/webinterface/file-browser.md), and
 open it in a web browser.
 
 MultiQC only reads the results of other tools and usually finishes in seconds, so it
 counts as light postprocessing and can be run on the login node. For very large
 projects with thousands of samples, use an
-[interactive session](../computing/running/interactive-usage.md) instead.
+[interactive session](../supercomputing/running/interactive-usage.md) instead.
 
 ## Support
 

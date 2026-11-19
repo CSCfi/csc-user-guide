@@ -13,7 +13,7 @@ Additional information regarding:
 
 There are several alternative tools to move data between Allas and Roihu. You can use [the Roihu web interface](accessing_allas.md#web-browser-interfaces), [commandline tools](accessing_allas.md#commandline-tools) or [Python, R or other tools](accessing_allas.md#graphical-tools). In Roihu, the Allas commandline tools are installed by CSC and provided through the **allas module**.
 
-   * [Allas module in Roihu](../../computing/allas-in-roihu.md)
+   * [Allas module in Roihu](../../supercomputing/allas-in-roihu.md)
 
 
 ## Examples

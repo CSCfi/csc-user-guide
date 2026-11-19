@@ -59,5 +59,5 @@ The most common causes are:
   number or requested CPUs (1 per task by default) and the result must be within the limits
   of the chosen partition.
 
-See [batch job partitions](../../computing/running/batch-job-partitions.md) for more details
+See [batch job partitions](../../supercomputing/running/batch-job-partitions.md) for more details
 on the resources available in each queue.

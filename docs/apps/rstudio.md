@@ -28,4 +28,4 @@ See [the Licenses section of `r-env`](r-env.md#licenses).
 
 ## Usage
 
-The recommended way to launch RStudio is to use the [Roihu web interface](../computing/webinterface/index.md). See also the separate documentation for the [web interface RStudio](../computing/webinterface/rstudio.md).
+The recommended way to launch RStudio is to use the [Roihu web interface](../supercomputing/webinterface/index.md). See also the separate documentation for the [web interface RStudio](../supercomputing/webinterface/rstudio.md).

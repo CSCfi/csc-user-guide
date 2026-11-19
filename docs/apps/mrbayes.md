@@ -48,7 +48,7 @@ and in parallel when launched with `srun` in a batch job. When using the paralle
 
 ## Batch jobs
 
-Running a MrBayes analysis might take a considerable amount of CPU time and memory. It is, therefore, recommended to run it through the batch job system on Roihu. Shorter test runs can be run in interactive mode using [sinteractive](../computing/running/interactive-usage.md). The serial version is recommended for interactive use.
+Running a MrBayes analysis might take a considerable amount of CPU time and memory. It is, therefore, recommended to run it through the batch job system on Roihu. Shorter test runs can be run in interactive mode using [sinteractive](../supercomputing/running/interactive-usage.md). The serial version is recommended for interactive use.
 
 To run a batch job you need to:
 
@@ -97,7 +97,7 @@ To submit the job:
 sbatch mb_batch
 ```
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Running on GPUs
 
@@ -153,7 +153,7 @@ module load mrbayes/3.2.8
 srun mb mb_com_gpu.nex >log.txt
 ```
 
-See the [GPU partitions](../computing/running/batch-job-partitions.md) for the
+See the [GPU partitions](../supercomputing/running/batch-job-partitions.md) for the
 available GPU resources.
 
 ## Support

@@ -3,4 +3,4 @@
     now been decommissioned. The page is undergoing changes to reflect CSC's
     new supercomputer Roihu.
 
-    [Learn more about Roihu](/computing/systems-roihu.md).
+    [Learn more about Roihu](/supercomputing/systems-roihu.md).

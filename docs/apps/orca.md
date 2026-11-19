@@ -64,7 +64,7 @@ Jobs must be submitted from the **CPU login node** (`roihu-cpu`).
 On Roihu, the module loads MPI automatically. No `mpirun` wrapper
 script is needed. Set `ORCADIR` before loading the module. For a
 full list of available partitions see the
-[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+[Roihu batch job partitions](../supercomputing/running/batch-job-partitions.md)
 page.
 
 !!! note

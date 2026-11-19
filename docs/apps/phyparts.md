@@ -70,8 +70,8 @@ environment variable, for example `export JAVA_OPTS="-Xmx7g"` in a job that rese
 8 GiB.
 
 Small analyses finish quickly in an
-[interactive session](../computing/running/interactive-usage.md). Run large datasets
-as a [batch job](../computing/running/creating-job-scripts-roihu.md).
+[interactive session](../supercomputing/running/interactive-usage.md). Run large datasets
+as a [batch job](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Support
 

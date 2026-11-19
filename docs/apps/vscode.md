@@ -36,14 +36,14 @@ Visual Studio Code features a remote connection extension (Remote-SSH) that allo
 !!! warning
     While connecting to CSC computing environment with VS Code is possible, it
     is prone to connection issues and other problems. Thus, we recommend using
-    other ways to [connect to CSC supercomputers](../computing/connecting/index.md).
+    other ways to [connect to CSC supercomputers](../supercomputing/connecting/index.md).
     If you need to use VS Code on HPC, please consider the VS Code applications
     available in the supercomputer web interfaces.
 
 ## More information
 
-More information on Visual Studio Code, interactive applications, and the web interfaces can be found under the [Computing section](../computing/index.md):
+More information on Visual Studio Code, interactive applications, and the web interfaces can be found under the [Supercomputing section](../supercomputing/index.md):
 
-- [Visual Studio Code](../computing/webinterface/vscode.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Visual Studio Code](../supercomputing/webinterface/vscode.md)
+- [Interactive applications](../supercomputing/webinterface/apps.md)
+- [Web interfaces](../supercomputing/webinterface/index.md)

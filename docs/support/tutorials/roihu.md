@@ -100,18 +100,18 @@ To connect via SSH:
 1. Set up SSH keys (same as Puhti/Mahti)
 2. **New:** _Sign_ your public key and download a _certificate_
     * Certificates are valid for **24 hours**
-    * See our instructions for managing certificates: [Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key)
+    * See our instructions for managing certificates: [Signing public SSH keys](../../supercomputing/connecting/ssh-keys.md#signing-public-key)
 
 For platform-specific instructions, see:
 
-* [Instructions for Linux/macOS](../../computing/connecting/ssh-unix.md).
-* [Instructions for Windows](../../computing/connecting/ssh-windows.md).
+* [Instructions for Linux/macOS](../../supercomputing/connecting/ssh-unix.md).
+* [Instructions for Windows](../../supercomputing/connecting/ssh-windows.md).
 
-**[Read detailed instructions for managing SSH keys and certificates](../../computing/connecting/ssh-keys.md).**
+**[Read detailed instructions for managing SSH keys and certificates](../../supercomputing/connecting/ssh-keys.md).**
 
 !!! warning "Separate CPU and GPU environments"
     Roihu has
-    [different CPU architectures on Roihu-CPU (x86) and Roihu-GPU (ARM)](../../computing/systems-roihu.md#compute).
+    [different CPU architectures on Roihu-CPU (x86) and Roihu-GPU (ARM)](../../supercomputing/systems-roihu.md#compute).
     Therefore, there are separate login nodes for building programs and submitting
     jobs to their respective nodes:
     
@@ -168,8 +168,8 @@ HPC software written using programming languages, such as C, C++, or Fortran nee
 
 For instructions on the available compilers and preferred options, see the instructions for compiling software on:
 
-- [Compiling on Roihu-CPU](../../computing/compiling-roihu.md#compiling-on-roihu-cpu)
-- [Compiling on Roihu-GPU](../../computing/compiling-roihu.md#compiling-on-roihu-gpu)
+- [Compiling on Roihu-CPU](../../supercomputing/compiling-roihu.md#compiling-on-roihu-cpu)
+- [Compiling on Roihu-GPU](../../supercomputing/compiling-roihu.md#compiling-on-roihu-gpu)
 
 ### Containers
 
@@ -290,10 +290,10 @@ Base containers are built on top of Rocky Linux 9.
 
 More details on working with containers in CSC's computing environment can be found from the links below:
 
-- [Overview of containers](../../computing/containers/overview.md)
-- [Running containers](../../computing/containers/overview.md#running-containers)
-- [Creating containers](../../computing/containers/overview.md#building-container-images)
-- [Tykky container wrapper](../../computing/containers/tykky.md)
+- [Overview of containers](../../supercomputing/containers/index.md)
+- [Running containers](../../supercomputing/containers/index.md#running-containers)
+- [Creating containers](../../supercomputing/containers/index.md#building-container-images)
+- [Tykky container wrapper](../../supercomputing/containers/tykky.md)
 
 ### Spack
 
@@ -311,7 +311,7 @@ It is also possible to install different customized versions of packages availab
 Best practice guidelines on installing your own Python and R packages can be found in the Python, R and Tykky container wrapper pages below.
 
 - [Installing Python packages and environments](../tutorials/python-usage-guide.md)
-- [Containerizing Conda and pip environments with Tykky](../../computing/containers/tykky.md)
+- [Containerizing Conda and pip environments with Tykky](../../supercomputing/containers/tykky.md)
 - [R package installations](../../apps/r-env.md#r-package-installations)
 
 ## Running your first job
@@ -329,17 +329,17 @@ Basic workflow:
 
 See the relevant documentation below for detailed information:
 
-1. [Available batch job partitions](../../computing/running/batch-job-partitions.md)
-1. [Creating a batch job script](../../computing/running/creating-job-scripts-roihu.md)
-1. [Example job scripts](../../computing/running/example-job-scripts-roihu.md)
-1. [Submit a batch job](../../computing/running/submitting-jobs.md)
-1. [Performance checklist](../../computing/running/performance-checklist.md)
+1. [Available batch job partitions](../../supercomputing/running/batch-job-partitions.md)
+1. [Creating a batch job script](../../supercomputing/running/creating-job-scripts-roihu.md)
+1. [Example job scripts](../../supercomputing/running/example-job-scripts-roihu.md)
+1. [Submit a batch job](../../supercomputing/running/submitting-jobs.md)
+1. [Performance checklist](../../supercomputing/running/performance-checklist.md)
 
 For common Slurm error messages, see our FAQ on [Why does my batch job fail?](../faq/why-does-my-batch-job-fail.md).
 
 ## More information
 
 * [Frequently asked questions about Roihu](../faq/roihu.md)
-* [Roihu system overview](../../computing/systems-roihu.md)
+* [Roihu system overview](../../supercomputing/systems-roihu.md)
 * [CSC Computing Environment self-learning materials](https://csc-training.github.io/csc-env-eff/)
 * [Contact our service desk](../contact.md)

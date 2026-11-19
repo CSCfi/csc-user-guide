@@ -1,7 +1,7 @@
 # LUMI
 
 LUMI uses SingularityCE instead of Apptainer.
-We recommend to read the instructions for [Apptainer containers](./overview.md) which apply to SingularityCE on LUMI with certain modifications explained in this page.
+We recommend to read the instructions for [Apptainer containers](./index.md) which apply to SingularityCE on LUMI with certain modifications explained in this page.
 We use the command `singularity` instead of `apptainer`.
 
 ## Running containers

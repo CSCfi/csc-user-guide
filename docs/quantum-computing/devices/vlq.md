@@ -25,7 +25,7 @@ VLQ's qubits are connected to a central computational resonator providing one-to
 
 ??? default "Topology mapping (Click to show)"
 
-    ![VLQ's node mapping](../../../img/lumi-q-vlq-layout.svg){ width=100% style="display: block; margin: 0 auto;" }
+    ![VLQ's node mapping](../../img/lumi-q-vlq-layout.svg){ width=100% style="display: block; margin: 0 auto;" }
 
 ## Access
 

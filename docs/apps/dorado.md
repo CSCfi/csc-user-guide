@@ -76,7 +76,7 @@ Replace `<project>` with your CSC project (for example `project_2001234`). The `
 argument selects the super-accuracy model; dorado downloads it if it is not already
 present.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs, and the [GPU partitions](../computing/running/batch-job-partitions.md#roihu-gpu-partitions) for available GPU resources.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs, and the [GPU partitions](../supercomputing/running/batch-job-partitions.md#roihu-gpu-partitions) for available GPU resources.
 
 ## Support
 

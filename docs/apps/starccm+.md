@@ -19,7 +19,7 @@ Simcenter STAR-CCM+ is a commercial Computational Fluid Dynamics (CFD) based sim
 CSC does not have own Star-CCM+ licenses for customer use on CSC's computing platforms.  Instead, you may purchase a *Power-On-Demand* (PoD) license to be used on the servers, for more information, see this [web page](https://community.sw.siemens.com/s/question/0D54O000061xpm2SAA/simcenter-starccm-licensing-options-and-setup-installation-and-troubleshooting).
 
 ## Available
-Several versions of Star-CCM+ are available on [Roihu and LUMI](../computing/available-systems.md) supercomputers. On Roihu, the software is available on both CPU and GPU (aarch64) partitions. Use command
+Several versions of Star-CCM+ are available on [Roihu and LUMI](../supercomputing/available-systems.md) supercomputers. On Roihu, the software is available on both CPU and GPU (aarch64) partitions. Use command
 ```bash
 module available
 ```

@@ -55,7 +55,7 @@ The `--sandbox` option creates a writable directory containing the extracted con
 
 !!! warning
 
-    Do not create a sandbox on the shared Lustre file system (for example on `/scratch`, `/projappl` or `/home`) as [it will create a lot of small files which can slow down the system for all users](../../../computing/lustre.md#best-practices)!
+    Do not create a sandbox on the shared Lustre file system (for example on `/scratch`, `/projappl` or `/home`) as [it will create a lot of small files which can slow down the system for all users](../../../supercomputing/lustre.md#best-practices)!
 
 ## Create the `users` directory
 

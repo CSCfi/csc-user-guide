@@ -7,7 +7,7 @@ missing. Here's how to proceed:
 
 1. It *is* possible to install software on CSC supercomputers by yourself.
    Please consider this as the first option. See the
-   [general instructions](../../computing/installing.md), and
+   [general instructions](../../supercomputing/installing.md), and
    [multiple tutorials for different code types](https://csc-training.github.io/csc-env-eff/part-2/installing/).
    If you get stuck, [CSC Service Desk](../contact.md) is happy to support you
    in installing software yourself.
@@ -20,7 +20,7 @@ missing. Here's how to proceed:
 
 ## Useful links
 
-* [Installing own software](../../computing/installing.md)
+* [Installing own software](../../supercomputing/installing.md)
 * [Installing Python packages](../tutorials/python-usage-guide.md)
 * [Installing R packages](../../apps/r-env.md#r-package-installations)
 * [CSC Computing Environment slides and tutorials on installing own software](https://csc-training.github.io/csc-env-eff/part-2/installing/)

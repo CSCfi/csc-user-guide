@@ -97,7 +97,7 @@ file is named `spades_job.sh`, then the submission command is:
 sbatch spades_job.sh 
 ```
 
-More information about running batch jobs can be found from [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+More information about running batch jobs can be found from [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Support
 

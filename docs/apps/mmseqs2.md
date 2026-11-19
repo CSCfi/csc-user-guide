@@ -70,7 +70,7 @@ mmseqs easy-search query.fasta target.fasta results.m8 tmp --threads $SLURM_CPUS
 
 Replace `<project>` with your CSC project (for example `project_2001234`). To use GPU
 acceleration, run MMseqs2 in a GPU batch job on a GH200 node; see
-[creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+[creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Support
 

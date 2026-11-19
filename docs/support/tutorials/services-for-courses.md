@@ -191,7 +191,7 @@ If you're unsure which services would be suitable for your course,
 
 === "Roihu"
 
-    [CSC supercomputer Roihu](../../computing/index.md) is an ideal
+    [CSC supercomputer Roihu](../../supercomputing/index.md) is an ideal
     platforms for organizing courses that benefit from HPC resources or aim to
     teach how to use and run computations on supercomputing platforms. This
     includes cases where the course participants need access to GPUs or larger
@@ -200,12 +200,12 @@ If you're unsure which services would be suitable for your course,
     assignments.
 
     The system support both traditional command-line
-    [batch processing compute tasks](../../computing/running/getting-started.md),
+    [batch processing compute tasks](../../supercomputing/running/index.md),
     as well as web-based tools such as Jupyter Notebooks and RStudio via the
-    [web interfaces](../../computing/webinterface/index.md). Course organizers
+    [web interfaces](../../supercomputing/webinterface/index.md). Course organizers
     are even able to create customized Jupyter Notebook environments for their
     course using the
-    [Jupyter for Courses](../../computing/webinterface/jupyter-for-courses.md)
+    [Jupyter for Courses](../../supercomputing/webinterface/jupyter-for-courses.md)
     app.
 
     Please note that courses using Roihu can have **at maximum 50
@@ -236,7 +236,7 @@ If you're unsure which services would be suitable for your course,
         2. [or directly](../../accounts/how-to-add-members-to-project.md#adding-members-directly).
     5. [Request an advance resource reservation](#advance-resource-reservation).
     6. Prepare the course content.
-        1. [Consult the documentation](../../computing/index.md).
+        1. [Consult the documentation](../../supercomputing/index.md).
         2. [Contact CSC Service Desk if you need support](../contact.md).
 
     ### Student

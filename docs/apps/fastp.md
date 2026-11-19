@@ -66,7 +66,7 @@ fastp -i read1.fq.gz -I read2.fq.gz -o out1.fq.gz -O out2.fq.gz --thread $SLURM_
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

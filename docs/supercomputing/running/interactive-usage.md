@@ -10,7 +10,7 @@ The `interactive` partition offers fewer resources than other partitions, but
 jobs submitted to it have a much higher priority in comparison, so they will
 typically spend very little time queueing. The partition can be used for
 running [web interface applications](../webinterface/apps.md) and
-[batch jobs](getting-started.md), but the most convenient way to use it is via
+[batch jobs](index.md), but the most convenient way to use it is via
 the [`sinteractive` command](#the-sinteractive-command).
 
 ## The `sinteractive` command

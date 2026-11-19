@@ -11,9 +11,9 @@ for login problems affecting other services, like Roihu:
 1. You're trying to login to Roihu or LUMI using an SSH client, but
    have not set up SSH keys and/or uploaded your public key to MyCSC. Please
    read the
-   [instructions on how to create an SSH key pair and add the public key to MyCSC](../../computing/connecting/ssh-keys.md).
+   [instructions on how to create an SSH key pair and add the public key to MyCSC](../../supercomputing/connecting/ssh-keys.md).
    Roihu additionally requires a signed SSH certificate. See
-   [how to sign your SSH key](../../computing/connecting/ssh-keys.md#signing-public-key).
+   [how to sign your SSH key](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
    If you're still facing issues, [see this FAQ](ssh-keys-not-working.md).
 2. The service you are trying to login is down or has issues. See notifications
    in your mailbox or at [research.csc.fi](https://research.csc.fi/service-break). Wait until

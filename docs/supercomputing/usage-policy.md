@@ -19,7 +19,7 @@ The login nodes should be used only for:
 
 Here **light** means **one-core jobs** that finish in **minutes** and require
 **less than 1 GiB** of memory at maximum. All other tasks are to be done in
-compute nodes either as normal [batch jobs](running/getting-started.md) or as
+compute nodes either as normal [batch jobs](running/index.md) or as
 [interactive batch jobs](running/interactive-usage.md). Programs not adhering
 to these rules will be terminated without warning.
 
@@ -54,7 +54,7 @@ Key rules for using AI agent tools on Roihu:
    information that you do not want to provide to it. Typical examples are
    your SSH keys in `~/.ssh` and Allas credentials in
    [`rclone.conf`](../data/Allas/using_allas/rclone.md). A good method is to run
-   the agentic tool in an [Apptainer container](containers/overview.md),
+   the agentic tool in an [Apptainer container](containers/index.md),
    only bind mounting what you need on the system (e.g. your scratch
    directory). CSC is preparing a supported container for this use case.
    One can also use the sandboxing features of the tools, but not all
@@ -84,7 +84,7 @@ Key rules for using AI agent tools on Roihu:
    rules above, running the interactive session of an agent on a login
    node is allowed, provided that you supervise it and that the agent
    itself only does light work.  All heavy computation must be
-   submitted as normal [batch jobs](running/getting-started.md) or
+   submitted as normal [batch jobs](running/index.md) or
    [interactive batch jobs](running/interactive-usage.md).
 
 6. **Do not overload Lustre and Slurm!** If you run the agent on Roihu, instruct

@@ -88,7 +88,7 @@ plink2 --pfile data --freq --memory 15000 --out data
 `--memory 15000` leaves some of the 16 GiB reserved for the job free for PLINK's own
 overhead. Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

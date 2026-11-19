@@ -34,7 +34,7 @@ Initialize with:
 module load molden/7.3
 ```
 
-Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Roihu web interface desktop](../computing/webinterface/desktop.md) (recommended).
+Note, that you need remote graphics to work with Molden. You can either enable X11 forwarding or use the [Roihu web interface desktop](../supercomputing/webinterface/desktop.md) (recommended).
 
 ## References
 

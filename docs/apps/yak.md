@@ -94,7 +94,7 @@ yak qv -t $SLURM_CPUS_PER_TASK -p -K3.2g -l100k sr.yak asm.fa > asm-sr.qv.txt
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 
