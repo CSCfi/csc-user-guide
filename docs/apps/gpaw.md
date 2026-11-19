@@ -152,12 +152,11 @@ Use the gpaw module to create a new virtual environment:
 ```bash
 module load gpaw/26.7.0
 python -m venv --system-site-packages venv-gpaw-cpu
-module unload gpaw/26.7.0
 ```
 
-To load this environment, use the activate script:
+To load this environment, load the module and source the environment activate script:
 ```bash
-source venv-gpaw-cpu/bin/activate
+module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 ```
 
 !!! warning "Entrypoint scripts with virtual environment"
@@ -170,8 +169,9 @@ source venv-gpaw-cpu/bin/activate
 
     The entrypoint scripts get created in the virtual environment only
     when installing the corresponding packages in the environment.
-    Therefore, when you load the newly created environment, the `gpaw`
-    executable is not available, but you can execute it with `python -m gpaw` instead.
+    Therefore, if you install other packages than gpaw in the virtual environment,
+    the `gpaw` executable will not see those packages, but you need
+    to use `python -m gpaw` instead of the plain `gpaw`.
 
 
 ### Installing additional Python packages
@@ -180,7 +180,7 @@ Load the environment and install extra packages with pip:
 
 ```bash
 # Load gpaw venv
-source venv-gpaw-cpu/bin/activate
+module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 
 # Install a python package
 # Note:
@@ -195,7 +195,7 @@ Load the environment, clone the gpaw code, and install it with pip:
 
 ```bash
 # Load gpaw venv
-source venv-gpaw-cpu/bin/activate
+module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 
 # Clone the gpaw development repository
 git clone https://gitlab.com/gpaw/gpaw.git
