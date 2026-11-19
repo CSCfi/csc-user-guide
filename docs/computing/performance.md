@@ -177,7 +177,8 @@ jobs over the last week, the last month and all time:
 ┃    Last week:    12 jobs,    10 efficient jobs,  81.2% average efficiency   ┃
 ┃                                                                             ┃
 ┃ Job reports at: https://roihu.csc.fi/pun/sys/dashboard/custom/job_table     ┃
-┃ For help:       https://docs.csc.fi/support/contact/                        ┃
+┃ How to improve: https://docs.csc.fi/support/faq/poor-job-efficiency         ┃
+┃ For help:       https://docs.csc.fi/support/contact                         ┃
 ┃                                                                             ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 ```

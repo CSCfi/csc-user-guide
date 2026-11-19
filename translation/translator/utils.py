@@ -67,19 +67,26 @@ def get_excluded_filepaths(src_prefix):
     """Returns a list of file paths, relative to src_prefix, to exclude from
     translation.
     """
+    def excludes_filter(path_obj):
+        if path_obj.is_file():
+            return True
+
+        missing = path_obj.relative_to(src_prefix)
+        logger.warning("Non-existing file found in %s: %s",
+                       DEFAULTS.excludes_filename,
+                       missing)
+        return False
+
     excludes_path = _get_config_filepath(DEFAULTS.excludes_filename)
-
     try:
-        with excludes_path.open(mode="rt", encoding="utf-8") as excludes_json:
-            paths = [line.strip()
-                    for line
-                    in excludes_json.readlines()
-                    if not line.startswith("#")]
+        with excludes_path.open(mode="rt", encoding="utf-8") as excludes_txt:
+            lines = filter(lambda line: line and not line.startswith("#"),
+                           (txt_line.strip() for txt_line in excludes_txt.readlines()))
 
-        return [pathlib.Path(src_prefix) / filepath
-                for filepath
-                in paths
-                if filepath]
+            return list(filter(excludes_filter,
+                               (pathlib.Path(src_prefix) / exclude
+                                for exclude in lines)))
+
     except FileNotFoundError as e:
         logger.warning("Can't read list of excluded files: %s", str(e))
 

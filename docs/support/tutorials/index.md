@@ -67,6 +67,7 @@
 * [Farming Gaussian jobs with HyperQueue](https://csc-training.github.io/csc-env-eff/hands-on/throughput/gaussian_hq.html)
 * [High-throughput computing with GROMACS](gromacs-throughput.md)
 * [Spring School on Computational Chemistry](https://zenodo.org/records/11172973)
+* [Using Avogadro2 with Gaussian and ORCA](avogadro2-gaussian-orca.md)
 
 ## Data analysis
 
