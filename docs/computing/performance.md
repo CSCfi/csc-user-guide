@@ -209,17 +209,28 @@ should use one of the profiling tools available (see below).
 
 ## Profiling tools
 
+The job monitoring tools described above provide a good starting point for
+analyzing application performance. However, if you need more detailed insights
+into runtime behavior or the performance of individual functions or GPU kernels,
+you may want to use a dedicated profiling tool for more fine-grained analysis.
+
 Good profiling tools may help one to get a full picture of the computational
 and communication patterns of a program and to identify potential performance
-bottlenecks. At CSC, several profiling tools are available:
+bottlenecks. In Roihu, several profiling tools are available:
 
 * [Scalasca](../apps/scalasca.md) is trace-based parallel performance analysis tool for MPI,
   OpenMP and hybrid MPI+OpenMP programs
+* [TAU](../apps/tau.md) (Tuning and Analysis Utilities) is a profiling and tracing toolkit
+  for performance analysis of parallel applications, supporting MPI, OpenMP, CUDA, and hybrid programs.
 * [cProfile](../apps/cProfile.md) is the recommended, in-built profiling tool
   for Python programs
-* [nsys](../apps/nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool designed to visualize an application’s algorithms
+* [nsys](../apps/nsys.md) is the command-line interface of Nsight Systems a system-wide performance analysis tool
+  designed to visualize an application’s algorithms
 * [ncu](../apps/ncu.md) is the command-line interface of Nsight Compute, a tool to debug and optimize CUDA kernels
 
 ## CSC optimization service
 
-CSC application specialists can support you in improving the performance of your scientific computations, from small scripts to large software package. Smaller optimization requests are typically handled through the regular user support, while more extensive efforts may require establishing a funded development project. Read more about the service at [research.csc.fi](https://research.csc.fi/sciences/code-optimization/)
+CSC application specialists can support you in improving the performance of your scientific computations,
+from small scripts to large software package. Smaller optimization requests are typically handled through
+the regular user support, while more extensive efforts may require establishing a funded development project.
+Read more about the service at [research.csc.fi](https://research.csc.fi/sciences/code-optimization/)
