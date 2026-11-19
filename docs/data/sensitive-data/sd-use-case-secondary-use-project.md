@@ -119,7 +119,7 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 </hgroup>
 
-- Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
+- Send email to [CSC Service Desk](../../support/contact.md), subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
 - Attach a copy of your **data permit** to the email.
 - Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
