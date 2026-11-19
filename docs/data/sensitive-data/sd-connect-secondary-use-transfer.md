@@ -64,7 +64,10 @@ With secondary use data, it is essential to **follow the practises presented in 
 
 ## 3. Upload and encrypt data
 
-Files uploaded to SD Connect are automatically encrypted during upload using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be uploaded programmatically.
+Files uploaded to SD Connect are automatically encrypted during upload using the service’s integrated key management system. This functionality supports all file types and formats, with a maximum upload size of 100 GB. Larger files can be [uploaded programmatically](sd-connect-command-line-interface.md#command-line-tools-and-automated-key-management).
+
+!!! warning ""
+      Please contact us by writing to [CSC Service Desk](../../support/contact.md) (subject: Sensitive data) before starting uploading data programmatically to ensure the compatibility of the tools.
 
 SD Connect is built on a cloud object storage infrastructure. Files can only be uploaded into a bucket, created with SD Connect. Bucket is a top-level 'box' used to store files or folders, and each bucket can contain up to 500.000 segmented files. This has several implications for how your data should be organized and managed:
 
@@ -76,7 +79,7 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
   
 -  **File segmentation**: Uploaded files are automatically split into segments to optimize storage and performance. This segmentation is not visible in the user interface but can affect performance.
     
-- The user interface might be slower when there are more than 2500 files in each folder. In this case please use the [command-line tools for upload and automated key management](./sd-connect-command-line-interface.md).
+- The user interface might be slower when there are more than 2500 files in each folder. In this case please use the [command-line tools for upload and automated key management](sd-connect-command-line-interface.md#command-line-tools-and-automated-key-management).
   
 - File uploads are supported in Google Chrome and Mozilla Firefox (incognito mode not supported) browsers. On first use, a browser pop-up may request cookie consent. Accepting cookies enables file and folder uploads. 
 
