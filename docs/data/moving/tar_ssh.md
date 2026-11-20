@@ -96,8 +96,8 @@ supercomputers. For Roihu, a valid SSH certificate is also needed. This is
 accomplished by forwarding your SSH agent including your SSH keys (and
 certificate) to the supercomputer you're first connecting to.
 
-- [SSH agent forwarding instructions for Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding)
-- [SSH agent forwarding instructions for Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding)
+- [SSH agent forwarding instructions for Linux/macOS](../../supercomputing/connecting/ssh-unix.md#ssh-agent-forwarding)
+- [SSH agent forwarding instructions for Windows](../../supercomputing/connecting/ssh-windows.md#ssh-agent-forwarding)
 
 After this, data can be transferred directly between CSC supercomputers using
 same syntax as above. For example, the command to transfer a directory

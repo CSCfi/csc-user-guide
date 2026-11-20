@@ -64,7 +64,7 @@ Other useful commands:
 * `blast_formatter` reformat a BLAST archive formatted result file.
 
 BLAST searches against the large shared databases are memory- and time-hungry, so
-run them in an [interactive session](../computing/running/interactive-usage.md) or
+run them in an [interactive session](../supercomputing/running/interactive-usage.md) or
 a batch job rather than on a login node. For example, on the `interactive`
 partition (up to 32 cores / 64 GiB / 36 h):
 

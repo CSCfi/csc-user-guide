@@ -64,7 +64,7 @@ Jobs must be submitted from the **CPU login node** (`roihu-cpu`).
 On Roihu, the module loads MPI automatically. No `mpirun` wrapper
 script is needed. Set `ORCADIR` before loading the module. For a
 full list of available partitions see the
-[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+[Roihu batch job partitions](../supercomputing/running/batch-job-partitions.md)
 page.
 
 !!! note
@@ -177,3 +177,4 @@ used in your studies!
 - [ORCA 6 Tutorials](https://www.faccts.de/docs/orca/6.0/tutorials/)
 - [ORCA YouTube channel](https://www.youtube.com/@orcaquantumchemistry)
 - [ORCA Input Library, containing example inputs](https://sites.google.com/site/orcainputlibrary/home)
+- [Tutorial: Using Avogadro2 with Gaussian and ORCA](../support/tutorials/avogadro2-gaussian-orca.md)

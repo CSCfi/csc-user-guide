@@ -51,7 +51,7 @@ is opened by pressing `Ctrl-g`.
 commands, functions and extensions. Emacs can be used in two ways: as a
 character based editor like nano or through a graphical interface.
 Using the graphical interface on e.g. Roihu requires either X11 forwarding or the
-[web interface remote desktop](../../../computing/webinterface/desktop.md).
+[web interface remote desktop](../../../supercomputing/webinterface/desktop.md).
 In the character based mode Emacs commands are given
 using `Ctrl` and `Esc` keys much like in the case of nano commands. In
 the graphical interface you can use also mouse-based command menus which
@@ -147,6 +147,6 @@ feh image_name.jpg
 `feh` cannot be used to view PostScript (`.ps`) or
 PDF files. These files can
 be copied to your local computer for viewing, or opened in the
-[Roihu web interface Desktop app](../../../computing/webinterface/desktop.md)
+[Roihu web interface Desktop app](../../../supercomputing/webinterface/desktop.md)
 
 ![eog image viewing program](../../../img/eog.jpg  "eog image viewing program.")

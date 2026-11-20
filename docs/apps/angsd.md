@@ -70,7 +70,7 @@ angsd -bam bam.filelist -GL 1 -doGlf 2 -doMajorMinor 1 -SNP_pval 1e-6 -nThreads 
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

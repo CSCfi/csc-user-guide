@@ -103,7 +103,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Orfeo Toolbox was installed with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [Orfeo Toolbox Docker image from Dockerhub provided by OTB community](https://hub.docker.com/r/orfeotoolbox/otb). 
+Orfeo Toolbox was installed with [Tykky's wrap-container functionality](../supercomputing/containers/tykky.md#container-based-installations) using the [Orfeo Toolbox Docker image from Dockerhub provided by OTB community](https://hub.docker.com/r/orfeotoolbox/otb). 
 
 ```
 #OrfeoToolBox 9.1.1

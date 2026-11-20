@@ -332,7 +332,7 @@ These instances are also tightly tied to the hardware. You may expect
 downtime of instances during the maintenance of the hardware.
 
 Users also have the possibility to use NVIDIA GH200 GPGPUs in the
-batch system [Roihu](../../computing/systems-roihu.md).
+batch system [Roihu](../../supercomputing/systems-roihu.md).
 
 #### cPouta
 

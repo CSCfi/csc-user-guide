@@ -58,9 +58,9 @@ register your public key in MyCSC, and create a short-lived SSH certificate.
 
 Please consult our documentation on:
 
-- [How to connect to CSC supercomputers](../computing/connecting/index.md)
-- [How to set up SSH keys](../computing/connecting/ssh-keys.md)
-- [How to sign your public key (SSH certificate)](../computing/connecting/ssh-keys.md#signing-public-key)
+- [How to connect to CSC supercomputers](../supercomputing/connecting/index.md)
+- [How to set up SSH keys](../supercomputing/connecting/ssh-keys.md)
+- [How to sign your public key (SSH certificate)](../supercomputing/connecting/ssh-keys.md#signing-public-key)
 
 !!! note "CryoSPARC cannot be used from HPC web interfaces"
     CryoSPARC users may not use web interfaces for logging in to Roihu as

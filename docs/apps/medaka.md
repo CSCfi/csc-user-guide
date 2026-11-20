@@ -72,7 +72,7 @@ medaka_consensus -i reads.fq.gz -d draft_assembly.fasta -o medaka_out -t $SLURM_
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs, and the [GPU partitions](../computing/running/batch-job-partitions.md#roihu-gpu-partitions) for available GPU resources.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs, and the [GPU partitions](../supercomputing/running/batch-job-partitions.md#roihu-gpu-partitions) for available GPU resources.
 
 ## Support
 

@@ -75,7 +75,7 @@ processors. The number of processors, e.g. 4, to be used is indicated with the o
 but the number is better replaced with an environment variable which already has it, *i.e.* 
 `$SLURM_CPUS_PER_TASK`, so it's always in sync with the batch script request.
 
-You can run the search in an [interactive session](../computing/running/interactive-usage.md).
+You can run the search in an [interactive session](../supercomputing/running/interactive-usage.md).
 On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default, and you can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
 For example:
 
@@ -115,7 +115,7 @@ The job is submitted with the command (where *batch_job_file.sh* is the name of 
 sbatch batch_job_file.sh
 ```
 
-For more information on running batch jobs, see [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+For more information on running batch jobs, see [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Support
 

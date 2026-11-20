@@ -52,7 +52,7 @@ allocates one helper process per node for parallel MPI runs.
 
 On Roihu, jobs must be submitted from the **CPU login node** (`roihu-cpu`).
 For a full list of available partitions and their limits, see the
-[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+[Roihu batch job partitions](../supercomputing/running/batch-job-partitions.md)
 page.
 
 Most Molpro jobs will run in the `small` (up to 72 h) or `longrun` (up to

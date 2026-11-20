@@ -35,7 +35,7 @@ template: home.html
 
     ---
 
-    [Quantum Computing Guide :material-arrow-right:](computing/quantum-computing/overview.md)
+    [Quantum Computing Guide :material-arrow-right:](quantum-computing/index.md)
 
     [LUMI User Guide :material-open-in-new:](https://docs.lumi-supercomputer.eu/){ target=_blank }
 
@@ -61,7 +61,7 @@ template: home.html
 
     [Managing data on scratch :material-arrow-right:](support/tutorials/clean-up-data.md)
 
-    [High-throughput computing :material-arrow-right:](computing/running/throughput.md)
+    [High-throughput computing :material-arrow-right:](supercomputing/running/throughput.md)
 
     [Creating a virtual machine in Pouta :material-arrow-right:](cloud/pouta/launch-vm-from-web-gui.md)
 

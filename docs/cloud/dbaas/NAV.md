@@ -14,7 +14,6 @@
         - [PostgreSQL version differences](postgres-versions.md)
         - [Extensions and parameters](postgres-extensions.md)
         - [Permissions](postgres-permissions.md)
-        - [PostgreSQL 14 EOL](postgres-14-eol.md)
     - [MariaDB](mariadb.md)
         - [Accessing your database](mariadb-accessing.md)
         - [Permissions](mariadb-permissions.md)

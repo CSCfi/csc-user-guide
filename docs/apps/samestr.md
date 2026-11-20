@@ -107,7 +107,7 @@ metaphlan sample1.fastq.gz --input_type fastq \
 ### Example pipeline
 
 Run SameStr from a working directory on **`/scratch`**. It parallelises with
-`--nprocs`, so an [interactive session](../computing/running/interactive-usage.md)
+`--nprocs`, so an [interactive session](../supercomputing/running/interactive-usage.md)
 or a `small`-partition batch job fits well. Starting from the alignments in
 `out_align/` and the database in `samestr_db/`:
 

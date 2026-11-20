@@ -393,7 +393,7 @@ following programs:
   trajectories from MD simulations
     - Not available at CSC, but can be easily installed by the user in a
       containerized Conda environment with
-      [Tykky](../computing/containers/tykky.md)
+      [Tykky](../supercomputing/containers/tykky.md)
 - [PyMOL](https://pymol.org/2/) molecular modeling system (not available at
   CSC)
 
@@ -408,9 +408,9 @@ for details.
 
 Visualization of large trajectories, as well as certain GROMACS tool scripts,
 can be computationally very demanding and should never be run on the login
-nodes (see [usage policy](../computing/usage-policy.md)). Instead, please run
+nodes (see [usage policy](../supercomputing/usage-policy.md)). Instead, please run
 such workloads in an
-[`interactive` session](../computing/running/interactive-usage.md). Since we
+[`interactive` session](../supercomputing/running/interactive-usage.md). Since we
 only provide the MPI-version of GROMACS, you need to prepend your `gmx_mpi`
 command with `prterun -n 1`, e.g.:
 
@@ -436,7 +436,7 @@ Note that you may use the `longrun` partition (time limit 10 days) if the
 3-day time limit of `small` is not enough. It has a very low priority and
 using it will often require substantial queueing. Another viable option is to
 use the
-[persistent compute node shell](../computing/webinterface/index.md#shell)
+[persistent compute node shell](../supercomputing/webinterface/index.md#shell)
 available through the web interfaces, which will keep running even if you close
 your browser or lose internet connection.
 

@@ -42,7 +42,7 @@ You can then run FastQC:
 fastqc --help
 ```
 
-If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Roihu is to use the [Roihu web interface desktop](../computing/webinterface/desktop.md).
+If you run FastQC without command line arguments, it will open a GUI. The best way to run a GUI remotely on Roihu is to use the [Roihu web interface desktop](../supercomputing/webinterface/desktop.md).
 
 ## Support
 

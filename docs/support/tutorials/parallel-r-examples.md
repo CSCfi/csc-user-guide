@@ -23,7 +23,7 @@ You may also wish to check the relevant R package manuals and [CSC's Geocomputin
 
 ## Array jobs
 
-Array jobs can be used to handle [*embarrassingly parallel*](../../computing/running/array-jobs.md) tasks and to submit several concurrently running Slurm jobs. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 2 GB of memory.
+Array jobs can be used to handle [*embarrassingly parallel*](../../supercomputing/running/array-jobs.md) tasks and to submit several concurrently running Slurm jobs. The example script below would submit a job involving ten independent subtasks on the `small` partition, with each requiring less than 45 minutes of computing time and less than 2 GB of memory.
 
 === "Roihu-CPU"    
     ```bash
@@ -197,7 +197,7 @@ with `--ntasks-per-node=x` and use `--nodes` to set the number of nodes. Number 
 
 The `--slave` argument is optional and will prevent different processes from printing out a welcome message, among other things.
 
-For more information, see the [general documentation on MPI jobs](../../computing/running/creating-job-scripts-roihu.md#mpi-based-batch-jobs). 
+For more information, see the [general documentation on MPI jobs](../../supercomputing/running/creating-job-scripts-roihu.md#mpi-based-batch-jobs). 
 
 !!! note ""
     For jobs employing the `Rmpi` package, please use `snow` (which is built on top of `Rmpi`). Jobs using `Rmpi` alone are unavailable due to compatibility issues.

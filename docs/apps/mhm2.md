@@ -118,9 +118,9 @@ switch to the `gpularge` partition which accommadates requests for multiple node
     partition). Use the full 72 cores per GPU, or a whole node, only for large
     metagenomes.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md)
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md)
 for more about batch jobs, and the
-[GPU partitions](../computing/running/batch-job-partitions.md) for the available
+[GPU partitions](../supercomputing/running/batch-job-partitions.md) for the available
 GPU resources.
 
 ## Support

@@ -78,7 +78,7 @@ salmon quant -i salmon_index -l A -1 reads_1.fastq -2 reads_2.fastq \
 The transcript-level estimates are written to `sample_quant/quant.sf`. Replace
 `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

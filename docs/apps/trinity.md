@@ -49,7 +49,7 @@ The module also puts Trinity's helper scripts, such as `TrinityStats.pl` and
 Trinity installation.
 
 
-Trinity should be used [interactively in a compute node](../computing/running/interactive-usage.md) 
+Trinity should be used [interactively in a compute node](../supercomputing/running/interactive-usage.md) 
 or preferably through the batch job system. Below is an example batch job file for Trinity.
 
 ```bash
@@ -92,7 +92,7 @@ When the batch job file is ready, it can be submitted to the batch queue system 
 sbatch batch_job_file
 ```
 
-Look here for [more information about running batch jobs](../computing/running/getting-started.md).
+Look here for [more information about running batch jobs](../supercomputing/running/index.md).
 
 Please also check the [Trinity website](https://github.com/trinityrnaseq/trinityrnaseq/wiki) to get hints for estimating the required resources.
 

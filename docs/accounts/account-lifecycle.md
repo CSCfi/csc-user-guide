@@ -71,7 +71,7 @@ SSH keys are linked to your CSC user account, and they work based on a
 comparison of the public key you've uploaded to a certain CSC system with the
 private key you keep safely stored on your local computer.
 
-[See instructions for how to set up SSH keys](../computing/connecting/ssh-keys.md).
+[See instructions for how to set up SSH keys](../supercomputing/connecting/ssh-keys.md).
 
 ## Expiration of user accounts
 

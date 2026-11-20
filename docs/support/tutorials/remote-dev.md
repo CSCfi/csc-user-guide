@@ -9,9 +9,9 @@
     being able to resolve them for you. Especially, running actual computations
     on HPC systems via remote VS Code is not supported.
 
-    We recommend using the [VSCode](../../computing/webinterface/vscode.md),
-    [Jupyter](../../computing/webinterface/jupyter.md) and
-    [RStudio](../../computing/webinterface/rstudio.md) apps available in our
+    We recommend using the [VSCode](../../supercomputing/webinterface/vscode.md),
+    [Jupyter](../../supercomputing/webinterface/jupyter.md) and
+    [RStudio](../../supercomputing/webinterface/rstudio.md) apps available in our
     supercomputer web interfaces for scripting or code development on HPC.
 
 It can be convenient to use an IDE like Visual Studio Code to modify and
@@ -29,7 +29,7 @@ Visual Studio Code is a widely used open source code editor that can be used
 remotely with the **Remote SSH** extension. It is great for Python and bash
 scripts, but can be used with any programming language. VS Code has many
 extensions available. However, for running Jupyter notebooks, we recommend
-primarily using the [Jupyter app](../../computing/webinterface/jupyter.md)
+primarily using the [Jupyter app](../../supercomputing/webinterface/jupyter.md)
 available in our HPC web interfaces.
 
 ### Installation
@@ -60,7 +60,7 @@ Plugin from the Extension tab on the program.
 !!! note
     To connect to CSC supercomputers using an SSH client you must set up SSH
     keys and add your public key to the MyCSC portal.
-    [Read the instructions here](../../computing/connecting/ssh-keys.md).
+    [Read the instructions here](../../supercomputing/connecting/ssh-keys.md).
 
 Once you've set up SSH keys, added the public key to MyCSC, and installed the
 Remote SSH extension, go to the Remote Explorer tab in VS Code and add new
@@ -94,7 +94,7 @@ Code.
 
 ### Configuring CSC software environments in VS Code Remote SSH
 
-Due to usage of the [module](../../computing/modules.md) system and singularity
+Due to usage of the [module](../../supercomputing/modules.md) system and singularity
 containers for loading software environments, the VS Code Remote SSH extension
 is sometimes unable to correctly detect installed software, especially in
 Python environments. This means that e.g. code completion hints and many other
@@ -197,7 +197,7 @@ you will need to use the following `remote_command` (on Puhti/Mahti):
 #### Loading tykky containers (Python)
 
 To connect to a custom Python environment container created with our
-[Tykky container wrapper](../../computing/containers/tykky.md), use the
+[Tykky container wrapper](../../supercomputing/containers/tykky.md), use the
 following `remote_command`:
 
 ```bash
@@ -228,7 +228,7 @@ characters.
     You will not be able to modify the contents of the container using this VS
     Code remote connection, including installing new packages via pip or conda.
     Please modify the container using the
-    [instructions for tykky](../../computing/containers/tykky.md#modifying-a-conda-installation)
+    [instructions for tykky](../../supercomputing/containers/tykky.md#modifying-a-conda-installation)
     outside the configured VS Code remote connection.
 
 ### Running the code
