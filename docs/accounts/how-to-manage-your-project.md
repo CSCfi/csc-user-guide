@@ -18,7 +18,7 @@ Users are primarily responsible for [moving data](../data/moving/index.md) or de
 If you're unsure about your CSC Project's or Account's status, please log in [MyCSC](https://my.csc.fi) to extend your project or change your account password.
 If you want to close your Project, change your account email address or change the Project Manager, kindly [contact ServiceDesk](../support/contact.md)
 
-## Project lifetime extension
+## Extending the Project lifetime
 
 You can apply for an initial project lifetime extension of one year.
 Please note, maximum duration of [Student projects](../support/tutorials/student_quick.md) is 6 months, non-extendable.
@@ -30,8 +30,17 @@ Please note, maximum duration of [Student projects](../support/tutorials/student
 1. Accept the changes by clicking the 'Apply' button
 1. Your project lifetime is now extended by one year.
 
+## Assigning Vice Project Managers
 
-## Project closure
+Vice Project Managers are subject to the same prerequisites and responsibilities as the Project Manager. They may perform the Project’s administrative duties; however, ultimate accountability for the Project remains with the Project Manager. Each project may have up to two Vice Project Managers.
+
+1. Login to [MyCSC](https://my.csc.fi).
+1. Choose _Projects_ in the navigation menu on the left.
+1. Select the project for which you want to modify the Vice Project Manager settings.
+1. In the _Project Members_ section, you may assign project members the role of Vice Project Manager or revert them to regular project members.
+
+   
+## Closing a Project
 
 CSC Projects will automatically close on their end date. Before the CSC Project ends, all project members will receive multiple email notifications about the closure. The Project Manager can extend the CSC Project before it is closed.
 
@@ -41,7 +50,7 @@ If the CSC Project closure was unintentional, the Project Manager should contact
 
 Content cannot be retrieved after 90 days from the CSC Project closure.
 
-#### When the Project is closed
+#### What happens after a Project is closed
 
 Users are not able to use the services which have been applied for the Project and all content in services will be deleted 90 days after Project closure, unless otherwise agreed. For example, published data may be kept in the Fairdata IDA service in accordance with the service's terms of use.
 
