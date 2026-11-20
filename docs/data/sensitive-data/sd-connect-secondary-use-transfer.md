@@ -174,13 +174,13 @@ You can cancel the data access permanently by [deleting the data files](#422-del
 In addition, you can cancel the data access either permanently or temporarily by deleting the sharing permissions from the bucket.
 
 1. Select correct project from the top-left corner. Click **Share** button on the right side of the bucket.
-![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
+![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1_1.png)
 
 2. In the Share window **scroll down to This bucket is shared to title**. Delete permission by clicking **Delete** button on the right side of the project.
-![Change permissions](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareDeletePermission1.png)
+![Change permissions](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_RevokeShareReadtoDesktop_1.png)
 
 3. A notification will open above the project list. **You may have to scroll up to see it.** Confirm your choise by clicking **Delete Permissions** button.
-![Accept](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareDeletePermission2.png)
+![Accept](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_RevokeShareReadtoDesktop_2.png)
 
 
 ---
