@@ -30,9 +30,10 @@ Please note, maximum duration of [Student projects](../support/tutorials/student
 1. Accept the changes by clicking the 'Apply' button
 1. Your project lifetime is now extended by one year.
 
-## Assigning Vice Project Managers
+## Assigning Vice Project Managers 
 
-Vice Project Managers are subject to the same prerequisites and responsibilities as the Project Manager. They may perform the Project’s administrative duties; however, ultimate accountability for the Project remains with the Project Manager. Each project may have up to two Vice Project Managers.
+(This feature is available after 8.12.2026)
+Vice Project Managers are subject to the same prerequisites and responsibilities as the Project Manager. They may perform the Project’s administrative duties; however, ultimate accountability for the Project remains with the Project Manager. Each project may have up to two Vice Project Managers. Student, Roihu Dataset, and Findata projects are not eligible to have Vice Project Managers.
 
 1. Login to [MyCSC](https://my.csc.fi).
 1. Choose _Projects_ in the navigation menu on the left.
