@@ -20,6 +20,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
     ```python
     import os
+    import cirq
     from iqm.cirq_iqm.iqm_sampler import IQMSampler
     ```
 
@@ -30,12 +31,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
 === "Qiskit"
 
-    Load the module with `module load fiqci-qiskit`.
-
     ```python
-    import os
-    from iqm.qiskit_iqm import IQMProvider
-
     cortex_url = os.getenv("<CORTEX_URL>")
     provider = IQMProvider(cortex_url, quantum_computer="<QUANTUM_COMPUTER_ID>")
     backend = provider.get_backend()
@@ -43,13 +39,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
 === "Cirq"
 
-    Load the module with `module load fiqci-cirq`.
-
     ```python
-    import os
-    from iqm.cirq_iqm.iqm_sampler import IQMSampler
-    import cirq
-
     cortex_url = os.getenv("<CORTEX_URL>")
     sampler = IQMSampler(cortex_url, quantum_computer="<QUANTUM_COMPUTER_ID>")
     ```
@@ -65,8 +55,6 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
     circuit.h(qreg[0])
     circuit.cx(qreg[0], qreg[1])
     circuit.measure_all()
-
-    transpiled_circuit = transpile(circuit, backend=backend)
     ```
 
 === "Cirq"

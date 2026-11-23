@@ -52,7 +52,7 @@ settings.set_shots(shots)
 
 run_definition, context = compiler.compile(circuits, settings=settings)
 
-job = client.submit_playlist(job_definition, context=context)
+job = client.submit_playlist(run_definition, context=context)
 job.wait_for_completion()
 qiskit_result = sweep_job_to_qiskit(job, shots=shots)
 
