@@ -85,7 +85,11 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 ### 3.1. Upload and encrypt files to an existing bucket
 
-Sensitive Data support team will create a bucket in SD Connect for each dataset, share the bucket name with you, and grant **Read-only access** to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
+**Sensitive Data support team** will: 
+
+- create a bucket in SD Connect for each dataset
+- share the bucket name with you
+- grant **Read-only access** to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
 
 One bucket is created for each dataset based on a data permit. In other words, each bucket contains only one dataset and should include all data covered by the same data permit.
 
