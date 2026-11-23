@@ -213,7 +213,7 @@ only a negative Storage BU balance.
 
 If you are not using a project actively we encourage you to migrate any data
 that you still need within the 30-day grace period and then
-[close the project](../accounts/how-to-manage-your-project.md#project-closure)
+[close the project](../accounts/how-to-manage-your-project.md#closing-a-project)
 in MyCSC. 
 
 In the third phase the project is closed after a 60-day grace period

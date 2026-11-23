@@ -171,13 +171,13 @@ When a CSC project runs out of Billing Units, project members have **60 days** t
 To prevent this, the project manager should:
 
 1. Apply for more [**Billing Units**](sd-billing-units.md#32-step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager. Note! Project lifetime can't be extended, if [your data permit is also expiring](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#extending-the-project-lifetime) the project’s lifetime via MyCSC. This can be done only be the project manager. Note! Project lifetime can't be extended, if [your data permit is also expiring](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
 When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
 
 #### 7.3 Closing project 
 
-Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC. The project will also close automatically, when [your data permit expires](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#closing-a-project) via MyCSC. The project will also close automatically, when [your data permit expires](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
 
 <div class="grid cards" markdown>

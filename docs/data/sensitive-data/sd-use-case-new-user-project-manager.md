@@ -152,13 +152,13 @@ When an academic CSC project runs out of Billing Units, project members have **6
 To prevent this, the project manager should:
 
 1. Apply for more [**Billing Units**](sd-billing-units.md#32-step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#extending-the-project-lifetime) the project’s lifetime via MyCSC. This can be done only be the project manager.
 
 When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
 
 #### 5.3 Closing project 
 
-Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC.
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#closing-a-project) via MyCSC.
 
 
 <div class="grid cards" markdown>
