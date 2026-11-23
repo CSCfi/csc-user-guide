@@ -2,21 +2,11 @@
 
 # Start here: creating a CSC account and a CSC project (Academic-type)
 
-
-<div style="columns: 2 auto;" markdown>
-
+![CSC Project Infograph](https://a3s.fi/docs-files/sensitive-data/MyCSC/CSC_project_academic.png){ style="float: right; margin: auto; padding: 2em;" }
 
 To access CSC Sensitive Data (SD) Connect or Desktop, you first need to create a CSC project. A CSC project serves as your team’s shared workspace: all members use the same datasets and services. The project is also where you define who has access to the data, which CSC services the team can use, and what types of data will be processed in the project.
 
 When working with sensitive research data (such as consented data or confidential data), the project needs to be created as an **Academic-type** CSC project.
-{ style="margin: 0 0 0 0;" }
-
-
-
-![CSC Project Infograph](https://a3s.fi/docs-files/sensitive-data/MyCSC/CSC_project_academic.png){ style="display: block; margin: auto; padding-bottom: 1em;" }
-
-
-</div>
 
 
 This guide explains how to get started, whether you are a project manager or a project member. The steps you need to follow depend on your role in the research team:
