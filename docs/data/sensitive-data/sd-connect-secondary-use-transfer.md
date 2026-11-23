@@ -89,11 +89,16 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 - create a bucket in SD Connect for each dataset
 - share the bucket name with you
-- grant **Read-only access** to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
+- grant **Read-only access** to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment
 
 One bucket is created for each dataset based on a data permit. In other words, each bucket contains only one dataset and should include all data covered by the same data permit.
 
-Data users create their CSC projects based on their data permits and can access only the data uploaded to the bucket shared with their project. If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets, and the users must have separate CSC projects for each data permit.
+**Data users**:
+
+- create their CSC projects based on their data permits
+- can access only the data uploaded to the bucket shared with their project
+
+If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets, and the users must have separate CSC projects for each data permit.
 
 #### Step by step
 
