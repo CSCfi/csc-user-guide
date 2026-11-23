@@ -36,9 +36,9 @@ This tool is available as a ready-made Apptainer container in [Biocontainers](ht
 you can see that the Singularity module can be downloaded from URL: <https://depot.galaxyproject.org/singularity/cistrome_beta:1.0.7--py27heb79e2c_4>
 
 #### Download the container
-As we don't need to build the container from scratch, we can use [Roihu](../../computing/index.md) to download the container image and push it to Allas.
+As we don't need to build the container from scratch, we can use [Roihu](../../supercomputing/index.md) to download the container image and push it to Allas.
 
-First log in to the [Roihu web interface](https://www.roihu.csc.fi/public/){ target="_blank" } and open a [Compute node shell](../../computing/webinterface/shell.md) in Roihu CPU.
+First log in to the [Roihu web interface](https://www.roihu.csc.fi/public/){ target="_blank" } and open a [Compute node shell](../../supercomputing/webinterface/shell.md) in Roihu CPU.
 
 In the shell session move to `TMPDIR` directory and set some Singularity related environment variables:
 

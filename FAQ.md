@@ -42,7 +42,7 @@ If you add a new page that you want to appear in the left-hand-side navigation p
 
 ```markdown
 - [Accounts](accounts/)
-- [Computing](computing/)
+- [Supercomputing](supercomputing/)
 - [Cloud services](cloud/)
 - [Data](data/)
 - [Sensitive data](data/sensitive-data/)

@@ -28,7 +28,7 @@ the dependent variables.
 [TOC]
 
 ## Available
-COMSOL is available on CSC's [Roihu](../computing/available-systems.md) supercomputer on both the CPU and GPU (aarch64) partitions.
+COMSOL is available on CSC's [Roihu](../supercomputing/available-systems.md) supercomputer on both the CPU and GPU (aarch64) partitions.
 
 ## License
 The terms of use of this software allow it to be used only by affiliates (staff
@@ -63,7 +63,7 @@ and
 ```
 Copy the file and modify it for your own use.
 
-The preferred method to use COMSOL interactively is via [the Roihu web interface](../computing/webinterface/desktop.md). In the web interface,
+The preferred method to use COMSOL interactively is via [the Roihu web interface](../supercomputing/webinterface/desktop.md). In the web interface,
 select `Desktop` from the `Apps` view and specify the required resources (cores,
 execution time and memory). Remember to add your billing project, too.
 
@@ -72,7 +72,7 @@ COMSOL with double-clicking its icon (tick the box if you want to receive an ema
 
 !!! Note
     You can now also enable [interactive visualization with GPU
-    acceleration](../computing/webinterface/accelerated-visualization.md) for better
+    acceleration](../supercomputing/webinterface/accelerated-visualization.md) for better
     performance. In this case, select `Accelerated visualization` instead of `Desktop`
     in the Roihu web interface.
 
@@ -92,8 +92,8 @@ comsol -3drend sw
 On Roihu's web interface, you can optionally choose to use the accelerated visualization desktop session to run COMSOL for more
 intensive visualization tasks.
 
-1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
-2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+1. Connect to the [Roihu web interface](../supercomputing/webinterface/connecting.md).
+2. Select the [Accelerated Visualization](../supercomputing/webinterface/accelerated-visualization.md)
    app of the web interface and specify the required resources.
 3. Click the *Launch* button. Your job is placed in the queue, and once it has
    been allocated resources, click *Launch Accelerated Visualization*.

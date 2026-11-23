@@ -1,5 +1,20 @@
 # Computing environment
 
+## Roihu job efficiency banner at login, 17.11.2026
+
+When you log in to Roihu with SSH, a banner now summarizes the efficiency of
+your jobs over the last week, the last month and all time. See
+[Performance analysis](../../supercomputing/performance.md#efficiency-banner-at-login)
+for what the figures mean.
+
+## Roihu web interface updated to release 6, 12.11.2026
+
+* The Job monitoring app should now work better for large jobs.
+* The interactive app forms will now warn when a partition is unavailable.
+* ParaView 6.0 has been added to Accelerated Visualization.
+* Avogadro 2 no longer crashes when inserting molecules.
+* Open OnDemand updated to 4.2.6.
+
 ## Roihu web interface updated to release 5, 29.10.2026
 
 * A Job monitoring app has been added for detailed job efficiency data.
@@ -18,7 +33,7 @@ To get started with Roihu, see the [getting started tutorial](../tutorials/roihu
 
 Slurm on Roihu has been updated from version 25.05 to 26.05.
 
-[Disaggregated storage](../../computing/disk.md#disaggregated-storage) (fast NVMe over
+[Disaggregated storage](../../supercomputing/disk.md#disaggregated-storage) (fast NVMe over
 fabric) can now be requested on all Roihu partitions, including shared-node jobs. The
 `--exclusive` flag is no longer needed on the GPU partitions.
 
@@ -93,7 +108,7 @@ See the updated instructions:
 
 ## Puhti and Mahti web interface updated to release 32 and 16, 25.2.2026
 
-* [Jupyter with an R kernel](../../computing/webinterface/r-jupyter.md) is now available on Mahti.
+* [Jupyter with an R kernel](../../supercomputing/webinterface/r-jupyter.md) is now available on Mahti.
 * VSCode updated to 1.111.0.
 * Newer MLflow versions are now supported in the MLflow app.
 * The maximum number of cores for the Compute node shell on Mahti has been increased to 12.
@@ -119,8 +134,8 @@ supercomputers using utilities such as [scp](../../data/moving/scp.md) and
 [rsync](../../data/moving/rsync.md). Notably, now that SSH keys are required for
 authentication on CSC supercomputers, we've added instructions on how to enable
 SSH agent forwarding
-[on Linux/macOS](../../computing/connecting/ssh-unix.md#ssh-agent-forwarding) and
-[on Windows](../../computing/connecting/ssh-windows.md#ssh-agent-forwarding). This
+[on Linux/macOS](../../supercomputing/connecting/ssh-unix.md#ssh-agent-forwarding) and
+[on Windows](../../supercomputing/connecting/ssh-windows.md#ssh-agent-forwarding). This
 is a requirement for being able to directly connect between CSC supercomputers in
 order to, for example, transfer data efficiently.
 
@@ -156,7 +171,7 @@ order to, for example, transfer data efficiently.
 
 On Puhti there is a process to clean (delete) old files in scratch that are not
 in active use. To ensure the system remains usable, we are changing the
-[cleaning policy](../../computing/usage-policy.md#disk-cleaning).
+[cleaning policy](../../supercomputing/usage-policy.md#disk-cleaning).
 
 **The new policy is**:
 
@@ -172,11 +187,11 @@ projects are subject to.
 
 ## Puhti and Mahti web interfaces updated to release 25 and 11, 7.4.2025
 
-* Mahti: [RStudio](../../computing/webinterface/rstudio.md) has been added.
+* Mahti: [RStudio](../../supercomputing/webinterface/rstudio.md) has been added.
 * RStudio now queries available r-env version dynamically.
 * VSCode updated to 1.98.2.
 * Python module selection has been added to VSCode.
-* Interactive app launch settings can now be saved and restored later. See [Saved interactive app settings](../../computing/webinterface/apps.md#saved-interactive-app-settings) for how to use them.
+* Interactive app launch settings can now be saved and restored later. See [Saved interactive app settings](../../supercomputing/webinterface/apps.md#saved-interactive-app-settings) for how to use them.
 * Interactive app form labels and descriptions have been improved.
 * The default amount of local disk for interactive apps has been reduced.
 * The performance of the web interfaces has been improved.
@@ -186,7 +201,7 @@ projects are subject to.
 
 **Change:** Starting April 22 2025, multi-factor authentication (MFA) will be
 required to
-[login to the web interfaces of Puhti and Mahti](../../computing/webinterface/connecting.md).
+[login to the web interfaces of Puhti and Mahti](../../supercomputing/webinterface/connecting.md).
 
 **Action:**  Test whether MFA is already enabled for Haka logins by your home
 organization. [Please use the test page in MyCSC](https://my.csc.fi/test-mfa)
@@ -212,7 +227,7 @@ browser as before.
 
 **Action:** To access Puhti and Mahti login nodes with SSH, you must create SSH
 keys and add your public key to MyCSC.
-[See here for detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+[See here for detailed instructions on setting up and using SSH keys](../../supercomputing/connecting/ssh-keys.md).
 
 **Motivation:** The purpose of implementing this change is to improve the
 security of our computing, data, and cloud services. Password-based logins
@@ -313,7 +328,7 @@ Four (4) A100 GPUs on Mahti have been split into a total of 28 smaller GPUs with
 compute and memory capacity of a full A100 GPU. These a100_1g.5gb GPUs have one seventh of 
 the compute power of one A100 GPU and in total 5 GB of memory. These are useful for interactive work, 
 courses and for code development, and are also available via the
-[web interface](../../computing/webinterface/index.md#partitions-and-resources).
+[web interface](../../supercomputing/webinterface/index.md#partitions-and-resources).
 
 ## Mahti web interface updated to release 4, 27.2.2024
 
@@ -363,8 +378,8 @@ Read more in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs
 
 ## Mahti web interface updated to release 2, 13.10.2023
 
-* [MLflow Tracking](../../computing/webinterface/mlflow.md) is now available as an interactive app.
-- An [Allas configuration tool](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o) has been added for configuring a connection to Allas.
+* [MLflow Tracking](../../supercomputing/webinterface/mlflow.md) is now available as an interactive app.
+- An [Allas configuration tool](../../supercomputing/webinterface/file-browser.md#accessing-allas-and-lumi-o) has been added for configuring a connection to Allas.
 - [IDA](../../data/ida/using_ida.md) is now supported in the file browser.
 - The Desktop app configuration and icons are now saved between sessions.
 - VSCode updated to 1.82.2.
@@ -374,7 +389,7 @@ Read more in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs
 
 ## Puhti web interface updated to release 17, 8.9.2023
 
-* [MLflow Tracking](../../computing/webinterface/mlflow.md) is now available as an interactive app.
+* [MLflow Tracking](../../supercomputing/webinterface/mlflow.md) is now available as an interactive app.
 * Jupyter now has the [qiskit](../../apps/qiskit.md) module available.
 * Changes in the Desktop app:
     * The desktop configuration is now saved between sessions.
@@ -390,7 +405,7 @@ Read more in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs
 
 ## Mahti web interface available, 13.6.2023
 
-The [web interface](../../computing/webinterface/index.md), previously available for
+The [web interface](../../supercomputing/webinterface/index.md), previously available for
 Puhti only, is now available also for Mahti at [www.mahti.csc.fi](https://www.mahti.csc.fi).
 Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 
@@ -398,7 +413,7 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 * Compute and Login node shell
 * Desktop with Maestro and VMD
 * Disk quotas and Project view
-* File browser with [support for Allas](../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
+* File browser with [support for Allas](../../supercomputing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
 * Jupyter, Julia-Jupyter and Jupyter for courses
 * TensorBoard
 * Visual Studio Code
@@ -407,7 +422,7 @@ Apps available in the [Mahti web interface](https://www.mahti.csc.fi):
 
 In addition to limiting access to compute resources upon running out of billing
 units, now also access to storage will be limited on Puhti and Mahti. Please read
-[running out of Billing Units](../../computing/usage-policy.md#running-out-of-billing-units)
+[running out of Billing Units](../../supercomputing/usage-policy.md#running-out-of-billing-units)
 for more details. To give all projects time to react, the policy will be enforced
 starting June 21, 2023. Please login to MyCSC to check if you have projects that
 have a negative amount of Billing Units. When logging in to Puhti using ssh or
@@ -416,9 +431,9 @@ remains before access is removed.
 
 ## Puhti web interface updated to release 15, 2.5.2023
 
-* A new [Julia-Jupyter app](../../computing/webinterface/julia-on-jupyter.md) is now available.
+* A new [Julia-Jupyter app](../../supercomputing/webinterface/julia-on-jupyter.md) is now available.
 * Visual Studio Code app has received updates.
-    * Support for [Julia language features](../../computing/webinterface/vscode.md#julia-language) was added.
+    * Support for [Julia language features](../../supercomputing/webinterface/vscode.md#julia-language) was added.
     * VSCode version 1.76.1 is now available.
     * Version may be selected when launching the app.
 * Puhti usage metrics now include history (expand by clicking the chevron).
@@ -436,7 +451,7 @@ remains before access is removed.
 
 ## Puhti disk cleaning policy changed, 17.1.2023
 
-* [Usage policy](../../computing/usage-policy.md) changed, now files not accessed in **6** months are deleted in the cleaning process.
+* [Usage policy](../../supercomputing/usage-policy.md) changed, now files not accessed in **6** months are deleted in the cleaning process.
 
 ## Puhti web interface updated to release 13, 20.12.2022
 
@@ -493,8 +508,8 @@ connecting. After this you should be able to connect to `puhti.csc.fi` normally.
 
 ## Puhti web interface beta updated to release 10 24.8.2022
 
-* A new [MATLAB app](../../computing/webinterface/matlab.md) has been added.
-* Blender has been added to the [Accelerated Visualization app](../../computing/webinterface/accelerated-visualization.md).
+* A new [MATLAB app](../../supercomputing/webinterface/matlab.md) has been added.
+* Blender has been added to the [Accelerated Visualization app](../../supercomputing/webinterface/accelerated-visualization.md).
 * Improved form validation messages.
 * Improved Jupyter app launch form.
 * pytorch module now launches correctly in Jupyter app.
@@ -529,7 +544,7 @@ your data](../tutorials/clean-up-data.md).
 
 ## Puhti web interface beta updated to release 8 25.5.2022
 
-* A new [Accelerated Visualization app](../../computing/webinterface/accelerated-visualization.md) has been added for running applications with GPU acceleration.
+* A new [Accelerated Visualization app](../../supercomputing/webinterface/accelerated-visualization.md) has been added for running applications with GPU acceleration.
 * Improved the main dashboard page layout.
 * Improved login page layout.
 * Added more visible warnings about home directory quota.
@@ -572,7 +587,7 @@ connecting. After this you should be able to connect to mahti.csc.fi normally.
 
 ## Puhti web interface beta updated to release 7 23.3.2022
 
-* [Jupyter for courses](../../computing/webinterface/jupyter-for-courses.md) app now supports creating course environments for projects.
+* [Jupyter for courses](../../supercomputing/webinterface/jupyter-for-courses.md) app now supports creating course environments for projects.
 * Added Puhti usage graphs to dashboard.
 * Added cookie policy and accessibility statement pages.
 * Some UI fixes and small bug fixes.
@@ -593,7 +608,7 @@ connecting. After this you should be able to connect to mahti.csc.fi normally.
 
 ## Puhti web interface beta updated to release 4 30.11.2021 
 
-* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../computing/webinterface/jupyter.md).
+* Can now use custom python environments for Jupyter notebooks, see [Jupyter documentation](../../supercomputing/webinterface/jupyter.md).
 * Added new **Compute node shell** app that gives a persistent shell on a compute node for commands that should not be run on login nodes.
 * App cards show more information  about resource usage after job has finished (seff output)
 * Can reset interactive forms to default settings
@@ -612,7 +627,7 @@ connecting. After this you should be able to connect to mahti.csc.fi normally.
 
 ## Puhti web interface beta (release 2) is available 18.10.2021
 
-An easy-to-use web interface for Puhti is now open for beta test use at <https://www.puhti.csc.fi>. The new user interface offers an easy way for new users to use Puhti, and for experienced users it makes access to some features quicker and easier. See [web interface](../../computing/webinterface/index.md) for details
+An easy-to-use web interface for Puhti is now open for beta test use at <https://www.puhti.csc.fi>. The new user interface offers an easy way for new users to use Puhti, and for experienced users it makes access to some features quicker and easier. See [web interface](../../supercomputing/webinterface/index.md) for details
 
 ## MPICH modules no longer work 4.5.2021 
 

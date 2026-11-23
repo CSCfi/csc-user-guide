@@ -39,8 +39,8 @@ You need accelerated graphics to work with Blender efficiently.
 
 ### Roihu
 
-1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
-2. Select the [Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+1. Connect to the [Roihu web interface](../supercomputing/webinterface/connecting.md).
+2. Select the [Accelerated Visualization](../supercomputing/webinterface/accelerated-visualization.md)
    app of the web interface and specify the required resources.
 3. Click the *Launch* button. Your job is placed in the queue, and once it has
    been allocated resources, click *Launch Accelerated Visualization*.

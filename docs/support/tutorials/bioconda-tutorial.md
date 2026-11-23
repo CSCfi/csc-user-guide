@@ -8,7 +8,7 @@ research.
 CSC has deprecated the direct usage of Conda installations on shared file systems
 of supercomputers due to performance
 issues, but you can easily install packages from Bioconda using the
-[Tykky](../../computing/containers/tykky.md) tool instead.
+[Tykky](../../supercomputing/containers/tykky.md) tool instead.
 
 All packages in Bioconda have a ready-made Docker container image available. While
 those images could be pulled and used directly, Tykky provides an easy method to
@@ -60,7 +60,7 @@ module load tykky
 ```
 
 We will use the Tykky
-[wrap-container](../../computing/containers/tykky.md#container-based-installations)
+[wrap-container](../../supercomputing/containers/tykky.md#container-based-installations)
 command.
 
 The `-w` parameter is needed to specify the installation directory inside the
@@ -112,7 +112,7 @@ metabat --help
     and having them in your default `$PATH` will cause problems with running other
     software. It's best to add the installation directory to your `$PATH` only when
     you are using the program. You can e.g. add the `export` command to your
-    [batch job script](../../computing/running/creating-job-scripts-roihu.md).
+    [batch job script](../../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Containers from other source
 

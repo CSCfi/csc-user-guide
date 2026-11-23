@@ -5,7 +5,7 @@ selecting the project first.
 
 * In supercomputer batch jobs, you specify the billing project in the batch job
   script. See the instructions for
-  [**Roihu**](../../computing/running/creating-job-scripts-roihu.md).
+  [**Roihu**](../../supercomputing/running/creating-job-scripts-roihu.md).
 * In **Allas**, the project to use is specified using the
   [`allas-conf` command](../../data/Allas/accessing_allas.md).
 * In **cPouta** or **ePouta**, you

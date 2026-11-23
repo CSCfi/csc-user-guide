@@ -1,7 +1,7 @@
 # Frequently asked questions about Roihu
 
 Roihu is now in active use. See [getting started tutorial for Roihu](../tutorials/roihu.md)
-and [more information on Roihu](../../computing/systems-roihu.md).
+and [more information on Roihu](../../supercomputing/systems-roihu.md).
 
 [TOC]
 
@@ -16,7 +16,7 @@ Login nodes and storage services on both systems were shut down on
 15 October 2026.
 
 **Puhti and Mahti are now permanently retired and no longer accessible.**
-Users should use [Roihu](../../computing/systems-roihu.md) for their
+Users should use [Roihu](../../supercomputing/systems-roihu.md) for their
 computing needs.
 
 ### 2. I heard that Puhti will be donated for continued use. Can I apply for hardware?
@@ -29,7 +29,7 @@ The application deadline was in March 2026 and has now passed.
 
 In addition to SSH keys, a signed SSH certificate is required to connect to Roihu over SSH.
 
-[Read the instructions for getting and using SSH certificates here](../../computing/connecting/ssh-keys.md#signing-public-key).
+[Read the instructions for getting and using SSH certificates here](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
 
 Short talk: SSH authentication changes to Roihu
 
@@ -47,7 +47,7 @@ graphical applications like Jupyter Notebooks, RStudio, etc.
 
 Roihu web interface is available at www.roihu.csc.fi, similarly to LUMI.
 
-See documentation on the [Roihu web interface](../../computing/webinterface/index.md).
+See documentation on the [Roihu web interface](../../supercomputing/webinterface/index.md).
 
 ### 5. My terminal looks weird when logging in to Roihu
 
@@ -101,7 +101,7 @@ The default disk quotas in Roihu are as follows:
 
 Do note that the default quotas in Roihu are more restrictive than they were on Mahti and Puhti. Only apply for more quota if you strictly need to.
 
-See documentation on [increasing disk quotas.](../../computing/disk.md#increasing-quotas)
+See documentation on [increasing disk quotas.](../../supercomputing/disk.md#increasing-quotas)
 
 ### 8. How do I migrate data from Allas to Roihu?
 
@@ -111,7 +111,7 @@ See our tutorial for [using Allas in Roihu](../../data/Allas/allas-roihu.md).
 
 ### 9. How should I run large or long-running data transfers, and how long do they take?
 
-For long transfers, use `screen` or `tmux` on Roihu so the transfer is not interrupted if your connection drops.
+For long transfers, use `tmux` on Roihu so the transfer is not interrupted if your connection drops.
 See our [tmux usage tutorial](../tutorials/tmux.md).
 
 Transfer times depend on the amount and size of files: large numbers of small files take longer, so consider
@@ -133,7 +133,7 @@ If your data in Allas is in Swift format, for objects larger than 5 GB, S3-based
 
 ### 11. What kind of hardware does Roihu have?
 
-See the [Roihu system description](../../computing/systems-roihu.md) for details.
+See the [Roihu system description](../../supercomputing/systems-roihu.md) for details.
 
 Notably, Roihu has different CPU architectures on the AMD Turin-based CPU
 nodes (x86) and NVIDIA Grace-Hopper GH200-based GPU nodes (ARM). Accordingly,
@@ -154,7 +154,7 @@ The operating system of Roihu is Red Hat Enterprise Linux (RHEL) 9.
 
 ### 13. Is Tykky available on Roihu?
 
-Yes, [Tykky](../../computing/containers/tykky.md) (tool for creating
+Yes, [Tykky](../../supercomputing/containers/tykky.md) (tool for creating
 containerized Conda etc. environments with wrapper scripts) is also
 available on Roihu.
 
@@ -184,7 +184,7 @@ everything that users might want.
 
 There are some differences in the available partition names and the corresponding hardware, when compared to Mahti and Puhti.
 
-You can see the available partitions and the corresponding limits in the [Slurm partition documentation for Roihu](../../computing/running/batch-job-partitions.md#roihu-partitions).
+You can see the available partitions and the corresponding limits in the [Slurm partition documentation for Roihu](../../supercomputing/running/batch-job-partitions.md#roihu-partitions).
 
 ### 17. Does Roihu have a longrun partition? What is the maximum runtime?
 
@@ -199,7 +199,7 @@ Any existing job scripts using local NVMe storage on Puhti and Mahti will need t
 
 The available capacity depends on the node type, and additional temporary NVMe storage can be requested for some jobs.
 
-See the [Roihu temporary local storage documentation](../../computing/disk.md#temporary-local-disk-areas) for capacities and usage instructions.
+See the [Roihu temporary local storage documentation](../../supercomputing/disk.md#temporary-local-disk-areas) for capacities and usage instructions.
 
 ### 19. My application or institution needs an IP address to enable access to Roihu. What should I use?
 

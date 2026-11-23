@@ -1,5 +1,14 @@
 # Applications
 
+## Avogadro2 available in the Roihu web interface, 17.11.2026
+
+[Avogadro2](../../apps/avogadro2.md) 2.0.0 is now available in the Desktop app of the Roihu web interface. Use it to build structures, to generate Gaussian and ORCA input files and to analyze results. See the [tutorial](../tutorials/avogadro2-gaussian-orca.md) for an example with Gaussian and ORCA.
+
+## r-env (R 4.6.1) now available in Roihu-GPU, 11.11.2026
+
+The R module [r-env](../../apps/r-env.md) is now available in Roihu-GPU with R version 4.6.1. Please note that due to incompatibility with the Roihu-GPU architecture, RStudio is not 
+available on the GPU side, and the R package selection is not identical to Roihu-CPU. Especially note that currently the R packages `torch` and `sf` and any packages requiring them are not yet available on Roihu-GPU due to installation issues, but we are working on including them.
+
 ## Amber26 and AmberTools26, 28.10.2026
 
 [Amber](../../apps/amber.md) version 26 is now available on Roihu-CPU and
@@ -176,7 +185,7 @@ more information](../../apps/pytorch.md#available).
 
 ## R in Mahti, 7.4.2025
 
-R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+R is now available also on Mahti, including RStudio in the [Mahti web interface](../../supercomputing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
 
 ## Tykky 0.4.2, 27.2.2025
 
@@ -613,7 +622,7 @@ for a list of new features and improvements.
 
 The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
 current licensing period. The service is superseded by web interfaces on CSC's supercomputers. The
-first of them, [Puhti web interface](../../computing/webinterface/index.md), has been liked by the
+first of them, [Puhti web interface](../../supercomputing/webinterface/index.md), has been liked by the
 researchers, the number of users is still rapidly increasing and now represents 36% of all users.
 Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
 in specific use cases, please see
@@ -719,7 +728,7 @@ CSC](../tutorials/roihu-user-spack.md).
 ## Installing packages from Bioconda using Tykky, 10.10.2022
 
 A [new tutorial](../tutorials/bioconda-tutorial.md) on how to install packages from the Bioconda
-channel using the [Tykky container wrapper tool](../../computing/containers/tykky.md) has been
+channel using the [Tykky container wrapper tool](../../supercomputing/containers/tykky.md) has been
 published. This tutorial outlines the recommended way to install software packages related to
 bioinformatics and biomedical research. Note that CSC has deprecated the *direct* (non-containerized)
 usage of Conda installations on our supercomputers due to file system performance issues.
@@ -802,7 +811,7 @@ performant filesystem for all users.
 
 ## Tykky 0.2.2, 31.3.2022
 
-[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
+[Tykky](../../supercomputing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
 inside a Singularity container, has been released. Containerization will considerably improve
 startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
 wrapping all existing Conda environments within containers using Tykky as the [direct usage of

@@ -87,7 +87,7 @@ file is named `wtdbg2_job.sh`, then the submission command is:
 sbatch wtdbg2_job.sh
 ```
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

@@ -164,8 +164,8 @@ application, for example:
 [autolog]: https://www.mlflow.org/docs/latest/ml/tracking/autolog/
 [pytorch-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_ddp_mlflow.py
 [lightning-ex]: https://github.com/CSCfi/pytorch-ddp-examples/blob/master/mnist_lightning_ddp.py
-[mlflow-app]: ../../../computing/webinterface/mlflow.md
-[webui]: ../../../computing/webinterface/index.md
+[mlflow-app]: ../../../supercomputing/webinterface/mlflow.md
+[webui]: ../../../supercomputing/webinterface/index.md
 [log-func]: https://www.mlflow.org/docs/latest/ml/tracking/tracking-api/#core-logging-functions
 [tracking-server]: https://www.mlflow.org/docs/latest/self-hosting/architecture/tracking-server/
 [mlflow-rahti]: ../../../cloud/rahti/managed-software/mlflow.md

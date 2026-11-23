@@ -57,14 +57,14 @@ module load cosmors/2026
 On Roihu, COSMO-RS runs on the CPU nodes. Loading the module also loads
 [TURBOMOLE](turbomole.md) (`turbomole/8.0`), which COSMOconf uses to generate
 COSMO files. For a full list of available partitions see the
-[Roihu batch job partitions](../computing/running/batch-job-partitions.md) page.
+[Roihu batch job partitions](../supercomputing/running/batch-job-partitions.md) page.
 
 ### Use the GUI via your browser
 
 Go to the [Roihu web interface](https://roihu.csc.fi/) using a web browser and
 login using your CSC user account or Haka federation.
 
-1. From there, [launch a Desktop](../computing/webinterface/desktop.md#launching).
+1. From there, [launch a Desktop](../supercomputing/webinterface/desktop.md#launching).
 2. Open a `Terminal` and move to a suitable working directory.
 3. Load the COSMO-RS module: `module load cosmors/2026`.
 4. Add the launching icons to the Desktop with the command

@@ -36,7 +36,7 @@ __QGIS__ is available with following versions:
 For using QGIS, open it in web interface:
 
 1. Log in to [Roihu](https://roihu.csc.fi) webinterface. 
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
+2. Open [Desktop app](../supercomputing/webinterface/desktop.md). 
 3. `Applications` -> `Geosciences` -> `QGIS` or use `QGIS`-shortcut
 
 If you need to adjust some settings (Allas) or want to use some older version of QGIS, then start it from Terminal:
@@ -103,8 +103,8 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 
 ## Installation
-* 3.44.9 was installed [Tykky's conda-containerize functionality](../computing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
-* 3.44.15 was installed [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
+* 3.44.9 was installed [Tykky's conda-containerize functionality](../supercomputing/containers/tykky.md#conda-based-installation). The .yml file included only `qgis` and `pcraster` packages from `conda-forge` repository.
+* 3.44.15 was installed [Tykky's wrap-container functionality](../supercomputing/containers/tykky.md#container-based-installations) using the [QGIS Docker image from Dockerhub provided by QGIS community](https://hub.docker.com/r/qgis/qgis). In LUMI `Tykky` is named `Container wrapper`.
 
 `wrap-container -w /usr/bin docker://qgis/qgis:ltr --prefix install_dir`
 

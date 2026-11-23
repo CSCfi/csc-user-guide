@@ -83,7 +83,7 @@ Extract sequences in regions contained in file `reg.bed`:
 seqtk subseq in.fa reg.bed > out.fa
 ```
 
-Run seqtk in an [interactive session](../computing/running/interactive-usage.md) or as a batch job, not on the login node. See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+Run seqtk in an [interactive session](../supercomputing/running/interactive-usage.md) or as a batch job, not on the login node. See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

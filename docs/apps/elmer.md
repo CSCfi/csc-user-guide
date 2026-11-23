@@ -147,9 +147,9 @@ Elmer is licensed under GPL and (as for the `elmersolver.lib`) LGPL. It is free 
     echo "done"
     ```    
 
-Instructions on how to submit and monitor jobs can be found in [CSC docs](../computing/running/submitting-jobs.md) and in [LUMI docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
+Instructions on how to submit and monitor jobs can be found in [CSC docs](../supercomputing/running/submitting-jobs.md) and in [LUMI docs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
 
-It can be advantageous to utilize fewer cores per node than available to increase performance in certain Elmer cases. See the example on [undersubscribing](../computing/running/creating-job-scripts-roihu.md#undersubscribing-full-nodes-on-roihu-cpu).
+It can be advantageous to utilize fewer cores per node than available to increase performance in certain Elmer cases. See the example on [undersubscribing](../supercomputing/running/creating-job-scripts-roihu.md#undersubscribing-full-nodes-on-roihu-cpu).
 
 ## More information
 

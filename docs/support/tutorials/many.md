@@ -29,7 +29,7 @@ performance of the system. A modest familiarity with bash scripting is
 recommended.
 
 If your tasks have dependencies, you need error recovery or you want to explore tools, see
-the [high-throughput computing and workflows](../../computing/running/throughput.md) page.
+the [high-throughput computing and workflows](../../supercomputing/running/throughput.md) page.
 
 ## Example: Running 80000 independent single-core tasks
 

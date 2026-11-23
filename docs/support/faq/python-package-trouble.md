@@ -100,4 +100,4 @@ absl-py    2.5.0    /usr/local/lib/python3.12/site-packages   pip      # ← pyt
 aiohttp    3.14.3   /usr/local/lib64/python3.12/site-packages pip      # ← python-pytorch container
 ```
 
-[tykky]: ../../computing/containers/tykky.md
+[tykky]: ../../supercomputing/containers/tykky.md
