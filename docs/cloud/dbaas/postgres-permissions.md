@@ -1,9 +1,5 @@
 # PostgreSQL permissions
 
-Note that while PostgreSQL 14 is EOL and no longer available in Pukki, some of the information
-regarding it on this page is kept around in case it's useful for users with database instances
-that have been upgraded from major version 14 to 17.
-
 ## PostgreSQL 17 permissions
 
 In PostgreSQL 17 database instances, you need to explicitly grant users access to a database to
@@ -33,6 +29,15 @@ To create a new user with database access:
 You can also edit permissions of existing users from the Users tab, by choosing 'Manage Access'
 from the drop down menu in the 'Actions' column.
 
+### Database instance created or rebuilt after 2026-11-23
+
+When createing a new database after 2026-11-23 Pukki will also:
+
+```
+REVOKE CONNECT ON DATABASE $new_database FROM PUBLIC'
+```
+
+
 ### Giving a user read-only access to a table
 As the table owner or root user you can do the following SQL command:
 
@@ -49,13 +54,7 @@ user following permissions:
 GRANT SELECT, INSERT, UPDATE, DELETE ON ${table} TO ${user};
 ```
 
-
-## Changes between PostgreSQL 14 and 17
-
-PostgreSQL 15 brought a very specific change to default permissions, which affects how Pukki
-manages users and their access rights.
-
-### Differences in how Pukki manages database access
+### Database instances created as PostgreSQL 14 have different default permissions
 
 In PostgreSQL 14, the default privileges granted to database users allowed them to create new
 tables in any database's public schema on that database instance. PostgreSQL 15 revoked the
