@@ -60,7 +60,7 @@ Below's the life cycle of a student project:
 3. [Add access to services](../../accounts/how-to-add-service-access-for-project.md)
 4. [Use the services](#available-services).
 5. Manage your data across multiple services and plan to **back it up** before the project ends.
-6. [Project ends](../../accounts/how-to-manage-your-project.md#when-the-project-is-closed)
+6. [Project ends](../../accounts/how-to-manage-your-project.md#what-happens-after-a-project-is-closed)
 
 You can be a project manager for **one student project** at a time, but a member for many.
 

@@ -78,7 +78,7 @@ You can monitor Billing Units usage in MyCSC portal.
     To prevent this, the project manager should:
 
     1. Apply for more [**Billing Units**](#32-step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-    2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager.
+    2. [**Extend**](../../accounts/how-to-manage-your-project.md#extending-the-project-lifetime) the project’s lifetime via MyCSC. This can be done only be the project manager.
 
 </div>
 
