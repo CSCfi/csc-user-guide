@@ -2,7 +2,7 @@
 
 Quantum jobs can be submitted through SLURM on LUMI as a batch script with `sbatch` using any LUMI partition.
 
-Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/overview.md) on the device page.
+Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/index.md) on the device page.
 
 ## Batch script
 
@@ -20,9 +20,9 @@ Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identi
 module use /appl/local/quantum/modulefiles
 
 # uncomment the correct line:
-# module load fiqci-vtt-qiskit
+# module load fiqci-qiskit
 # or
-# module load fiqci-vtt-cirq
+# module load fiqci-cirq
 
 export DEVICES=("<DEVICE_VALUE>")
 source $RUN_SETUP

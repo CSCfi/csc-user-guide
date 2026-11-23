@@ -102,9 +102,10 @@ You can monitor Storage Quota in MyCSC portal.
 1. Log in to [MyCSC](https://my.csc.fi).
 2. Navigate to your project's view. 
 3. Scroll down to **Services** window.
-4. Click **Allas**. You can see Storage Quota usage under **Usage** at the bottom of the window.
-
-![Storage Quota in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
+4. Click **Allas**. You can see Storage Quota under **Usage** at the bottom of the window. By default amount of quota is 10 TB.
+![Storage Quota limit in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_Quota.png)
+5. Then scroll down service list and click **SD Connect**. You can see how much storage quota  you are using under **Usage** at the bottom of the window. For example if you have 10 TB of storage quota and you've used 4 TB, your project has 6 TB of quota available.
+![Storage Quota used in MyCSC](https://a3s.fi/docs-files/sensitive-data/MyCSC/MyCSC_QuotaUsed.png)
 
 ### 2.2 When your project runs out of Storage Quota for SD Connect
 

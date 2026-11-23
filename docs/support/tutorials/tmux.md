@@ -12,7 +12,7 @@ is applicable to most Linux workstations that have `tmux` installed.
 !!! note
      Use `tmux` for long-running interactive commands such as data  transfers and file cleanup and move commands.
      For computationally intensive work, or very long compilation times, use batch jobs instead,
-     or the [interactive partitions on Roihu](../../computing/running/batch-job-partitions.md#roihu-cpu-interactive-use).
+     or the [interactive partitions on Roihu](../../supercomputing/running/batch-job-partitions.md#roihu-cpu-interactive-use).
 
 ## Start a tmux session
 

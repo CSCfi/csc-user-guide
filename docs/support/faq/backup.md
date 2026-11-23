@@ -18,11 +18,11 @@ way to make such backups.
 
 In addition to not being backed up, note that Roihu's `/scratch` disk area is
 also periodically cleaned of files that have not been accessed in a while. See
-the [Usage policy](../../computing/usage-policy.md#disk-cleaning) page for
+the [Usage policy](../../supercomputing/usage-policy.md#disk-cleaning) page for
 details.
 
 ## More information
 
-* [Roihu disk areas](../../computing/disk.md)
+* [Roihu disk areas](../../supercomputing/disk.md)
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [Managing data on supercomputer scratch disks](../tutorials/clean-up-data.md)

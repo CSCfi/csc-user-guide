@@ -1,4 +1,4 @@
-# Computing
+# Supercomputing
 
 ## Overview
 
@@ -134,7 +134,7 @@ Please also consider [other important factors related to performance.](performan
 * [Object storage](allas-in-roihu.md): Opening connections to Allas and Lumi-O object storage services 
 * [Modules](modules.md): How to find the programs you need
 * [Applications](../apps/index.md): Application specific instructions.
-* [Running jobs](running/getting-started.md): How to run programs on the
+* [Running jobs](running/index.md): How to run programs on the
   supercomputers
 * Installing and compiling your applications:
     * [Installing software](installing.md)

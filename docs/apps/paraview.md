@@ -63,11 +63,11 @@ allows free use, including commercial use.
 
 ### Desktop (CPU)
 
-The [Desktop](../computing/webinterface/desktop.md) app runs on the Roihu-CPU compute
+The [Desktop](../supercomputing/webinterface/desktop.md) app runs on the Roihu-CPU compute
 nodes and renders on the CPU cores there. Use it when you work with a small or medium sized
 dataset where you do not need GPU rendering.
 
-1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md)
+1. Connect to the [Roihu web interface](../supercomputing/webinterface/connecting.md)
    and select the *Desktop* app.
 2. Select the `interactive` partition and the cores, memory and time you need.
    A good starting point is 4–8 cores and 8 GiB of memory, plus about two to
@@ -76,7 +76,7 @@ dataset where you do not need GPU rendering.
    so aim to **reserve 4 GiB of memory at the very least**.
    If you need more than `interactive` partition maximum of 32 cores and 64 GiB of
    memory, select the `small` partition (longer queueing times are possible). See
-   [Available batch job partitions](../computing/running/batch-job-partitions.md).
+   [Available batch job partitions](../supercomputing/running/batch-job-partitions.md).
 3. Launch the desktop, open a terminal, and start ParaView:
 
     ```bash
@@ -96,9 +96,9 @@ The Accelerated visualization app runs ParaView on a Roihu visualization node
 with an Nvidia L40 GPU, which gives much faster rendering than pure CPU
 visualization. The ParaView version in this app is 6.0.1.
 
-1. Connect to the [Roihu web interface](../computing/webinterface/connecting.md).
+1. Connect to the [Roihu web interface](../supercomputing/webinterface/connecting.md).
 2. Select the
-   [Accelerated visualization](../computing/webinterface/accelerated-visualization.md)
+   [Accelerated visualization](../supercomputing/webinterface/accelerated-visualization.md)
    desktop app and specify the required resources. One GPU is reserved.
 3. Click *Launch*. Your job is placed in the queue, and once it has been
    allocated resources, click *Launch Accelerated Visualization*.
@@ -111,7 +111,7 @@ visualization. The ParaView version in this app is 6.0.1.
 Sessions run in the `vizinteractive` partition, which has a maximum
 runtime of 12 hours. Each reserved GPU gives access to up to 32 CPU
 cores and 183 GiB of memory, see
-[the partition details](../computing/running/batch-job-partitions.md#vizinteractive).
+[the partition details](../supercomputing/running/batch-job-partitions.md#vizinteractive).
 
 ### Parallel mode: client with several pvservers
 

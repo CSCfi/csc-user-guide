@@ -45,11 +45,11 @@ Before starting Zonation, move your data to your project's __scratch__ folder. F
 Zonation Graphical User Interface (GUI) can be started in Roihu web interface:
 
 1. Log in to [Roihu web interface](https://roihu.csc.fi).
-2. Open [Desktop app](../computing/webinterface/desktop.md)
+2. Open [Desktop app](../supercomputing/webinterface/desktop.md)
 3. After launching the Desktop, double-click Zonation icon.
 
 ### Working with Zonation interactively
-For relatively short analysis jobs, it is possible to use Zonation in [interactive session](../computing/running/interactive-usage.md).
+For relatively short analysis jobs, it is possible to use Zonation in [interactive session](../supercomputing/running/interactive-usage.md).
 
 ```
 sinteractive -i
@@ -98,7 +98,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 Zonation was installed with Apptainer using [Zonation Apptainer definition files](https://github.com/CSCfi/singularity-recipes/tree/main/zonation) written by Pauli Lehtinen from University of Helsinki with slight modifications. 
 
-The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations): 
+The container was finally wrapped with [Tykky's wrap-container functionality](../supercomputing/containers/tykky.md#container-based-installations): 
 `wrap-container -w /squashfs-root/AppRun --prefix install_dir zonation5_v2.1.sif`
 
 Symbolic links added for `z5` and `zonation5` to work as starting commands.

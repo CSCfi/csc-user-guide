@@ -41,7 +41,7 @@ Create a new cluster profile
 configCluster
 ```
 
-Submission to the cluster requires SSH credentials. You will be prompted for username. **An SSH Agent must be running to serve the private key and certificate.** The certificate for the identity file expires after 24 hours and will need to be regenerated once it does. See the [CSC SSH certificate instructions](../computing/connecting/ssh-keys.md#signing-public-key) for a complete set of instructions. 
+Submission to the cluster requires SSH credentials. You will be prompted for username. **An SSH Agent must be running to serve the private key and certificate.** The certificate for the identity file expires after 24 hours and will need to be regenerated once it does. See the [CSC SSH certificate instructions](../supercomputing/connecting/ssh-keys.md#signing-public-key) for a complete set of instructions. 
 
 Jobs will now run on the cluster rather than on your local machine.
 

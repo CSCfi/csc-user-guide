@@ -37,9 +37,9 @@ key. Moreover, to make your local SSH keys and certificate available also in
 your cPouta virtual machine, you need to enable SSH agent forwarding on your
 local machine. Read the instructions:
 
-* [How to set up SSH keys](../../computing/connecting/ssh-keys.md)
-* [How to sign your SSH key with a certificate](../../computing/connecting/ssh-keys.md#signing-public-key)
-* [How to enable SSH agent forwarding](../../computing/connecting/ssh-unix.md#authentication-agent)
+* [How to set up SSH keys](../../supercomputing/connecting/ssh-keys.md)
+* [How to sign your SSH key with a certificate](../../supercomputing/connecting/ssh-keys.md#signing-public-key)
+* [How to enable SSH agent forwarding](../../supercomputing/connecting/ssh-unix.md#authentication-agent)
 
 Once you've set up SSH keys, registered your public key in MyCSC, signed it
 to obtain an SSH certificate, and configured SSH agent forwarding on your local workstation, mounting of a remote

@@ -24,7 +24,7 @@ Please note that logging in to the Roihu web interface requires
     Please note that the interactive applications in the web interface are
     **not** suitable for **multi-node** and **multi-GPU jobs**. Such workloads
     should ideally be carried out as standard
-    [batch jobs](../running/getting-started.md). If you are new to batch jobs
+    [batch jobs](../running/index.md). If you are new to batch jobs
     and command-line usage of the HPC environment, we recommend the
     [CSC Computing Environment](https://csc-training.github.io/csc-env-eff/)
     self-learning materials to learn how to get the most out of CSC's

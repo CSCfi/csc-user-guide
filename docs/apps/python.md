@@ -60,7 +60,7 @@ python
 ### Pre-installed Python environments
 
 Roihu has several pre-installed
-[environment modules](../computing/modules.md) containing
+[environment modules](../supercomputing/modules.md) containing
 Python environments made for different science areas.
 
 In Roihu: 

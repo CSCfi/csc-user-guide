@@ -24,7 +24,7 @@ Jupyter interfaces such as Jupyter Notebook and JupyterLab come pre-installed
 with the [IPython](https://ipython.readthedocs.io/en/stable/index.html)
 kernel, which allows working on notebooks using the
 [Python programming language](./python.md). Our web interface also includes an
-[interactive Julia-Jupyter app](../computing/webinterface/julia-on-jupyter.md)
+[interactive Julia-Jupyter app](../supercomputing/webinterface/julia-on-jupyter.md)
 using the [IJulia](https://github.com/JuliaLang/IJulia.jl)
 kernel for working with the [Julia language](./julia.md).
 
@@ -43,9 +43,9 @@ license](https://opensource.org/licenses/BSD-3-Clause).
 Jupyter can be used on CSC supercomputers through interactive applications
 on our web interface:
 
-- [Jupyter interactive application](../computing/webinterface/jupyter.md)
+- [Jupyter interactive application](../supercomputing/webinterface/jupyter.md)
   (IPython kernel)
-- [Julia-Jupyter interactive application](../computing/webinterface/julia-on-jupyter.md) (IJulia kernel)
+- [Julia-Jupyter interactive application](../supercomputing/webinterface/julia-on-jupyter.md) (IJulia kernel)
 
 Jupyter can also be used through the
 [LUMI web interface](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/).

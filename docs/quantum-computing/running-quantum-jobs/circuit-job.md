@@ -1,6 +1,6 @@
 # Example job
 
-A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with the values from [Runtime identifiers](../devices/overview.md) on your device's page. `<CORTEX_URL>` is the name of an environment variable set by the `fiqci-vtt-*` module.
+A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` and `<QUANTUM_COMPUTER_ID>` with the values from [Runtime identifiers](../devices/index.md) on your device's page. `<CORTEX_URL>` is the name of an environment variable set by the `fiqci-*` module.
 
 ## Get the backend
 
@@ -9,7 +9,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
 === "Qiskit"
 
-    Load the module with `module load fiqci-vtt-qiskit`.
+    Load the module with `module load fiqci-qiskit`.
 
     ```python
     import os
@@ -22,7 +22,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
 === "Cirq"
 
-    Load the module with `module load fiqci-vtt-cirq`.
+    Load the module with `module load fiqci-cirq`.
 
     ```python
     import os
@@ -80,7 +80,7 @@ A minimal Bell pair circuit, run on a quantum computer. Replace `<CORTEX_URL>` a
 
 ## Submitting through LUMI
 
-For submitting jobs see [Running quantum jobs](overview.md#access-models).
+For submitting jobs see [Running quantum jobs](index.md#access-models).
 
 ## Further reading
 * [Batch jobs](./access-models/batch.md)

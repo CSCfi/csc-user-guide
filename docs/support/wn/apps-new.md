@@ -185,7 +185,7 @@ more information](../../apps/pytorch.md#available).
 
 ## R in Mahti, 7.4.2025
 
-R is now available also on Mahti, including RStudio in the [Mahti web interface](../../computing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
+R is now available also on Mahti, including RStudio in the [Mahti web interface](../../supercomputing/webinterface/index.md). The [r-env](../../apps/r-env.md) module on Mahti works similarly as r-env on Puhti and currently has R version 4.4.2. The new small partition on Mahti is suitable for many types of R and RStudio work, excluding the most memory intensive tasks. Users familiar with Puhti should note that on Mahti there is no separate memory reservation, and the only way to get more memory is to reserve more cores. 
 
 ## Tykky 0.4.2, 27.2.2025
 
@@ -622,7 +622,7 @@ for a list of new features and improvements.
 
 The NoMachine remote desktop service will be discontinued on 25th May 2023, at the end of the
 current licensing period. The service is superseded by web interfaces on CSC's supercomputers. The
-first of them, [Puhti web interface](../../computing/webinterface/index.md), has been liked by the
+first of them, [Puhti web interface](../../supercomputing/webinterface/index.md), has been liked by the
 researchers, the number of users is still rapidly increasing and now represents 36% of all users.
 Similar web interfaces will be opened for both Mahti and LUMI, in the near future. For replacements
 in specific use cases, please see
@@ -728,7 +728,7 @@ CSC](../tutorials/roihu-user-spack.md).
 ## Installing packages from Bioconda using Tykky, 10.10.2022
 
 A [new tutorial](../tutorials/bioconda-tutorial.md) on how to install packages from the Bioconda
-channel using the [Tykky container wrapper tool](../../computing/containers/tykky.md) has been
+channel using the [Tykky container wrapper tool](../../supercomputing/containers/tykky.md) has been
 published. This tutorial outlines the recommended way to install software packages related to
 bioinformatics and biomedical research. Note that CSC has deprecated the *direct* (non-containerized)
 usage of Conda installations on our supercomputers due to file system performance issues.
@@ -811,7 +811,7 @@ performant filesystem for all users.
 
 ## Tykky 0.2.2, 31.3.2022
 
-[Tykky](../../computing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
+[Tykky](../../supercomputing/containers/tykky.md), a brand new tool for wrapping Conda/pip environments
 inside a Singularity container, has been released. Containerization will considerably improve
 startup times and decrease IO load with less files on the shared parallel filesystem. We recommend
 wrapping all existing Conda environments within containers using Tykky as the [direct usage of

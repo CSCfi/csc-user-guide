@@ -661,4 +661,4 @@ The output directory of the extracted files can be defined with option
 ```
 
 
-See also: [Interactive sessions on Roihu](../../../computing/running/interactive-usage.md).
+See also: [Interactive sessions on Roihu](../../../supercomputing/running/interactive-usage.md).

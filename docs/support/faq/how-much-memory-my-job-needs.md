@@ -61,7 +61,7 @@ better than requesting a huge amount "just in case".
 
 ## Job monitoring app
 
-The [Job monitoring app](../../computing/performance.md#job-monitoring-app) in
+The [Job monitoring app](../../supercomputing/performance.md#job-monitoring-app) in
 the Roihu web interface shows the memory use of your finished jobs over the
 whole run, both in GiB and as a share of the reserved memory. It shows each node
 of a multi-node job separately, so you can see the actual peak on each node.

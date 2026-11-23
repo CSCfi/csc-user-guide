@@ -21,7 +21,7 @@ The terms of use of this software allow it to be used only by affiliates (staff
 and students) of Finnish higher education institutions. 
 
 ## Available
-Licenses are available on CSC's computing platform [Roihu](../computing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
+Licenses are available on CSC's computing platform [Roihu](../supercomputing/available-systems.md) for analysis runs only. Latest products will be available on the servers, and earlier versions installation is also possible.  All installed versions are maintained on the servers.
 
 ## Usage
 After login on the Roihu server, make sure that you have transferred all your input files for the analysis run from your local computer to the server. Locate the files in your project's scratch directory. Home directory is not intended for computing.

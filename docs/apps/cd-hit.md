@@ -71,7 +71,7 @@ The sample command above produces two result files:
 * `reduced_set.fasta` contains a pruned sequence set. In this case, if two sequences are more than 95% identical, only the longer one is included in the results.
 * `reduced_set.fasta.clstr` contains information about the clustering of the sequences that share higher similarity than the given threshold value (in this case 95%).
 
-Run CD-HIT in an [interactive session](../computing/running/interactive-usage.md) or as a batch job, not on the login node. See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+Run CD-HIT in an [interactive session](../supercomputing/running/interactive-usage.md) or as a batch job, not on the login node. See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

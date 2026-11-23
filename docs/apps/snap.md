@@ -40,7 +40,7 @@ This loads the newest available version. You can load an older version with:
 The easiest option for using SNAP is to open it in the Roihu web interface.
 
 1. Log in to web interface: [Roihu](https://roihu.csc.fi)
-2. Open [Desktop app](../computing/webinterface/desktop.md). 
+2. Open [Desktop app](../supercomputing/webinterface/desktop.md). 
 3. After launching the remote desktop, start SNAP from `Applications` (upper left corner) -> `Geosciences`.
 
 Alternatively, open terminal from `Applications` -> `Terminal emulator`:
@@ -74,7 +74,7 @@ __By default SNAP uses only up to 2 Gb memory for Java.__ To increase this, add 
 
 ### Using SNAP with Graph Processing Tool (gpt) command
 
-The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [partition](../computing/running/batch-job-partitions.md).
+The Graph Processing Tool `gpt` is a command line tool used for bulk processing. Using GPT more computing power can be used than with SNAP graphical interface, because it can be used in scripts and therefore included in jobs that can be submitted to any [partition](../supercomputing/running/batch-job-partitions.md).
 
 GPT command looks often something like this:
 
@@ -159,7 +159,7 @@ for instructions.
 ### Using the Python package with JupyterLab
 
 1. Log in to web interface: [Roihu](https://roihu.csc.fi)
-2. Open [Jupyter app](../computing/webinterface/jupyter.md). 
+2. Open [Jupyter app](../supercomputing/webinterface/jupyter.md). 
 3. Select **custom module** and write `snap` as module.
 
 In Jupyter remember to set the temporary directories. Follow the [SNAP set up Notebook](https://github.com/csc-training/geocomputing/blob/master/snap/SNAP_set_up.ipynb) to get started.
@@ -190,7 +190,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-SNAP 13.0 was installed with Singularity using installer provided by ESA, with pip was added Jupyter, `esa_snappy` and `pyroSAR`. The container was finally wrapped with [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+SNAP 13.0 was installed with Singularity using installer provided by ESA, with pip was added Jupyter, `esa_snappy` and `pyroSAR`. The container was finally wrapped with [Tykky's wrap-container functionality](../supercomputing/containers/tykky.md#container-based-installations).
 
 `wrap-container -w /usr/local/snap/bin,/usr/bin snap9_py.sif --prefix install_dir`
 

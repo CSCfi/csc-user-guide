@@ -47,7 +47,7 @@ Please review the following information:
 
 - **SD Desktop**: To gain access to the import and export functionality, [follow these instructions](secondary-use-major-upgrade.md).
 
-- **SD Connect**: In order to restore access to the register dataset, [follow these instructions](sd-use-case-secondary-use-project.md#7-retrieve-your-projects-share-id-from-sd-connect) to retrieve the Share ID of your project from SD Connect and deliver it to [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
+- **SD Connect**: In order to restore access to the register dataset, [follow these instructions](sd-use-case-secondary-use-project.md#6-retrieve-your-projects-share-id-from-sd-connect) to retrieve the Share ID of your project from SD Connect and deliver it to [CSC Service Desk](../../support/contact.md) (subject: Sensitive Data).
 
 - Get familiar with the [new features](secondarydata-access.md) for secondary use projects, and [export instructions](sd-desktop-secondary-export.md) for all project members.
 

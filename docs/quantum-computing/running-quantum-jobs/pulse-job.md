@@ -7,7 +7,7 @@ Pulse level access gives the user a lower level of control over their quantum jo
 
 ## Import packages
 
-Load the module with `module load fiqci-vtt-qiskit`.
+Load the module with `module load fiqci-qiskit`.
 
 ```python
 import os
@@ -85,7 +85,7 @@ print(f"Qiskit result counts:\n{qiskit_result.get_counts()}\n")
 
 ## Submitting through LUMI
 
-For submitting jobs see [Running quantum jobs](overview.md#access-models).
+For submitting jobs see [Running quantum jobs](index.md#access-models).
 
 ## Further reading
 * [Batch jobs](./access-models/batch.md)

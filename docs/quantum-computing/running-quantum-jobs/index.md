@@ -14,8 +14,8 @@ The quantum software stack is provided as modules on LUMI. Load the module tree 
 ```bash
 module use /appl/local/quantum/modulefiles   # or: module load Local-quantum
 
-module load fiqci-vtt-qiskit   # Qiskit
-module load fiqci-vtt-cirq     # Cirq
+module load fiqci-qiskit   # Qiskit
+module load fiqci-cirq     # Cirq
 ```
 
 These modules provide a pre-configured Python environment and `$RUN_SETUP`, the script that configures the connection to the device.
@@ -25,19 +25,19 @@ These modules provide a pre-configured Python environment and `$RUN_SETUP`, the 
 
 ### Custom Python environment
 
-If you prefer your own environment, build a container with the [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/){ target=_blank } and load `fiqci-vtt-standard` alongside it to get access to `$RUN_SETUP`:
+If you prefer your own environment, build a container with the [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/){ target=_blank } and load `fiqci-standard` alongside it to get access to `$RUN_SETUP`:
 
 ```bash
 module use /appl/local/quantum/modulefiles
-module load fiqci-vtt-standard
+module load fiqci-standard
 module load custom_python_module
 ```
 
 ### Supported software versions
 
 | Software | LUMI module name | Versions |
-|----------|------------------|----------|
-| IQM client | fiqci-vtt-qiskit / fiqci-vtt-cirq | ≥ 36.0.0, < 37.0.0 |
+|----------|------------------------|----------|
+| IQM client | fiqci-qiskit / fiqci-cirq / lumi-q-qiskit | ≥ 36.0.0, < 37.0.0 |
 
 ## Access models
 
@@ -56,7 +56,7 @@ See the [Circuit level job page](./circuit-job.md) for a complete Qiskit and Cir
 
 ## Testing before you run
 
-Quantum resources are scarce, so prepare your code in advance. `qiskit-on-iqm` provides a [fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution){ target=_blank } you can run locally on your laptop. For HPC scale simulation on LUMI, see [CSC Qiskit docs](../../../apps/qiskit.md).
+Quantum resources are scarce, so prepare your code in advance. `qiskit-on-iqm` provides a [fake noise model backend](https://docs.meetiqm.com/iqm-client/user_guide_qiskit.html#noisy-simulation-of-quantum-circuit-execution){ target=_blank } you can run locally on your laptop. For HPC scale simulation on LUMI, see [CSC Qiskit docs](../../apps/qiskit.md).
 
 ## Calibration data
 
@@ -76,6 +76,6 @@ QPU usage is shown on the [MyCSC dashboard](https://my.csc.fi/dashboard){ target
 ```
 
 ## Further reading
-* [Devices](../devices/overview.md)
+* [Devices](../devices/index.md)
 * [Additional examples (fiqci-examples)](https://github.com/FiQCI/fiqci-examples){ target=_blank }
 * [LUMI Documentation](https://docs.lumi-supercomputer.eu/){ target=_blank }

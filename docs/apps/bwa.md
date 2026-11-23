@@ -142,7 +142,7 @@ You can submit the batch job file to the batch job system with the command:
 sbatch batch_job_file.sh
 ```
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

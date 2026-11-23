@@ -2,14 +2,14 @@
 
 Quantum jobs can be submitted through SLURM on LUMI interactively with `srun` using any LUMI partition.
 
-Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/overview.md) on the device page.
+Replace `<DEVICE_VALUE>` with the identifier of your device, see [Runtime identifiers](../../devices/index.md) on the device page.
 
 
 ## Interactive run with srun
 
 ```bash
 module use /appl/local/quantum/modulefiles
-module --ignore_cache load "fiqci-vtt-qiskit"
+module --ignore_cache load "fiqci-qiskit"
 
 srun --account project_xxx -t 00:15:00 -c 1 -n 1 --partition standard \
     bash -c "export DEVICES=("<DEVICE_VALUE>") && source $RUN_SETUP && python -u your_python_script.py" # your quantum code lives in this python file

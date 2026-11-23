@@ -23,7 +23,7 @@ If you've submitted a job to the `longrun` partition, and `squeue` tells you
 that the reason for your job to be in pending state is `QOSGrpCpuLimit`, it
 means that the partition is currently full. You will very likely get resources
 faster from another partition such as `small`. See
-[Available batch job partitions](../../computing/running/batch-job-partitions.md).
+[Available batch job partitions](../../supercomputing/running/batch-job-partitions.md).
 
 You might want to check these FAQ entries as well:
 

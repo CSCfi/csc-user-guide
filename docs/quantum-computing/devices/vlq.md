@@ -13,7 +13,7 @@ The LUMI-Q VLQ is a superconducting star IQM quantum computer deployed as a join
 | Topology | Star (one-to-all connectivity) |
 | Native gates | Two-qubit Controlled-Z (CZ) and one-qubit Phased RX (PRX), MOVE (For more info on the move operation see [IQM academy](https://www.iqmacademy.com/learn/star/01-move/).) |
 | Known hardware issues | None |
-| Terms of use | IT4I VLQ [AuP](https://docs.it4i.cz/en/docs/clusters/vlq/access#portallexistech). Communicated via email by IT4I |
+| Terms of use | IT4I VLQ [AuP](https://docs.it4i.cz/en/general/AUP-final.pdf). Communicated via email by IT4I |
 
 ## Runtime identifiers
 
@@ -25,7 +25,7 @@ VLQ's qubits are connected to a central computational resonator providing one-to
 
 ??? default "Topology mapping (Click to show)"
 
-    ![VLQ's node mapping](../../../img/lumi-q-vlq-layout.svg){ width=100% style="display: block; margin: 0 auto;" }
+    ![VLQ's node mapping](../../img/lumi-q-vlq-layout.svg){ width=100% style="display: block; margin: 0 auto;" }
 
 ## Access
 
@@ -39,7 +39,7 @@ If you do not yet have a VLQ project see the [Access](../access.md) page for inf
 
     ```bash
     module use /appl/local/quantum/modulefiles    
-    module load lumi-q-qiskit/vlq
+    module load lumi-q-qiskit
     ```
 
 === "Local"
@@ -104,7 +104,7 @@ For VLQ you need to get your own access token using MyAccessID. This can be done
     #SBATCH --time=00:05:00         # Run time (hh:mm:ss)
 
     module load Local-quantum
-    module load lumi-q-qiskit/vlq
+    module load lumi-q-qiskit
 
     python your_python_script.py
     ```

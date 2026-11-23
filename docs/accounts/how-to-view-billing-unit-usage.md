@@ -21,7 +21,7 @@ In the usage plot, you can:
 
     Do not confuse quotas with Billing Units. Quotas are service-specific
     limits to keep the usage within limits. See the instructions under
-    Computing, Cloud and Data for instructions how the remaining quotas
+    Supercomputing, Cloud services and Data for instructions how the remaining quotas
     can be followed up in each service.
 
 You can often see usage information of an 'system' user. See the explanation

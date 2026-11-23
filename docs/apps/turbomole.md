@@ -41,7 +41,7 @@ On Roihu, jobs must be submitted from the **CPU login node** (`roihu-cpu`).
 The module sets `I_MPI_FABRICS=shm:ofi` and `MPI_USESRUN=1` automatically.
 No manual PATH or MPI setup is needed beyond what is shown in the batch
 scripts below. For a full list of available partitions see the
-[Roihu batch job partitions](../computing/running/batch-job-partitions.md)
+[Roihu batch job partitions](../supercomputing/running/batch-job-partitions.md)
 page.
 
 ### Batch scripts

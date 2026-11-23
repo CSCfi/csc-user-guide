@@ -6,7 +6,7 @@ the remote usage of the servers of CSC is in most cases based on
 working on command-line: instead of using mouse and command menus,
 the user types commands to a screen called terminal or console.
 Even though more and more tools provided by CSC can be used through
-[graphical interfaces](../../../computing/webinterface/index.md), using
+[graphical interfaces](../../../supercomputing/webinterface/index.md), using
 the basic Linux commands is in many cases still the most efficient way.
 
 This tutorial provides an introduction to the usage of the Linux

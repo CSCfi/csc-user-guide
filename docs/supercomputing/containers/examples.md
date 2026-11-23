@@ -109,7 +109,7 @@ From: satama.csc.fi/r_installation_spack/core-cpu-gcc-15.2.0:v2026_03
     exec "$@"
 ```
 
-When building the containers, set the [Apptainer cache directory](./overview.md#cache-directory) so that the base image does not fill your home directory quota (replace `<project>` with your project):
+When building the containers, set the [Apptainer cache directory](./index.md#cache-directory) so that the base image does not fill your home directory quota (replace `<project>` with your project):
 
 ```bash
 export APPTAINER_CACHEDIR=/scratch/<project>/$USER/.apptainer
@@ -183,7 +183,7 @@ From: satama.csc.fi/r_installation_spack/core-gpu-gcc-14.3.0-cuda-12.9.1:v2026_0
     exec "$@"
 ```
 
-When building the containers, set the [Apptainer cache directory](./overview.md#cache-directory) so that the base image does not fill your home directory quota (replace `<project>` with your project):
+When building the containers, set the [Apptainer cache directory](./index.md#cache-directory) so that the base image does not fill your home directory quota (replace `<project>` with your project):
 
 ```bash
 export APPTAINER_CACHEDIR=/scratch/<project>/$USER/.apptainer
