@@ -32,7 +32,8 @@ Please note, maximum duration of [Student projects](../support/tutorials/student
 
 ## Assigning Vice Project Managers 
 
-(This feature is available after 8.12.2026)
+This feature is available after 8.12.2026
+
 Vice Project Managers are subject to the same prerequisites and responsibilities as the Project Manager. They may perform the Project’s administrative duties; however, ultimate accountability for the Project remains with the Project Manager. Each project may have up to two Vice Project Managers. Student, Roihu Dataset, and Findata projects are not eligible to have Vice Project Managers.
 
 1. Login to [MyCSC](https://my.csc.fi).
