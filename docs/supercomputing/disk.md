@@ -344,6 +344,8 @@ and reserving only the amount actually needed.
 
 Using disaggregated storage consumes [billing units](../accounts/billing.md).
 
+--8<-- "sbof-array-warning.md"
+
 ### Requesting storage from slurm
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource
