@@ -60,24 +60,22 @@ extra:
       maintenance_breaks: https://research.csc.fi/service-breaks/
 
   analytics:
-    provider: custom
+    provider: matomo
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
     feedback:
       title: Do you find this page useful?
       ratings:
         - name: "Yes"
-          type: Positive
-          description: Yes! I do find this page useful.
+          icon: material/thumb-up
+          data: 1
           note: >-
             Thank you for your feedback!
         - name: "No"
-          type: Negative
-          description: No! This page needs to be improved.
+          icon: material/thumb-down
+          data: -1
           note: >-
             Thank you! Your feedback is appreciated.
-      exclude:
-        - ref.md
 
   social:
     - icon: material/github

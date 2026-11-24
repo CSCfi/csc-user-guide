@@ -1,5 +1,7 @@
 ---
 template: home.html
+hide:
+ - feedback
 ---
 
 <div class="grid cards docs-quick-links docs-quick-links--landing" markdown>

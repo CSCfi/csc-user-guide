@@ -35,13 +35,13 @@ extra:
       title: Onko tämä sivu hyödyllinen?
       ratings:
         - name: "Kyllä"
-          type: Positive
-          description: Kyllä! Tämä sivu on hyödyllinen.
+          icon: material/thumb-up
+          data: 1
           note: >-
             Kiitos palautteestasi!
         - name: "Ei"
-          type: Negative
-          description: Ei! Tätä sivua pitäisi parantaa.
+          icon: material/thumb-down
+          data: -1
           note: >-
             Kiitos! Arvostamme palautettasi.
 
