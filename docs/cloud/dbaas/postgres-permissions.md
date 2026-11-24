@@ -53,7 +53,7 @@ that have been rebuilt, the following additional query is executed when creating
 REVOKE CONNECT ON DATABASE $new_database FROM PUBLIC'
 ```
 
-### Databases created on PostgreSQL 14 have different default permissions
+### Databases created on PostgreSQL 14 instances have different default permissions
 
 In PostgreSQL 14, the default privileges granted to database users allowed them to create new
 tables in any database's public schema on that database instance. PostgreSQL 15 revoked the
@@ -61,9 +61,9 @@ tables in any database's public schema on that database instance. PostgreSQL 15 
 which is used as the default schema.
 
 If your Pukki database instance was originally using PostgreSQL 14, databases created on the instance
-before the upgrade to PostgreSQL 17 might allow users with the `PUBLIC` role to connect to and create
+before the upgrade to PostgreSQL 17 allow users with the `PUBLIC` role to connect to and create
 tables in the public schema. They still cannot modify or read tables created by other users without
-being granted access through the usual means, however.
+being granted access as described elsewhere on this page.
 
 ## A note about privileges
 
