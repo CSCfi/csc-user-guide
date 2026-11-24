@@ -138,6 +138,4 @@ NVMe](../../../supercomputing/disk.md#disaggregated-storage). This fast
 storage capacity is provided over the network and will appear as local
 scratch from within a Slurm job.
 
-!!! warning "Not supported in array jobs"
-    Disaggregated storage is currently not supported in
-    [array jobs](../../../supercomputing/running/array-jobs.md).
+--8<-- "sbof-array-warning.md"

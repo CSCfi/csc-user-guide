@@ -404,9 +404,7 @@ This fast storage capacity is provided over the network and
 appears as local scratch from within a Slurm job. It can be requested on all partitions,
 including shared-node jobs.
 
-!!! warning "Not supported in array jobs"
-    Disaggregated storage is currently not supported in
-    [array jobs](array-jobs.md).
+--8<-- "sbof-array-warning.md"
 
 Request this local storage using the following flag in the batch script:
 

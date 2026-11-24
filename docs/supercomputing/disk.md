@@ -344,9 +344,7 @@ and reserving only the amount actually needed.
 
 Using disaggregated storage consumes [billing units](../accounts/billing.md).
 
-!!! warning "Not supported in array jobs"
-    Disaggregated storage is currently not supported in
-    [array jobs](running/array-jobs.md).
+--8<-- "sbof-array-warning.md"
 
 ### Requesting storage from slurm
 

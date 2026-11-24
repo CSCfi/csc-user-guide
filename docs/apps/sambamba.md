@@ -97,9 +97,7 @@ Reserve more space than the size of the input BAM, because `sort` writes its
 temporary files with only light compression. Sambamba deletes the temporary files
 when it finishes, so nothing needs to be copied back.
 
-!!! warning "Not supported in array jobs"
-    Disaggregated storage is currently not supported in
-    [array jobs](../supercomputing/running/array-jobs.md).
+--8<-- "sbof-array-warning.md"
 
 See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
