@@ -221,6 +221,10 @@ On Roihu, it is possible to request local disk mounts from a centralised pool of
 This fast storage capacity is provided over the network and will appear as local scratch from 
 within a Slurm job.
 
+!!! warning "Not supported in array jobs"
+    Disaggregated storage is currently not supported in
+    [array jobs](array-jobs.md).
+
 Example script reserving 10G of fast NVMe disk space:
 
 ```bash

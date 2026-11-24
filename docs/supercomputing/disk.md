@@ -344,6 +344,10 @@ and reserving only the amount actually needed.
 
 Using disaggregated storage consumes [billing units](../accounts/billing.md).
 
+!!! warning "Not supported in array jobs"
+    Disaggregated storage is currently not supported in
+    [array jobs](running/array-jobs.md).
+
 ### Requesting storage from slurm
 
 To request flash storage to be mounted in an sbatch job you must add the following to the resource

@@ -120,6 +120,10 @@ module load ams/2026.104
         [Roihu disk areas](../supercomputing/disk.md#disaggregated-storage)
         for full details.
 
+    !!! warning "Not supported in array jobs"
+        Disaggregated storage is currently not supported in
+        [array jobs](../supercomputing/running/array-jobs.md).
+
     ```bash
     #!/bin/bash
     #SBATCH --partition=medium

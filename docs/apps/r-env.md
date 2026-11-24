@@ -266,6 +266,9 @@ The command `module load r-env` loads the latest `r-env` version [available](#av
     ```bash
     #SBATCH --bb="#BB_LUA SBF storagesize=50G path=/sbf/data"
     ```
+
+    Disaggregated storage is currently not supported in
+    [array jobs](../supercomputing/running/array-jobs.md).
           
     
 When ready, the batch job file is **submitted to the batch job system on a login node**:
@@ -373,6 +376,10 @@ The path must begin with `/sbf/`.
 ```bash
 #SBATCH --bb="#BB_LUA SBF storagesize=100G path=/sbf/data"
 ```
+
+!!! warning "Not supported in array jobs"
+    Disaggregated storage is currently not supported in
+    [array jobs](../supercomputing/running/array-jobs.md).
 
 ### Using `r-env` with Stan
 
