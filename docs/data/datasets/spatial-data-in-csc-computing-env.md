@@ -22,7 +22,7 @@ Paituli datasets are in `/dataset/project_2019680`. Paituli includes datasets fr
 - Additions to NLS data:
 	+ 2m, 10m and 25m DEMs have virtual rasters, see Roihu virtual rasters below.
 	+ Stereoclassified lidar data has been slightly modified. The original NLS data had mistakes in headers, these have been fixed. Additionally lax-index files have been added.
-- The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac.html), it has also links to Roihu local files.
+- The easiest way to find Paituli raster data is with [Paituli STAC](https://paituli.csc.fi/stac), it has also links to Roihu local files.
 - NLS ortho images are not copied to Roihu. Access these via [Paituli STAC](https://paituli.csc.fi/stac).   
 - DEM 2m dataset is updated weekly, also new datasets from Paituli are added every week.
 
