@@ -221,6 +221,8 @@ On Roihu, it is possible to request local disk mounts from a centralised pool of
 This fast storage capacity is provided over the network and will appear as local scratch from 
 within a Slurm job.
 
+--8<-- "sbof-array-warning.md"
+
 Example script reserving 10G of fast NVMe disk space:
 
 ```bash

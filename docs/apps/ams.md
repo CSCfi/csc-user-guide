@@ -120,6 +120,8 @@ module load ams/2026.104
         [Roihu disk areas](../supercomputing/disk.md#disaggregated-storage)
         for full details.
 
+    --8<-- "sbof-array-warning.md"
+
     ```bash
     #!/bin/bash
     #SBATCH --partition=medium
