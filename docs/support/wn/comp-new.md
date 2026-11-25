@@ -1,5 +1,17 @@
 # Computing environment
 
+## Roihu web interface updated to release 7, 26.11.2026
+
+* [Disaggregated storage](../../supercomputing/disk.md#disaggregated-storage) is now available for the interactive apps.
+* A [File deletion explorer tool](../../supercomputing/webinterface/index.md#file-deletion-explorer) has been added for inspecting the Lustre scratch cleaning purge lists.
+* Visit 3.5 with VLSV file format support has been added to Accelerated Visualization.
+* Spyder using python-data and python-geo has been added to the Desktop.
+* Compute node shells are now always associated with the correct Slurm job.
+* SSH to compute nodes for interactive app sessions now sets `$TMPDIR` correctly.
+* All r-env module versions are now available in R-Jupyter.
+* MLflow now waits until it is ready before allowing connections.
+* The Job monitoring app has been added to the front page.
+
 ## Roihu job efficiency banner at login, 17.11.2026
 
 When you log in to Roihu with SSH, a banner now summarizes the efficiency of
