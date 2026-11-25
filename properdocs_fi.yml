@@ -17,6 +17,18 @@ extra:
       link: /
       lang: en
 
+  header_sites:
+    parent:
+      topic: Yrityssivusto
+    tabs:
+      - name: Palvelut tutkijalle
+        link: https://research.csc.fi/
+      - topic: Käyttöoppaat
+        local: true
+      - name: MyCSC
+        topic: Asiakasportaali (englanniksi)
+        link: https://my.csc.fi/
+
   footer_columns:
     contact_information:
       full_name: CSC – Tieteen tietotekniikan keskus oy

@@ -39,6 +39,20 @@ extra:
       link: /fi/
       lang: fi
 
+  header_sites:
+    parent:
+      name: csc.fi
+      topic: Company site
+      link: https://www.csc.fi/
+    tabs:
+      - name: Services for research
+        link: https://research.csc.fi/
+      - topic: User guides
+        local: true
+      - name: MyCSC
+        topic: User portal
+        link: https://my.csc.fi/
+
   footer_columns:
     contact_information:
       full_name: CSC – IT CENTER FOR SCIENCE LTD.

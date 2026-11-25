@@ -1,3 +1,18 @@
+{% if config.extra.header_sites %}
+  {% set tabs = config.extra.header_sites.tabs %}
+  {% set parent = config.extra.header_sites.parent %}
+{% endif %}
+
+{% if tabs or parent %}
+{% macro site_item(site) %}
+{%- set href = (nav.homepage.url | url) if site.local else site.link -%}
+{%- set name = config.site_name if site.local else site.name -%}
+<li{% if site.local %} class="selected"{% endif %}>
+  <a href="{{ href }}"{% if not site.local %} target="_blank"{% endif %}>
+    {{ name }}{% if site.topic %}<span class="hidden"> - {{ site.topic }}</span>{% endif %}
+  </a>
+</li>
+{% endmacro %}
 {# Hacky icon rip from research.csc.fi #}
 {%- set icon_svg -%}
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +46,7 @@
     align-items: center;
     height: 42px;
   }
-  #pre-header > ul > li.current-site {
+  #pre-header > ul > li.selected {
     background-color: var(--c-white);
   }
   #pre-header > ul > li > a {
@@ -85,18 +100,17 @@
   }
 </style>
 <div id="pre-header">
+  {% if tabs or parent %}
   <ul>
-    <li>
-      <a href="https://research.csc.fi/" target="_blank">{{ lang.t("pre-header.research") }}</a>
-    </li>
-    <li class="current-site">
-      <a href="{{ nav.homepage.url | url }}">Docs CSC <span class="hidden">- User guides</span></a>
-    </li>
-    <li>
-      <a href="https://my.csc.fi/" target="_blank">MyCSC <span class="hidden">- {{ lang.t("pre-header.user_portal") }}</span></a>
-    </li>
-    <li>
-      <a href="https://www.csc.fi/" target="_blank">csc.fi <span class="hidden">- {{ lang.t("pre-header.company_site") }}</span></a>
-    </li>
+  {% if tabs %}
+  {% for site in tabs %}
+    {{ site_item(site) }}
+  {% endfor %}
+  {% endif %}
+  {% if parent %}
+    {{ site_item(parent) }}
+  {% endif %}
   </ul>
+  {% endif %}
 </div>
+{% endif %}
