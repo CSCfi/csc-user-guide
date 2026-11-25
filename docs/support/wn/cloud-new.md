@@ -1,5 +1,9 @@
 # Cloud services
 
+## Pukki: PostgreSQL 14 removed and PostgreSQL 17.12 added, 25.11.2026
+
+PostgreSQL 17.12 have been added while all PostgreSQL 14 versions have been removed from Pukki. See [PostgreSQL's release notes](https://www.postgresql.org/docs/release/17.12/) for more information on the changes in PostgreSQL 17.12
+
 ## New database minor versions available in Pukki, 08.09.2026
 
 PostgreSQL 17.11 and 14.24 are now available in Pukki DBaaS. See [PostgreSQL's](https://www.postgresql.org/about/news/postgresql-186-1711-1615-1519-1424-and-19-beta-3-released-3365/) documentation for release notes.
