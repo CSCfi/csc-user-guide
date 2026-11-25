@@ -21,12 +21,12 @@ catalog:
 
 VisIt is an open source, versatile software for scientific visualization.
 VisIt is available on Roihu, and we recommend
-[the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
+[the Roihu web interface remote desktop](../supercomputing/webinterface/desktop.md)
 for running the GUI.
 
 !!! info "Running VisIt with GPU-accelerated graphics on Roihu and LUMI"
     You can now also enable
-    [interactive visualization with GPU acceleration](../computing/webinterface/accelerated-visualization.md)
+    [interactive visualization with GPU acceleration](../supercomputing/webinterface/accelerated-visualization.md)
     for much better performance. In this case, select the
     _Accelerated Visualization_ app instead of _Desktop_ in the Roihu web
     interface. On LUMI, select the regular _Desktop_ app and `lumid`

@@ -4,4 +4,4 @@
     stored in users' personal `~/.ssh/authorized_keys` file on the
     supercomputer no longer works.
 
-    [Read the detailed instructions on setting up and using SSH keys](/computing/connecting/ssh-keys.md).
+    [Read the detailed instructions on setting up and using SSH keys](/supercomputing/connecting/ssh-keys.md).

@@ -17,7 +17,7 @@ Snakemake is a Python-based scientific workflow management system for creating s
 the popular workflow managers within the bioinformatics community, but
 is not specific to bioinformatics. Snakemake enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Like in [Nextflow](../apps/nextflow.md), Snakemake also supports running scripts (via script/run/shell directive of Snakemake rule) from other languages such as R, bash and Python.
 
-If you are still wondering about workflows at more general level or which workflow tool to use, see also [High-throughput computing and workflows page](../computing/running/throughput.md).
+If you are still wondering about workflows at more general level or which workflow tool to use, see also [High-throughput computing and workflows page](../supercomputing/running/throughput.md).
 
 [TOC]
 
@@ -65,11 +65,11 @@ can use it, for example to read a sample sheet.
 
 The tools used in the workflow can be installed in following ways:
 
-1. Tools available in other [modules](../apps/by_discipline.md) or [own custom module](../computing/modules.md#using-your-own-module-files).
+1. Tools available in other [modules](../apps/by_discipline.md) or [own custom module](../supercomputing/modules.md#using-your-own-module-files).
     * If all Snakemake rules use the same module(s), load it before running snakemake commands.
     * If different Snakemake rules use different modules, include the [module information in the Snakefile](https://snakemake.readthedocs.io/en/latest/snakefiles/deployment.html#using-environment-modules).
 2. Own custom installations as Apptainer containers:
-    * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../computing/containers/overview.md#building-container-images).
+    * Apptainer container can be downloaded from some repository or built locally. For building custom Apptainer containers, see [Creating containers page](../supercomputing/containers/index.md#building-container-images).
     * See Snakemake's [Running jobs in containers](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers) for changes required in Snakemake file and command.
     * For binding folders or using other Apptainer flags, use [--apptainer-args option](https://snakemake.readthedocs.io/en/stable/executing/cli.html#apptainer/singularity) of `snakemake` command.
     * Sometimes it might be necessary to [define the shell inside the container](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#handling-shell-executable).
@@ -83,7 +83,7 @@ container: "docker://<repository>/<image_name>"
 
 ### Snakemake Tykky installation for Python
 
-To install Snakemake with custom Python packages, use [Tykky container wrapper tool with conda](../computing/containers/tykky.md#conda-based-installation). Follow the guidelines on Tykky page, the conda environment should include package `snakemake`. If you plan to use Snakemake with SLURM or HyperQueue integration (explained below), install also `snakemake-executor-plugin-slurm` for SLURM or `snakemake-executor-plugin-cluster-generic` for HyperQueue. These packages are part of `bioconda` repository, so add it to the channels list in the conda environment file.
+To install Snakemake with custom Python packages, use [Tykky container wrapper tool with conda](../supercomputing/containers/tykky.md#conda-based-installation). Follow the guidelines on Tykky page, the conda environment should include package `snakemake`. If you plan to use Snakemake with SLURM or HyperQueue integration (explained below), install also `snakemake-executor-plugin-slurm` for SLURM or `snakemake-executor-plugin-cluster-generic` for HyperQueue. These packages are part of `bioconda` repository, so add it to the channels list in the conda environment file.
 
 For SLURM integration, you have to also fix the Python path of Snakemake executable:
 
@@ -109,7 +109,7 @@ If you use own Tykky installation, then in the examples below, replace the `modu
 
 Snakemake can be run in 4 different ways in supercomputers:
 
-1. [In interactive mode](../computing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
+1. [In interactive mode](../supercomputing/running/interactive-usage.md) with local executor, with limited resources. Useful mainly for debugging or very small workflows.
 2. With batch job and local executor. Resource usage limited to one full node. Useful for small and medium size workflows, simpler than next options, start with this, if unsure.
 3. With batch job and SLURM executor. Can use multiple nodes and different SLURM partitions (CPU and GPU), but may create significant overhead, if many small jobs. Could be used, if each job step for each file takes at least 30 min.
 4. With batch job and HyperQueue as a sub-job scheduler. Can use multiple nodes in the same batch job allocation, most complex set up. Suits well for cases, when workflow includes a lot of small job steps with many input files (high-troughput computing).
@@ -149,7 +149,7 @@ For more complicated workflows, you can do argument parsing and transformations 
 
 ### Running Snakemake workflow with local executor interactively
 
-The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for the [interactive partition](../computing/running/batch-job-partitions.md).
+The resources are reserved in advance, both for Snakemake and the workflow jobs as **one interactive session**. In interactive session, the workflow can be started for several times for debugging as long as the reserved resources are available. See resource limits for the [interactive partition](../supercomputing/running/batch-job-partitions.md).
 
 On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default and can request more with `--mem` (up to 32 cores / 64 GiB / 36 hours).
 

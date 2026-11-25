@@ -1,23 +1,14 @@
 # PostgreSQL permissions
 
-Note that while PostgreSQL 14 is EOL and no longer available in Pukki, some of the information
-regarding it on this page is kept around in case it's useful for users with database instances
-that have been upgraded from major version 14 to 17.
+On PostgreSQL database instances, you need to explicitly grant users access to a database
+to allow them to connect to it and to create tables in its public schema.
 
-## PostgreSQL 17 permissions
-
-In PostgreSQL 17 database instances, you need to explicitly grant users access to a database to
-allow them to create tables in the public schema of the specified database. This can be done as
-follows with the command line tools.
-
-When creating a new user, you can use the `--database` flag to grant user access to create new
-table in the public schema in a specific database:
-
+When creating a new user, you can use the `--database` flag to accomplish this:
 ```sh
 openstack database user create $INSTANCE_ID $USER_NAME $USER_PASSWORD --database $DATABASE_NAME
 ```
 
-The command to grant permissions for a user to create tables to an existing database user:
+To grant a user access to an existing database, you can use the following command:
 ```sh
 openstack database user grant access $INSTANCE_ID $USER_NAME $DATABASE_NAME
 ```
@@ -49,45 +40,36 @@ user following permissions:
 GRANT SELECT, INSERT, UPDATE, DELETE ON ${table} TO ${user};
 ```
 
+### For database instances created before 2026-11-23
 
-## Changes between PostgreSQL 14 and 17
+By default, PostgreSQL allows the `PUBLIC` role to connect to any database on the server, though it's
+restricted from creating, reading, or modifying any schemas or tables. Pukki's PostgreSQL instances
+kept this behaviour until an update on 2026-11-23.
 
-PostgreSQL 15 brought a very specific change to default permissions, which affects how Pukki
-manages users and their access rights.
+Old database instances that have not been rebuilt after this date continue to allow the `PUBLIC`
+role to connect to newly created databases. On newly created instances, however, or older instances
+that have been rebuilt, the following additional query is executed when creating a new database:
+```
+REVOKE CONNECT ON DATABASE $new_database FROM PUBLIC'
+```
 
-### Differences in how Pukki manages database access
+### Databases created on PostgreSQL 14 instances have different default permissions
 
 In PostgreSQL 14, the default privileges granted to database users allowed them to create new
 tables in any database's public schema on that database instance. PostgreSQL 15 revoked the
 `create` permission from all database users (except a database owner) from the public schema,
-which is used as the default schema. Now new users need to be explicitly given the `create`
-permission to a schema, usually the database's default `public` schema.
+which is used as the default schema.
 
-In a nutshell, when revoking or granting a user access to a PostgreSQL 14 database in Pukki, the
-query modifying permissions looks something like this:
-
-```sql
-GRANT|REVOKE ALL ON DATABASE ${DATABASE} TO|FROM ${USER};
-```
-
-On a PostgreSQL 17 database instance, the same web GUI or CLI-tool commands would result in this
-kind of a permissions-modifying query:
-
-```sql
-GRANT|REVOKE ALL ON SCHEMA public TO|FROM ${USER};
-```
-
-You can always enable root access on a database instance and log in as the root user to modify
-permissions more freely.
-
+If your Pukki database instance was originally using PostgreSQL 14, databases created on the instance
+before the upgrade to PostgreSQL 17 allow users with the `PUBLIC` role to connect to and create
+tables in the public schema. They still cannot modify or read tables created by other users without
+being granted access as described elsewhere on this page.
 
 ## A note about privileges
 
 If you have little or no prior experience with PostgreSQL, we recommend familiarizing yourself with how privileges in PSQL interact with Databases, Schema, and Tables. [Here's one tutorial that might be of use.](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
 
-To avoid confusion, keep in mind that in PostgreSQL 14 the default privileges allow every user to connect to any database and create tables in the default 'public' schema. However, they cannot access existing tables or other schema without explicit permission, and they cannot create new schema.
-
-Typically the owner of an object in PSQL (an object can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/14/ddl-priv.html)
+Typically the owner of an object in PSQL (an object can be a database, a schema, a table, etc. etc.) is the only one with any privileges regarding it, unless otherwise specified. This, combined with privileges not flowing 'downwards' in the hierarchy, can lead to some confusion. Having privileges to a schema doesn't imply any privileges to the tables contained within. For further reading, [here's the official docs on privileges.](https://www.postgresql.org/docs/17/ddl-priv.html)
 
 ### Example usage of privileges
 

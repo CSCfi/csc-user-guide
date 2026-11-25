@@ -120,7 +120,7 @@ braker4 \
   `--rerun-incomplete` to resume an interrupted run.
 
 For long or heavy annotations, run the main Snakemake process inside an
-[interactive session](../computing/running/interactive-usage.md) instead of on a
+[interactive session](../supercomputing/running/interactive-usage.md) instead of on a
 login node.
 
 ## Resources and partitions

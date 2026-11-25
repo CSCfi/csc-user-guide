@@ -30,7 +30,7 @@ online course.
 ### Roihu
 
 New users are recommended to start working on the
-[Roihu supercomputer](../../computing/available-systems.md#roihu). Roihu is
+[Roihu supercomputer](../../supercomputing/available-systems.md#roihu). Roihu is
 CSC's next-generation supercomputer offering enhanced performance and
 capabilities.
 
@@ -47,12 +47,12 @@ are also available without registration.
 
 If you are already familiar with CSC supercomputers and want to start working on Roihu, you can go directly to the [Getting started with Roihu](./roihu.md) guide.
 
-* [Learn more about Roihu here!](../../computing/systems-roihu.md)
+* [Learn more about Roihu here!](../../supercomputing/systems-roihu.md)
 * [Getting started with Roihu](./roihu.md)
 
 ### LUMI
 
-The [LUMI supercomputer](../../computing/available-systems.md#lumi)
+The [LUMI supercomputer](../../supercomputing/available-systems.md#lumi)
 is one of the fastest in the world. It is intended primarily
 for running computations that benefit from the large amount of high-performance
 GPUs in its LUMI-G hardware partition. Whereas the GPUs on Roihu are
@@ -67,7 +67,7 @@ GPU applications are able to run on AMD GPUs. LUMI has
     not the only one using them*. On your personal workstation, you have, in
     principle, immediate access to resources. On a supercomputer, which is a shared
     system, you must typically queue for them, since their demand tends to be higher
-    than their supply. See our [usage policy](../../computing/usage-policy.md)
+    than their supply. See our [usage policy](../../supercomputing/usage-policy.md)
     for more information.
 
     It is also worth keeping in mind that running your computations on a
@@ -86,17 +86,17 @@ GPU applications are able to run on AMD GPUs. LUMI has
 ### Web interface
 
 Roihu and LUMI both have
-[their own web interface](../../computing/webinterface/index.md), which allows
+[their own web interface](../../supercomputing/webinterface/index.md), which allows
 interacting with the supercomputer through a web browser. The web interface is a
 good choice for interactive computing, such as analyzing, exploring and
 visualizing data. For this purpose, the web interface features multiple
 interactive applications, like
-[Visual Studio Code](../../computing/webinterface/vscode.md),
-[Jupyter](../../computing/webinterface/jupyter.md) and
-[RStudio](../../computing/webinterface/rstudio.md). In addition, it provides a
-[desktop environment](../../computing/webinterface/desktop.md) featuring
+[Visual Studio Code](../../supercomputing/webinterface/vscode.md),
+[Jupyter](../../supercomputing/webinterface/jupyter.md) and
+[RStudio](../../supercomputing/webinterface/rstudio.md). In addition, it provides a
+[desktop environment](../../supercomputing/webinterface/desktop.md) featuring
 software with graphical user interfaces (GUIs), as well as an
-[accelerated visualization app](../../computing/webinterface/accelerated-visualization.md)
+[accelerated visualization app](../../supercomputing/webinterface/accelerated-visualization.md)
 for GPU-accelerated visualization and rendering. For demanding computation,
 like running full-scale simulations or training neural networks, you should use
 the command-line interface, since it allows you to access more resources and
@@ -118,11 +118,11 @@ interface to interact directly with the supercomputer's
 seem archaic, it is truly powerful once you get used to it.
 
 The CLI allows you to
-[submit your computations as batch jobs](../../computing/running/getting-started.md)
+[submit your computations as batch jobs](../../supercomputing/running/index.md)
 to the Slurm job scheduler, which runs them as soon as the requested resources
 are available. Importantly, the batch job system ensures that your jobs are run
 on the *compute nodes* as opposed to the *login nodes*,
-which are [**not** intended for heavy computing](../../computing/usage-policy.md).
+which are [**not** intended for heavy computing](../../supercomputing/usage-policy.md).
 Another benefit of batch jobs is that running computations does not necessitate
 being tied to your workstation. While setting up this automation can require
 some more planning on your part, in the long run it makes your work more
@@ -130,9 +130,9 @@ efficient as well as more reproducible both to yourself and other parties, such
 as reviewers and collaborators.
 
 You can access the command-line interface either by
-using the [shell applications](../../computing/webinterface/shell.md)
+using the [shell applications](../../supercomputing/webinterface/shell.md)
 featured in the web interfaces or by
-[using an SSH client on your own workstation](../../computing/connecting/index.md#using-an-ssh-client).
+[using an SSH client on your own workstation](../../supercomputing/connecting/index.md#using-an-ssh-client).
 
 !!! note "Connecting with SSH"
     Please note that connecting to CSC supercomputers from the command-line
@@ -143,9 +143,9 @@ featured in the web interfaces or by
 
     Roihu additionally requires that you sign your public key in MyCSC to
     obtain an SSH certificate, which is valid for 24 hours.
-    [Read how to sign your public key](../../computing/connecting/ssh-keys.md#signing-public-key).
+    [Read how to sign your public key](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
 
-    [Read the detailed instructions on setting up and using SSH keys](../../computing/connecting/ssh-keys.md).
+    [Read the detailed instructions on setting up and using SSH keys](../../supercomputing/connecting/ssh-keys.md).
 
 ## How to work with software and data?
 
@@ -156,9 +156,9 @@ available on CSC supercomputers. Software availability varies between systems
 and between the Roihu-CPU and Roihu-GPU partitions, so check the application
 pages and module availability on the system you plan to use.
 
-Both Roihu and LUMI use [environment modules](../../computing/modules.md) for
+Both Roihu and LUMI use [environment modules](../../supercomputing/modules.md) for
 managing software environments. These modules cover everything from
-[compilers](../../computing/installing.md#compiling) and
+[compilers](../../supercomputing/installing.md#compiling) and
 [programming languages](../../apps/by_discipline.md#mathematics-and-statistics)
 to workflow utilities like
 [Nextflow](../../apps/nextflow.md) and [Snakemake](../../apps/snakemake.md).
@@ -171,13 +171,13 @@ While the pre-installed software covers a wide variety of use cases, it is also
 possible to install your own applications on CSC supercomputers. The process
 often differs from carrying out installations on your own computer, so make
 sure to familiarize yourself with our
-[installation instructions](../../computing/installing.md). For compiling HPC
+[installation instructions](../../supercomputing/installing.md). For compiling HPC
 applications we have various
-[compilers](../../computing/installing.md#compiling),
-[high-performance libraries](../../computing/hpc-libraries.md) and other
+[compilers](../../supercomputing/installing.md#compiling),
+[high-performance libraries](../../supercomputing/hpc-libraries.md) and other
 utilities available to facilitate this. Note that some installations, such as
 complex Python environments, benefit from
-[containerization](../../computing/containers/overview.md).
+[containerization](../../supercomputing/containers/index.md).
 
 You may also wish to develop your own scripts and programs instead of using existing
 software. It is most efficient to start writing and testing your code on your
@@ -198,7 +198,7 @@ using specific resources like GPUs.
 
 ### Data storage
 
-Roihu provides distinct [disk areas](../../computing/disk.md) for
+Roihu provides distinct [disk areas](../../supercomputing/disk.md) for
 different data storage purposes. The *project-based* shared storage can be found
 under `/scratch/<project>`. This folder is shared by *all users* in a project
 and has a default quota of 250 GB on Roihu.
@@ -224,7 +224,7 @@ apply for a separate *dataset project* on Roihu. This gives you access to a
 storage area intended for sharing data between multiple computational projects
 on the system.
 
-See details about [dataset projects and the dataset disk area](../../computing/disk.md#dataset-directory).
+See details about [dataset projects and the dataset disk area](../../supercomputing/disk.md#dataset-directory).
 
 [Moving data](../../data/moving/index.md) between a supercomputer and a local
 workstation is easy using the
@@ -257,14 +257,14 @@ at CSC.
     - [Changing your password](../../accounts/how-to-change-password.md)
     - [MyCSC customer portal](https://my.csc.fi)
 
-=== "Computing"
-    - [Overview](../../computing/index.md)
-    - [Usage policy](../../computing/usage-policy.md)
-    - [Connecting to supercomputers](../../computing/connecting/index.md)
-    - [Running batch jobs](../../computing/running/getting-started.md) and
-      [available batch job partitions](../../computing/running/batch-job-partitions.md)
+=== "Supercomputing"
+    - [Overview](../../supercomputing/index.md)
+    - [Usage policy](../../supercomputing/usage-policy.md)
+    - [Connecting to supercomputers](../../supercomputing/connecting/index.md)
+    - [Running batch jobs](../../supercomputing/running/index.md) and
+      [available batch job partitions](../../supercomputing/running/batch-job-partitions.md)
     - [Pre-installed applications](../../apps/index.md) and
-      [how to install custom software](../../computing/installing.md)
+      [how to install custom software](../../supercomputing/installing.md)
     - [LUMI user guide](https://docs.lumi-supercomputer.eu/)
 
 === "Training materials and tutorials"

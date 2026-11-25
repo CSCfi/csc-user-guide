@@ -8,4 +8,4 @@ Please see also:
 
 * [How to create a new project](../../accounts/how-to-create-new-project.md).
 * `csc-projects` – a command-line tool for querying information about your
-  [active projects on CSC supercomputers](../../computing/index.md#projects-and-quotas).
+  [active projects on CSC supercomputers](../../supercomputing/index.md#projects-and-quotas).

@@ -42,7 +42,7 @@ To see the available versions:
 module spider mothur
 ```
 
-To run Mothur in interactive mode, use [sinteractive](../computing/running/interactive-usage.md).
+To run Mothur in interactive mode, use [sinteractive](../supercomputing/running/interactive-usage.md).
 On the Roihu `interactive` partition you get 1 GiB of memory per reserved core by default; add `--mem` if you need more (up to 32 cores / 64 GiB / 36 hours):
 
 ```bash
@@ -91,7 +91,7 @@ with the command:
 sbatch mothur_batch_job.sh
 ```
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

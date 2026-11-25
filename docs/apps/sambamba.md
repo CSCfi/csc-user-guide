@@ -56,8 +56,8 @@ Sorting and marking duplicates in large BAM files take a long time, so run them 
 batch job, not on the login node.
 
 `sort` and `markdup` write temporary files to `$TMPDIR`, which on shared compute
-nodes is limited in size (see [disk areas](../computing/disk.md)). For large BAM
-files, use [disaggregated storage](../computing/disk.md#disaggregated-storage) for the
+nodes is limited in size (see [disk areas](../supercomputing/disk.md)). For large BAM
+files, use [disaggregated storage](../supercomputing/disk.md#disaggregated-storage) for the
 temporary files instead, as shown after the example batch script.
 
 ### Example batch script
@@ -97,7 +97,9 @@ Reserve more space than the size of the input BAM, because `sort` writes its
 temporary files with only light compression. Sambamba deletes the temporary files
 when it finishes, so nothing needs to be copied back.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+--8<-- "sbof-array-warning.md"
+
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

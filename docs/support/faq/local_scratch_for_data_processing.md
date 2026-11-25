@@ -1,6 +1,6 @@
 # Which directory should I use to analyze many small files?
 
-An [interactive batch job](../../computing/running/interactive-usage.md) on
+An [interactive batch job](../../supercomputing/running/interactive-usage.md) on
 Roihu allows you to start a shell session on a CPU node with up to:
 
 * 32 cores
@@ -16,12 +16,12 @@ sinteractive -i
 The "normal" Lustre-based project-specific directories *scratch* and *projappl*
 can store large amounts of data and are accessible to all nodes of Roihu.
 However, these directories are
-[inefficient for managing thousands of files](../../computing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
+[inefficient for managing thousands of files](../../supercomputing/running/performance-checklist.md#mind-your-io-it-can-make-a-big-difference).
 
 Generally, you should avoid workflows that require creating large amounts of
 small files. If you anyhow need to work with thousands of files, you should
 consider using the
-[NVMe-based temporary local disk areas](../../computing/disk.md#temporary-local-disk-areas),
+[NVMe-based temporary local disk areas](../../supercomputing/disk.md#temporary-local-disk-areas),
 either through normal or interactive batch jobs. These areas are node-specific
 and visible only to the batch job that requests them. After the job ends, the
 data is purged. Because of this, you need to always first import your dataset
@@ -30,10 +30,10 @@ to some more permanent storage place such as scratch or Allas.
 
 Interactive CPU batch jobs launched with `sinteractive` on Roihu automatically
 provide access to 20 GiB of
-[fast local disk](../../computing/disk.md#temporary-local-disk-areas)
+[fast local disk](../../supercomputing/disk.md#temporary-local-disk-areas)
 (`$TMPDIR`), which is suitable for processing small files efficiently. For
 larger needs, add
-[disaggregated storage](../../computing/disk.md#disaggregated-storage) to the
+[disaggregated storage](../../supercomputing/disk.md#disaggregated-storage) to the
 session with the `-d` option of `sinteractive`, as shown further below.
 
 To demonstrate the use of the disaggregated storage, let's study a sample
@@ -85,4 +85,4 @@ scratch directory gives much more stable response times, since scratch
 execution times will vary a lot based on the current total load on the Lustre
 file system.
 
-[More information about temporary local disk areas](../../computing/disk.md#temporary-local-disk-areas).
+[More information about temporary local disk areas](../../supercomputing/disk.md#temporary-local-disk-areas).

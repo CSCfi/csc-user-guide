@@ -125,7 +125,7 @@ The hifiasm README reports that, with version 0.12, a human genome (3.1 Gb, abou
 genomes need far less. Replace `<project>` with your CSC project (for example
 `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

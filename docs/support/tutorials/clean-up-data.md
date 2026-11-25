@@ -10,7 +10,7 @@ Keeping `scratch` tidy matters because:
 * A Lustre file system slows down for everyone once it is more than about 70% full. CSC has
   allocated more quota than there is disk space, so `scratch` cannot be used for long-term
   storage.
-* `scratch` usage is [billed](../../computing/hpc-billing.md#storage) per TiB-hour, so
+* `scratch` usage is [billed](../../supercomputing/hpc-billing.md#storage) per TiB-hour, so
   removing files saves your project's Storage BUs.
 
 Please do the following:
@@ -39,7 +39,7 @@ Checking how much data is in different folders can be slow and heavy on the file
 
 ## Automatic removal of files
 
-According to the [disk cleaning policy](../../computing/usage-policy.md#disk-cleaning), files
+According to the [disk cleaning policy](../../supercomputing/usage-policy.md#disk-cleaning), files
 are automatically removed from `scratch` (not `projappl` or `dataset`) if they are older than:
 
 * **180 days**, if your project's `scratch` quota is less than 5 TiB
@@ -197,7 +197,7 @@ lcleaner -0 "$list" | grep -zZ "/scratch/${my_project}/delete-this-dir/" | xargs
 ```
 
 Press `Ctrl-b` and then `d` to detach from the session and leave the deletion running.
-To check on it later, [log in to the same login node](../../computing/connecting/index.md#connecting-to-a-specific-node)
+To check on it later, [log in to the same login node](../../supercomputing/connecting/index.md#connecting-to-a-specific-node)
 and run `tmux attach -t cleanup`.
 Type `exit` to close the session when the deletion is done. See the
 [tmux tutorial](tmux.md) for more details.

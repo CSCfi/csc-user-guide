@@ -68,7 +68,7 @@ performed. Here are some general guidelines for scalability testing.
    so that the run time after initialization is sufficiently long.
 * Parameters affecting the scalability can, and are encouraged to be, changed.
   Note also the
-  [performance checklist](../computing/running/performance-checklist.md).
+  [performance checklist](../supercomputing/running/performance-checklist.md).
 * The minimum requirement is 75 % parallel efficiency.
     * This corresponds to a speedup of 1.5 when doubling the number of nodes, or a speedup of 3 when quadrupling them, and so on.
     * Parallel efficiency is described with the following formula:
@@ -79,7 +79,7 @@ performed. Here are some general guidelines for scalability testing.
         * T<sub>N</sub> is the total time spent in execution in a scaled-up case with N nodes
 
 To get started with gathering runtime characteristics of your program,
-see CSC documentation on [performance analysis](../computing/performance.md).
+see CSC documentation on [performance analysis](../supercomputing/performance.md).
 
 ## Reporting
 

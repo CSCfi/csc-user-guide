@@ -9,14 +9,14 @@ page](../../apps/index.md) if it exists. It may have a tailored template for you
 ### a) Log in to Roihu from a terminal
 
 Before logging in with SSH, sign your public SSH key and download a certificate following these instructions: 
-[Signing public SSH keys](../../computing/connecting/ssh-keys.md#signing-public-key).
+[Signing public SSH keys](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
 
 Then log in with 
 
 `ssh your-username@roihu-cpu.csc.fi`
 
 If you don't have an SSH client available, you can log in via the [web interface]
-(../../computing/webinterface/index.md) using your web browser and open a terminal there.
+(../../supercomputing/webinterface/index.md) using your web browser and open a terminal there.
 
 ### b) Go to scratch directory and download the exercises file
 
@@ -318,7 +318,7 @@ You should get the fit coefficients in separate files in the
 ### e) Collect the results and plot them.
 
 The most convenient way to display graphical results with R is to 
-use [RStudio](../../computing/webinterface/rstudio.md) in the [web interface](../../computing/webinterface/index.md). 
+use [RStudio](../../supercomputing/webinterface/rstudio.md) in the [web interface](../../supercomputing/webinterface/index.md). 
 
 Set working directory with `setwd()` to the directory containing `analyse.R`, for example
 `setwd("/scratch/project_20001234/r-array")`. In the RStudio 
@@ -350,7 +350,7 @@ wget https://a3s.fi/docs-files/example.fasta
 
 Let's first run the job with just one core. Copy one of the old batch
 scripts to current directory, and change / add the following items in
-it (or take a look at [these examples](../../computing/running/example-job-scripts-roihu.md)):
+it (or take a look at [these examples](../../supercomputing/running/example-job-scripts-roihu.md)):
 
 1. Output to `out_%j.txt`
 1. error to `err_%j.txt`
@@ -513,7 +513,7 @@ also use the `test` partition. In Roihu, there are 384 cores available per node.
 Jobs larger than that  need to switch to `large` partition. In multinode jobs, always 
 limit the number of *Nodes*, so that the job is not spread onto
 more nodes than necessary as it
-[creates unwanted communication overhead and fragments the allocations on the system](../../computing/running/performance-checklist.md).
+[creates unwanted communication overhead and fragments the allocations on the system](../../supercomputing/running/performance-checklist.md).
 
 With the following command you can sum the time spent at different steps
 for each job.

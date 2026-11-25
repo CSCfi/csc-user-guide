@@ -17,6 +17,10 @@ catalog:
 Collection of Python libraries for data analytics and machine learning.
 
 !!! info "News"
+
+     **14.10.2026** A new version of python-data with NumPy, SciPy, NumExpr and SciPy sparse extension backed by AMD 
+     Optimizing CPU Libraries (AOCL) is now available on Roihu-CPU as `python-data/3.12-14.10`.
+     
      **31.3.2026** Python-data is now available on Roihu. The default version on Roihu-CPU is `python-data/3.12-31.03` and
      `python-data/3.12-20.04` on Roihu-GPU. 
      
@@ -31,17 +35,21 @@ allow.
 
 Current versions in Roihu are: 
 
-- Roihu-CPU: (default version) `python-data/3.12-31.03`: installed in March 2026,
+- Roihu-CPU: (default version) `python-data/3.12-14.10`: installed in October 2026,
   includes for example Scikit-learn 1.8.0, SciPy 1.17.1, Pandas 2.3.3
-  and JupyterLab 4.5.6.
+  and JupyterLab 4.5.6. NumPy, SciPy, NumExpr and SciPy sparse extension
+  are backed by AMD Optimizing CPU Libraries (AOCL).
 
 - Roihu-GPU: (default version) `python-data/3.12-20.04`: installed in April 2026,
   includes for example Cupy 14.0.1 in addition to the Python libraries available in Roihu-CPU python-data.
 
+- Roihu-CPU: `python-data/3.12-31.03`: installed in March 2026, includes the Python libraries available in
+  the default Roihu-CPU python-data environment without the AOCL-backed libraries.
+
 - Roihu-GPU: `python-data/3.10-17.04`: installed in April 2026,
   includes the Python libraries available in the default Roihu-GPU python-data environment with Python 3.10.
   
-- Roihu-CPU: `python-data/3.10-03.07`: installed in July 2026,
+- Roihu-CPU: `python-data/3.10-06.07`: installed in July 2026,
   includes the Python libraries available in the default Roihu-CPU python-data environment with Python 3.10.
 
 Python-data tries to include a comprehensive selection of Python libraries for
@@ -52,13 +60,13 @@ data analytics and machine learning, for example:
 - [Jupyter](https://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/)
 - [Marimo](https://marimo.io) (Roihu)
 - [NLTK](https://matplotlib.org/): Natural language toolkit
-- [Polars] (https://docs.pola.rs): Large-scale data analytics
+- [Polars](https://docs.pola.rs): Large-scale data analytics
 - [PyTables](http://www.pytables.org/)
 - [SciPy](https://www.scipy.org/), including [NumPy](https://www.numpy.org/), [Matplotlib](https://matplotlib.org/) and [Pandas](https://pandas.pydata.org/)
 - [Scikit-learn](https://scikit-learn.org/stable/): Machine learning in Python
 - [Seaborn](https://seaborn.pydata.org/): Statistical data visualization
 
-??? info "Click to see full list of packages for python-data/3.12-31.03"
+??? info "Click to see full list of packages for python-data/3.12-14.10"
 
     <div class="pkg-table" markdown="1">
 
@@ -76,11 +84,7 @@ data analytics and machine learning, for example:
     - `argon2-cffi` <span class="v">25.1.0</span>
     - `argon2-cffi-bindings` <span class="v">25.1.0</span>
     - `arrow` <span class="v">1.4.0</span>
-    - `arviz` <span class="v">1.1.0</span>
-    - `arviz-base` <span class="v">1.1.0</span>
-    - `arviz-plots` <span class="v">1.1.0</span>
-    - `arviz-stats` <span class="v">1.1.0</span>
-    - `ase` <span class="v">3.29.0</span>
+    - `astor` <span class="v">0.8.1</span>
     - `astroid` <span class="v">4.0.4</span>
     - `asttokens` <span class="v">3.0.1</span>
     - `async-lru` <span class="v">2.3.0</span>
@@ -91,10 +95,9 @@ data analytics and machine learning, for example:
     - `babel` <span class="v">2.18.0</span>
     - `backports.tarfile` <span class="v">1.2.0</span>
     - `backports.zstd` <span class="v">1.3.0</span>
-    - `banduppy` <span class="v">1.0.1.dev0</span>
+    - `base58` <span class="v">2.1.1</span>
     - `bcrypt` <span class="v">5.0.0</span>
     - `beautifulsoup4` <span class="v">4.14.3</span>
-    - `bibtexparser` <span class="v">1.4.4</span>
     - `binaryornot` <span class="v">0.6.0</span>
     - `black` <span class="v">26.3.1</span>
     - `bleach` <span class="v">6.3.0</span>
@@ -104,9 +107,9 @@ data analytics and machine learning, for example:
     - `botocore` <span class="v">1.42.89</span>
     - `Brotli` <span class="v">1.2.0</span>
     - `cached-property` <span class="v">1.5.2</span>
-    - `cachetools` <span class="v">6.2.6</span>
+    - `cachetools` <span class="v">7.0.5</span>
     - `cattrs` <span class="v">26.1.0</span>
-    - `certifi` <span class="v">2026.4.22</span>
+    - `certifi` <span class="v">2026.7.22</span>
     - `cffi` <span class="v">2.0.0</span>
     - `cftime` <span class="v">1.6.5</span>
     - `chardet` <span class="v">5.2.0</span>
@@ -116,7 +119,6 @@ data analytics and machine learning, for example:
     - `colorama` <span class="v">0.4.6</span>
     - `colorful` <span class="v">0.5.8</span>
     - `comm` <span class="v">0.2.3</span>
-    - `cons` <span class="v">0.4.7</span>
     - `contourpy` <span class="v">1.3.3</span>
     - `cookiecutter` <span class="v">2.7.1</span>
     - `cryptography` <span class="v">46.0.7</span>
@@ -148,7 +150,6 @@ data analytics and machine learning, for example:
     - `email-validator` <span class="v">2.3.0</span>
     - `entrypoints` <span class="v">0.4</span>
     - `et_xmlfile` <span class="v">2.0.0</span>
-    - `etuples` <span class="v">0.3.10</span>
     - `exceptiongroup` <span class="v">1.3.1</span>
     - `executing` <span class="v">2.2.1</span>
     - `fastapi` <span class="v">0.135.3</span>
@@ -161,7 +162,6 @@ data analytics and machine learning, for example:
     - `Flask` <span class="v">3.1.3</span>
     - `flask-cors` <span class="v">6.0.2</span>
     - `fonttools` <span class="v">4.62.0</span>
-    - `fortio` <span class="v">0.4</span>
     - `fqdn` <span class="v">1.5.1</span>
     - `frozenlist` <span class="v">1.7.0</span>
     - `fsspec` <span class="v">2026.3.0</span>
@@ -206,7 +206,6 @@ data analytics and machine learning, for example:
     - `ipython-genutils` <span class="v">0.2.0</span>
     - `ipython_pygments_lexers` <span class="v">1.1.1</span>
     - `ipywidgets` <span class="v">8.1.8</span>
-    - `irrep` <span class="v">3.1.1</span>
     - `iso8601` <span class="v">2.1.0</span>
     - `isodate` <span class="v">0.7.2</span>
     - `isoduration` <span class="v">20.11.0</span>
@@ -247,14 +246,13 @@ data analytics and machine learning, for example:
     - `lark` <span class="v">1.3.1</span>
     - `lazy-loader` <span class="v">0.5</span>
     - `lightgbm` <span class="v">4.6.0</span>
-    - `llvmlite` <span class="v">0.47.0</span>
+    - `llvmlite` <span class="v">0.50.0</span>
     - `lmdb` <span class="v">2.1.1</span>
     - `locket` <span class="v">1.0.0</span>
-    - `logical-unification` <span class="v">0.4.7</span>
     - `logzero` <span class="v">1.7.0</span>
     - `loro` <span class="v">1.10.3</span>
     - `lsprotocol` <span class="v">2025.0.0</span>
-    - `lxml` <span class="v">6.1.1</span>
+    - `lxml` <span class="v">6.0.4</span>
     - `lz4` <span class="v">4.4.5</span>
     - `Mako` <span class="v">1.3.10</span>
     - `marimo` <span class="v">0.23.1</span>
@@ -266,14 +264,11 @@ data analytics and machine learning, for example:
     - `mccabe` <span class="v">0.7.0</span>
     - `mdit-py-plugins` <span class="v">0.5.0</span>
     - `mdurl` <span class="v">0.1.2</span>
-    - `miniKanren` <span class="v">1.0.5</span>
     - `mistune` <span class="v">3.2.0</span>
     - `mlflow` <span class="v">3.10.1</span>
     - `mlflow-skinny` <span class="v">3.10.1</span>
     - `mlflow-tracing` <span class="v">3.10.1</span>
-    - `monty` <span class="v">2026.7.16</span>
     - `more-itertools` <span class="v">11.0.2</span>
-    - `mpmath` <span class="v">1.3.0</span>
     - `msgpack` <span class="v">1.1.2</span>
     - `msgspec` <span class="v">0.21.0</span>
     - `multidict` <span class="v">6.7.1</span>
@@ -293,9 +288,9 @@ data analytics and machine learning, for example:
     - `nltk` <span class="v">3.9.4</span>
     - `notebook` <span class="v">7.5.5</span>
     - `notebook_shim` <span class="v">0.2.4</span>
-    - `numba` <span class="v">0.65.0</span>
+    - `numba` <span class="v">0.68.0</span>
     - `numexpr` <span class="v">2.14.1</span>
-    - `numpy` <span class="v">2.4.6</span>
+    - `numpy` <span class="v">2.5.4</span>
     - `numpydoc` <span class="v">1.10.0</span>
     - `nvidia-nccl-cu12` <span class="v">2.29.7</span>
     - `odfpy` <span class="v">1.4.1</span>
@@ -309,7 +304,6 @@ data analytics and machine learning, for example:
     - `opentelemetry-proto` <span class="v">1.41.0</span>
     - `opentelemetry-sdk` <span class="v">1.41.0</span>
     - `opentelemetry-semantic-conventions` <span class="v">0.62b0</span>
-    - `orjson` <span class="v">3.11.9</span>
     - `os-service-types` <span class="v">1.8.2</span>
     - `oslo.config` <span class="v">10.3.0</span>
     - `oslo.i18n` <span class="v">6.7.2</span>
@@ -317,7 +311,6 @@ data analytics and machine learning, for example:
     - `oslo.utils` <span class="v">10.0.1</span>
     - `overrides` <span class="v">7.7.0</span>
     - `packaging` <span class="v">26.0</span>
-    - `palettable` <span class="v">3.3.3</span>
     - `pandas` <span class="v">2.3.3</span>
     - `pandocfilters` <span class="v">1.5.0</span>
     - `papermill` <span class="v">2.7.0</span>
@@ -336,6 +329,7 @@ data analytics and machine learning, for example:
     - `pluggy` <span class="v">1.6.0</span>
     - `ply` <span class="v">3.11</span>
     - `polars` <span class="v">1.44.1</span>
+    - `polars-runtime-32` <span class="v">1.44.1</span>
     - `prettytable` <span class="v">3.17.0</span>
     - `prometheus_client` <span class="v">0.25.0</span>
     - `prometheus_flask_exporter` <span class="v">0.23.2</span>
@@ -360,7 +354,7 @@ data analytics and machine learning, for example:
     - `pydantic_core` <span class="v">2.46.0</span>
     - `pydantic-extra-types` <span class="v">2.11.2</span>
     - `pydantic-settings` <span class="v">2.14.0</span>
-    - `pydeck` <span class="v">0.8.0b4</span>
+    - `pydeck` <span class="v">0.2.1</span>
     - `pydocstyle` <span class="v">6.3.0</span>
     - `pydot` <span class="v">4.0.1</span>
     - `pyflakes` <span class="v">3.2.0</span>
@@ -371,13 +365,10 @@ data analytics and machine learning, for example:
     - `pylint` <span class="v">4.0.5</span>
     - `pylint-venv` <span class="v">3.0.4</span>
     - `pyls-spyder` <span class="v">0.4.0</span>
-    - `pymatgen` <span class="v">2026.5.4</span>
-    - `pymatgen-core` <span class="v">2026.8.13</span>
-    - `pymc` <span class="v">6.0.1</span>
     - `pymdown-extensions` <span class="v">10.21.2</span>
+    - `Pympler` <span class="v">1.1</span>
     - `PyNaCl` <span class="v">1.6.2</span>
     - `pynndescent` <span class="v">0.5.13</span>
-    - `pyocse` <span class="v">0.1.3</span>
     - `pyOpenSSL` <span class="v">26.0.0</span>
     - `pyparsing` <span class="v">3.3.2</span>
     - `pyproj` <span class="v">3.7.2</span>
@@ -386,7 +377,6 @@ data analytics and machine learning, for example:
     - `PyQtWebEngine` <span class="v">5.15.7</span>
     - `PySide6` <span class="v">6.10.2</span>
     - `PySocks` <span class="v">1.7.1</span>
-    - `pytensor` <span class="v">3.0.4</span>
     - `pytest` <span class="v">9.0.3</span>
     - `python-dateutil` <span class="v">2.9.0.post0</span>
     - `python-discovery` <span class="v">1.2.2</span>
@@ -397,6 +387,7 @@ data analytics and machine learning, for example:
     - `python-lsp-jsonrpc` <span class="v">1.1.2</span>
     - `python-lsp-ruff` <span class="v">2.3.1</span>
     - `python-lsp-server` <span class="v">1.14.0</span>
+    - `python-magic` <span class="v">0.4.27</span>
     - `python-multipart` <span class="v">0.0.27</span>
     - `python-poppler` <span class="v">0.4.1</span>
     - `python-slugify` <span class="v">8.0.4</span>
@@ -407,7 +398,6 @@ data analytics and machine learning, for example:
     - `pyu2f` <span class="v">0.1.5</span>
     - `pyuca` <span class="v">1.2</span>
     - `pyxdg` <span class="v">0.28</span>
-    - `pyxtal` <span class="v">1.1.1</span>
     - `PyYAML` <span class="v">6.0.3</span>
     - `pyzmq` <span class="v">27.1.0</span>
     - `QDarkStyle` <span class="v">3.2.3</span>
@@ -434,7 +424,6 @@ data analytics and machine learning, for example:
     - `rpds-py` <span class="v">0.30.0</span>
     - `rsa` <span class="v">4.9.1</span>
     - `rtree` <span class="v">1.4.1</span>
-    - `ruamel.yaml` <span class="v">0.19.1</span>
     - `ruff` <span class="v">0.15.10</span>
     - `s3cmd` <span class="v">2.4.0</span>
     - `s3transfer` <span class="v">0.16.0</span>
@@ -443,6 +432,7 @@ data analytics and machine learning, for example:
     - `scipy` <span class="v">1.17.1</span>
     - `seaborn` <span class="v">0.13.2</span>
     - `SecretStorage` <span class="v">3.4.1</span>
+    - `semver` <span class="v">3.1.0</span>
     - `Send2Trash` <span class="v">2.1.0</span>
     - `setproctitle` <span class="v">1.2.2</span>
     - `setuptools` <span class="v">81.0.0</span>
@@ -460,7 +450,6 @@ data analytics and machine learning, for example:
     - `sortedcontainers` <span class="v">2.4.0</span>
     - `soupsieve` <span class="v">2.8.3</span>
     - `sparse` <span class="v">0.18.0</span>
-    - `spglib` <span class="v">2.7.0</span>
     - `Sphinx` <span class="v">9.1.0</span>
     - `sphinxcontrib-applehelp` <span class="v">2.0.0</span>
     - `sphinxcontrib-devhelp` <span class="v">2.0.0</span>
@@ -476,11 +465,9 @@ data analytics and machine learning, for example:
     - `starlette` <span class="v">1.0.0</span>
     - `statsmodels` <span class="v">0.14.6</span>
     - `stevedore` <span class="v">5.7.0</span>
-    - `streamlit` <span class="v">1.56.0</span>
+    - `streamlit` <span class="v">1.8.0</span>
     - `superqt` <span class="v">0.8.0</span>
-    - `sympy` <span class="v">1.14.0</span>
     - `tables` <span class="v">3.11.1</span>
-    - `tabulate` <span class="v">0.10.0</span>
     - `tblib` <span class="v">3.2.2</span>
     - `tenacity` <span class="v">9.1.4</span>
     - `tensorboard` <span class="v">2.20.0</span>
@@ -505,15 +492,15 @@ data analytics and machine learning, for example:
     - `typing-inspection` <span class="v">0.4.2</span>
     - `typing_utils` <span class="v">0.1.0</span>
     - `tzdata` <span class="v">2026.1</span>
+    - `tzlocal` <span class="v">5.4.4</span>
     - `ujson` <span class="v">5.12.0</span>
     - `umap-learn` <span class="v">0.5.12</span>
-    - `uncertainties` <span class="v">3.2.3</span>
     - `unicodedata2` <span class="v">17.0.1</span>
     - `uri-template` <span class="v">1.3.0</span>
     - `urllib3` <span class="v">2.6.3</span>
     - `uvicorn` <span class="v">0.44.0</span>
     - `uvloop` <span class="v">0.22.1</span>
-    - `vasprun-xml` <span class="v">1.0.4</span>
+    - `validators` <span class="v">0.36.0</span>
     - `virtualenv` <span class="v">21.2.1</span>
     - `watchdog` <span class="v">6.0.0</span>
     - `watchfiles` <span class="v">1.1.1</span>
@@ -529,11 +516,9 @@ data analytics and machine learning, for example:
     - `wrapt` <span class="v">2.1.2</span>
     - `wurlitzer` <span class="v">3.1.1</span>
     - `xarray` <span class="v">2026.4.0</span>
-    - `xarray-einstats` <span class="v">0.10.0</span>
     - `xgboost` <span class="v">3.2.0</span>
     - `xlrd` <span class="v">2.0.2</span>
     - `xlwt` <span class="v">1.3.0</span>
-    - `xmltodict` <span class="v">1.0.4</span>
     - `xyzservices` <span class="v">2026.3.0</span>
     - `yapf` <span class="v">0.43.0</span>
     - `yarl` <span class="v">1.23.0</span>
@@ -607,7 +592,7 @@ to access the default version, or if you wish to have a specific version ([see
 above for available versions](#available)):
 
 ```text
-module load python-data/3.12-31.03
+module load python-data/3.12-14.10
 ```
 
 If you just want the most recent version with a specific Python version, you can also run:
@@ -632,7 +617,7 @@ list-packages
 
     Note that login nodes are not intended for heavy computing, please use
     slurm batch jobs instead. See our [instructions on how to use the batch job
-    system](../computing/running/getting-started.md).
+    system](../supercomputing/running/index.md).
 
 Please also check [CSC's general Python documentation](python.md).
 
@@ -640,4 +625,4 @@ Please also check [CSC's general Python documentation](python.md).
 
 Roihu nodes have fast local storage which is useful for
 I/O-intensive applications. See our general instructions on
-[how to use local temporary storage on Roihu](../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
+[how to use local temporary storage on Roihu](../supercomputing/running/creating-job-scripts-roihu.md#local-temporary-storage).

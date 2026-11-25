@@ -8,7 +8,7 @@ applications on CSC's supercomputers. It is part of our
 
 CSC's supercomputers have three types of shared disk areas: **home**,
 **projappl** and **scratch**. You can
-[read more about the disk areas for Roihu here](../../../computing/disk.md). For
+[read more about the disk areas for Roihu here](../../../supercomputing/disk.md). For
 [LUMI check the data storage section here](https://docs.lumi-supercomputer.eu/storage/).
 In general, keep your code and software in **projappl** and datasets,
 logs and calculation outputs in **scratch**. The **home** directory is
@@ -40,7 +40,7 @@ used to store anything important long-term.
 
 Finally, if you are working with other projects that all need access
 to the same common data, you might consider applying for a [dataset
-project in Roihu](../../../computing/roihu-dataset-project.md). A dataset
+project in Roihu](../../../supercomputing/roihu-dataset-project.md). A dataset
 project is a good way to host data that is read from often but not
 written often.
 
@@ -63,7 +63,7 @@ hours.
     for sequential access instead!
 
 For further reading, see CSC's
-[technical description of the Lustre filesystem](../../../computing/lustre.md)
+[technical description of the Lustre filesystem](../../../supercomputing/lustre.md)
 and our general tutorial on
 [how to achieve better I/O performance on Lustre](../lustre_performance.md).
 
@@ -96,7 +96,7 @@ to access your data more efficiently.
 
 If you really need to access the individual small files, you can use
 the [fast NVMe local drive that is present in all compute nodes on
-Roihu](../../../computing/disk.md#compute-nodes). This area can be
+Roihu](../../../supercomputing/disk.md#compute-nodes). This area can be
 accessed in the location specified by the environment variable
 `$TMPDIR`, and for GPU jobs it has a maximum capacity of 150 GiB.
 
@@ -120,7 +120,7 @@ srun python3 myprog.py --input_data=$TMPDIR <options>
 Note that you need to communicate to your own program where to find
 the dataset, for example with a command line argument. Also see our
 [general instructions on how to take the fast local storage into
-use](../../../computing/running/creating-job-scripts-roihu.md#local-temporary-storage).
+use](../../../supercomputing/running/creating-job-scripts-roihu.md#local-temporary-storage).
 
 If you are running a [multi-node job](multi.md), you need to modify the `tar`
 line so that it is performed on each node separately:
@@ -134,6 +134,8 @@ srun --ntasks=$SLURM_NNODES --ntasks-per-node=1 \
 ### Disaggregated NVMe
 
 Finally, if 150 GiB is not enough, [Roihu also supports disaggregated
-NVMe](../../../computing/disk.md#disaggregated-storage). This fast
+NVMe](../../../supercomputing/disk.md#disaggregated-storage). This fast
 storage capacity is provided over the network and will appear as local
 scratch from within a Slurm job.
+
+--8<-- "sbof-array-warning.md"

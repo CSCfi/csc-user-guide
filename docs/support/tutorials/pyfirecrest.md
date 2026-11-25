@@ -1,6 +1,6 @@
 # Using PyFireCREST in a Python script or Jupyter notebook
 
-This page gives an example of how you could use FireCREST to access Roihu and Lumi from a Python script or a Jupyter notebook. We will train a Classifier model on the [Iris dataset](https://archive.ics.uci.edu/dataset/53/iris), and output the confusion matrix. Basic knowledge of Python and its usage in a HPC environment are assumed. If you're unsure about these topics, see the page on [Using Python on CSC supercomputers](./python-usage-guide.md). See also [CSC FirecREST documentation](../../computing/firecrest/index.md) and [PyFirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_v2_index.html). You can download a [Python notebook](https://a3s.fi/docs-files/pyfirecrest_example.ipynb) that implements this tutorial and follow along with it.
+This page gives an example of how you could use FireCREST to access Roihu and Lumi from a Python script or a Jupyter notebook. We will train a Classifier model on the [Iris dataset](https://archive.ics.uci.edu/dataset/53/iris), and output the confusion matrix. Basic knowledge of Python and its usage in a HPC environment are assumed. If you're unsure about these topics, see the page on [Using Python on CSC supercomputers](./python-usage-guide.md). See also [CSC FirecREST documentation](../../supercomputing/firecrest/index.md) and [PyFirecREST documentation](https://pyfirecrest.readthedocs.io/en/stable/reference_v2_index.html). You can download a [Python notebook](https://a3s.fi/docs-files/pyfirecrest_example.ipynb) that implements this tutorial and follow along with it.
 
 This workflow enables easy modification of your unprocessed data within a notebook or Python script, while still using HPC resources for the heavy computations. This way you use BU:s only on the heavy computation, not on the parts you can do locally.
 
@@ -28,7 +28,7 @@ FIRECREST_URL = "https://api.roihu.csc.fi/v1"
 ACCOUNT = "project_1234567"
 ```
 
-Retrieve your personal access token. Instructions for this and the exact API endpoint are found in the [Connecting to Roihu FirecREST HPC API](../../computing/firecrest/connecting.md) and for Lumi in the [Lumi Documentation](https://docs.lumi-supercomputer.eu/).
+Retrieve your personal access token. Instructions for this and the exact API endpoint are found in the [Connecting to Roihu FirecREST HPC API](../../supercomputing/firecrest/connecting.md) and for Lumi in the [Lumi Documentation](https://docs.lumi-supercomputer.eu/).
 
 !!! warning
 
@@ -44,7 +44,7 @@ load_dotenv(override=True)
 
 Before we can call FireCREST, we have to implement a class that has a `get_access_token()` method. If you are using a robot account, you can use the built-in authorization class `ClientCredentialsAuth`.
 
-For an example implementation of the authorization class, see the [Python SDK](../../computing/firecrest/pyfirecrest.md).
+For an example implementation of the authorization class, see the [Python SDK](../../supercomputing/firecrest/pyfirecrest.md).
 
 ```python
 class TokenAuth:
@@ -153,7 +153,7 @@ env_vars["OUTPUT_FILENAME"] = OUTPUT_FILENAME
 env_vars["DATA_FILE"] = filename_on_roihu
 ```
 
-To submit a job on the compute nodes, we need a slurm script just as if we were submitting it on Roihu. See [Roihu Documentation](../../computing/running/creating-job-scripts-roihu.md) or [Lumi documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart) for instructions on how to create one. 
+To submit a job on the compute nodes, we need a slurm script just as if we were submitting it on Roihu. See [Roihu Documentation](../../supercomputing/running/creating-job-scripts-roihu.md) or [Lumi documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart) for instructions on how to create one. 
 You can write the script locally and upload it to Roihu the same way as the data, or you can give the local Slurm script path as the input. We will use the latter option.
 The script is saved to `./iris_slurm_script.sh`.
 

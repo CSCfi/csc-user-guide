@@ -112,7 +112,7 @@ For actual simulations we recommend using Roihu-CPU or LUMI as follows:
 
 3. Copy the input files to the supercomputer with e.g.
    [`scp`](../data/moving/scp.md) or using the
-   [web interfaces](../computing/webinterface/index.md).
+   [web interfaces](../supercomputing/webinterface/index.md).
 4. **Important!** The `<job-name>.sh` file contains the command to launch your
    simulation. To make it work on CSC supercomputers, ensure that:
 
@@ -208,7 +208,7 @@ For actual simulations we recommend using Roihu-CPU or LUMI as follows:
       `schrodinger.hosts` files that were used on Puhti and Mahti. The new
       _Job Server_ system must be used on Roihu and LUMI.
     * No long/heavy tasks should be done on the login nodes! Please consult
-      the [Usage policy](../computing/usage-policy.md) page for more details.
+      the [Usage policy](../supercomputing/usage-policy.md) page for more details.
 
 ### Monitoring running jobs
 

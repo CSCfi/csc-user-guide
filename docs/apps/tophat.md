@@ -60,7 +60,7 @@ In the batch job example above, one task (`--ntasks=1`) is executed. The job use
 
 Note that we also need to tell TopHat to use the number of cores we reserved. In Tophat, this is done with the `-p` command-line argument. We can use system variable `$SLURM_CPUS_PER_TASK` to automatically match the reservation made with `--cpus-per-task`. This way we don't need to change the command-line if we change the reservation.
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

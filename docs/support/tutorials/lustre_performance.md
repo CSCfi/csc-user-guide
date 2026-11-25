@@ -4,7 +4,7 @@
 
 In this tutorial, we discuss some technical details about parallel I/O
 and provide examples for achieving higher performance. Please note also
-the [Technical description about Lustre filesystem](../../computing/lustre.md)
+the [Technical description about Lustre filesystem](../../supercomputing/lustre.md)
 used in CSC supercomputers.
 
 ## MPI I/O

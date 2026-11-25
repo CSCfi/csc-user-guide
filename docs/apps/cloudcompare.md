@@ -27,13 +27,13 @@ The following versions of CloudCompare are available in Roihu:
 - CloudCompare 2.14 for CPU. Plugins: Core I/O, LAS I/O. 
 - CloudCompare 2.13.1 for GPU. Plugins: Core I/O, Animation, EDL Shader, PCV / ShadeVis, PDAL.
 
-GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../computing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
+GPU version is faster, but consumes GPU Billing Units instead of CPU Billing Units (see [Billing](../supercomputing/hpc-billing.md) for details). Also queues to GPU partitions may be longer.
 
 ## Usage
 CloudCompare is available in web interface: [Roihu](https://roihu.csc.fi).
 
-* **Basic CloudCompare is available** via [Desktop app](../computing/webinterface/desktop.md). 
-* **GPU-accelerated CloudCompare** via [Accelerated visualization app](../computing/webinterface/accelerated-visualization.md)
+* **Basic CloudCompare is available** via [Desktop app](../supercomputing/webinterface/desktop.md). 
+* **GPU-accelerated CloudCompare** via [Accelerated visualization app](../supercomputing/webinterface/accelerated-visualization.md)
 
 After launching the remote desktop, start CloudCompare or ccViewer from `Applications` (upper-left corner) -> `Geosciences`.
 

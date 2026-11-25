@@ -36,7 +36,7 @@ module load praat
 ```
 
 Praat is primarily a graphical application; the best way to run it remotely is
-through the [Roihu web interface remote desktop](../computing/webinterface/desktop.md).
+through the [Roihu web interface remote desktop](../supercomputing/webinterface/desktop.md).
 It can also be run without a graphical interface for scripted batch processing:
 
 ```bash

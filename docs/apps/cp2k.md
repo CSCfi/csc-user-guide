@@ -173,9 +173,9 @@ double the number of cores the calculation should be at least 1.5 times faster.
 
 The efficient combination of MPI tasks and OpenMP threads per task depends on
 the system and model used, and should be determined through testing for each
-case. See the [performance checklist](../computing/running/performance-checklist.md)
+case. See the [performance checklist](../supercomputing/running/performance-checklist.md)
 for general tips. It is also important to
-[perform a scaling test](../computing/running/performance-checklist.md#perform-a-scaling-test),
+[perform a scaling test](../supercomputing/running/performance-checklist.md#perform-a-scaling-test),
 especially for large jobs.
 
 * Hybrid parallelism is often efficient – choose tasks and threads so that

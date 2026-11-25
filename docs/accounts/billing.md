@@ -11,7 +11,7 @@ See the [Billing Unit and price calculator](https://research.csc.fi/billing-unit
 
 **The billing rates for the services are as follows:**
 
-* [Roihu billing](../computing/hpc-billing.md)
+* [Roihu billing](../supercomputing/hpc-billing.md)
 * Allas object storage billing:  1 TiB consumes **1.05** Storage BU per hour. Only actual
    data stored in Allas is billed.
 * [Pouta billing](../cloud/pouta/vm-flavors-and-billing.md)
@@ -45,7 +45,7 @@ You will be notified before your CSC Project's Billing Units run out. When an ac
 
 Detailed information on how services are currently limiting the use when Billing Units run out:
 
-* [Roihu](../computing/usage-policy.md#running-out-of-billing-units)
+* [Roihu](../supercomputing/usage-policy.md#running-out-of-billing-units)
 * [Sensitive Data Desktop](../data/sensitive-data/sd-billing-units.md#13-when-your-project-runs-out-of-billing-units)
 
 
