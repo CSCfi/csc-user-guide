@@ -133,8 +133,7 @@ visit -nowin -cli -s my_script.py
     Do not run anything heavy on the login node! See the
     [usage policy](../computing/usage-policy.md#login-nodes) for details.
     Resource-intensive processes should be run as
-    [batch jobs](#example-batch-scripts) or in an
-    [interactive session](#interactive-jobs).
+    batch jobs.
 
     See example batch job scripts below.
 
