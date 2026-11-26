@@ -94,6 +94,11 @@ for CPU, GPU and memory metrics throughout the job's runtime.
 See [Performance analysis](../performance.md#job-monitoring-app) for how to read the efficiency values and
 the reports.
 
+### File deletion explorer
+
+The File deletion explorer app allows inspecting and visualizing the purge lists for scratch
+cleaning. For more details on the scratch cleaning and the File deletion explorer, see
+[Automatic removal of files](../../support/tutorials/clean-up-data.md#automatic-removal-of-files).
 
 ### Project view
 

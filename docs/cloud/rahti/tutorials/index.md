@@ -34,3 +34,5 @@
 * 🔴 [Reverse proxy authentication using a sidecar container](advanced/sidecar-proxy-authentication.md)
 
 We also have an [FAQ](../../../support/faq/index.md#rahti) for Rahti.
+
+You can also find step-by-step Quick Starts in the [web interface](../get-started/web-interface.md#quick-starts).
