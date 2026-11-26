@@ -17,6 +17,7 @@ applications:
 * [QGIS](../../apps/qgis.md)
 * [SAGA GIS](../../apps/saga-gis.md)
 * [SNAP](../../apps/snap.md)
+* [Spyder](../../support/tutorials/python-usage-guide.md#spyder)
 * [VMD](../../apps/vmd.md)
 
 
