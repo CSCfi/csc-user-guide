@@ -16,7 +16,7 @@ You can check the default limits of scratch and projappl areas from the table be
 | Directory | Default size | Maximum size | Default file number limit | Maximum file number limit |
 |-----------|--------------|--------------|---------------------------|---------------------------|
 | projappl&nbsp;(Roihu)  |   15 GiB     |  250&nbsp;GiB&nbsp;(<&nbsp;100&nbsp;GiB)    | 150 000                   | 2 500 000&nbsp;(<&nbsp;1&nbsp;000&nbsp;000)                 |
-| scratch&nbsp;(Roihu)   |   250 GiB      |  100&nbsp;TiB&nbsp;(<&nbsp;10&nbsp;TiB)    | 500 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;2&nbsp;500&nbsp;000)               |
+| scratch&nbsp;(Roihu)   |   250 GiB      |  100&nbsp;TiB&nbsp;(<&nbsp;2.5&nbsp;TiB)    | 500 000                 | 10&nbsp;000&nbsp;000 (<&nbsp;2&nbsp;500&nbsp;000)               |
 
 Note that the extended quota consumes your Storage Billing Units regardless of how
 much data you actually have in the directory. [See billing](billing.md) for
