@@ -3,24 +3,12 @@ site_url: !ENV [SITE_URL, "https://docs.csc.fi/fi"]
 site_description: Ohjeet ja käyttöoppaat CSC:n supertietokoneille, pilvipalveluille, tallennusratkaisuille ja ohjelmistoille, mukaan lukien UKK ja tutoriaalit
 
 extra:
+  short_description: Käyttöoppaat ja tutoriaalit
+
   announcement:
     content: |-
       <p>Tervetuloa viikoittaiseen kahvitaukotapaamiseen tutkimustukemme kanssa Zoomissa! <a href="https://csc.fi/koulutuskalenteri/viikoittaiset-kahvitaukotapaamiset-tutkimustukemme-kanssa-joka-keskiviikko-1400-2/" target="_blank">Lisätietoja täältä.</a></p>
-  analytics:
-    feedback:
-      title: Onko tämä sivu hyödyllinen?
-      ratings:
-        - name: "Kyllä"
-          type: Positive
-          description: Kyllä! Tämä sivu on hyödyllinen.
-          note: >-
-            Kiitos palautteestasi!
-        - name: "Ei"
-          type: Negative
-          description: Ei! Tätä sivua pitäisi parantaa.
-          note: >-
-            Kiitos! Arvostamme palautettasi.
-  short_description: Käyttöoppaat ja tutoriaalit
+
   alternate:
     - name: Suomeksi (tekoäly)
       link: /fi/
@@ -28,6 +16,46 @@ extra:
     - name: In English
       link: /
       lang: en
+
+  header_sites:
+    parent:
+      topic: Yrityssivusto
+    tabs:
+      - name: Palvelut tutkijalle
+        link: https://research.csc.fi/
+      - topic: Käyttöoppaat
+        local: true
+      - name: MyCSC
+        topic: Asiakasportaali (englanniksi)
+        link: https://my.csc.fi/
+
+  footer_columns:
+    contact_information:
+      full_name: CSC – Tieteen tietotekniikan keskus oy
+      mail_address: PL 405, 02101 Espoo
+      phone:
+        text:  (09) 457 2001 (vaihde)
+      info:
+        text: Tarkemmat yhteystiedot sivustolla CSC.fi
+        link: https://www.csc.fi/fi/tietoa-meista/yhteystiedot/
+    customer_service:
+      open_hours: Päivystys ma–pe klo 8.30–16
+      contact_email: asiakaspalvelu@csc.fi
+
+  analytics:
+    feedback:
+      title: Onko tämä sivu hyödyllinen?
+      ratings:
+        - name: "Kyllä"
+          icon: material/thumb-up
+          data: 1
+          note: >-
+            Kiitos palautteestasi!
+        - name: "Ei"
+          icon: material/thumb-down
+          data: -1
+          note: >-
+            Kiitos! Arvostamme palautettasi.
 
 plugins:
   git-revision-date-localized:

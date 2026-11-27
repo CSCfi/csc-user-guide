@@ -1,8 +1,7 @@
 /* Museo Sans font */
 @import url("https://use.typekit.net/csv4mjm.css");
 
-/* CSC Design System custom properties */
-@import url(https://cdn.jsdelivr.net/npm/@cscfi/csc-ui@3.0.19/dist/styles/css/theme.css);
+@import url(./props.css);
 
 
 :root {

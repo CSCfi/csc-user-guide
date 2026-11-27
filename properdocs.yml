@@ -10,6 +10,9 @@ docs_dir: !ENV [DOCS_DIR, "docs"]
 
 extra:
   environment: !ENV [PROPERDOCS_ENV, "preview"]
+
+  short_description: User guides and tutorials
+
   announcement: # An announcement shown below the header
     icon:
       name: material/coffee # Choose one (emojis not supported) from here https://jaywhj.github.io/mkdocs-materialx/reference/icons-emojis.html#search
@@ -18,6 +21,7 @@ extra:
     content: |- # Make sure to also update the translation in mkdocs_fi.yml
       <p>Welcome to our weekly research support coffee hour on Zoom! <a href="https://csc.fi/en/training-calendar/csc-research-support-coffee-every-wednesday-at-1400-finnish-time-2-2/" target="_blank">Click here for more information.</a></p>
     visible: false
+
   landing_banner:
     path: https://a3s.fi/docs-files/banners/ # Put the image file in this bucket; Don't touch this value.
     image: roihu-new.png
@@ -26,26 +30,67 @@ extra:
     description: |-
       Roihu is CSC's national supercomputer, replacing the retired Puhti and Mahti systems and offering enhanced performance and capabilities.
     visible: true
+
+  alternate:
+    - name: In English
+      link: /
+      lang: en
+    - name: Suomeksi (tekoäly)
+      link: /fi/
+      lang: fi
+
+  header_sites:
+    parent:
+      name: csc.fi
+      topic: Company site
+      link: https://www.csc.fi/
+    tabs:
+      - name: Services for research
+        link: https://research.csc.fi/
+      - topic: User guides
+        local: true
+      - name: MyCSC
+        topic: User portal
+        link: https://my.csc.fi/
+
+  footer_columns:
+    contact_information:
+      full_name: CSC – IT CENTER FOR SCIENCE LTD.
+      mail_address: P.O. Box 405, 02101 Espoo
+      phone:
+        text: (09) 457 2001 (switchboard)
+        number: "+35894572001"
+      info:
+        text: Detailed contact information at CSC.fi
+        link: https://www.csc.fi/about-us/contact-information/
+    customer_service:
+      open_hours: Open weekdays from 8:30 till 16:00
+      contact_form: https://research.csc.fi/support
+      contact_email: servicedesk@csc.fi
+      phone:
+        text: (09) 457 2821
+        number: "+35894572821"
+    info:
+      maintenance_breaks: https://research.csc.fi/service-breaks/
+
   analytics:
-    provider: custom
+    provider: matomo
     matomo_site_id: !ENV [MATOMO_SITE_ID, ""]
     matomo_url: !ENV [MATOMO_URL, ""]
     feedback:
       title: Do you find this page useful?
       ratings:
         - name: "Yes"
-          type: Positive
-          description: Yes! I do find this page useful.
+          icon: material/thumb-up
+          data: 1
           note: >-
             Thank you for your feedback!
         - name: "No"
-          type: Negative
-          description: No! This page needs to be improved.
+          icon: material/thumb-down
+          data: -1
           note: >-
             Thank you! Your feedback is appreciated.
-      exclude:
-        - ref.md
-  short_description: User guides and tutorials
+
   social:
     - icon: material/github
       link: https://github.com/CSCfi/
@@ -57,13 +102,6 @@ extra:
       link: https://www.facebook.com/CSCfi/
     - icon: material/youtube
       link: https://www.youtube.com/c/CSCfi
-  alternate:
-    - name: In English
-      link: /
-      lang: en
-    - name: Suomeksi (tekoäly)
-      link: /fi/
-      lang: fi
 
 hooks:
   - hooks/catalog.py
