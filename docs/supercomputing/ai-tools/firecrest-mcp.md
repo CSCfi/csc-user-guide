@@ -81,8 +81,8 @@ The server offers the following tools:
 | Jobs | `submit`, `job_info`, `job_metadata`, `cancel_job`, `attach_to_job` |
 | Config | `show_config` |
 
-The `show_config` tool shows the agent what the [project config](#project-config) allows, so that the
-agent does not try paths, accounts or partitions that the tools would refuse.
+The `show_config` tool shows the agent what the [project config](#project-config) allows, so that
+the agent does not try paths, accounts or partitions that the tools would refuse.
 
 The server does not give the agent access to the login nodes beyond these tools. The agent has no
 shell on Roihu, so tasks that need one, such as compiling code, must run in a job script submitted
@@ -322,8 +322,9 @@ reports that the token is missing or has expired, save a new token as described 
 ## Project config
 
 Every local project needs its own `.firecrest-mcp.toml`. The server reads it from the directory it
-was started in, or from the file that [`--config`](#restricting-the-agent) names, on every call, so changes apply without restarting the agent. The tools refuse
-anything that the config does not allow. `local_paths` is a top-level key, and all other keys go
+was started in, or from the file that [`--config`](#restricting-the-agent) names, on every call,
+so changes apply without restarting the agent. The tools refuse anything that the config does not
+allow. `local_paths` is a top-level key, and all other keys go
 in the `[roihu]` table. A path is allowed if it is listed or lies below a listed path.
 [`examples/firecrest-mcp.toml`][example config] in the repository lists all keys.
 
