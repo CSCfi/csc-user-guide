@@ -24,7 +24,7 @@ for running the GUI.
 
 For workloads requiring more performance out of VisIt, GPU-accelerated
 visualization is also available on both Roihu and LUMI. On Roihu, select the
-[Accelerated Visualization](../computing/webinterface/accelerated-visualization.md)
+[Accelerated Visualization](../supercomputing/webinterface/accelerated-visualization.md)
 app instead of *Desktop*. On LUMI, select the *Desktop* app with the `lumid`
 partition (see the
 [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/webui/desktop/)).
@@ -112,8 +112,8 @@ interactive shell already holds. For a single engine process, start just
     compute node. Compute nodes cannot connect back to VisIt on the login
     node, so the engine fails with a networking error.
 
-See the [X11 forwarding instructions](../computing/connecting/ssh-unix.md)
-and [interactive usage guide](../computing/running/interactive-usage.md)
+See the [X11 forwarding instructions](../supercomputing/connecting/ssh-unix.md)
+and [interactive usage guide](../supercomputing/running/interactive-usage.md)
 for details. Replace `<username>` and `<project>` with your own user name and
 CSC project.
 
@@ -131,7 +131,7 @@ visit -nowin -cli -s my_script.py
 
 !!! info "Note"
     Do not run anything heavy on the login node! See the
-    [usage policy](../computing/usage-policy.md#login-nodes) for details.
+    [usage policy](../supercomputing/usage-policy.md#login-nodes) for details.
     Resource-intensive processes should be run as
     batch jobs.
 
