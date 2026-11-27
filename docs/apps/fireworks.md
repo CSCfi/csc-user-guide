@@ -16,7 +16,7 @@ catalog:
 
 [FireWorks](https://materialsproject.github.io/fireworks/) is a free, open-source tool for defining, managing and executing workflows with multiple steps and potentially complex dependencies. Workflows are flexibly defined using YAML, JSON or through a Python API and stored in a MongoDB database. This page describes how to define and execute FireWorks workflows in CSC's computing environment using a MongoDB running in the Rahti container cloud.
 
-If you are still wondering about workflows at more general level or which workflow tool to use, see also our [high-throughput computing and workflows page](../computing/running/throughput.md).
+If you are still wondering about workflows at more general level or which workflow tool to use, see also our [high-throughput computing and workflows page](../supercomputing/running/throughput.md).
 
 [TOC]
 
@@ -40,7 +40,7 @@ FireWorks is released under a [modified GNU GPL license](https://github.com/mate
 
 ## Installing FireWorks and setting up MongoDB in Rahti
 
-FireWorks is easy to install. We recommend using [Tykky](../computing/containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../computing/containers/tykky.md#pip-based-installations). 
+FireWorks is easy to install. We recommend using [Tykky](../supercomputing/containers/tykky.md) to install FireWorks within a Singularity container. A plain pip installation with `pip-containerize` is enough, just add the line `fireworks` to the `req.txt` file containing the requirements of your environment. For further instructions, see [the Tykky documentation](../supercomputing/containers/tykky.md#pip-based-installations). 
 
 Note that the Python version used by `pip-containerize` is the first Python executable found in the path, so it's affected by loading modules. FireWorks requires at least Python 3.7, so make sure you're using at least this version. To this end, you can use the `--slim` flag of `pip-containerize` to utilize a pre-built minimal Python container with a much newer version of Python than the system default 3.6.8.
 
@@ -61,7 +61,7 @@ pymongo==3.10.0
     files, most of which are read each time the application is run. This causes startup delays and
     degrades the performance of Lustre for all users. With this said, you can still continue to use
     Conda environments, but only in case they are containerized. To achieve this easily, please see
-    the [Tykky container wrapper tool](../computing/containers/tykky.md).
+    the [Tykky container wrapper tool](../supercomputing/containers/tykky.md).
 
 ## Defining and executing workflows with FireWorks
 

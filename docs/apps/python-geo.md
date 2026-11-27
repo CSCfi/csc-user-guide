@@ -110,7 +110,7 @@ includes following python packages:
     
 Additionally python-geo includes:
 
--   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../computing/webinterface/index.md) with [Jupyter app](../computing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
+-   **[jupyter]** - Jupyter Notebooks and JupyterLab. Use from [web interface](../supercomputing/webinterface/index.md) with [Jupyter app](../supercomputing/webinterface/jupyter.md). Includes [Dask Extension](https://github.com/dask/dask-labextension) and [Resource usage Extension](https://github.com/jupyter-server/jupyter-resource-usage).
 -   [spyder](https://www.spyder-ide.org/) - Scientific Python Development Environment with graphical interface (similar to RStudio for R).
 -   **[GDAL/OGR](../apps/gdal.md)** commandline tools 
 -   [GMT] The Generic Mapping Tools 
@@ -157,10 +157,10 @@ list-packages
 You can add more Python packages to `python-geo` by following the instructions in our
 [Python usage guide](../support/tutorials/python-usage-guide.md#installing-python-packages-to-existing-modules).
 
-You can edit your Python code with [web interface](../computing/webinterface/index.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface :
+You can edit your Python code with [web interface](../supercomputing/webinterface/index.md) or [LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/jupyter/) web interface :
 
-* [Visual Studio Code](../computing/webinterface/vscode.md)
-* [JupyterLab](../computing/webinterface/jupyter.md) 
+* [Visual Studio Code](../supercomputing/webinterface/vscode.md)
+* [JupyterLab](../supercomputing/webinterface/jupyter.md) 
 
 ### r5py memory settings
 `r5py` by default does not correctly understand how much memory it has available in a supercomputer so, it has to be defined manually. It is using Java in the background, so add environmental variable to set maximum memory available for Java: 
@@ -205,7 +205,7 @@ As an example, you can write "The authors wish to thank CSC - IT Center for Scie
 
 ## Installation
 
-Python-geo was installed to Roihu using [Tykkys conda-containerize functionality](../computing/containers/tykky.md). In LUMI, geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
+Python-geo was installed to Roihu using [Tykkys conda-containerize functionality](../supercomputing/containers/tykky.md). In LUMI, geoconda was installed using [LUMI container wrapper](https://docs.lumi-supercomputer.eu/software/installing/container-wrapper/). The functionality of the tools is almost identical with `--post` option being `--post-install` on LUMI container wrapper. The WhiteboxTools conda package installs only WhiteboxTools installer, therefore for proper installation of Whiteboxtools required additional post installation command and folder to wrap commandline tools.
 
 ```bash
 conda-containerize new --mamba \
@@ -219,7 +219,7 @@ Python-geo conda environment files and `download_wbt` and `start_wbt.py` needed 
 
 ## References
 
--   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+-   [CSC Python parallelisation examples](https://github.com/csc-training/geocomputing/tree/master/python/roihu)
 -   [Multiprocessing Basics](https://pymotw.com/2/multiprocessing/basics.html)
 -   [Automating GIS processes course materials](https://automating-gis-processes.github.io) by University of Helsinki
 -   [Aalto Spatial Analytics course material](https://spatial-analytics.readthedocs.io/en/latest/course-info/course-info.html) by Henrikki Tenkanen / Aalto University

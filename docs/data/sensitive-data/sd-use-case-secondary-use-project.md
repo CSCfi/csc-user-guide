@@ -15,10 +15,9 @@ You need to access secondary use data (register data) on SD Desktop. You have a 
 3. [Fill in the Description of Processing Activity (GDPR) form](#3-fill-in-the-description-of-processing-activity-gdpr-form)
 4. [Contact CSC service desk](#4-contact-csc-service-desk)
 5. CSC adds members to your project, please wait
-6. CSC activates SD services for your project, please wait
-7. [Retrieve your project's Share ID from SD Connect](#7-retrieve-your-projects-share-id-from-sd-connect)
-8. [Project Lifetime, Billing Units, and Data Retention](#8-project-lifetime-billing-units-and-data-retention)
-9. [Plan resources consumption and access data](#9-plan-resources-consumption-and-access-data)
+6. [Retrieve your project's Share ID from SD Connect](#6-retrieve-your-projects-share-id-from-sd-connect)
+7. [Project Lifetime, Billing Units, and Data Retention](#7-project-lifetime-billing-units-and-data-retention)
+8. [Plan resources consumption and access data](#8-plan-resources-consumption-and-access-data)
 
 ---
 
@@ -77,7 +76,14 @@ Create a CSC account if you have a Haka or Virtu account. If you do not have one
 
 ---
 
-#### 2.3 Terms of Use and Data Processing Agreement
+#### 2.3 Confirm the selected services for the project
+- **SD Desktop and SD Connect** services are selected for this project type as a default.
+- Other services can't be used with this project type, so they are not listed in this view.
+- Click **Next**.
+
+---
+
+#### 2.4 Terms of Use and Data Processing Agreement
 
 In the next view, under Terms of Use for the project:
 
@@ -113,7 +119,7 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 </hgroup>
 
-- Send email to **sensitivedata-support@csc.fi**, subject: *Sensitive Data, Secondary use*.
+- Send email to [CSC Service Desk](../../support/contact.md), subject: *Sensitive Data, Secondary use*.
 - Write your project number to the email (e.g. *project_1234567*).
 - Attach a copy of your **data permit** to the email.
 - Write down a list of your research teams' email addresses. Please use same emails that they created the CSC-account with.
@@ -128,16 +134,9 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 ---
 
-!!! Note ""
-    ### 6. CSC activates SD services for your project
-    - Please wait that Sensitive Data Support team activates SD services for your project.
-    - You will receive an email notification, when everything is ready.
-
----
-
 <hgroup markdown>
 
-### 7. Retrieve your project's Share ID from SD Connect
+### 6. Retrieve your project's Share ID from SD Connect
 
 - !!! warning status "Team manager"
 
@@ -155,30 +154,30 @@ You can find the Share ID by selecting the correct CSC project in the top-left c
 
 <hgroup markdown>
 
-### 8. Project Lifetime, Billing Units, and Data Retention
+### 7. Project Lifetime, Billing Units, and Data Retention
 
 - !!! warning status "Team manager and Team member"
 
 </hgroup>
 
-#### 8.1 Default project lifetime
+#### 7.1 Default project lifetime
 
 The default lifetime of a CSC project is **one year**, after which the project is automatically closed and all data is deleted.
 
-#### 8.2 When your project runs out of Billing Units
+#### 7.2 When your project runs out of Billing Units
 
 When a CSC project runs out of Billing Units, project members have **60 days** to apply for more. **If Billing Units balance remain negative after those 60 days, the project will be closed and all data is deleted.**
 
 To prevent this, the project manager should:
 
 1. Apply for more [**Billing Units**](sd-billing-units.md#32-step-2-apply-for-billing-units-via-mycsc-portal) via MyCSC. This can be also done by a project member.
-2. [**Extend**](../../accounts/how-to-manage-your-project.md#project-lifetime-extension) the project’s lifetime via MyCSC. This can be done only be the project manager. Note! Project lifetime can't be extended, if [your data permit is also expiring](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
+2. [**Extend**](../../accounts/how-to-manage-your-project.md#extending-the-project-lifetime) the project’s lifetime via MyCSC. This can be done only be the project manager. Note! Project lifetime can't be extended, if [your data permit is also expiring](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
 When your project is running low on Billing Units or nearing expiration, email notifications are sent from MyCSC. Please keep your contact details up to date.
 
-#### 8.3 Closing project 
+#### 7.3 Closing project 
 
-Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#project-closure) via MyCSC. The project will also close automatically, when [your data permit expires](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
+Once your research is complete, the project manager can [**close CSC project**](../../accounts/how-to-manage-your-project.md#closing-a-project) via MyCSC. The project will also close automatically, when [your data permit expires](sd-desktop-secondary-export.md#end-of-data-access-and-data-deletion-policies).
 
 
 <div class="grid cards" markdown>
@@ -197,19 +196,19 @@ Once your research is complete, the project manager can [**close CSC project**](
 
 <hgroup markdown>
 
-### 9. Plan resources consumption and access data
+### 8. Plan resources consumption and access data
 
 - !!! warning status "Team manager and Team member"
 
 </hgroup>
 
-#### 9.1 Resource consumption
+#### 8.1 Resource consumption
 
 Now that your CSC project is ready, you can start planning how many resources (Billing Units) and how much storage (quota) your project will need for the next six months. You can learn more in the next [section](sd-billing-units.md).
 
 ---
 
-#### 9.2 Login to the services
+#### 8.2 Login to the services
 
 After your team has a resource consumption plan, you can start using the services (links to related user guides):
 
@@ -225,7 +224,7 @@ SD Desktop:
 
 ---
 
-### 9.3 Access and review data
+#### 8.3 Access and review data
 
 CSC shares a bucket for your project in SD Connect with Read-only access. This bucket will contain the data from Findata or other registers after it has been transferred to CSC. The bucket will be visible in SD Connect, but you can only [access the data on SD Desktop's virtual desktops via the Data Gateway application](sd-desktop-access.md).
 

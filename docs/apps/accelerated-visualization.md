@@ -32,11 +32,11 @@ through the regular Desktop app by selecting the `lumid` partition.
 
 More information on Accelerated visualization, interactive applications, and
 the web interfaces can be found under the
-[Computing section](../computing/index.md):
+[Supercomputing section](../supercomputing/index.md):
 
-- [Accelerated visualization](../computing/webinterface/accelerated-visualization.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [Accelerated visualization](../supercomputing/webinterface/accelerated-visualization.md)
+- [Interactive applications](../supercomputing/webinterface/apps.md)
+- [Web interfaces](../supercomputing/webinterface/index.md)
 
 For instructions on running graphical applications with GPU acceleration on
 LUMI, see the

@@ -34,10 +34,11 @@
         - [Approve access to FEGA data](sd-apply-approval.md)
         - [Enable reuse of FEGA data](sd-apply-dac.md)
 - Secondary use of health and social data
-    - [Start here](secondarydata-access.md)
+    - [Start here to access secondary use data with SD services](secondarydata-access.md)
         - [Access with a Secondary Use project](sd-use-case-secondary-use-project.md)
         - [Export anonymous results](sd-desktop-secondary-export.md)
-    - [Instructions for data controllers](sd-use-case-secondary-use-data-controller.md)
+    - [Start here to transfer data for secondary use as a Data Controller](sd-use-case-secondary-use-data-controller.md)
+        - [Transfer secondary use data via SD Connect](sd-connect-secondary-use-transfer.md)
 - [Terminology](sd-terminology.md)
 - SD Services – Version history
     - [SD Connect releases](releases-sd-connect.md)

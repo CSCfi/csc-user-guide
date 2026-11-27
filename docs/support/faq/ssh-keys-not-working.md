@@ -5,7 +5,7 @@ Roihu uses SSH keys together with time-limited SSH certificates. See Roihu-speci
 ## Please check the following
 
 1. You have
-   [added your SSH public key to MyCSC](../../computing/connecting/ssh-keys.md#adding-public-key-in-mycsc)
+   [added your SSH public key to MyCSC](../../supercomputing/connecting/ssh-keys.md#adding-public-key-in-mycsc)
    and it is visible under _SSH PUBLIC KEYS_ on your _Profile_ page. Other ways
    to upload your key are **not** supported.
     * Ensure that the key you upload is formatted correctly. It should consist
@@ -40,7 +40,7 @@ Roihu uses SSH keys together with time-limited SSH certificates. See Roihu-speci
    normal that you will need to enter it when connecting. This
 is different from your CSC account password. To avoid having to
    type the passphrase repeatedly, you may configure an
-   [authentication agent](../../computing/connecting/ssh-unix.md#authentication-agent)
+   [authentication agent](../../supercomputing/connecting/ssh-unix.md#authentication-agent)
    that can hold your keys in memory.
 5. On **Linux** and **macOS**, ensure that your `~/.ssh` folder and private key
    file have 0700 and 0600 permissions, respectively. Example of correct
@@ -71,7 +71,7 @@ If you cannot log in to Roihu, check that:
 * your SSH client is using the matching private key and certificate
 
 These steps are done automatically with the
-[certificate helper tool](../../computing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
+[certificate helper tool](../../supercomputing/connecting/ssh-keys.md#option-2-certificate-helper-tool).
 
 The certificate should normally be saved next to the private key using the name
 `<key>-cert.pub`. For example, if your private key is:
@@ -100,14 +100,14 @@ Use the `-i` option to specify the correct key:
 ssh -i ~/.ssh/id_ed25519-your-key <username>@roihu-cpu.csc.fi
 ```
 
-See CSC instructions for details on how you can [sign your SSH key with a certificate](../../computing/connecting/ssh-keys.md#signing-public-key).
+See CSC instructions for details on how you can [sign your SSH key with a certificate](../../supercomputing/connecting/ssh-keys.md#signing-public-key).
 
 If everything above checks, and you are still unable to log in, please
 [contact CSC Service Desk](../contact.md).
 
 ## More information
 
-* [SSH keys documentation in Docs CSC](../../computing/connecting/ssh-keys.md)
+* [SSH keys documentation in Docs CSC](../../supercomputing/connecting/ssh-keys.md)
 * [Tutorial on setting up SSH keys at CSC](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
-* [Signing an SSH key with a certificate](../../computing/connecting/ssh-keys.md#signing-public-key)
+* [Signing an SSH key with a certificate](../../supercomputing/connecting/ssh-keys.md#signing-public-key)
 * [FAQ: Troubleshooting other login issues](i-cannot-login.md)

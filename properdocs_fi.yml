@@ -33,6 +33,10 @@ plugins:
   git-revision-date-localized:
     enabled: false
 
+markdown_extensions:
+  toc:
+    permalink_title: Linkki tähän otsikkoon
+
 theme:
   language: fi-CSC
   features:

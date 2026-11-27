@@ -29,3 +29,9 @@ You can run applications in two ways:
     ![Rahti main page](../../img/openshift_main_page_4.png)
 
 4. Next, [create a project](./projects.md) to run your applications.
+
+## Quick Starts
+
+The web interface also includes Quick Starts. They are short step-by-step guides for common
+tasks in Rahti. You can find them by clicking the question mark (**?**) menu on the top right
+and selecting **Quick Starts**.

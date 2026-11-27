@@ -119,25 +119,99 @@ plugins:
       "support/tutorials/user-spack.md": "support/tutorials/roihu-user-spack.md"
       "support/tutorials/biojobs-on-puhti.md": "support/tutorials/biojobs-on-roihu.md"
       "computing/allas.md": "data/Allas/allas-roihu.md"
-      "computing/roihu-disk.md": "computing/disk.md"
-      "computing/containers/creating.md": "computing/containers/overview.md"
-      "computing/containers/run-existing.md": "computing/containers/overview.md"
+      "computing/roihu-disk.md": "supercomputing/disk.md"
+      "computing/containers/creating.md": "supercomputing/containers/index.md"
+      "computing/containers/run-existing.md": "supercomputing/containers/index.md"
       "apps/bioconda.md": "support/tutorials/bioconda-tutorial.md"
       "support/tutorials/snakemake-puhti.md": "apps/snakemake.md"
       "support/tutorials/julia.md": "apps/julia.md#running-julia-batch-jobs-on-csc-clusters"
       "support/tutorials/nextflow-tutorial.md": "apps/nextflow.md"
       "computing/running/fireworks.md": "apps/fireworks.md"
+      "computing/quantum-computing/overview.md": "quantum-computing/index.md"
+      "computing/quantum-computing/access.md": "quantum-computing/access.md"
+      "computing/quantum-computing/devices/overview.md": "quantum-computing/devices/index.md"
+      "computing/quantum-computing/devices/q20.md": "quantum-computing/devices/q20.md"
+      "computing/quantum-computing/devices/q50.md": "quantum-computing/devices/q50.md"
+      "computing/quantum-computing/devices/vlq.md": "quantum-computing/devices/vlq.md"
+      "computing/quantum-computing/running-quantum-jobs/overview.md": "quantum-computing/running-quantum-jobs/index.md"
+      "computing/quantum-computing/running-quantum-jobs/circuit-job.md": "quantum-computing/running-quantum-jobs/circuit-job.md"
+      "computing/quantum-computing/running-quantum-jobs/pulse-job.md": "quantum-computing/running-quantum-jobs/pulse-job.md"
+      "computing/quantum-computing/running-quantum-jobs/access-models/batch.md": "quantum-computing/running-quantum-jobs/access-models/batch.md"
+      "computing/quantum-computing/running-quantum-jobs/access-models/srun.md": "quantum-computing/running-quantum-jobs/access-models/srun.md"
+      "computing/quantum-computing/running-quantum-jobs/access-models/jupyter-notebook.md": "quantum-computing/running-quantum-jobs/access-models/jupyter-notebook.md"
+      # computing/ was renamed to supercomputing/
+      "computing/ai-tools/agent-env.md": "supercomputing/ai-tools/agent-env.md"
+      "computing/ai-tools/csc-skills.md": "supercomputing/ai-tools/csc-skills.md"
+      "computing/ai-tools/docs-mcp.md": "supercomputing/ai-tools/docs-mcp.md"
+      "computing/ai-tools/index.md": "supercomputing/ai-tools/index.md"
+      "computing/allas-in-roihu.md": "supercomputing/allas-in-roihu.md"
+      "computing/available-systems.md": "supercomputing/available-systems.md"
+      "computing/compiling-lumi.md": "supercomputing/compiling-lumi.md"
+      "computing/compiling-roihu.md": "supercomputing/compiling-roihu.md"
+      "computing/connecting/index.md": "supercomputing/connecting/index.md"
+      "computing/connecting/ssh-keys.md": "supercomputing/connecting/ssh-keys.md"
+      "computing/connecting/ssh-unix.md": "supercomputing/connecting/ssh-unix.md"
+      "computing/connecting/ssh-windows.md": "supercomputing/connecting/ssh-windows.md"
+      "computing/containers/examples.md": "supercomputing/containers/examples.md"
+      "computing/containers/lumi.md": "supercomputing/containers/lumi.md"
+      "computing/containers/overview.md": "supercomputing/containers/index.md"
+      "computing/containers/tykky.md": "supercomputing/containers/tykky.md"
+      "computing/debugging.md": "supercomputing/debugging.md"
+      "computing/disk.md": "supercomputing/disk.md"
+      "computing/firecrest/connecting.md": "supercomputing/firecrest/connecting.md"
+      "computing/firecrest/data-transfer-s3.md": "supercomputing/firecrest/data-transfer-s3.md"
+      "computing/firecrest/index.md": "supercomputing/firecrest/index.md"
+      "computing/firecrest/pyfirecrest.md": "supercomputing/firecrest/pyfirecrest.md"
+      "computing/hpc-billing.md": "supercomputing/hpc-billing.md"
+      "computing/hpc-libraries.md": "supercomputing/hpc-libraries.md"
+      "computing/index.md": "supercomputing/index.md"
+      "computing/installing.md": "supercomputing/installing.md"
+      "computing/lustre.md": "supercomputing/lustre.md"
+      "computing/modules.md": "supercomputing/modules.md"
+      "computing/performance.md": "supercomputing/performance.md"
+      "computing/roihu-dataset-project.md": "supercomputing/roihu-dataset-project.md"
+      "computing/running/array-jobs.md": "supercomputing/running/array-jobs.md"
+      "computing/running/batch-job-partitions.md": "supercomputing/running/batch-job-partitions.md"
+      "computing/running/creating-job-scripts-roihu.md": "supercomputing/running/creating-job-scripts-roihu.md"
+      "computing/running/example-job-scripts-roihu.md": "supercomputing/running/example-job-scripts-roihu.md"
+      "computing/running/getting-started.md": "supercomputing/running/index.md"
+      "computing/running/interactive-usage.md": "supercomputing/running/interactive-usage.md"
+      "computing/running/performance-checklist.md": "supercomputing/running/performance-checklist.md"
+      "computing/running/submitting-jobs-across-architectures.md": "supercomputing/running/submitting-jobs-across-architectures.md"
+      "computing/running/submitting-jobs.md": "supercomputing/running/submitting-jobs.md"
+      "computing/running/throughput.md": "supercomputing/running/throughput.md"
+      "computing/systems-roihu.md": "supercomputing/systems-roihu.md"
+      "computing/usage-policy.md": "supercomputing/usage-policy.md"
+      "computing/webinterface/accelerated-visualization.md": "supercomputing/webinterface/accelerated-visualization.md"
+      "computing/webinterface/apps.md": "supercomputing/webinterface/apps.md"
+      "computing/webinterface/connecting.md": "supercomputing/webinterface/connecting.md"
+      "computing/webinterface/desktop.md": "supercomputing/webinterface/desktop.md"
+      "computing/webinterface/file-browser.md": "supercomputing/webinterface/file-browser.md"
+      "computing/webinterface/index.md": "supercomputing/webinterface/index.md"
+      "computing/webinterface/job-composer.md": "supercomputing/webinterface/job-composer.md"
+      "computing/webinterface/julia-on-jupyter.md": "supercomputing/webinterface/julia-on-jupyter.md"
+      "computing/webinterface/jupyter-for-courses.md": "supercomputing/webinterface/jupyter-for-courses.md"
+      "computing/webinterface/jupyter.md": "supercomputing/webinterface/jupyter.md"
+      "computing/webinterface/marimo.md": "supercomputing/webinterface/marimo.md"
+      "computing/webinterface/matlab.md": "supercomputing/webinterface/matlab.md"
+      "computing/webinterface/mlflow.md": "supercomputing/webinterface/mlflow.md"
+      "computing/webinterface/project-view.md": "supercomputing/webinterface/project-view.md"
+      "computing/webinterface/r-jupyter.md": "supercomputing/webinterface/r-jupyter.md"
+      "computing/webinterface/rstudio.md": "supercomputing/webinterface/rstudio.md"
+      "computing/webinterface/shell.md": "supercomputing/webinterface/shell.md"
+      "computing/webinterface/tensorboard.md": "supercomputing/webinterface/tensorboard.md"
+      "computing/webinterface/vscode.md": "supercomputing/webinterface/vscode.md"
       # deprecation:
       "apps/nomachine.md": "support/faq/deprecated-apps.md"
       "apps/materialsstudio.md": "support/faq/deprecated-apps.md"
       "apps/discovery-studio.md": "support/faq/deprecated-apps.md"
       "apps/nvprof.md": "apps/nsys.md"
-      "apps/ddt.md": "computing/debugging.md"
-      "apps/itac.md": "computing/performance.md"
-      "apps/vtune.md": "computing/performance.md"
-      "computing/systems-puhti.md": "computing/available-systems.md"
-      "computing/systems-mahti.md": "computing/available-systems.md"
-      "computing/lumi-vs-mahti.md": "computing/available-systems.md"
+      "apps/ddt.md": "supercomputing/debugging.md"
+      "apps/itac.md": "supercomputing/performance.md"
+      "apps/vtune.md": "supercomputing/performance.md"
+      "computing/systems-puhti.md": "supercomputing/available-systems.md"
+      "computing/systems-mahti.md": "supercomputing/available-systems.md"
+      "computing/lumi-vs-mahti.md": "supercomputing/available-systems.md"
       "accounts/fmi.md": "accounts/index.md"
       "data/kaivos/kaivos-account.md": "data/kaivos/index.md"
       "data/kaivos/kaivos_batch_job.md": "data/kaivos/index.md"
@@ -156,7 +230,7 @@ plugins:
       "cloud/csc_notebooks/guide_for_students.md": "cloud/noppe/guide_for_students.md"
       "cloud/csc_notebooks/guide_for_teachers.md": "cloud/noppe/guide_for_teachers.md"
       "cloud/csc_notebooks/index.md": "cloud/noppe/index.md"
-      "computing/overview.md": "computing/index.md"
+      "computing/overview.md": "supercomputing/index.md"
       "cloud/concepts.md": "cloud/index.md"
       "apps/alpha.md": "apps/index.md"
       "apps/by_system.md": "apps/by_availability.md"
@@ -193,65 +267,66 @@ plugins:
       # for convenience:
       "glossary.md": "support/glossary.md"
       "archives.md": "support/contact.md#archives"
-      "roihu.md": "computing/systems-roihu.md"
+      "roihu.md": "supercomputing/systems-roihu.md"
       "mahti-nvme-2025.md": "support/wn/comp-new.md#new-small-partition-with-high-performance-nvme-storage-on-mahti-1322025"
       # Pouta
       "cloud/pouta/accounting.md": "cloud/pouta/vm-flavors-and-billing.md"
       # Quantum
-      "computing/quantum-computing/running-quantum-jobs.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
-      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/circuit-job.md"
-      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
-      "computing/quantum-computing/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/circuit-job.md"
-      "computing/quantum-computing/running-quantum-jobs.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
-      "computing/quantum-computing/pulse-level-access.md": "computing/quantum-computing/running-quantum-jobs/pulse-job.md"
-      "computing/quantum-computing/helmi/helmi-projects.md": "computing/quantum-computing/overview.md"
-      "computing/quantum-computing/helmi/helmi-from-lumi.md": "computing/quantum-computing/access.md"
-      "computing/quantum-computing/helmi/first-quantum-job.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
-      "computing/quantum-computing/helmi/helmi-specs.md": "computing/quantum-computing/devices/overview.md"
-      "computing/quantum-computing/helmi/fiqci-partition.md": "computing/quantum-computing/overview.md"
-      "computing/quantum-computing/helmi/running-on-helmi.md": "computing/quantum-computing/running-quantum-jobs/overview.md"
-      "computing/quantum-computing/kvasi/kvasi-billing.md": "computing/quantum-computing/overview.md"
-      "computing/quantum-computing/kvasi/kvasi.md": "computing/quantum-computing/overview.md"
-      "support/tutorials/singularity-scratch.md": "computing/containers/overview.md"
-      "support/tutorials/gabedit_gaussian.md": "apps/gaussian.md"
-      "computing/quantum-computing/projects.md": "computing/quantum-computing/overview.md"
-      "computing/quantum-computing/specs.md": "computing/quantum-computing/devices/overview.md"
+      "computing/quantum-computing/running-quantum-jobs.md": "quantum-computing/running-quantum-jobs/index.md"
+      "computing/quantum-computing/helmi/first-quantum-job.md": "quantum-computing/running-quantum-jobs/circuit-job.md"
+      "computing/quantum-computing/helmi/running-on-helmi.md": "quantum-computing/running-quantum-jobs/index.md"
+      "computing/quantum-computing/first-quantum-job.md": "quantum-computing/running-quantum-jobs/circuit-job.md"
+      "computing/quantum-computing/pulse-level-access.md": "quantum-computing/running-quantum-jobs/pulse-job.md"
+      "computing/quantum-computing/fiqci-partition.md": "quantum-computing/index.md"
+      "computing/quantum-computing/helmi/helmi-projects.md": "quantum-computing/index.md"
+      "computing/quantum-computing/helmi/helmi-from-lumi.md": "quantum-computing/access.md"
+      "computing/quantum-computing/helmi/helmi-specs.md": "quantum-computing/devices/index.md"
+      "computing/quantum-computing/helmi/fiqci-partition.md": "quantum-computing/index.md"
+      "computing/quantum-computing/kvasi/kvasi-billing.md": "quantum-computing/index.md"
+      "computing/quantum-computing/kvasi/kvasi.md": "quantum-computing/index.md"
+      "support/tutorials/singularity-scratch.md": "supercomputing/containers/index.md"
+      "support/tutorials/gabedit_gaussian.md": "support/tutorials/avogadro2-gaussian-orca.md"
+      "computing/quantum-computing/projects.md": "quantum-computing/index.md"
+      "computing/quantum-computing/specs.md": "quantum-computing/devices/index.md"
 
 markdown_extensions:
-  - md_in_html
-  - footnotes
-  - admonition
-  - abbr
-  - attr_list
-  - def_list
-  - pymdownx.details
-  - pymdownx.blocks.caption
-  - pymdownx.tabbed:
-      alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
-  - pymdownx.snippets:
-      base_path:
-        - includes/snippets
-        - docs/data/sensitive-data
-      auto_append:
-        - glossaries/hpc.md
-        - glossaries/cloud.md
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      use_pygments: true
-      pygments_lang_class: true
-      anchor_linenums: true
-      line_spans: __span
-  - pymdownx.inlinehilite
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  toc:
+    permalink: true
+    permalink_title: Link to this heading
+  md_in_html: {}
+  footnotes: {}
+  admonition: {}
+  abbr: {}
+  attr_list: {}
+  def_list: {}
+  pymdownx.details: {}
+  pymdownx.blocks.caption: {}
+  pymdownx.tabbed:
+    alternate_style: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify
+      kwds:
+        case: lower
+  pymdownx.snippets:
+    base_path:
+      - includes/snippets
+      - docs/data/sensitive-data
+    auto_append:
+      - glossaries/hpc.md
+      - glossaries/cloud.md
+  pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  pymdownx.highlight:
+    use_pygments: true
+    pygments_lang_class: true
+    anchor_linenums: true
+    line_spans: __span
+  pymdownx.inlinehilite: {}
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme:
   name: materialx
@@ -320,11 +395,11 @@ not_in_nav: |
   # Accounts
   /accounts/how-to-access-mahti-large-partition.md
 
-  # Computing
-  /computing/allas-in-roihu.md
-  /computing/lumi-vs-mahti.md
-  /computing/running/array-jobs.md
-  /computing/webinterface/job-composer.md
+  # Supercomputing
+  /supercomputing/allas-in-roihu.md
+  /supercomputing/lumi-vs-mahti.md
+  /supercomputing/running/array-jobs.md
+  /supercomputing/webinterface/job-composer.md
 
   # Cloud Services
   /cloud/pouta/ePouta-access.md
@@ -418,6 +493,7 @@ not_in_nav: |
   /support/glossary.md
   /support/support-howto.md
   /support/translation.md
+  /support/visitor-statistics.md
 
 # /ref.md is visible in preview and staging builds:
 exclude_docs: |

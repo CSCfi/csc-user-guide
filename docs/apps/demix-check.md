@@ -120,7 +120,7 @@ demix_check --mode_run --r1 reads_1.fastq.gz --r2 reads_2.fastq.gz \
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

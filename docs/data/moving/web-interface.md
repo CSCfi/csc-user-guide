@@ -5,7 +5,7 @@
     prompting. Currently, the maximum size for individual file uploads is 10 GB.
 
 Files can be uploaded and downloaded to/from CSC supercomputers using the file
-browser functionality of [Roihu](../../computing/webinterface/index.md)
+browser functionality of [Roihu](../../supercomputing/webinterface/index.md)
 and [LUMI web interfaces](https://docs.lumi-supercomputer.eu/runjobs/webui/).
 The file browser can be opened from the Files menu in the top navigation bar.
 This displays a list of all project disk areas you have access to (example

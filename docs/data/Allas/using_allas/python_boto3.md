@@ -66,7 +66,7 @@ Using `allas-conf` is straightforward,
 but it overwrites the existing credentials file when run,
 making it somewhat tedious to work with multiple projects.
 Therefore, it is recommended to use the 
-[Cloud storage configuration](../../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
+[Cloud storage configuration](../../../supercomputing/webinterface/file-browser.md#accessing-allas-and-lumi-o)
 app in the [Roihu](https://roihu.csc.fi) web interface to configure S3 connections, since these configurations are
 stored under [individual S3 profiles](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file).
 

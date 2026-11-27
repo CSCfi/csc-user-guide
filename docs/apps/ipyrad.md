@@ -39,7 +39,7 @@ module load py-ipyrad/0.9.102
     The actual `ipyrad` command should always be executed in a batch job environment.
 
 For iPyrad tasks that are not computationally heavy, an
-[interactive batch job](../computing/running/interactive-usage.md) provides 
+[interactive batch job](../supercomputing/running/interactive-usage.md) provides 
 a good environment without queuing in between tasks.
 
 You can open an interactive batch job session with the command below.
@@ -143,7 +143,7 @@ module load py-ipyrad/0.9.102
 ipyrad -p params-run1.txt -s 4567 -c 8 -t 1 
 ```
 
-More information about running batch jobs can be found from [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md).
+More information about running batch jobs can be found from [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md).
 
 ## Using cPouta for very long iPyrad jobs
 

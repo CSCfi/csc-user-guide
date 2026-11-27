@@ -24,7 +24,7 @@ In addition to this page, this guide contains the following subsections:
 
 CSC offers several services which might be relevant for machine learning users:
 
-- [Roihu](../../../computing/index.md) and
+- [Roihu](../../../supercomputing/index.md) and
   [LUMI](https://docs.lumi-supercomputer.eu/) supercomputers are
   multi-user clusters and offer the highest computing performance,
   including GPU acceleration in a centrally controlled software
@@ -59,7 +59,7 @@ go. These are clusters of hundreds (or thousands) of computers, some
 of which offer GPU-acceleration. The supercomputers are multi-user
 systems, so individual users have limited rights to install software,
 and as with any shared resource one must follow the [usage
-policy](../../../computing/usage-policy.md) so that the service can
+policy](../../../supercomputing/usage-policy.md) so that the service can
 remain usable.
 
 CSC hosts the national supercomputer Roihu and the European LUMI
@@ -67,9 +67,9 @@ supercomputer. If you are [unsure which supercomputer to choose, read
 the discussion here](gpu.md).
 
 If you are a new user, please read [how to access
-Roihu](../../../computing/index.md#accessing-csc-supercomputers), and
+Roihu](../../../supercomputing/index.md#accessing-csc-supercomputers), and
 [how to submit computing
-jobs](../../../computing/running/getting-started.md). If you have opted
+jobs](../../../supercomputing/running/index.md). If you have opted
 for LUMI read the [LUMI Get Started
 page](https://docs.lumi-supercomputer.eu/firststeps/). LUMI users may
 also be interested in the [AI Software Environment provided by the
@@ -77,7 +77,7 @@ LUMI AI
 Factory](https://docs.lumi-supercomputer.eu/laif/software/ai-environment/).
 
 All supercomputers also provide a [web user
-interface](../../../computing/webinterface/index.md), through which
+interface](../../../supercomputing/webinterface/index.md), through which
 one can easily launch for example a Jupyter Notebook session with
 PyTorch. Note that GPUs access is more restricted for interactive
 sessions.
@@ -117,7 +117,7 @@ access](../../../cloud/pouta/index.md).
 
 * [Python parallel jobs](../python-usage-guide.md#python-parallel-jobs)
 * [Dask tutorial](../dask-python.md)
-* [High-throughput computing and workflows](../../../computing/running/throughput.md)
+* [High-throughput computing and workflows](../../../supercomputing/running/throughput.md)
 
 For LUMI users see also the [LUMI AI
 Guide](https://github.com/Lumi-supercomputer/LUMI-AI-Guide) created by

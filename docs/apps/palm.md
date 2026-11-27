@@ -30,7 +30,7 @@ of the GNU General Public License (v3)(https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Available
 
-PALM is available on [LUMI](../computing/available-systems.md) server. 
+PALM is available on [LUMI](../supercomputing/available-systems.md) server. 
 
 ## Usage
 

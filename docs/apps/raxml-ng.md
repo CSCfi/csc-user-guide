@@ -66,7 +66,7 @@ raxml-ng --all --msa alignment.fasta --model GTR+G --bs-trees 100 --threads $SLU
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

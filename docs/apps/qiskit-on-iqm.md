@@ -15,7 +15,7 @@ catalog:
 
 Qiskit on IQM is an open-source qiskit adapter for IQM quantum computers. It is
 installed as `fiqci-qiskit` on LUMI. It is used for running quantum circuits on the
-[quantum computers](../computing/quantum-computing/running-quantum-jobs/overview.md).
+[quantum computers](../quantum-computing/running-quantum-jobs/index.md).
 
 
 ## Available
@@ -25,7 +25,7 @@ versions:
 
 | Module                              | LUMI  | Notes           |
 :-------------------------------------|:-----:|-----------------|
-| `fiqci-qiskit/18.0`             | X     | Default version. Supports Q50 and Q20   |
+| `fiqci-qiskit`             | X     | Supports Q50 and Q20   |
 
 All modules are based on Tykky using LUMI-container-wrapper.
 Wrapper scripts have been provided so that common commands such as `python`,
@@ -117,4 +117,4 @@ Submit the script with `sbatch <script_name>.sh`.
 ## More information
 
 - [Qiskit-IQM documentation](https://docs.meetiqm.com/iqm-client/user_guide_qiskit)
-- [Quantum-Computing](../computing/quantum-computing/running-quantum-jobs/overview.md)
+- [Quantum-Computing](../quantum-computing/running-quantum-jobs/index.md)

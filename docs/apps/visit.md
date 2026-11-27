@@ -19,7 +19,7 @@ catalog:
 
 VisIt is an open source, versatile software for scientific visualization.
 VisIt is available on Roihu, and we recommend
-[the Roihu web interface remote desktop](../computing/webinterface/desktop.md)
+[the Roihu web interface remote desktop](../supercomputing/webinterface/desktop.md)
 for running the GUI.
 
 For workloads requiring more performance out of VisIt, GPU-accelerated

@@ -60,7 +60,7 @@ Give the path to the adapter file you need in the `ILLUMINACLIP` step, for examp
 ILLUMINACLIP:$TRIMMOMATIC_INSTROOT/share/adapters/TruSeq3-PE.fa:2:30:10
 ```
 
-Trimmomatic jobs should be run either in an [interactive session](../computing/running/interactive-usage.md) or as a batch job.
+Trimmomatic jobs should be run either in an [interactive session](../supercomputing/running/interactive-usage.md) or as a batch job.
 
 Example batch job script:
 

@@ -9,7 +9,7 @@ The easiest general option to set up Allas connection configuration is to use `a
 * Can be installed to Linux and Mac, but not Windows.
 * Suits well, if only one CSC project at a time in use for Allas.
 
-Alternatively, one can use [Roihu web interface](../../../computing/webinterface/file-browser.md#accessing-allas-and-lumi-o):
+Alternatively, one can use [Roihu web interface](../../../supercomputing/webinterface/file-browser.md#accessing-allas-and-lumi-o):
 
 * Sets up connection configuration for web interface file section and `rclone`, but not other Allas clients.
 * Swift or S3 connection

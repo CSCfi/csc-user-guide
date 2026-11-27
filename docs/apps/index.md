@@ -7,7 +7,7 @@ hide:
 # Applications
 
 !!! default "Cannot find the application you are looking for?"
-    * [See here for ways to install software yourself :material-arrow-right:](../computing/installing.md).
+    * [See here for ways to install software yourself :material-arrow-right:](../supercomputing/installing.md).
     * You may also [contact CSC Service Desk :material-arrow-right:](../support/contact.md) with your software
       installation request. Given enough requests, we may consider pre-installing a particular
       application, or purchasing a license for it if the software in question is proprietary.

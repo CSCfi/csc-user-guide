@@ -33,8 +33,8 @@ for
 ## More information
 
 More information on TensorBoard, interactive applications, and the web
-interfaces can be found under the [Computing section](../computing/index.md):
+interfaces can be found under the [Supercomputing section](../supercomputing/index.md):
 
-- [TensorBoard](../computing/webinterface/tensorboard.md)
-- [Interactive applications](../computing/webinterface/apps.md)
-- [Web interfaces](../computing/webinterface/index.md)
+- [TensorBoard](../supercomputing/webinterface/tensorboard.md)
+- [Interactive applications](../supercomputing/webinterface/apps.md)
+- [Web interfaces](../supercomputing/webinterface/index.md)

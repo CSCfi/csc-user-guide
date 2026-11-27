@@ -42,14 +42,14 @@ After that, you can launch Roary with the command `roary`. For example:
 roary -f ./demo -e -n -v ./gff/*.gff
 ```
 
-Run Roary in an [interactive session](../computing/running/interactive-usage.md) or as a
+Run Roary in an [interactive session](../supercomputing/running/interactive-usage.md) or as a
 batch job, not on the login node. An interactive session can be started with:
 
 ```bash
 sinteractive -i
 ```
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 

@@ -26,10 +26,10 @@ See [the License section of AMS](ams.md#license).
 
 ### Use via your browser
 
-Go to the [Roihu web interface](../computing/webinterface/index.md) using
+Go to the [Roihu web interface](../supercomputing/webinterface/index.md) using
 a web browser and login using your CSC user account.
 
-1. From there [launch a Desktop](../computing/webinterface/desktop.md#launching).
+1. From there [launch a Desktop](../supercomputing/webinterface/desktop.md#launching).
    When launching, request a few CPU cores (e.g. 4) for your Desktop
    session if you intend to run short jobs directly from the GUI — this
    also makes the 3D display noticeably smoother.
@@ -116,11 +116,11 @@ the internet.
 
 In order to manage remote jobs you need to set up SSH access between your
 workstation and the supercomputer, see
-[Setting up SSH keys](../computing/connecting/ssh-keys.md).
+[Setting up SSH keys](../supercomputing/connecting/ssh-keys.md).
 
 !!! warning "Roihu requires SSH certificates"
     To connect to Roihu over SSH, you must
-    [sign your public key in MyCSC](../computing/connecting/ssh-keys.md#signing-public-key)
+    [sign your public key in MyCSC](../supercomputing/connecting/ssh-keys.md#signing-public-key)
     to obtain a time-based SSH certificate. Each certificate is valid for
     24 hours, after which it must be renewed. Plain public keys in
     `~/.ssh/authorized_keys` will **not** work on Roihu, so remote job

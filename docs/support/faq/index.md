@@ -25,6 +25,7 @@
 * [Why does my batch job fail?](why-does-my-batch-job-fail.md)
 * [Why is my job queuing so long?](why-is-my-job-queueing-so-long.md)
 * [How to estimate how much memory my job needs?](how-much-memory-my-job-needs.md)
+* [The login banner says my job efficiency is poor. What should I do?](poor-job-efficiency.md)
 * [When will my batch job run?](when-will-my-job-run.md)
 * [How can I change which project is billed for my usage?](how-can-i-change-billing-project.md)
 * [Sending email when a job starts/finishes is not working](email_not_working.md )
@@ -40,7 +41,7 @@
 * [I have moved to a new university/organization. Can I keep my present user account and join it to some new project under the new organization?](how-to-change-organization.md)
 * [A foreign researcher is joining our research group as a visiting scientist. Can they receive an academic CSC user account?](can-visitors-get-user-accounts.md)
 
-## Computing
+## Supercomputing
 * [How is the computing time calculated?](how-is-the-computing-time-calculated.md)
 * [Where should I put my data?](where-should-i-put-my-data.md)
 * [How can I share my data with other users?](how-can-i-share-my-data-with-others.md)

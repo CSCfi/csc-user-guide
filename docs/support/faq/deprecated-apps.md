@@ -15,7 +15,7 @@ recommended alternatives can be found below. If you have questions, please
 
 Bioconda is no longer available on Puhti. Native Conda installations sitting
 directly on the shared file system are ineffective and not recommended in HPC
-environments such as Puhti. Please use [Tykky](../../computing/containers/tykky.md)
+environments such as Puhti. Please use [Tykky](../../supercomputing/containers/tykky.md)
 installations instead to wrap your Conda environment within a container.
 [See a tutorial on this here](../tutorials/bioconda-tutorial.md). Note that
 some packages that were previously provided through Bioconda are now available
@@ -47,23 +47,23 @@ your workflow.
 The NoMachine remote desktop service was discontinued at CSC on 25th May 2023,
 at the end of the its licensing period.
 
-The service is superseded by [the web interfaces for Puhti, Mahti and LUMI](../../computing/webinterface/index.md).
+The service is superseded by [the web interfaces for Puhti, Mahti and LUMI](../../supercomputing/webinterface/index.md).
 
 ??? info "Replacements for NoMachine (click to reveal)"
 
     * For a generic graphical remote desktop, the
-    [Desktop application](../../computing/webinterface/desktop.md) can be launched from the web
+    [Desktop application](../../supercomputing/webinterface/desktop.md) can be launched from the web
     interface.
-    * For a shell (e.g. a persistent shell on a compute node), have a look at [the shell applications](../../computing/webinterface/index.md#shell) on the web interface.
+    * For a shell (e.g. a persistent shell on a compute node), have a look at [the shell applications](../../supercomputing/webinterface/index.md#shell) on the web interface.
     * Available as interactive applications.
-        * [Jupyter](../../computing/webinterface/jupyter.md)
-        * [Julia-Jupyter](../../computing/webinterface/julia-on-jupyter.md)
-        * [MATLAB](../../computing/webinterface/matlab.md)
-        * [RStudio](../../computing/webinterface/rstudio.md)
-        * [TensorBoard](../../computing/webinterface/tensorboard.md)
-        * [Visual Studio Code](../../computing/webinterface/vscode.md)
+        * [Jupyter](../../supercomputing/webinterface/jupyter.md)
+        * [Julia-Jupyter](../../supercomputing/webinterface/julia-on-jupyter.md)
+        * [MATLAB](../../supercomputing/webinterface/matlab.md)
+        * [RStudio](../../supercomputing/webinterface/rstudio.md)
+        * [TensorBoard](../../supercomputing/webinterface/tensorboard.md)
+        * [Visual Studio Code](../../supercomputing/webinterface/vscode.md)
     * Some applications are available with GPU acceleration. See
-    [Accelerated visualization](../../computing/webinterface/accelerated-visualization.md).
+    [Accelerated visualization](../../supercomputing/webinterface/accelerated-visualization.md).
 
     **If you have difficulties in migrating to use the web interfaces, please don't hesitate to
     [contact us](../contact.md)!**

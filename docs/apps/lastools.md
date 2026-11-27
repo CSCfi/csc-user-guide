@@ -93,7 +93,7 @@ Citation of the software depends on which license was used:
 * rapidlasso GmbH, "LAStools - efficient LiDAR processing software" (version 220613, commercial), obtained from http://rapidlasso.com/LAStools
 
 ## Installation
-**2026 version** was installed using Singularity container based on [CSC's LasTools Apptrainer recipes](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../computing/containers/tykky.md#container-based-installations).
+**2026 version** was installed using Singularity container based on [CSC's LasTools Apptrainer recipes](https://github.com/CSCfi/singularity-recipes/blob/main/lastools) and [Tykky's wrap-container functionality](../supercomputing/containers/tykky.md#container-based-installations).
 
 ```
 #2025 and 2026

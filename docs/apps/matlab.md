@@ -63,7 +63,7 @@ All options support MATLAB versions R2023b to R2026b.
 
 ![MATLAB web application](https://a3s.fi/docs-files/apps/matlab-ood-interface.png){width=1000}
 
-We recommend using the [web interface](../computing/webinterface/index.md) to use MATLAB interactively.
+We recommend using the [web interface](../supercomputing/webinterface/index.md) to use MATLAB interactively.
 
 1. Start by logging into the web interface of the cluster you want to use: [www.roihu.csc.fi](https://www.roihu.csc.fi) or [www.lumi.csc.fi](https://www.lumi.csc.fi).
 
@@ -254,11 +254,11 @@ C = funcGPU(1000);
 
 ## Extending the MATLAB environment
 
-CSC's MATLAB installation runs inside an [Apptainer container](../computing/containers/overview.md).
+CSC's MATLAB installation runs inside an [Apptainer container](../supercomputing/containers/index.md).
 If you need software that the installation does not provide, such as a Python interpreter, extra system libraries, or command-line tools that your MATLAB code calls, you can build your own container image on top of CSC's MATLAB image and use it with the `matlab` module.
 
 Since MATLAB is available on Roihu-CPU, build the container on the Roihu-CPU login node or on a Roihu-CPU compute node.
-See [Building container images](../computing/containers/overview.md#building-container-images) for general instructions and best practices about building containers on CSC supercomputers.
+See [Building container images](../supercomputing/containers/index.md#building-container-images) for general instructions and best practices about building containers on CSC supercomputers.
 
 ### Writing the definition file
 
@@ -298,7 +298,7 @@ The `%environment` section makes the virtual environment and the MATLAB librarie
 ### Building the container
 
 We build the container from the definition file (`matlab.def`) into a container image (`matlab.sif`) using fakeroot.
-The MATLAB image is large, so build it on scratch (replace `<project>` with your project) and keep an eye on your [quota](../computing/disk.md):
+The MATLAB image is large, so build it on scratch (replace `<project>` with your project) and keep an eye on your [quota](../supercomputing/disk.md):
 
 ```bash
 cd /scratch/<project>

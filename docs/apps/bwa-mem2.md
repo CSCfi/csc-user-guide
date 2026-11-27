@@ -72,7 +72,7 @@ bwa-mem2 mem -t $SLURM_CPUS_PER_TASK reference.fa read1.fq read2.fq > aln.sam
 
 Replace `<project>` with your CSC project (for example `project_2001234`).
 
-See [creating a batch job script for Roihu](../computing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
+See [creating a batch job script for Roihu](../supercomputing/running/creating-job-scripts-roihu.md) for more information about running batch jobs.
 
 ## Support
 
