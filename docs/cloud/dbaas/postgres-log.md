@@ -56,6 +56,8 @@ Checkpoints are targeted to happen every five minutes by default;
 2026-01-30 15:14:16.288 UTC [10] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.001 s, sync=0.001 s, total=0.054 s; sync files=0, longest=0.000 s, average=0.000 s; distance=1697 kB, estimate=42878 kB; lsn=0/EA000080, redo lsn=0/EA000028
 ```
 
+On idling database server the checkpoints can happen less frequently than every five minutes.
+
 If there is too much write load, then checkpoints will happen more requently and the special `HINT` level message will be shown;
 ```
 2026-03-06 15:07:27.231 UTC [10] HINT:  Consider increasing the configuration parameter "max_wal_size".
@@ -63,12 +65,9 @@ If there is too much write load, then checkpoints will happen more requently and
 2026-03-06 15:07:27.231 UTC [10] LOG:  checkpoints are occurring too frequently (18 seconds apart)
 ```
 
-This can also happen under heavy load caused by upgrade process or when manually reindexing.
+In Pukki `max_wal_size` is tied to instance's flavor size. 
 
-!!! info "Note"
-    In Pukki `max_wal_size` is tied to instance's flavor size. 
-
-    On idling database server the checkpoints can happen less frequently than every five minutes.
+This can also happen under heavy load caused by upgrade process or when manually reindexing. Occasional `HINT` about `max_wal_size` is still okay, but it means there is more than optimal amount of disk IO happening.
 
 #### Database server shutdown messages
 
@@ -87,10 +86,9 @@ Database server shutdown also generates `FATAL` level message if database connec
 2026-02-13 16:06:34.942 UTC [27] STATEMENT:  select pg_sleep(60);
 ```
 
-!!! info "Note"
-    Only query running will be logged not the whole transaction.
+In above `STETAMENT` level log entry only query running will be logged not the whole transaction.
 
-Checkpoint message is also possible during shutdown;
+Checkpoint message can also possible during shutdown;
 
 ```
 2026-01-30 14:51:39.401 UTC [43] LOG:  checkpoint starting: shutdown immediate
@@ -99,7 +97,7 @@ Checkpoint message is also possible during shutdown;
 
 #### Database server deletion
 
-The database server is shutdown and logs are removed.
+The database server is shutdown and user looses access to instance's logs.
 
 #### Database server startup messages
 
@@ -115,6 +113,8 @@ PostgreSQL Database directory appears to contain a database; Skipping initializa
 2026-01-30 14:52:30.164 UTC [1] LOG:  database system is ready to accept connections
 ```
 
+The last message `database system is ready to accept connections` means that the database's integrity check has passed and the database is ready for read-write operations.
+
 If the database server is not ready to accept connections and there is an incoming connection the following will be also logged on the startup;
 
 ```
@@ -127,90 +127,22 @@ Above `FATAL` error could be also caused by Pukki trying to ping the database se
 
 These are from Pukki's logging point of view just a shutdown and startup. Upgrade does other actions on background but logs of these are not shown to the user.
 
-The database server upgrade might complain about discrepancy of default collation version and databases' actual collation version on disk, but this is handled automatically by Pukki;
+The database server upgrade might complain about discrepancy of default collation version and databases' actual collation version on disk;
 
 ```
 2026-07-31 14:32:51.739 UTC [17] WARNING:  database "postgres" has a collation version mismatch
 2026-07-31 14:32:51.739 UTC [17] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
 2026-07-31 14:32:51.739 UTC [17] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
-2026-07-31 14:32:51.913 UTC [18] WARNING:  database "postgres" has a collation version mismatch
-2026-07-31 14:32:51.913 UTC [18] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
-2026-07-31 14:32:51.913 UTC [18] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
-2026-07-31 14:32:52.061 UTC [19] WARNING:  database "postgres" has a collation version mismatch
-2026-07-31 14:32:52.061 UTC [19] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
-2026-07-31 14:32:52.061 UTC [19] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
-2026-07-31 14:32:52.087 UTC [20] WARNING:  database "postgres" has a collation version mismatch
-2026-07-31 14:32:52.087 UTC [20] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
-2026-07-31 14:32:52.087 UTC [20] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE postgres REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
-2026-07-31 14:32:52.188 UTC [21] WARNING:  database "template1" has a collation version mismatch
-2026-07-31 14:32:52.188 UTC [21] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
-2026-07-31 14:32:52.188 UTC [21] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE template1 REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
 2026-07-31 14:32:52.260 UTC [22] WARNING:  database "template1" has a collation version mismatch
 2026-07-31 14:32:52.260 UTC [22] DETAIL:  The database was created using collation version 2.31, but the operating system provides version 2.36.
 2026-07-31 14:32:52.260 UTC [22] HINT:  Rebuild all objects in this database that use the default collation and run ALTER DATABASE template1 REFRESH COLLATION VERSION, or build PostgreSQL with the right library version.
 ```
 
+On above both PostgreSQL internal (`postgres` and `template1`) databases are shown. The upgrade will give a warning about all the databases multiple times, but corrective actions are handled automatically by Pukki.
+
 #### Database server creation and restore
 
-Database server restore is essentially just a new database server creation from the Pukki's logging stand point. Creating a database server generates one-off log lines and it will end to same `database system is ready to accept connections` message like startup does;
-```
-The files belonging to this database system will be owned by user "postgres".
-This user must also own the server process.
-
-The database cluster will be initialized with locale "en_US.utf8".
-The default database encoding has accordingly been set to "UTF8".
-The default text search configuration will be set to "english".
-
-Data page checksums are disabled.
-
-fixing permissions on existing directory /var/lib/postgresql/data/pgdata ... ok
-creating subdirectories ... ok
-selecting dynamic shared memory implementation ... posix
-selecting default "max_connections" ... 100
-selecting default "shared_buffers" ... 128MB
-selecting default time zone ... Etc/UTC
-creating configuration files ... ok
-running bootstrap script ... ok
-performing post-bootstrap initialization ... ok
-syncing data to disk ... ok
-
-initdb: warning: enabling "trust" authentication for local connections
-initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
-
-Success. You can now start the database server using:
-
-    pg_ctl -D /var/lib/postgresql/data/pgdata -l logfile start
-
-waiting for server to start....
-2026-07-30 15:13:26.068 UTC [31] LOG:  starting PostgreSQL 17.6 (Debian 17.6-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-2026-07-30 15:13:26.091 UTC [31] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-2026-07-30 15:13:26.121 UTC [34] LOG:  database system was shut down at 2026-07-30 15:13:25 UTC
-2026-07-30 15:13:26.135 UTC [31] LOG:  database system is ready to accept connections
- done
-server started
-
-/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
-
-waiting for server to shut down....
-2026-07-30 15:13:26.260 UTC [31] LOG:  received fast shutdown request
-2026-07-30 15:13:26.264 UTC [31] LOG:  aborting any active transactions
-2026-07-30 15:13:26.268 UTC [31] LOG:  background worker "logical replication launcher" (PID 37) exited with exit code 1
-2026-07-30 15:13:26.272 UTC [32] LOG:  shutting down
-2026-07-30 15:13:26.275 UTC [32] LOG:  checkpoint starting: shutdown immediate
-2026-07-30 15:13:26.320 UTC [32] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.006 s, total=0.048 s; sync files=2, longest=0.004 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/14ED7F0, redo lsn=0/14ED7F0
-2026-07-30 15:13:26.327 UTC [31] LOG:  database system is shut down
- done
-server stopped
-
-PostgreSQL init process complete; ready for start up.
-
-2026-07-30 15:13:26.410 UTC [1] LOG:  starting PostgreSQL 17.6 (Debian 17.6-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-2026-07-30 15:13:26.411 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-2026-07-30 15:13:26.411 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-2026-07-30 15:13:26.433 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-2026-07-30 15:13:26.442 UTC [45] LOG:  database system was shut down at 2026-07-30 15:13:26 UTC
-2026-07-30 15:13:26.483 UTC [1] LOG:  database system is ready to accept connections
-```
+Database server restore is essentially just a new database server creation from the Pukki's logging stand point. Creating a database server generates about 50 to 60 one-off log lines and it will end to same `database system is ready to accept connections` message like startup does.
 
 #### When attaching configuration group
 
@@ -219,7 +151,6 @@ Changing `work_mem` parameter here as an example;
 2026-06-12 14:06:19.490 UTC [1] LOG:  received SIGHUP, reloading configuration files
 2026-06-12 14:06:19.491 UTC [1] LOG:  parameter "work_mem" changed to "8MB"
 ```
-
 
 #### Error in configuration group
 
@@ -234,28 +165,28 @@ For example for `work_mem` the correct value would be `8MB` not `8M`;
 
 Note worthy here is that if database server has incorrect configurations during any startup then it will end in to restart loop without never successfully starting to serve connections;
 ```
-
 PostgreSQL Database directory appears to contain a database; Skipping initialization
 
 2026-06-12 14:29:30.314 UTC [1] FATAL:  configuration file "/etc/postgresql/conf.d/20-user-001-common.conf" contains errors
 2026-06-12 14:29:30.314 UTC [1] HINT:  Valid units for this parameter are "B", "kB", "MB", "GB", and "TB".
 2026-06-12 14:29:30.314 UTC [1] LOG:  invalid value for parameter "work_mem": "8M"
-
-PostgreSQL Database directory appears to contain a database; Skipping initialization
-
-2026-06-12 14:29:30.907 UTC [1] FATAL:  configuration file "/etc/postgresql/conf.d/20-user-001-common.conf" contains errors
-2026-06-12 14:29:30.907 UTC [1] HINT:  Valid units for this parameter are "B", "kB", "MB", "GB", and "TB".
-2026-06-12 14:29:30.907 UTC [1] LOG:  invalid value for parameter "work_mem": "8M"
-
-PostgreSQL Database directory appears to contain a database; Skipping initialization
-
-2026-06-12 14:29:31.630 UTC [1] FATAL:  configuration file "/etc/postgresql/conf.d/20-user-001-common.conf" contains errors
-2026-06-12 14:29:31.630 UTC [1] HINT:  Valid units for this parameter are "B", "kB", "MB", "GB", and "TB".
-2026-06-12 14:29:31.630 UTC [1] LOG:  invalid value for parameter "work_mem": "8M"
-...
 ```
 
+Above error will be looped until the parameter is changed to use valid value.
+
+
 #### Trying to create a database with non-existing encoding or/and collation
+
+Currently Pukki allows to create database using incorrect encoding and collation, but these do end up in error like we can see below. See PostgreSQL manual for correct encoding and collation if not using defaults.
+
+Following commands in PostgreSQL client gives the default values;
+
+```
+SHOW server_encoding;
+SHOW lc_collate;
+```
+
+Even though default `lc_collate` is now `en_US.utf8` and therefore `server_encoding` is `UTF8`, these are only guaranteed to stay same during the lifetime of the instance, not for new instances.
 
 Both encoding and collation does not exits;
 ```
@@ -284,9 +215,7 @@ Just collation is incorrect;
 2026-02-13 15:36:07.576 UTC [80166] FATAL:  password authentication failed for user "user"
 ```
 
-!!! info "Note"
-    Maybe someone authorized was trying manually to connect to the database server or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
-
+These might be someone authorized trying manually connecting to the database server or maybe it is some background job failing to connect, which effects is not directly visible. Consider these also to be possible break-in attempts.
 
 #### User does not exists
 
@@ -296,15 +225,15 @@ Just collation is incorrect;
 	Connection matched file "/etc/postgresql/pg_hba.conf" line 9: "host all all 0.0.0.0/0 md5"
 ```
 
-!!! info "Note"
-    Maybe someone authorized was trying manually to connect to the database server or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
-
+These might be someone authorized trying manually connecting to the database server or maybe it is some background job failing to connect, which effects is not directly visible. Consider these also to be possible break-in attempts.
 
 #### Transaction was committed or rollbacked and there was no transaction started in the first place
 
 ```
 2026-02-13 16:00:16.900 UTC [35] WARNING:  there is no transaction in progress
 ```
+
+Usually frameworks which applications are using should handle the start of transaction, but if the application does not use any framework, it is a simple batch job, or you typed the SQL manually then make sure that there is a `START TRANSACTION` commanced if you plan to use transactional `COMMIT` or `ROLLBACK` commands.
 
 #### Typos when running SQLs manually
 
@@ -313,6 +242,7 @@ Just collation is incorrect;
 2026-01-30 14:58:32.882 UTC [64] STATEMENT:  CREATE test AS SELECT GENERATE_SERIES(1,500000) AS id, MD5(RANDOM()::TEXT) AS random_text;
 ```
 
+Check the PostgreSQL manual for correct syntaxes, obviously in this example the command should been `CREATE TABLE test...`.
 
 #### Connection was not closed properly from the client side
 
@@ -320,5 +250,4 @@ Just collation is incorrect;
 2026-02-13 16:32:56.591 UTC [60] LOG:  could not receive data from client: Connection reset by peer
 ```
 
-!!! info "Note"
-    Usually these are improperly closed connections, but there is a possibility that network connection between the application and the server has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
+Usually these are improperly closed connections. There is a possibility that network connection between the application and the server has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.

@@ -1,6 +1,6 @@
 # Database server log in MariaDB
 
-Server log in MariaDB gives important information from database server's current health and operation.
+MariaDB server log gives important information from database server's current health and operation.
 
 ## How to access database server logs
 
@@ -11,7 +11,7 @@ Server log in MariaDB gives important information from database server's current
 If the system does not return any log lines, then that means there are no log entries within the 1 month retention period, which is common to MariaDBs. If you think there are missing log lines, please [contact CSC Service Desk](/support/contact.md) for assistance.
 
 ## What to look for
-Error log in MariaDB should be quite quiet, having  `note` and some `warning` level messages related to DB's startup, shutdown, creation, upgrade or restore related operations.
+Server log in MariaDB should be quite quiet, having  `note` and some `warning` level messages related to DB's startup, shutdown, creation, upgrade or restore related operations.
 
 MariaDB does not by default log anything performance related unlike PostgreSQL.
 
@@ -30,32 +30,33 @@ In this example the first attempt did not specify password when connecting and t
 
 The log line looks same in case of incorrect password or trying to connect with user that does not exists.
 
-!!! info "Note"
-    Maybe someone authorized was trying manually to connect to the database server or maybe it is some background job failing to connect, which effects was not visible. Consider these also to be possible break-in attempts.
+These might be someone authorized trying manually connecting to the database server or maybe it is some background job failing to connect, which effects is not directly visible. Consider these also to be possible break-in attempts.
 
 #### Idle connections
 
-Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
+Session's `net_read_timeout` or `wait_timeout` or/and `interactive_timeout` is exceeded;
 
 ```
 2026-09-04 14:13:43 nn [Warning] Aborted connection nn to db: 'test' user: 'testuser' host: '$random_container_id' (Got timeout reading communication packets)
 ```
 
-!!! info "Note"
-    Usually these are connections timing out due to inactivity, but there is a possibility that there is and open transaction and exceeding timeout would cause resource intesive rollback, so these cannot be completely ignored either.
+Usually these are connections timing out due to inactivity, but there is a possibility of having an open transaction and exceeding timeout(s) which will cause resource intesive rollback, so these cannot be completely ignored either.
 
 #### Connection was not closed properly from the client side
 
-Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
+The session was actively terminated without the client sending proper protocol level quit command;
 
 ```
 2026-09-04 14:15:55 nn [Warning] Aborted connection nn to db: 'test' user: 'testuser' host: '$random_container_id' (Got an error reading communication packets)
 ```
 
-!!! info "Note"
-    Usually these are improperly closed connections, but there is a possibility that network connection between the application and the server has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
+This is caused either by the client or network device between the client and the server. 
+
+Usually these are just improperly closed idle connections, but there is a possibility that network connection between the application and the server has been interrupted during transaction, causing resource intesive rollback, so these cannot be completely ignored either.
 
 ### Other common messages
+
+These are something you don't have to watch for. Examples here only exists if you want to verify that specific operation you did in Pukki finished properly and in those cases last few lines are really the interesting ones.
 
 #### Database server shutdown messages
 
@@ -70,9 +71,11 @@ Session's `wait_timeout` or/and `interactive_timeout` is exceeded;
 2026-07-31 11:24:40 0 [Note] mariadbd: Shutdown complete
 ```
 
+`mariadbd: Shutdown complete` means that the database was shutdown properly and any open transaction was rolled back.
+
 #### Database server deletion
 
-The database server is shutdown and logs are removed.
+The database server is shutdown and user looses access to instance's logs.
 
 #### Database server startup messages
 
@@ -106,6 +109,10 @@ create_uring failed: falling back to libaio
 2026-07-31 11:25:05 0 [Note] mariadbd: ready for connections.
 Version: '12.3.2-MariaDB-ubu2404'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  mariadb.org binary distribution
 ```
+
+The second line from below (`mariadbd: ready for connections`) says it all -- the database server finished it's integrity checks and is fully ready for read-write operations.
+
+The above all clear message might be delayed for example if a batch job was interrupted by instance's unexpected crash and now the database server has to rollback the interrupted transaction first. This rollback might take minutes or hours depending how large was the batch.
 
 #### Volume & instance resize and instance rebuild
 
