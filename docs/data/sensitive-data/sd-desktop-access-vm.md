@@ -35,9 +35,11 @@ This will close all applications and disconnect the work session. You can access
 
 ## 3. Keeping long-running processes active 
 
-If you started an analysis programmatically (for example, by running a script), you can use a Byobu terminal session. Processes running inside a Byobu session will continue even if you log out from the virtual desktop. When you reconnect to your desktop, your running processes will still be available, allowing you to resume work where you left off. 
+* If you started an analysis programmatically (for example, by running a script), you can use a **Byobu terminal session**. Processes running inside a Byobu session will continue even if you log out from the virtual desktop. When you reconnect to your desktop, your running processes will still be available, allowing you to resume work where you left off. 
 
-Alternatively, you can simply disconnect from the desktop by closing the browser without logging out if you want to keep your applications and session active. In virtual desktop created before September 28, 2026, you can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
+* Alternatively, you can simply disconnect from the desktop by closing the browser without logging out if you want to keep your applications and session active. 
+
+* In virtual desktop created before September 28, 2026, you can reconnect to a previous session only if the browser window is exactly the same size as when the original session was in use. This is typically only possible if you're using the SD Desktop in full-screen mode on the same machine. If the window size has changed, you will most likely be unable to reconnect to the old session.
 
 
 ## 4. Limitations
