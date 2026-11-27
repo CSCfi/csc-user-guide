@@ -132,6 +132,57 @@ for instructions on how to enable high-performance libraries in the input script
     srun gpaw python input.py
     ```
 
+=== "Roihu-GPU (partial node, 1-4 GPUs)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=gpaw
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpumedium
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=1  # Use as many tasks as GPUs
+    #SBATCH --cpus-per-task=72   # Use 72 here always, i.e., all Grace CPU cores of the GH200 superchip
+    #SBATCH --gres=gpu:gh200:1   # Use 1 GPU per node
+    #SBATCH --time=00:30:00
+
+    # Set the number of CPU threads based on cpus-per-task
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+    # Place and bind CPU threads to single CPU cores
+    # Comment the following lines if binding is not desired
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
+
+    # Run GPAW
+    srun gpaw python input.py
+    ```
+
+=== "Roihu-GPU (full nodes, 4 or more GPUs)"
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=gpaw
+    #SBATCH --account=<project>
+    #SBATCH --partition=gpularge
+    #SBATCH --nodes=1
+    #SBATCH --ntasks-per-node=4  # Use 4 tasks per node, i.e., one task per GPU
+    #SBATCH --cpus-per-task=72   # Use 72 here always, i.e., all Grace CPU cores of the GH200 superchip
+    #SBATCH --gres=gpu:gh200:4   # Use all 4 GPUs per node
+    #SBATCH --time=00:30:00
+
+    # Set the number of CPU threads based on cpus-per-task
+    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-1}
+
+    # Place and bind CPU threads to single CPU cores
+    # Comment the following lines if binding is not desired
+    export OMP_PLACES=cores
+    export OMP_PROC_BIND=spread
+
+    # Run GPAW
+    srun gpaw python input.py
+    ```
+
+
 ## Custom GPAW environment on Roihu
 
 It is possible to create a Python virtual environment on top of the GPAW module.
