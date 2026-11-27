@@ -10,6 +10,7 @@
 [docs mcp]: docs-mcp.md
 [AI agent policy]: ../usage-policy.md#agentic-ai-tools-on-roihu
 [partitions]: ../running/batch-job-partitions.md
+[lumi firecrest mcp]: https://docs.lumi-supercomputer.eu/laif/software/agent-infrastructure/firecrest-mcp/
 [mcp]: https://modelcontextprotocol.io/docs/getting-started/intro
 [terms of use]: https://research.csc.fi/general-terms-of-use
 [uv]: https://docs.astral.sh/uv/
@@ -19,6 +20,11 @@ The FirecREST MCP Server is a [Model Context Protocol (MCP)][mcp] server that le
 your workstation transfer files to and from Roihu, manage files there, and submit and monitor
 Slurm jobs. It uses the [FirecREST HPC API][firecrest] and your personal FirecREST access token.
 The server is an alpha version, so [update it regularly](#installing).
+
+!!! info "Using the server with LUMI"
+    This page covers Roihu. For LUMI, you run a separate FirecREST MCP Server with LUMI's
+    FirecREST API. See the
+    [FirecREST MCP Server page in the LUMI documentation][lumi firecrest mcp].
 
 Without the server, an AI agent on your workstation can write code for Roihu but cannot run it.
 You have to upload the code, submit the job, wait for it to finish, and pass the output and error
