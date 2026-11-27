@@ -23,6 +23,13 @@ CSC hosts an MCP server that lets AI agents search an up-to-date version of the
 CSC User Guide. See the [CSC Documentation MCP server](docs-mcp.md) page for
 usage instructions.
 
+## FirecREST MCP server
+
+The FirecREST MCP server lets an AI agent on your own workstation transfer
+files to and from Roihu and submit and monitor Slurm jobs through the
+[FirecREST HPC API](../firecrest/index.md), without SSH access. See the
+[FirecREST MCP server](firecrest-mcp.md) page for setup instructions.
+
 ## CSC skills
 
 [csc-skills](https://github.com/CSCfi/csc-skills) is a collection of agent
