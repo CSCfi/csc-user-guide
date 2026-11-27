@@ -265,6 +265,26 @@ GPAW_BUILD_JOBS=8 GPAW_CONFIG=/gpaw_container/config/siteconfig.py pip install -
 gpaw info
 ```
 
+
+!!! info "Files inside the container"
+
+    Note that all files under the path `/gpaw_container/` reside inside
+    the singularity container image and this path is not directly accessible.
+
+    Instead, you can use `_debug_exec` command to execute commands inside
+    the container. For example, print the contents of the used `constraints.txt`:
+
+        _debug_exec cat /gpaw_container/config/constraints.txt
+
+    As another example, copy `siteconfig.py` from the container image to
+    a normal file `my-siteconfig.py` that you can then customize if needed:
+
+        _debug_exec cp /gpaw_container/config/siteconfig.py my-siteconfig.py
+
+    You can also use `_debug_shell` to open a shell inside the container
+    to inspect its contents further.
+
+
 ## More information
 
 - [GPAW home page](https://gpaw.readthedocs.io/)
