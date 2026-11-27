@@ -210,7 +210,7 @@ To load this environment, load the module and source the environment activate sc
 module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 ```
 
-!!! warning "Entrypoint scripts with virtual environment"
+!!! warning "Entrypoint scripts with the virtual environment"
 
     Note that so-called entrypoint scripts like `gpaw` and `ase`
     are short-hands for `python -m gpaw` and `python -m ase`, respectively,
@@ -230,7 +230,7 @@ module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 Load the environment and install extra packages with pip:
 
 ```bash
-# Load gpaw venv
+# Load GPAW venv
 module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 
 # Install a python package
@@ -240,15 +240,37 @@ module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 pip install --constraint /gpaw_container/config/constraints.txt <package>
 ```
 
-### Installing a development version of GPAW
-
-Load the environment, clone the gpaw code, and install it with pip:
+As a concrete example, installing the latest (unstable) development version of ASE:
 
 ```bash
-# Load gpaw venv
+# Load GPAW venv
 module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
 
-# Clone the gpaw development repository
+# Install a python package
+# Note:
+# - The constraint ensures that the provided high-performance numpy and scipy
+#   are not reinstalled by pip with less-optimal versions
+pip install --constraint /gpaw_container/config/constraints.txt git+https://gitlab.com/ase/ase.git@master
+
+# Check the ASE version that GPAW sees in the environment
+python -m gpaw info
+
+# Note! The GPAW line below does NOT see the updated ASE
+#       unless also GPAW is installed in the environment.
+#       See the warning about entrypoint scripts above!
+gpaw info
+```
+
+
+### Installing a development version of GPAW
+
+Load the environment, clone the GPAW code, and install it with pip:
+
+```bash
+# Load GPAW venv
+module load gpaw/26.7.0 && source venv-gpaw-cpu/bin/activate
+
+# Clone the GPAW development repository
 git clone https://gitlab.com/gpaw/gpaw.git
 cd gpaw
 
@@ -261,7 +283,7 @@ cd gpaw
 rm -rf build _build _gpaw.*.so gpaw.egg-info
 GPAW_BUILD_JOBS=8 GPAW_CONFIG=/gpaw_container/config/siteconfig.py pip install --constraint /gpaw_container/config/constraints.txt --no-build-isolation -v --log build-cpu.log --config-settings editable_mode=compat -e .
 
-# Check the installed gpaw
+# Check the installed GPAW
 gpaw info
 ```
 
