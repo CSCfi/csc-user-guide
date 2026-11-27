@@ -56,9 +56,10 @@ Key rules for using AI agent tools on Roihu:
    [`rclone.conf`](../data/Allas/using_allas/rclone.md). A good method is to run
    the agentic tool in an [Apptainer container](containers/index.md),
    only bind mounting what you need on the system (e.g. your scratch
-   directory). CSC is preparing a supported container for this use case.
-   One can also use the sandboxing features of the tools, but not all
-   methods are supported on Roihu. See for example
+   directory). CSC provides such a container in the
+   [AI agent environment on Roihu](ai-tools/agent-env.md). One can also
+   use the sandboxing features of the tools, but not all methods are
+   supported on Roihu. See for example
    [Claude Code sandbox environments](https://code.claude.com/docs/en/sandbox-environments).
 
 3. **Control the agent's access to tools on the system.** Be mindful of
