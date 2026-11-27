@@ -1,3 +1,9 @@
+{% if config.extra.footer_columns %}
+  {%- set contact_column = config.extra.footer_columns.contact_information -%}
+  {%- set service_column = config.extra.footer_columns.customer_service -%}
+  {%- set info_column = config.extra.footer_columns.info -%}
+{% endif %}
+
 {% macro page_url(src) %}
   {{ (pages|selectattr("src_uri", "eq", src)|first).page.url|url }}
 {% endmacro %}
@@ -13,7 +19,7 @@
       background-color: var(--md-default-fg-color--lightest);
       font-size: medium;
     }
-    .docs-footer {
+    .docs-footer-row {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -46,7 +52,7 @@
       color: var(--md-accent-fg-color);
     }
     @media screen and (min-width: 50em) {
-      .docs-footer {
+      .docs-footer-row {
         flex-direction: row;
         justify-content: space-around;
         padding: 3% 10%;
@@ -58,42 +64,50 @@
   }
 </style>
 <div class="docs-footer-container">
-  <div class="docs-footer">
+  {% if contact_column or service_column or info_column %}
+  <div class="docs-footer-row">
+    {% if contact_column %}
     <div class="docs-footer-column">
       <div class="docs-footer-heading">{{ lang.t("contact_information") }}</div>
       <div class="docs-footer-content">
-        <strong>{{ lang.t("csc.full_name") }}</strong><br>{{ lang.t("csc.mail_address") }}
+        <strong>{{ contact_column.full_name }}</strong><br>{{ contact_column.mail_address }}
       </div>
       <div class="docs-footer-content">
-        {{ footer_link("(09) 457 2001 (" ~ lang.t('switchboard') ~ ")", "tel:+35894572001", icon="phone") }}
+        {{ footer_link(contact_column.phone.text, "tel:" ~ contact_column.phone.number, icon="phone") }}
       </div>
       <div class="docs-footer-content">
-        {{ footer_link(lang.t("csc.info_at") ~ " CSC.fi", "https://www.csc.fi/" ~ lang.t("meta.lang_code") ~ "/" ~ lang.t("csc.info_path")) }}
+        {{ footer_link(contact_column.info.text, contact_column.info.link) }}
       </div>
     </div>
+    {% endif %}
+    {% if service_column %}
     <div class="docs-footer-column">
       <div class="docs-footer-heading">{{ lang.t("customer_service") }}</div>
-      <div class="docs-footer-content">{{ lang.t("csc.open_hours") }}</div>
+      <div class="docs-footer-content">{{ service_column.open_hours }}</div>
       <div class="docs-footer-content">
         <ul>
-          <li>{{ footer_link(lang.t("contact_form"), "https://research.csc.fi/support", icon="form-textbox") }}</li>
-          <li>{{ footer_link(lang.t("csc.email"), "mailto:" ~ lang.t("csc.email"), icon="email") }}</li>
-          <li>{{ footer_link("(09) 457 2821", "tel:+35894572821", icon="phone") }}</li>
+          <li>{{ footer_link(lang.t("contact_form"), service_column.contact_form, icon="form-textbox") }}</li>
+          <li>{{ footer_link(service_column.contact_email, "mailto:" ~ service_column.contact_email, icon="email") }}</li>
+          <li>{{ footer_link(service_column.phone.text, "tel:" ~ service_column.phone.number, icon="phone") }}</li>
         </ul>
       </div>
     </div>
+    {% endif %}
+    {% if info_column %}
     <div class="docs-footer-column">
       <div class="docs-footer-heading">Info</div>
       <div class="docs-footer-content">
         <ul>
-          <li>{{ footer_link(lang.t("maintenance_breaks"), "https://research.csc.fi/service-breaks/" ) }}</li>
+          <li>{{ footer_link(lang.t("maintenance_breaks"), info_column.maintenance_breaks) }}</li>
           <li>{{ footer_link(lang.t("accessibility_statement"), page_url("support/accessibility.md"), target="_self") }}</li>
           <li>{{ footer_link(lang.t("visitor_statistics"), page_url("support/visitor-statistics.md"), target="_self") }}</li>
           <li>{{ footer_link(lang.t("user_communications_archives"), page_url("support/contact.md")+"#archives", target="_self") }}</li>
         </ul>
       </div>
     </div>
+    {% endif %}
   </div>
+  {% endif %}
   {% if config.extra.environment == "preview" or
         lang.t("meta.lang_code") != "en" %}
     {% include "partials/disclaimer.html" %}
