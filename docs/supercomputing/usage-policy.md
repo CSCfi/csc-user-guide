@@ -71,13 +71,14 @@ Key rules for using AI agent tools on Roihu:
 
 4. **Prefer running the agent on your own computer.** If possible, run
    the tool on your own laptop or workstation and not on the
-   supercomputer. The agent can then run commands and manage jobs
-   through the [FirecREST API](firecrest/index.md). Keep the FirecREST
-   token in an environment variable (e.g. `FIRECREST_TOKEN`), let the
-   agent refer to it by name only, never paste it into a prompt and do
-   not let the agent print it. CSC is preparing a FirecREST MCP server
-   that keeps the token outside the agent's reach. Roihu can also be
-   accessed over [SSH](connecting/index.md).
+   supercomputer. The agent can then transfer files and manage jobs
+   through the [FirecREST MCP server](ai-tools/firecrest-mcp.md), which
+   uses the [FirecREST API](firecrest/index.md) and keeps the token
+   outside the agent's reach. If the agent uses the FirecREST API
+   directly, keep the token in an environment variable (e.g.
+   `FIRECREST_TOKEN`), let the agent refer to it by name only, never
+   paste it into a prompt and do not let the agent print it. Roihu can
+   also be accessed over [SSH](connecting/index.md).
 
 
 5. **Do not overload the login node!** As an exception to the login node
