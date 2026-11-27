@@ -1,3 +1,4 @@
 - [Agent Environment](agent-env.md)
 - [Docs MCP Server](docs-mcp.md)
+- [FirecREST MCP Server](firecrest-mcp.md)
 - [CSC Skills](csc-skills.md)
