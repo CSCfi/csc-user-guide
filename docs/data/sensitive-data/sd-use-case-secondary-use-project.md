@@ -6,7 +6,6 @@
 
 You need to access secondary use data (register data) on SD Desktop. You have a permit from Findata or from any other datata controller of the health and social data registers, which provide their data for research use under the Secondary Use Act.
 
-<iframe width="280" height="155" srcdoc="https://www.youtube.com/embed/C5n92UiUbPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Solution
 
@@ -148,7 +147,7 @@ When you first access your project, you’ll be prompted to complete the Descrip
 
 You can find the Share ID by selecting the correct CSC project in the top-left corner of SD Connect and clicking Copy Share ID next to the project number. A Share ID is a 32-character identifier, which will be used to share the register dataset for your project.
 
-![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyShareID.png)
+![(Copy Share ID)](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_CopyOwnShareID.png)
 
 ---
 

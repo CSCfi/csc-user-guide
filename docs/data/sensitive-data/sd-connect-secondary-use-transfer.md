@@ -85,11 +85,13 @@ SD Connect is built on a cloud object storage infrastructure. Files can only be 
 
 ### 3.1. Upload and encrypt files to an existing bucket
 
-Sensitive Data support team will create a bucket in SD Connect for each dataset, share the bucket name with you, and grant Read-only access to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment.
+**Sensitive Data support team** will create a bucket in SD Connect for each dataset, share the bucket name with you and grant **Read-only access** to the bucket for the CSC project in which the data users will analyze the data in the isolated SD Desktop environment
 
 One bucket is created for each dataset based on a data permit. In other words, each bucket contains only one dataset and should include all data covered by the same data permit.
 
-Data users create their CSC projects based on their data permits and can access only the data uploaded to the bucket shared with their project. If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets, and the users must have separate CSC projects for each data permit.
+**Data users** create their CSC projects based on their data permits and can access only the data uploaded to the bucket shared with their project
+
+If the same data users have multiple separate data permits, the datasets must be uploaded to separate buckets, and the users must have separate CSC projects for each data permit.
 
 #### Step by step
 
@@ -174,13 +176,13 @@ You can cancel the data access permanently by [deleting the data files](#422-del
 In addition, you can cancel the data access either permanently or temporarily by deleting the sharing permissions from the bucket.
 
 1. Select correct project from the top-left corner. Click **Share** button on the right side of the bucket.
-![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1.png)
+![Share](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_Share1_1.png)
 
 2. In the Share window **scroll down to This bucket is shared to title**. Delete permission by clicking **Delete** button on the right side of the project.
-![Change permissions](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareDeletePermission1.png)
+![Change permissions](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_RevokeShareReadtoDesktop_1.png)
 
 3. A notification will open above the project list. **You may have to scroll up to see it.** Confirm your choise by clicking **Delete Permissions** button.
-![Accept](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_ShareDeletePermission2.png)
+![Accept](https://a3s.fi/docs-files/sensitive-data/SD_Connect/SD-ConnectNew_RevokeShareReadtoDesktop_2.png)
 
 
 ---
